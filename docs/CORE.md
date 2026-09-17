@@ -92,6 +92,8 @@ AI 根据任务读取相应 Skill
 
 2026-09-17补齐单条独立性要求：各 Owner 共用 work-loop 写作和 memory 保存机制，core-algorithms 与 knowledge 没有另一套自动经验生成器。AI 按[逐层要求与Owner映射](RESEARCH_RECORDING.md#每条记录必须独立可读可以正确复用)把背景、条件、关键事实和限制直接写入本条正文，逐条脱离聊天/相邻记录回读后再提交；L2 包含背景、实际经过和简单结论，L3 包含可复用认识与适用边界。L0 保留原件并补登记说明，L1 块带必要定义。读取 v4 正文不会自动拼回 payload 的上下文，非空字段校验也不能证明语义充分；不增加最少字数或关键词检测来冒充内容审查。
 
+外部导入文档原文保真与多版本独立记录：外部导入文件（如技术文档、规范等）进行记录整理和存储时，组装出的完整文稿必须是文档原文，通过将原文切分为 L1 技术单元的正文块（blocks），确保经 `memory document` 组装出的完整文稿与源文档完全相同；且文档类的知识记录必须区分不同的版本，不要以不同 revision 的形式提交在同一个记录中（例如某个技术文档 v1 和 v2 版本需要建立两个独立记录，分配独立 record_id），确保多版本可独立共存、独立检索和比对。
+
 方法源：[context-maintenance/SKILL.md](../automation/workflows/context-maintenance/SKILL.md)、[work-loop/SKILL.md](../automation/workflows/work-loop/SKILL.md)、[semantic-maintenance/SKILL.md](../automation/workflows/semantic-maintenance/SKILL.md)。文本要求与校验：[RESEARCH_RECORDING.md](RESEARCH_RECORDING.md)、[memory/contracts.py](../automation/scripts/memory/contracts.py)。
 
 ## 2. 结果怎样保存到本地
