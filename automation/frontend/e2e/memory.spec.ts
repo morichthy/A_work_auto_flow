@@ -197,10 +197,37 @@ async function filterTypes(
   await page.getByRole("button", { name: "清空类型", exact: true }).click();
   const group = page.getByRole("group", { name: "按层级或类型筛选" });
   for (const type of types) {
+    // 辅助工作流对象不再与 L0–L4/文稿并列为主筛选项；需要时通过
+    // 明确的折叠入口读取，避免测试绕过用户实际可见交互。
+    if (type === "question") {
+      const auxiliary = page.locator("details").filter({
+        hasText: "辅助工作流记录",
+      });
+      if (!(await auxiliary.evaluate((element) => element.open)))
+        await auxiliary.locator("summary").click();
+      await auxiliary
+        .getByLabel("显示辅助工作流记录", { exact: true })
+        .check();
+      continue;
+    }
     // 历史fixture仍保存map/event；界面只显示现行统一层级入口。
     const visible =
       type === "map" ? "overview" : type === "event" ? "narrative" : type;
     await group.locator(`input[value="${visible}"]`).check();
+  }
+}
+
+// 编辑与逐结论复核属于记录管理动作，产品将其折叠以保持对象记忆列表
+// 以阅读为主。测试必须先执行同样的可见交互，不能依赖折叠内容可查询。
+async function openRecordManagement(
+  page: import("@playwright/test").Page,
+) {
+  const details = page.locator(".memory-list article > details");
+  const count = await details.count();
+  for (let index = 0; index < count; index++) {
+    const detail = details.nth(index);
+    if (!(await detail.evaluate((element) => element.open)))
+      await detail.locator("summary").click();
   }
 }
 
@@ -242,9 +269,11 @@ test("四层记录、真实编辑冲突、索引待补偿与安全导出", async
       await expect(page.getByTestId("raw-material").first()).toBeVisible();
     } else await expect(page.locator(".memory-list article")).toHaveCount(1);
   }
+  await openRecordManagement(page);
   await page.getByRole("button", { name: "编辑记录", exact: true }).click();
   const second = await context.newPage();
   await open(second);
+  await openRecordManagement(second);
   await second.getByRole("button", { name: "编辑记录", exact: true }).click();
   await page.getByLabel("记忆标题").fill("SYNTHETIC 新版本预热边界");
   await page
@@ -708,26 +737,65 @@ test("研究、Run、知识与报告真实记录及辅助对象可区分", async
     await filterTypes(page, ["map"]);
     const card = page
       .locator(".memory-list article")
-      .filter({ hasText: saved.value.record_results[0].record_id });
+      .filter({
+        has: page.getByRole("link", {
+          name: "SYNTHETIC 同名研究地图",
+          exact: true,
+        }),
+      });
     await expect(card).toContainText("SYNTHETIC 同名研究地图");
-    await expect(card).toContainText("保存原因：SYNTHETIC 八类归属界面验证");
-    await card.getByText("结构、固定来源与版本").click();
-    await expect(card).toContainText(owner.owner_id);
-    await expect(card).toContainText("content_hash");
+    await expect(card.locator(".badge")).toHaveText("L4 整体概览");
+    await expect(
+      card.getByRole("link", { name: "查看完整内容与依据", exact: true }),
+    ).toHaveAttribute("href", new RegExp(saved.value.record_results[0].record_id));
   }
   await open(page);
-  await page.getByRole("button", { name: "新增问题", exact: true }).click();
-  await page.getByLabel("记忆标题").fill("SYNTHETIC 待调查问题");
-  await page
-    .getByLabel("问题内容", { exact: true })
-    .fill("新的样本是否满足原有条件？");
-  await page.getByLabel("影响的决定", { exact: true }).fill("是否复用旧参数");
-  await page.getByLabel("尚缺证据", { exact: true }).fill("新样本的实际验证");
-  await page.getByLabel("记忆保存原因").fill("SYNTHETIC 未解决问题保留");
-  await page.getByRole("button", { name: "保存记忆", exact: true }).click();
-  await expect(page.getByRole("status")).toContainText("记录已保存", {
-    timeout: 60000,
+  // 问题是辅助工作流记录，已不提供与 L0–L4 并列的新建按钮；通过
+  // 公共接口预置后，验证用户可在折叠辅助入口中读取它。
+  const thermal = (
+    await post(request, "inspect", { owner_id: "RES-SYN-THERMAL" })
+  ).value;
+  const questionSaved = await post(request, "commit", {
+    schema_version: 2,
+    request_id: crypto.randomUUID(),
+    owner_id: "RES-SYN-THERMAL",
+    expected_head: thermal.head.commit_id,
+    actor: { kind: "ai", id: "SYNTHETIC browser acceptance" },
+    operations: [
+      {
+        op: "put_record",
+        client_key: "auxiliary-question",
+        draft: {
+          schema_version: 2,
+          owner_id: "RES-SYN-THERMAL",
+          kind: "question",
+          title: "SYNTHETIC 待调查问题",
+          body_markdown:
+            "本问题用于验证辅助工作流记录的可见性，不构成研究结论。",
+          keywords: [],
+          record_reason: "SYNTHETIC 未解决问题保留",
+          change_reason: "首次保存合成辅助问题",
+          sources: [],
+          provenance_gap: "合成界面任务设定，无业务证据",
+          sensitivity: "internal",
+          discovery: "owner_only",
+          payload: {
+            question: "新的样本是否满足原有条件？",
+            status: "open",
+            decision_affected: "是否复用旧参数",
+            missing_evidence: ["新样本的实际验证"],
+            resolution_refs: [],
+            replacement_ref: null,
+            reopen_reason: null,
+          },
+        },
+      },
+    ],
   });
+  expect(questionSaved.value.save_status, JSON.stringify(questionSaved.value)).toBe(
+    "committed",
+  );
+  await page.getByRole("button", { name: "生成对象记忆", exact: true }).click();
   await filterTypes(page, ["question"]);
   await expect(page.locator(".memory-list article")).toContainText(
     "SYNTHETIC 待调查问题",
@@ -740,6 +808,7 @@ test("缺范围复核被拒绝并保留逐结论状态", async ({ page, request 
   const before = (
     await post(request, "inspect", { owner_id: "RES-SYN-THERMAL" })
   ).value;
+  await openRecordManagement(page);
   await page
     .getByRole("button", { name: "复核此结论", exact: true })
     .first()
@@ -770,6 +839,7 @@ test("缺范围复核被拒绝并保留逐结论状态", async ({ page, request 
   const runBefore = (
     await post(request, "inspect", { owner_id: "RUN-SYN-THERMAL" })
   ).value.owner.native_data;
+  await openRecordManagement(page);
   await page
     .locator(".memory-claim")
     .nth(1)

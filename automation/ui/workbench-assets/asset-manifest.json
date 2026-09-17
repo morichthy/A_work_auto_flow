@@ -4,7 +4,7 @@
   "sources": {
     "contracts/graph.schema.json": "2d867955c517c8525ae19dfbc4a2c40471dda84801880e97ce75a84a1c1a05ac",
     "e2e/material-query.spec.ts": "a554b84fde94e20551d508757586b621a4d961bda212ac26bf76b5cf1d5b51ff",
-    "e2e/memory.spec.ts": "45ed42c04291b1d588bdfa2156fd71411a762c96d6a5394f806a76ce330a43e1",
+    "e2e/memory.spec.ts": "80ba90894f86b8386f7352ff36e38a8c972465c543ddc295d2aa868966793b1c",
     "e2e/settings.spec.ts": "b067eb28ae95a7ddf118ef407248c84d80eb4951612fd095ff9e99d05492d0a7",
     "e2e/workbench.spec.ts": "5922f40c1a11cca1b42940c06f86d21de09934c3516dc791b57f68df4d204f36",
     "index.html": "bb0d4bc5d740755f3d97a338420a9a1bf26d0201c196b2fa0ecac0960c8e7258",
@@ -68,7 +68,7 @@
     "tsconfig.json": "9a23607a14cc691d7cbbf58972d93673b4010eb96d213019c9b18057dee8b0c4",
     "vite.config.ts": "f4e03effb23b11be0ea13db59d1a26da887449292724c6dfeb43fa37d96c7eb0"
   },
-  "source_fingerprint": "6a7e6ec7054495ceb888f19bb403506d631079ebace6ebdf753960d37e77e760",
+  "source_fingerprint": "04abec01d802ec902d986a9cc8542f576ef5f0d0d0675bd156452919b3302a80",
   "files": {
     "THIRD_PARTY.txt": "9f9df4ac110e3c2d338e5a7bddf8d51505fbdfff67687a27be0bcbf35d44098e",
     "assets/KaTeX_AMS-Regular-BQhdFMY1.woff2": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
