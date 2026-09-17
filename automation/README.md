@@ -4,7 +4,7 @@
 
 核心 CLI 创建全局核心算法、对象内 Run 与可选项目；无归属轻量任务才使用根 runs，旧布局按稳定身份兼容。文件与记忆检索共用 SQLite 文件和本地 Qdrant/FastEmbed 基础设施，表、向量集合、回执和默认策略仍有区别。文件上下文使用 focus/investigate/wide 与 CTX 反馈，记忆使用 QMEM 查询和 PKT 材料包；选择入口见 [检索手册](../docs/RETRIEVAL.md)。
 
-`workflows/` 保存方法正文，workspace-context、context-maintenance、evidence-inspection、research-loop、development-checks 已登记轻量入口；其他流程按需读源。安装器默认预览，--apply 新建缺失入口，已有不同内容保留并输出合并差异。
+`workflows/` 保存方法正文，work-loop、context-maintenance、evidence-inspection、development-checks、material-query、association-exploration、semantic-maintenance、consolidate-results 八项已登记轻量入口；具体分工见[工作流索引](workflows/README.md)。research-loop 和 workspace-context 已退休，由 work-loop 统一承接。安装器默认预览，--apply 新建缺失入口，已有不同内容保留并输出合并差异；受控旧入口按升级回执退休，自定义内容保留。
 
 ## 维护边界
 
