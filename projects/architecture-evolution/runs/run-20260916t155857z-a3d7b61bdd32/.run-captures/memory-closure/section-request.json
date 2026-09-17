@@ -1,0 +1,82 @@
+{
+  "schema_version": 3,
+  "request_id": "8b8e49e9-9981-414a-b71f-35556bace789",
+  "actor": {
+    "kind": "ai",
+    "id": "codex-reading-note-closure"
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": "COM-30a66039-b38e-4b62-95bf-24120d0af4f6",
+  "operations": [
+    {
+      "op": "put_record",
+      "client_key": "reading-ui-storage-section",
+      "draft": {
+        "schema_version": 3,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "document_section",
+        "level": null,
+        "title": "阅读笔记可读副本与工作台入口",
+        "body_markdown": "",
+        "keywords": [
+          "reading-note",
+          "Markdown派生快照",
+          "当前笔记",
+          "固定版本证据",
+          "Windows升级"
+        ],
+        "payload": {
+          "section_key": "reading-ui-storage-20260916",
+          "title": "阅读笔记可读副本与工作台入口",
+          "role": "methods",
+          "blocks": [
+            {
+              "type": "prose",
+              "markdown": "本章新增阅读笔记的可读派生副本、合法会话发现和工作台入口。前章保留委派、能力配置及真实计时的历史固定依据；本章修复不重新验证浮点科学内容，也不将可见性修复解释为性能优化。",
+              "evidence_refs": [
+                {
+                  "target_kind": "record",
+                  "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+                  "revision": 1,
+                  "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+                  "locator": "",
+                  "relation": "references"
+                }
+              ]
+            },
+            {
+              "type": "unit",
+              "ref": {
+                "target_kind": "record",
+                "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+                "revision": 1,
+                "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+                "locator": "",
+                "relation": "references"
+              },
+              "block_ids": [
+                "reading-ui-storage-results"
+              ]
+            }
+          ],
+          "watch_refs": [],
+          "missing_refs": []
+        },
+        "sources": [
+          {
+            "target_kind": "record",
+            "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+            "revision": 1,
+            "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+            "locator": "",
+            "relation": "references"
+          }
+        ],
+        "provenance_gap": null,
+        "record_reason": "将本次UI/storage独立结果编排入既有完整报告，保留旧章节原修订。",
+        "discovery": "workspace_summary",
+        "sensitivity": "internal"
+      }
+    }
+  ]
+}

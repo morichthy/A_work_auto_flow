@@ -1,0 +1,10 @@
+{
+  "session_id": "RS-97a3e089-e45d-46d1-a2ff-2cf6292f6c96",
+  "expected_revision": 5,
+  "request_id": "ai-expand-real-dense-1",
+  "direction": "expand",
+  "reason": "首轮已完成词法与正文条件核对，但合成夹具缺向量模型；现已接入本机离线模型且完成隔离向量索引，补查实际dense路",
+  "next_step": "同一范围和累计预算执行同一双语查询，核对真实dense和压缩后的来源诊断",
+  "outcome": "首轮返回v2.1与v2.0两条；实际阅读确认旧版不满足。首轮model_calls=0，dense降级，此缺口待补。",
+  "human_decision": ""
+}

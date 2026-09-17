@@ -1,0 +1,17 @@
+{
+  "head": {
+    "commit_id": "COM-0b448366-3b80-49a1-94b3-7a93b47296e8",
+    "generation": 41,
+    "manifest_hash": "cf3b584147ce35eb01c40b8ecc70163afd567a5ebc185d7b941c0cb15427224f"
+  },
+  "files": {
+    "baseline-owner.json": "e1c9c207dbeabf38128b1cf401f03cf607868a452bf25e9091fec2cd885e6c24",
+    "baseline-unit-record.json": "e570e002d44ef28892b25d36234478e838a5a366845559103db18ecebbe3aaee",
+    "baseline-section-record.json": "48dd6dd8350b5c75ea380b9837203e272ac1404613e9dcc1aecea8ce6dea6d4b",
+    "baseline-document-record.json": "12368cd364bca6ded5651c7bfe220a22abcfc46da6645335b59f4518efb78af2",
+    "baseline-overview-record.json": "f408cc6bcdb4bbf7f425a0a3db6498d4ae85af67cadfdc8e396a42c7e0fa2580",
+    "baseline-document.json": "209ecff98ed62da691802da2bdc20d23d90b58414e63e2f4975b7ac2ee6b362d",
+    "baseline-document-impact.json": "b5ee410a52d5f3d97e1dff5bf9d6ab3f5b287c0bd5904fabba147f7d86d3fb1f",
+    "baseline-candidates.json": "8eb95d036eaf5d118934505c10e04d26d4377a296da34cb4b464f95ff98a10ef"
+  }
+}

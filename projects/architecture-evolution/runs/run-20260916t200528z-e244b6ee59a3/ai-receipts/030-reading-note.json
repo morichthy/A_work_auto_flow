@@ -1,0 +1,87 @@
+{
+  "action": "reading-note",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+    "expected_revision": 7,
+    "request_id": "ai-quick-note-a",
+    "owner_id": "RES-MQ-A",
+    "candidate_ids": [
+      "RC-b069b603e9306b78f4476ac2"
+    ],
+    "research_note": {
+      "question": "仅凭实际召回片段，phase_case相位误差的关系式、单位和上游未知是什么？",
+      "conditions": [
+        "quick片段阅读；只采用本RS实际交付且逐条接受的definitions、optional、result三块。",
+        "合成教学模型，不是实际仪器实验；小时间误差条件。"
+      ],
+      "understanding": "实际召回的A片段给出了从采样时刻误差到相位误差的换算。它把信号频率f、时间误差dt、相位误差dphi分别用Hz、s、rad定义，故可以解释在同一小误差模型下，时间偏差或信号频率增大为何会增加相位偏差。\n\n片段同时明确没有解释时间抖动来自哪里，并只把过零检测阈值波动列为探索方向。因而目前得到的是下游换算及一个候选上游问题，不能从这条片段直接认定电源、阈值或时钟为真实故障源。续页另给出的普通控制量定义与此问题没有已交付的连接依据，已逐条拒绝，不将其引入相位结论。",
+      "logic": [
+        "先使用实际definitions块固定变量和单位，再用result块的小时间误差模型连接时间与相位；optional块的上游未知是解释范围的重要边界。",
+        "数值示例是合成模型代入，不是仪器测量，也没有交付多轮实验或失败修正历史；不补写此类过程。"
+      ],
+      "details": [
+        "$$d\\phi=2\\pi f\\,dt.$$其中f为信号频率（Hz），dt为采样时刻误差（s），dphi为相位误差（rad）。该式是片段给出的小时间误差关系，不能据此估计未提供的抖动分布。",
+        "实际result块取$f=1000\\,\\mathrm{Hz}$、$dt=10^{-6}\\,\\mathrm{s}$，给出$d\\phi\\approx0.006283\\,\\mathrm{rad}$。Hz乘s为无量纲，相位用rad表述；这里没有测量不确定度。",
+        "上游阈值方向来自optional块，但电源与相位的联系在该块被明确标为尚未验证。"
+      ],
+      "sources": [
+        "MEM-c9deeddf-4732-57ec-b745-1656291533ff"
+      ],
+      "limitations": [
+        "未调用reading-read，未完整阅读Owner文稿；只有三个被接受的固定块，不能声称Owner全文覆盖。",
+        "没有仪器、采样设置、抖动统计或上游测量数据；本note不作现实故障归因。",
+        "召回dense不可用，部分词法命中缺可显示原文；当前候选窗口结束不意味着全库无其他依据。"
+      ],
+      "next_steps": [
+        "将已交付B片段的阈值—时间模型单独固定，若组合推断应同时保留两段条件和片段覆盖限制。",
+        "实际测量到来后再检验时间抖动来源；当前合成验收不执行现实实验。"
+      ],
+      "exploration_clues": [
+        {
+          "text": "过零检测阈值波动可能是时间误差的上游方向。",
+          "reason": "A的optional块明确提出该方向，并明确尚未验证电源与相位关系。",
+          "sources": [
+            "MEM-c9deeddf-4732-57ec-b745-1656291533ff"
+          ],
+          "next_query": "过零检测阈值扰动如何在给定局部斜率下转为采样时刻偏移？",
+          "limitations": [
+            "本A片段没有给出阈值到时间的关系，需独立依据。"
+          ]
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "owner_id": "RES-MQ-A",
+      "estimated_note_tokens": 3585,
+      "note_max_tokens": 16000,
+      "over_budget": false,
+      "token_estimation": "utf8_bytes_conservative; not_host_exact_tokens",
+      "gaps": [],
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+      "revision": 8
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 202,
+      "read_bytes": 82848,
+      "output_chars": 200,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

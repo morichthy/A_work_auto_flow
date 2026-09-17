@@ -1,0 +1,1937 @@
+{
+  "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+  "fixture_version": 1,
+  "split": "holdout",
+  "phase": "final",
+  "k": 6,
+  "model": {
+    "provider": "onnx-cross-encoder",
+    "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+    "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+    "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+    "max_length": 512,
+    "batch_size": 16,
+    "implementation": "onnx-pair-batch-v1"
+  },
+  "source_sha256": {
+    "automation\\tests\\evaluate_retrieval_reranking.py": "41077d8e1f11b44015993a0f76299c96185214ce727a9da619317a275be0b49f",
+    "automation\\scripts\\material_query\\cross_encoder.py": "911e5b1e745753b91b8a9907d0e8bfe635d9d03659962060f686a93e0145cb86",
+    "automation\\scripts\\material_query\\reranking.py": "4aecd53168eaa53f71cfded038cd4209848ba1aa6b7718e2b8ece5682dce2be1",
+    "automation\\scripts\\material_query\\conditions.py": "945652e27505ecd2034c04a4069bcc39be70a8cf50e1506d34f2e93324faec05",
+    "automation\\scripts\\material_query\\query_plan.py": "006759b01a205ba348b1308cdd91a650a8cb80eb1d112fa824cc2b3c27d2cc41"
+  },
+  "cold_model_load_ms": 2363.0223000000115,
+  "rows": [
+    {
+      "query_id": "HOLDOUT-NOZZLE-NEGATION",
+      "question": "Which report explicitly states that A7 does not require a 10-minute purge before restart?",
+      "query_sha256": "f51bc95c2da27955f7111f39411e2ab67c728aa54a7dd448ac2aba5369a379f6",
+      "candidate_ids": [
+        "NEG-A7-REQUIRES",
+        "NEG-A8-NOPURGE",
+        "DOC-A7-NOPURGE",
+        "NEG-A7-UNKNOWN"
+      ],
+      "candidate_coverage": {
+        "recall": 1.0,
+        "ndcg": 0.5,
+        "matched": 1,
+        "relevant_count": 1,
+        "dcg": 3.5,
+        "ideal_dcg": 7.0,
+        "duplicates": 0,
+        "returned_count": 4,
+        "canonical_ids": [
+          "NEG-A7-REQUIRES",
+          "NEG-A8-NOPURGE",
+          "DOC-A7-NOPURGE",
+          "NEG-A7-UNKNOWN"
+        ]
+      },
+      "variants": {
+        "rrf": {
+          "ranking": [
+            "NEG-A7-REQUIRES",
+            "NEG-A8-NOPURGE",
+            "DOC-A7-NOPURGE",
+            "NEG-A7-UNKNOWN"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 0.5,
+            "matched": 1,
+            "relevant_count": 1,
+            "dcg": 3.5,
+            "ideal_dcg": 7.0,
+            "duplicates": 0,
+            "returned_count": 4,
+            "canonical_ids": [
+              "NEG-A7-REQUIRES",
+              "NEG-A8-NOPURGE",
+              "DOC-A7-NOPURGE",
+              "NEG-A7-UNKNOWN"
+            ]
+          },
+          "elapsed_ms": 0.6266999989748001,
+          "model_tokens": 0,
+          "no_answer_false_positive": null
+        },
+        "ce_short": {
+          "input_sha256": "f1e5d4bf80c0b27fb06c44665f95684ea5eaad90e875089b79be07fdc63122e0",
+          "inputs": [
+            {
+              "canonical_id": "NEG-A7-REQUIRES",
+              "text": "A7 restart validation\n10-minute purge requirement.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "10-minute purge requirement.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-A7-REQUIRES"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-A8-NOPURGE",
+              "text": "A8 restart validation\nNo 10-minute purge.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "No 10-minute purge.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-A8-NOPURGE"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-A7-NOPURGE",
+              "text": "A7 restart validation\nA7 restart needs no 10-minute purge.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "A7 restart needs no 10-minute purge.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-A7-NOPURGE"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-A7-UNKNOWN",
+              "text": "A7 service note\nRestart procedure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Restart procedure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-A7-UNKNOWN"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [],
+          "ranking": [
+            "DOC-A7-NOPURGE",
+            "NEG-A7-REQUIRES",
+            "NEG-A8-NOPURGE",
+            "NEG-A7-UNKNOWN"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 1.0,
+            "matched": 1,
+            "relevant_count": 1,
+            "dcg": 7.0,
+            "ideal_dcg": 7.0,
+            "duplicates": 0,
+            "returned_count": 4,
+            "canonical_ids": [
+              "DOC-A7-NOPURGE",
+              "NEG-A7-REQUIRES",
+              "NEG-A8-NOPURGE",
+              "NEG-A7-UNKNOWN"
+            ]
+          },
+          "model_tokens": 306,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-A7-NOPURGE",
+                "NEG-A7-REQUIRES",
+                "NEG-A8-NOPURGE",
+                "NEG-A7-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 4,
+                "scored_count": 4,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.01790000533219427,
+                "model_load_ms": 3.310200001578778,
+                "inference_ms": 36.43490000104066,
+                "total_ms": 40.771600004518405
+              },
+              "cost": {
+                "wall_ms": 31,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 153,
+                "model_calls": 1,
+                "model_input_tokens": 153,
+                "model_output_tokens": 0,
+                "rerank_items": 4
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-A7-NOPURGE": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 7.213407516479492,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 43
+                },
+                "NEG-A7-REQUIRES": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 5.894397258758545,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 39
+                },
+                "NEG-A8-NOPURGE": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": 2.3803834915161133,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 38
+                },
+                "NEG-A7-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 4,
+                  "ce_score": -3.1926498413085938,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 33
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-A7-NOPURGE",
+                "NEG-A7-REQUIRES",
+                "NEG-A8-NOPURGE",
+                "NEG-A7-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 4,
+                "scored_count": 4,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.02710000262595713,
+                "model_load_ms": 4.896400001598522,
+                "inference_ms": 53.205200005322695,
+                "total_ms": 59.05759999586735
+              },
+              "cost": {
+                "wall_ms": 61,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 153,
+                "model_calls": 1,
+                "model_input_tokens": 153,
+                "model_output_tokens": 0,
+                "rerank_items": 4
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-A7-NOPURGE": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 7.213407516479492,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 43
+                },
+                "NEG-A7-REQUIRES": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 5.894397258758545,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 39
+                },
+                "NEG-A8-NOPURGE": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": 2.3803834915161133,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 38
+                },
+                "NEG-A7-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 4,
+                  "ce_score": -3.1926498413085938,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 33
+                }
+              }
+            }
+          ]
+        },
+        "ce_context": {
+          "input_sha256": "455f231ecea9ea9ea9e52e33e21c52507515de07ac5ab6627909d69a73474465",
+          "inputs": [
+            {
+              "canonical_id": "NEG-A7-REQUIRES",
+              "text": "A7 restart validation\nFor model A7, a restart requires a 10-minute purge after the specified shutdown sequence.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "For model A7, a restart requires a 10-minute purge after the specified shutdown sequence.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-A7-REQUIRES"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-A8-NOPURGE",
+              "text": "A8 restart validation\nFor model A8, a restart does not require a 10-minute purge.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "For model A8, a restart does not require a 10-minute purge.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-A8-NOPURGE"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-A7-NOPURGE",
+              "text": "A7 restart validation\nFor model A7, a restart does not require a 10-minute purge after the verified shutdown sequence.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "For model A7, a restart does not require a 10-minute purge after the verified shutdown sequence.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-A7-NOPURGE"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-A7-UNKNOWN",
+              "text": "A7 service note\nThe purge duration and whether it is required are not stated.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "The purge duration and whether it is required are not stated.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-A7-UNKNOWN"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [],
+          "ranking": [
+            "DOC-A7-NOPURGE",
+            "NEG-A7-REQUIRES",
+            "NEG-A8-NOPURGE",
+            "NEG-A7-UNKNOWN"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 1.0,
+            "matched": 1,
+            "relevant_count": 1,
+            "dcg": 7.0,
+            "ideal_dcg": 7.0,
+            "duplicates": 0,
+            "returned_count": 4,
+            "canonical_ids": [
+              "DOC-A7-NOPURGE",
+              "NEG-A7-REQUIRES",
+              "NEG-A8-NOPURGE",
+              "NEG-A7-UNKNOWN"
+            ]
+          },
+          "model_tokens": 418,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-A7-NOPURGE",
+                "NEG-A7-REQUIRES",
+                "NEG-A8-NOPURGE",
+                "NEG-A7-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 4,
+                "scored_count": 4,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.014099998224992305,
+                "model_load_ms": 2.787700002954807,
+                "inference_ms": 72.06549999682466,
+                "total_ms": 76.01029999932507
+              },
+              "cost": {
+                "wall_ms": 78,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 209,
+                "model_calls": 1,
+                "model_input_tokens": 209,
+                "model_output_tokens": 0,
+                "rerank_items": 4
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-A7-NOPURGE": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 8.831130981445312,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 59
+                },
+                "NEG-A7-REQUIRES": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 7.542022228240967,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 57
+                },
+                "NEG-A8-NOPURGE": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": 3.259251832962036,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-A7-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 4,
+                  "ce_score": -0.7016727328300476,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 44
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-A7-NOPURGE",
+                "NEG-A7-REQUIRES",
+                "NEG-A8-NOPURGE",
+                "NEG-A7-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 4,
+                "scored_count": 4,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.07219999679364264,
+                "model_load_ms": 6.992900001932867,
+                "inference_ms": 106.39570000057574,
+                "total_ms": 114.63939999521244
+              },
+              "cost": {
+                "wall_ms": 110,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 209,
+                "model_calls": 1,
+                "model_input_tokens": 209,
+                "model_output_tokens": 0,
+                "rerank_items": 4
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-A7-NOPURGE": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 8.831130981445312,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 59
+                },
+                "NEG-A7-REQUIRES": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 7.542022228240967,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 57
+                },
+                "NEG-A8-NOPURGE": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": 3.259251832962036,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-A7-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 4,
+                  "ce_score": -0.7016727328300476,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 44
+                }
+              }
+            }
+          ]
+        },
+        "ce_context_conditions": {
+          "input_sha256": "455f231ecea9ea9ea9e52e33e21c52507515de07ac5ab6627909d69a73474465",
+          "inputs": [
+            {
+              "canonical_id": "NEG-A7-REQUIRES",
+              "text": "A7 restart validation\nFor model A7, a restart requires a 10-minute purge after the specified shutdown sequence.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "For model A7, a restart requires a 10-minute purge after the specified shutdown sequence.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-A7-REQUIRES"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-A8-NOPURGE",
+              "text": "A8 restart validation\nFor model A8, a restart does not require a 10-minute purge.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "For model A8, a restart does not require a 10-minute purge.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-A8-NOPURGE"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-A7-NOPURGE",
+              "text": "A7 restart validation\nFor model A7, a restart does not require a 10-minute purge after the verified shutdown sequence.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "For model A7, a restart does not require a 10-minute purge after the verified shutdown sequence.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-A7-NOPURGE"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-A7-UNKNOWN",
+              "text": "A7 service note\nThe purge duration and whether it is required are not stated.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "The purge duration and whether it is required are not stated.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-A7-UNKNOWN"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "id": "model",
+              "field": "model",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "A7"
+            },
+            {
+              "id": "purge",
+              "field": "purge",
+              "kind": "numeric",
+              "operator": "eq",
+              "expected": 10.0,
+              "unit": "min"
+            },
+            {
+              "id": "polarity",
+              "field": "polarity",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "does not require"
+            },
+            {
+              "id": "intent",
+              "field": "intent",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "restart"
+            }
+          ],
+          "ranking": [
+            "DOC-A7-NOPURGE",
+            "NEG-A7-REQUIRES",
+            "NEG-A8-NOPURGE",
+            "NEG-A7-UNKNOWN"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 1.0,
+            "matched": 1,
+            "relevant_count": 1,
+            "dcg": 7.0,
+            "ideal_dcg": 7.0,
+            "duplicates": 0,
+            "returned_count": 4,
+            "canonical_ids": [
+              "DOC-A7-NOPURGE",
+              "NEG-A7-REQUIRES",
+              "NEG-A8-NOPURGE",
+              "NEG-A7-UNKNOWN"
+            ]
+          },
+          "model_tokens": 418,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-A7-NOPURGE",
+                "NEG-A7-REQUIRES",
+                "NEG-A8-NOPURGE",
+                "NEG-A7-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 4,
+                "scored_count": 4,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 1.8420000051264651,
+                "model_load_ms": 3.434999998717103,
+                "inference_ms": 82.7279000004637,
+                "total_ms": 89.16999999928521
+              },
+              "cost": {
+                "wall_ms": 93,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 209,
+                "model_calls": 1,
+                "model_input_tokens": 209,
+                "model_output_tokens": 0,
+                "rerank_items": 4
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-A7-NOPURGE": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 8.831130981445312,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "purge",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "polarity",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 59
+                },
+                "NEG-A7-REQUIRES": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 7.542022228240967,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "purge",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "polarity",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 57
+                },
+                "NEG-A8-NOPURGE": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": 3.259251832962036,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "purge",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "polarity",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-A7-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 4,
+                  "ce_score": -0.7016727328300476,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "purge",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "polarity",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 44
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-A7-NOPURGE",
+                "NEG-A7-REQUIRES",
+                "NEG-A8-NOPURGE",
+                "NEG-A7-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 4,
+                "scored_count": 4,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.26369999977760017,
+                "model_load_ms": 3.100999994785525,
+                "inference_ms": 76.99660000071162,
+                "total_ms": 81.60810000117635
+              },
+              "cost": {
+                "wall_ms": 78,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 209,
+                "model_calls": 1,
+                "model_input_tokens": 209,
+                "model_output_tokens": 0,
+                "rerank_items": 4
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-A7-NOPURGE": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 8.831130981445312,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "purge",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "polarity",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 59
+                },
+                "NEG-A7-REQUIRES": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 7.542022228240967,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "purge",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "polarity",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 57
+                },
+                "NEG-A8-NOPURGE": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": 3.259251832962036,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "purge",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "polarity",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-A7-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 4,
+                  "ce_score": -0.7016727328300476,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "purge",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "polarity",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 44
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "HOLDOUT-UNKNOWN-NOT-CONFLICT",
+      "question": "What evidence supports B4 operation at 1.5 bar?",
+      "query_sha256": "75377bd61228b6087e16dbf0aabcdeda642c0c207ac40dc99099afb84a95f0ff",
+      "candidate_ids": [
+        "NEG-B4-15PSI",
+        "DOC-B4-UNKNOWN-CONTEXT",
+        "DOC-B4-15BAR"
+      ],
+      "candidate_coverage": {
+        "recall": 1.0,
+        "ndcg": 0.5413402936435214,
+        "matched": 2,
+        "relevant_count": 2,
+        "dcg": 4.130929753571458,
+        "ideal_dcg": 7.630929753571458,
+        "duplicates": 0,
+        "returned_count": 3,
+        "canonical_ids": [
+          "NEG-B4-15PSI",
+          "DOC-B4-UNKNOWN-CONTEXT",
+          "DOC-B4-15BAR"
+        ]
+      },
+      "variants": {
+        "rrf": {
+          "ranking": [
+            "NEG-B4-15PSI",
+            "DOC-B4-UNKNOWN-CONTEXT",
+            "DOC-B4-15BAR"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 0.5413402936435214,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 4.130929753571458,
+            "ideal_dcg": 7.630929753571458,
+            "duplicates": 0,
+            "returned_count": 3,
+            "canonical_ids": [
+              "NEG-B4-15PSI",
+              "DOC-B4-UNKNOWN-CONTEXT",
+              "DOC-B4-15BAR"
+            ]
+          },
+          "elapsed_ms": 0.3713999976753257,
+          "model_tokens": 0,
+          "no_answer_false_positive": null
+        },
+        "ce_short": {
+          "input_sha256": "f28155b52dbfe1ed4a3215e59b11b71ac37181c6df9146eacb0c34c00a6914cc",
+          "inputs": [
+            {
+              "canonical_id": "NEG-B4-15PSI",
+              "text": "B4 pressure validation\nB4 at 1.5 psi.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "B4 at 1.5 psi.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-B4-15PSI"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-B4-UNKNOWN-CONTEXT",
+              "text": "B4 operation log\nB4 operation evidence.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "B4 operation evidence.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-B4-UNKNOWN-CONTEXT"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-B4-15BAR",
+              "text": "B4 pressure validation\nB4 at 1.5 bar.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "B4 at 1.5 bar.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-B4-15BAR"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [],
+          "ranking": [
+            "DOC-B4-15BAR",
+            "NEG-B4-15PSI",
+            "DOC-B4-UNKNOWN-CONTEXT"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 0.9828422279067397,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 7.5,
+            "ideal_dcg": 7.630929753571458,
+            "duplicates": 0,
+            "returned_count": 3,
+            "canonical_ids": [
+              "DOC-B4-15BAR",
+              "NEG-B4-15PSI",
+              "DOC-B4-UNKNOWN-CONTEXT"
+            ]
+          },
+          "model_tokens": 152,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-B4-15BAR",
+                "NEG-B4-15PSI",
+                "DOC-B4-UNKNOWN-CONTEXT"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 3,
+                "scored_count": 3,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.013999997463542968,
+                "model_load_ms": 3.8509000005433336,
+                "inference_ms": 44.633400000748225,
+                "total_ms": 49.47270000411663
+              },
+              "cost": {
+                "wall_ms": 61,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 76,
+                "model_calls": 1,
+                "model_input_tokens": 76,
+                "model_output_tokens": 0,
+                "rerank_items": 3
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-B4-15BAR": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 4.36440896987915,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 26
+                },
+                "NEG-B4-15PSI": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 1.7880196571350098,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 26
+                },
+                "DOC-B4-UNKNOWN-CONTEXT": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": 0.6851021647453308,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 24
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-B4-15BAR",
+                "NEG-B4-15PSI",
+                "DOC-B4-UNKNOWN-CONTEXT"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 3,
+                "scored_count": 3,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.016599995433352888,
+                "model_load_ms": 3.2656999974278733,
+                "inference_ms": 23.264999996172264,
+                "total_ms": 27.21439999731956
+              },
+              "cost": {
+                "wall_ms": 16,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 76,
+                "model_calls": 1,
+                "model_input_tokens": 76,
+                "model_output_tokens": 0,
+                "rerank_items": 3
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-B4-15BAR": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 4.36440896987915,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 26
+                },
+                "NEG-B4-15PSI": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 1.7880196571350098,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 26
+                },
+                "DOC-B4-UNKNOWN-CONTEXT": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": 0.6851021647453308,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 24
+                }
+              }
+            }
+          ]
+        },
+        "ce_context": {
+          "input_sha256": "278d0b71bb8a1dc7f7cdd26f18520a5221e6da59b83d301a7295b21bc47ad7fc",
+          "inputs": [
+            {
+              "canonical_id": "NEG-B4-15PSI",
+              "text": "B4 pressure validation\nModel B4 operated at 1.5 psi, a different unit and pressure from 1.5 bar.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Model B4 operated at 1.5 psi, a different unit and pressure from 1.5 bar.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-B4-15PSI"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-B4-UNKNOWN-CONTEXT",
+              "text": "B4 operation log\nModel B4 was operated during the linked validation run; this excerpt does not state the pressure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Model B4 was operated during the linked validation run; this excerpt does not state the pressure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-B4-UNKNOWN-CONTEXT"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-B4-15BAR",
+              "text": "B4 pressure validation\nModel B4 operated stably at 1.5 bar in the validation run.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Model B4 operated stably at 1.5 bar in the validation run.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-B4-15BAR"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [],
+          "ranking": [
+            "DOC-B4-15BAR",
+            "NEG-B4-15PSI",
+            "DOC-B4-UNKNOWN-CONTEXT"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 0.9828422279067397,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 7.5,
+            "ideal_dcg": 7.630929753571458,
+            "duplicates": 0,
+            "returned_count": 3,
+            "canonical_ids": [
+              "DOC-B4-15BAR",
+              "NEG-B4-15PSI",
+              "DOC-B4-UNKNOWN-CONTEXT"
+            ]
+          },
+          "model_tokens": 234,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-B4-15BAR",
+                "NEG-B4-15PSI",
+                "DOC-B4-UNKNOWN-CONTEXT"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 3,
+                "scored_count": 3,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.017700003809295595,
+                "model_load_ms": 3.705100003571715,
+                "inference_ms": 30.815699996310286,
+                "total_ms": 35.807299995212816
+              },
+              "cost": {
+                "wall_ms": 46,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 117,
+                "model_calls": 1,
+                "model_input_tokens": 117,
+                "model_output_tokens": 0,
+                "rerank_items": 3
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-B4-15BAR": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 5.976498603820801,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 36
+                },
+                "NEG-B4-15PSI": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 5.726545333862305,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 38
+                },
+                "DOC-B4-UNKNOWN-CONTEXT": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": -3.021010398864746,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 43
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-B4-15BAR",
+                "NEG-B4-15PSI",
+                "DOC-B4-UNKNOWN-CONTEXT"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 3,
+                "scored_count": 3,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.017600003047846258,
+                "model_load_ms": 4.252600003383122,
+                "inference_ms": 36.00139999616658,
+                "total_ms": 41.10999999829801
+              },
+              "cost": {
+                "wall_ms": 30,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 117,
+                "model_calls": 1,
+                "model_input_tokens": 117,
+                "model_output_tokens": 0,
+                "rerank_items": 3
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-B4-15BAR": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 5.976498603820801,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 36
+                },
+                "NEG-B4-15PSI": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 5.726545333862305,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 38
+                },
+                "DOC-B4-UNKNOWN-CONTEXT": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": -3.021010398864746,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 43
+                }
+              }
+            }
+          ]
+        },
+        "ce_context_conditions": {
+          "input_sha256": "278d0b71bb8a1dc7f7cdd26f18520a5221e6da59b83d301a7295b21bc47ad7fc",
+          "inputs": [
+            {
+              "canonical_id": "NEG-B4-15PSI",
+              "text": "B4 pressure validation\nModel B4 operated at 1.5 psi, a different unit and pressure from 1.5 bar.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Model B4 operated at 1.5 psi, a different unit and pressure from 1.5 bar.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-B4-15PSI"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-B4-UNKNOWN-CONTEXT",
+              "text": "B4 operation log\nModel B4 was operated during the linked validation run; this excerpt does not state the pressure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Model B4 was operated during the linked validation run; this excerpt does not state the pressure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-B4-UNKNOWN-CONTEXT"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-B4-15BAR",
+              "text": "B4 pressure validation\nModel B4 operated stably at 1.5 bar in the validation run.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Model B4 operated stably at 1.5 bar in the validation run.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-B4-15BAR"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "id": "model",
+              "field": "model",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "B4"
+            },
+            {
+              "id": "pressure",
+              "field": "pressure",
+              "kind": "numeric",
+              "operator": "eq",
+              "expected": 1.5,
+              "unit": "bar"
+            },
+            {
+              "id": "intent",
+              "field": "intent",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "operation evidence"
+            }
+          ],
+          "ranking": [
+            "DOC-B4-15BAR",
+            "NEG-B4-15PSI",
+            "DOC-B4-UNKNOWN-CONTEXT"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 0.9828422279067397,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 7.5,
+            "ideal_dcg": 7.630929753571458,
+            "duplicates": 0,
+            "returned_count": 3,
+            "canonical_ids": [
+              "DOC-B4-15BAR",
+              "NEG-B4-15PSI",
+              "DOC-B4-UNKNOWN-CONTEXT"
+            ]
+          },
+          "model_tokens": 234,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-B4-15BAR",
+                "NEG-B4-15PSI",
+                "DOC-B4-UNKNOWN-CONTEXT"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 3,
+                "scored_count": 3,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.853999998071231,
+                "model_load_ms": 3.7502000050153583,
+                "inference_ms": 29.14779999991879,
+                "total_ms": 34.50840000004973
+              },
+              "cost": {
+                "wall_ms": 47,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 117,
+                "model_calls": 1,
+                "model_input_tokens": 117,
+                "model_output_tokens": 0,
+                "rerank_items": 3
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-B4-15BAR": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 5.976498603820801,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "pressure",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 36
+                },
+                "NEG-B4-15PSI": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 5.726545333862305,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "pressure",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 38
+                },
+                "DOC-B4-UNKNOWN-CONTEXT": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": -3.021010398864746,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "pressure",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 43
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-B4-15BAR",
+                "NEG-B4-15PSI",
+                "DOC-B4-UNKNOWN-CONTEXT"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 3,
+                "scored_count": 3,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.2001999964704737,
+                "model_load_ms": 4.145599996263627,
+                "inference_ms": 25.993999995989725,
+                "total_ms": 31.191100002615713
+              },
+              "cost": {
+                "wall_ms": 30,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 117,
+                "model_calls": 1,
+                "model_input_tokens": 117,
+                "model_output_tokens": 0,
+                "rerank_items": 3
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-B4-15BAR": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 5.976498603820801,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "pressure",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 36
+                },
+                "NEG-B4-15PSI": {
+                  "original_rank": 1,
+                  "final_rank": 2,
+                  "ce_score": 5.726545333862305,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "pressure",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 38
+                },
+                "DOC-B4-UNKNOWN-CONTEXT": {
+                  "original_rank": 2,
+                  "final_rank": 3,
+                  "ce_score": -3.021010398864746,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "pressure",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 43
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "rrf": {
+      "scored_queries": 2,
+      "recall_at_6": 1.0,
+      "ndcg_at_6": 0.5206701468217607,
+      "no_answer_count": 0,
+      "no_answer_false_positives": 0,
+      "total_model_tokens_including_repeat": 0,
+      "condition_status_counts": {}
+    },
+    "ce_short": {
+      "scored_queries": 2,
+      "recall_at_6": 1.0,
+      "ndcg_at_6": 0.9914211139533698,
+      "no_answer_count": 0,
+      "no_answer_false_positives": 0,
+      "total_model_tokens_including_repeat": 458,
+      "condition_status_counts": {}
+    },
+    "ce_context": {
+      "scored_queries": 2,
+      "recall_at_6": 1.0,
+      "ndcg_at_6": 0.9914211139533698,
+      "no_answer_count": 0,
+      "no_answer_false_positives": 0,
+      "total_model_tokens_including_repeat": 652,
+      "condition_status_counts": {}
+    },
+    "ce_context_conditions": {
+      "scored_queries": 2,
+      "recall_at_6": 1.0,
+      "ndcg_at_6": 0.9914211139533698,
+      "no_answer_count": 0,
+      "no_answer_false_positives": 0,
+      "total_model_tokens_including_repeat": 652,
+      "condition_status_counts": {
+        "unknown": 25
+      }
+    }
+  },
+  "limitations": [
+    "合成固定候选池；不含线上召回、权限回读及上下文组装耗时。",
+    "短输入是有意的消融输入，并不声称它具有完整上下文。",
+    "条件只使用查询显式字段；未知不转成满足或冲突。",
+    "无答案误报仅测是否返回候选；没有训练分数阈值，空候选题不能验证拒答能力。",
+    "冷耗时是进程首次加载，操作系统文件缓存未清空；暖运行重复一次并如实计费。"
+  ]
+}

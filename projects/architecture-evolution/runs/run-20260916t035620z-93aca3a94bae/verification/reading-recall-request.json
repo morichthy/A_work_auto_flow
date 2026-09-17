@@ -1,0 +1,34 @@
+{
+  "session_id": "RS-e0de6106-ce79-4e3e-9151-669025a55e40",
+  "expected_revision": 1,
+  "request_id": "cli-smoke-recall-1",
+  "question": "低温启动验收探针：X200在低于-20°C时，有批准的避免启动失败程序吗？",
+  "keywords": [
+    "低温启动验收探针"
+  ],
+  "scope": {
+    "owner_ids": [
+      "RES-MQ-A"
+    ],
+    "levels": null,
+    "kinds": null,
+    "roles": null,
+    "outcomes": null,
+    "review_states": null,
+    "validities": null,
+    "include_unknown": false,
+    "excluded_refs": [],
+    "excluded_owner_ids": [],
+    "recorded_from": null,
+    "recorded_before": null,
+    "source_ids": null,
+    "include_refs": [],
+    "exclude_ids": [],
+    "confidence_levels": null,
+    "time_window": null,
+    "applicability_conditions": [],
+    "applicability_exclusions": [],
+    "owner_types": null
+  },
+  "reason": "验收真实离线重排与显式条件读取，未代填AI理解"
+}

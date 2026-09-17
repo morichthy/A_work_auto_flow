@@ -1,0 +1,87 @@
+{
+  "action": "reading-note",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+    "expected_revision": 8,
+    "request_id": "ai-quick-note-b",
+    "owner_id": "PRJ-MQ-B",
+    "candidate_ids": [
+      "RC-30d2e258833d9126ad3cdc6e"
+    ],
+    "research_note": {
+      "question": "已召回且接受的B片段对phase_case时间误差上游机制提供了什么？",
+      "conditions": [
+        "quick阅读仅限实际交付的definitions、result、optional三块，不读取Owner全文。",
+        "过零附近局部线性、斜率非零、阈值扰动很小。"
+      ],
+      "understanding": "B的实际片段将阈值电压扰动dv与过零附近电压斜率S联系起来，给出时间偏移dt的局部线性近似。它提供了一个可检验的上游机制：电压变化不能脱离检测点斜率单独解释时间误差。\n\n片段给出合成数值例子，并直接指出斜率近零或波形非线性时不能套用公式。它还阻止了进一步的无依据归因：模型仅讨论阈值扰动，不能证明电源纹波就是扰动来源，仍需独立测量供电到阈值的传递。续页的通用无量纲控制定义缺少具体连接，已拒绝。",
+      "logic": [
+        "definitions块提供dv、S、dt的物理定义与单位，result块给出关系式和合成代入，optional块限定适用边界和上游未知。",
+        "与A的时间到相位关系连用只能形成条件性推断；本B底稿本身不把相位或供电结论伪装成此片段已验证事实。"
+      ],
+      "details": [
+        "$$dt\\approx\\frac{dv}{S}.$$dv为阈值电压扰动（V），S为过零附近电压斜率（V/s），dt为时间偏移（s）。V/(V/s)=s，单位一致。",
+        "实际result块采用$dv=0.001\\,\\mathrm{V}$、$S=1000\\,\\mathrm{V/s}$，得到$dt=10^{-6}\\,\\mathrm{s}$。这是合成数值例子，不是测量到的1 μs抖动。",
+        "斜率接近零或波形非线性时不能直接使用；片段没有给出局部线性近似的数值容差、阈值扰动统计或电源传递函数。"
+      ],
+      "sources": [
+        "MEM-7bce9502-eb77-5467-aeea-a68903f1622b"
+      ],
+      "limitations": [
+        "只读实际召回且接受的三个固定块，没有reading-read；未覆盖完整文稿、原件或实验记录。",
+        "无现实实验，不足以证实电源纹波导致phase_case相位误差。",
+        "dense通道不可用和词法展示缺口仍存在；不能把当前has_more=false当成全库穷尽。"
+      ],
+      "next_steps": [
+        "实际研究中分别测量dv、局部斜率S和时间偏移dt，检查近似关系；若追溯电源，再独立量测供电到阈值的传递。",
+        "本次quick验收到此结束，把条件、反例与未读范围保留在handoff。"
+      ],
+      "exploration_clues": [
+        {
+          "text": "供电到阈值的传递仍是未验证上游环节。",
+          "reason": "optional块明确要求独立测量，不能把阈值模型等同于电源根因证据。",
+          "sources": [
+            "MEM-7bce9502-eb77-5467-aeea-a68903f1622b"
+          ],
+          "next_query": "如何独立测量供电变化到过零阈值扰动的传递？",
+          "limitations": [
+            "当前片段没有传递数据；这里只保存可验证方向。"
+          ]
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "owner_id": "PRJ-MQ-B",
+      "estimated_note_tokens": 3358,
+      "note_max_tokens": 16000,
+      "over_budget": false,
+      "token_estimation": "utf8_bytes_conservative; not_host_exact_tokens",
+      "gaps": [],
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+      "revision": 9
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 203,
+      "read_bytes": 88936,
+      "output_chars": 200,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

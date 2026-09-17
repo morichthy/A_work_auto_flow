@@ -1,0 +1,35 @@
+{
+  "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+  "command": ".\\automation\\python.ps1 -m unittest discover -s automation/tests -v",
+  "audit": {
+    "catalog_count": 667,
+    "discovered_count": 665,
+    "discovery_fingerprint": "85b18993e25e242097cd8d00150885cc4eeafcee13f877984675163a8056ee2a",
+    "status": "passed",
+    "missing": [],
+    "catalog_fingerprint": "9f2b8aa9750ac1447c06a1c151d59d40a8a9a18a3b245db760d99e8e7e5a2bae",
+    "unclassified": []
+  },
+  "unittest": {
+    "failure_log": "backend-unittest-b01-recheck.log",
+    "skipped": 0,
+    "failure_summary": "fixture manifest mismatch: 输入或数量与冻结清单不同",
+    "failed": 1,
+    "failure_id": "test_memory_fixture.MemoryFixtureTests.test_b01_frozen_plan_self_test_leaves_assets_unchanged",
+    "terminal_count": 610,
+    "passed": 609,
+    "coverage_ledger": "backend-unittest-coverage-ledger.json",
+    "discovery_count": 610,
+    "errors": 0
+  },
+  "environment_constraint": {
+    "affected_module": "test_workbench_relations",
+    "default_sandbox_tmp_mkdir": "PermissionError [WinError 5]",
+    "evidence": [
+      "tmp-single-mkdir-probe.log",
+      "workbench-authorization-faulthandler.txt",
+      "backend-unittest-workbench-relations-elevated.log"
+    ],
+    "resolution": "Executed remaining 14 isolated tests with release-verification elevation; all passed"
+  }
+}

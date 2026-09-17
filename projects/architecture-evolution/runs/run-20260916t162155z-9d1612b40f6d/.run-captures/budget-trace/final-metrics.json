@@ -1,0 +1,603 @@
+{
+  "calls": [
+    {
+      "action": "reading-template",
+      "elapsed_s": 0.0016160999994099257,
+      "status": "ok",
+      "code": null,
+      "consumed": {
+        "wall_ms": 0,
+        "read_bytes": 0,
+        "output_chars": 0,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "session_id": "RS-3e0fc7ab-54ac-4595-81be-467343778d0e"
+    },
+    {
+      "action": "reading-start",
+      "elapsed_s": 1.44067670000004,
+      "status": "ok",
+      "code": null,
+      "consumed": {
+        "wall_ms": 0,
+        "read_bytes": 0,
+        "output_chars": 0,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "session_id": "RS-3e0fc7ab-54ac-4595-81be-467343778d0e"
+    },
+    {
+      "action": "reading-recall",
+      "elapsed_s": 111.12118009999995,
+      "status": "rejected",
+      "code": "BUDGET",
+      "consumed": {
+        "wall_ms": 110904,
+        "read_bytes": 7188765,
+        "output_chars": 99986,
+        "candidates": 60,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 2440,
+        "model_calls": 11,
+        "model_input_tokens": 2440,
+        "model_output_tokens": 0,
+        "rerank_items": 7
+      },
+      "session_id": "RS-3e0fc7ab-54ac-4595-81be-467343778d0e"
+    }
+  ],
+  "by_charge_site": {
+    "query_plan.py:24:charge_diagnostics": {
+      "success_chars": 46443,
+      "success_calls": 20,
+      "failed_calls": 1,
+      "failed_requested": 563
+    },
+    "coordinator.py:374:_run_search": {
+      "success_chars": 46872,
+      "success_calls": 21,
+      "failed_calls": 0,
+      "failed_requested": 0
+    },
+    "assembly.py:147:add": {
+      "success_chars": 6555,
+      "success_calls": 17,
+      "failed_calls": 0,
+      "failed_requested": 0
+    },
+    "assembly.py:173:add": {
+      "success_chars": 97,
+      "success_calls": 4,
+      "failed_calls": 0,
+      "failed_requested": 0
+    },
+    "coordinator.py:954:_packet": {
+      "success_chars": 19,
+      "success_calls": 1,
+      "failed_calls": 0,
+      "failed_requested": 0
+    }
+  },
+  "output_consumed": 99986,
+  "sum_successful_debits": 99986,
+  "search_chars_by_lane": {
+    "overview_experience": 8223,
+    "process": 14013,
+    "technical": 24636
+  },
+  "search_chars_by_role": {
+    "excerpt": 18231,
+    "matched_text": 28641
+  },
+  "search_unique_chars_by_ref_role_hash": 12546,
+  "search_unique_chars_by_ref_hash": 12546,
+  "search_repeated_chars_by_ref_hash": 34326,
+  "candidate_diagnostic_chars": 40668,
+  "candidate_diagnostic_matched_text_chars": 9663,
+  "candidate_diagnostic_metadata_and_json_chars": 31005,
+  "part_attempts": 33,
+  "part_added_count": 17,
+  "part_skip_counts": {
+    "deduplicated": 6,
+    "budget": 10
+  },
+  "attempted_part_unique_text_chars": 8634,
+  "successful_part_text_chars": 6555,
+  "omitted_unique_part_text_chars": 2079,
+  "image_data_url_chars": 557888,
+  "image_caption_charged_chars": 97,
+  "failure": {
+    "seq": 6676,
+    "kind": "charge",
+    "time_ns": 1789575949713131300,
+    "key": "output_chars",
+    "requested": 563,
+    "used_before": 99986,
+    "held_before": 0,
+    "limit": 100000,
+    "remaining_before": 14,
+    "stack": [
+      {
+        "file": "query_plan.py",
+        "function": "charge_diagnostics",
+        "line": 24
+      },
+      {
+        "file": "reading.py",
+        "function": "recall",
+        "line": 454,
+        "lane": "technical",
+        "route": {
+          "id": "english-boundaries:dense",
+          "variant_id": "english-boundaries",
+          "language": "en",
+          "kind": "equivalent",
+          "channel": "dense",
+          "question": "What are the numerical failure modes and limits of naive floating-point summation, Kahan summation, and math.fsum for strongly cancelling inputs?",
+          "keywords": [],
+          "weight": 0.5,
+          "query_plan_id": "fd228e019aea04969bee47f4d2ea83ea8e7fa6bc40aff91b640c272919739f33"
+        },
+        "definition": {
+          "key": "full",
+          "version": "1"
+        },
+        "ref": {
+          "kind": "record",
+          "id": "MEM-ff3cf263-e13e-51b3-8a4f-6c7574040f10",
+          "revision": 2,
+          "sha256": "9561ea1bf2be1f46bb6713f48c93787de7f59362c2ee762ed0810ed559630202",
+          "locator": null
+        },
+        "candidate": {
+          "title": "浮点求和方法：精确基准、递推与适用条件",
+          "refs": [
+            {
+              "kind": "record",
+              "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+              "revision": 1,
+              "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+              "locator": null
+            }
+          ],
+          "excerpt": {
+            "chars": 266,
+            "sha256": "a647a40f8389661f306d26059fc9d7b0f2917400e835363e92b1fdbf274a549f"
+          },
+          "hits": [
+            {
+              "matched_text": {
+                "chars": 214,
+                "sha256": "8bf39e33746af0aab6f220d8396d87fbfeaeedfd861fade014a91d10d135828a"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:scope"
+                }
+              ],
+              "query_source": "original:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "49d8d94227b3704d9be4e84451fc4ba06072d7e332b15760807c791cce5189c9"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:kahan"
+                }
+              ],
+              "query_source": "original:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "ce57ec22cddf1a4cf2e6f4133bc32e52aaae58903b970c06b83a5512ff0e054d"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": null
+                }
+              ],
+              "query_source": "original:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 135,
+                "sha256": "978c2156fb2817674a65059504fb67cde5257bf88138d6f5f4196d268cd928e6"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:neumaier"
+                }
+              ],
+              "query_source": "original:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "1146bb6aeaa02cc19f062f219b7178f50f3dfdf64b0252f8ddcc3a38b65ab50c"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": null
+                }
+              ],
+              "query_source": "original:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 214,
+                "sha256": "8bf39e33746af0aab6f220d8396d87fbfeaeedfd861fade014a91d10d135828a"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:scope"
+                }
+              ],
+              "query_source": "original:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 65,
+                "sha256": "5fceab944606027ea8e9c00c1571bd00f528c10cfddeaedd16dd920526f643b3"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:neumaier"
+                }
+              ],
+              "query_source": "original:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "49d8d94227b3704d9be4e84451fc4ba06072d7e332b15760807c791cce5189c9"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:kahan"
+                }
+              ],
+              "query_source": "original:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 214,
+                "sha256": "8bf39e33746af0aab6f220d8396d87fbfeaeedfd861fade014a91d10d135828a"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:scope"
+                }
+              ],
+              "query_source": "english-mechanism:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "49d8d94227b3704d9be4e84451fc4ba06072d7e332b15760807c791cce5189c9"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:kahan"
+                }
+              ],
+              "query_source": "english-mechanism:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "ce57ec22cddf1a4cf2e6f4133bc32e52aaae58903b970c06b83a5512ff0e054d"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": null
+                }
+              ],
+              "query_source": "english-mechanism:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 135,
+                "sha256": "978c2156fb2817674a65059504fb67cde5257bf88138d6f5f4196d268cd928e6"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:neumaier"
+                }
+              ],
+              "query_source": "english-mechanism:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "1146bb6aeaa02cc19f062f219b7178f50f3dfdf64b0252f8ddcc3a38b65ab50c"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": null
+                }
+              ],
+              "query_source": "english-mechanism:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 214,
+                "sha256": "8bf39e33746af0aab6f220d8396d87fbfeaeedfd861fade014a91d10d135828a"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:scope"
+                }
+              ],
+              "query_source": "english-mechanism:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 165,
+                "sha256": "5501567f422d30256eb2f7ccbbea9f5cad24a47454382fb08fd3721aaf19452e"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:sequential"
+                }
+              ],
+              "query_source": "english-mechanism:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 65,
+                "sha256": "5fceab944606027ea8e9c00c1571bd00f528c10cfddeaedd16dd920526f643b3"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:neumaier"
+                }
+              ],
+              "query_source": "english-mechanism:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 214,
+                "sha256": "8bf39e33746af0aab6f220d8396d87fbfeaeedfd861fade014a91d10d135828a"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:scope"
+                }
+              ],
+              "query_source": "english-boundaries:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "49d8d94227b3704d9be4e84451fc4ba06072d7e332b15760807c791cce5189c9"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:kahan"
+                }
+              ],
+              "query_source": "english-boundaries:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "ce57ec22cddf1a4cf2e6f4133bc32e52aaae58903b970c06b83a5512ff0e054d"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": null
+                }
+              ],
+              "query_source": "english-boundaries:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 135,
+                "sha256": "978c2156fb2817674a65059504fb67cde5257bf88138d6f5f4196d268cd928e6"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:neumaier"
+                }
+              ],
+              "query_source": "english-boundaries:lexical"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "1146bb6aeaa02cc19f062f219b7178f50f3dfdf64b0252f8ddcc3a38b65ab50c"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": null
+                }
+              ],
+              "query_source": "english-boundaries:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 214,
+                "sha256": "8bf39e33746af0aab6f220d8396d87fbfeaeedfd861fade014a91d10d135828a"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:scope"
+                }
+              ],
+              "query_source": "english-boundaries:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 240,
+                "sha256": "69dec5abd2a584dd61994b2ddf1d76e190a91d14f784bb540ec13ec5b686f75b"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:reference"
+                }
+              ],
+              "query_source": "english-boundaries:dense"
+            },
+            {
+              "matched_text": {
+                "chars": 165,
+                "sha256": "5501567f422d30256eb2f7ccbbea9f5cad24a47454382fb08fd3721aaf19452e"
+              },
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:sequential"
+                }
+              ],
+              "query_source": "english-boundaries:dense"
+            }
+          ]
+        }
+      },
+      {
+        "file": "reading.py",
+        "function": "dispatch",
+        "line": 194
+      },
+      {
+        "file": "reading.py",
+        "function": "dispatch",
+        "line": 672
+      },
+      {
+        "file": "api.py",
+        "function": "dispatch",
+        "line": 29
+      }
+    ],
+    "success": false,
+    "error": "操作达到累计预算上限或占用了其他提供器预约",
+    "code": "BUDGET",
+    "used_after": 99986,
+    "held_after": 0
+  },
+  "limitations": [
+    "instrumented replay, elapsed_s includes Coordinator construction/close and observer overhead",
+    "100000 is current server maximum, not a no-budget run",
+    "8634 counts unique attempted text blocks, not hypothetical complete final response or all undiscovered material",
+    "dedup metrics are byte-equivalent Unicode text by fixedref/text hash, not semantic dedup",
+    "image data_url is not charged to output_chars",
+    "no note/AI semantic reading was performed; objective is recall budget diagnosis"
+  ]
+}

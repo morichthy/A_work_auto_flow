@@ -1,0 +1,113 @@
+{
+  "session_id": "RS-3e0fc7ab-54ac-4595-81be-467343778d0e",
+  "goal": "浮点求和中顺序求和、Kahan补偿与math.fsum在强抵消输入上有哪些差异和失效边界？",
+  "conditions": [
+    "仅阅读固定来源Owner；保留公式、强抵消边界与实测依据，不递归委派。"
+  ],
+  "query": {
+    "definition": {
+      "key": "full",
+      "version": "1"
+    },
+    "question": "浮点求和中顺序求和、Kahan补偿与math.fsum在强抵消输入上有哪些差异和失效边界？",
+    "keywords": [],
+    "scope": {
+      "owner_ids": [
+        "RES-FLOATING-POINT-SUMMATION"
+      ],
+      "levels": null,
+      "kinds": null,
+      "roles": null,
+      "outcomes": null,
+      "review_states": null,
+      "validities": null,
+      "include_unknown": false,
+      "excluded_refs": [],
+      "excluded_owner_ids": [],
+      "recorded_from": null,
+      "recorded_before": null,
+      "source_ids": null,
+      "include_refs": [],
+      "exclude_ids": [],
+      "confidence_levels": null,
+      "time_window": null,
+      "applicability_conditions": [],
+      "applicability_exclusions": [],
+      "owner_types": null
+    },
+    "scope_ceiling": {
+      "owner_ids": [
+        "PRJ-ARCHITECTURE-EVOLUTION",
+        "RES-FLOATING-POINT-SUMMATION",
+        "RUN-20260908T201214Z-D0AB308F66AD",
+        "RUN-20260908T201228Z-A0980824DC18",
+        "RUN-20260908T201240Z-90107A617CF8",
+        "RUN-20260908T214955Z-2273015D2CEF",
+        "RUN-20260908T215458Z-04C7D84D40D8"
+      ],
+      "levels": null,
+      "kinds": null,
+      "roles": null,
+      "outcomes": null,
+      "review_states": null,
+      "validities": null,
+      "include_unknown": false,
+      "excluded_refs": [],
+      "excluded_owner_ids": [],
+      "recorded_from": null,
+      "recorded_before": null,
+      "source_ids": null,
+      "include_refs": [],
+      "exclude_ids": [],
+      "confidence_levels": null,
+      "time_window": null,
+      "applicability_conditions": [],
+      "applicability_exclusions": [],
+      "owner_types": null
+    },
+    "purpose": "exploration",
+    "association": {
+      "mode": "off",
+      "strategy": "existing-relations",
+      "strategy_version": "1",
+      "max_items": 0,
+      "output_share": 0.0,
+      "supplement_scope": null
+    },
+    "budget": {
+      "wall_ms": 600000,
+      "read_bytes": 33554432,
+      "output_chars": 100000,
+      "candidates": 2000,
+      "graph_nodes": 1000,
+      "graph_edges": 2000,
+      "graph_hops": 6,
+      "model_tokens": 200000,
+      "model_calls": 20,
+      "model_input_tokens": 150000,
+      "model_output_tokens": 50000,
+      "rerank_items": 200
+    },
+    "freshness": "current",
+    "result_limit": 10,
+    "missing_policy": "reject",
+    "fallback_definitions": [],
+    "applicability": "",
+    "channels": [
+      "identity",
+      "lexical"
+    ],
+    "dialect": "plain",
+    "ranking_strategy": "topic-evidence-v2",
+    "ranking_version": "1",
+    "allow_index_repair": false,
+    "max_staleness_seconds": null,
+    "content_source": null
+  },
+  "reranking": {
+    "mode": "auto",
+    "candidate_limit": 30,
+    "conditions": []
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION"
+}

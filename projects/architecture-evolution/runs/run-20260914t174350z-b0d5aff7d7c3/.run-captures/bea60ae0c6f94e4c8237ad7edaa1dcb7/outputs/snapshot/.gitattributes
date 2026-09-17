@@ -1,0 +1,86 @@
+# Build/source hashes must survive GitHub ZIP and Windows autocrlf checkouts.
+automation/frontend/** text eol=lf
+automation/ui/workbench-assets/** text eol=lf
+# 固定合成材料按原字节做SHA-256校验，Windows检出不能自动改成CRLF。
+docs/design/system-memory/fixtures/** text eol=lf
+
+# 字体按二进制保存，覆盖目录级 text 规则，避免换行转换破坏发行指纹。
+automation/ui/workbench-assets/assets/*.ttf binary
+automation/ui/workbench-assets/assets/*.woff binary
+automation/ui/workbench-assets/assets/*.woff2 binary
+
+# Frozen research inputs and memory snapshots must retain their exact recorded bytes.
+research/floating-point-summation/** -text
+
+# Developer instances stay in Git but are omitted by git archive/release ZIPs.
+# Keep directory rules and reusable templates available to fresh installations.
+/research/* export-ignore
+/research/AGENTS.md -export-ignore
+/research/_template -export-ignore
+/projects/* export-ignore
+/projects/AGENTS.md -export-ignore
+/projects/README.md -export-ignore
+/projects/_template -export-ignore
+/core-algorithms/* export-ignore
+/core-algorithms/AGENTS.md -export-ignore
+/core-algorithms/README.md -export-ignore
+/core-algorithms/_template -export-ignore
+/runs/* export-ignore
+/runs/*.md -export-ignore
+/runs/_template -export-ignore
+/context/generated export-ignore
+
+# Local working state and registered sources never travel in release archives.
+/retrieval/sources.json export-ignore
+/retrieval/query-terms.json export-ignore
+/context/NOW.md export-ignore
+/context/handoffs/* export-ignore
+/context/handoffs/TEMPLATE.md -export-ignore
+/AI检索思路 export-ignore
+/tools/memory export-ignore
+/tools/runtime export-ignore
+/knowledge/* export-ignore
+/knowledge/README.md -export-ignore
+/knowledge/decisions -export-ignore
+/knowledge/decisions/* export-ignore
+/knowledge/decisions/ADR_TEMPLATE.md -export-ignore
+/knowledge/incidents -export-ignore
+/knowledge/incidents/* export-ignore
+/knowledge/incidents/POSTMORTEM_TEMPLATE.md -export-ignore
+/knowledge/patterns -export-ignore
+/knowledge/patterns/* export-ignore
+/knowledge/patterns/PATTERN_TEMPLATE.md -export-ignore
+/knowledge/reviews -export-ignore
+/knowledge/reviews/* export-ignore
+/knowledge/reviews/REVIEW_TEMPLATE.md -export-ignore
+
+/reports/* export-ignore
+/reports/README.md -export-ignore
+/reports/briefs -export-ignore
+/reports/briefs/* export-ignore
+/reports/briefs/REPORT_BRIEF_TEMPLATE.md -export-ignore
+/reports/manifests -export-ignore
+/reports/manifests/* export-ignore
+/reports/manifests/report_manifest.example.json -export-ignore
+/reports/templates -export-ignore
+/reports/templates/README.md -export-ignore
+/reports/sources -export-ignore
+/reports/sources/README.md -export-ignore
+/data/catalog/* export-ignore
+/data/catalog/example.dataset.json -export-ignore
+/data/contracts/* export-ignore
+/data/contracts/example.contract.json -export-ignore
+/data/lineage/* export-ignore
+/data/lineage/README.md -export-ignore
+/data/samples/* export-ignore
+/data/samples/README.md -export-ignore
+/inbox/* export-ignore
+/inbox/README.md -export-ignore
+/archive/* export-ignore
+/archive/README.md -export-ignore
+
+/PLAN.md export-ignore
+/待开发计划.md export-ignore
+automation/schemas/material-query.schema.json text eol=lf
+automation/templates/query-terms.default.json text eol=lf
+automation/templates/query-terms.default.json text eol=lf

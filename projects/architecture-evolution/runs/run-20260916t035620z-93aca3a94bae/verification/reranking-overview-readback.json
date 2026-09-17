@@ -1,0 +1,84 @@
+{
+  "body_markdown": "本轮已完成有界候选、固定正文/必要定义、Cross-encoder和显式条件重排，并验证预算、权限及Windows离线交付。开发Recall@6从0.75到1.00，留出nDCG@6从0.521到0.991；两套仅各两道有效题，不能替代业务验收。条件自然语料全unknown，冷启动模型加载占大头；尚不宣称加速。完整方法、失败、模型和限制由固定技术单元及独立文稿展开。",
+  "change_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+  "content_hash": "fb7cdd9229226f0cfd30e733caa48069ed52cb69b53fab16f1af1b561724d3ec",
+  "created_at": "2026-09-16T05:08:48.710074Z",
+  "created_by": {
+    "id": "codex-reranking-implementation",
+    "kind": "ai"
+  },
+  "discovery": "workspace_summary",
+  "keywords": [
+    "Cross-encoder",
+    "重排",
+    "显式条件",
+    "冻结基线",
+    "离线模型"
+  ],
+  "kind": "overview",
+  "level": "L4",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "payload": {
+    "claims": [],
+    "current_stage": "软件及本机离线交付验证完成；真实业务与规模验收待做",
+    "experience_refs": [],
+    "limitations": [
+      "小型合成题集",
+      "条件自然语言多为unknown",
+      "单候选超过512 token全窗停止CE",
+      "独立CLI不共享加载缓存",
+      "第二物理机未验收",
+      "未全仓库回归，既有B01问题保留"
+    ],
+    "methods": [
+      "冻结基线→有界正文→离线CE与显式条件→排序及诊断",
+      "实际CLI阅读和Windows离线迁移验证"
+    ],
+    "missing_refs": [],
+    "open_questions": [
+      "真实业务条件结构化覆盖率",
+      "长文窗口选择",
+      "冷暖p50/p95和非空无答案误报"
+    ],
+    "process_refs": [],
+    "question": "在保留召回覆盖和可追溯边界下提升前列排序",
+    "results": [
+      "已接入新AI阅读auto模板，旧RS保持off",
+      "小型开发和留出题集改善前列指标，完整结果见固定技术单元"
+    ],
+    "technical_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+        "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "previous_revision": null,
+  "provenance_gap": null,
+  "record_hash": "993d53cbbddeb4279b7cd9efd7eb47873d738d7afaef91e008c24cb694fc60ea",
+  "record_id": "MEM-3227e150-36dd-5d01-825d-38c7362989b2",
+  "record_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+  "revision": 1,
+  "schema_version": 4,
+  "sensitivity": "internal",
+  "sources": [
+    {
+      "locator": "",
+      "relation": "references",
+      "revision": 1,
+      "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+      "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+      "target_kind": "record"
+    }
+  ],
+  "title": "2026-09-16召回排序演进概览",
+  "updated_at": "2026-09-16T05:08:48.710074Z",
+  "updated_by": {
+    "id": "codex-reranking-implementation",
+    "kind": "ai"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "actor": "reader",
+  "action": "reading-note",
+  "request": {
+    "candidate_id": "RC-0e6a223d41628adb9af24cc0",
+    "summary": "不作为NS4校准方法依据。该材料只比较摄氏与华氏刻度，未定义NS4的增益或零点。",
+    "connection": {
+      "kind": "not_useful",
+      "explanation": "主题相近但缺少仪器偏差模型与校准参数，不能替代Northstar NS4方法。",
+      "chain": [
+        "仅有刻度比较。",
+        "没有b、g或校准版本，故不可用于NS4校正。"
+      ]
+    },
+    "details": [
+      {
+        "text": "只比较摄氏华氏刻度，未定义NS4仪器增益或零点。",
+        "reason": "说明其不满足校准方法的关键输入要求。",
+        "block_ids": []
+      }
+    ],
+    "uncertainties": [
+      "无仪器校准信息，不能用于误差传播或适用性判断。"
+    ],
+    "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+    "expected_revision": 4,
+    "request_id": "752595b7-50b4-430f-a3b6-d5ba92af3a14"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "candidate_id": "RC-0e6a223d41628adb9af24cc0",
+      "link": "C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-c85bff29-b019-5989-92a6-3c48644778de/records/MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818.json",
+      "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+      "revision": 5
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 2092,
+      "read_bytes": 957816,
+      "output_chars": 53326,
+      "candidates": 6,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  },
+  "response_serialized_chars": 703,
+  "value_serialized_chars": 343
+}

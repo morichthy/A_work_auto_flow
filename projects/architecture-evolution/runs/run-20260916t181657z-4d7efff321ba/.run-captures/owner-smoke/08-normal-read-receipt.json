@@ -1,0 +1,378 @@
+{
+  "status": "ok",
+  "value": {
+    "owner_id": "RES-FLOATING-POINT-SUMMATION",
+    "text": "将一组数相加时，数学上的总和与排列无关，但有限精度计算会在每一步产生舍入。若很小的增量紧跟着大数进入累加器，它可能在输出之前就已经丢失；随后出现的抵消又可能把这种损失放大为明显的最终误差。这使“换一种输入顺序”与“采用补偿算法”都成为需要检验的选择。\n\n本研究按三个相连的问题展开：先确认小量损失是否受顺序影响，再用最小抵消输入观察补偿如何工作，最后增加重复项和排列数量，检查已发现的现象是否继续出现。比较对象是同一份脚本中的显式逐项累加、Kahan、Neumaier以及math.fsum；第一组实验只比较逐项累加与math.fsum。\n\n所有输入都是人为构造的、无量纲的有限整数浮点数。研究目的是提供可核验的局部证据和反例，并非评估真实业务数据的误差概率，也不以少量精确结果证明某种算法对任意输入正确。\n\n## 定义与范围\n\n本技术单元说明既有浮点求和研究采用的计算方法。它是对已保存实现与结果的整理，不是一次新的实验。输入为程序实际收到的有限binary64数列 $x_1,\\ldots,x_n$，所有数值无量纲。$n$表示项数，$s_i$表示处理第$i$项后的累加值，$\\operatorname{fl}$表示脚本实际执行一次浮点运算后的舍入。原复核环境为CPython 3.12.10、Windows 11 x64，有效位53位；本研究未切换舍入模式或验证其他平台。\n\n## 精确基准与误差\n\n对实际浮点值逐项转换为精确有理数，再求参考和：\n\n$$\nS_{\\mathrm{ref}}=\\sum_{i=1}^{n}\\operatorname{Fraction}(x_i),\\qquad\ne_{\\mathrm{abs}}=\\left|\\operatorname{Fraction}(\\widehat S)-S_{\\mathrm{ref}}\\right|.\n$$\n\n$\\widehat S$为被测方法的实际返回值。精确命中指$e_{\\mathrm{abs}}=0$，不使用容差；绝对误差不需要除以参考和，因此也适用于零和。这个基准衡量求和运算相对已表示输入的误差，不衡量十进制原始文本转换为binary64时的误差。三轮构造整数和另用于交叉核对。\n\n## 显式逐项累加\n\n$$s_0=0,\\qquad s_i=\\operatorname{fl}(s_{i-1}+x_i),\\qquad\\widehat S=s_n.$$\n\n每一项按给定顺序进入累加器。小量若在大数处被舍入掉，后续抵消不保证能恢复它。这里特指保存脚本中的显式循环，不能把结果直接推广为其他库、编译器或并行归约的行为。\n\n## Kahan补偿\n\n初值$s_0=c_0=0$，按照保存实现递推：\n\n$$\ny_i=\\operatorname{fl}(x_i-c_{i-1}),\\qquad\nt_i=\\operatorname{fl}(s_{i-1}+y_i),\n$$\n$$\nc_i=\\operatorname{fl}\\!\\left(\\operatorname{fl}(t_i-s_{i-1})-y_i\\right),\\qquad s_i=t_i,\n\\qquad\\widehat S=s_n.\n$$\n\n$c_i$为下一步将减去的补偿值，$y_i$为补偿后的输入。补偿变量存在不等于最终结果无误差；第二轮固定轨迹显示，小量对应的补偿在下一步仍可能被舍入。该技术单元不据一次反例推断Kahan对所有输入都无效。\n\n## Neumaier校正\n\n同样以$s_0=c_0=0$开始，先计算$t_i=\\operatorname{fl}(s_{i-1}+x_i)$，再按幅值选择本步校正量$\\delta_i$：\n\n$$\n\\delta_i=\\begin{cases}\n\\operatorname{fl}\\!\\left(\\operatorname{fl}(s_{i-1}-t_i)+x_i\\right),&|s_{i-1}|\\ge|x_i|,\\\\\n\\operatorname{fl}\\!\\left(\\operatorname{fl}(x_i-t_i)+s_{i-1}\\right),&|s_{i-1}|<|x_i|,\n\\end{cases}\n\\quad c_i=\\operatorname{fl}(c_{i-1}+\\delta_i),\\quad s_i=t_i.\n$$\n\n分支右侧的加减严格按保存脚本的浮点操作顺序计算；最终返回$\\widehat S=\\operatorname{fl}(s_n+c_n)$。这里$c_i$累积校正，和Kahan中下一步减去的补偿含义不同，不能互换符号或递推式。第二轮三项抵消输入的固定轨迹解释了该实现如何在最后保留小量，但不构成任意序列精确性的证明。\n\n## 对照方法与可迁移边界\n\nmath.fsum仅作为实际输出对照，本研究没有观测它的内部部分和，不能为其编写伪造的逐步轨迹。各方法的具体观察必须回到对应实验的固定输入与结果。\n\n精确基准、记录排列和比较误差的方法可为类似有限浮点求和任务提供验证思路；已测命中率只属于三轮构造输入，不是实际业务误差概率。本研究未检验非整数输入、极端指数、跨平台表现或运行时间，也未覆盖NaN、无穷值或溢出行为。研究仍为not-reviewed。\n\n## 设计与输入\n\n先比较1000个单位增量放在大数之前或之后的差别，再加入一个负大数观察抵消。三种输入如下。本轮只运行显式逐项累加与math.fsum，未比较Kahan或Neumaier。\n\n| 样本 | 输入构造 | 项数 | 精确参考值 |\n|---|---|---:|---:|\n| 大数先加 | $[10^{16},1,\\ldots,1]$，1000个1 | 1001 | 10000000000001000 |\n| 小量先加 | $[1,\\ldots,1,10^{16}]$，1000个1 | 1001 | 10000000000001000 |\n| 小量后抵消 | $[10^{16},1,\\ldots,1,-10^{16}]$，1000个1 | 1002 | 1000 |\n\n## 小量在哪一步丢失\n\n本机实测`math.ulp(1e16)=2`，而`1e16 + 1`仍返回`1e16`。按共同方法中的逐项递推，大数先加时每次加入1均未改变当前和。损失发生在沿途每一步，并非最终输出时才统一丢掉1000。\n\n| 大数先加或随后抵消的关键位置 | 当前浮点和 | 精确前缀和 | 有符号误差 |\n|---|---:|---:|---:|\n| 输入大数后 | 10000000000000000 | 10000000000000000 | 0 |\n| 再输入第1个1 | 10000000000000000 | 10000000000000001 | −1 |\n| 再输入第1000个1 | 10000000000000000 | 10000000000001000 | −1000 |\n| 抵消样本最后减去大数 | 0 | 1000 | −1000 |\n\n小量先加则先得到1000，再计算大数加1000。本次返回值可以表示，并与精确有理数参考值一致。最后加入负大数也不会恢复已经在前面舍入掉的小量，因此第三种输入返回0而非1000。\n\n## 结果\n\n这里沿用独立方法章中的绝对误差：算法输出与实际浮点输入的精确有理数和之差的绝对值，单位为无量纲。\n\n| 方法 | 精确命中/样本数 | 最大绝对误差 |\n|---|---:|---:|\n| 显式逐项累加 | 1/3 | 1000 |\n| math.fsum | 3/3 | 0 |\n\n![三种固定输入下的精确命中数与最大绝对误差](figure:MEM-c52df8fb-ca9e-53a7-a49b-342592884a50:0)\n\n这组结果建立了顺序敏感性的直接证据：相同的小量可以在一种排列中保留，在另一种排列中逐次丢失。但它不能证明任意“小数先加”的排序都精确，也没有涉及非整数表示误差、溢出、下溢或计时。\n\n第一组表明，低位信息会在逐项累加过程中消失，而且最终抵消不会把它恢复。调整顺序在这组输入中有效，但还不能回答算法能否主动保留这部分信息。为观察补偿本身，本研究把1000个单位增量缩减为一个，使用三项抵消输入，并比较两种显式补偿方法的内部状态。\n\n## 设计与输入\n\n将输入缩短为三个数$[10^{16},1,-10^{16}]$，枚举全部6种排列。各排列的精确和均为1，无需随机抽样。比较逐项累加、Kahan、Neumaier与math.fsum，并查看补偿在每一步是否仍能保留低位信息。\n\n## Kahan：补偿已经产生，仍可能再次舍入\n\n本次Kahan实现使用以下递推，初值$s_0=c_0=0$：\n\n$$\ny_i=\\operatorname{fl}(x_i-c_{i-1}),\\qquad\nt_i=\\operatorname{fl}(s_{i-1}+y_i),\n$$\n$$\nc_i=\\operatorname{fl}\\!\\left(\\operatorname{fl}(t_i-s_{i-1})-y_i\\right),\\qquad s_i=t_i.\n$$\n\n$s_i$为当前和，$c_i$为下一步将减去的补偿值，$y_i$为修正后的输入；$\\operatorname{fl}$为本机浮点舍入，所有数值无量纲。排列$[10^{16},1,-10^{16}]$的实测状态如下。\n\n| 步 | $x_i$ | $c_{i-1}$ | 实际$y_i$ | $s_i$ | $c_i$ |\n|---|---:|---:|---:|---:|---:|\n| 1 | $10^{16}$ | 0 | $10^{16}$ | $10^{16}$ | 0 |\n| 2 | 1 | 0 | 1 | $10^{16}$ | −1 |\n| 3 | $-10^{16}$ | −1 | $-10^{16}$ | 0 | 0 |\n\n第二步记录到了−1，说明补偿确实发生。但第三步计算$-10^{16}-(-1)$时，又舍入为$-10^{16}$，补偿未能进入最终和。返回值为0，相对于精确和1的绝对误差为1。这个轨迹否定的是该输入上“有补偿便没有误差”的推断，不能解释成“Kahan没有进行补偿”。\n\n## Neumaier：保留校正直到最终相加\n\n本次Neumaier实现同样以$s_0=c_0=0$开始，先计算$t_i=\\operatorname{fl}(s_{i-1}+x_i)$，再按两项的幅值选择本步校正量$\\delta_i$：\n\n$$\n\\delta_i=\\begin{cases}\n(s_{i-1}-t_i)+x_i,&|s_{i-1}|\\ge|x_i|,\\\\\n(x_i-t_i)+s_{i-1},&|s_{i-1}|<|x_i|,\n\\end{cases}\n\\qquad c_i=\\operatorname{fl}(c_{i-1}+\\delta_i),\\quad s_i=t_i.\n$$\n\n右侧加减按脚本的浮点操作顺序执行，最后返回$\\operatorname{fl}(s_n+c_n)$。对同一排列，三步的$(s_i,c_i)$依次为$(10^{16},0)$、$(10^{16},1)$、$(0,1)$，最终得到1。第二步若立即计算$s_i+c_i$，仍可能舍入为大数；该例的低位信息在最终抵消完成后才进入返回值。\n\n## 全部排列结果\n\n按独立方法章，绝对误差仍相对于实际binary64输入的精确有理数和，精确命中不使用容差。\n\n| 排列 | 逐项累加 | Kahan | Neumaier | math.fsum |\n|---|---:|---:|---:|---:|\n| $10^{16},1,-10^{16}$ | 0 | 0 | 1 | 1 |\n| $10^{16},-10^{16},1$ | 1 | 1 | 1 | 1 |\n| $1,10^{16},-10^{16}$ | 0 | 0 | 1 | 1 |\n| $1,-10^{16},10^{16}$ | 0 | 0 | 1 | 1 |\n| $-10^{16},10^{16},1$ | 1 | 1 | 1 | 1 |\n| $-10^{16},1,10^{16}$ | 0 | 0 | 1 | 1 |\n\n![六种排列下各方法的精确命中数和最大绝对误差](figure:MEM-c4a61c00-1bf1-59b3-a65e-0fa4847db2e1:0)\n\n逐项累加与Kahan各精确命中2/6，最大绝对误差均为1；Neumaier与math.fsum各命中6/6，最大误差0。结果解释了一个具体失败机理，也界定了证据范围：这里是三项输入的完整排列比较，尚不能据此判断更长序列或其他数值尺度下的表现。\n\n三项实验显示，Kahan已经产生补偿值，补偿仍可能在下一次大数运算中被舍入；Neumaier在这一输入中则把校正保留到了最终相加。最小反例给出了机制解释，但它是否只局限于三项的排列？下一组保留同样的数值尺度和抵消结构，增加重复项，并用固定的30种排列检查更长输入中的结果。\n\n## 设计与采样\n\n将三项序列$[10^{16},1,-10^{16}]$重复10次，得到30项多重集合。每个样本含10个正大数、10个1和10个负大数，精确和均为10；对这一集合保存30种排列。\n\n| 参数 | 取值 | 用途与范围 |\n|---|---:|---|\n| 大数幅值 | $10^{16}$ | 保持前两组的舍入尺度 |\n| 三项重复次数 | 10 | 小量精确总和为10 |\n| 每个排列项数 | 30 | 有限长度，不检验长序列极限 |\n| 排列样本数 | 30 | 不是总体失败概率估计 |\n| 随机种子 | 20260909 | 固定采样配方，复核优先读取保存数组 |\n\n原配方创建`rng = random.Random(20260909)`，每次重置`values = ['1e16', '1', '-1e16'] * 10`，再调用`rng.shuffle(values)`；30次连续使用同一个随机数生成器。已有独立采样核对表明，在所记录的Python环境中，生成的30组、每组30项数组与保存输入逐项一致。其他Python版本不能仅凭同一seed推断排列完全相同。\n\n## 计算与检查\n\n读取固定数组后，对每组运行与第二组相同的四种实现。逐项累加、Kahan和Neumaier保存每一步的当前和、补偿值与精确前缀误差；math.fsum仅保留实际返回值。每个输出按独立方法章计算相对于精确和10的绝对误差，不用浮点容差判定精确性。\n\n本轮共120个方法输出已在后续复核中与原结果逐项比较。下表和图保留全部30个样本的汇总，不挑选单个有利排列。\n\n## 结果与误差分布\n\n| 方法 | 精确命中/样本数 | 最大绝对误差 |\n|---|---:|---:|\n| 显式逐项累加 | 0/30 | 10 |\n| Kahan | 5/30 | 10 |\n| Neumaier | 30/30 | 0 |\n| math.fsum | 30/30 | 0 |\n\n![30组固定排列的精确命中数与最大绝对误差](figure:MEM-96f79923-f023-509e-a002-40f2d5a4fca1:0)\n\n| 方法 | 绝对误差 → 出现次数 |\n|---|---|\n| 显式逐项累加 | 2 → 1；4 → 1；5 → 2；6 → 5；8 → 2；9 → 4；10 → 15 |\n| Kahan | 0 → 5；1 → 2；2 → 12；4 → 2；5 → 4；6 → 4；10 → 1 |\n| Neumaier | 0 → 30 |\n| math.fsum | 0 → 30 |\n\n![全部30个保存排列的绝对误差序列；纵轴无量纲](figure:MEM-96f79923-f023-509e-a002-40f2d5a4fca1:1)\n\nKahan在5组排列中精确，在另外25组中仍有误差；其中1组的绝对误差达到10。因此，增加项数后，所选抵消结构仍能产生反例。Neumaier与math.fsum本次30组均精确，但这仍是有限构造样本，不能估计真实数据分布上的失败概率，也没有覆盖非整数、极端指数或运行时间。\n\n三组实验形成了连续的证据链：先定位顺序造成的小量损失，再给出补偿失效的逐步反例，最后确认这一类反例在所选30项输入中仍会出现。接下来需要区分两件事：这些计算已经解释了什么，以及它们还不足以支持哪些工程选择。\n\n## 误差机理与可复用的检查方法\n\n第一组把误差定位到每一步加法：大数附近的表示间隔使单位增量无法改变当前和。第二组进一步表明，补偿值的存在不保证它能够在后续运算中保留；对所列Kahan轨迹，补偿在第三步修正输入时再次舍入。第三组则说明，这一抵消结构的反例可以延续到本次保存的30项排列。\n\n因此，检查求和实现时，可先固定输入与精确参考，再查看代表性失败轨迹中的当前和、补偿值和前缀误差。只看最终最大误差会遗漏信息损失的位置，只看少数精确结果又可能遗漏反例。这里可复用的是这一检查方法，而不是把本实验中的幅值、项数或seed当作其他问题的默认参数。\n\n## 精确命中与工程选择的距离\n\nNeumaier和math.fsum在第二、第三组中都精确，但这一相同的观测结果不表示二者对所有输入等价。当前输入是具有特定抵消结构的整数浮点数，且只检验了一个数值环境。研究没有涵盖非整数转成binary64时的表示误差、溢出或下溢，也没有比较执行时间。\n\n特别是，第三组的5/30与30/30是固定样本的计数，不能直接解释为真实输入分布中的成功概率。若要据此选择工程默认实现，需要补充目标数据域和性能约束，并对新增样本建立相同明确的参考值。\n\n本研究回答了三个有界问题：逐项累加会因顺序不同而丢失单位增量；本次Kahan实现存在可逐步解释的三项抵消反例；该类反例在保存的30项、多排列输入中仍会出现。Neumaier与math.fsum在所测第二、第三组中均与精确参考值一致，构成值得进一步检验的候选，而非任意输入正确性的证明。\n\n下一步应把尚未覆盖的问题分开验证：\n\n1. **非整数输入**：区分十进制目标值的表示误差与已表示浮点数的求和误差。\n2. **极端指数**：明确溢出、下溢及可表示范围，选择适用的参考算法。\n3. **跨平台复算**：读取同一份固定数组，核对环境和结果，不依赖seed产生相同排列的假设。\n4. **性能比较**：在正确性检查之外单独设定规模、计时条件与重复次数。\n\n这些扩展尚未执行。当前结论限于本文的构造输入与已记录环境，尚未经过人工研究复核。\n\n## 已完成的独立复核\n\n原三组实验分别保存了输入、脚本、结果与执行时间。后续独立复核读取固定数组，对150个方法输出及其精确绝对误差逐项比较，结果全部一致；另保存111组显式算法轨迹。第三组采样配方在CPython 3.12.10下重现了30组完整数组，与保存输入逐项相同。\n\n首次逐步复核在绘图环境导入阶段以非零状态退出，已经产生的数值输出仍被保留。之后在新的独立运行中完成复核和图表生成。前一次失败属于环境执行问题，不能据此推断求和方法错误；后一次成功也没有覆盖或改写前一次记录。\n\n## 绘图与复算边界\n\n本文图表使用已记录的Matplotlib 3.10.8环境生成，完整绘图依赖版本保存在原复核结果中。阅读PNG不需要绘图库；数值复算部分仅使用Python标准库。复算时应选择新的输出目录，并核对输入清单中的SHA-256，不能覆盖原数组或原结果。\n\n## 来源与整理说明\n\n本文依据三个原始实验以及两次后续复核的已保存证据重新组织，没有为了重新编写报告再执行实验。原详细说明首次补写于2026-09-08，本文是后续的连贯写作版本；正文中的中间数值、样本计数和图表来自已有记录。\n\n各实验的固定输入、原始结果、逐步轨迹、图表及版本在“记录与来源”中逐项提供。旧实验、旧说明和旧修订继续保留；本文的写作整理不构成人工认可，也不改变原始运行状态。\n\n研究结论状态：not-reviewed；人工审阅待完成。",
+    "sources": [
+      {
+        "kind": "record",
+        "id": "MEM-51cc78a8-53d2-5503-9d00-d6131d178a96",
+        "revision": 1,
+        "sha256": "4279d30832ef69987ae536f981837693cafa7555d790b44b59fb4efeaab2122a",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+        "revision": 1,
+        "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-c52df8fb-ca9e-53a7-a49b-342592884a50",
+        "revision": 3,
+        "sha256": "c9ab320069397e5219eca068d85e33fd7636368db676026a7f9d3f1f68863c20",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-abc1cfbf-3ed6-5123-a84c-f2b7fb0b5f8b",
+        "revision": 1,
+        "sha256": "d015c4c7e9930ae652f29413e6a77b4a025b73bd533395ed5adcaffabfcf18d7",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-c4a61c00-1bf1-59b3-a65e-0fa4847db2e1",
+        "revision": 3,
+        "sha256": "f622c9730e82aa63f77c098592809f4aef8b601cfe747931c42974de741ad9cd",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-346cdf38-a912-5e43-b17f-5b562f6ca8ba",
+        "revision": 1,
+        "sha256": "0b05701fa827acc71891a471ec5ff2963c5194c9129fbeba2302e3def6269cfe",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-96f79923-f023-509e-a002-40f2d5a4fca1",
+        "revision": 3,
+        "sha256": "4e863128333d48e4bb228682a3664fbabd1155143bc92db2d6a1d1b50db6cf86",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-57f1ea79-42c2-57e7-b17b-b6968c23efeb",
+        "revision": 1,
+        "sha256": "08de0d1069403c63354dc158e8db2cdda5be6fb1eebfe60ebda8a6ce7b4ddcd6",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-5977e884-5a25-515d-b2cb-3e28c8418b06",
+        "revision": 1,
+        "sha256": "6cfaa8c91b6758704abee4dd729496169a7a5f6f813b1fc2ce90fd26e76b528a",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-b2af4b7e-c542-5d09-950c-47661499e24b",
+        "revision": 1,
+        "sha256": "5160ebafb3fc95a14cc3e973a1cab15994ac412eed87062269c73e723c113eb7",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-ab9db095-2545-594c-9e94-f72bab43c464",
+        "revision": 1,
+        "sha256": "7ec02e5b385cb80bc294834069510f0488407862ba37fcc43cfd52268d32889b",
+        "locator": null
+      },
+      {
+        "kind": "record",
+        "id": "MEM-240055fb-b318-5e3e-85a0-dadf88507a18",
+        "revision": 1,
+        "sha256": "e73d93cd8e625924ae01ddd9ae80476c3652311335ecbfcfd47c914d8fa9be41",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "record",
+        "id": "MEM-eae18081-bb16-5920-b634-ac08669ae539",
+        "revision": 1,
+        "sha256": "69d5019c8d87a6a02e9ad457c0c6cb71792ad280084148c4d4b0136ad368ecff",
+        "locator": "完整正文与固定依据"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-REPORT-V2-METHODS",
+        "revision": null,
+        "sha256": "bf89c9889ac3795214b21b6a3d19557750da1304fc60fb58d63d119784e7ceed",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-REPORT-V2-ROUND-02",
+        "revision": null,
+        "sha256": "70b04d20e8973083af0f7a99a27c8715d97791bf051fbbd1a5f8d3b3c410df0a",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-TRACE-VERIFY",
+        "revision": null,
+        "sha256": "739d2ce2c6922dc7ce74dfea9ac22d987dd6b8d353484e70c615fc96d2f22074",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-DETAIL-R01",
+        "revision": null,
+        "sha256": "4259addfe1da6ca0b2736a05e02d3a662fdad3d6c842243e3818c99e120e34de",
+        "locator": "全文"
+      },
+      {
+        "kind": "owner",
+        "id": "RUN-20260908T201214Z-D0AB308F66AD",
+        "revision": null,
+        "sha256": "3176d6c1d406d01e258d6a29340dd2d59da8dd4a133a00a615981184e4091106",
+        "locator": "run.json"
+      },
+      {
+        "kind": "owner",
+        "id": "RUN-20260908T215458Z-04C7D84D40D8",
+        "revision": null,
+        "sha256": "8efe2879a142667db6d174693fc5738228e9904902d7a2c884e720d75d014b05",
+        "locator": "run.json"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-INPUT-R01",
+        "revision": null,
+        "sha256": "83d97bbfcf42bdbbe3780df71d202033bc8cede38f197913da5d0b77f5f7cf45",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-OP-TRACES",
+        "revision": null,
+        "sha256": "d7348aca67bf17dc4369a7b8d756b2193571b8c6f7010cc0efb6557ef409da8c",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-FIGURE-R01",
+        "revision": null,
+        "sha256": "043d9bc1c51b300a97a2b915b5c53af73553f1d726b9936c9315a074220fbea8",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-REPORT-V2-ROUND-01",
+        "revision": null,
+        "sha256": "77941df3cdaf33546da7a65362918f07f00fd02196163e4992508444fe763d23",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-DETAIL-R02",
+        "revision": null,
+        "sha256": "6663c5e22a2c3154c13dae18754d7cc20b6d4c225d159ebc8081cbe27a0beb34",
+        "locator": "全文"
+      },
+      {
+        "kind": "owner",
+        "id": "RUN-20260908T201228Z-A0980824DC18",
+        "revision": null,
+        "sha256": "b25cf5ba5c1d95cdd1b1edb9dd7b3f0c65999462d04a5e7860423fce1e1de9d1",
+        "locator": "run.json"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-INPUT-R02",
+        "revision": null,
+        "sha256": "a48c045211280be1e1bb58524a8067598eea6d9d8e964a8b513b4b544e195cd6",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-FIGURE-R02",
+        "revision": null,
+        "sha256": "1a7a01affa7bd299c9c0d1652018a5f2e15fa29df034fced669254733da694ad",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-DETAIL-R03",
+        "revision": null,
+        "sha256": "16afde15315ac4f45463c1f3124a3e7d886398e8c09c6fb9adfdc19e43bd228d",
+        "locator": "全文"
+      },
+      {
+        "kind": "owner",
+        "id": "RUN-20260908T201240Z-90107A617CF8",
+        "revision": null,
+        "sha256": "1db68adb0974c4e43d572b9d8c6956c0cd941ca74effbc1769da27febb7f5408",
+        "locator": "run.json"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-INPUT-R03",
+        "revision": null,
+        "sha256": "9da1f46663a569680b3e61e842f164880d24c047e0ab13ac0471df6683d32561",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-FIGURE-R03",
+        "revision": null,
+        "sha256": "7759b89aa016be03e7f18169240dd308c28b21bfafac980c92cbce36bfeeaeee",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-FIGURE-PERMUTATIONS",
+        "revision": null,
+        "sha256": "0fdc0ea6ef408adaf2c7c5c2e56fd0f72e95db032a30d5fc344e3cf9e21bd456",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-SAMPLING-VERIFY",
+        "revision": null,
+        "sha256": "8fc77120e5495b853becd8d160ae84f8c135318eec5dda1f8108b68dd5dfc52d",
+        "locator": "全文"
+      },
+      {
+        "kind": "file",
+        "id": "SRC-SUMMATION-REPORT-V2-ROUND-03",
+        "revision": null,
+        "sha256": "be64d72d7648d1463ab8e007d18b984b418601794fad391c6dec047af5f5ac6d",
+        "locator": "全文"
+      }
+    ],
+    "document_refs": [
+      {
+        "kind": "record",
+        "id": "MEM-ab9db095-2545-594c-9e94-f72bab43c464",
+        "revision": 1,
+        "sha256": "7ec02e5b385cb80bc294834069510f0488407862ba37fcc43cfd52268d32889b",
+        "locator": null
+      }
+    ],
+    "references": [
+      {
+        "kind": "figure",
+        "index": 0,
+        "caption": "第1轮精确命中数和最大绝对误差，横轴方法，误差无量纲",
+        "marker": "figure:MEM-c52df8fb-ca9e-53a7-a49b-342592884a50:0",
+        "ref": {
+          "kind": "file",
+          "id": "SRC-SUMMATION-FIGURE-R01",
+          "revision": null,
+          "sha256": "043d9bc1c51b300a97a2b915b5c53af73553f1d726b9936c9315a074220fbea8",
+          "locator": "全文"
+        },
+        "record_ref": {
+          "kind": "record",
+          "id": "MEM-c52df8fb-ca9e-53a7-a49b-342592884a50",
+          "revision": 3,
+          "sha256": "c9ab320069397e5219eca068d85e33fd7636368db676026a7f9d3f1f68863c20",
+          "locator": null
+        },
+        "block_ids": [
+          "results"
+        ],
+        "expanded": false
+      },
+      {
+        "kind": "figure",
+        "index": 0,
+        "caption": "第2轮精确命中数和最大绝对误差，横轴方法，误差无量纲",
+        "marker": "figure:MEM-c4a61c00-1bf1-59b3-a65e-0fa4847db2e1:0",
+        "ref": {
+          "kind": "file",
+          "id": "SRC-SUMMATION-FIGURE-R02",
+          "revision": null,
+          "sha256": "1a7a01affa7bd299c9c0d1652018a5f2e15fa29df034fced669254733da694ad",
+          "locator": "全文"
+        },
+        "record_ref": {
+          "kind": "record",
+          "id": "MEM-c4a61c00-1bf1-59b3-a65e-0fa4847db2e1",
+          "revision": 3,
+          "sha256": "f622c9730e82aa63f77c098592809f4aef8b601cfe747931c42974de741ad9cd",
+          "locator": null
+        },
+        "block_ids": [
+          "results"
+        ],
+        "expanded": false
+      },
+      {
+        "kind": "figure",
+        "index": 0,
+        "caption": "第3轮精确命中数和最大绝对误差，横轴方法，误差无量纲",
+        "marker": "figure:MEM-96f79923-f023-509e-a002-40f2d5a4fca1:0",
+        "ref": {
+          "kind": "file",
+          "id": "SRC-SUMMATION-FIGURE-R03",
+          "revision": null,
+          "sha256": "7759b89aa016be03e7f18169240dd308c28b21bfafac980c92cbce36bfeeaeee",
+          "locator": "全文"
+        },
+        "record_ref": {
+          "kind": "record",
+          "id": "MEM-96f79923-f023-509e-a002-40f2d5a4fca1",
+          "revision": 3,
+          "sha256": "4e863128333d48e4bb228682a3664fbabd1155143bc92db2d6a1d1b50db6cf86",
+          "locator": null
+        },
+        "block_ids": [
+          "results"
+        ],
+        "expanded": false
+      },
+      {
+        "kind": "figure",
+        "index": 1,
+        "caption": "第三轮全部30个固定排列的绝对误差序列",
+        "marker": "figure:MEM-96f79923-f023-509e-a002-40f2d5a4fca1:1",
+        "ref": {
+          "kind": "file",
+          "id": "SRC-SUMMATION-FIGURE-PERMUTATIONS",
+          "revision": null,
+          "sha256": "0fdc0ea6ef408adaf2c7c5c2e56fd0f72e95db032a30d5fc344e3cf9e21bd456",
+          "locator": "全文"
+        },
+        "record_ref": {
+          "kind": "record",
+          "id": "MEM-96f79923-f023-509e-a002-40f2d5a4fca1",
+          "revision": 3,
+          "sha256": "4e863128333d48e4bb228682a3664fbabd1155143bc92db2d6a1d1b50db6cf86",
+          "locator": null
+        },
+        "block_ids": [
+          "results"
+        ],
+        "expanded": false
+      }
+    ],
+    "reading_form": "research_process",
+    "complete": true,
+    "gaps": [],
+    "session_id": "RS-a8f812d7-d8f9-4862-8e8f-932cc5649d3b",
+    "revision": 3
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 14077,
+    "read_bytes": 1242491,
+    "output_chars": 17223,
+    "candidates": 2,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

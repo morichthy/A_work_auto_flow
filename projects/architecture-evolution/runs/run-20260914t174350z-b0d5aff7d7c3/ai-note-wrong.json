@@ -1,0 +1,35 @@
+{
+  "session_id": "RS-97a3e089-e45d-46d1-a2ff-2cf6292f6c96",
+  "expected_revision": 4,
+  "request_id": "ai-note-wrong-1",
+  "candidate_id": "RC-b9065ef0d072745bcd3adbf8",
+  "summary": "实际读完整合成旧版正文：型号相同但版本v2.0，与请求v2.1冲突；还明确说明翻译会丢弃数值条件，不能作为满足本问题的直接答案。",
+  "connection": {
+    "kind": "not_useful",
+    "explanation": "版本不匹配，数值条件保留行为也与目标冲突；仅保留为检索误命中的反例。",
+    "chain": [
+      "definitions写v2.0而问题要求v2.1",
+      "method写会丢弃数值条件",
+      "相似词法命中不等于条件满足，因此不采纳为直接依据"
+    ]
+  },
+  "details": [
+    {
+      "text": "版本v2.0：与v2.1要求冲突。",
+      "reason": "不能按语义相似度忽略版本",
+      "block_ids": [
+        "definitions"
+      ]
+    },
+    {
+      "text": "正文未声明≤0.5 mm，并指出数值条件会丢失。",
+      "reason": "数字条件未说明且方法不满足保留要求",
+      "block_ids": [
+        "method"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "仅合成旧版本反例，不对应真实产品"
+  ]
+}

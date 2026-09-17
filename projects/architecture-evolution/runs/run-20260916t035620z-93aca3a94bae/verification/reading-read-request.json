@@ -1,0 +1,11 @@
+{
+  "session_id": "RS-e0de6106-ce79-4e3e-9151-669025a55e40",
+  "expected_revision": 2,
+  "request_id": "cli-ai-full-read-1",
+  "candidate_ids": [
+    "RC-c6a6cd6a1b5ca7fef1497937",
+    "RC-097e238df9da5e7b42bbb04b",
+    "RC-b5e2ac2294526b7e6ec73f09",
+    "RC-05fab232f70db92e6371dd1b"
+  ]
+}

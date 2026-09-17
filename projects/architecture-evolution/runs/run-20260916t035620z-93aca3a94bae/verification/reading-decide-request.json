@@ -1,0 +1,10 @@
+{
+  "session_id": "RS-e0de6106-ce79-4e3e-9151-669025a55e40",
+  "expected_revision": 7,
+  "request_id": "cli-ai-finish-1",
+  "direction": "finish",
+  "reason": "4个合成候选已完整回读并由主线AI记录理解，排序条件与用途一致。",
+  "next_step": "保存回执并继续正式软件回归；真实业务检索质量和延迟另行评估。",
+  "outcome": "实际模型评分及明确字段条件、完整阅读、保存理解链路完成；缺dense警告如实保留。",
+  "human_decision": ""
+}

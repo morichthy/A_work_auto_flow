@@ -1,0 +1,34 @@
+{
+  "unit": {
+    "target_kind": "record",
+    "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+    "revision": 2,
+    "sha256": "1df804130728e6619ebfb2c63920cb51e4875769265ad7b00fac3d7add52efe9",
+    "locator": "",
+    "relation": "references"
+  },
+  "section": {
+    "target_kind": "record",
+    "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+    "revision": 3,
+    "sha256": "d526670cbb8f2e4ec5b5cc6e23db19089184addd16199f7b58873be4da037d89",
+    "locator": "",
+    "relation": "references"
+  },
+  "overview": {
+    "target_kind": "record",
+    "target_id": "MEM-b8db41b4-3a97-5f26-ba21-87f6cce7d155",
+    "revision": 3,
+    "sha256": "288d3061e4c5f85e91b3a4b296ba2284822fc90904f645a21210103088f6e613",
+    "locator": "",
+    "relation": "references"
+  },
+  "document": {
+    "target_kind": "record",
+    "target_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+    "revision": 3,
+    "sha256": "c0da626069a72099223023d62da266e4e653d1a8c0ea02a2f950e067749f8df2",
+    "locator": "",
+    "relation": "references"
+  }
+}

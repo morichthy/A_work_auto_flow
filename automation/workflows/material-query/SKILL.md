@@ -20,12 +20,14 @@ description: 按 Owner 查找和逐篇读取本地固定文稿，保存研究式
 
 先按模板或当前 RS 的 `strategy` 工作，不自行覆盖用户保存的默认模式。standard 是下述完整阅读流程；associative 在原问题未充分解决时，由主 Agent 根据已有 note 的缺口与材料线索制定具体子问题和关键词，保存 `association_text` 后交 reader 以 reading-recall 追加召回，再走相同的 Owner 全文阅读。reader 只执行给定搜索文本，不自行制定联想方向。用 reading-configure 显式切换当前会话，不能重置授权域、累计预算或等待用户的状态；工作台配置保存本身不启动 AI。
 
+Owner 文稿模式默认使用 L4/L3、L2 紧凑内容、L1 `retrieval_description` 和 Owner 元数据的独立发现索引，先融合 Owner，再给 AI 覆盖互补筛选包；详细边界见[Owner发现设计](../../../docs/design/OWNER_DISCOVERY_RETRIEVAL.md)。先用 `reading-assess-owners` 逐项保存 `relevant`、`uncertain` 或 `irrelevant`；只有 relevant 可完整阅读，uncertain 不自动扩大范围。发现索引不可用、覆盖不完整或结果不足时只报告缺口并询问用户是否开启 `reading-recall-fulltext`；没有真实选择不得自动搜索 L1 blocks、完整文稿或 L0。manual MQ、legacy RS 及已冻结旧查询不迁移到该路径。
+
 quick 只用实际交付的召回文本：对每个 candidate_id 调用 reading-assess，保存 useful 与 reason；需要更多片段时 reading-page。仅以接受的固定片段调用 reading-note，不调用 reading-read，也不补写未读全文的内容。未判断、缺必要定义或未覆盖部分明确作为缺口。之后切回 standard，必须实际读完文稿才能提交标准 note。
 
 1. 根据获准语料语言准备少量等义查询；技术/文献问题即使中文提问也补英文关键词与完整英文句。原问题保留，型号、版本、数值/单位、范围、否定和工况不可改写。未知语料说明未知，英文不是可靠性标准。
 2. reading-recall 填写语言计划与领域；最多三条去重等义查询（含原查询）。词法用紧凑术语，向量用完整句。程序按领域使用[术语库](../../../retrieval/query-terms.json)，冻结计划供 reading-page 续页；单跳关联只作探索，不当等义或科学支持。无需 AI 每次打开整个词库；维护词条时按[术语库手册](../../../docs/QUERY_TERMS.md)读取相关领域并保存依据。
-3. 程序内部融合、重排和去重；每个Owner先交一段，AI只读正文与owner_id。尚不能判断时按has_more/pending_owner_count继续reading-page，不因首段无关就断言整个Owner无关。按问题核对相关性：可直接使用、有具体迁移理由的启发、冲突、未说明分别处理。字段条件由程序核对，复杂语义不因排名或pending而成立。
-4. 确定 Owner 有用就 reading-read 指定 owner_id；后续跳过该 Owner 的其他候选。一次读一个 Owner 的现有文稿，优先完整研究过程。检查返回的实际文稿类型、固定版本、完整性和缺口；缺文稿的真实正文回退不称为完整研究报告，也不因同 Owner 就认定所有材料支持结论。
+3. 程序内部融合、重排和去重；每个 Owner 先交一组互补筛选窗口，通常 2–3、硬上限 4。先用 `reading-assess-owners` 保存三态判断；尚不能判断按has_more/pending_owner_count继续reading-page，不因首包无关就断言整个Owner无关。按问题核对相关性：可直接使用、有具体迁移理由的启发、冲突、未说明分别处理。字段条件由程序核对，复杂语义不因排名或pending而成立。
+4. 只有判断为 relevant 的 Owner 才能 reading-read 指定 owner_id；后续跳过该 Owner 的其他候选。一次读一个 Owner 的当前全部可读正文并稳定分页到结束，优先完整研究过程。检查返回的实际文稿类型、固定版本、完整性和缺口；缺文稿的真实正文回退不称为完整研究报告，也不因同 Owner 就认定所有材料支持结论。
 5. 图片、L0、Run 等内容多的材料先保留固定引用；需要解释图形、复算或核对原件时再沿已交付引用展开，不自动读全部原件。Run 的结论/限制可提供摘要；空结论或缺文稿应记缺口，不把原始日志拼成既成结论。
 
 ## reading note：简化研究报告

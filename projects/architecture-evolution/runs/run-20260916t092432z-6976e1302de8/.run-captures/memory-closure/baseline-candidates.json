@@ -1,0 +1,434 @@
+[
+  {
+    "record_id": "MEM-05943bf4-63fe-5f0e-bd93-e5db72378c1d",
+    "revision": 1,
+    "record_hash": "8456744c71e630fe052dade1cafe1b20f3c96d75dc3923e742a323de4ec8eb2d",
+    "kind": "document_section",
+    "level": null,
+    "title": "本轮实际实现与验证",
+    "updated_at": "2026-09-09T22:38:27.717320Z"
+  },
+  {
+    "record_id": "MEM-07d8a202-977c-50ed-b88b-01ea1e7b651d",
+    "revision": 1,
+    "record_hash": "bf5e06a7664c6915671d08a5a0ef43de825b141fc6c223e2a823aa72c8141177",
+    "kind": "document_section",
+    "level": null,
+    "title": "来源恢复与索引覆盖修复",
+    "updated_at": "2026-09-10T05:25:43.947788Z"
+  },
+  {
+    "record_id": "MEM-07f99619-3a8d-5bc8-8a4f-7cc26c68895b",
+    "revision": 1,
+    "record_hash": "1c13f045d9661b7e46c085a801a467f6984d40cb2cd83e79b9d0fd2e9e5aa876",
+    "kind": "document_section",
+    "level": null,
+    "title": "设计方向与原始讨论依据",
+    "updated_at": "2026-09-09T17:17:44.806007Z"
+  },
+  {
+    "record_id": "MEM-0bb96a65-0ada-5001-80cb-14904ef684d1",
+    "revision": 1,
+    "record_hash": "cbbc56e4ede64932783f63e764587d4a70026ab6b7c1998b419349a6870df933",
+    "kind": "detail",
+    "level": "L1",
+    "title": "实现落点、默认策略与真实验证",
+    "updated_at": "2026-09-09T17:16:28.883457Z"
+  },
+  {
+    "record_id": "MEM-0ea4cb73-8b6d-5a0a-9e18-25d8f8832389",
+    "revision": 1,
+    "record_hash": "605063c592e11648da97b447e5f610400dfe91b9f95978dbb4736729fc06bc8a",
+    "kind": "document_section",
+    "level": null,
+    "title": "来源、知识属性与公共数据契约",
+    "updated_at": "2026-09-09T17:17:44.806007Z"
+  },
+  {
+    "record_id": "MEM-12ab4fe8-bee3-5179-a3ef-e7ddaed461a2",
+    "revision": 4,
+    "record_hash": "ab801ed6f748fcc4d15f12e84b394098fb61025d96ee40b694b5303b5a2fa684",
+    "kind": "document_section",
+    "level": null,
+    "title": "核心功能说明：定义、维护与完整闭环",
+    "updated_at": "2026-09-09T19:16:52.478999Z"
+  },
+  {
+    "record_id": "MEM-192a48a9-191c-5018-8c58-bae968b45ae2",
+    "revision": 4,
+    "record_hash": "35835466cd32f0e8f617cc7467883f2d3053581c49f0e504b5df6fe05e04d9a0",
+    "kind": "detail",
+    "level": "L1",
+    "title": "表示查询与AI维护的实施设计",
+    "updated_at": "2026-09-09T19:16:35.770004Z"
+  },
+  {
+    "record_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+    "revision": 1,
+    "record_hash": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+    "kind": "detail",
+    "level": "L1",
+    "title": "独立子Agent阅读与有界笔记交接：实现及验证",
+    "updated_at": "2026-09-16T06:37:16.885911Z"
+  },
+  {
+    "record_id": "MEM-2afc5e96-c1d0-5f3a-8ad1-484f39e6d27d",
+    "revision": 1,
+    "record_hash": "5daa19a02daaeb4f6933c7d14a06c130354f70d7067561974e23f2444818a641",
+    "kind": "document_section",
+    "level": null,
+    "title": "实现落点、默认策略与真实验证",
+    "updated_at": "2026-09-09T17:17:44.806007Z"
+  },
+  {
+    "record_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+    "revision": 1,
+    "record_hash": "8ea83d522ab2422ae9217eb6826b2d877692e833e515097aa021d9689770176c",
+    "kind": "document_section",
+    "level": null,
+    "title": "正文重排完整实施与验证",
+    "updated_at": "2026-09-16T05:02:47.631668Z"
+  },
+  {
+    "record_id": "MEM-2c7941ed-b272-573c-ad70-2c7739ccac99",
+    "revision": 1,
+    "record_hash": "b2423bd7037468bb6f57e64bea17b37ffef80c92cb41c52a10e282108b67f6d3",
+    "kind": "detail",
+    "level": "L1",
+    "title": "来源搬迁后的固定读取与索引覆盖恢复",
+    "updated_at": "2026-09-10T05:25:20.884605Z"
+  },
+  {
+    "record_id": "MEM-3227e150-36dd-5d01-825d-38c7362989b2",
+    "revision": 1,
+    "record_hash": "993d53cbbddeb4279b7cd9efd7eb47873d738d7afaef91e008c24cb694fc60ea",
+    "kind": "overview",
+    "level": "L4",
+    "title": "2026-09-16召回排序演进概览",
+    "updated_at": "2026-09-16T05:08:48.710074Z"
+  },
+  {
+    "record_id": "MEM-3264fce7-c63f-504e-bdb5-3aaa1169eb7b",
+    "revision": 7,
+    "record_hash": "ae5ea0f40e77cf3275aae691e102d93c7017d13d744426c816ce767baec43133",
+    "kind": "document",
+    "level": null,
+    "title": "表示查询：完整设计与实施过程",
+    "updated_at": "2026-09-10T06:55:31.655678Z"
+  },
+  {
+    "record_id": "MEM-3d6097e5-9028-5e74-b2ca-196db59ed90c",
+    "revision": 1,
+    "record_hash": "7df972e0d2deb3b3c9db2350dfc22bec3d550ec1a9250ed70f2effa577e41a42",
+    "kind": "detail",
+    "level": "L1",
+    "title": "本地登记、双索引与人工验收覆盖审计",
+    "updated_at": "2026-09-10T06:51:10.578248Z"
+  },
+  {
+    "record_id": "MEM-4143f480-712a-5739-8044-3535ecaf1b0a",
+    "revision": 1,
+    "record_hash": "cc35f69de2b5644362c977cd2885e2be0912d1ca8c2ec6d71d69c4f78a4494d9",
+    "kind": "detail",
+    "level": "L1",
+    "title": "局部证据、关系加深与语义维护",
+    "updated_at": "2026-09-09T22:37:43.900376Z"
+  },
+  {
+    "record_id": "MEM-433a097e-6cf5-5ff3-baf5-1e0a47e7b9c5",
+    "revision": 1,
+    "record_hash": "d656e5073cab9061bcdb3f147233937e1290c5a77859e70955e11f39d9330f15",
+    "kind": "document_section",
+    "level": null,
+    "title": "渐进编排与上下文组装接口",
+    "updated_at": "2026-09-09T17:17:44.806007Z"
+  },
+  {
+    "record_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+    "revision": 2,
+    "record_hash": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+    "kind": "detail",
+    "level": "L1",
+    "title": "工作区设置：协作开关、默认检索预算与缓存验证",
+    "updated_at": "2026-09-16T08:35:08.166478Z"
+  },
+  {
+    "record_id": "MEM-4bbfdd98-b72a-53a0-b812-3e0b3e0b1166",
+    "revision": 1,
+    "record_hash": "80e72dab11cf69b64efb0d333c02becfca5ab2f92a6074f9f75d87e861fe0af4",
+    "kind": "document_section",
+    "level": null,
+    "title": "本地覆盖审计与人工验收安排",
+    "updated_at": "2026-09-10T06:51:44.354204Z"
+  },
+  {
+    "record_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+    "revision": 2,
+    "record_hash": "6e1724a70a537bbabb7319140b22afd9a4ed1cdeac68933a6a92a3eaaf0d87a5",
+    "kind": "document_section",
+    "level": null,
+    "title": "子Agent阅读与主Agent交接",
+    "updated_at": "2026-09-16T08:40:29.082101Z"
+  },
+  {
+    "record_id": "MEM-54e967cf-5f9e-5250-894d-ab3a56fe95ef",
+    "revision": 4,
+    "record_hash": "1306cb4ff426aa4b910f823391942393033109ed9bfe2653d931dad805a15122",
+    "kind": "document_section",
+    "level": null,
+    "title": "验证、边界与实施顺序",
+    "updated_at": "2026-09-09T19:16:52.478999Z"
+  },
+  {
+    "record_id": "MEM-5c827f1d-99ff-5a60-a150-ac28ad89c877",
+    "revision": 1,
+    "record_hash": "35490052295d59e2c0ed99997d97b341a26822a4cf95059731195981b8268d97",
+    "kind": "document",
+    "level": null,
+    "title": "召回排序演进：正文、条件与Cross-encoder完整报告",
+    "updated_at": "2026-09-16T05:04:03.117159Z"
+  },
+  {
+    "record_id": "MEM-66d460ce-e086-5dd4-b261-50884640483a",
+    "revision": 1,
+    "record_hash": "42aeabcdb2be08078b97d08e56ffee314dba922a87bf924b68ea37d70499d55e",
+    "kind": "document_section",
+    "level": null,
+    "title": "本地覆盖审计与人工验收安排",
+    "updated_at": "2026-09-10T06:51:44.354204Z"
+  },
+  {
+    "record_id": "MEM-67e69e5f-8de7-5c24-b8bc-eb41299f8eaf",
+    "revision": 2,
+    "record_hash": "03a385edf964459d5acbb0cbd17ae0d96307c158f728c20362a940e713c18bcf",
+    "kind": "overview",
+    "level": "L4",
+    "title": "2026-09-16工作区设置实施概览",
+    "updated_at": "2026-09-16T08:40:29.082101Z"
+  },
+  {
+    "record_id": "MEM-76c2ed5f-d911-5435-9818-f5266bfc77e5",
+    "revision": 1,
+    "record_hash": "365a3da5bae18d00d5697d3f9472fd778bcf6240de34a768b35a5e9ce0cf93cc",
+    "kind": "detail",
+    "level": "L1",
+    "title": "来源、知识属性与公共数据契约",
+    "updated_at": "2026-09-09T17:16:28.883457Z"
+  },
+  {
+    "record_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+    "revision": 2,
+    "record_hash": "c560c4436ab6a9d905e63ac3c7afe853f5b63c3d451e1716343b1e641ff7108f",
+    "kind": "document_section",
+    "level": null,
+    "title": "统一设置的实现与边界验证",
+    "updated_at": "2026-09-16T08:40:29.082101Z"
+  },
+  {
+    "record_id": "MEM-7faf0c58-7e42-59db-9613-b29e6f7c39ca",
+    "revision": 1,
+    "record_hash": "62f6509b42a7d2fe07c67841b7708c21f7ed7588a1d28dca4481048339af8160",
+    "kind": "detail",
+    "level": "L1",
+    "title": "渐进编排与上下文组装接口",
+    "updated_at": "2026-09-09T17:16:28.883457Z"
+  },
+  {
+    "record_id": "MEM-7fc816dc-2a9c-5189-82ad-1906b6a917e8",
+    "revision": 1,
+    "record_hash": "a525b9e0b27ed752f04dbb757fd4b00e4abaf15a06cbee21937ad1732c16ec5e",
+    "kind": "detail",
+    "level": "L1",
+    "title": "召回、排序与关系导航接口",
+    "updated_at": "2026-09-09T17:16:28.883457Z"
+  },
+  {
+    "record_id": "MEM-8933de07-288b-5782-ad81-67a05a133b19",
+    "revision": 1,
+    "record_hash": "97c62250cc65885523c238a2acda2fdbfaa3554ea64f8c23ba4407127b10c9da",
+    "kind": "detail",
+    "level": "L1",
+    "title": "表示与索引生命周期接口",
+    "updated_at": "2026-09-09T17:16:28.883457Z"
+  },
+  {
+    "record_id": "MEM-8d589423-c595-5a80-898d-23d974868c7c",
+    "revision": 1,
+    "record_hash": "7ba18b666408efb7b4bca3de831fb8d453262b25a082481eec9c7329d343e109",
+    "kind": "detail",
+    "level": "L1",
+    "title": "存储、视图、维护与证据边界",
+    "updated_at": "2026-09-09T17:16:28.883457Z"
+  },
+  {
+    "record_id": "MEM-9aaa1a6e-9a1e-592b-97a6-bb93f65e5748",
+    "revision": 1,
+    "record_hash": "0a13d99fbcce00ee5a9d8a79e5eecab1227d0b0c4f8f18f50dfc9e228045325d",
+    "kind": "document_section",
+    "level": null,
+    "title": "工作台接入、验证和Windows升级",
+    "updated_at": "2026-09-09T22:38:27.717320Z"
+  },
+  {
+    "record_id": "MEM-a23c4417-10d8-59a0-8967-1314131c5e28",
+    "revision": 1,
+    "record_hash": "5419442bf9b4932c36a7399f6c57e103bca191810ad42bfb18ddcd51896b656e",
+    "kind": "document_section",
+    "level": null,
+    "title": "来源恢复与索引覆盖修复",
+    "updated_at": "2026-09-10T05:25:43.947788Z"
+  },
+  {
+    "record_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+    "revision": 1,
+    "record_hash": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+    "kind": "detail",
+    "level": "L1",
+    "title": "正文、Cross-encoder与条件重排：实施和固定对照",
+    "updated_at": "2026-09-16T05:00:03.420391Z"
+  },
+  {
+    "record_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+    "revision": 2,
+    "record_hash": "72e03d5cec22fe9581650625d2043750cd44e4a0763bd07423150cf64eba9904",
+    "kind": "document",
+    "level": null,
+    "title": "工作区统一设置：协作、检索预算与兼容验证完整报告",
+    "updated_at": "2026-09-16T08:42:16.535462Z"
+  },
+  {
+    "record_id": "MEM-b0390c59-c458-5690-bc68-6dd030d32de0",
+    "revision": 1,
+    "record_hash": "e164f67b43688a742e773a9c4bb025c118a30ca473a389ba62c79d4d8b7036ae",
+    "kind": "detail",
+    "level": "L1",
+    "title": "工作台接入、验证和Windows升级",
+    "updated_at": "2026-09-09T22:37:43.900376Z"
+  },
+  {
+    "record_id": "MEM-b0d161c1-cb11-5c55-8d6c-58da7204cc4b",
+    "revision": 1,
+    "record_hash": "6d862359880f901ac3df87b6432d6ae9bc9fdce5c64e21a830688e58d3ef5a65",
+    "kind": "detail",
+    "level": "L1",
+    "title": "AI工作、自动记录、经验综合与后续复用：26项开源和商业项目比较",
+    "updated_at": "2026-09-12T22:06:56.696832Z"
+  },
+  {
+    "record_id": "MEM-b75bea5c-7e9e-54bd-b471-8b669beca2e5",
+    "revision": 1,
+    "record_hash": "f611d6287a99e6112fb74ededdcc89e377c8f57e899833f394a1857c17455a52",
+    "kind": "document_section",
+    "level": null,
+    "title": "表示查询运行实现：契约、范围和累计资源",
+    "updated_at": "2026-09-09T22:38:27.717320Z"
+  },
+  {
+    "record_id": "MEM-b8db41b4-3a97-5f26-ba21-87f6cce7d155",
+    "revision": 2,
+    "record_hash": "1084c5358cbd7b27f2f219a12f2c21c888fe2d7ea1a5718601d8f6cc01806492",
+    "kind": "overview",
+    "level": "L4",
+    "title": "2026-09-16子Agent阅读实施概览",
+    "updated_at": "2026-09-16T08:40:29.082101Z"
+  },
+  {
+    "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+    "revision": 2,
+    "record_hash": "c73493f68b64d93112b50f46fbf5d9c4365bfd6186bca9916a1994f471cb82cc",
+    "kind": "document",
+    "level": null,
+    "title": "子Agent材料阅读与有界笔记交接完整报告",
+    "updated_at": "2026-09-16T08:42:16.535462Z"
+  },
+  {
+    "record_id": "MEM-bfa85fc8-18bc-5d83-b17e-a4cfaa50f943",
+    "revision": 1,
+    "record_hash": "23d0d79f5cf7f872b3599c683ba7ff8b620842e1e3d7245e3fd1fa37cd88772d",
+    "kind": "document_section",
+    "level": null,
+    "title": "表示与索引生命周期接口",
+    "updated_at": "2026-09-09T17:17:44.806007Z"
+  },
+  {
+    "record_id": "MEM-c0c9cca2-5a17-5634-86f7-3dbb3dec7902",
+    "revision": 2,
+    "record_hash": "594c214785a7c6c11e8da50912a30f8f5f492d6f65b46b06ba17f8df2c8fe568",
+    "kind": "detail",
+    "level": "L1",
+    "title": "借鉴成熟机制而非整体替代：openBIS 存储与 AI 自动记录的差异",
+    "updated_at": "2026-09-12T21:56:48.774251Z"
+  },
+  {
+    "record_id": "MEM-c40996c6-fd17-59b9-84a3-9b373cdbcd64",
+    "revision": 1,
+    "record_hash": "e8d07e79f6a57d10c2f02fb911c55bc808eb553a0621e84b096f8b1f475e0275",
+    "kind": "detail",
+    "level": "L1",
+    "title": "本项目与Langfuse等17个相关项目：差异、双向借鉴与候选优先级",
+    "updated_at": "2026-09-12T21:36:04.729636Z"
+  },
+  {
+    "record_id": "MEM-de3fa8e3-8175-513e-9570-93f73d8fe2e1",
+    "revision": 1,
+    "record_hash": "f6de9864145ed4def6f83a10b0dbf2f4d1d924a02cb9146717ac0a7b17de290b",
+    "kind": "document_section",
+    "level": null,
+    "title": "召回、排序与关系导航接口",
+    "updated_at": "2026-09-09T17:17:44.806007Z"
+  },
+  {
+    "record_id": "MEM-ea9c08fd-4dc8-54f8-abf8-16c1869fb19d",
+    "revision": 1,
+    "record_hash": "86619fca5c43336d89513efab51ab2a608b1ee0dabde1a582847a26a3f3fce2e",
+    "kind": "detail",
+    "level": "L1",
+    "title": "设计方向与原始讨论依据",
+    "updated_at": "2026-09-09T17:16:28.883457Z"
+  },
+  {
+    "record_id": "MEM-ecc8c6cc-b362-5450-bffc-da7418c2c745",
+    "revision": 1,
+    "record_hash": "0d45da80e028fa231a8d24652df833373707737bf8d05bbcbe5cf421b4d2ba9c",
+    "kind": "detail",
+    "level": "L1",
+    "title": "表示查询运行实现：契约、范围和累计资源",
+    "updated_at": "2026-09-09T22:37:43.900376Z"
+  },
+  {
+    "record_id": "MEM-ef137680-afa6-59b8-a263-f2bb33d256c4",
+    "revision": 7,
+    "record_hash": "c42843f4743cdf43b488e1f7c7acce86b44ecc91a488910f728fe0df287c59ab",
+    "kind": "document",
+    "level": null,
+    "title": "表示查询：当前实现与核心简报",
+    "updated_at": "2026-09-10T06:55:31.655678Z"
+  },
+  {
+    "record_id": "MEM-f7c70f53-cecd-50ce-aac9-f7d59e091fdd",
+    "revision": 1,
+    "record_hash": "65d3a88fe3f09a6b8b19d60b8f1327b32d42572365b4c640e244d4cd6462b45c",
+    "kind": "document_section",
+    "level": null,
+    "title": "局部证据、关系加深与语义维护",
+    "updated_at": "2026-09-09T22:38:27.717320Z"
+  },
+  {
+    "record_id": "MEM-f8a3205a-c835-5a26-9165-d4142ad25c6f",
+    "revision": 4,
+    "record_hash": "ea1cf1091e9cf2a634af4ba8b052ba3523d04658a9e4783b69777b80f54ead70",
+    "kind": "document_section",
+    "level": null,
+    "title": "核心概念、七项功能和完整闭环",
+    "updated_at": "2026-09-09T19:16:52.478999Z"
+  },
+  {
+    "record_id": "MEM-fd727af8-77a1-5900-918d-3bf0bc808a3a",
+    "revision": 1,
+    "record_hash": "954b8ab94dda711c4e277551cdfd8d6aeb5b547b74b72e81d8042f20d01a2f6f",
+    "kind": "document_section",
+    "level": null,
+    "title": "存储、视图、维护与证据边界",
+    "updated_at": "2026-09-09T17:17:44.806007Z"
+  }
+]

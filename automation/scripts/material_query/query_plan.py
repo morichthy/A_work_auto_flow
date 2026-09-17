@@ -198,3 +198,50 @@ def fuse(batches):
                 if sourced not in row['hits']:
                     row['hits'].append(sourced)
     return sorted(merged.values(), key=lambda row: (-row['fusion_score'], digest(row['refs'][0])))
+
+
+def fuse_owners(batches):
+    """Fuse discovery hits at Owner level with one vote per signal family.
+
+    Query variants inside lexical/dense are alternative formulations of the
+    same signal.  They enrich provenance and screening choices but cannot earn
+    repeated RRF votes.  Fixed refs remain distinct so revisions and records
+    never disappear behind a bare record ID.
+    """
+    owners_by_id, votes = {}, {}
+    for route, candidates in batches:
+        family = route['kind'] + ':' + route['channel']
+        family_weight = .25 if route['kind'] == 'related' else 1.0
+        seen_owners = set()
+        for rank, candidate in enumerate(candidates, 1):
+            owner_id = candidate.get('owner_id')
+            if not owner_id:
+                continue
+            row = owners_by_id.setdefault(owner_id, {'owner_id': owner_id,
+                'title': candidate.get('title', owner_id), 'refs': [], 'hits': [], 'channels': [],
+                'query_sources': [], 'family_votes': [], 'fusion_score': 0.0})
+            row['refs'] = list({digest(ref): deepcopy(ref) for ref in row['refs'] + candidate.get('refs', [])}.values())
+            row['channels'] = list(dict.fromkeys(row['channels'] + candidate.get('channels', [route['channel']])))
+            for hit in candidate.get('hits', []):
+                sourced = {**deepcopy(hit), 'query_source': route['id'], 'query_plan_id': route['query_plan_id']}
+                if sourced not in row['hits']:
+                    row['hits'].append(sourced)
+            source = {**{field: route[field] for field in SOURCE_FIELDS}, 'rank': rank}
+            if source not in row['query_sources']:
+                row['query_sources'].append(source)
+            key = (owner_id, family)
+            previous = votes.get(key)
+            if previous is None or rank < previous['rank']:
+                votes[key] = {'family': family, 'rank': rank, 'weight': family_weight,
+                              'query_source': route['id']}
+            # Repeated projections in one route enrich hits but never vote twice.
+            if owner_id in seen_owners:
+                continue
+            seen_owners.add(owner_id)
+    for (owner_id, _), vote in votes.items():
+        row = owners_by_id[owner_id]
+        row['family_votes'].append(vote)
+        row['fusion_score'] += vote['weight'] / (60 + vote['rank'])
+    for row in owners_by_id.values():
+        row['family_votes'].sort(key=lambda vote: vote['family'])
+    return sorted(owners_by_id.values(), key=lambda row: (-row['fusion_score'], row['owner_id']))

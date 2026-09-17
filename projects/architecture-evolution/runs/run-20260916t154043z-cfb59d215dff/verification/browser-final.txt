@@ -1,0 +1,49 @@
+
+> rd-workbench@1.0.0 e2e
+> playwright test e2e/memory.spec.ts e2e/material-query.spec.ts
+
+
+Running 14 tests using 1 worker
+
+  ok  1 e2e\material-query.spec.ts:80:1 › 材料查询真实HTTP组装四区、固定依据与来源映射 (3.2s)
+  ok  2 e2e\material-query.spec.ts:154:1 › 维护任务包导出保留未审状态，改变条件使旧候选失效 (2.2s)
+  ok  3 e2e\material-query.spec.ts:209:1 › 真实预算耗尽显示停止原因并保留查询范围 (1.4s)
+  ok  4 e2e\material-query.spec.ts:224:1 › 有效 partial 审查与真实提交保留索引待办，关闭已完成提交 (5.4s)
+  ok  5 e2e\material-query.spec.ts:423:1 › 概览正文通过固定引用展开经过与技术内容，来源切换和取消选择明确 (7.6s)
+  ok  6 e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 (5.4s)
+  ok  7 e2e\memory.spec.ts:115:1 › 系统记忆默认研究经过，按需生成对象记忆且保持子页结果 (2.9s)
+  ok  8 e2e\memory.spec.ts:207:1 › 四层记录、真实编辑冲突、索引待补偿与安全导出 (19.5s)
+  ok  9 e2e\memory.spec.ts:336:1 › 连续研究报告、固定图示、目录路由和窄屏阅读 (10.6s)
+  ok 10 e2e\memory.spec.ts:644:1 › 研究、Run、知识与报告真实记录及辅助对象可区分 (8.0s)
+  ok 11 e2e\memory.spec.ts:738:1 › 缺范围复核被拒绝并保留逐结论状态 (17.5s)
+  x  12 e2e\memory.spec.ts:799:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联 (10.1s)
+  -  13 e2e\memory.spec.ts:891:1 › 逐层读取固定原件、返回已读版本，并识别原件变化
+  -  14 e2e\memory.spec.ts:949:1 › 独立双文稿、必要定义、章节上下文与固定修订影响
+
+
+  1) e2e\memory.spec.ts:799:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联 ───────────────────────────────────────────
+
+    Error: {"error":{"code":"STALE_BASIS","message":"材料包依据对象已变化","details":{"changed_owners":[{"owner_id":"RES-SYN-THERMAL","expected":"COM-88070b08-e508-4a45-9bc5-1b91f52351cc","actual":"COM-13587877-531f-4af2-94e3-11c143079c0b"}]},"errors":[]},"save_status":"not_committed"}
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "committed"
+    Received: "not_committed"
+
+      853 |     await page.getByRole("button", { name: "保存记忆", exact: true }).click();
+      854 |     const receipt = await (await saved).json();
+    > 855 |     expect(receipt.save_status, JSON.stringify(receipt)).toBe("committed");
+          |                                                          ^
+      856 |     await expect(page.getByRole("status")).toContainText("记录已保存", {
+      857 |       timeout: 60000,
+      858 |     });
+        at D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\memory.spec.ts:855:58
+
+    Error Context: test-results\memory-跨研究材料回填L3与L4，并采纳有边界的导航关联\error-context.md
+
+    Error Context: test-results\memory-跨研究材料回填L3与L4，并采纳有边界的导航关联\error-context.md
+
+  1 failed
+    e2e\memory.spec.ts:799:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联 ────────────────────────────────────────────
+  2 did not run
+  11 passed (2.0m)

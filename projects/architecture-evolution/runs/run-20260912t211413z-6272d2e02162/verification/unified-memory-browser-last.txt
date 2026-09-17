@@ -1,0 +1,17 @@
+
+> rd-workbench@1.0.0 e2e
+> playwright test e2e/memory.spec.ts
+
+
+Running 8 tests using 1 worker
+
+  ok 1 e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 (4.5s)
+  ok 2 e2e\memory.spec.ts:154:1 › 四层记录、真实编辑冲突、索引待补偿与安全导出 (18.6s)
+  ok 3 e2e\memory.spec.ts:283:1 › 连续研究报告、固定图示、目录路由和窄屏阅读 (10.6s)
+  ok 4 e2e\memory.spec.ts:577:1 › 研究、Run、知识与报告真实记录及辅助对象可区分 (10.6s)
+  ok 5 e2e\memory.spec.ts:669:1 › 缺范围复核被拒绝并保留逐结论状态 (24.2s)
+  ok 6 e2e\memory.spec.ts:730:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联 (23.7s)
+  ok 7 e2e\memory.spec.ts:822:1 › 逐层读取固定原件、返回已读版本，并识别原件变化 (7.2s)
+  ok 8 e2e\memory.spec.ts:880:1 › 独立双文稿、必要定义、章节上下文与固定修订影响 (20.1s)
+
+  8 passed (2.2m)

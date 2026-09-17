@@ -133,6 +133,7 @@ class Reading:
                              'association': preferences.get('association', {'enabled': True, 'max_rounds': 3}),
                              'association_text': '',
                              'context': preferences.get('context', {'max_owners': 10, 'note_max_tokens': 6000}),
+                             'screening': preferences.get('screening', {'regular_windows': 3, 'max_windows': 4, 'batch_owners': 10}),
                              'conditions': [], 'query': json_value(query),
                              'reranking': reranking.settings(preferences['reranking'])})
         if action == 'start':
@@ -149,7 +150,8 @@ class Reading:
                   'decide': {'direction', 'reason', 'next_step', 'outcome', 'human_decision'}, 'resume': set(), 'page': set(),
                   'view': set(), 'delegate': set(), 'handoff': set(),
                   'bind': {'owner_id', 'checkpoint_ref'}, 'archive': {'archived', 'reason'}}
-        extras.update(configure={'strategy', 'association_text'}, assess={'candidate_id', 'useful', 'reason'}, synthesize={'research_note'})
+        extras.update(configure={'strategy', 'association_text'}, assess={'candidate_id', 'useful', 'reason'},
+                      **{'assess-owners': {'assessments'}, 'recall-fulltext': set()}, synthesize={'research_note'})
         require(action in extras, '未知阅读动作')
         if action == 'delegate':
             object_fields(raw, {'session_id', 'host_supports_subagents'}, {'expected_revision'})
@@ -202,7 +204,8 @@ class Reading:
                     raise QueryError('CONFLICT', '阅读记录已有新版本，请先续接')
                 require(not session.get('archived') or action in {'view', 'resume', 'archive', 'handoff'}, '已归档会话请先恢复，再继续工作')
                 method = 'notes_view' if action == 'view' and raw.get('notes_only') else 'resume' if action == 'view' else action
-                require(owner_mode or action not in {'configure', 'assess', 'synthesize'}, 'legacy会话不支持新策略动作')
+                require(owner_mode or action not in {'configure', 'assess', 'assess-owners', 'recall-fulltext', 'synthesize'},
+                        'legacy会话不支持新策略动作')
                 if owner_mode and method in reading_owner.ACTIONS:
                     value = reading_owner.execute(self, method, session, raw, state)
                 else:
@@ -242,10 +245,11 @@ class Reading:
         return current is None or original is not None and set(original).issubset(current)
 
     def start(self, raw):
-        object_fields(raw, {'session_id', 'goal', 'conditions', 'query'}, {'owner_id', 'checkpoint_ref', 'reranking', 'mode', 'context', 'strategy', 'association', 'association_text'})
+        object_fields(raw, {'session_id', 'goal', 'conditions', 'query'}, {'owner_id', 'checkpoint_ref', 'reranking', 'mode', 'context', 'screening', 'strategy', 'association', 'association_text'})
         mode = raw.get('mode', 'legacy')
         require(mode in {'legacy', 'owner_document'}, '未知阅读模式')
         from .reading_owner import context_settings
+        from .owner_screening import settings as screening_settings
         context = context_settings(raw.get('context'))
         from .reading_strategy import validate
         from workspace_settings import read
@@ -256,7 +260,8 @@ class Reading:
         text(raw['goal'], 'goal')
         strings(raw['conditions'], 'conditions')
         request = parse(raw['query'], QueryRequest)
-        ranking_options = reranking.settings(raw.get('reranking'))
+        ranking_options = reranking.settings(raw.get('reranking', defaults.get('reranking')))
+        screening = screening_settings(raw.get('screening', defaults.get('screening')))
         require(request.purpose == 'exploration', '阅读工作流用于探索；正式结论另走证据准入')
         require(request.freshness == 'current', '新阅读会话从当前修订开始')
         # 固定多路策略；用户给出的硬预算不自动扩大。缺模型时回执报告降级。
@@ -278,14 +283,20 @@ class Reading:
                            consumed=state.ledger.snapshot(), rounds=[], candidates={}, notes={}, decisions=[],
                            requests={}, expansion_count=0, phase='ready', **binding, archived=False,
                            reranking=ranking_options, mode=mode, context=context,
+                           screening=screening,
                            owner_progress={}, owner_notes={}, delivered_blocks=[])
             if mode == 'owner_document':
                 session.update(strategy)
             session['updated_at'] = datetime.now(timezone.utc).isoformat()
             save(file, session)
-        guidance = ('逐条reading-assess判断实际召回片段，仅按已接受固定片段写research_note；'
-                    '需要更多片段用reading-page，不自动读取全文。'
-                    if mode == 'owner_document' and strategy['strategy'] == 'quick' else GUIDANCE)
+        if mode == 'owner_document' and strategy['strategy'] == 'quick':
+            guidance = ('先用reading-assess逐条判断实际交付的发现筛选片段，再仅按已接受固定片段写research_note；'
+                        'quick不读取Owner全文。发现不足时只提示reading-recall-fulltext，未经用户选择不执行。')
+        elif mode == 'owner_document':
+            guidance = ('先用reading-assess-owners批量判断发现包；relevant Owner再reading-read。'
+                        '发现不足时只提示reading-recall-fulltext，未经用户选择不执行。')
+        else:
+            guidance = GUIDANCE
         return envelope({'session_id': session['session_id'], 'revision': 1, 'next_action': 'recall',
                          'guidance': guidance}, state=state)
 
@@ -295,6 +306,20 @@ class Reading:
         self.check_binding(session, state, reader=reader)
         for row in session['candidates'].values():
             ref = parse(row['ref'], FixedRef)
+            if ref.kind == 'owner':
+                from .reading_owner import read_native_reference
+                from .coordinator import owner_allowed
+                _text, native = read_native_reference(reader, ref)
+                owner = reader.owner(ref.id)
+                if not owner_allowed(owner, replace(state.request, freshness='fixed')):
+                    raise QueryError('DENIED', '已存Owner不再满足阅读范围')
+                # read_native_reference accepts both the current native-byte
+                # fingerprint and the legacy evidence fingerprint.  A
+                # successful read is therefore the authoritative freshness
+                # check; comparing only one of those digests would falsely
+                # mark a current Owner discovery hit stale.
+                row['stale'] = False
+                continue
             record = reader.record(ref)
             if not required_scope_allows(reader, record, replace(state.request, freshness='fixed')):
                 raise QueryError('DENIED', '已存材料不再满足阅读范围')

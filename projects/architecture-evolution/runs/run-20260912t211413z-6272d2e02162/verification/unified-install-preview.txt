@@ -1,0 +1,7 @@
+预览：D:\共享桌面\A_work\A_work_auto_flow\.agents\skills\work-loop\SKILL.md
+预览：D:\共享桌面\A_work\A_work_auto_flow\.agents\skills\context-maintenance\SKILL.md
+预览：D:\共享桌面\A_work\A_work_auto_flow\.agents\skills\evidence-inspection\SKILL.md
+预览：D:\共享桌面\A_work\A_work_auto_flow\.agents\skills\development-checks\SKILL.md
+预览：D:\共享桌面\A_work\A_work_auto_flow\.agents\skills\material-query\SKILL.md
+预览：D:\共享桌面\A_work\A_work_auto_flow\.agents\skills\association-exploration\SKILL.md
+预览：D:\共享桌面\A_work\A_work_auto_flow\.agents\skills\semantic-maintenance\SKILL.md

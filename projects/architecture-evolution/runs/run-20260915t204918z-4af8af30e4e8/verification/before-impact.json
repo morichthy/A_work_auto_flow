@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "owner_id": "RES-R",
+  "document": {
+    "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+    "revision": 1,
+    "title": "合成 document",
+    "document_type": "research_process",
+    "purpose": "验证合成研究文档",
+    "audience": "研究人员",
+    "scope": "仅合成软件验收",
+    "common_refs": [],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "bb48f3ad37fb89199175d6cbbf43665b60d39ddd18df0ac7fa01117cf7c59d6b",
+        "target_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "changes": [
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+      "section_ids": [
+        "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96"
+      ],
+      "path": [
+        "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+        "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+        "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+        "revision": 1,
+        "sha256": "cc7cc7feabee4aeb8f5fcd8922fb11a30d1b190da19f703e07cfe34fa0870222",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+        "revision": 2,
+        "sha256": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    }
+  ],
+  "affected_section_ids": [
+    "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96"
+  ],
+  "uncovered_unit_ids": [],
+  "scientific_review": "not_evaluated",
+  "basis_heads": {
+    "RES-R": "COM-9d5b3972-bae8-4681-8700-13e1dd64f9e9"
+  },
+  "metrics": {
+    "elapsed_ms": 19.85,
+    "inventory_owners": 1,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 5,
+    "resolved_sections": 1
+  },
+  "writes": 0
+}

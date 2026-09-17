@@ -1,0 +1,54 @@
+{
+  "followup_sent_ms": 1789550881356,
+  "context_received_ms": 1789551314661,
+  "context_accepted_ms": 1789551331667,
+  "events": [
+    {
+      "label": "diagnostic_prepare",
+      "sent_ms": 1789550752151,
+      "returned_ms": 1789550760367,
+      "chunk_id": "50e717",
+      "wall_time_seconds": 1.3321103,
+      "exit_code": 1,
+      "original_token_count": 499
+    },
+    {
+      "label": "diagnostic_prepare_valid_limits",
+      "sent_ms": 1789550861656,
+      "returned_ms": 1789550873694,
+      "chunk_id": "54dd35",
+      "wall_time_seconds": 3.9581823,
+      "exit_code": 0,
+      "original_token_count": 1575
+    },
+    {
+      "label": "main_reading_handoff",
+      "sent_ms": 1789551300949,
+      "returned_ms": 1789551314661,
+      "chunk_id": "00ca67",
+      "wall_time_seconds": 6.4827482,
+      "exit_code": 0,
+      "original_token_count": 1223
+    },
+    {
+      "label": "profile_handoff",
+      "sent_ms": 1789551366353,
+      "returned_ms": 1789551384424,
+      "chunk_id": "bd17ca",
+      "wall_time_seconds": 10.0065561,
+      "session_id": 59148,
+      "original_token_count": 9
+    },
+    {
+      "label": "profile_handoff_poll",
+      "sent_ms": 1789551395954,
+      "returned_ms": 1789551395958,
+      "chunk_id": "8e4655",
+      "wall_time_seconds": 0.000002,
+      "exit_code": 0,
+      "original_token_count": 15,
+      "session_id": 59148,
+      "input_session_id": 59148
+    }
+  ]
+}

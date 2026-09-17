@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260917T021448Z-BC1AAF379A2C",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "阅读内容纯化与分类型证据详情修复",
+    "keywords": [
+      "reading note",
+      "evidence detail",
+      "inline citations",
+      "registered image"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "completed",
+    "created_at": "2026-09-17T02:14:48Z",
+    "started_at": "2026-09-17T02:14:48Z",
+    "ended_at": "2026-09-17T02:46:37.720584+00:00",
+    "owner": null,
+    "question": "阅读知识正文、分类型证据及图片是否正确展示，旧工作区升级后数据是否保留？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {},
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "本轮六项修复及相关回归通过；实际浮点r9 HEAD不变，完整文稿与4图可读。详见RESULTS.md。",
+    "limitations": [
+      "科学结论和业务检索收益未复核；软件、合成AI及图片字节核验分别记录。",
+      "未做第二物理机验收；未发布。",
+      "历史无定位引用未臆造；旧规范报告r7差异已盘点，未整体同步。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxN1QwMjE0NDhaLUJDMUFBRjM3OUEyQyIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIumYheivu+WGheWuuee6r+WMluS4juWIhuexu+Wei+ivgeaNruivpuaDheS/ruWkjSIsDQogICJrZXl3b3JkcyI6IFsNCiAgICAicmVhZGluZyBub3RlIiwNCiAgICAiZXZpZGVuY2UgZGV0YWlsIiwNCiAgICAiaW5saW5lIGNpdGF0aW9ucyIsDQogICAgInJlZ2lzdGVyZWQgaW1hZ2UiDQogIF0sDQogICJyZXZpZXdfaGlzdG9yeSI6IFtdLA0KICAiY2xhaW1zIjogW10sDQogICJkZXBlbmRlbmNpZXMiOiBbXSwNCiAgInJ1bl90eXBlIjogImFuYWx5c2lzIiwNCiAgInN0YXR1cyI6ICJjb21wbGV0ZWQiLA0KICAiY3JlYXRlZF9hdCI6ICIyMDI2LTA5LTE3VDAyOjE0OjQ4WiIsDQogICJzdGFydGVkX2F0IjogIjIwMjYtMDktMTdUMDI6MTQ6NDhaIiwNCiAgImVuZGVkX2F0IjogIjIwMjYtMDktMTdUMDI6NDY6MzcuNzIwNTg0KzAwOjAwIiwNCiAgIm93bmVyIjogbnVsbCwNCiAgInF1ZXN0aW9uIjogIumYheivu+efpeivhuato+aWh+OAgeWIhuexu+Wei+ivgeaNruWPiuWbvueJh+aYr+WQpuato+ehruWxleekuu+8jOaXp+W3peS9nOWMuuWNh+e6p+WQjuaVsOaNruaYr+WQpuS/neeVme+8nyIsDQogICJoeXBvdGhlc2VzIjogW10sDQogICJpbnB1dHMiOiBbXSwNCiAgInBhcmFtZXRlcnMiOiB7fSwNCiAgImNvZGUiOiB7DQogICAgImNvbW1pdCI6ICI4OWFkMzA3NTM1ODlmYjdiOTE5YjNkYjc1Y2RmOTFkNDc0NDlmNGNhIiwNCiAgICAiZGlydHkiOiB0cnVlDQogIH0sDQogICJlbnZpcm9ubWVudCI6IHsNCiAgICAicHl0aG9uIjogIjMuMTIuMTAiLA0KICAgICJwbGF0Zm9ybSI6ICJXaW5kb3dzLTExLTEwLjAuMjI2MzEtU1AwIiwNCiAgICAibG9ja19vcl9pbWFnZV9kaWdlc3QiOiBudWxsDQogIH0sDQogICJyYW5kb21fc2VlZHMiOiBbXSwNCiAgInF1YWxpdHlfcmVzdWx0cyI6IFtdLA0KICAibWV0cmljcyI6IHt9LA0KICAiYXJ0aWZhY3RzIjogW10sDQogICJsaW5lYWdlX2V2ZW50cyI6ICJsaW5lYWdlLmpzb25sIiwNCiAgImNvbmNsdXNpb24iOiAi5pys6L2u5YWt6aG55L+u5aSN5Y+K55u45YWz5Zue5b2S6YCa6L+H77yb5a6e6ZmF5rWu54K5cjkgSEVBROS4jeWPmO+8jOWujOaVtOaWh+eov+S4jjTlm77lj6/or7vjgILor6bop4FSRVNVTFRTLm1k44CCIiwNCiAgImxpbWl0YXRpb25zIjogWw0KICAgICLnp5Hlrabnu5PorrrlkozkuJrliqHmo4DntKLmlLbnm4rmnKrlpI3moLjvvJvova/ku7bjgIHlkIjmiJBBSeWPiuWbvueJh+Wtl+iKguaguOmqjOWIhuWIq+iusOW9leOAgiIsDQogICAgIuacquWBmuesrOS6jOeJqeeQhuacuumqjOaUtu+8m+acquWPkeW4g+OAgiIsDQogICAgIuWOhuWPsuaXoOWumuS9jeW8leeUqOacquiHhumAoO+8m+aXp+inhOiMg+aKpeWRinI35beu5byC5bey55uY54K577yM5pyq5pW05L2T5ZCM5q2l44CCIg0KICBdLA0KICAicGFyZW50X3J1bl9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfbW9kdWxlX2lkcyI6IFtdLA0KICAicmVsYXRlZF9yZXNlYXJjaF9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfZGF0YXNldF9pZHMiOiBbXSwNCiAgInJldmlldyI6IHsNCiAgICAic3RhdHVzIjogIm5vdC1yZXZpZXdlZCIsDQogICAgInJldmlld2VyIjogbnVsbCwNCiAgICAiZGF0ZSI6IG51bGwNCiAgfSwNCiAgInNlbnNpdGl2aXR5IjogImludGVybmFsIg0KfQ0K",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260917T021448Z-BC1AAF379A2C",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "阅读内容纯化与分类型证据详情修复",
+    "keywords": [
+      "reading note",
+      "evidence detail",
+      "inline citations",
+      "registered image"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "completed",
+    "created_at": "2026-09-17T02:14:48Z",
+    "started_at": "2026-09-17T02:14:48Z",
+    "ended_at": "2026-09-17T02:46:37.720584+00:00",
+    "owner": null,
+    "question": "阅读知识正文、分类型证据及图片是否正确展示，旧工作区升级后数据是否保留？",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/.run-captures/final-evidence/source.zip",
+        "sha256": "302e26affed798936c7add658194dd24d4e30dc9067d548f88eadc19ad715fac",
+        "role": "input",
+        "registered_at": "2026-09-17T02:48:00.093425Z"
+      }
+    ],
+    "parameters": {},
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/.run-captures/final-evidence/receipts.zip",
+        "sha256": "10b1d214c89e7abe8594f8bc9081fae4b44145013c2b4007cb06d4e898052c74",
+        "role": "artifact",
+        "registered_at": "2026-09-17T02:48:00.106246Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/.run-captures/final-evidence/manifest.json",
+        "sha256": "9ffc952fac99078301a15dd68748caed68e8e4b9d2285bdb2a20f3513c2c76a6",
+        "role": "artifact",
+        "registered_at": "2026-09-17T02:48:00.116293Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "本轮六项修复及相关回归通过；实际浮点r9 HEAD不变，完整文稿与4图可读。详见RESULTS.md。",
+    "limitations": [
+      "科学结论和业务检索收益未复核；软件、合成AI及图片字节核验分别记录。",
+      "未做第二物理机验收；未发布。",
+      "历史无定位引用未臆造；旧规范报告r7差异已盘点，未整体同步。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-17T02:48:00.146317Z"
+}

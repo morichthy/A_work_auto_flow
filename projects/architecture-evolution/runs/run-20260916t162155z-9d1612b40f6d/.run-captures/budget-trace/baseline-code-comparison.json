@@ -1,0 +1,42 @@
+{
+  "baseline_snapshot": "projects/architecture-evolution/runs/run-20260916t085438z-3e40d5ed8471/verification/framework-source-snapshot.zip",
+  "baseline_snapshot_sha256": "4b00e374303f1cad5b4d832164bfa8513fd2ba0e06bed13a06da8c51f76c2095",
+  "files": [
+    {
+      "path": "automation/scripts/material_query/assembly.py",
+      "old_sha256": "43aecde095332b4f8723907b7d5ea86fb9eb5c29f9ee7688ccf8a7f8846bc046",
+      "current_sha256": "43aecde095332b4f8723907b7d5ea86fb9eb5c29f9ee7688ccf8a7f8846bc046",
+      "identical": true
+    },
+    {
+      "path": "automation/scripts/material_query/query_plan.py",
+      "old_sha256": "006759b01a205ba348b1308cdd91a650a8cb80eb1d112fa824cc2b3c27d2cc41",
+      "current_sha256": "006759b01a205ba348b1308cdd91a650a8cb80eb1d112fa824cc2b3c27d2cc41",
+      "identical": true
+    },
+    {
+      "path": "automation/scripts/material_query/coordinator.py",
+      "old_sha256": "0677cb8c961ce251ab37eb921ba929d377e26c1a185591184dd313185ed76859",
+      "current_sha256": "0677cb8c961ce251ab37eb921ba929d377e26c1a185591184dd313185ed76859",
+      "identical": true
+    },
+    {
+      "path": "automation/scripts/material_query/budget.py",
+      "old_sha256": "d16e79ef32e38421a3fa58599289e567feb2d59a00ee3bb685a5238b777360a2",
+      "current_sha256": "d16e79ef32e38421a3fa58599289e567feb2d59a00ee3bb685a5238b777360a2",
+      "identical": true
+    },
+    {
+      "path": "automation/scripts/material_query/reading.py",
+      "old_sha256": "3a6a2ed054f1417b715281eb811fed9fec7e24b7def5297af478a34c45b604bf",
+      "current_sha256": "e3658958a601231e7561da59e27bc9f8b52a7b10f4a0c24171affd6b53bc5f62",
+      "identical": false
+    },
+    {
+      "path": "automation/scripts/workspace_settings.py",
+      "old_sha256": "48e29834073fbf41517315bbdebe35e0a83ebd8bdc495eb248a937f1acb24ab6",
+      "current_sha256": "48e29834073fbf41517315bbdebe35e0a83ebd8bdc495eb248a937f1acb24ab6",
+      "identical": true
+    }
+  ]
+}

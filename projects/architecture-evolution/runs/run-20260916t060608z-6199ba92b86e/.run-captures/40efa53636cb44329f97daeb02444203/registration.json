@@ -1,0 +1,478 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T060608Z-6199BA92B86E",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "子Agent材料阅读与有界笔记交接验证",
+    "keywords": [
+      "subagent",
+      "reading-note",
+      "上下文预算",
+      "固定引用"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-16T06:06:08Z",
+    "started_at": "2026-09-16T06:06:08Z",
+    "ended_at": "2026-09-16T06:35:25.057772Z",
+    "owner": null,
+    "question": "如何由独立低成本子Agent完成材料检索与完整阅读，让主Agent仅使用有界且可追溯的reading note？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {
+      "handoff_default_max_chars": 12000,
+      "ai_handoff_max_chars": 6000,
+      "reader_model": "gpt-5.6-terra",
+      "reader_reasoning": "low",
+      "reader_fork_turns": "none"
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "reading_software",
+        "status": "passed",
+        "scope": "41既有+11新增，分次相关验证"
+      },
+      {
+        "name": "actual_ai",
+        "status": "passed_after_revision",
+        "scope": "独立reader合成验收，首版漏项补回；AI自查非用户认可"
+      }
+    ],
+    "metrics": {
+      "distinct_reading_tests_passed": 52,
+      "reader_response_serialized_chars": 86788,
+      "reader_calls": 9,
+      "handoff_response_chars": [
+        3899,
+        4181
+      ],
+      "handoff_value_chars": [
+        3370,
+        3652
+      ],
+      "limitation": "字符体积不是宿主模型token或费用；主侧不加载原始材料。"
+    },
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "已接入宿主委派/单Agent回退与同RS有界笔记交接；52项不同阅读测试有通过证据，实际低成本reader修订后保留必要细节。",
+    "limitations": [
+      "未实现任意宿主内置AI调度；宿主须实际提供工具并遵守Skill。",
+      "字符体积不等于token/总费用/端到端延迟；独立审查成本未计。",
+      "真实合成验收dense不可用、候选窗口未完；不证明全库覆盖或业务正确率。",
+      "首版笔记出现语义漏项，已保留并补回；仍需按任务核对关键细节。",
+      "第二物理机、其他宿主和人工业务验收未执行；本轮未发布。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxNlQwNjA2MDhaLTYxOTlCQTkyQjg2RSIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIuWtkEFnZW505p2Q5paZ6ZiF6K+75LiO5pyJ55WM56yU6K6w5Lqk5o6l6aqM6K+BIiwNCiAgImtleXdvcmRzIjogWw0KICAgICJzdWJhZ2VudCIsDQogICAgInJlYWRpbmctbm90ZSIsDQogICAgIuS4iuS4i+aWh+mihOeulyIsDQogICAgIuWbuuWumuW8leeUqCINCiAgXSwNCiAgInJldmlld19oaXN0b3J5IjogW10sDQogICJjbGFpbXMiOiBbXSwNCiAgImRlcGVuZGVuY2llcyI6IFtdLA0KICAicnVuX3R5cGUiOiAiYW5hbHlzaXMiLA0KICAic3RhdHVzIjogInN1Y2NlZWRlZCIsDQogICJjcmVhdGVkX2F0IjogIjIwMjYtMDktMTZUMDY6MDY6MDhaIiwNCiAgInN0YXJ0ZWRfYXQiOiAiMjAyNi0wOS0xNlQwNjowNjowOFoiLA0KICAiZW5kZWRfYXQiOiAiMjAyNi0wOS0xNlQwNjozNToyNS4wNTc3NzJaIiwNCiAgIm93bmVyIjogbnVsbCwNCiAgInF1ZXN0aW9uIjogIuWmguS9leeUseeLrOeri+S9juaIkOacrOWtkEFnZW505a6M5oiQ5p2Q5paZ5qOA57Si5LiO5a6M5pW06ZiF6K+777yM6K6p5Li7QWdlbnTku4Xkvb/nlKjmnInnlYzkuJTlj6/ov73muq/nmoRyZWFkaW5nIG5vdGXvvJ8iLA0KICAiaHlwb3RoZXNlcyI6IFtdLA0KICAiaW5wdXRzIjogW10sDQogICJwYXJhbWV0ZXJzIjogew0KICAgICJoYW5kb2ZmX2RlZmF1bHRfbWF4X2NoYXJzIjogMTIwMDAsDQogICAgImFpX2hhbmRvZmZfbWF4X2NoYXJzIjogNjAwMCwNCiAgICAicmVhZGVyX21vZGVsIjogImdwdC01LjYtdGVycmEiLA0KICAgICJyZWFkZXJfcmVhc29uaW5nIjogImxvdyIsDQogICAgInJlYWRlcl9mb3JrX3R1cm5zIjogIm5vbmUiDQogIH0sDQogICJjb2RlIjogew0KICAgICJjb21taXQiOiAiODlhZDMwNzUzNTg5ZmI3YjkxOWIzZGI3NWNkZjkxZDQ3NDQ5ZjRjYSIsDQogICAgImRpcnR5IjogdHJ1ZQ0KICB9LA0KICAiZW52aXJvbm1lbnQiOiB7DQogICAgInB5dGhvbiI6ICIzLjEyLjEwIiwNCiAgICAicGxhdGZvcm0iOiAiV2luZG93cy0xMS0xMC4wLjIyNjMxLVNQMCIsDQogICAgImxvY2tfb3JfaW1hZ2VfZGlnZXN0IjogbnVsbA0KICB9LA0KICAicmFuZG9tX3NlZWRzIjogW10sDQogICJxdWFsaXR5X3Jlc3VsdHMiOiBbDQogICAgew0KICAgICAgIm5hbWUiOiAicmVhZGluZ19zb2Z0d2FyZSIsDQogICAgICAic3RhdHVzIjogInBhc3NlZCIsDQogICAgICAic2NvcGUiOiAiNDHml6LmnIkrMTHmlrDlop7vvIzliIbmrKHnm7jlhbPpqozor4EiDQogICAgfSwNCiAgICB7DQogICAgICAibmFtZSI6ICJhY3R1YWxfYWkiLA0KICAgICAgInN0YXR1cyI6ICJwYXNzZWRfYWZ0ZXJfcmV2aXNpb24iLA0KICAgICAgInNjb3BlIjogIueLrOeri3JlYWRlcuWQiOaIkOmqjOaUtu+8jOmmlueJiOa8j+mhueihpeWbnu+8m0FJ6Ieq5p+l6Z2e55So5oi36K6k5Y+vIg0KICAgIH0NCiAgXSwNCiAgIm1ldHJpY3MiOiB7DQogICAgImRpc3RpbmN0X3JlYWRpbmdfdGVzdHNfcGFzc2VkIjogNTIsDQogICAgInJlYWRlcl9yZXNwb25zZV9zZXJpYWxpemVkX2NoYXJzIjogODY3ODgsDQogICAgInJlYWRlcl9jYWxscyI6IDksDQogICAgImhhbmRvZmZfcmVzcG9uc2VfY2hhcnMiOiBbDQogICAgICAzODk5LA0KICAgICAgNDE4MQ0KICAgIF0sDQogICAgImhhbmRvZmZfdmFsdWVfY2hhcnMiOiBbDQogICAgICAzMzcwLA0KICAgICAgMzY1Mg0KICAgIF0sDQogICAgImxpbWl0YXRpb24iOiAi5a2X56ym5L2T56ev5LiN5piv5a6/5Li75qih5Z6LdG9rZW7miJbotLnnlKjvvJvkuLvkvqfkuI3liqDovb3ljp/lp4vmnZDmlpnjgIIiDQogIH0sDQogICJhcnRpZmFjdHMiOiBbXSwNCiAgImxpbmVhZ2VfZXZlbnRzIjogImxpbmVhZ2UuanNvbmwiLA0KICAiY29uY2x1c2lvbiI6ICLlt7LmjqXlhaXlrr/kuLvlp5TmtL4v5Y2VQWdlbnTlm57pgIDkuI7lkIxSU+acieeVjOeslOiusOS6pOaOpe+8mzUy6aG55LiN5ZCM6ZiF6K+75rWL6K+V5pyJ6YCa6L+H6K+B5o2u77yM5a6e6ZmF5L2O5oiQ5pyscmVhZGVy5L+u6K6i5ZCO5L+d55WZ5b+F6KaB57uG6IqC44CCIiwNCiAgImxpbWl0YXRpb25zIjogWw0KICAgICLmnKrlrp7njrDku7vmhI/lrr/kuLvlhoXnva5BSeiwg+W6pu+8m+Wuv+S4u+mhu+WunumZheaPkOS+m+W3peWFt+W5tumBteWuiFNraWxs44CCIiwNCiAgICAi5a2X56ym5L2T56ev5LiN562J5LqOdG9rZW4v5oC76LS555SoL+err+WIsOerr+W7tui/n++8m+eLrOeri+WuoeafpeaIkOacrOacquiuoeOAgiIsDQogICAgIuecn+WunuWQiOaIkOmqjOaUtmRlbnNl5LiN5Y+v55So44CB5YCZ6YCJ56qX5Y+j5pyq5a6M77yb5LiN6K+B5piO5YWo5bqT6KaG55uW5oiW5Lia5Yqh5q2j56Gu546H44CCIiwNCiAgICAi6aaW54mI56yU6K6w5Ye6546w6K+t5LmJ5ryP6aG577yM5bey5L+d55WZ5bm26KGl5Zue77yb5LuN6ZyA5oyJ5Lu75Yqh5qC45a+55YWz6ZSu57uG6IqC44CCIiwNCiAgICAi56ys5LqM54mp55CG5py644CB5YW25LuW5a6/5Li75ZKM5Lq65bel5Lia5Yqh6aqM5pS25pyq5omn6KGM77yb5pys6L2u5pyq5Y+R5biD44CCIg0KICBdLA0KICAicGFyZW50X3J1bl9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfbW9kdWxlX2lkcyI6IFtdLA0KICAicmVsYXRlZF9yZXNlYXJjaF9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfZGF0YXNldF9pZHMiOiBbXSwNCiAgInJldmlldyI6IHsNCiAgICAic3RhdHVzIjogIm5vdC1yZXZpZXdlZCIsDQogICAgInJldmlld2VyIjogbnVsbCwNCiAgICAiZGF0ZSI6IG51bGwNCiAgfSwNCiAgInNlbnNpdGl2aXR5IjogImludGVybmFsIg0KfQ0K",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T060608Z-6199BA92B86E",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "子Agent材料阅读与有界笔记交接验证",
+    "keywords": [
+      "subagent",
+      "reading-note",
+      "上下文预算",
+      "固定引用"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-16T06:06:08Z",
+    "started_at": "2026-09-16T06:06:08Z",
+    "ended_at": "2026-09-16T06:35:25.057772Z",
+    "owner": null,
+    "question": "如何由独立低成本子Agent完成材料检索与完整阅读，让主Agent仅使用有界且可追溯的reading note？",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/scripts/ai_reading_driver.py",
+        "sha256": "113b3735b529d93110e731476f2217e5f02ea8665ccfde0d078494f768170c6f",
+        "role": "input",
+        "registered_at": "2026-09-16T06:35:26.896388Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/scripts/freeze_run.py",
+        "sha256": "84a558ec7370a43bd61dd5405996876092218035703a1157ce284e1e154bcf8a",
+        "role": "input",
+        "registered_at": "2026-09-16T06:35:26.912505Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/scripts/save_memory.py",
+        "sha256": "588f0616c78ff146dc5098b0d339f7c92789cae57e2732ae3bdceb39f6b89800",
+        "role": "input",
+        "registered_at": "2026-09-16T06:35:26.934899Z"
+      }
+    ],
+    "parameters": {
+      "handoff_default_max_chars": 12000,
+      "ai_handoff_max_chars": 6000,
+      "reader_model": "gpt-5.6-terra",
+      "reader_reasoning": "low",
+      "reader_fork_turns": "none"
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "reading_software",
+        "status": "passed",
+        "scope": "41既有+11新增，分次相关验证"
+      },
+      {
+        "name": "actual_ai",
+        "status": "passed_after_revision",
+        "scope": "独立reader合成验收，首版漏项补回；AI自查非用户认可"
+      }
+    ],
+    "metrics": {
+      "distinct_reading_tests_passed": 52,
+      "reader_response_serialized_chars": 86788,
+      "reader_calls": 9,
+      "handoff_response_chars": [
+        3899,
+        4181
+      ],
+      "handoff_value_chars": [
+        3370,
+        3652
+      ],
+      "limitation": "字符体积不是宿主模型token或费用；主侧不加载原始材料。"
+    },
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-independent-review-v2.md",
+        "sha256": "4940b44b134b71a1e181d19a47924eff0e9f2ed13a8fbdb26797a5facb6a5c39",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:26.951158Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-independent-review.md",
+        "sha256": "b4f74a1f61f229b040a311bde1165da6a9c58b8edc3a08631ed6ce5a128089dd",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:26.966794Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-reader-self-review-v2.md",
+        "sha256": "0adaedf8ec6dd3487fed0624484d5b58ef5b326253b1efffe4b658c84101e84f",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:26.984310Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-reader-self-review.md",
+        "sha256": "90d0033265b33f6848fb4178d3041fdcbb863daa411ff27a9b3fe09c9fea8b33",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.004038Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-reading-size-report-v1.json",
+        "sha256": "4d16795cd543ea9de06709fdeef75792bedc78f222991a9bb89f628381136227",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.021349Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-reading-size-report.json",
+        "sha256": "cd540afe7143c3c91ab7e6717133247ed4c6a8280c17f93ddb6ccacc79875d1a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.036406Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/baseline-memory-document.json",
+        "sha256": "32e554591b797d098a3bc7594ca7601f26d285a80846eb3f94232058d1a25f65",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.052906Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/baseline-memory-overview.json",
+        "sha256": "122e1a340a90192aa28ed025fbd994de043a8386abd8aba351e57ddee97df9e3",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.068353Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/catalog-final.json",
+        "sha256": "b73bbaf07e563dbd82d689db34e8bbd47f33ce31ce5a3e60bf5def73748f59b6",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.085579Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/delegation-baseline.log",
+        "sha256": "e0c0e4ff1b9abd29cd96e1da552ff1d0f1d7d3763c8d256cec09290ac69dbb30",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.104331Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/delegation-current.log",
+        "sha256": "e69c1e643cff9033d19f8de6b0d4351d95f893412b729e2ae343f6b9a27c2db3",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.124234Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/delegation-final.log",
+        "sha256": "5ccd442e4c9c5375ae6f9d349db9bf871c59e585c4f22e386474c1d1406cf363",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.140249Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/framework-source-snapshot.zip",
+        "sha256": "2153b4d707c11b15a4d7ef1450ed233a17c54a9c4790bfc45affca56685289e7",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.161834Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/handoff-view-final.log",
+        "sha256": "a50e0ca7b543b64e9be125aecd81ecdf3be4dec16ac26abd73c6eeda8f9ef253",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.177870Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/handoff-view.log",
+        "sha256": "f5490f0f0abb6df697d409ecdcc7c2883824f7d8ef30c71d17a7fae288cd5b01",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.198225Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/plan-at-freeze.md",
+        "sha256": "5634c9473bfd1d13bac72686dd006a1473efff989f49f65de6673eb01a452488",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.214594Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/reading-regression.log",
+        "sha256": "51a4c598061785b1756638ff6daba19825691d9cda7cde73641357600c96dcdc",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.231384Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/source-manifest.json",
+        "sha256": "060ce87210f5b95293ced462c89edce5c5c05b6d4574e1dab04e3c8b1c2d0988",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.249080Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/decide-finish.json",
+        "sha256": "1bc18c9e8a81fe79a6fcb1c53e0902ae24fc37ebbd62b57b4b6aa4d5891e59f6",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.269162Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/delegate-request.json",
+        "sha256": "b29b8971314518e685185cd3ea61b291fd5758e7d0cbab1b83f05c1f7bdec5e9",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.283849Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/empty.json",
+        "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.299550Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/fixed-inputs.json",
+        "sha256": "c2b6df28f2ae5d20ad4ccdaeeb54502c6676576a9089aa48ba91e5c544a6c101",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.315749Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/handoff-request-v2.json",
+        "sha256": "7eab393a8d63a7133d9ae29f3dca6e4c4fc73b3708a2e661cef83c5dc6040185",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.332944Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/handoff-request.json",
+        "sha256": "1d6bc1db8580041bc8e14e0287c8495916d16266989d54ce4bbac923789a3d66",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.354165Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/note-method-v2.json",
+        "sha256": "7ffa5e0c352c4b68d24c7a301f387bab0e515d7ec8db36c70d615aca3962f65e",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.372303Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/note-method.json",
+        "sha256": "4cc51a82d389d3275ec766a4af72771b63f8a95aa8eb74a6c8dc03bb85c77855",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.387488Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/note-old-model.json",
+        "sha256": "4598fae8f8d81be8cfed43127171aaab9b3ec6351857470962894dc8ad7d9fdc",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.404776Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/note-scale.json",
+        "sha256": "5ab6f3612482552d3793c9bfaec3abacdc04333db334a6e1a4d0671fed3cb706",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.421809Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/read-request.json",
+        "sha256": "3cb4e387ac6b6561dd0b831b45f53787260ae602d47364af56bca3bca824bfe2",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.437028Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/recall-request.json",
+        "sha256": "91edaa3b156584a2f0e8f9b5498f625eb9d62d3f7acab56b1ca19735c520e3b2",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.452323Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/sealed-expectations.json",
+        "sha256": "97c0bb9c9c7da62773621b15f0f26e493b7d6776d37920571f744555e5336260",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.467292Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-fixture/state.json",
+        "sha256": "9ad86c161d390ab1299089b9308710ce675d1060c8f253bae116cc24cc2a8e04",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.484251Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/001-setup-reading-start.json",
+        "sha256": "d677dbfa0841b7fa71050b38ea0aa412d2999671f3a8afbbafae80fbdde481aa",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.503015Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/002-main-reading-delegate.json",
+        "sha256": "0d619efa76cc687df7608cf954450cc821b3e0726e28b390a6ce0086a0789fc3",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.521477Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/003-reader-reading-view.json",
+        "sha256": "0b356398bed857e9f3ab206626b50d4b88e55a8ccf35919ebe64a250ebfeb417",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.538973Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/004-reader-reading-recall.json",
+        "sha256": "10eff045bd91b42904400cc3dbf29c1ad4a943293142e1ef7300d00617afaf27",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.555003Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/005-reader-reading-read.json",
+        "sha256": "628d67b136c1ea8bbb078f4a18869cc493a941bd9cd06397e8a5de1bd28afdaa",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.571215Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/006-reader-reading-note.json",
+        "sha256": "10e9fd0c19266a8d75e65bb2526c14d56d1444156d15cba3598108dc3c2e67ac",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.586283Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/007-reader-reading-note.json",
+        "sha256": "c21d8404c97198a4acba2795bac5948590e52264073d60c3ad83c2e255491ba8",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.606374Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/008-reader-reading-note.json",
+        "sha256": "296550843b4265ba54c1a4b6dfe1b81e6657742e5ea1e4cf17ae64e9f22d6394",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.624209Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/009-reader-reading-decide.json",
+        "sha256": "2d22e2b35db23e1c797172811362d3195041ccb978c3ce3ed4348d9e4e01c5c0",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.642998Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/010-reader-reading-view.json",
+        "sha256": "724e29f4cbc5d7e10733da50e283f0e773c7b7dcca8e9c1b91d658f6daf43b00",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.659298Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/011-main-reading-handoff.json",
+        "sha256": "2678561d77aeb3e9aa20dc06281dc0e8414c1e44be6849f8ac76ba6fb4c050e7",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.676242Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/012-reader-reading-note.json",
+        "sha256": "abc352847e1214b8b989e63250c845d0101578e744c9e5310063c0db0a419220",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.693836Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/verification/ai-transcript/013-main-reading-handoff.json",
+        "sha256": "28dc6dd0e7bf27075396d48fa0297ebe9e333a555035537457325cc9f0ec59ab",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.709186Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/RESULTS.md",
+        "sha256": "b2aae3166bdb3970c65fc0deed117691bd88f95892573d245b5127479a3114af",
+        "role": "artifact",
+        "registered_at": "2026-09-16T06:35:27.724183Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "已接入宿主委派/单Agent回退与同RS有界笔记交接；52项不同阅读测试有通过证据，实际低成本reader修订后保留必要细节。",
+    "limitations": [
+      "未实现任意宿主内置AI调度；宿主须实际提供工具并遵守Skill。",
+      "字符体积不等于token/总费用/端到端延迟；独立审查成本未计。",
+      "真实合成验收dense不可用、候选窗口未完；不证明全库覆盖或业务正确率。",
+      "首版笔记出现语义漏项，已保留并补回；仍需按任务核对关键细节。",
+      "第二物理机、其他宿主和人工业务验收未执行；本轮未发布。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-16T06:35:28.446222Z"
+}

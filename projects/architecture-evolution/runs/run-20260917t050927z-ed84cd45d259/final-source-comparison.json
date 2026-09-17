@@ -1,0 +1,12 @@
+{
+  "tested_commit": "414912a1e753668ba6f0fb43c7dbbf4a16c0557f",
+  "final_commit": "4c20ea22d2c15c66615395879f9714f4572de295",
+  "changed_files": [
+    "automation/frontend/e2e/memory.spec.ts",
+    "automation/ui/workbench-assets/asset-manifest.json"
+  ],
+  "production_installer_and_model_bytes_unchanged": true,
+  "frontend_asset_bytes_unchanged": true,
+  "offline_validation": "offline-verification.json",
+  "scope": "Reuse full installation/upgrade/repack/rollback evidence for identical deployed bytes; final archive separately passes all source/assets hashes and bundle preview"
+}

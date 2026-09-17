@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "request_id": "9eef5415-5736-48fc-9f32-f5489d3eceea",
+  "actor": {
+    "kind": "workflow",
+    "id": "codex-owner-discovery-implementation"
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": "COM-71d22958-3510-4d7d-8a3f-2948ed45ef92",
+  "operations": [
+    {
+      "op": "put_record",
+      "client_key": "owner-discovery-detail",
+      "draft": {
+        "schema_version": 3,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "detail",
+        "title": "Owner压缩发现索引与互补筛选包实现",
+        "body_markdown": "",
+        "keywords": [
+          "Owner discovery",
+          "独立发现索引",
+          "Owner融合",
+          "互补筛选包",
+          "全文补偿",
+          "Cross-encoder"
+        ],
+        "payload": {
+          "unit_type": "analysis",
+          "retrieval_description": {
+            "question": "如何先高效发现尽可能多的相关Owner，再完整阅读被选Owner，同时避免同一Owner大量全文片段挤占候选和CE窗口？",
+            "method": "从L4/L3、L2紧凑内容、L1 retrieval_description和Owner元数据建立独立词法/向量发现投影；各信号族先折叠Owner，再跨路线融合和选择互补筛选窗。AI批量三态判断后，standard/associative只分页读取relevant Owner的全部当前正文；全库全文补偿仅由用户显式触发。",
+            "key_findings": [
+              "发现SQLite表、FTS、向量collection和每Owner双水位已与全文索引分离，不能由level过滤代替。",
+              "每Owner通常交付2至3个、最多4个互补窗口；CE按不超过512 token的命中中心窗运行，单窗失败不取消其他窗口排序。",
+              "quick只使用实际交付片段；uncertain、索引不可用或结果不足只返回缺口，不自动执行全文补偿。",
+              "三个既有长期Owner均无L4/L1结构缺口，已直接重建独立词法/向量发现索引。"
+            ],
+            "applicable": [
+              "Owner文稿模式的默认材料发现",
+              "需要覆盖多个相关Owner后逐篇完整阅读的经验复用",
+              "仅需片段的小细节查询可使用quick"
+            ],
+            "not_applicable": [
+              "手动material-query、legacy RS和已冻结旧查询仍使用原全文兼容路径",
+              "L0原件追溯、完整文稿读取和科学复核不是默认发现投影"
+            ],
+            "limitations": [
+              "本轮未测Owner召回率、延迟、候选数量、CE成本、上下文占用或错误联想率，不能宣称质量或性能改善。",
+              "没有非空L1检索说明语义不足的真实旧Owner样本，因此未产生一次实际模型语义修订案例。",
+              "升级验证限本机Windows x64隔离合成旧工作区，未做第二台物理机或真实业务验收。"
+            ]
+          },
+          "run_ref": {
+            "target_kind": "owner",
+            "target_id": "RUN-20260917T181639Z-AF7701FD84AD",
+            "revision": null,
+            "sha256": "bb0bd70cbe2df1e5c78c12341447a4024f44f8a9b394ca9173dbd83eea2f4059",
+            "locator": "RESULTS.md与DISCOVERY_REBUILD.md",
+            "relation": "input"
+          },
+          "evidence_refs": [
+            {
+              "target_kind": "owner",
+              "target_id": "RUN-20260917T181639Z-AF7701FD84AD",
+              "revision": null,
+              "sha256": "bb0bd70cbe2df1e5c78c12341447a4024f44f8a9b394ca9173dbd83eea2f4059",
+              "locator": "RESULTS.md与DISCOVERY_REBUILD.md",
+              "relation": "input"
+            }
+          ],
+          "blocks": [
+            {
+              "block_id": "owner-discovery-implementation",
+              "role": "results",
+              "markdown": "# Owner压缩发现索引与互补筛选包实现\n\n## 问题与边界\n\n原默认路径让同一Owner的多条全文片段先进入候选与Cross-encoder窗口，Owner折叠过晚，可能挤掉其他相关Owner。现行路径把“发现相关Owner”和“完整阅读选中Owner”分开；默认发现不读取L1 blocks、文稿、L0或RS note。\n\n## 实现\n\n`memory/discovery.py`建立独立`memory_discovery_entries`、`memory_discovery_fts`、`memory_discovery_index_state`和独立向量collection。投影只使用Owner元数据、L4/L3、L2紧凑结构和L1 `retrieval_description`。规范提交先把受影响Owner标为pending；`rebuild-discovery`以固定Owner HEAD和projection version幂等重建，词法/向量分别记录indexed、pending、unavailable、stale或failed。查询重新核验HEAD、固定来源和当前权限，不能借旧投影返回。\n\nidentity、lexical、dense在信号族内各对每个Owner投一票，保留独特命中和provenance后做Owner级RRF。互补筛选包先取核心命中，再增加通道、记录/位置或型号、数值、单位、版本、否定、失败、工况等受保护条件的增量窗口；通常2至3窗，硬上限4。CE输入不超过512 token，超长时围绕真实命中截取；auto只局部保留失败窗原排序，required继续显式失败。\n\nAI通过`reading-assess-owners`批量保存relevant、uncertain或irrelevant。standard/associative只分页读取relevant Owner的全部当前可读正文，精确去重并续接到`has_more=false`；quick只使用实际发现片段。`reading-recall-fulltext`是独立用户动作，复用原会话、范围、查询计划、预算和版本；uncertain、索引不可用、覆盖不完整或结果不足都不能自动触发。CLI、HTTP、生成契约、工作台Owner卡片、显式按钮和统一设置已经接入。\n\n## 旧Owner与验证\n\n低等级模型固定HEAD审核PRJ-ARCHITECTURE-EVOLUTION、RES-AI-EXPERIENCE-CONTEXT和RES-FLOATING-POINT-SUMMATION，三者均已有L4与L1检索说明，只有发现索引未就绪，因此没有制造内容修订。已分别重建词法/向量投影。改造前104项基线、最终202项Python、87项前端组件、19项真实setup扩展旧工作区、2项浏览器及真实HTTP/socket链路均通过；8个活跃Skill和测试catalog审计通过。\n\n## 限制\n\n功能与安全验证不等于效果评估。本轮按约定未测Owner召回率、延迟、候选数量、CE成本、上下文占用或错误联想率；没有非空L1说明语义不足的真实修订样本；升级限本机Windows x64隔离合成旧工作区，未发布。",
+              "requires_block_ids": []
+            }
+          ],
+          "figures": [],
+          "missing_refs": []
+        },
+        "sources": [
+          {
+            "target_kind": "owner",
+            "target_id": "RUN-20260917T181639Z-AF7701FD84AD",
+            "revision": null,
+            "sha256": "bb0bd70cbe2df1e5c78c12341447a4024f44f8a9b394ca9173dbd83eea2f4059",
+            "locator": "RESULTS.md与DISCOVERY_REBUILD.md",
+            "relation": "input"
+          }
+        ],
+        "provenance_gap": null,
+        "record_reason": "保存Owner压缩发现默认路径的实际实现、验证和未评估边界。",
+        "discovery": "workspace_summary",
+        "sensitivity": "internal"
+      }
+    }
+  ]
+}

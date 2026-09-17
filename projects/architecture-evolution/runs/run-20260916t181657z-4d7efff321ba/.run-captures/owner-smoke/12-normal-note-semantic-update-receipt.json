@@ -1,0 +1,32 @@
+{
+  "status": "rejected",
+  "value": null,
+  "code": "VALIDATION",
+  "warnings": [
+    "笔记引用未交付来源或不同固定版本"
+  ],
+  "issues": [
+    {
+      "code": "VALIDATION",
+      "message": "笔记引用未交付来源或不同固定版本",
+      "affected_refs": [],
+      "retry": "never"
+    }
+  ],
+  "consumed": {
+    "wall_ms": 13593,
+    "read_bytes": 947984,
+    "output_chars": 0,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": "validation",
+  "basis": null
+}

@@ -245,6 +245,98 @@ it("筛选后的空目录窗口仍能翻页，不报告全库无会话", async (
   );
 });
 
+it("显示Owner筛选包和发现缺口，只有用户点击才启动全文补偿", async () => {
+  const discoveryNote = {
+    ...note,
+    discovery: {
+      status: "incomplete" as const,
+      reasons: ["部分Owner尚未建立L4发现面"],
+      projection_version: "owner-discovery-v1",
+    },
+    owner_packets: [
+      {
+        owner_id: "RES-A",
+        title: "温标换算研究",
+        overview: "温标误差与适用条件",
+        packet_digest: "packet-a",
+        retrieval_source: "discovery" as const,
+        coverage: { complete: false, gaps: ["缺少L1检索说明"] },
+        windows: [
+          {
+            text: "换算需固定单位并保留273.15。",
+            refs: [
+              {
+                kind: "record" as const,
+                id: "MEM-A",
+                revision: 1,
+                sha256: "a".repeat(64),
+                locator: "block:summary",
+              },
+            ],
+            source_level: "L4",
+            channels: ["lexical", "dense"],
+            locator: "record:MEM-A",
+            matched_protected_terms: ["273.15"],
+          },
+        ],
+      },
+    ],
+    fulltext_compensation_available: true,
+    fulltext_compensation_reason: "发现覆盖不足，可由用户决定扩大范围。",
+  };
+  call.mockImplementation(async (path) => {
+    if (path === "materials/reading-list")
+      return {
+        value: {
+          items: [{ session_id: "RS-one", goal: "温度研究", note_count: 1 }],
+          next_offset: null,
+          unavailable_count: 0,
+        },
+      };
+    if (path === "materials/reading-recall-fulltext")
+      return {
+        value: {
+          revision: 5,
+          discovery: { status: "ready", reasons: [] },
+          owner_packets: [
+            {
+              ...discoveryNote.owner_packets[0],
+              retrieval_source: "fulltext_compensation",
+            },
+          ],
+          fulltext_compensation_available: false,
+          gaps: [],
+        },
+      };
+    return { value: discoveryNote };
+  });
+  render(<ReadingSessions ownerId="PRJ-one" />);
+  expect(await screen.findByText(/发现覆盖不完整/)).toBeVisible();
+  expect(screen.getByText("温标换算研究")).toBeVisible();
+  expect(screen.getByText(/换算需固定单位/)).toBeVisible();
+  expect(
+    call.mock.calls.filter(
+      ([path]) => path === "materials/reading-recall-fulltext",
+    ),
+  ).toHaveLength(0);
+  fireEvent.click(screen.getByRole("button", { name: "开启全文补偿召回" }));
+  await waitFor(() =>
+    expect(call).toHaveBeenCalledWith(
+      "materials/reading-recall-fulltext",
+      expect.objectContaining({
+        session_id: "RS-one",
+        expected_revision: 4,
+        request_id: expect.any(String),
+      }),
+    ),
+  );
+  await waitFor(() =>
+    expect(screen.getByTestId("owner-discovery-card")).toHaveTextContent(
+      "用户选择的全文补偿",
+    ),
+  );
+});
+
 it("进入自动显示有笔记会话，清单刷新保持手选会话并更新正文，翻页不切换", async () => {
   let revision = 4;
   call.mockImplementation(async (path, payload) => {

@@ -1,0 +1,97 @@
+{
+  "action": "reading-page",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+    "expected_revision": 4,
+    "request_id": "ai-quick-page"
+  },
+  "response": {
+    "status": "partial",
+    "value": {
+      "candidates": [
+        {
+          "owner_id": "PRJ-MQ-B",
+          "text": "MQ_B_DEFINITION：$e_k$ 为归一化误差（无量纲），$u_k$ 为控制量（无量纲），$K$ 为无量纲增益。",
+          "candidate_id": "RC-e5d74fe43e216bcb4009f72e",
+          "sources": [
+            {
+              "kind": "record",
+              "id": "MEM-2d16d2b5-a727-5515-a851-6ea05ca70ce0",
+              "revision": 1,
+              "sha256": "2d53c44b20d19079e9f50b98d125156a2e376f8e99dd608403296c3a311f9884",
+              "locator": "block:d"
+            }
+          ],
+          "coverage": "delivered_recall_fragments_only"
+        },
+        {
+          "owner_id": "RES-MQ-A",
+          "text": "MQ_A_DEFINITION：$e_k$ 为归一化误差（无量纲），$u_k$ 为控制量（无量纲），$K$ 为无量纲增益。",
+          "candidate_id": "RC-ba1fd008e22c61c056df8440",
+          "sources": [
+            {
+              "kind": "record",
+              "id": "MEM-c4e3c539-2c32-5fb1-9395-e718520dbd12",
+              "revision": 2,
+              "sha256": "fea5cf358f263328ae0096664ba491e475bb40e01923bf693ab4da384e544f73",
+              "locator": "block:d"
+            }
+          ],
+          "coverage": "delivered_recall_fragments_only"
+        }
+      ],
+      "gaps": [
+        "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+        "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+      ],
+      "has_more": false,
+      "pending_owner_count": 0,
+      "mode": "owner_document",
+      "strategy": "quick",
+      "association": {
+        "enabled": false,
+        "max_rounds": 3
+      },
+      "association_text": "",
+      "next_action": "assess",
+      "guidance": "逐条reading-assess判断实际召回片段，再仅按已接受固定片段写research_note；reading-page续接，不自动读取全文。",
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+      "revision": 5
+    },
+    "code": null,
+    "warnings": [
+      "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+      "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+    ],
+    "issues": [
+      {
+        "code": "PARTIAL",
+        "message": "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      },
+      {
+        "code": "PARTIAL",
+        "message": "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      }
+    ],
+    "consumed": {
+      "wall_ms": 327,
+      "read_bytes": 120564,
+      "output_chars": 1172,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

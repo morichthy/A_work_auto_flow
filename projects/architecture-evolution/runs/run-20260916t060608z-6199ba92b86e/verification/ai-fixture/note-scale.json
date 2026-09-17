@@ -1,0 +1,11 @@
+{
+  "candidate_id": "RC-0e6a223d41628adb9af24cc0",
+  "summary": "不作为NS4校准方法依据。该材料只比较摄氏与华氏刻度，未定义NS4的增益或零点。",
+  "connection": {
+    "kind": "not_useful",
+    "explanation": "主题相近但缺少仪器偏差模型与校准参数，不能替代Northstar NS4方法。",
+    "chain": ["仅有刻度比较。", "没有b、g或校准版本，故不可用于NS4校正。"]
+  },
+  "details": [{"text": "只比较摄氏华氏刻度，未定义NS4仪器增益或零点。", "reason": "说明其不满足校准方法的关键输入要求。", "block_ids": []}],
+  "uncertainties": ["无仪器校准信息，不能用于误差传播或适用性判断。"]
+}

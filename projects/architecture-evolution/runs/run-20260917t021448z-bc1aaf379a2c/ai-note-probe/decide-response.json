@@ -1,0 +1,30 @@
+{
+  "status": "ok",
+  "value": {
+    "direction": "finish",
+    "next_step": "交回主Agent",
+    "needs_user_input": false,
+    "expansion_count": 0,
+    "session_id": "RS-2417fd8d-07bf-4f6d-b937-9cb5956d2df4",
+    "revision": 6
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 109,
+    "read_bytes": 51168,
+    "output_chars": 0,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

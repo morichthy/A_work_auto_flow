@@ -1,0 +1,83 @@
+{
+  "schema_version": 3,
+  "request_id": "b54c176c-385d-4579-8eae-185660c71e25",
+  "actor": {
+    "kind": "ai",
+    "id": "codex-reranking-implementation"
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": "COM-de4711e3-8d52-47c3-a119-9d5e31afacac",
+  "operations": [
+    {
+      "op": "put_record",
+      "client_key": "reranking-overview",
+      "draft": {
+        "schema_version": 4,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "overview",
+        "title": "2026-09-16召回排序演进概览",
+        "level": "L4",
+        "body_markdown": "本轮已完成有界候选、固定正文/必要定义、Cross-encoder和显式条件重排，并验证预算、权限及Windows离线交付。开发Recall@6从0.75到1.00，留出nDCG@6从0.521到0.991；两套仅各两道有效题，不能替代业务验收。条件自然语料全unknown，冷启动模型加载占大头；尚不宣称加速。完整方法、失败、模型和限制由固定技术单元及独立文稿展开。",
+        "payload": {
+          "question": "在保留召回覆盖和可追溯边界下提升前列排序",
+          "methods": [
+            "冻结基线→有界正文→离线CE与显式条件→排序及诊断",
+            "实际CLI阅读和Windows离线迁移验证"
+          ],
+          "results": [
+            "已接入新AI阅读auto模板，旧RS保持off",
+            "小型开发和留出题集改善前列指标，完整结果见固定技术单元"
+          ],
+          "current_stage": "软件及本机离线交付验证完成；真实业务与规模验收待做",
+          "limitations": [
+            "小型合成题集",
+            "条件自然语言多为unknown",
+            "单候选超过512 token全窗停止CE",
+            "独立CLI不共享加载缓存",
+            "第二物理机未验收",
+            "未全仓库回归，既有B01问题保留"
+          ],
+          "open_questions": [
+            "真实业务条件结构化覆盖率",
+            "长文窗口选择",
+            "冷暖p50/p95和非空无答案误报"
+          ],
+          "technical_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+              "revision": 1,
+              "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "process_refs": [],
+          "experience_refs": [],
+          "claims": []
+        },
+        "sources": [
+          {
+            "target_kind": "record",
+            "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+            "revision": 1,
+            "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+            "locator": "",
+            "relation": "references"
+          }
+        ],
+        "provenance_gap": null,
+        "record_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+        "discovery": "workspace_summary",
+        "sensitivity": "internal",
+        "keywords": [
+          "Cross-encoder",
+          "重排",
+          "显式条件",
+          "冻结基线",
+          "离线模型"
+        ]
+      }
+    }
+  ]
+}

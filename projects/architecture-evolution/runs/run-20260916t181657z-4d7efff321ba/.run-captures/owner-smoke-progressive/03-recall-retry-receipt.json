@@ -1,0 +1,49 @@
+{
+  "status": "partial",
+  "value": {
+    "candidates": [
+      {
+        "owner_id": "RES-FLOATING-POINT-SUMMATION",
+        "text": "三轮实际计算表明：本研究的显式逐项累加对顺序敏感；Kahan实现未消除所选抵消结构的全部误差；Neumaier与math.fsum在第二轮6种排列和第三轮30种排列中均与精确基准一致。该观察只适用于已保存输入与脚本，不能推出任意浮点输入都准确，也未比较运行时间。\n\n## 新增过程依据\n本次逐步复核150个结果全部一致，三篇L1补齐了中间数值、公式、图表和参数。Kahan的补偿在所选三项抵消中再次舍入，不能只凭采用补偿保证精确。先固定输入与精确参考，再观察逐步状态；环境失败应与数值反例分别记录。\n\n## 适用与禁用范围\n仅限已保存有限整数binary64样本与本机环境。其他分布、极端指数、平台和性能须新建Run验证；本次没有人工认可。"
+      }
+    ],
+    "gaps": [
+      "重排正文缺失或超过模型token窗口，未静默截断；保留候选及原RRF相对顺序，显式条件冲突仍单列"
+    ],
+    "has_more": true,
+    "pending_owner_count": 1,
+    "mode": "owner_document",
+    "next_action": "read",
+    "guidance": "每Owner本页最多一份正文；相关则reading-read(owner_id)，未确定可reading-page继续。",
+    "session_id": "RS-5f0d6fd5-9e12-4a28-bf53-2cd57fbc6640",
+    "revision": 2
+  },
+  "code": null,
+  "warnings": [
+    "重排正文缺失或超过模型token窗口，未静默截断；保留候选及原RRF相对顺序，显式条件冲突仍单列"
+  ],
+  "issues": [
+    {
+      "code": "PARTIAL",
+      "message": "重排正文缺失或超过模型token窗口，未静默截断；保留候选及原RRF相对顺序，显式条件冲突仍单列",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    }
+  ],
+  "consumed": {
+    "wall_ms": 82811,
+    "read_bytes": 7232011,
+    "output_chars": 631,
+    "candidates": 60,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 2382,
+    "model_calls": 11,
+    "model_input_tokens": 2382,
+    "model_output_tokens": 0,
+    "rerank_items": 7
+  },
+  "stop_reason": null,
+  "basis": null
+}

@@ -1,0 +1,38 @@
+{
+  "session_id": "RS-SYNTHETIC-QUALITY-PROBE",
+  "revision": 1,
+  "phase": "reading",
+  "goal": "根据合成完整文稿，为10–40 °C温度校准写可继续研究的note。",
+  "conditions": [
+    "开发用合成场景，不是真实实验验收"
+  ],
+  "owner_id": "RES-CALIBRATION-PROBE",
+  "model_requirements": "低成本低推理reader",
+  "query": {
+    "question": "10–40 °C范围怎样由电压算温度、误差保证有哪些限制、有哪些实验依据？",
+    "scope": null,
+    "scope_ceiling": null,
+    "budget": {}
+  },
+  "next_step": "按本RS既有阶段继续材料阅读",
+  "instructions": [
+    "先读material-query Skill；使用独立低成本reader继续同一RS，不递归委派。",
+    "从reading-template或已有RS复制完整query，只改必要字段；scope选择直接Owner，scope_ceiling是获准必要依赖上限。",
+    "不要机械将scope复制给scope_ceiling，否则Run/文稿必要来源可能不可读；也不得扩大任务授权范围。",
+    "protected_terms只能选原question中实际出现的术语；不要填原问题没有的数字或术语。",
+    "reading-recall仅返回Owner身份和去重正文；相关Owner用reading-read(owner_id)逐一读取完整文稿。",
+    "图片/L0/Run按固定来源引用需要时展开，引用存在不等于已读。",
+    "阅读时必须围绕当前问题提取相关核心公式及变量、单位、成立条件、假设、边界和反例，并记录实验输入/方法/结果与图、Run、原始来源的对应关系；材料未提供的内容明确记为缺口，不补造。",
+    "写note前由同一reader核对提取内容与已交付原文/固定出处；写完后再次自查相关公式、实验细节、图及来源对应是否遗漏，补齐后保存，无法补齐则写明材料或阅读缺口。此自查在当前reader工作内完成，不新增AI调用、审核agent或主Agent复检任务。",
+    "note正文实际使用的来源ID必须列入sources，可用已交付ID简写由程序补齐固定版本；只列实际需要的出处。图片/L0/Run未展开只能说明文稿声明的引用，不得写成已独立读过或复算。程序引用检查不证明语义正确或完整，自查清单不另塞入handoff。",
+    "每Owner提交research_note：question、conditions、understanding、logic、details、sources、limitations、next_steps。",
+    "工程限制每operation重置；context.max_owners限制选中Owner，note_max_tokens是UTF8字节保守估计，不是宿主exact tokens。",
+    "结束仅返回session_id、revision和状态；主Agent调用reading-handoff获得最终笔记，不回传候选/正文。",
+    "等待用户意见时不得自行越过；使用原授权范围，模型要求不扩大读取权限。"
+  ],
+  "mode": "owner_document",
+  "context": {
+    "max_owners": 10,
+    "note_max_tokens": 6000
+  }
+}

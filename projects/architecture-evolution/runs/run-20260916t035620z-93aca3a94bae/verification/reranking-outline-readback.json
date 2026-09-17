@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "document_source": "independent",
+  "document": {
+    "record_id": "MEM-5c827f1d-99ff-5a60-a150-ac28ad89c877",
+    "revision": 1,
+    "title": "召回排序演进：正文、条件与Cross-encoder完整报告",
+    "document_type": "research_process",
+    "purpose": "复现本轮功能拆解、核心基线、实现及验证边界",
+    "audience": "框架开发与检索评估人员",
+    "scope": "仅2026-09-16新增AI阅读重排，历史v0.1/v0.2稿保持其时点",
+    "common_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+        "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+        "target_kind": "record"
+      }
+    ],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "8ea83d522ab2422ae9217eb6826b2d877692e833e515097aa021d9689770176c",
+        "target_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "section_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+      "ref": {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "8ea83d522ab2422ae9217eb6826b2d877692e833e515097aa021d9689770176c",
+        "target_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+        "target_kind": "record"
+      },
+      "section_key": "reranking-20260916",
+      "title": "正文重排完整实施与验证",
+      "role": "methods",
+      "unit_refs": [
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+          "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+          "target_kind": "record"
+        }
+      ],
+      "source_issues": []
+    }
+  ],
+  "report_candidates": [
+    {
+      "record_id": "MEM-5c827f1d-99ff-5a60-a150-ac28ad89c877",
+      "revision": 1,
+      "title": "召回排序演进：正文、条件与Cross-encoder完整报告",
+      "updated_at": "2026-09-16T05:04:03.117159Z",
+      "document_type": "research_process"
+    },
+    {
+      "record_id": "MEM-ef137680-afa6-59b8-a263-f2bb33d256c4",
+      "revision": 7,
+      "title": "表示查询：当前实现与核心简报",
+      "updated_at": "2026-09-10T06:55:31.655678Z",
+      "document_type": "research_report"
+    },
+    {
+      "record_id": "MEM-3264fce7-c63f-504e-bdb5-3aaa1169eb7b",
+      "revision": 7,
+      "title": "表示查询：完整设计与实施过程",
+      "updated_at": "2026-09-10T06:55:31.655678Z",
+      "document_type": "research_process"
+    }
+  ],
+  "watch_baseline": {
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "head": "COM-05193f16-a923-43c1-9897-859c60658115",
+    "unit_ids": [
+      "MEM-0bb96a65-0ada-5001-80cb-14904ef684d1",
+      "MEM-192a48a9-191c-5018-8c58-bae968b45ae2",
+      "MEM-2c7941ed-b272-573c-ad70-2c7739ccac99",
+      "MEM-3d6097e5-9028-5e74-b2ca-196db59ed90c",
+      "MEM-4143f480-712a-5739-8044-3535ecaf1b0a",
+      "MEM-76c2ed5f-d911-5435-9818-f5266bfc77e5",
+      "MEM-7faf0c58-7e42-59db-9613-b29e6f7c39ca",
+      "MEM-7fc816dc-2a9c-5189-82ad-1906b6a917e8",
+      "MEM-8933de07-288b-5782-ad81-67a05a133b19",
+      "MEM-8d589423-c595-5a80-898d-23d974868c7c",
+      "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+      "MEM-b0390c59-c458-5690-bc68-6dd030d32de0",
+      "MEM-b0d161c1-cb11-5c55-8d6c-58da7204cc4b",
+      "MEM-c0c9cca2-5a17-5634-86f7-3dbb3dec7902",
+      "MEM-c40996c6-fd17-59b9-84a3-9b373cdbcd64",
+      "MEM-ea9c08fd-4dc8-54f8-abf8-16c1869fb19d",
+      "MEM-ecc8c6cc-b362-5450-bffc-da7418c2c745"
+    ]
+  },
+  "missing": [],
+  "basis_heads": {
+    "PRJ-ARCHITECTURE-EVOLUTION": "COM-05193f16-a923-43c1-9897-859c60658115"
+  },
+  "metrics": {
+    "elapsed_ms": 3953.51,
+    "inventory_owners": 33,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 52,
+    "resolved_sections": 1
+  },
+  "writes": 0
+}

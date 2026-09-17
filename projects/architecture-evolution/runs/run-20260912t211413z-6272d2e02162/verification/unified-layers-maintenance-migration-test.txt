@@ -1,0 +1,7 @@
+test_map_migration_through_public_plan_review_apply (test_material_maintenance.MaterialMaintenanceTests.test_map_migration_through_public_plan_review_apply)
+同一地图身份经公开维护迁为概览，前版来源与下一次维护均可读。 ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 34.125s
+
+OK

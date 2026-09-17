@@ -1,0 +1,61 @@
+{
+  "actor": "reader",
+  "action": "reading-note",
+  "request": {
+    "candidate_id": "RC-4985555bd5d4a11e419c1262",
+    "summary": "不作为NS4方法的直接复用依据。旧材料对应NS7、液体浸入且未达到热平衡。",
+    "connection": {
+      "kind": "not_useful",
+      "explanation": "该材料提供反向边界：同名字段不能跨型号和工况迁移。",
+      "chain": [
+        "对象是NS7而非NS4。",
+        "液体浸入且未热平衡与方法边界冲突。",
+        "因此不能直接套用NS4换算。"
+      ]
+    },
+    "details": [
+      {
+        "text": "对象NS7、液体浸入且未达到热平衡。",
+        "reason": "与NS4、干燥空气和热平衡的适用条件直接冲突。",
+        "block_ids": []
+      }
+    ],
+    "uncertainties": [
+      "未提供可将NS7或液体瞬态转换为NS4条件的校准证据。"
+    ],
+    "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+    "expected_revision": 5,
+    "request_id": "479664dc-3542-4ea1-80b3-1156a1c0911f"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "candidate_id": "RC-4985555bd5d4a11e419c1262",
+      "link": "C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-96b757cc-4b6b-5e2b-9e7f-e83c59a5d3be/records/MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397.json",
+      "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+      "revision": 6
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 2372,
+      "read_bytes": 1091717,
+      "output_chars": 53326,
+      "candidates": 6,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  },
+  "response_serialized_chars": 704,
+  "value_serialized_chars": 343
+}

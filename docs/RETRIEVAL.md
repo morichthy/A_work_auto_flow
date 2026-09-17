@@ -127,6 +127,8 @@ path/related 以工作区根为基准，也接受绝对文件路径。related �
 
 ## 记忆查询的排序、装载与关联
 
+Owner 文稿模式的默认召回使用独立 Owner 发现投影：只索引 L4/L3、L2 紧凑内容、L1 `retrieval_description` 和 Owner 元数据，使用独立 FTS、向量 collection 与每 Owner 词法/向量水位。它不能由现有 `memory_entries/memory_fts` 增加 level 过滤代替；命中仍回到规范 fixed ref 做权限、版本和来源核验。路线先折叠 Owner，再跨路线融合并生成小型互补筛选包。发现 `unavailable`、`incomplete` 或 `insufficient` 时返回不同缺口；只有用户明确调用全文补偿，才进入全文路径。词法/向量任何一路是 pending、failed 或 stale 都不允许借旧投影返回。手动材料查询、legacy RS 及其冻结查询继续采用下文的全文检索行为；完整状态和验证范围见[Owner发现设计](design/OWNER_DISCOVERY_RETRIEVAL.md)。
+
 记忆检索使用中文双字词及英文标识符分词、SQLite FTS5 BM25、本地多表示向量和规范 ID 精确命中。各通道先按同一规范身份折叠，再使用等权 Reciprocal Rank Fusion：
 
 \[

@@ -1,0 +1,43 @@
+{
+  "registrations": [
+    {
+      "status": "registered",
+      "added": [
+        "component:src/MaterialQuery.test.tsx::新查询采用工作区设置的结果数与预算"
+      ],
+      "catalog_revision": 82,
+      "previous_catalog": "D:\\共享桌面\\A_work\\A_work_auto_flow\\.local\\testing\\catalog-history\\revision-81-6ea461e185a548069f92f09d0fc93f00.json"
+    },
+    {
+      "status": "registered",
+      "added": [
+        "browser:e2e/settings.spec.ts::真实HTTP保存配置并在页面重新载入后保持",
+        "browser:e2e/settings.spec.ts::设置草稿跨导航保留，冲突不清空，显式重读后保存"
+      ],
+      "catalog_revision": 83,
+      "previous_catalog": "D:\\共享桌面\\A_work\\A_work_auto_flow\\.local\\testing\\catalog-history\\revision-82-3eab3f9cfba248abb1a8e3880cbfa9d8.json"
+    }
+  ],
+  "baseline_changes": [
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_update_is_complete_cas_and_persists_only_authoritative_shape",
+      "before_quick": false,
+      "after_quick": true
+    },
+    {
+      "id": "python:test_workspace_settings_integration.SettingsIntegrationTests.test_capabilities_and_new_template_consume_settings_but_saved_rs_is_fixed",
+      "before_quick": false,
+      "after_quick": true
+    }
+  ],
+  "audit": {
+    "status": "passed",
+    "discovered_count": 728,
+    "catalog_count": 730,
+    "unclassified": [],
+    "missing": [],
+    "errors": [],
+    "discovery_fingerprint": "c6890a50605af95c6d9929b9b7e9ea73e47be5b58593bb2c4734876daa30739e",
+    "catalog_fingerprint": "c5d25c2c9b62bc2a9f759577af043b7e99392a223d0e532136fdd12d6c9d469b"
+  }
+}

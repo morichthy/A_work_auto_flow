@@ -1,0 +1,66 @@
+{
+  "frozen_at": "2026-09-12T02:48:35.093419Z",
+  "files": {
+    "automation/scripts/memory/index.py": {
+      "sha256": "bc739da93a8596ad515b4592a41ecf3443422fb4628d3403d65b2e8b18382364",
+      "snapshot": "final-code/automation__scripts__memory__index.py.snapshot"
+    },
+    "automation/scripts/memory/search.py": {
+      "sha256": "afe3d950b0df29c49022360f5e567746559eaf4c176b7a594cb8074744fd476a",
+      "snapshot": "final-code/automation__scripts__memory__search.py.snapshot"
+    },
+    "automation/scripts/memory/technical_units.py": {
+      "sha256": "fe707cba7c75e6272b90f37734396d680960b5133d287c82abb3ef5cd75da287",
+      "snapshot": "final-code/automation__scripts__memory__technical_units.py.snapshot"
+    },
+    "automation/scripts/material_query/coordinator.py": {
+      "sha256": "43642d6872cff18dbae4f03b23d2536bba49be8af811b7ff9dd4570d66cd6913",
+      "snapshot": "final-code/automation__scripts__material_query__coordinator.py.snapshot"
+    },
+    "automation/scripts/material_query/recall.py": {
+      "sha256": "646d777cd1f27eb52136a6da48d6f8bb36e32239ee5569b768da1706c2b2e032",
+      "snapshot": "final-code/automation__scripts__material_query__recall.py.snapshot"
+    },
+    "automation/scripts/material_query/history_search.py": {
+      "sha256": "21c727b737fc9dc51fd9f9483ae4d073a8e2fa0a87e532d07bd633173f018ba6",
+      "snapshot": "final-code/automation__scripts__material_query__history_search.py.snapshot"
+    },
+    "automation/scripts/material_query/budget.py": {
+      "sha256": "d16e79ef32e38421a3fa58599289e567feb2d59a00ee3bb685a5238b777360a2",
+      "snapshot": "final-code/automation__scripts__material_query__budget.py.snapshot"
+    },
+    "automation/scripts/material_query/contracts.py": {
+      "sha256": "50366bd524bbf1b2001dbc14fc419fd77d189269f3faddf8c5517bff7977cf39",
+      "snapshot": "final-code/automation__scripts__material_query__contracts.py.snapshot"
+    },
+    "automation/scripts/qdrant_backend.py": {
+      "sha256": "08c26b1dfb12099b9afd66f2b0e00bebe079143ef2ba7be01e41489570ee612d",
+      "snapshot": "final-code/automation__scripts__qdrant_backend.py.snapshot"
+    },
+    "automation/tests/test_memory_documents_v3.py": {
+      "sha256": "fc640f7d69739fdc6c549a61fe9f94e890c41c6e703986a9e657da449fee223a",
+      "snapshot": "final-code/automation__tests__test_memory_documents_v3.py.snapshot"
+    },
+    "automation/tests/test_material_recall.py": {
+      "sha256": "20071417ff5370b6d12133eeb2aae05475e280890c778f5208265a0bdf025cb7",
+      "snapshot": "final-code/automation__tests__test_material_recall.py.snapshot"
+    },
+    "automation/tests/test_material_dense_real.py": {
+      "sha256": "0ced8d49092b3e5f9ad932f9dce34a470d9dbc35b726286eac88ed3d80670d66",
+      "snapshot": "final-code/automation__tests__test_material_dense_real.py.snapshot"
+    },
+    "automation/testing/catalog.json": {
+      "sha256": "49443a9fb378abed671b824b98fded302289c1bc9fb94b56cc930e880dd117f0",
+      "snapshot": "final-code/automation__testing__catalog.json.snapshot"
+    },
+    "services/qdrant/model-manifest.json": {
+      "sha256": "8bd7a882766c881dd29766c89e7bacfba32deb98308b5d69cee4b3e453c5476f",
+      "snapshot": "final-code/services__qdrant__model-manifest.json.snapshot"
+    }
+  },
+  "runtime": {
+    "qdrant-client": "1.19.0",
+    "fastembed": "0.8.0",
+    "tokenizers": "0.23.2"
+  }
+}

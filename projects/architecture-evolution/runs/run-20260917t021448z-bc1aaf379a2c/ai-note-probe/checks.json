@@ -1,0 +1,18 @@
+{
+  "session_id": "RS-2417fd8d-07bf-4f6d-b937-9cb5956d2df4",
+  "revision": 6,
+  "phase": "finish",
+  "question_not_rendered": true,
+  "no_decision_text": true,
+  "no_next_query": true,
+  "suggestion_heading": true,
+  "formula": true,
+  "numbered_reference": true,
+  "fixed_hash": "37ed58315083826cf2ec25d063549b0073de5dcc2e3eac8fdf66a58f95659b2e",
+  "complete": false,
+  "gaps": [
+    "Owner内有记录不满足当前授权或固定来源不可用，未交付",
+    "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+    "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+  ]
+}

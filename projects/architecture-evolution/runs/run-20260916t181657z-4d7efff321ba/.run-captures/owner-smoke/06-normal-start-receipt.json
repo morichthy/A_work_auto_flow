@@ -1,0 +1,28 @@
+{
+  "status": "ok",
+  "value": {
+    "session_id": "RS-a8f812d7-d8f9-4862-8e8f-932cc5649d3b",
+    "revision": 1,
+    "next_action": "recall",
+    "guidance": "先读返回的正文；可保留直接用途或有具体连接理由的间接启发。长链连接逐步注明依据和假设。保留候选后 reading-read 读完整记录，再 reading-note 保存理解、连接和必要细节。有可检验下一步先执行，失败后定向扩查。"
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 0,
+    "read_bytes": 0,
+    "output_chars": 0,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

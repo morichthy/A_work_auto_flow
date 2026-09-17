@@ -1,0 +1,2 @@
+已刷新索引：D:\共享桌面\A_work\A_work_auto_flow\context\generated\workspace-index.md
+已生成上下文包：D:\共享桌面\A_work\A_work_auto_flow\context\generated\context-pack.md（约 31093 字符）

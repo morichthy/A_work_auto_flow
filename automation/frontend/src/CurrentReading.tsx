@@ -11,6 +11,11 @@ import { readingNoteName } from "./readingNoteName";
 import { ResearchMarkdown } from "./ResearchDocument";
 import { ReadingMode } from "./ReadingMode";
 import type { ReadingEvidenceData } from "./ReadingEvidence";
+import type {
+  DiscoveryReadiness,
+  OwnerScreeningPacket,
+} from "./generated/material-query";
+export type { OwnerScreeningPacket } from "./generated/material-query";
 export type Reading = ReadingEvidenceData & {
   mode?: "owner_document" | "legacy";
   strategy?: "standard" | "associative" | "quick";
@@ -29,6 +34,11 @@ export type Reading = ReadingEvidenceData & {
   verification?: string;
   warnings?: string[];
   workspace_id?: string;
+  discovery?: DiscoveryReadiness;
+  owner_packets?: OwnerScreeningPacket[];
+  fulltext_compensation_available?: boolean;
+  fulltext_compensation_reason?: string;
+  screening_omitted_owner_count?: number;
 };
 export type Session = {
   session_id: string;

@@ -1,0 +1,30 @@
+{
+  "status": "ok",
+  "value": {
+    "saved": true,
+    "candidate_id": "RC-6bb37f31a95270763a15a0d1",
+    "link": "D:/共享桌面/A_work/A_work_auto_flow/research/floating-point-summation/memory/commits/COM-b5c67bba-4c3a-48f8-8ab8-248fa357c5cd/records/MEM-c52df8fb-ca9e-53a7-a49b-342592884a50.json",
+    "session_id": "RS-410e1467-5e05-4c3a-ba90-77001a53fe4f",
+    "revision": 4
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 54424,
+    "read_bytes": 3851458,
+    "output_chars": 15160,
+    "candidates": 8,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 15,
+    "model_calls": 3,
+    "model_input_tokens": 15,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}
+

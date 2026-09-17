@@ -1,0 +1,196 @@
+{
+  "owner": {
+    "schema_version": 1,
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "owner_type": "project",
+    "native_ref": {
+      "id_field": "project_id",
+      "id_value": "PRJ-ARCHITECTURE-EVOLUTION",
+      "path": "projects/architecture-evolution/project.json"
+    },
+    "memory_home": "projects/architecture-evolution/memory",
+    "adapter_version": 1,
+    "temporary": false,
+    "persisted": true,
+    "title": "框架架构演进与文档一致性",
+    "fingerprint": "6b7eb7daf36d4e7b0c1d93f848e8977d4bba9cafdc2a632e2dd8baa35ec7bca7",
+    "native_data": {
+      "schema_version": 1,
+      "project_id": "PRJ-ARCHITECTURE-EVOLUTION",
+      "slug": "architecture-evolution",
+      "title": "框架架构演进与文档一致性",
+      "status": "active",
+      "lifecycle_stage": "develop",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-16",
+      "owners": [],
+      "domain_tags": [
+        "framework-architecture",
+        "documentation-consistency",
+        "memory",
+        "retrieval"
+      ],
+      "sensitivity": "internal",
+      "objectives": [
+        "按实际代码和明确时间核对现行文档",
+        "维护模块职责及变更影响图",
+        "按有用内容保存项目L0-L4，文稿按需，并维护可见工作上下文",
+        "定义并实现表示查询、存储适配与语义维护的可替换接口"
+      ],
+      "non_goals": [
+        "不替换384维召回编码器与存储引擎；正文重排使用独立可选模型",
+        "不直接改写历史Run、规范记忆和合成fixture；新增内容走公共提交",
+        "不把框架软件模块登记成公司核心算法",
+        "不启动后台同步、规模测试或对外发布"
+      ],
+      "module_ids": [],
+      "dataset_ids": [],
+      "active_research_ids": [
+        "RES-AI-EXPERIENCE-CONTEXT"
+      ],
+      "active_plan": "plans/workspace-settings-20260916.md",
+      "open_questions": [
+        "怎样以小步适配落实本轮契约，并保持已有固定引用和用户入口？",
+        "如何以固定问题集验证候选召回、误联想、延迟和上下文成本？"
+      ]
+    },
+    "created_at": "2026-09-09T17:16:28.592511Z",
+    "created_by": {
+      "id": "assistant",
+      "kind": "ai"
+    }
+  },
+  "record": {
+    "body_markdown": "",
+    "change_reason": "追加本次UI/storage结果，保留全部旧计时、委派、能力配置正文和固定引用。",
+    "content_hash": "dc7455525d8b6446018b7b18f65a006721a8fd750a0beeebf1e72cd4a95a88e2",
+    "created_at": "2026-09-16T06:41:08.025489Z",
+    "created_by": {
+      "id": "codex-reading-delegation",
+      "kind": "ai"
+    },
+    "discovery": "workspace_summary",
+    "keywords": [
+      "reading-note",
+      "subagent",
+      "上下文预算",
+      "固定来源",
+      "handoff",
+      "subagent_requirements",
+      "能力偏好",
+      "reading-latency",
+      "默认预算失败"
+    ],
+    "kind": "document",
+    "level": null,
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "payload": {
+      "audience": "框架开发者和AI工作流使用者",
+      "common_refs": [
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 2,
+          "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+          "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+          "target_kind": "record"
+        },
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 2,
+          "sha256": "1df804130728e6619ebfb2c63920cb51e4875769265ad7b00fac3d7add52efe9",
+          "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+          "target_kind": "record"
+        },
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+          "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+          "target_kind": "record"
+        }
+      ],
+      "document_type": "research_process",
+      "missing_refs": [],
+      "purpose": "复现阅读上下文隔离、主侧交接及边界验证，并区分历史默认low与当前可编辑模型偏好",
+      "scope": "仅2026-09-16子Agent材料阅读与有界笔记交接，不重新认可历史业务结论；含本轮能力偏好、旧设置无损兼容与宿主传递扩展。；追加真实浮点材料阅读的默认预算失败和放宽预算计时诊断，不含性能优化实施。；新增2026-09-16至17阅读笔记Markdown派生副本、合法会话发现、当前笔记与定向证据/导航修复及验证；不宣称性能优化完成。",
+      "section_refs": [
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 3,
+          "sha256": "d526670cbb8f2e4ec5b5cc6e23db19089184addd16199f7b58873be4da037d89",
+          "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+          "target_kind": "record"
+        },
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "05247c81db6408eac446df9d4e4d8f153b0dfb8d60e86ec1edcb4d586333760c",
+          "target_id": "MEM-a042188a-244a-5d15-843e-359b7d7f87f6",
+          "target_kind": "record"
+        }
+      ],
+      "watch_refs": []
+    },
+    "previous_revision": 3,
+    "provenance_gap": null,
+    "record_hash": "d8682cb6eb6f9fc2c8efd59056c2ab0f462e9a875cd93d632300c9693ba5683f",
+    "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+    "record_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+    "revision": 4,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "1df804130728e6619ebfb2c63920cb51e4875769265ad7b00fac3d7add52efe9",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 3,
+        "sha256": "d526670cbb8f2e4ec5b5cc6e23db19089184addd16199f7b58873be4da037d89",
+        "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+        "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "05247c81db6408eac446df9d4e4d8f153b0dfb8d60e86ec1edcb4d586333760c",
+        "target_id": "MEM-a042188a-244a-5d15-843e-359b7d7f87f6",
+        "target_kind": "record"
+      }
+    ],
+    "title": "子Agent材料阅读与有界笔记交接完整报告",
+    "updated_at": "2026-09-16T16:37:43.706531Z",
+    "updated_by": {
+      "id": "codex-reading-note-closure",
+      "kind": "ai"
+    }
+  }
+}

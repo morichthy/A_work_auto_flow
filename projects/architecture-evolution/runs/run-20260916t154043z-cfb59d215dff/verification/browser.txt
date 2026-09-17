@@ -1,0 +1,47 @@
+
+> rd-workbench@1.0.0 e2e
+> playwright test e2e/memory.spec.ts e2e/workbench.spec.ts e2e/materials.spec.ts --grep-invert 一万节点
+
+
+Running 13 tests using 1 worker
+
+  ok  1 e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 (3.7s)
+  ok  2 e2e\memory.spec.ts:115:1 › 系统记忆默认研究经过，按需生成对象记忆且保持子页结果 (1.6s)
+  ok  3 e2e\memory.spec.ts:207:1 › 四层记录、真实编辑冲突、索引待补偿与安全导出 (18.3s)
+  ok  4 e2e\memory.spec.ts:336:1 › 连续研究报告、固定图示、目录路由和窄屏阅读 (17.2s)
+  x   5 e2e\memory.spec.ts:644:1 › 研究、Run、知识与报告真实记录及辅助对象可区分 (35.0s)
+  -   6 e2e\memory.spec.ts:736:1 › 缺范围复核被拒绝并保留逐结论状态
+  -   7 e2e\memory.spec.ts:797:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联
+  -   8 e2e\memory.spec.ts:889:1 › 逐层读取固定原件、返回已读版本，并识别原件变化
+  -   9 e2e\memory.spec.ts:947:1 › 独立双文稿、必要定义、章节上下文与固定修订影响
+  ok 10 e2e\workbench.spec.ts:47:1 › 完整导航、关系、证据、候选和摘要 (6.3s)
+  ok 11 e2e\workbench.spec.ts:143:1 › 证据页首次进入加载，顶层切换复用已加载状态 (1.5s)
+  ok 12 e2e\workbench.spec.ts:170:1 › 勾选联动图与导出，分类结合搜索且保留跨分类勾选 (2.7s)
+  ok 13 e2e\workbench.spec.ts:322:1 › 对象阅读清单、完整原文和版本导出真实接口 (3.6s)
+
+
+  1) e2e\memory.spec.ts:644:1 › 研究、Run、知识与报告真实记录及辅助对象可区分 ───────────────────────────────────────────
+
+    TimeoutError: locator.click: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '清空类型', exact: true })
+
+
+      195 |   types: string[],
+      196 | ) {
+    > 197 |   await page.getByRole("button", { name: "清空类型", exact: true }).click();
+          |                                                                 ^
+      198 |   const group = page.getByRole("group", { name: "按层级或类型筛选" });
+      199 |   for (const type of types) {
+      200 |     // 历史fixture仍保存map/event；界面只显示现行统一层级入口。
+        at filterTypes (D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\memory.spec.ts:197:65)
+        at D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\memory.spec.ts:706:11
+
+    Error Context: test-results\memory-研究、Run、知识与报告真实记录及辅助对象可区分\error-context.md
+
+    Error Context: test-results\memory-研究、Run、知识与报告真实记录及辅助对象可区分\error-context.md
+
+  1 failed
+    e2e\memory.spec.ts:644:1 › 研究、Run、知识与报告真实记录及辅助对象可区分 ────────────────────────────────────────────
+  4 did not run
+  8 passed (1.7m)

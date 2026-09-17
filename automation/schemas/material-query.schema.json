@@ -1140,6 +1140,353 @@
       ],
       "additionalProperties": false
     },
+    "DiscoveryReadiness": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "ready",
+            "unavailable",
+            "incomplete",
+            "insufficient"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "projection_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "status",
+        "reasons"
+      ],
+      "additionalProperties": false
+    },
+    "OwnerScreeningWindow": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/FixedRef"
+          }
+        },
+        "projection_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_level": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_kind": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "locator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "matched_protected_terms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "text",
+        "refs"
+      ],
+      "additionalProperties": false
+    },
+    "OwnerScreeningCoverage": {
+      "type": "object",
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "complete",
+        "gaps"
+      ],
+      "additionalProperties": false
+    },
+    "OwnerAssessment": {
+      "type": "object",
+      "properties": {
+        "owner_id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "relevant",
+            "uncertain",
+            "irrelevant"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        },
+        "packet_digest": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner_id",
+        "status",
+        "reason",
+        "packet_digest"
+      ],
+      "additionalProperties": false
+    },
+    "OwnerAssessmentBatchRequest": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string"
+        },
+        "expected_revision": {
+          "type": "integer"
+        },
+        "request_id": {
+          "type": "string"
+        },
+        "assessments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OwnerAssessment"
+          }
+        }
+      },
+      "required": [
+        "session_id",
+        "expected_revision",
+        "request_id",
+        "assessments"
+      ],
+      "additionalProperties": false
+    },
+    "OwnerFulltextRecallRequest": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string"
+        },
+        "expected_revision": {
+          "type": "integer"
+        },
+        "request_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "session_id",
+        "expected_revision",
+        "request_id"
+      ],
+      "additionalProperties": false
+    },
+    "OwnerScreeningPacket": {
+      "type": "object",
+      "properties": {
+        "owner_id": {
+          "type": "string"
+        },
+        "windows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OwnerScreeningWindow"
+          }
+        },
+        "coverage": {
+          "$ref": "#/$defs/OwnerScreeningCoverage"
+        },
+        "packet_digest": {
+          "type": "string"
+        },
+        "retrieval_source": {
+          "enum": [
+            "discovery",
+            "fulltext_compensation"
+          ]
+        },
+        "title": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "overview": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "assessment": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OwnerAssessment"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "owner_id",
+        "windows",
+        "coverage",
+        "packet_digest",
+        "retrieval_source"
+      ],
+      "additionalProperties": false
+    },
+    "OwnerRecallReceipt": {
+      "type": "object",
+      "properties": {
+        "owner_packets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OwnerScreeningPacket"
+          }
+        },
+        "discovery": {
+          "$ref": "#/$defs/DiscoveryReadiness"
+        },
+        "fulltext_compensation_available": {
+          "type": "boolean"
+        },
+        "fulltext_compensation_reason": {
+          "type": "string"
+        },
+        "next_action": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "owner_packets",
+        "discovery",
+        "fulltext_compensation_available",
+        "fulltext_compensation_reason",
+        "next_action"
+      ],
+      "additionalProperties": false
+    },
+    "OwnerAssessmentReceipt": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "integer"
+        },
+        "assessments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/OwnerAssessment"
+          }
+        },
+        "relevant_owner_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "next_action": {
+          "enum": [
+            "synthesize",
+            "read",
+            "page"
+          ]
+        },
+        "fulltext_compensation_available": {
+          "type": "boolean"
+        },
+        "fulltext_compensation_reason": {
+          "type": "string"
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "session_id",
+        "revision",
+        "assessments",
+        "relevant_owner_ids",
+        "next_action",
+        "fulltext_compensation_available",
+        "fulltext_compensation_reason",
+        "gaps"
+      ],
+      "additionalProperties": false
+    },
     "SearchReceipt": {
       "type": "object",
       "properties": {
@@ -3331,6 +3678,85 @@
           "anyOf": [
             {
               "$ref": "#/$defs/AssociationProposal"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "consumed": {
+          "$ref": "#/$defs/Budget"
+        },
+        "stop_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "basis": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Basis"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Issue"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "value",
+        "code",
+        "warnings",
+        "consumed",
+        "stop_reason",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "Result_OwnerAssessmentReceipt": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "ok",
+            "partial",
+            "rejected",
+            "cancelled",
+            "failed"
+          ]
+        },
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OwnerAssessmentReceipt"
             },
             {
               "type": "null"

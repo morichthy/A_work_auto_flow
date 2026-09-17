@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "owner_id": "RES-R",
+  "document": {
+    "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+    "revision": 2,
+    "title": "合成 document",
+    "document_type": "research_process",
+    "purpose": "验证合成研究文档",
+    "audience": "研究人员",
+    "scope": "仅合成软件验收",
+    "common_refs": [],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "887a27b3dffffeffd44f7f5c6cd8ff44702c3ca77fa19f82092b6a99f404538a",
+        "target_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "changes": [],
+  "affected_section_ids": [],
+  "uncovered_unit_ids": [],
+  "scientific_review": "not_evaluated",
+  "basis_heads": {
+    "RES-R": "COM-c0a2a7d0-b753-4e08-b53a-d795bff84389"
+  },
+  "metrics": {
+    "elapsed_ms": 13.13,
+    "inventory_owners": 1,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 5,
+    "resolved_sections": 1
+  },
+  "writes": 0
+}

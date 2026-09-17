@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "information-retrieval",
+      "domain": "information-retrieval",
+      "zh": [
+        "信息检索"
+      ],
+      "en": [
+        "information retrieval"
+      ],
+      "aliases": [],
+      "related": [
+        "query expansion",
+        "semantic search"
+      ],
+      "sources": [
+        "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/reciprocal-rank-fusion"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "query-expansion",
+      "domain": "information-retrieval",
+      "zh": [
+        "查询扩展",
+        "检索词扩展"
+      ],
+      "en": [
+        "query expansion"
+      ],
+      "aliases": [],
+      "related": [
+        "cross-lingual information retrieval",
+        "query reformulation"
+      ],
+      "sources": [
+        "https://arxiv.org/abs/2511.19325v1"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "cross-lingual-retrieval",
+      "domain": "information-retrieval",
+      "zh": [
+        "跨语言信息检索",
+        "跨语言检索"
+      ],
+      "en": [
+        "cross-lingual information retrieval",
+        "cross-language information retrieval"
+      ],
+      "aliases": [
+        "CLIR"
+      ],
+      "related": [
+        "query translation",
+        "multilingual embeddings"
+      ],
+      "sources": [
+        "https://arxiv.org/abs/2511.19325v1"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "semantic-search",
+      "domain": "information-retrieval",
+      "zh": [
+        "语义检索",
+        "语义搜索"
+      ],
+      "en": [
+        "semantic search"
+      ],
+      "aliases": [],
+      "related": [
+        "sentence embeddings",
+        "dense retrieval"
+      ],
+      "sources": [
+        "https://sbert.net/docs/sentence_transformer/pretrained_models.html"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "hybrid-search",
+      "domain": "information-retrieval",
+      "zh": [
+        "混合检索",
+        "混合搜索"
+      ],
+      "en": [
+        "hybrid search",
+        "hybrid retrieval"
+      ],
+      "aliases": [],
+      "related": [
+        "BM25",
+        "semantic search",
+        "reciprocal rank fusion"
+      ],
+      "sources": [
+        "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/reciprocal-rank-fusion"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "reciprocal-rank-fusion",
+      "domain": "information-retrieval",
+      "zh": [
+        "倒数排名融合"
+      ],
+      "en": [
+        "reciprocal rank fusion"
+      ],
+      "aliases": [
+        "RRF"
+      ],
+      "related": [
+        "hybrid search",
+        "rank fusion"
+      ],
+      "sources": [
+        "https://www.elastic.co/docs/reference/elasticsearch/rest-apis/reciprocal-rank-fusion"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "sentence-embeddings",
+      "domain": "information-retrieval",
+      "zh": [
+        "句子嵌入",
+        "句向量"
+      ],
+      "en": [
+        "sentence embeddings",
+        "sentence embedding"
+      ],
+      "aliases": [],
+      "related": [
+        "semantic similarity",
+        "semantic search"
+      ],
+      "sources": [
+        "https://sbert.net/docs/sentence_transformer/pretrained_models.html"
+      ],
+      "status": "active"
+    },
+    {
+      "id": "multilingual-embeddings",
+      "domain": "information-retrieval",
+      "zh": [
+        "多语言嵌入",
+        "多语言向量表示"
+      ],
+      "en": [
+        "multilingual embeddings"
+      ],
+      "aliases": [],
+      "related": [
+        "cross-lingual information retrieval",
+        "sentence embeddings"
+      ],
+      "sources": [
+        "https://sbert.net/docs/sentence_transformer/pretrained_models.html"
+      ],
+      "status": "active"
+    }
+  ]
+}

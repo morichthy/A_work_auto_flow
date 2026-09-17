@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "document": {
+    "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+    "revision": 1,
+    "title": "子Agent材料阅读与有界笔记交接完整报告",
+    "document_type": "research_process",
+    "purpose": "复现阅读上下文隔离、主侧交接及边界验证",
+    "audience": "框架开发者和AI工作流使用者",
+    "scope": "仅2026-09-16子Agent材料阅读与有界笔记交接，不重新认可历史业务结论",
+    "common_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "target_kind": "record"
+      }
+    ],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "f93fccaab7b186e5adefd49f47888b552c45d8fca7b7c60bc9721b410589d74c",
+        "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "changes": [],
+  "affected_section_ids": [],
+  "uncovered_unit_ids": [],
+  "scientific_review": "not_evaluated",
+  "basis_heads": {
+    "PRJ-ARCHITECTURE-EVOLUTION": "COM-ac1bd612-307a-49e1-a9d1-703f4781a032"
+  },
+  "metrics": {
+    "elapsed_ms": 3144.17,
+    "inventory_owners": 36,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 60,
+    "resolved_sections": 6
+  },
+  "writes": 0
+}
+

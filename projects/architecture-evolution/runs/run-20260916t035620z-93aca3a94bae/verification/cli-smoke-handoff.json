@@ -1,0 +1,249 @@
+{
+  "root": "C:\\Users\\livky\\AppData\\Local\\Temp\\reranking-public-cli-g2v8svks\\workspace",
+  "session_id": "RS-e0de6106-ce79-4e3e-9151-669025a55e40",
+  "revision": 2,
+  "status": "partial",
+  "candidates": [
+    {
+      "id": "RC-c6a6cd6a1b5ca7fef1497937",
+      "title": "正例X200低温启动",
+      "ranking": {
+        "original_rank": 1,
+        "final_rank": 1,
+        "ce_score": 10.331442832946777,
+        "conditions": [
+          {
+            "id": "device",
+            "status": "satisfied",
+            "reason": "explicit_field",
+            "evidence": [
+              {
+                "ref": {
+                  "kind": "record",
+                  "id": "MEM-0c00527a-9831-56f3-80d3-164a1f300960",
+                  "revision": 1,
+                  "sha256": "3482d127789c339c5630bf219246a81e1f22d7714e6f53e0f4bda3de1c9b8230",
+                  "locator": "block:definitions"
+                },
+                "quote": "型号: X200",
+                "role": "direct",
+                "status": "satisfied"
+              }
+            ]
+          },
+          {
+            "id": "temperature",
+            "status": "satisfied",
+            "reason": "explicit_field",
+            "evidence": [
+              {
+                "ref": {
+                  "kind": "record",
+                  "id": "MEM-0c00527a-9831-56f3-80d3-164a1f300960",
+                  "revision": 1,
+                  "sha256": "3482d127789c339c5630bf219246a81e1f22d7714e6f53e0f4bda3de1c9b8230",
+                  "locator": "block:definitions"
+                },
+                "quote": "温度: -30 °C",
+                "role": "direct",
+                "status": "satisfied"
+              }
+            ]
+          },
+          {
+            "id": "approval",
+            "status": "satisfied",
+            "reason": "explicit_field",
+            "evidence": [
+              {
+                "ref": {
+                  "kind": "record",
+                  "id": "MEM-0c00527a-9831-56f3-80d3-164a1f300960",
+                  "revision": 1,
+                  "sha256": "3482d127789c339c5630bf219246a81e1f22d7714e6f53e0f4bda3de1c9b8230",
+                  "locator": "block:definitions"
+                },
+                "quote": "批准: 是",
+                "role": "direct",
+                "status": "satisfied"
+              }
+            ]
+          }
+        ],
+        "issues": [],
+        "input_tokens": 121
+      }
+    },
+    {
+      "id": "RC-097e238df9da5e7b42bbb04b",
+      "title": "工况未知启动说明",
+      "ranking": {
+        "original_rank": 4,
+        "final_rank": 2,
+        "ce_score": -1.359487533569336,
+        "conditions": [
+          {
+            "id": "device",
+            "status": "unknown",
+            "reason": "insufficient_evidence",
+            "evidence": []
+          },
+          {
+            "id": "temperature",
+            "status": "unknown",
+            "reason": "insufficient_evidence",
+            "evidence": []
+          },
+          {
+            "id": "approval",
+            "status": "unknown",
+            "reason": "insufficient_evidence",
+            "evidence": []
+          }
+        ],
+        "issues": [],
+        "input_tokens": 105
+      }
+    },
+    {
+      "id": "RC-b5e2ac2294526b7e6ec73f09",
+      "title": "否定批准X200",
+      "ranking": {
+        "original_rank": 2,
+        "final_rank": 3,
+        "ce_score": 7.987328052520752,
+        "conditions": [
+          {
+            "id": "device",
+            "status": "satisfied",
+            "reason": "explicit_field",
+            "evidence": [
+              {
+                "ref": {
+                  "kind": "record",
+                  "id": "MEM-8fc941a9-5338-5ae3-8533-54ac72fe4dc2",
+                  "revision": 1,
+                  "sha256": "622b78cb6970cbba536ca83be07778e64a97bdd025e9d2c6c4cc1234666b0ff8",
+                  "locator": "block:definitions"
+                },
+                "quote": "型号: X200",
+                "role": "direct",
+                "status": "satisfied"
+              }
+            ]
+          },
+          {
+            "id": "temperature",
+            "status": "satisfied",
+            "reason": "explicit_field",
+            "evidence": [
+              {
+                "ref": {
+                  "kind": "record",
+                  "id": "MEM-8fc941a9-5338-5ae3-8533-54ac72fe4dc2",
+                  "revision": 1,
+                  "sha256": "622b78cb6970cbba536ca83be07778e64a97bdd025e9d2c6c4cc1234666b0ff8",
+                  "locator": "block:definitions"
+                },
+                "quote": "温度: -30 °C",
+                "role": "direct",
+                "status": "satisfied"
+              }
+            ]
+          },
+          {
+            "id": "approval",
+            "status": "conflict",
+            "reason": "explicit_field",
+            "evidence": [
+              {
+                "ref": {
+                  "kind": "record",
+                  "id": "MEM-8fc941a9-5338-5ae3-8533-54ac72fe4dc2",
+                  "revision": 1,
+                  "sha256": "622b78cb6970cbba536ca83be07778e64a97bdd025e9d2c6c4cc1234666b0ff8",
+                  "locator": "block:definitions"
+                },
+                "quote": "批准: 不是是",
+                "role": "direct",
+                "status": "conflict"
+              }
+            ]
+          }
+        ],
+        "issues": [],
+        "input_tokens": 109
+      }
+    },
+    {
+      "id": "RC-05fab232f70db92e6371dd1b",
+      "title": "冲突Y200低温启动",
+      "ranking": {
+        "original_rank": 3,
+        "final_rank": 4,
+        "ce_score": 4.9603657722473145,
+        "conditions": [
+          {
+            "id": "device",
+            "status": "conflict",
+            "reason": "explicit_field",
+            "evidence": [
+              {
+                "ref": {
+                  "kind": "record",
+                  "id": "MEM-c6328736-6201-52b3-ae10-cc624140b426",
+                  "revision": 1,
+                  "sha256": "8751c62362a970d35fc2babf8d6f70ff4dac9ef7994bb59ad1031f25cc44e2e1",
+                  "locator": "block:definitions"
+                },
+                "quote": "型号: Y200",
+                "role": "direct",
+                "status": "conflict"
+              }
+            ]
+          },
+          {
+            "id": "temperature",
+            "status": "satisfied",
+            "reason": "explicit_field",
+            "evidence": [
+              {
+                "ref": {
+                  "kind": "record",
+                  "id": "MEM-c6328736-6201-52b3-ae10-cc624140b426",
+                  "revision": 1,
+                  "sha256": "8751c62362a970d35fc2babf8d6f70ff4dac9ef7994bb59ad1031f25cc44e2e1",
+                  "locator": "block:definitions"
+                },
+                "quote": "温度: -30 °C",
+                "role": "direct",
+                "status": "satisfied"
+              }
+            ]
+          },
+          {
+            "id": "approval",
+            "status": "satisfied",
+            "reason": "explicit_field",
+            "evidence": [
+              {
+                "ref": {
+                  "kind": "record",
+                  "id": "MEM-c6328736-6201-52b3-ae10-cc624140b426",
+                  "revision": 1,
+                  "sha256": "8751c62362a970d35fc2babf8d6f70ff4dac9ef7994bb59ad1031f25cc44e2e1",
+                  "locator": "block:definitions"
+                },
+                "quote": "批准: 是",
+                "role": "direct",
+                "status": "satisfied"
+              }
+            ]
+          }
+        ],
+        "issues": [],
+        "input_tokens": 115
+      }
+    }
+  ]
+}

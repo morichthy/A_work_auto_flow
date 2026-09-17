@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "workflow_completed": false,
+  "coverage_complete": false,
+  "conclusion": "相同80k预算下将每层交付与CE候选窗缩至2/2仍在67.428秒后BUDGET失败，未交付候选；仅减候选数量不足以保证真实阅读闭环。",
+  "recall_dispatch_s": 67.4278877,
+  "output_budget": 80000,
+  "output_consumed": 79954,
+  "read_bytes_consumed": 6235277,
+  "result_limit": 2,
+  "rerank_candidate_limit": 2,
+  "query_count": 3,
+  "notes_generated": 0,
+  "main_context_received": false,
+  "status": "BUDGET"
+}

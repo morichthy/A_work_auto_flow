@@ -1,0 +1,10 @@
+{
+  "session_id": "RS-410e1467-5e05-4c3a-ba90-77001a53fe4f",
+  "expected_revision": 4,
+  "request_id": "ai-actual-decision-01",
+  "direction": "proceed",
+  "reason": "首轮完整轨迹已有直接依据，可解释本次固定输入的逐步损失，不需要为这个问题继续扩大召回。",
+  "next_step": "用逐项加入1、误差达到−1000及随后抵消的三处轨迹回答，并附原记录链接和适用限制。",
+  "outcome": "完整正文支持当前解释；本轮没有新增计算或科学复核。",
+  "human_decision": ""
+}

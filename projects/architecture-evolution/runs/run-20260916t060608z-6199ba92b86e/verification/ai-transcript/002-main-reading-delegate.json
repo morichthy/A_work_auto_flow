@@ -1,0 +1,130 @@
+{
+  "actor": "main",
+  "action": "reading-delegate",
+  "request": {
+    "host_supports_subagents": true,
+    "expected_revision": 1,
+    "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+      "revision": 1,
+      "route": "subagent",
+      "dispatched": false,
+      "reason": "工作区auto且宿主支持；需宿主实际委派",
+      "worker_brief": {
+        "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+        "revision": 1,
+        "phase": "ready",
+        "goal": "阅读Northstar温度换算材料，判断方法能否复用；保留公式、变量单位、适用条件、误差处理与反例，区分相似但不适用材料。仅合成验收，不认可现实工程结论。",
+        "conditions": [
+          "只读本RS获准固定合成材料，不递归委派，不伪造缺失工况。"
+        ],
+        "owner_id": null,
+        "query": {
+          "question": "Northstar阅读验收",
+          "scope": {
+            "owner_ids": [
+              "RES-MQ-A"
+            ],
+            "levels": null,
+            "kinds": null,
+            "roles": null,
+            "outcomes": null,
+            "review_states": null,
+            "validities": null,
+            "include_unknown": false,
+            "excluded_refs": [],
+            "excluded_owner_ids": [],
+            "recorded_from": null,
+            "recorded_before": null,
+            "source_ids": null,
+            "include_refs": [],
+            "exclude_ids": [],
+            "confidence_levels": null,
+            "time_window": null,
+            "applicability_conditions": [],
+            "applicability_exclusions": [],
+            "owner_types": null
+          },
+          "scope_ceiling": {
+            "owner_ids": [
+              "RES-MQ-A"
+            ],
+            "levels": null,
+            "kinds": null,
+            "roles": null,
+            "outcomes": null,
+            "review_states": null,
+            "validities": null,
+            "include_unknown": false,
+            "excluded_refs": [],
+            "excluded_owner_ids": [],
+            "recorded_from": null,
+            "recorded_before": null,
+            "source_ids": null,
+            "include_refs": [],
+            "exclude_ids": [],
+            "confidence_levels": null,
+            "time_window": null,
+            "applicability_conditions": [],
+            "applicability_exclusions": [],
+            "owner_types": null
+          },
+          "budget": {
+            "wall_ms": 300000,
+            "read_bytes": 16777216,
+            "output_chars": 80000,
+            "candidates": 100,
+            "graph_nodes": 50,
+            "graph_edges": 100,
+            "graph_hops": 2,
+            "model_tokens": 3072,
+            "model_calls": 6,
+            "model_input_tokens": 3072,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          }
+        },
+        "next_step": "按本RS既有阶段继续材料阅读",
+        "instructions": [
+          "宿主若实际spawn，使用fork none；仅处理本RS，不递归委派，不新建会话重置预算。",
+          "先读material-query Skill；通过reading-view核对本RS状态，按原授权与预算读取材料。",
+          "实际阅读后用reading-note保存summary、connection、必要details与uncertainties，再用reading-decide记录下一步。",
+          "ask_user阶段不得伪造人工意见或越过等待；需要用户输入时只报告状态。",
+          "结束仅返回session_id、最新revision和状态；主Agent按需调用reading-handoff，不回传原始材料正文。",
+          "RS账本只计程序可观察的检索/读取/已登记模型调用；宿主Agent模型token须由宿主另设上限，不能声称RS已计量。"
+        ]
+      },
+      "model_preference": {
+        "cost": "low",
+        "reasoning": "low",
+        "selection": "host_decides",
+        "note": "由宿主按任务和可用模型裁定，不绑定具体模型"
+      }
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 31,
+      "read_bytes": 3626,
+      "output_chars": 2183,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  },
+  "response_serialized_chars": 2538,
+  "value_serialized_chars": 2183
+}

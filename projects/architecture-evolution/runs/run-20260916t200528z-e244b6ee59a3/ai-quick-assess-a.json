@@ -1,0 +1,1 @@
+{"session_id":"RS-123e4567-e89b-42d3-a456-426614174001","expected_revision":2,"request_id":"ai-quick-assess-a","candidate_id":"RC-b069b603e9306b78f4476ac2","useful":true,"reason":"实际片段定义f、dt、dphi与单位，给出小时间误差换算及合成代入；还明确上游阈值只是待验证方向，可直接回答模型与边界。"}

@@ -1,0 +1,71 @@
+
+> rd-workbench@1.0.0 e2e
+> playwright test --grep-invert 一万
+
+
+Running 16 tests using 1 worker
+
+  ok  1 e2e\material-query.spec.ts:80:1 › 材料查询真实HTTP组装四区、固定依据与来源映射 (3.2s)
+  ok  2 e2e\material-query.spec.ts:154:1 › 维护任务包导出保留未审状态，改变条件使旧候选失效 (2.2s)
+  ok  3 e2e\material-query.spec.ts:209:1 › 真实预算耗尽显示停止原因并保留查询范围 (1.6s)
+  ok  4 e2e\material-query.spec.ts:224:1 › 有效 partial 审查与真实提交保留索引待办，关闭已完成提交 (5.7s)
+  ok  5 e2e\material-query.spec.ts:423:1 › 概览正文通过固定引用展开经过与技术内容，来源切换和取消选择明确 (7.9s)
+  ok  6 e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 (3.2s)
+  x   7 e2e\memory.spec.ts:152:1 › 四层记录、真实编辑冲突、索引待补偿与安全导出 (31.7s)
+  -   8 e2e\memory.spec.ts:281:1 › 连续研究报告、固定图示、目录路由和窄屏阅读
+  -   9 e2e\memory.spec.ts:575:1 › 研究、Run、知识与报告真实记录及辅助对象可区分
+  -  10 e2e\memory.spec.ts:667:1 › 缺范围复核被拒绝并保留逐结论状态
+  -  11 e2e\memory.spec.ts:728:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联
+  -  12 e2e\memory.spec.ts:811:1 › 逐层读取固定原件、返回已读版本，并识别原件变化
+  -  13 e2e\memory.spec.ts:869:1 › 独立双文稿、必要定义、章节上下文与固定修订影响
+  ok 14 e2e\workbench.spec.ts:47:1 › 完整导航、关系、证据、候选和摘要 (6.7s)
+  ok 15 e2e\workbench.spec.ts:143:1 › 勾选联动图与导出，分类结合搜索且保留跨分类勾选 (2.8s)
+  x  16 e2e\workbench.spec.ts:295:1 › 对象阅读清单、完整原文和版本导出真实接口 (1.0m)
+
+
+  1) e2e\memory.spec.ts:152:1 › 四层记录、真实编辑冲突、索引待补偿与安全导出 ─────────────────────────────────────────────
+
+    TimeoutError: locator.check: Timeout 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('group', { name: '按层级或类型筛选' }).locator('input[value="map"]')
+
+
+      147 |   const group = page.getByRole("group", { name: "按层级或类型筛选" });
+      148 |   for (const type of types)
+    > 149 |     await group.locator(`input[value="${type}"]`).check();
+          |                                                   ^
+      150 | }
+      151 |
+      152 | test("四层记录、真实编辑冲突、索引待补偿与安全导出", async ({
+        at filterTypes (D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\memory.spec.ts:149:51)
+        at D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\memory.spec.ts:169:3
+
+    Error Context: test-results\memory-四层记录、真实编辑冲突、索引待补偿与安全导出\error-context.md
+
+    Error Context: test-results\memory-四层记录、真实编辑冲突、索引待补偿与安全导出\error-context.md
+
+  2) e2e\workbench.spec.ts:295:1 › 对象阅读清单、完整原文和版本导出真实接口 ────────────────────────────────────────────
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '合成阅读会话', exact: true })
+
+
+      302 |     await page
+      303 |       .getByRole("button", { name: "合成阅读会话", exact: true })
+    > 304 |       .click();
+          |        ^
+      305 |     await expect(
+      306 |       page.getByText("合成阅读理解：保留前提", { exact: true }),
+      307 |     ).toBeVisible();
+        at D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\workbench.spec.ts:304:8
+
+    Error Context: test-results\workbench-对象阅读清单、完整原文和版本导出真实接口\error-context.md
+
+  2 failed
+    e2e\memory.spec.ts:152:1 › 四层记录、真实编辑冲突、索引待补偿与安全导出 ──────────────────────────────────────────────
+    e2e\workbench.spec.ts:295:1 › 对象阅读清单、完整原文和版本导出真实接口 ─────────────────────────────────────────────
+  6 did not run
+  8 passed (2.5m)

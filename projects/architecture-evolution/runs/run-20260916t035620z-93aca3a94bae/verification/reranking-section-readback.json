@@ -1,0 +1,82 @@
+{
+  "body_markdown": "",
+  "change_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+  "content_hash": "ea38b70e96df2d1dcb8e504ea6c700443a90f704955dc2b343f11be53a82f254",
+  "created_at": "2026-09-16T05:02:47.631668Z",
+  "created_by": {
+    "id": "codex-reranking-implementation",
+    "kind": "ai"
+  },
+  "discovery": "workspace_summary",
+  "keywords": [
+    "Cross-encoder",
+    "重排",
+    "显式条件",
+    "冻结基线",
+    "离线模型"
+  ],
+  "kind": "document_section",
+  "level": null,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "payload": {
+    "blocks": [
+      {
+        "evidence_refs": [
+          {
+            "locator": "",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+            "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+            "target_kind": "record"
+          }
+        ],
+        "markdown": "本章是2026-09-16独立重排演进的完整结果；历史表示查询设计仍保留原固定版本。",
+        "type": "prose"
+      },
+      {
+        "block_ids": [
+          "implementation-results"
+        ],
+        "ref": {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+          "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+          "target_kind": "record"
+        },
+        "type": "unit"
+      }
+    ],
+    "missing_refs": [],
+    "role": "methods",
+    "section_key": "reranking-20260916",
+    "title": "正文重排完整实施与验证",
+    "watch_refs": []
+  },
+  "previous_revision": null,
+  "provenance_gap": null,
+  "record_hash": "8ea83d522ab2422ae9217eb6826b2d877692e833e515097aa021d9689770176c",
+  "record_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+  "record_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+  "revision": 1,
+  "schema_version": 3,
+  "sensitivity": "internal",
+  "sources": [
+    {
+      "locator": "",
+      "relation": "references",
+      "revision": 1,
+      "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+      "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+      "target_kind": "record"
+    }
+  ],
+  "title": "正文重排完整实施与验证",
+  "updated_at": "2026-09-16T05:02:47.631668Z",
+  "updated_by": {
+    "id": "codex-reranking-implementation",
+    "kind": "ai"
+  }
+}

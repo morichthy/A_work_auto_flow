@@ -1,0 +1,62 @@
+{
+  "session_id": "RS-ee3c8035-050d-4ac6-957d-eef5fb860c25",
+  "expected_revision": 1,
+  "request_id": "diagnostic-auto-1",
+  "question": "低温启动验收探针：X200在低于-20°C时，有批准的避免启动失败程序吗？",
+  "keywords": [
+    "低温启动验收探针"
+  ],
+  "scope": {
+    "owner_ids": [
+      "RES-MQ-A"
+    ],
+    "levels": null,
+    "kinds": null,
+    "roles": null,
+    "outcomes": null,
+    "review_states": null,
+    "validities": null,
+    "include_unknown": false,
+    "excluded_refs": [],
+    "excluded_owner_ids": [],
+    "recorded_from": null,
+    "recorded_before": null,
+    "source_ids": null,
+    "include_refs": [],
+    "exclude_ids": [],
+    "confidence_levels": null,
+    "time_window": null,
+    "applicability_conditions": [],
+    "applicability_exclusions": [],
+    "owner_types": null
+  },
+  "reason": "验收真实离线重排与显式条件读取，未代填AI理解",
+  "reranking": {
+    "mode": "auto",
+    "candidate_limit": 6,
+    "conditions": [
+      {
+        "id": "device",
+        "kind": "literal",
+        "field": "型号",
+        "operator": "eq",
+        "expected": "X200"
+      },
+      {
+        "id": "temperature",
+        "kind": "numeric",
+        "field": "温度",
+        "operator": "lt",
+        "expected": -20,
+        "unit": "°C"
+      },
+      {
+        "id": "approval",
+        "kind": "literal",
+        "field": "批准",
+        "operator": "eq",
+        "expected": "是"
+      }
+    ]
+  }
+}

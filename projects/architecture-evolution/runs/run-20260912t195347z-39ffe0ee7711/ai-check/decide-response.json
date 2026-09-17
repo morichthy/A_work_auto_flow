@@ -1,0 +1,31 @@
+{
+  "status": "ok",
+  "value": {
+    "direction": "proceed",
+    "next_step": "用逐项加入1、误差达到−1000及随后抵消的三处轨迹回答，并附原记录链接和适用限制。",
+    "needs_user_input": false,
+    "expansion_count": 0,
+    "session_id": "RS-410e1467-5e05-4c3a-ba90-77001a53fe4f",
+    "revision": 5
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 65407,
+    "read_bytes": 4538855,
+    "output_chars": 15160,
+    "candidates": 8,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 15,
+    "model_calls": 3,
+    "model_input_tokens": 15,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}
+

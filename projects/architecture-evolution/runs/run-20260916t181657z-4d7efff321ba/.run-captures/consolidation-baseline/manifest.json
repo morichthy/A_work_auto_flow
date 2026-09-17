@@ -1,0 +1,43 @@
+{
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "head": {
+    "commit_id": "COM-d6b78fdc-f63e-4517-96e5-9f73dbe3a888",
+    "generation": 50,
+    "manifest_hash": "ce6d3b606e5bf55ccd22ce0cb912a8bcdbb1627872c2cdd157b4e54a2ca7916f"
+  },
+  "records": {
+    "reader-unit": {
+      "record_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+      "revision": 3,
+      "record_hash": "09d72b77690d58ddd07ad5c86b84f970de0d8b2e7ee6e0a178aee1614f8c1472"
+    },
+    "workbench-section": {
+      "record_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+      "revision": 4,
+      "record_hash": "62ce88c050451a7a031bff6b9d9a59efc72fa4215f7a683df5fc78dabcfb2b1e"
+    },
+    "overview": {
+      "record_id": "MEM-b8db41b4-3a97-5f26-ba21-87f6cce7d155",
+      "revision": 5,
+      "record_hash": "93a8827bb9163f9f217a475f5d902e70153c2a4236fa3c486908a6806a9ae1a4"
+    },
+    "document-record": {
+      "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+      "revision": 5,
+      "record_hash": "dc93c95f5c217f8b18b7f4f1d91e7cfedf9c1422b3ea18101b97c072f071b16b"
+    }
+  },
+  "files": {
+    "owner-start.json": "74f880e88e65726cda3e4ed3b589bbaa9930db5f02535988114cf7739993498a",
+    "reader-unit.json": "814335a1aa5d587bb13d34019faec288e5b4c899e8169dbdcac42d3f1cedcd6d",
+    "workbench-section.json": "28dac32d73c7dff4bb87decfefbf8b17b19549449d2adc0bb1b1514ff88dab9b",
+    "overview.json": "b4d465afb0419c3999882faa0bb468ff05f2f1141a9cfab0819a5fc11a6f041e",
+    "document-record.json": "1287084da78e82e58627e1adb66c3a57d62f00e397cc46590ffdf07aa12414c3",
+    "document-request.json": "596ccf39623e0652b63b2c61214db1f9f7d94b1e42e247b4a71d3536f6e8f695",
+    "outline.json": "8f27dc9b764d2fc98412481374df772988633a1cd3201fe763a3234958b03ac8",
+    "document-assembled.json": "6aeb38e9d0211a0cc6d8b157496d690fbe2e15435d6501e61a883a6d4bc46cf9",
+    "document-impact.json": "5c02904f62fcab6b183e80bb41ed75d188f4001ac58fe6129f80ec75fbcd774a",
+    "owner-end.json": "74f880e88e65726cda3e4ed3b589bbaa9930db5f02535988114cf7739993498a"
+  },
+  "status": "read-only baseline; no Run or memory commit submitted"
+}

@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "inputs": 11,
+  "artifacts": 24,
+  "verified_entries": 35,
+  "run_json_sha256": "1598f8f34580b6af53835a2ca52d034ddd45f347a700976b7a11a9e4b54f0eb7",
+  "assertions": {
+    "successful_output_chars": 99986,
+    "unique_part_text_chars": 8634,
+    "part_outcomes": 33,
+    "diagnostic_hit_texts_verified_against_search": 42,
+    "source_files_verified": 99
+  },
+  "registration": {
+    "status": "registered",
+    "receipt": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/be551c375912456b8fcf1b5a9d19ad9c/registration.json",
+    "run_id": "RUN-20260916T162155Z-9D1612B40F6D",
+    "scientific_review": "unchanged"
+  }
+}

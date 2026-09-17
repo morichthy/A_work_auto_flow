@@ -444,6 +444,16 @@ def materialize(target, *, isolation_root):
         "缺字段和断边仅作为未提交故障输入；没有绕过 schema、伪造 claim/review 或手写 HEAD。",
         "Run 保持 planned；review 仅验证合成软件契约，不表示执行过领域实验或实际 AI 评估。",
         "本 fixture 未配置向量后端；真实 FTS 和版本存储可用，向量/索引故障由使用者另行注入。"]
+    # Reading now discovers Owners only through the independent compressed
+    # projection.  Production commits merely mark it pending; this synthetic
+    # fixture explicitly performs the same maintenance action a prepared
+    # workspace would run, with vectors disabled for deterministic tests.
+    from memory import discovery, index
+    catalog = index.Catalog(root)
+    for owner_id in (owner_ids['A'], owner_ids['B']):
+        head = catalog.snapshot(owner_id)['head']
+        discovery.rebuild_owner(root, owner_id, head,
+            projection_version=discovery.PROJECTION_VERSION, vector='off')
     inputs = {source["path"]: _hash(root / source["path"]) for source in sources.values()}
     inputs.update({path: _hash(root / path) for path in native_paths.values()})
     manifest = {"schema_version": 1, "fixture_version": FIXTURE_VERSION, "synthetic_only": True,

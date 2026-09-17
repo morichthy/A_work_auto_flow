@@ -1,0 +1,7 @@
+{
+  "action": "reading-recall",
+  "wall_ms": 88742.692,
+  "measurement": "API dispatch wall time; no host-model internal timing",
+  "request_snapshot": "projects\\architecture-evolution\\runs\\run-20260916t181657z-4d7efff321ba\\.run-captures\\owner-smoke-progressive\\03-recall-retry-receipt.json.request-snapshot.json",
+  "request_sha256": "a7a2be230401de9c57dd321bb96149ee8c64bd525027597cd5883713fa8dea03"
+}

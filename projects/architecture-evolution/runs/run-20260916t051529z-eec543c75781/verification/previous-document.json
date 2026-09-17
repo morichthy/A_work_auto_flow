@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "title": "框架架构演进与文档一致性",
+  "document_source": "independent",
+  "document": {
+    "record_id": "MEM-5c827f1d-99ff-5a60-a150-ac28ad89c877",
+    "revision": 1,
+    "title": "召回排序演进：正文、条件与Cross-encoder完整报告",
+    "document_type": "research_process",
+    "purpose": "复现本轮功能拆解、核心基线、实现及验证边界",
+    "audience": "框架开发与检索评估人员",
+    "scope": "仅2026-09-16新增AI阅读重排，历史v0.1/v0.2稿保持其时点",
+    "common_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+        "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+        "target_kind": "record"
+      }
+    ],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "8ea83d522ab2422ae9217eb6826b2d877692e833e515097aa021d9689770176c",
+        "target_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "report": {
+    "version": 1,
+    "record_id": "MEM-5c827f1d-99ff-5a60-a150-ac28ad89c877",
+    "revision": 1,
+    "title": "召回排序演进：正文、条件与Cross-encoder完整报告",
+    "sections": [
+      {
+        "section_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+        "section_key": "reranking-20260916",
+        "title": "正文重排完整实施与验证",
+        "role": "methods",
+        "ref": {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "8ea83d522ab2422ae9217eb6826b2d877692e833e515097aa021d9689770176c",
+          "target_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+          "target_kind": "record"
+        },
+        "source_issues": [],
+        "blocks": [
+          {
+            "evidence_refs": [
+              {
+                "locator": "",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+                "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+                "target_kind": "record"
+              }
+            ],
+            "markdown": "本章是2026-09-16独立重排演进的完整结果；历史表示查询设计仍保留原固定版本。",
+            "type": "prose",
+            "source_issues": []
+          },
+          {
+            "block_ids": [
+              "implementation-results"
+            ],
+            "ref": {
+              "locator": "",
+              "relation": "references",
+              "revision": 1,
+              "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+              "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+              "target_kind": "record"
+            },
+            "type": "unit",
+            "item": {
+              "id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+              "level": "L1",
+              "record": {
+                "body_markdown": "",
+                "change_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+                "content_hash": "d8db7d40af47ab20284bb2aa23f8bafb5234eb356f69bbb7d1bf49ec9aa66a49",
+                "created_at": "2026-09-16T05:00:03.420391Z",
+                "created_by": {
+                  "id": "codex-reranking-implementation",
+                  "kind": "ai"
+                },
+                "discovery": "workspace_summary",
+                "keywords": [
+                  "Cross-encoder",
+                  "重排",
+                  "显式条件",
+                  "冻结基线",
+                  "离线模型"
+                ],
+                "kind": "detail",
+                "level": "L1",
+                "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+                "payload": {
+                  "blocks": [
+                    {
+                      "block_id": "implementation-results",
+                      "markdown": "# 召回排序演进：实施、对照与验证\n\nRun：`RUN-20260916T035620Z-93ACA3A94BAE`；归属：`PRJ-ARCHITECTURE-EVOLUTION`。2026-09-16，AI实施与一致性自查，未获得业务质量或第二物理机验收。源代码基线为89ad307，工作树已有历史改动；本轮源码指纹另存，不把整个dirty工作区当作本轮成果。\n\n## 交付范围与实施顺序\n\n用户授权按推荐组合先拆清单、先核心基线、再开发。功能清单在[本轮计划](../../plans/retrieval-ranking-latency-20260916.md)。先建立冻结中英合成题集和RRF/oracle对照，确认候选覆盖完整但前列质量有空间；随后实现有界候选池、必要正文输入、真实Cross-encoder、显式条件特征及阅读工作流集成。没有修改冻结题集来追求新模型分数。\n\n现有各层identity/lexical/dense召回及加权RRF保持；在AI阅读入口加入以下链路：\n\n1. 每层按规范身份去重，默认准备最多30个候选，交付数量仍独立控制；启用重排时窗口必须覆盖交付数。\n2. 固定授权读取技术命中块及requires定义；无块命中读取完整单元，短记录读完整正文。保留标题，展示摘录不充当完整上下文。\n3. 离线ONNX Cross-encoder联合编码问题和正文，批量16对；校验真实token长度和有限分数。提供器与读取编排、条件特征分离。\n4. 条件由调用者显式填写，独立字段或两列表格中核对字面值、否定与数值单位。区分satisfied/conflict/unknown，保存固定ref及原文quote。明确冲突后排；同组按CE分数，平分按原RRF。未知不假定满足，不因低分删除材料。\n5. RS保存策略、模型身份、原/新排名及费用；分页冻结，同一请求重试幂等，来源撤权重新检查，后续不完整读取保留旧条件证据依赖闭包。\n\n新reading-template默认auto；旧RS或省略字段的旧请求保持off。required无法完成本窗CE则拒绝。auto中缺模型、超长/不完整、模型费用预检查不足或模型推理错误会停止CE并保留条件冲突分组及组内RRF；正文准备、诊断输出等累计预算耗尽及取消仍停止。标准窗口为问题、正文、特殊token合计512；单个过长候选会使本窗停止CE，长文窗口选择仍待演进。\n\n通用手动MQ和旧memory/search入口未改为CE。没有新建后台服务；没有把模型分数当正确概率或科学复核。\n\n## 冻结基线与消融\n\n固定fixture SHA256：`edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5`。开发集2道正例题、1道空候选无答案题；留出集2道有效题。Recall按规范候选身份计算，nDCG用分级相关性；所有比较使用同一固定候选池。\n\n| 方案 | 开发Recall@6 | 开发nDCG@6 | 留出Recall@6 | 留出nDCG@6 |\n|---|---:|---:|---:|---:|\n| 原RRF | 0.750 | 0.459 | 1.000 | 0.521 |\n| CE + 短输入 | 0.750 | 0.871 | 1.000 | 0.991 |\n| CE + 完整上下文 | 1.000 | 0.833 | 1.000 | 0.991 |\n| CE + 完整上下文 + 条件 | 1.000 | 0.833 | 1.000 | 0.991 |\n\n开发集候选覆盖和oracle前6指标均为1.000。完整上下文改善Recall，但其开发nDCG低于短输入，不能声称所有指标单调提高。自然语言fixture的条件在严格字段解析下全部unknown：开发36项、留出25项，因此本实验没有证明条件特征带来额外数值收益。独立显式字段CLI样例另证明条件机制执行正确，不与质量题集混算。无答案题候选本来为空，不能证明非空无答案场景的拒答能力。\n\n开发实验：`verification/reranking-development-ablation.json`；实施冻结后最终留出：`verification/reranking-holdout-final.json`。未依据留出结果继续调参。每个CE方案重复一次并记录成本、输入和排序稳定性；合成小样本仅作回归，不代替真实业务题集、独立标注和规模评估。\n\n## 模型、延迟与成本\n\n模型：`cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`，revision `1427fd652930e4ba29e8149678df786c240d8825`；量化AVX2 ONNX，CPU运行。manifest SHA256为`fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6`。复用现有onnxruntime/tokenizers/numpy，无新增Python包。模型与384维召回向量独立，不重建召回索引。\n\n实际CLI合成样例：4对、450输入token、1次批推理；累计活动时间4983ms，其中组包1015ms、模型冷加载3059ms、推理161ms。读取203459字节，输出账本18121字符。冷启动指进程首次加载，未清除OS文件缓存，不是p50/p95。开发消融的纯推理约110–352ms/题，也不包括在线召回或回源。\n\n已实现进程内经文件状态校验的模型缓存、批处理、已准备材料包复用以及路由/组包/加载/推理阶段计时。独立CLI进程不能共享模型缓存；本轮不宣称端到端加速。下一步应在相同真实语料和质量门槛下比较常驻进程、请求内查询编码复用与数据库生命周期，再按实测瓶颈决定ANN服务，而非直接并行打开Qdrant local。\n\n## 验证与保留的失败\n\n- 阅读工作流回归40项通过（288.675秒）；新增贡献者依赖回归所在重排单元文件11项另通过。两者有重叠，不相加作为独立测试总数。\n- 冻结基线4项、显式条件10项、真实离线CE提供器4项通过。\n- 依赖分发13项、真实setup扩展旧工作区18项通过；后者454.903秒。相关日志位于verification。\n- 材料查询关联回归200项通过（1363.018秒），含实际dense、组包、范围、权限和证据边界；日志为`verification/material-regression.log`。\n- 测试目录审计无未分类、失效或定位错误；catalog revision78。没有执行全仓库全量回归，不把既有B01冻结夹具失败改写为已解决。\n- 初次真实CLI发现prepare外层和packet内部Ledger.active重入，导致auto全窗回退、required拒绝。移除外层重入后真实CE评分4对；相关失败回执保留。分页模型身份曾有回退后采用新模型风险，现持续保留原模型身份；测试同时验证两次续页。\n- 最初集成失败包含测试辅助器未处理value=null、重试误用新revision、仅2候选却要求第3页；修正测试后再跑，未删除覆盖或放松最终断言。\n\n真实AI使用：公开CLI required召回四个合成技术单元，模型实际参与评分。排序为正例、未知、否定批准、型号冲突。整体partial来自缺dense后端和部分matched_text=null展示警告，正文包完整且rank为reranked。主线AI实际完整回读四份正文、记录用途/必要细节/限制、finish后跨进程resume，四条笔记及ranking保留。回执在`reading-*-stdout.log`；RS为`RS-e0de6106-ce79-4e3e-9151-669025a55e40`。此例命中全部三个块，不能单凭此例证明只选择必要块；必要定义选择另由软件回归覆盖。合成说明绝不作为真实设备程序。\n\n## Windows离线交付\n\n独立模型组件严格校验六文件白名单与内层哈希。旧依赖包不删除已安装CE；显式off保留，自定义配置拒绝自动覆盖。运行期不下载，缺可选组件可用off/auto兼容。源码不包含下载权重或业务数据。\n\n配套包：`dist/retrieval-reranking-dependencies-windows-x64.zip`，454246919字节；SHA256 `90216697586c48921d3f729c983ed74cfae4b1f60d310a0af0e6dc804819fc82`，同目录有.zip.sha256。\n\n实际离线链通过：fresh install 251.781秒、upgrade 160.282秒、接收端再打包70.140秒、dependency rollback 79.500秒。220个保护文件、222个目录及7个CE文件/清单指纹保留，验证明细见`verification/dependency-release-verification.json`与四阶段日志。本机Windows x64隔离验证通过，未做第二物理机验收、Git推送或公开Release；不得把开发包描述为已发布版本。\n\n## 文档与本范围成果整理\n\n按影响维护README、ARCHITECTURE、CORE、docs索引、TESTING与DEVELOPMENT_HISTORY；DOCUMENTATION_MAINTENANCE核对后沿用，以及AI_READING、MATERIAL_QUERY、MEMORY_STORAGE_EXPLAINED、DEPENDENCY_RELEASE、UPGRADE_TESTING和material-query Skill。审查纠正了预算回退范围、条件分组仍生效和RS保存原文quote三处说明，删除本轮重复插入段落。没有改动用户原有前端生成文件及历史规范记录。\n\n本范围是2026-09-16新增正文/条件/CE重排实施。完整基线为本轮计划及Run，此前诊断保留其“未实施”时点。通过公开outline/document/document-impact核对Project两篇r7稿，其scope限定v0.1历史设计及v0.2实际实现，最后审计为2026-09-10；保留该历史并另建本轮报告。审查完整读取短稿5章、过程稿中相关7/13章，未宣称历史过程稿全文复核或所有Research同步；六次只读回执和范围依据在`verification/legacy-document-scope.log`。空impact不代表新CE主题已纳入。\n\n起始Project HEAD为COM-d48e7ebe-bbb7-48f9-9494-ed27c7c93cef，记录清单已核对，本轮重排没有既有同范围技术单元或文稿；新增结果单独保存，项目概览和NOW链接本次结果。源码/证据指纹、保存回读及最终结构校验另附本Run回执。\n\n待验收：真实业务相关性标注、非空无答案场景、长文窗口策略、真实规模冷暖p50/p95、第二物理机。条件自然语言推断仍由AI实际阅读，unknown不能被当成满足。\n",
+                      "requires_block_ids": [],
+                      "role": "results"
+                    }
+                  ],
+                  "evidence_refs": [
+                    {
+                      "locator": "RESULTS及固定verification产物",
+                      "relation": "input",
+                      "revision": null,
+                      "sha256": "cef0b5c46a69fb08e56ec769a006885e3a5f34681b7560c691e60c87689e9711",
+                      "target_id": "RUN-20260916T035620Z-93ACA3A94BAE",
+                      "target_kind": "owner"
+                    }
+                  ],
+                  "figures": [],
+                  "missing_refs": [],
+                  "retrieval_description": {
+                    "applicable": [
+                      "本轮固定合成题集、Windows x64本机隔离软件验证"
+                    ],
+                    "key_findings": [
+                      "开发Recall@6 0.75→1.00，留出nDCG@6 0.521→0.991，仅小样本。",
+                      "自然语言fixture条件全unknown，未证明条件额外指标收益。"
+                    ],
+                    "limitations": [
+                      "小型合成题集",
+                      "条件自然语言多为unknown",
+                      "单候选超过512 token全窗停止CE",
+                      "独立CLI不共享加载缓存",
+                      "第二物理机未验收",
+                      "未全仓库回归，既有B01问题保留"
+                    ],
+                    "method": "冻结候选基线后，独立完整上下文、离线CE及显式条件；公开CLI和真实setup验收。",
+                    "not_applicable": [
+                      "不得直接推断业务质量达标、端到端加速或工程方案有效"
+                    ],
+                    "question": "候选覆盖高而前6排序差时如何改进，同时保护权限、费用和离线迁移？"
+                  },
+                  "run_ref": {
+                    "locator": "RESULTS及固定verification产物",
+                    "relation": "input",
+                    "revision": null,
+                    "sha256": "cef0b5c46a69fb08e56ec769a006885e3a5f34681b7560c691e60c87689e9711",
+                    "target_id": "RUN-20260916T035620Z-93ACA3A94BAE",
+                    "target_kind": "owner"
+                  },
+                  "unit_type": "analysis"
+                },
+                "previous_revision": null,
+                "provenance_gap": null,
+                "record_hash": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+                "record_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+                "record_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+                "revision": 1,
+                "schema_version": 3,
+                "sensitivity": "internal",
+                "sources": [
+                  {
+                    "locator": "RESULTS及固定verification产物",
+                    "relation": "input",
+                    "revision": null,
+                    "sha256": "cef0b5c46a69fb08e56ec769a006885e3a5f34681b7560c691e60c87689e9711",
+                    "target_id": "RUN-20260916T035620Z-93ACA3A94BAE",
+                    "target_kind": "owner"
+                  }
+                ],
+                "title": "正文、Cross-encoder与条件重排：实施和固定对照",
+                "updated_at": "2026-09-16T05:00:03.420391Z",
+                "updated_by": {
+                  "id": "codex-reranking-implementation",
+                  "kind": "ai"
+                }
+              },
+              "source_issues": [],
+              "formal_eligibility": "not_evaluated"
+            },
+            "resolved_blocks": [
+              {
+                "block_id": "implementation-results",
+                "markdown": "# 召回排序演进：实施、对照与验证\n\nRun：`RUN-20260916T035620Z-93ACA3A94BAE`；归属：`PRJ-ARCHITECTURE-EVOLUTION`。2026-09-16，AI实施与一致性自查，未获得业务质量或第二物理机验收。源代码基线为89ad307，工作树已有历史改动；本轮源码指纹另存，不把整个dirty工作区当作本轮成果。\n\n## 交付范围与实施顺序\n\n用户授权按推荐组合先拆清单、先核心基线、再开发。功能清单在[本轮计划](../../plans/retrieval-ranking-latency-20260916.md)。先建立冻结中英合成题集和RRF/oracle对照，确认候选覆盖完整但前列质量有空间；随后实现有界候选池、必要正文输入、真实Cross-encoder、显式条件特征及阅读工作流集成。没有修改冻结题集来追求新模型分数。\n\n现有各层identity/lexical/dense召回及加权RRF保持；在AI阅读入口加入以下链路：\n\n1. 每层按规范身份去重，默认准备最多30个候选，交付数量仍独立控制；启用重排时窗口必须覆盖交付数。\n2. 固定授权读取技术命中块及requires定义；无块命中读取完整单元，短记录读完整正文。保留标题，展示摘录不充当完整上下文。\n3. 离线ONNX Cross-encoder联合编码问题和正文，批量16对；校验真实token长度和有限分数。提供器与读取编排、条件特征分离。\n4. 条件由调用者显式填写，独立字段或两列表格中核对字面值、否定与数值单位。区分satisfied/conflict/unknown，保存固定ref及原文quote。明确冲突后排；同组按CE分数，平分按原RRF。未知不假定满足，不因低分删除材料。\n5. RS保存策略、模型身份、原/新排名及费用；分页冻结，同一请求重试幂等，来源撤权重新检查，后续不完整读取保留旧条件证据依赖闭包。\n\n新reading-template默认auto；旧RS或省略字段的旧请求保持off。required无法完成本窗CE则拒绝。auto中缺模型、超长/不完整、模型费用预检查不足或模型推理错误会停止CE并保留条件冲突分组及组内RRF；正文准备、诊断输出等累计预算耗尽及取消仍停止。标准窗口为问题、正文、特殊token合计512；单个过长候选会使本窗停止CE，长文窗口选择仍待演进。\n\n通用手动MQ和旧memory/search入口未改为CE。没有新建后台服务；没有把模型分数当正确概率或科学复核。\n\n## 冻结基线与消融\n\n固定fixture SHA256：`edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5`。开发集2道正例题、1道空候选无答案题；留出集2道有效题。Recall按规范候选身份计算，nDCG用分级相关性；所有比较使用同一固定候选池。\n\n| 方案 | 开发Recall@6 | 开发nDCG@6 | 留出Recall@6 | 留出nDCG@6 |\n|---|---:|---:|---:|---:|\n| 原RRF | 0.750 | 0.459 | 1.000 | 0.521 |\n| CE + 短输入 | 0.750 | 0.871 | 1.000 | 0.991 |\n| CE + 完整上下文 | 1.000 | 0.833 | 1.000 | 0.991 |\n| CE + 完整上下文 + 条件 | 1.000 | 0.833 | 1.000 | 0.991 |\n\n开发集候选覆盖和oracle前6指标均为1.000。完整上下文改善Recall，但其开发nDCG低于短输入，不能声称所有指标单调提高。自然语言fixture的条件在严格字段解析下全部unknown：开发36项、留出25项，因此本实验没有证明条件特征带来额外数值收益。独立显式字段CLI样例另证明条件机制执行正确，不与质量题集混算。无答案题候选本来为空，不能证明非空无答案场景的拒答能力。\n\n开发实验：`verification/reranking-development-ablation.json`；实施冻结后最终留出：`verification/reranking-holdout-final.json`。未依据留出结果继续调参。每个CE方案重复一次并记录成本、输入和排序稳定性；合成小样本仅作回归，不代替真实业务题集、独立标注和规模评估。\n\n## 模型、延迟与成本\n\n模型：`cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`，revision `1427fd652930e4ba29e8149678df786c240d8825`；量化AVX2 ONNX，CPU运行。manifest SHA256为`fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6`。复用现有onnxruntime/tokenizers/numpy，无新增Python包。模型与384维召回向量独立，不重建召回索引。\n\n实际CLI合成样例：4对、450输入token、1次批推理；累计活动时间4983ms，其中组包1015ms、模型冷加载3059ms、推理161ms。读取203459字节，输出账本18121字符。冷启动指进程首次加载，未清除OS文件缓存，不是p50/p95。开发消融的纯推理约110–352ms/题，也不包括在线召回或回源。\n\n已实现进程内经文件状态校验的模型缓存、批处理、已准备材料包复用以及路由/组包/加载/推理阶段计时。独立CLI进程不能共享模型缓存；本轮不宣称端到端加速。下一步应在相同真实语料和质量门槛下比较常驻进程、请求内查询编码复用与数据库生命周期，再按实测瓶颈决定ANN服务，而非直接并行打开Qdrant local。\n\n## 验证与保留的失败\n\n- 阅读工作流回归40项通过（288.675秒）；新增贡献者依赖回归所在重排单元文件11项另通过。两者有重叠，不相加作为独立测试总数。\n- 冻结基线4项、显式条件10项、真实离线CE提供器4项通过。\n- 依赖分发13项、真实setup扩展旧工作区18项通过；后者454.903秒。相关日志位于verification。\n- 材料查询关联回归200项通过（1363.018秒），含实际dense、组包、范围、权限和证据边界；日志为`verification/material-regression.log`。\n- 测试目录审计无未分类、失效或定位错误；catalog revision78。没有执行全仓库全量回归，不把既有B01冻结夹具失败改写为已解决。\n- 初次真实CLI发现prepare外层和packet内部Ledger.active重入，导致auto全窗回退、required拒绝。移除外层重入后真实CE评分4对；相关失败回执保留。分页模型身份曾有回退后采用新模型风险，现持续保留原模型身份；测试同时验证两次续页。\n- 最初集成失败包含测试辅助器未处理value=null、重试误用新revision、仅2候选却要求第3页；修正测试后再跑，未删除覆盖或放松最终断言。\n\n真实AI使用：公开CLI required召回四个合成技术单元，模型实际参与评分。排序为正例、未知、否定批准、型号冲突。整体partial来自缺dense后端和部分matched_text=null展示警告，正文包完整且rank为reranked。主线AI实际完整回读四份正文、记录用途/必要细节/限制、finish后跨进程resume，四条笔记及ranking保留。回执在`reading-*-stdout.log`；RS为`RS-e0de6106-ce79-4e3e-9151-669025a55e40`。此例命中全部三个块，不能单凭此例证明只选择必要块；必要定义选择另由软件回归覆盖。合成说明绝不作为真实设备程序。\n\n## Windows离线交付\n\n独立模型组件严格校验六文件白名单与内层哈希。旧依赖包不删除已安装CE；显式off保留，自定义配置拒绝自动覆盖。运行期不下载，缺可选组件可用off/auto兼容。源码不包含下载权重或业务数据。\n\n配套包：`dist/retrieval-reranking-dependencies-windows-x64.zip`，454246919字节；SHA256 `90216697586c48921d3f729c983ed74cfae4b1f60d310a0af0e6dc804819fc82`，同目录有.zip.sha256。\n\n实际离线链通过：fresh install 251.781秒、upgrade 160.282秒、接收端再打包70.140秒、dependency rollback 79.500秒。220个保护文件、222个目录及7个CE文件/清单指纹保留，验证明细见`verification/dependency-release-verification.json`与四阶段日志。本机Windows x64隔离验证通过，未做第二物理机验收、Git推送或公开Release；不得把开发包描述为已发布版本。\n\n## 文档与本范围成果整理\n\n按影响维护README、ARCHITECTURE、CORE、docs索引、TESTING与DEVELOPMENT_HISTORY；DOCUMENTATION_MAINTENANCE核对后沿用，以及AI_READING、MATERIAL_QUERY、MEMORY_STORAGE_EXPLAINED、DEPENDENCY_RELEASE、UPGRADE_TESTING和material-query Skill。审查纠正了预算回退范围、条件分组仍生效和RS保存原文quote三处说明，删除本轮重复插入段落。没有改动用户原有前端生成文件及历史规范记录。\n\n本范围是2026-09-16新增正文/条件/CE重排实施。完整基线为本轮计划及Run，此前诊断保留其“未实施”时点。通过公开outline/document/document-impact核对Project两篇r7稿，其scope限定v0.1历史设计及v0.2实际实现，最后审计为2026-09-10；保留该历史并另建本轮报告。审查完整读取短稿5章、过程稿中相关7/13章，未宣称历史过程稿全文复核或所有Research同步；六次只读回执和范围依据在`verification/legacy-document-scope.log`。空impact不代表新CE主题已纳入。\n\n起始Project HEAD为COM-d48e7ebe-bbb7-48f9-9494-ed27c7c93cef，记录清单已核对，本轮重排没有既有同范围技术单元或文稿；新增结果单独保存，项目概览和NOW链接本次结果。源码/证据指纹、保存回读及最终结构校验另附本Run回执。\n\n待验收：真实业务相关性标注、非空无答案场景、长文窗口策略、真实规模冷暖p50/p95、第二物理机。条件自然语言推断仍由AI实际阅读，unknown不能被当成满足。\n",
+                "requires_block_ids": [],
+                "role": "results"
+              }
+            ],
+            "required_block_ids": [],
+            "source_issues": []
+          }
+        ]
+      }
+    ],
+    "complete": true
+  },
+  "items": [],
+  "missing": [],
+  "generated_at": "2026-09-16T05:41:06.146982Z",
+  "report_candidates": [
+    {
+      "record_id": "MEM-5c827f1d-99ff-5a60-a150-ac28ad89c877",
+      "revision": 1,
+      "title": "召回排序演进：正文、条件与Cross-encoder完整报告",
+      "updated_at": "2026-09-16T05:04:03.117159Z",
+      "document_type": "research_process"
+    },
+    {
+      "record_id": "MEM-ef137680-afa6-59b8-a263-f2bb33d256c4",
+      "revision": 7,
+      "title": "表示查询：当前实现与核心简报",
+      "updated_at": "2026-09-10T06:55:31.655678Z",
+      "document_type": "research_report"
+    },
+    {
+      "record_id": "MEM-3264fce7-c63f-504e-bdb5-3aaa1169eb7b",
+      "revision": 7,
+      "title": "表示查询：完整设计与实施过程",
+      "updated_at": "2026-09-10T06:55:31.655678Z",
+      "document_type": "research_process"
+    }
+  ],
+  "report_coverage": {
+    "included_detail_ids": [
+      "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285"
+    ],
+    "uncovered_detail_ids": [
+      "MEM-0bb96a65-0ada-5001-80cb-14904ef684d1",
+      "MEM-192a48a9-191c-5018-8c58-bae968b45ae2",
+      "MEM-2c7941ed-b272-573c-ad70-2c7739ccac99",
+      "MEM-3d6097e5-9028-5e74-b2ca-196db59ed90c",
+      "MEM-4143f480-712a-5739-8044-3535ecaf1b0a",
+      "MEM-76c2ed5f-d911-5435-9818-f5266bfc77e5",
+      "MEM-7faf0c58-7e42-59db-9613-b29e6f7c39ca",
+      "MEM-7fc816dc-2a9c-5189-82ad-1906b6a917e8",
+      "MEM-8933de07-288b-5782-ad81-67a05a133b19",
+      "MEM-8d589423-c595-5a80-898d-23d974868c7c",
+      "MEM-b0390c59-c458-5690-bc68-6dd030d32de0",
+      "MEM-b0d161c1-cb11-5c55-8d6c-58da7204cc4b",
+      "MEM-c0c9cca2-5a17-5634-86f7-3dbb3dec7902",
+      "MEM-c40996c6-fd17-59b9-84a3-9b373cdbcd64",
+      "MEM-ea9c08fd-4dc8-54f8-abf8-16c1869fb19d",
+      "MEM-ecc8c6cc-b362-5450-bffc-da7418c2c745"
+    ]
+  },
+  "report_version_hints": [],
+  "basis_heads": {
+    "PRJ-ARCHITECTURE-EVOLUTION": "COM-05193f16-a923-43c1-9897-859c60658115"
+  },
+  "metrics": {
+    "elapsed_ms": 3532.77,
+    "inventory_owners": 34,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 52,
+    "resolved_sections": 1
+  },
+  "writes": 0
+}

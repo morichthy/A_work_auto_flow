@@ -21,7 +21,8 @@ from .validation import QueryError, object_fields, parse
 from .wire import digest, json_value
 
 
-ACTIONS = {'recall', 'page', 'read', 'note', 'resume', 'notes_view', 'handoff', 'configure', 'assess', 'synthesize'}
+ACTIONS = {'recall', 'page', 'read', 'note', 'resume', 'notes_view', 'handoff', 'configure', 'assess',
+           'assess-owners', 'recall-fulltext', 'synthesize'}
 DEFAULT_CONTEXT = {'max_owners': 10, 'note_max_tokens': 6000}
 
 
@@ -105,7 +106,282 @@ def owner_packet(reading, session, state, refs):
     return packet, sources, links
 
 
-def recall(reading, session, raw, state, *, page=False):
+def discovery_recall(reading, session, raw, state, *, page=False):
+    """Recall Owner identities only from the independent compressed projection."""
+    from . import query_plan, reranking, owner_screening
+    from .reading import require, text, strings
+    from .reading_strategy import configuration, recall_request
+    retrieval_kind = None
+    if page and session.get('strategy') == 'quick' and session.get('quick_candidate_queue'):
+        queued = session['quick_candidate_queue']
+        take = min(len(queued), session['screening']['batch_owners'])
+        current, session['quick_candidate_queue'] = queued[:take], queued[take:]
+        candidates = []
+        for item in current:
+            if 'window_index' in item:
+                packet = session['owner_packets'][item['owner_id']]
+                text_value = packet['windows'][item['window_index']]['text']
+            else:
+                owner_row = next(row for row in session['discovery_queue']
+                                 if row['owner_id'] == item['owner_id'])
+                hit = next(hit for hit in owner_row['hits']
+                           if hit.get('projection_id') == item['projection_id'])
+                text_value = hit['text']
+            row = session['candidates'][item['candidate_id']]
+            candidates.append({'owner_id': item['owner_id'], 'text': text_value,
+                'candidate_id': item['candidate_id'], 'sources': deepcopy(row['quick_sources']),
+                'coverage': 'delivered_discovery_fragments_only'})
+        previous = session['rounds'][-1]
+        owner_more = session.get('discovery_offset', 0) < len(session.get('discovery_queue', []))
+        has_more = bool(session['quick_candidate_queue']) or owner_more
+        previous['has_more'] = has_more
+        previous['lanes'] = [{'source': 'discovery', 'has_more': has_more}]
+        return {'candidates': candidates, 'owner_packets': [],
+                'discovery': deepcopy(previous['discovery']),
+                'fulltext_compensation_available': session.get('fulltext_compensation', {}).get('available', False),
+                'fulltext_compensation_reason': session.get('fulltext_compensation', {}).get('reason', ''),
+                'has_more': has_more, 'pending_owner_count': max(0,
+                    len(session.get('discovery_queue', [])) - session.get('discovery_offset', 0)),
+                'mode': 'owner_document', **configuration(session), 'next_action': 'assess',
+                'gaps': deepcopy(previous.get('gaps', [])),
+                'guidance': '逐条reading-assess判断实际交付的发现片段，再仅按已接受固定片段写research_note；quick不读取全文。'}
+    if page:
+        require(session['phase'] == 'review' and session.get('discovery_queue') is not None,
+                '当前没有可续读的发现候选轮')
+        previous = session['rounds'][-1]
+        require(previous.get('retrieval_source') == 'discovery' and previous.get('has_more'),
+                '当前发现候选窗口已结束')
+        plan, scope = previous['query_plan'], parse(previous['scope'], Scope)
+        question, keywords = previous['question'], previous['keywords']
+        owner_rows = deepcopy(session['discovery_queue'])
+        offset = session.get('discovery_offset', 0)
+        discovery_info = deepcopy(previous['discovery'])
+    else:
+        raw, retrieval_kind = recall_request(session, raw)
+        if raw.get('clue_sources'):
+            from .reading_strategy import accepted_sources
+            delivered = accepted_sources(session)
+            for saved in session.get('owner_progress', {}).values():
+                delivered.extend(saved.get('delivered_sources', saved.get('root_refs', [])))
+                if saved.get('full_delivered'):
+                    delivered.extend(saved.get('root_refs', []))
+                delivered.extend(saved.get('expanded_sources', []))
+            raw['clue_sources'] = normalize_note_sources(raw['clue_sources'], delivered)
+        text(raw['question'], 'question')
+        text(raw['reason'], 'reason')
+        strings(raw['keywords'], 'keywords')
+        require(session['phase'] in {'ready', 'expand'}, '先记录下一步/失败缺口，再决定是否补查')
+        scope = parse(raw['scope'], Scope)
+        base = state.request
+        scope = replace(scope, excluded_refs=tuple(set(scope.excluded_refs + base.scope.excluded_refs)),
+                        excluded_owner_ids=tuple(set(scope.excluded_owner_ids + base.scope.excluded_owner_ids)),
+                        exclude_ids=tuple(set(scope.exclude_ids + base.scope.exclude_ids)))
+        plan = query_plan.build(reading.root, reading.ledger, raw)
+        question, keywords = raw['question'], raw['keywords']
+        batches, provider_states, degradation = [], [], []
+        statuses, projection_versions = [], set()
+        from .recall import discovery
+        for route in query_plan.routes(plan):
+            route_state = reading.state(session, query=asdict(replace(base, scope=scope,
+                question=route['question'] or question, keywords=tuple(route['keywords']),
+                channels=(route['channel'],), content_source=None)))
+            reader = reading.app.reader(route_state)
+            candidates, info = discovery(reading.root, route_state, reader, route,
+                                         min(100, max(base.result_limit, session['screening']['batch_owners']) * 4))
+            batches.append((route, candidates))
+            statuses.append(info['status'])
+            provider_states.extend(info.get('states', []))
+            degradation.extend(info.get('degradation', []))
+            if info.get('projection_version'):
+                projection_versions.add(info['projection_version'])
+        owner_rows = query_plan.fuse_owners(batches)
+        owner_rows = [row for row in owner_rows if not session.get('owner_progress', {}).get(
+            row['owner_id'], {}).get('full_delivered')]
+        for row in owner_rows:
+            # Screening expects every unique projection hit, with all route
+            # provenance already attached by Owner fusion.
+            row['hits'] = list({hit.get('projection_id', digest(hit)): hit for hit in row['hits']}.values())
+        if not owner_rows and statuses and all(status == 'ready' for status in statuses):
+            status = 'insufficient'
+        elif not statuses or all(status == 'unavailable' for status in statuses):
+            status = 'unavailable'
+        elif any(status != 'ready' for status in statuses):
+            status = 'incomplete'
+        else:
+            status = 'ready'
+        reasons = list(dict.fromkeys(item.get('reason', str(item)) for item in degradation))
+        if status == 'insufficient':
+            reasons.append('no_discovery_hits')
+        discovery_info = {'status': status, 'reasons': reasons,
+                          **({'projection_version': next(iter(projection_versions))}
+                             if len(projection_versions) == 1 else {}),
+                          'states': provider_states}
+        session['discovery_queue'] = deepcopy(owner_rows)
+        offset = 0
+        session['discovery_offset'] = 0
+
+    screening = owner_screening.settings(session.get('screening'))
+    batch = owner_rows[offset:offset + screening['batch_owners']]
+    packets = owner_screening.build_batch(batch, screening) if batch else []
+    ranking_options = reranking.settings(session.get('reranking'))
+    if ranking_options['mode'] != 'off' and packets:
+        prepared, lookup = [], {}
+        for packet in packets:
+            for number, window in enumerate(packet['windows']):
+                key = packet['owner_id'] + ':' + str(number)
+                prepared.append({'key': key, 'text': window['text'], 'complete': True,
+                                 'evidence_parts': [{'text': window['text'], 'ref': ref, 'role': 'direct'}
+                                                    for ref in window.get('refs', [])]})
+                lookup[key] = window
+        with reading.ledger.active():
+            ranked = reranking.rank(reading.root, question, prepared, ranking_options, reading.ledger)
+        for item in ranked['items']:
+            lookup[item['key']]['ranking'] = item['ranking']
+        rank_by_owner = {packet['owner_id']: min((window.get('ranking', {}).get('final_rank', 10**9)
+                                                  for window in packet['windows']), default=10**9)
+                         for packet in packets}
+        packets.sort(key=lambda packet: (rank_by_owner[packet['owner_id']], packet['owner_id']))
+        ranking_gaps = ranked['gaps']
+    else:
+        ranking_gaps = []
+
+    reader = reading.app.reader(state)
+    progress = session.setdefault('owner_progress', {})
+    saved_packets = session.setdefault('owner_packets', {})
+    quick_entries = []
+    for packet in packets:
+        packet['retrieval_source'] = 'discovery'
+        saved_packets[packet['owner_id']] = deepcopy(packet)
+        progress.setdefault(packet['owner_id'], {'selected': False, 'full_delivered': False, 'sources': []})
+        # Canonical refs, not projection text, drive every later permission and
+        # version check.  Compact screening prose is saved separately.
+        for window_index, window in enumerate(packet['windows']):
+            window_refs = []
+            for ref_value in window.get('refs', []):
+                window_refs.append(deepcopy(ref_value))
+                ref = parse(ref_value, FixedRef)
+                key = 'RC-' + digest(ref_value)[:24]
+                if key in session['candidates']:
+                    continue
+                if ref.kind == 'owner':
+                    owner = reader.owner(ref.id)
+                    title = owner['title']
+                    link = owner.get('native_ref', {}).get('path', '')
+                else:
+                    record = reader.record(ref)
+                    title, link = record['title'], reading.link(reader, ref)
+                session['candidates'][key] = {'ref': ref_value, 'title': title,
+                    'link': link, 'owner_id': packet['owner_id'],
+                    'scope': asdict(scope), 'contributors': [], 'full_delivered': False,
+                    'packet_complete': True, 'stale': False, 'delivery': 'screened'}
+            if session.get('strategy') == 'quick' and window_refs:
+                # Each complementary screening window is independently
+                # assessable.  The row stores fixed refs only; prose remains in
+                # the already-delivered Owner packet and is paged by index.
+                window_refs = list({digest(ref): ref for ref in window_refs}.values())
+                quick_key = 'RC-' + digest({'owner_id': packet['owner_id'],
+                    'window_index': window_index, 'refs': window_refs})[:24]
+                first = parse(window_refs[0], FixedRef)
+                if first.kind == 'owner':
+                    owner = reader.owner(first.id)
+                    title = owner['title']
+                    link = owner.get('native_ref', {}).get('path', '')
+                else:
+                    record = reader.record(first)
+                    title, link = record['title'], reading.link(reader, first)
+                session['candidates'][quick_key] = {'ref': window_refs[0], 'title': title,
+                    'link': link, 'owner_id': packet['owner_id'], 'scope': asdict(scope),
+                    'contributors': [], 'full_delivered': False, 'packet_complete': True,
+                    'stale': False, 'delivery': 'screened', 'quick_sources': window_refs}
+                quick_entries.append({'owner_id': packet['owner_id'],
+                    'candidate_id': quick_key, 'window_index': window_index})
+        if session.get('strategy') == 'quick':
+            # Older quick sessions page through individually assessable
+            # compressed hits.  Keep that compatibility using only discovery
+            # projection text: supplemental hits never read blocks/documents
+            # and do not enlarge the bounded Owner screening packet.
+            selected_projection_ids = {window.get('projection_id') for window in packet['windows']}
+            owner_row = next((row for row in batch if row['owner_id'] == packet['owner_id']), None)
+            for hit in (owner_row or {}).get('hits', []):
+                projection_id = hit.get('projection_id')
+                refs = list({digest(ref): deepcopy(ref) for ref in hit.get('refs', [])}.values())
+                if projection_id in selected_projection_ids or not refs or not hit.get('text'):
+                    continue
+                quick_key = 'RC-' + digest({'owner_id': packet['owner_id'],
+                    'projection_id': projection_id, 'refs': refs})[:24]
+                first = parse(refs[0], FixedRef)
+                if first.kind == 'owner':
+                    owner = reader.owner(first.id)
+                    title = owner['title']
+                    link = owner.get('native_ref', {}).get('path', '')
+                else:
+                    record = reader.record(first)
+                    title, link = record['title'], reading.link(reader, first)
+                session['candidates'][quick_key] = {'ref': refs[0], 'title': title,
+                    'link': link, 'owner_id': packet['owner_id'], 'scope': asdict(scope),
+                    'contributors': [], 'full_delivered': False, 'packet_complete': True,
+                    'stale': False, 'delivery': 'screened', 'quick_sources': refs}
+                quick_entries.append({'owner_id': packet['owner_id'],
+                    'candidate_id': quick_key, 'projection_id': projection_id})
+    new_offset = offset + len(batch)
+    has_more = new_offset < len(owner_rows)
+    session['discovery_offset'] = new_offset
+    gaps = list(dict.fromkeys(discovery_info['reasons'] + ranking_gaps +
+        ([] if discovery_info['status'] == 'ready' else ['压缩发现索引未完整覆盖；尚未搜索完整正文'])))
+    round_info = {'question': question, 'keywords': keywords, 'reason': raw.get('reason', '同一发现轮续页'),
+                  'scope': asdict(scope), 'query_plan': deepcopy(plan), 'retrieval_source': 'discovery',
+                  'discovery': deepcopy(discovery_info), 'has_more': has_more,
+                  'lanes': [{'source': 'discovery', 'has_more': has_more}], 'gaps': gaps,
+                  'reranking': ranking_options}
+    if retrieval_kind is not None:
+        round_info.update(retrieval_kind=retrieval_kind,
+            association_text=question if retrieval_kind == 'associative' else '',
+            clue_sources=deepcopy(raw.get('clue_sources', [])))
+    if page:
+        session['rounds'][-1] = round_info
+    else:
+        session['rounds'].append(round_info)
+    session['phase'] = 'review'
+    available = discovery_info['status'] in {'unavailable', 'incomplete', 'insufficient'}
+    session['fulltext_compensation'] = {'available': available,
+        'reason': '；'.join(gaps) if gaps else ''}
+    quick = session.get('strategy') == 'quick'
+    legacy_candidates = []
+    if quick:
+        first_by_owner = {}
+        remainder = []
+        for item in quick_entries:
+            if item['owner_id'] not in first_by_owner:
+                first_by_owner[item['owner_id']] = item
+            else:
+                remainder.append(item)
+        session.setdefault('quick_candidate_queue', []).extend(remainder)
+        for item in first_by_owner.values():
+            packet = saved_packets[item['owner_id']]
+            window = packet['windows'][item['window_index']]
+            row = session['candidates'][item['candidate_id']]
+            legacy_candidates.append({'owner_id': item['owner_id'], 'text': window['text'],
+                'candidate_id': item['candidate_id'], 'sources': deepcopy(row['quick_sources']),
+                'coverage': 'delivered_discovery_fragments_only'})
+        has_more = has_more or bool(session['quick_candidate_queue'])
+        round_info['has_more'] = has_more
+        round_info['lanes'] = [{'source': 'discovery', 'has_more': has_more}]
+    else:
+        legacy_candidates = [{'owner_id': packet['owner_id'],
+                              'text': '\n\n'.join(window['text'] for window in packet['windows'])}
+                             for packet in packets]
+    return {'candidates': legacy_candidates, 'owner_packets': packets, 'discovery': discovery_info,
+            'fulltext_compensation_available': available,
+            'fulltext_compensation_reason': session['fulltext_compensation']['reason'],
+            'has_more': has_more, 'pending_owner_count': max(0, len(owner_rows) - new_offset),
+            'mode': 'owner_document', **configuration(session),
+            'next_action': 'assess' if quick else 'assess-owners',
+            'gaps': gaps, 'guidance': (
+                '逐条reading-assess判断实际交付的发现片段，再仅按已接受固定片段写research_note；quick不读取全文。'
+                if quick else '批量判断Owner为relevant、uncertain或irrelevant；仅relevant进入完整阅读。')}
+
+
+def fulltext_recall(reading, session, raw, state, *, page=False):
     """内部覆盖不变，AI每页每Owner只收到一份正文；pending仅保存固定选择。
 
     delivery状态放在已有candidate行里，不新建平行队列或保存正文副本。
@@ -244,6 +520,87 @@ def recall(reading, session, raw, state, *, page=False):
                          '每Owner本页最多一份正文；相关则reading-read(owner_id)，未确定可reading-page继续。')}
 
 
+def assess_owners(session, raw):
+    """Persist one batch of AI/user Owner decisions against exact packet bytes."""
+    from .reading import require, text
+    assessments = raw['assessments']
+    require(isinstance(assessments, list) and 0 < len(assessments) <= 100,
+            'assessments需要1..100项')
+    packets = session.get('owner_packets', {})
+    saved = session.setdefault('owner_assessments', {})
+    output = []
+    for item in assessments:
+        object_fields(item, {'owner_id', 'status', 'reason', 'packet_digest'})
+        owner_id = text(item['owner_id'], 'owner_id')
+        reason = text(item['reason'], 'reason')
+        require(item['status'] in {'relevant', 'uncertain', 'irrelevant'}, 'Owner判断状态无效')
+        packet = packets.get(owner_id)
+        require(packet is not None, '只能判断本会话实际交付的Owner筛选包')
+        require(item['packet_digest'] == packet['packet_digest'], '筛选包已变化，请按当前版本重新判断')
+        decision = {'status': item['status'], 'reason': reason,
+                    'packet_digest': item['packet_digest']}
+        saved[owner_id] = decision
+        session.setdefault('owner_progress', {}).setdefault(owner_id, {
+            'selected': False, 'full_delivered': False, 'sources': []})['judgment'] = item['status']
+        if session.get('strategy') == 'quick':
+            useful = item['status'] == 'relevant'
+            for row in session['candidates'].values():
+                if row.get('owner_id') == owner_id and row.get('quick_sources'):
+                    row['assessment'] = {'useful': useful, 'reason': reason,
+                                         'sources_digest': digest(row['quick_sources'])}
+        output.append({'owner_id': owner_id, **decision})
+    relevant = [item['owner_id'] for item in output if item['status'] == 'relevant']
+    if not relevant:
+        session['fulltext_compensation'] = {'available': True,
+            'reason': '当前筛选包未判断出可直接完整阅读的Owner；是否扩大到全文召回由用户决定'}
+    quick = session.get('strategy') == 'quick'
+    return {'assessments': output, 'relevant_owner_ids': relevant,
+            'next_action': ('synthesize' if quick and relevant else 'read' if relevant else 'page'),
+            'fulltext_compensation_available': session.get('fulltext_compensation', {}).get('available', False),
+            'fulltext_compensation_reason': session.get('fulltext_compensation', {}).get('reason', ''),
+            'gaps': []}
+
+
+def recall_fulltext(reading, session, raw, state):
+    """Run the old full-text recall only after this explicit mutating action."""
+    from .reading import require
+    require(bool(session.get('rounds')), '尚无可补偿的发现轮')
+    previous = session['rounds'][-1]
+    require(previous.get('retrieval_source') == 'discovery', '全文补偿必须基于最近的发现轮')
+    session['phase'] = 'ready'
+    request = {'question': previous['question'], 'keywords': previous['keywords'],
+               'scope': previous['scope'], 'reason': '用户明确选择全文补偿召回'}
+    # Reuse the frozen language plan fields rather than rebuilding translation
+    # choices.  Dictionary provenance remains attached to the new round.
+    plan = previous.get('query_plan', {})
+    request.update(query_variants=[{key: value for key, value in variant.items()
+        if key in {'id', 'language', 'question', 'lexical_terms'}}
+        for variant in plan.get('variants', [])[1:]],
+        protected_terms=plan.get('protected_terms', []),
+        corpus_language=plan.get('corpus_language', 'unknown'),
+        language_reason=plan.get('language_reason', ''),
+        query_domains=plan.get('query_domains', []))
+    result = fulltext_recall(reading, session, request, state, page=False)
+    packets = []
+    for candidate in result['candidates']:
+        owner_id = candidate['owner_id']
+        refs = [row['ref'] for row in session['candidates'].values()
+                if row.get('owner_id') == owner_id and row.get('delivery') == 'delivered']
+        packet = {'owner_id': owner_id, 'windows': [{'text': candidate['text'], 'refs': refs,
+                  'channels': ['fulltext']}], 'coverage': {'complete': False,
+                  'gaps': ['全文补偿候选仍需选择Owner后完整阅读']},
+                  'retrieval_source': 'fulltext_compensation'}
+        packet['packet_digest'] = digest(packet)
+        packets.append(packet)
+        session.setdefault('owner_packets', {})[owner_id] = deepcopy(packet)
+    session['fulltext_compensation'] = {'available': False, 'reason': '本轮已由用户明确执行'}
+    return {**result, 'candidates': packets, 'owner_packets': packets,
+            'retrieval_source': 'fulltext_compensation',
+            'fulltext_compensation_available': False,
+            'fulltext_compensation_reason': '本轮已由用户明确执行',
+            'next_action': 'assess-owners'}
+
+
 def retrieval_has_more(session):
     return bool(session.get('rounds') and any(lane.get('has_more') for lane in session['rounds'][-1]['lanes']))
 
@@ -259,11 +616,24 @@ def skip_selected_pending(session):
 def read_owner(reading, session, raw, state):
     from .reading import require, text
     oid = text(raw['owner_id'], 'owner_id')
+    require(session.get('strategy', 'standard') != 'quick',
+            'quick策略只使用已交付筛选片段；不能升级为Owner全文阅读')
     progress = session.setdefault('owner_progress', {})
     require(oid in progress, '只能读取本会话已交付的Owner')
     saved = progress[oid]
     if 'source_refs' in raw:
         return expand_sources(reading, session, raw, state, saved)
+    assessment = session.setdefault('owner_assessments', {}).get(oid)
+    if assessment is None:
+        # Backward-compatible explicit selection: old clients that directly
+        # click/read an actually delivered Owner still record a real relevance
+        # decision instead of bypassing the new state machine.
+        packet = session.get('owner_packets', {}).get(oid)
+        session['owner_assessments'][oid] = {'status': 'relevant',
+            'reason': '用户通过reading-read显式选择Owner',
+            'packet_digest': packet.get('packet_digest') if packet else None}
+        assessment = session['owner_assessments'][oid]
+    require(assessment['status'] == 'relevant', '只有判断为relevant的Owner可以进入完整阅读')
     require(saved.get('selected') or sum(bool(row.get('selected')) for row in progress.values()) < session['context']['max_owners'],
             '已选Owner达到max_owners；进度已保存，需在既有范围完成阅读')
     reader = reading.app.reader(state)
@@ -277,19 +647,17 @@ def read_owner(reading, session, raw, state):
         raise QueryError('SOURCE_MISSING', '文稿目录索引尚未建立')
     try:
         limit = reading.ledger.remaining('candidates')
-        rows = db.execute("SELECT record_id, kind FROM memory_records WHERE owner_id=? AND entity_kind='record' AND kind IN ('document','detail','narrative','experience','overview') ORDER BY CASE WHEN kind='document' THEN 0 ELSE 1 END,record_id LIMIT ?", (oid, limit + 1)).fetchall()
+        offset = saved.get('read_offset', 0)
+        rows = db.execute("SELECT record_id, kind FROM memory_records WHERE owner_id=? AND entity_kind='record' AND kind IN ('document','detail','narrative','experience','overview') ORDER BY CASE WHEN kind='document' THEN 0 ELSE 1 END,record_id LIMIT ? OFFSET ?", (oid, limit + 1, offset)).fetchall()
     finally:
         db.close()
-    if len(rows) > limit:
-        scan_gaps.append('Owner目录达到本次工程候选上限；未覆盖全部文稿')
+    has_more = len(rows) > limit
+    if has_more:
+        scan_gaps.append('Owner正文仍有下一页；继续reading-read直到has_more=false')
     rows = rows[:limit]
     document_rows = [row for row in rows if row[1] == 'document']
     with reading.ledger.active():
         for rid, kind in rows:
-            if kind != 'document' and documents:
-                # Documents were validated first; no need to load unrelated
-                # individual records once a complete authored source exists.
-                break
             reading.ledger.charge('candidates', 1)
             entry = (manifest or {}).get('record_heads', {}).get(rid)
             if not entry:
@@ -309,18 +677,27 @@ def read_owner(reading, session, raw, state):
                 documents.append((record, ref))
             elif record['kind'] in {'detail', 'narrative', 'experience', 'overview'}:
                 fallback.append((record, ref))
-    processes = [item for item in documents if item[0]['payload']['document_type'] == 'research_process']
-    selected = processes or [item for item in documents if item[0]['payload']['document_type'] == 'research_report']
+    # A document may embed technical units through immutable section refs.
+    # Those units are current Owner content, but adding them again as fallback
+    # would duplicate the exact正文.  Keep uncovered records while preserving
+    # every document and every independently authored current record.
+    covered_record_ids = set()
+    for document, _document_ref in documents:
+        for section_value in document.get('payload', {}).get('section_refs', []):
+            try:
+                section_ref, _ = from_legacy(section_value)
+                section = reader.record(section_ref)
+                for block in section.get('payload', {}).get('blocks', []):
+                    if block.get('type') == 'unit' and block.get('ref'):
+                        unit_ref, _ = from_legacy(block['ref'])
+                        covered_record_ids.add(unit_ref.id)
+            except (QueryError, KeyError, TypeError):
+                scan_gaps.append('文稿章节覆盖关系暂不可用；正文仍按已授权固定记录交付')
+    selected = documents + [(record, ref) for record, ref in fallback
+                            if record['record_id'] not in covered_record_ids]
     gaps = list(dict.fromkeys(scan_gaps))
     if selected:
-        # Match the existing document directory's newest authored-document rule.
-        # One operation delivers one authored document; the response names it.
-        if len(selected) > 1:
-            gaps.append('同类文稿有多个；本次仅交付最新文稿，不代表Owner全部材料已读')
-        selected = [max(selected, key=lambda item: (item[0]['updated_at'], item[0]['revision'], item[0]['record_id']))]
-        form = selected[0][0]['payload']['document_type']
-        if form == 'research_report':
-            gaps.append('缺少完整research_process，回退research_report；报告可能省略详细研究过程')
+        form = 'all_available_current_content'
     else:
         form = 'complete_record_fallback'
         selected = fallback
@@ -328,11 +705,15 @@ def read_owner(reading, session, raw, state):
                      'Owner目录未找到research_report/research_process文稿') +
                     '；仅交付实际完整记录，不表示完整研究报告')
     if not selected:
-        saved.update(selected=True, full_delivered=False, reading_form=form, gaps=gaps + ['Owner没有可交付完整正文'])
-        return {'owner_id': oid, 'text': '', 'sources': [], 'reading_form': form, 'gaps': saved['gaps']}
+        saved.update(selected=True, full_delivered=not has_more, reading_form=form,
+                     read_offset=offset + len(rows), gaps=gaps + ['Owner没有可交付完整正文'])
+        return {'owner_id': oid, 'text': '', 'sources': [], 'document_refs': [],
+                'references': [], 'reading_form': form,
+                'complete': not has_more, 'has_more': has_more, 'gaps': saved['gaps']}
     refs = [item[1] for item in selected]
     packet, sources, links = owner_packet(reading, session, state, refs)
-    complete = packet['complete']
+    complete = packet['complete'] and not has_more
+    page_has_more = has_more or not packet['complete']
     if not complete:
         gaps.append('完整正文存在缺口，不能提交已完整阅读笔记')
     for record, ref in selected:
@@ -341,10 +722,33 @@ def read_owner(reading, session, raw, state):
         row.update(ref=asdict(ref), title=record['title'], link=links[ref.id], owner_id=oid,
                    scope=asdict(state.request.scope), full_delivered=complete,
                    packet_complete=complete, contributors=packet['contributors'], stale=False)
-    saved.update(selected=True, full_delivered=complete, sources=sources, reading_form=form,
-                 root_refs=[asdict(ref) for ref in refs], reference_map=packet['reference_map'], gaps=gaps)
-    saved['delivered_sources'] = list({digest(ref): ref for part in packet['parts']
-        if part['group'] != 'gaps' for ref in part['refs']}.values())
+    # A transiently partial body packet must be retryable from the same stable
+    # page.  Advancing the offset here would silently skip the failed page on
+    # the next reading-read call.
+    next_offset = offset + len(rows) if packet['complete'] else offset
+    saved.update(selected=True, full_delivered=complete, reading_form=form,
+                 read_offset=next_offset, gaps=gaps)
+    saved['sources'] = list({digest(ref): ref for ref in saved.get('sources', []) + sources}.values())
+    saved['root_refs'] = list({digest(ref): ref for ref in saved.get('root_refs', []) +
+                               [asdict(ref) for ref in refs]}.values())
+    saved['reference_map'] = list({digest(item): item for item in saved.get('reference_map', []) +
+                                   packet['reference_map']}.values())
+    saved['delivered_sources'] = list({digest(ref): ref for ref in saved.get('delivered_sources', []) +
+        [ref for part in packet['parts'] if part['group'] != 'gaps' for ref in part['refs']]}.values())
+    # Documents can expand the same canonical record that is also enumerated
+    # directly.  Deliver each exact body once across all Owner pages while
+    # retaining every fixed source in the source list and progress metadata.
+    seen_bodies = set(saved.get('delivered_body_digests', []))
+    body_parts = []
+    for part in packet['parts']:
+        if part['group'] == 'gaps':
+            continue
+        body_digest = digest({'markdown': part['markdown']})
+        if body_digest in seen_bodies:
+            continue
+        seen_bodies.add(body_digest)
+        body_parts.append(part['markdown'])
+    saved['delivered_body_digests'] = sorted(seen_bodies)
     # Store source button identities for every actually delivered record. This
     # preserves the existing workbench contract without inventing a single
     # candidate as the provenance of the whole Owner research note.
@@ -358,8 +762,8 @@ def read_owner(reading, session, raw, state):
             'ref': source, 'title': record['title'], 'link': reading.link(reader, ref),
             'owner_id': oid, 'scope': asdict(state.request.scope), 'contributors': [],
             'full_delivered': False, 'packet_complete': True})
-    return {'owner_id': oid, 'text': '\n\n'.join(part['markdown'] for part in packet['parts'] if part['group'] != 'gaps'),
-            'sources': sources, 'document_refs': [asdict(ref) for ref in refs],
+    return {'owner_id': oid, 'text': '\n\n'.join(body_parts),
+            'sources': sources, 'document_refs': [asdict(ref) for ref in refs], 'has_more': page_has_more,
             'references': packet['reference_map'],
             'reading_form': form, 'complete': complete, 'gaps': gaps}
 
@@ -677,6 +1081,20 @@ def source_candidates(session, included_owner_ids=None):
                 row['ref']['sha256'] == ref['sha256'] for ref in cited) and not row.get('stale')]
 
 
+def screening_state(session):
+    """Public, presentation-safe discovery state shared by view and snapshots."""
+    packets = deepcopy(session.get('owner_packets', {}))
+    for owner_id, packet in packets.items():
+        if owner_id in session.get('owner_assessments', {}):
+            packet['assessment'] = {'owner_id': owner_id,
+                                    **deepcopy(session['owner_assessments'][owner_id])}
+    return {'owner_packets': list(packets.values()),
+            'discovery': deepcopy((session.get('rounds') or [{}])[-1].get('discovery', {
+                'status': 'unavailable', 'reasons': ['not_recalled']})),
+            'fulltext_compensation_available': session.get('fulltext_compensation', {}).get('available', False),
+            'fulltext_compensation_reason': session.get('fulltext_compensation', {}).get('reason', '')}
+
+
 def execute(reading, method, session, raw, state):
     """模式边界统一路由；legacy方法与原RS累计账本保持不变。"""
     from . import reading_strategy
@@ -684,10 +1102,17 @@ def execute(reading, method, session, raw, state):
         value = reading_strategy.configure(session, raw)
     elif method == 'assess':
         value = reading_strategy.assess(session, raw)
+    elif method == 'assess-owners':
+        value = assess_owners(session, raw)
+    elif method == 'recall-fulltext':
+        value = recall_fulltext(reading, session, raw, state)
     elif method == 'synthesize':
         value = reading_strategy.synthesize(reading, session, raw, state)
     elif method == 'recall' or method == 'page':
-        value = recall(reading, session, raw, state, page=method == 'page')
+        if method == 'page' and session.get('rounds') and session['rounds'][-1].get('retrieval_source') != 'discovery':
+            value = fulltext_recall(reading, session, raw, state, page=True)
+        else:
+            value = discovery_recall(reading, session, raw, state, page=method == 'page')
     elif method == 'read':
         if 'owner_id' in raw:
             value = read_owner(reading, session, raw, state)
@@ -709,6 +1134,7 @@ def execute(reading, method, session, raw, state):
                          owner_id=session.get('owner_id'), goal=session['goal'], archived=session.get('archived', False),
                          round_count=len(session['rounds']), candidates=source_candidates(session, value['included_owner_ids']),
                          pending_owner_count=len(pending_owners), has_more=bool(pending_owners) or retrieval_has_more(session))
+            value.update(screening_state(session))
             if reading_strategy.configuration(session)['strategy'] == 'quick':
                 value['quick_candidates'] = [dict(candidate_id=key, owner_id=row.get('owner_id'),
                     sources=deepcopy(row['quick_sources']), assessment=deepcopy(row.get('assessment')),

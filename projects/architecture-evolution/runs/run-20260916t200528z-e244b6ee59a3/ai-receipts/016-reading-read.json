@@ -1,0 +1,80 @@
+{
+  "action": "reading-read",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+    "expected_revision": 7,
+    "request_id": "ai-assoc-read-b",
+    "owner_id": "PRJ-MQ-B"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "owner_id": "PRJ-MQ-B",
+      "text": "本章固定说明。\n\n这是合成线性化模型。dv 为阈值电压扰动（V），S 为过零附近电压斜率（V/s），dt 为时间偏移（s）。\n\n局部线性、斜率非零且扰动很小时，$dt\\approx dv/S$。取 dv=0.001 V、S=1000 V/s，则 dt=1e-6 s。\n\n斜率接近零或波形非线性时不能直接套用。这里只讨论阈值扰动，不证明电源纹波就是扰动来源；需要独立测量供电到阈值的传递。",
+      "sources": [
+        {
+          "kind": "record",
+          "id": "MEM-72843cb6-a458-5cad-b4e7-a2a404d7e595",
+          "revision": 1,
+          "sha256": "1549ff0d89ac373136d4387392a0ac81d9dcb0a90199e60b35683ced64968c0f",
+          "locator": ""
+        },
+        {
+          "kind": "record",
+          "id": "MEM-7bce9502-eb77-5467-aeea-a68903f1622b",
+          "revision": 1,
+          "sha256": "810395c979d28979258f2eb32889179245c858322c330b92755689ee9b8c588b",
+          "locator": ""
+        },
+        {
+          "kind": "record",
+          "id": "MEM-5d498ddc-7605-518c-b8cc-3c5a66c1c717",
+          "revision": 1,
+          "sha256": "2f398f1b569582e0a1e64bacca760d3907d22c9ef77464612e0fda3daf802259",
+          "locator": null
+        },
+        {
+          "kind": "file",
+          "id": "SRC-MQ-B",
+          "revision": null,
+          "sha256": "260ba26228c340b512f171947004a1fb25b6cff3294a67781590239a2a460363",
+          "locator": "完整合成输入"
+        }
+      ],
+      "document_refs": [
+        {
+          "kind": "record",
+          "id": "MEM-5d498ddc-7605-518c-b8cc-3c5a66c1c717",
+          "revision": 1,
+          "sha256": "2f398f1b569582e0a1e64bacca760d3907d22c9ef77464612e0fda3daf802259",
+          "locator": null
+        }
+      ],
+      "references": [],
+      "reading_form": "research_process",
+      "complete": true,
+      "gaps": [],
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+      "revision": 8
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 437,
+      "read_bytes": 148088,
+      "output_chars": 1221,
+      "candidates": 1,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

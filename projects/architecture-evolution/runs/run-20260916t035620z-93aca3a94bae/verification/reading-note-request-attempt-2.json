@@ -1,0 +1,25 @@
+{
+  "session_id": "RS-e0de6106-ce79-4e3e-9151-669025a55e40",
+  "expected_revision": 4,
+  "request_id": "cli-ai-note-2",
+  "candidate_id": "RC-097e238df9da5e7b42bbb04b",
+  "summary": "该记录只说可考虑预热，型号、温度和批准均未知；保留候选不表示满足条件。",
+  "connection": {
+    "kind": "inspiration",
+    "explanation": "可作为后续追问适用条件的线索，不能作为本题已批准程序的直接依据。",
+    "chain": []
+  },
+  "details": [
+    {
+      "text": "该记录只说可考虑预热，型号、温度和批准均未知；保留候选不表示满足条件。",
+      "reason": "保存实际条件与正文用途的核对边界",
+      "block_ids": [
+        "definitions",
+        "result"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "全部是合成软件验收材料，没有真实工程试验或批准证明。"
+  ]
+}

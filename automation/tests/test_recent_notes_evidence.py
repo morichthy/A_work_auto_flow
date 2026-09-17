@@ -1,5 +1,6 @@
 """轻量展示不等于证据复核：测试时间窗口、撤权和禁止慢路径。"""
 from datetime import datetime, timedelta, timezone
+from copy import deepcopy
 from pathlib import Path
 import tempfile
 import unittest
@@ -22,6 +23,45 @@ class RecentNotesTests(unittest.TestCase):
         self.assertIn('$s_0=0$', displayed['context_markdown'])
         self.assertEqual(displayed['omitted_note_count'], 0)
         self.assertEqual(handoff_value(session)['omitted_note_count'], 0)
+
+    def test_owner_screening_packets_are_atomic_and_display_bounded(self):
+        from material_query.reading_snapshot import notes_value
+        from material_query.reading_delegation import serialized_size
+        packets = {}
+        for owner, marker in [('RES-A', 'ALPHA'), ('RES-B', 'BRAVO')]:
+            packets[owner] = {
+                'owner_id': owner, 'title': owner, 'overview': marker,
+                'packet_digest': marker.lower(), 'retrieval_source': 'discovery',
+                'coverage': {'complete': True, 'gaps': []},
+                'windows': [{'text': marker * 120,
+                             'refs': [{'kind': 'record', 'id': 'MEM-' + owner[-1], 'revision': 1,
+                                       'sha256': owner[-1].lower() * 64, 'locator': 'block:summary'}],
+                             'source_level': 'L4', 'channels': ['lexical']}],
+            }
+        session = dict(mode='owner_document', session_id='RS-screening', revision=1,
+                       goal='筛选Owner', conditions=[], phase='review', decisions=[], candidates={},
+                       rounds=[{'discovery': {'status': 'ready', 'reasons': [],
+                                              'projection_version': 'owner-discovery-v1'}, 'gaps': []}],
+                       owner_progress={}, owner_notes={}, owner_packets=packets,
+                       owner_assessments={'RES-A': {'owner_id': 'RES-A', 'status': 'relevant',
+                                                    'reason': '命中温标', 'packet_digest': 'alpha'}},
+                       fulltext_compensation={'available': False, 'reason': ''},
+                       context={'note_max_tokens': 6000, 'max_owners': 3})
+        full = notes_value(session)
+        self.assertEqual([row['owner_id'] for row in full['owner_packets']], ['RES-A', 'RES-B'])
+        self.assertEqual(full['owner_packets'][0]['assessment']['status'], 'relevant')
+        # Pick a cap that can hold the base view and exactly one complete packet.
+        one_packet = deepcopy(full)
+        one_packet['owner_packets'] = full['owner_packets'][:1]
+        one_packet['screening_omitted_owner_count'] = 1
+        one_packet['gaps'] = list(one_packet['gaps']) + [
+            '1个Owner筛选包因工作台展示上限未显示；包仍完整保存在RS，可通过reading-view读取']
+        bounded = notes_value(session, max_chars=serialized_size(one_packet))
+        self.assertLessEqual(serialized_size(bounded), serialized_size(one_packet))
+        self.assertEqual(len(bounded['owner_packets']), 1)
+        self.assertEqual(bounded['owner_packets'][0]['windows'][0]['text'], 'ALPHA' * 120)
+        self.assertEqual(bounded['screening_omitted_owner_count'], 1)
+        self.assertNotIn('BRAVO', str(bounded))
 
     def test_recent_window_is_semantic_time_and_stable_order(self):
         now = datetime.now(timezone.utc)

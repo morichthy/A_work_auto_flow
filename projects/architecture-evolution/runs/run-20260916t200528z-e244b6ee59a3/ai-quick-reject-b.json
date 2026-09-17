@@ -1,0 +1,1 @@
+{"session_id":"RS-123e4567-e89b-42d3-a456-426614174001","expected_revision":5,"request_id":"ai-quick-reject-b","candidate_id":"RC-e5d74fe43e216bcb4009f72e","useful":false,"reason":"该实际片段仅定义无量纲控制误差e_k、控制量u_k及增益K，未出现phase_case、电压阈值、时间偏移或相位模型；目前无具体连接依据，不纳入回答。"}

@@ -65,6 +65,10 @@ test("真实HTTP保存配置并在页面重新载入后保持", async ({
   await result.fill(String(next));
   await page.getByLabel("最多Owner数", { exact: true }).fill("8");
   await page.getByLabel("最终note估算token", { exact: true }).fill("7000");
+  await page.getByLabel("每个Owner常规窗口数", { exact: true }).fill("2");
+  await page.getByLabel("每个Owner窗口硬上限", { exact: true }).fill("4");
+  await page.getByLabel("每批Owner数", { exact: true }).fill("9");
+  await page.getByLabel("CE单窗token上限", { exact: true }).fill("384");
   await page.getByLabel("默认阅读模式").selectOption("quick");
   await page.getByLabel("允许不足时联想加深").uncheck();
   await page.getByLabel("最多联想轮次").fill("4");
@@ -107,6 +111,15 @@ test("真实HTTP保存配置并在页面重新载入后保持", async ({
     max_owners: 8,
     note_max_tokens: 7000,
   });
+  expect(saved.settings.reading.screening).toEqual({
+    regular_windows: 2,
+    max_windows: 4,
+    batch_owners: 9,
+  });
+  expect(saved.settings.reading.reranking.window_tokens).toBe(384);
+  expect(saved.settings.reading.reranking.overflow_policy).toBe(
+    "hit_centered_per_window",
+  );
   expect(saved.settings.reading.budget).toEqual(
     previous.settings.reading.budget,
   );
@@ -145,9 +158,19 @@ test("设置草稿跨导航保留，冲突不清空，显式重读后保存", as
       strategy: "standard" as const,
       association: { enabled: true, max_rounds: 3 },
       context: { max_owners: 10, note_max_tokens: 6000 },
+      screening: {
+        regular_windows: 3,
+        max_windows: 4,
+        batch_owners: 10,
+      },
       result_limit: 10,
       budget: { ...budget },
-      reranking: { mode: "auto" as const, candidate_limit: 30 },
+      reranking: {
+        mode: "auto" as const,
+        candidate_limit: 30,
+        window_tokens: 512,
+        overflow_policy: "hit_centered_per_window" as const,
+      },
     },
   };
   let receipt: SettingsReceipt = {

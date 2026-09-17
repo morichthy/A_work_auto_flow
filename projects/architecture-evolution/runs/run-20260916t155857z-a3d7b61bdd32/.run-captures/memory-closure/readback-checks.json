@@ -1,0 +1,12 @@
+{
+  "independent_document": true,
+  "document_complete": true,
+  "no_missing": true,
+  "old_section_unchanged": true,
+  "old_section_refs_preserved": true,
+  "overview_old_body_preserved": true,
+  "overview_old_technical_refs_preserved": true,
+  "old_coverage_exclusions_unchanged": true,
+  "head_consistent": true,
+  "indexed": true
+}

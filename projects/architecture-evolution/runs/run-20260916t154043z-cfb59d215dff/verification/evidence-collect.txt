@@ -1,0 +1,4 @@
+只读 collect 检查（实际工作区；未修改监测基线）
+最终 file_hasher 注入版本：32.61 秒；911 files；38 nodes；errors=[]；dist_files=[]。
+此前仅过滤 paths 版本：33.44 秒；911 files；38 nodes；errors=[]；dist_files=[]。
+耗时为一次观测，不构成性能基准或稳定提速结论。哈希读取范围由合成测试 mock 验证。

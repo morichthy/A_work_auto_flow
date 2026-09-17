@@ -1,0 +1,342 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "workbench.spec.ts"
+    ],
+    "configFile": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\playwright.config.ts",
+    "rootDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tmp/workbench-e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "workbench.spec.ts",
+      "file": "workbench.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "首页自动阅读笔记、定向证据与主题导航真实接口",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2617,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T16:20:09.241Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-0e621bef0c370a9ce3b4",
+          "file": "workbench.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "完整导航、关系、证据、候选和摘要",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6113,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T16:20:12.275Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-8d24267fa715af31d1e4",
+          "file": "workbench.spec.ts",
+          "line": 87,
+          "column": 1
+        },
+        {
+          "title": "证据页首次进入加载，顶层切换复用已加载状态",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 942,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T16:20:18.399Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-9beeb365edf89bff5a0c",
+          "file": "workbench.spec.ts",
+          "line": 184,
+          "column": 1
+        },
+        {
+          "title": "勾选联动图与导出，分类结合搜索且保留跨分类勾选",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1760,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T16:20:19.357Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-8b0deeefa93712d84401",
+          "file": "workbench.spec.ts",
+          "line": 211,
+          "column": 1
+        },
+        {
+          "title": "一万节点十万关系下局部图和轻量状态响应",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 60061,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                        "column": 58,
+                        "line": 331
+                      },
+                      "message": "Error: locator.click: Test timeout of 60000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-material-id=\"N0\"] button')\u001b[22m\n\n\n  329 |       .check();\n  330 |     await page.getByLabel(\"查找中心材料\").fill(\"合成材料 0\");\n> 331 |     await page.locator('[data-material-id=\"N0\"] button').click();\n      |                                                          ^\n  332 |     const start = Date.now();\n  333 |     await page.getByRole(\"button\", { name: \"以此为中心\", exact: true }).click();\n  334 |     await expect(page.locator(\".graph-main\")).toContainText(\"显示 21 个节点\");\n    at D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts:331:58"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T16:20:21.126Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\test-results\\workbench-一万节点十万关系下局部图和轻量状态响应\\error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-6e5f49d6df85ea4829a4",
+          "file": "workbench.spec.ts",
+          "line": 322,
+          "column": 1
+        },
+        {
+          "title": "对象阅读清单、完整原文和版本导出真实接口",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6976,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('必要细节：绝对温度偏置273.15', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('必要细节：绝对温度偏置273.15', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('必要细节：绝对温度偏置273.15', { exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('必要细节：绝对温度偏置273.15', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('必要细节：绝对温度偏置273.15', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('必要细节：绝对温度偏置273.15', { exact: true })\u001b[22m\n\n    at D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts:377:7",
+                    "location": {
+                      "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                      "column": 7,
+                      "line": 377
+                    },
+                    "snippet": "  375 |     await expect(\n  376 |       page.getByText(\"必要细节：绝对温度偏置273.15\", { exact: true }),\n> 377 |     ).toBeVisible();\n      |       ^\n  378 |     await page\n  379 |       .getByRole(\"button\", { name: \"刷新阅读清单\", exact: true })\n  380 |       .click();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                        "column": 7,
+                        "line": 377
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('必要细节：绝对温度偏置273.15', { exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('必要细节：绝对温度偏置273.15', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('必要细节：绝对温度偏置273.15', { exact: true })\u001b[22m\n\n\n  375 |     await expect(\n  376 |       page.getByText(\"必要细节：绝对温度偏置273.15\", { exact: true }),\n> 377 |     ).toBeVisible();\n      |       ^\n  378 |     await page\n  379 |       .getByRole(\"button\", { name: \"刷新阅读清单\", exact: true })\n  380 |       .click();\n    at D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts:377:7"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T16:21:22.305Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\test-results\\workbench-对象阅读清单、完整原文和版本导出真实接口\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                    "column": 7,
+                    "line": 377
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-b1b436ffa9ba38ce605c",
+          "file": "workbench.spec.ts",
+          "line": 363,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-16T16:20:08.409Z",
+    "duration": 81792.474,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "status": "ok",
+  "value": {
+    "items": [
+      {
+        "session_id": "RS-47e7e8ce-9f60-4fd0-af4d-a7580a69cb04",
+        "revision": 5,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "goal": "浮点求和中顺序求和、Kahan补偿与math.fsum在强抵消输入上有哪些差异和失效边界？",
+        "phase": "finish",
+        "archived": false,
+        "note_count": 1,
+        "updated_at": "2026-09-16T09:34:06.976856+00:00"
+      },
+      {
+        "session_id": "RS-410e1467-5e05-4c3a-ba90-77001a53fe4f",
+        "revision": 6,
+        "owner_id": null,
+        "goal": "解释浮点求和损失是否发生在沿途每一步，并保留推理所需条件",
+        "phase": "proceed",
+        "archived": null,
+        "note_count": 1,
+        "updated_at": "2026-09-12T20:03:00.479172+00:00"
+      },
+      {
+        "session_id": "RS-0c4b1942-a4ec-4a32-8cae-4014e6d4a68f",
+        "revision": 1,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "goal": "浮点求和中顺序求和、Kahan补偿与math.fsum在强抵消输入上有哪些差异和失效边界？",
+        "phase": "ready",
+        "archived": false,
+        "note_count": 0,
+        "updated_at": "2026-09-16T09:22:37.842100+00:00"
+      },
+      {
+        "session_id": "RS-427b0ea5-0b73-4ba7-9417-bede5b623fc5",
+        "revision": 1,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "goal": "浮点求和中顺序求和、Kahan补偿与math.fsum在强抵消输入上有哪些差异和失效边界？",
+        "phase": "ready",
+        "archived": false,
+        "note_count": 0,
+        "updated_at": "2026-09-16T09:14:32.239363+00:00"
+      },
+      {
+        "session_id": "RS-4e813aa9-7695-4e58-82a7-af920d54672a",
+        "revision": 2,
+        "owner_id": null,
+        "goal": "解释浮点求和损失是否发生在沿途每一步，并保留推理所需条件",
+        "phase": "review",
+        "archived": null,
+        "note_count": 0,
+        "updated_at": "2026-09-12T19:56:52.777588+00:00"
+      }
+    ],
+    "next_offset": null,
+    "unavailable_count": 0,
+    "scope_note": "按归属和当前授权筛选后分页；有笔记优先，同类按最近内容更新排序。未绑定旧会话可在全局列表发现。"
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 20266,
+    "read_bytes": 1554464,
+    "output_chars": 1305,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

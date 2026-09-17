@@ -1,0 +1,877 @@
+{
+  "schema_version": 1,
+  "input_files": [
+    "events.jsonl",
+    "reader-outer-events.json",
+    "root-outer-events.json"
+  ],
+  "baseline_call_count": 5,
+  "diagnostic_call_count": 0,
+  "baseline_phase_totals_ns": {
+    "stdlib_import_ns": 102094200,
+    "backend_import_ns": 176000000,
+    "coordinator_ns": 1467800,
+    "dispatch_ns": 71349826500,
+    "close_ns": 53400,
+    "serialize_ns": 185300,
+    "persist_ns": 11033500
+  },
+  "baseline_response_chars": 7369,
+  "baseline_response_utf8_bytes": 8902,
+  "baseline_calls": [
+    {
+      "type": "call",
+      "action": "reading-template",
+      "actor": "main",
+      "profile": false,
+      "pid": 36852,
+      "entry_utc_ns": 1789550343482986100,
+      "entry_monotonic_ns": 74079207323900,
+      "start_utc_ns": 1789550344406749000,
+      "start_monotonic_ns": 74080130508900,
+      "stdlib_import_ns": 20219600,
+      "backend_import_ns": 18851900,
+      "coordinator_ns": 227600,
+      "dispatch_ns": 9239400,
+      "close_ns": 8300,
+      "serialize_ns": 31900,
+      "status": "ok",
+      "code": null,
+      "response_chars": 2296,
+      "response_utf8_bytes": 2320,
+      "consumed": {
+        "wall_ms": 0,
+        "read_bytes": 0,
+        "output_chars": 0,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "consumed_delta": {
+        "wall_ms": 0,
+        "read_bytes": 0,
+        "output_chars": 0,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "coverage_timings": {
+        "/query/budget/wall_ms": 300000
+      },
+      "request_file": "1789550344406749000-main-reading-template-request.json",
+      "response_file": "1789550344406749000-main-reading-template-response.json",
+      "persist_ns": 1365400,
+      "end_utc_ns": 1789550344436679000,
+      "end_monotonic_ns": 74080160312900,
+      "script_elapsed_ns": 952989100
+    },
+    {
+      "type": "call",
+      "action": "reading-start",
+      "actor": "main",
+      "profile": false,
+      "pid": 36852,
+      "entry_utc_ns": 1789550343482986100,
+      "entry_monotonic_ns": 74079207323900,
+      "start_utc_ns": 1789550344438678400,
+      "start_monotonic_ns": 74080162613500,
+      "stdlib_import_ns": 20219600,
+      "backend_import_ns": 3500,
+      "coordinator_ns": 332100,
+      "dispatch_ns": 1328902600,
+      "close_ns": 11200,
+      "serialize_ns": 35200,
+      "status": "ok",
+      "code": null,
+      "response_chars": 576,
+      "response_utf8_bytes": 750,
+      "consumed": {
+        "wall_ms": 0,
+        "read_bytes": 0,
+        "output_chars": 0,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "consumed_delta": {
+        "wall_ms": 0,
+        "read_bytes": 0,
+        "output_chars": 0,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "coverage_timings": {},
+      "request_file": "1789550344438678400-main-reading-start-request.json",
+      "response_file": "1789550344438678400-main-reading-start-response.json",
+      "persist_ns": 2649800,
+      "end_utc_ns": 1789550345770985500,
+      "end_monotonic_ns": 74081494623200,
+      "script_elapsed_ns": 2287299400
+    },
+    {
+      "type": "call",
+      "action": "reading-delegate",
+      "actor": "main",
+      "profile": false,
+      "pid": 36852,
+      "entry_utc_ns": 1789550343482986100,
+      "entry_monotonic_ns": 74079207323900,
+      "start_utc_ns": 1789550345771491900,
+      "start_monotonic_ns": 74081495133900,
+      "stdlib_import_ns": 20219600,
+      "backend_import_ns": 8400,
+      "coordinator_ns": 469300,
+      "dispatch_ns": 1302966400,
+      "close_ns": 8100,
+      "serialize_ns": 54900,
+      "status": "ok",
+      "code": null,
+      "response_chars": 2995,
+      "response_utf8_bytes": 3871,
+      "consumed": {
+        "wall_ms": 1297,
+        "read_bytes": 4226,
+        "output_chars": 2638,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "consumed_delta": {
+        "wall_ms": 1297,
+        "read_bytes": 4226,
+        "output_chars": 2638,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "coverage_timings": {
+        "/worker_brief/query/budget/wall_ms": 300000
+      },
+      "request_file": "1789550345771491900-main-reading-delegate-request.json",
+      "response_file": "1789550345771491900-main-reading-delegate-response.json",
+      "persist_ns": 2542200,
+      "end_utc_ns": 1789550347077071200,
+      "end_monotonic_ns": 74082801298400,
+      "script_elapsed_ns": 3593974500
+    },
+    {
+      "type": "call",
+      "action": "reading-view",
+      "actor": "reader",
+      "profile": false,
+      "pid": 74244,
+      "entry_utc_ns": 1789550462219652800,
+      "entry_monotonic_ns": 74197943805100,
+      "start_utc_ns": 1789550462247670000,
+      "start_monotonic_ns": 74197971637400,
+      "stdlib_import_ns": 20919100,
+      "backend_import_ns": 75746700,
+      "coordinator_ns": 206900,
+      "dispatch_ns": 1280830400,
+      "close_ns": 11000,
+      "serialize_ns": 32700,
+      "status": "ok",
+      "code": null,
+      "response_chars": 997,
+      "response_utf8_bytes": 1372,
+      "consumed": {
+        "wall_ms": 2561,
+        "read_bytes": 8461,
+        "output_chars": 2922,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "consumed_delta": {
+        "wall_ms": 1264,
+        "read_bytes": 4235,
+        "output_chars": 284,
+        "candidates": 0,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 0,
+        "model_calls": 0,
+        "model_input_tokens": 0,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "coverage_timings": {},
+      "request_file": "1789550462247670000-reader-reading-view-request.json",
+      "response_file": "1789550462247670000-reader-reading-view-response.json",
+      "persist_ns": 2248800,
+      "end_utc_ns": 1789550463606948200,
+      "end_monotonic_ns": 74199330773200,
+      "script_elapsed_ns": 1386968100
+    },
+    {
+      "type": "call",
+      "action": "reading-recall",
+      "actor": "reader",
+      "profile": false,
+      "pid": 76500,
+      "entry_utc_ns": 1789550490316821000,
+      "entry_monotonic_ns": 74226040681100,
+      "start_utc_ns": 1789550490343853000,
+      "start_monotonic_ns": 74226067823100,
+      "stdlib_import_ns": 20516300,
+      "backend_import_ns": 81389500,
+      "coordinator_ns": 231900,
+      "dispatch_ns": 67427887700,
+      "close_ns": 14800,
+      "serialize_ns": 30600,
+      "status": "rejected",
+      "code": "BUDGET",
+      "response_chars": 505,
+      "response_utf8_bytes": 589,
+      "consumed": {
+        "wall_ms": 69841,
+        "read_bytes": 6235277,
+        "output_chars": 79954,
+        "candidates": 36,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 1655,
+        "model_calls": 11,
+        "model_input_tokens": 1655,
+        "model_output_tokens": 0,
+        "rerank_items": 4
+      },
+      "consumed_delta": {
+        "wall_ms": 67280,
+        "read_bytes": 6226816,
+        "output_chars": 77032,
+        "candidates": 36,
+        "graph_nodes": 0,
+        "graph_edges": 0,
+        "graph_hops": 0,
+        "model_tokens": 1655,
+        "model_calls": 11,
+        "model_input_tokens": 1655,
+        "model_output_tokens": 0,
+        "rerank_items": 4
+      },
+      "coverage_timings": {},
+      "request_file": "1789550490343853000-reader-reading-recall-request.json",
+      "response_file": "1789550490343853000-reader-reading-recall-response.json",
+      "persist_ns": 2227300,
+      "end_utc_ns": 1789550557855712300,
+      "end_monotonic_ns": 74293579645100,
+      "script_elapsed_ns": 67538964100
+    }
+  ],
+  "profile_diagnostics": [],
+  "non_call_events": [
+    {
+      "type": "settings",
+      "start_utc_ns": 1789550343564644600,
+      "start_monotonic_ns": 74079288860500,
+      "entry_utc_ns": 1789550343482986100,
+      "entry_monotonic_ns": 74079207323900,
+      "import_ns": 55487000,
+      "read_policy_ns": 1625900,
+      "policy": {
+        "subagents": "auto",
+        "subagent_requirements": "优先使用低成本、较低能力的可用模型，采用低推理深度；须能完成材料检索、完整阅读和结构化笔记。"
+      },
+      "reading_defaults": {
+        "result_limit": 10,
+        "reranking": {
+          "mode": "auto",
+          "candidate_limit": 30
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 16777216,
+          "output_chars": 80000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        }
+      },
+      "end_utc_ns": 1789550343566646000
+    },
+    {
+      "type": "owner_metadata",
+      "start_utc_ns": 1789550343567646000,
+      "start_monotonic_ns": 74079291855200,
+      "metadata_ns": 838319400,
+      "end_utc_ns": 1789550344405747400,
+      "source_run_ids": [
+        "RUN-20260908T201214Z-D0AB308F66AD",
+        "RUN-20260908T201228Z-A0980824DC18",
+        "RUN-20260908T201240Z-90107A617CF8",
+        "RUN-20260908T214955Z-2273015D2CEF",
+        "RUN-20260908T215458Z-04C7D84D40D8"
+      ],
+      "access_owner_ids": [
+        "PRJ-ARCHITECTURE-EVOLUTION",
+        "RES-FLOATING-POINT-SUMMATION",
+        "RUN-20260908T201214Z-D0AB308F66AD",
+        "RUN-20260908T201228Z-A0980824DC18",
+        "RUN-20260908T201240Z-90107A617CF8",
+        "RUN-20260908T214955Z-2273015D2CEF",
+        "RUN-20260908T215458Z-04C7D84D40D8"
+      ]
+    },
+    {
+      "type": "variant",
+      "utc_ns": 1789550344437679200,
+      "result_limit": 2,
+      "reranking": {
+        "mode": "auto",
+        "candidate_limit": 2,
+        "conditions": []
+      },
+      "budget": {
+        "wall_ms": 300000,
+        "read_bytes": 16777216,
+        "output_chars": 80000,
+        "candidates": 1000,
+        "graph_nodes": 50,
+        "graph_edges": 100,
+        "graph_hops": 2,
+        "model_tokens": 65536,
+        "model_calls": 20,
+        "model_input_tokens": 65536,
+        "model_output_tokens": 0,
+        "rerank_items": 100
+      },
+      "explicit_overrides": {
+        "result_limit": 2,
+        "rerank_candidate_limit": 2
+      }
+    },
+    {
+      "type": "mark",
+      "label": "reader_started",
+      "actor": "reader",
+      "utc_ns": 1789550450535082700,
+      "monotonic_ns": 74186258756700,
+      "entry_utc_ns": 1789550450506167700,
+      "pid": 52568
+    },
+    {
+      "type": "mark",
+      "label": "reader_finished",
+      "actor": "reader",
+      "utc_ns": 1789550572406736200,
+      "monotonic_ns": 74308130648900,
+      "entry_utc_ns": 1789550572379588000,
+      "pid": 53560
+    }
+  ],
+  "inter_call_gaps": [
+    {
+      "previous_action": "reading-template",
+      "next_action": "reading-start",
+      "previous_actor": "main",
+      "next_actor": "main",
+      "start_utc_ns": 1789550344436679000,
+      "end_utc_ns": 1789550344438678400,
+      "gap_ms": 1.9994,
+      "meaning": "相邻调用之间的混合间隔，包含宿主调度、排队、人工/AI决策、请求写入与工具交互；不是纯模型推理时间。"
+    },
+    {
+      "previous_action": "reading-start",
+      "next_action": "reading-delegate",
+      "previous_actor": "main",
+      "next_actor": "main",
+      "start_utc_ns": 1789550345770985500,
+      "end_utc_ns": 1789550345771491900,
+      "gap_ms": 0.5064,
+      "meaning": "相邻调用之间的混合间隔，包含宿主调度、排队、人工/AI决策、请求写入与工具交互；不是纯模型推理时间。"
+    },
+    {
+      "previous_action": "reading-delegate",
+      "next_action": "reading-view",
+      "previous_actor": "main",
+      "next_actor": "reader",
+      "start_utc_ns": 1789550347077071200,
+      "end_utc_ns": 1789550462247670000,
+      "gap_ms": 115170.5988,
+      "meaning": "相邻调用之间的混合间隔，包含宿主调度、排队、人工/AI决策、请求写入与工具交互；不是纯模型推理时间。"
+    },
+    {
+      "previous_action": "reading-view",
+      "next_action": "reading-recall",
+      "previous_actor": "reader",
+      "next_actor": "reader",
+      "start_utc_ns": 1789550463606948200,
+      "end_utc_ns": 1789550490343853000,
+      "gap_ms": 26736.9048,
+      "meaning": "相邻调用之间的混合间隔，包含宿主调度、排队、人工/AI决策、请求写入与工具交互；不是纯模型推理时间。"
+    }
+  ],
+  "outer_events": {
+    "reader-outer-events.json": [
+      {
+        "label": "host_first_timestamp",
+        "start_ms": 1789550405701,
+        "end_ms": 1789550405701,
+        "process_wall_seconds": 0,
+        "session_id": null,
+        "exit_code": 0
+      },
+      {
+        "label": "read_required_contracts",
+        "start_ms": 1789550411727,
+        "end_ms": 1789550413030,
+        "process_wall_seconds": 0.1957752,
+        "session_id": null,
+        "exit_code": 0
+      },
+      {
+        "label": "read_latency_driver_contract",
+        "start_ms": 1789550421094,
+        "end_ms": 1789550422633,
+        "process_wall_seconds": 0.251269,
+        "session_id": null,
+        "exit_code": 1
+      },
+      {
+        "label": "locate_latency_artifacts",
+        "start_ms": 1789550428568,
+        "end_ms": 1789550429687,
+        "process_wall_seconds": 0.2576726,
+        "session_id": null,
+        "exit_code": 0
+      },
+      {
+        "label": "read_latency_driver_contract_corrected_path",
+        "start_ms": 1789550434681,
+        "end_ms": 1789550435981,
+        "process_wall_seconds": 0.2183557,
+        "session_id": null,
+        "exit_code": 0
+      },
+      {
+        "label": "driver_mark_reader_started",
+        "start_ms": 1789550443281,
+        "end_ms": 1789550450611,
+        "process_wall_seconds": 0.3719473,
+        "session_id": null,
+        "exit_code": 0
+      },
+      {
+        "label": "reading_view",
+        "start_ms": 1789550456868,
+        "end_ms": 1789550463691,
+        "process_wall_seconds": 1.7705167,
+        "session_id": null,
+        "exit_code": 0
+      },
+      {
+        "label": "locate_prepared_recall_request",
+        "start_ms": 1789550469253,
+        "end_ms": 1789550470620,
+        "process_wall_seconds": 0.2361984,
+        "session_id": null,
+        "exit_code": 0
+      },
+      {
+        "label": "read_prepared_recall_request",
+        "start_ms": 1789550476174,
+        "end_ms": 1789550477481,
+        "process_wall_seconds": 0.2026701,
+        "session_id": null,
+        "exit_code": 0
+      },
+      {
+        "label": "reading_recall",
+        "start_ms": 1789550484520,
+        "end_ms": 1789550500017,
+        "process_wall_seconds": 10.0017483,
+        "session_id": 16033,
+        "exit_code": null
+      },
+      {
+        "label": "poll_reading_recall_session_16033",
+        "start_ms": 1789550507085,
+        "end_ms": 1789550517087,
+        "process_wall_seconds": 10.0007458,
+        "session_id": 16033,
+        "exit_code": null
+      },
+      {
+        "label": "poll_reading_recall_session_16033_2",
+        "start_ms": 1789550520806,
+        "end_ms": 1789550530824,
+        "process_wall_seconds": 10.0164305,
+        "session_id": 16033,
+        "exit_code": null
+      },
+      {
+        "label": "poll_reading_recall_session_16033_3",
+        "start_ms": 1789550535074,
+        "end_ms": 1789550545084,
+        "process_wall_seconds": 10.0080408,
+        "session_id": 16033,
+        "exit_code": null
+      },
+      {
+        "label": "poll_reading_recall_session_16033_4_attempt",
+        "start_ms": 1789550551981,
+        "end_ms": 1789550551981,
+        "process_wall_seconds": null,
+        "session_id": 16033,
+        "exit_code": null
+      },
+      {
+        "label": "poll_reading_recall_session_16033_5",
+        "start_ms": 1789550555726,
+        "end_ms": 1789550558590,
+        "process_wall_seconds": 2.8550012,
+        "session_id": 16033,
+        "exit_code": 1
+      },
+      {
+        "label": "driver_mark_reader_finished",
+        "start_ms": 1789550568495,
+        "end_ms": 1789550572481,
+        "process_wall_seconds": 0.3893241,
+        "session_id": null,
+        "exit_code": 0
+      },
+      {
+        "label": "prepare_reader_outer_events_json",
+        "start_ms": 1789550582047,
+        "end_ms": 1789550582047,
+        "process_wall_seconds": 0,
+        "session_id": null,
+        "exit_code": 0
+      }
+    ],
+    "root-outer-events.json": [
+      {
+        "label": "control_prepare",
+        "sent_ms": 1789550334328,
+        "returned_ms": 1789550347170,
+        "chunk_id": "48cdfa",
+        "wall_time_seconds": 3.9748431,
+        "exit_code": 0,
+        "original_token_count": 1575
+      }
+    ]
+  },
+  "outer_spans": [
+    {
+      "source": "reader-outer-events.json",
+      "label": "host_first_timestamp",
+      "start_utc_ns": 1789550405701000000,
+      "end_utc_ns": 1789550405701000000,
+      "tool_elapsed_ms": 0.0,
+      "exec_wall_time_seconds": 0,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 0.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "read_required_contracts",
+      "start_utc_ns": 1789550411727000000,
+      "end_utc_ns": 1789550413030000000,
+      "tool_elapsed_ms": 1303.0,
+      "exec_wall_time_seconds": 0.1957752,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 1303.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "read_latency_driver_contract",
+      "start_utc_ns": 1789550421094000000,
+      "end_utc_ns": 1789550422633000000,
+      "tool_elapsed_ms": 1539.0,
+      "exec_wall_time_seconds": 0.251269,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 1539.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "locate_latency_artifacts",
+      "start_utc_ns": 1789550428568000000,
+      "end_utc_ns": 1789550429687000000,
+      "tool_elapsed_ms": 1119.0,
+      "exec_wall_time_seconds": 0.2576726,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 1119.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "read_latency_driver_contract_corrected_path",
+      "start_utc_ns": 1789550434681000000,
+      "end_utc_ns": 1789550435981000000,
+      "tool_elapsed_ms": 1300.0,
+      "exec_wall_time_seconds": 0.2183557,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 1300.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "driver_mark_reader_started",
+      "start_utc_ns": 1789550443281000000,
+      "end_utc_ns": 1789550450611000000,
+      "tool_elapsed_ms": 7330.0,
+      "exec_wall_time_seconds": 0.3719473,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 7330.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "reading_view",
+      "start_utc_ns": 1789550456868000000,
+      "end_utc_ns": 1789550463691000000,
+      "tool_elapsed_ms": 6823.0,
+      "exec_wall_time_seconds": 1.7705167,
+      "matched_actions": [
+        "reading-view"
+      ],
+      "dispatch_ms": 1280.8304,
+      "residual_ms": 5542.1696,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "locate_prepared_recall_request",
+      "start_utc_ns": 1789550469253000000,
+      "end_utc_ns": 1789550470620000000,
+      "tool_elapsed_ms": 1367.0,
+      "exec_wall_time_seconds": 0.2361984,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 1367.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "read_prepared_recall_request",
+      "start_utc_ns": 1789550476174000000,
+      "end_utc_ns": 1789550477481000000,
+      "tool_elapsed_ms": 1307.0,
+      "exec_wall_time_seconds": 0.2026701,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 1307.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "reading_recall",
+      "start_utc_ns": 1789550484520000000,
+      "end_utc_ns": 1789550500017000000,
+      "tool_elapsed_ms": 15497.0,
+      "exec_wall_time_seconds": 10.0017483,
+      "matched_actions": [
+        "reading-recall"
+      ],
+      "dispatch_ms": 67427.8877,
+      "residual_ms": -51930.88770000001,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "poll_reading_recall_session_16033",
+      "start_utc_ns": 1789550507085000000,
+      "end_utc_ns": 1789550517087000000,
+      "tool_elapsed_ms": 10002.0,
+      "exec_wall_time_seconds": 10.0007458,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 10002.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "poll_reading_recall_session_16033_2",
+      "start_utc_ns": 1789550520806000000,
+      "end_utc_ns": 1789550530824000000,
+      "tool_elapsed_ms": 10018.0,
+      "exec_wall_time_seconds": 10.0164305,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 10018.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "poll_reading_recall_session_16033_3",
+      "start_utc_ns": 1789550535074000000,
+      "end_utc_ns": 1789550545084000000,
+      "tool_elapsed_ms": 10010.0,
+      "exec_wall_time_seconds": 10.0080408,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 10010.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "poll_reading_recall_session_16033_4_attempt",
+      "start_utc_ns": 1789550551981000000,
+      "end_utc_ns": 1789550551981000000,
+      "tool_elapsed_ms": 0.0,
+      "exec_wall_time_seconds": null,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 0.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "poll_reading_recall_session_16033_5",
+      "start_utc_ns": 1789550555726000000,
+      "end_utc_ns": 1789550558590000000,
+      "tool_elapsed_ms": 2864.0,
+      "exec_wall_time_seconds": 2.8550012,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 2864.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "driver_mark_reader_finished",
+      "start_utc_ns": 1789550568495000000,
+      "end_utc_ns": 1789550572481000000,
+      "tool_elapsed_ms": 3986.0,
+      "exec_wall_time_seconds": 0.3893241,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 3986.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "reader-outer-events.json",
+      "label": "prepare_reader_outer_events_json",
+      "start_utc_ns": 1789550582047000000,
+      "end_utc_ns": 1789550582047000000,
+      "tool_elapsed_ms": 0.0,
+      "exec_wall_time_seconds": 0,
+      "matched_actions": [],
+      "dispatch_ms": 0.0,
+      "residual_ms": 0.0,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    },
+    {
+      "source": "root-outer-events.json",
+      "label": "control_prepare",
+      "start_utc_ns": 1789550334328000000,
+      "end_utc_ns": 1789550347170000000,
+      "tool_elapsed_ms": 12842.0,
+      "exec_wall_time_seconds": 3.9748431,
+      "matched_actions": [
+        "reading-template",
+        "reading-start",
+        "reading-delegate"
+      ],
+      "dispatch_ms": 2641.1084,
+      "residual_ms": 10200.891599999999,
+      "profile": false,
+      "meaning": "残余含其他脚本阶段、启动、工具传输及调度，不是模型推理；未匹配动作不推断。"
+    }
+  ],
+  "process_spans": [
+    {
+      "source": "reader-outer-events.json",
+      "session_id": "16033",
+      "tool_event_count": 6,
+      "start_utc_ns": 1789550484520000000,
+      "end_utc_ns": 1789550558590000000,
+      "outer_span_ms": 74070.0,
+      "matched_actions": [
+        "reading-recall"
+      ],
+      "dispatch_ms": 67427.8877,
+      "residual_ms": 6642.112299999993,
+      "profile": false,
+      "meaning": "从exec开始到最后poll返回的operation包络，包含poll间隙与稍晚poll；不将wall相加为执行时间。dispatch_ns才是backend测量。"
+    }
+  ],
+  "unmapped_outer_timestamps": [],
+  "limitations": [
+    "script_elapsed_ns是进程内累计时间，prepare多个事件不得相加。",
+    "stdlib_import_ns在同一进程重复出现，阶段总和保留原始值用于比较，不能当不重叠总时长。",
+    "backend_import_ns不含已在settings事件导入的模块时间，settings.import_ns须单列。",
+    "原始coverage timings保留原字段单位，不能与dispatch直接相加。",
+    "外层工具耗时包含进程启动和传输；内部耗时不能代表模型推理。",
+    "profile诊断与baseline分开，失败调用按真实状态保留。"
+  ]
+}

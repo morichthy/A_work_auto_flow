@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 112,
+  "revision": 125,
   "capabilities": [
     {
       "id": "workspace",
@@ -8349,17 +8349,6 @@
       "authorization": []
     },
     {
-      "id": "python:test_reading_reranking.ReadingRerankingTests.test_overlong_input_is_not_silently_truncated_or_sent",
-      "kind": "python",
-      "selector": "test_reading_reranking.ReadingRerankingTests.test_overlong_input_is_not_silently_truncated_or_sent",
-      "path": "automation/tests/test_reading_reranking.py",
-      "capability": "retrieval",
-      "quick": false,
-      "full": true,
-      "requires": [],
-      "authorization": []
-    },
-    {
       "id": "python:test_reading_reranking.ReadingRerankingTests.test_insufficient_budget_never_calls_provider",
       "kind": "python",
       "selector": "test_reading_reranking.ReadingRerankingTests.test_insufficient_budget_never_calls_provider",
@@ -8402,17 +8391,6 @@
         "reviewed_by": "Codex",
         "review_basis": "本轮重排连续分页故障回归。"
       }
-    },
-    {
-      "id": "python:test_reading_reranking.ReadingRerankingTests.test_failed_batch_does_not_charge_unattempted_pairs",
-      "kind": "python",
-      "selector": "test_reading_reranking.ReadingRerankingTests.test_failed_batch_does_not_charge_unattempted_pairs",
-      "path": "automation/tests/test_reading_reranking.py",
-      "capability": "retrieval",
-      "quick": false,
-      "full": true,
-      "requires": [],
-      "authorization": []
     },
     {
       "id": "python:test_reading_reranking.ReadingRerankingTests.test_cancellation_after_inference_stops_before_next_batch",
@@ -9579,17 +9557,6 @@
       "authorization": []
     },
     {
-      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_process_preferred_and_document_scope_not_retrieval_level",
-      "kind": "python",
-      "selector": "test_reading_owner_document.OwnerDocumentTests.test_process_preferred_and_document_scope_not_retrieval_level",
-      "path": "automation/tests/test_reading_owner_document.py",
-      "capability": "retrieval",
-      "quick": false,
-      "full": true,
-      "requires": [],
-      "authorization": []
-    },
-    {
       "id": "python:test_reading_owner_document.OwnerDocumentTests.test_source_revision_and_revocation_block_saved_note",
       "kind": "python",
       "selector": "test_reading_owner_document.OwnerDocumentTests.test_source_revision_and_revocation_block_saved_note",
@@ -9669,39 +9636,6 @@
       "id": "python:test_reading_owner_document.OwnerBudgetTests.test_finish_with_selected_unnoted_owner_remains_partial",
       "kind": "python",
       "selector": "test_reading_owner_document.OwnerBudgetTests.test_finish_with_selected_unnoted_owner_remains_partial",
-      "path": "automation/tests/test_reading_owner_document.py",
-      "capability": "retrieval",
-      "quick": false,
-      "full": true,
-      "requires": [],
-      "authorization": []
-    },
-    {
-      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_progress_one_per_page_then_skip_selected",
-      "kind": "python",
-      "selector": "test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_progress_one_per_page_then_skip_selected",
-      "path": "automation/tests/test_reading_owner_document.py",
-      "capability": "retrieval",
-      "quick": false,
-      "full": true,
-      "requires": [],
-      "authorization": []
-    },
-    {
-      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_partial_pending_packet_remains_resumable_without_repeating_text",
-      "kind": "python",
-      "selector": "test_reading_owner_document.OwnerDocumentTests.test_partial_pending_packet_remains_resumable_without_repeating_text",
-      "path": "automation/tests/test_reading_owner_document.py",
-      "capability": "retrieval",
-      "quick": false,
-      "full": true,
-      "requires": [],
-      "authorization": []
-    },
-    {
-      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_owner_sessions_without_delivery_fields_do_not_replay_old_candidates",
-      "kind": "python",
-      "selector": "test_reading_owner_document.OwnerDocumentTests.test_owner_sessions_without_delivery_fields_do_not_replay_old_candidates",
       "path": "automation/tests/test_reading_owner_document.py",
       "capability": "retrieval",
       "quick": false,
@@ -10503,6 +10437,373 @@
       "kind": "browser",
       "selector": "记忆摘要进入完整文稿与来源图片证据",
       "path": "automation/frontend/e2e/workbench.spec.ts",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_independent_projection_uses_only_compressed_discovery_surfaces",
+      "kind": "python",
+      "selector": "test_memory_discovery_index.MemoryDiscoveryIndexTests.test_independent_projection_uses_only_compressed_discovery_surfaces",
+      "path": "automation/tests/test_memory_discovery_index.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "默认发现误读全文块、文稿或L0，导致压缩索引失去隔离边界。",
+        "reason": "保护独立发现投影只包含L4/L3/L2紧凑内容、L1检索说明和Owner元数据。",
+        "review_triggers": [
+          "发现投影来源",
+          "全文与发现索引隔离"
+        ],
+        "reviewed_at": "2026-09-17T19:39:48Z",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260917T181639Z-AF7701FD84AD；本轮定向回归通过，按Owner发现计划选择不可替代的隔离、撤权/陈旧和显式补偿边界。"
+      }
+    },
+    {
+      "id": "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_rebuild_is_idempotent_and_refuses_changed_head",
+      "kind": "python",
+      "selector": "test_memory_discovery_index.MemoryDiscoveryIndexTests.test_rebuild_is_idempotent_and_refuses_changed_head",
+      "path": "automation/tests/test_memory_discovery_index.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "旧HEAD投影被当作当前结果，或重建重复修改规范内容。",
+        "reason": "保护按Owner幂等重建和HEAD变化后的stale拒绝。",
+        "review_triggers": [
+          "Owner HEAD/CAS",
+          "发现投影重建与水位"
+        ],
+        "reviewed_at": "2026-09-17T19:39:48Z",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260917T181639Z-AF7701FD84AD；本轮定向回归通过，按Owner发现计划选择不可替代的隔离、撤权/陈旧和显式补偿边界。"
+      }
+    },
+    {
+      "id": "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_lexical_and_vector_watermarks_fail_independently",
+      "kind": "python",
+      "selector": "test_memory_discovery_index.MemoryDiscoveryIndexTests.test_lexical_and_vector_watermarks_fail_independently",
+      "path": "automation/tests/test_memory_discovery_index.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_gaps_are_structural_and_projection_readiness_is_separate",
+      "kind": "python",
+      "selector": "test_memory_discovery_index.MemoryDiscoveryIndexTests.test_gaps_are_structural_and_projection_readiness_is_separate",
+      "path": "automation/tests/test_memory_discovery_index.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_discovery_vector_backend_uses_a_separate_collection_namespace",
+      "kind": "python",
+      "selector": "test_memory_discovery_index.MemoryDiscoveryIndexTests.test_discovery_vector_backend_uses_a_separate_collection_namespace",
+      "path": "automation/tests/test_memory_discovery_index.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_public_memory_actions_expose_gap_and_rebuild_without_canonical_writes",
+      "kind": "python",
+      "selector": "test_memory_discovery_index.MemoryDiscoveryIndexTests.test_public_memory_actions_expose_gap_and_rebuild_without_canonical_writes",
+      "path": "automation/tests/test_memory_discovery_index.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "缺口检查或投影重建误改规范记录、review或原件。",
+        "reason": "保护公开动作只写派生投影，dry-run和实际重建均不提交规范内容。",
+        "review_triggers": [
+          "discovery-gaps/rebuild-discovery",
+          "规范内容与派生索引边界"
+        ],
+        "reviewed_at": "2026-09-17T19:39:48Z",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260917T181639Z-AF7701FD84AD；本轮定向回归通过，按Owner发现计划选择不可替代的隔离、撤权/陈旧和显式补偿边界。"
+      }
+    },
+    {
+      "id": "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_projection_version_is_explicit_and_fulltext_tables_are_untouched",
+      "kind": "python",
+      "selector": "test_memory_discovery_index.MemoryDiscoveryIndexTests.test_projection_version_is_explicit_and_fulltext_tables_are_untouched",
+      "path": "automation/tests/test_memory_discovery_index.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_query_rechecks_external_source_permission_after_indexing",
+      "kind": "python",
+      "selector": "test_memory_discovery_index.MemoryDiscoveryIndexTests.test_query_rechecks_external_source_permission_after_indexing",
+      "path": "automation/tests/test_memory_discovery_index.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "来源撤权后发现索引仍泄漏旧内容。",
+        "reason": "保护查询时重新核验当前来源权限，不能信任旧投影。",
+        "review_triggers": [
+          "来源授权",
+          "发现查询实时核验"
+        ],
+        "reviewed_at": "2026-09-17T19:39:48Z",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260917T181639Z-AF7701FD84AD；本轮定向回归通过，按Owner发现计划选择不可替代的隔离、撤权/陈旧和显式补偿边界。"
+      }
+    },
+    {
+      "id": "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_canonical_commit_invalidates_discovery_before_full_index_failure",
+      "kind": "python",
+      "selector": "test_memory_discovery_index.MemoryDiscoveryIndexTests.test_canonical_commit_invalidates_discovery_before_full_index_failure",
+      "path": "automation/tests/test_memory_discovery_index.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_memory_http.MemoryHttpTests.test_discovery_gap_and_rebuild_actions_use_real_http_dispatch",
+      "kind": "python",
+      "selector": "test_memory_http.MemoryHttpTests.test_discovery_gap_and_rebuild_actions_use_real_http_dispatch",
+      "path": "automation/tests/test_memory_http.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_real_http_owner_assessment_and_explicit_fulltext_compensation",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_real_http_owner_assessment_and_explicit_fulltext_compensation",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "context",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_page_by_owner_without_projection_crowding",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_page_by_owner_without_projection_crowding",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "context",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_partial_owner_body_packet_retries_the_same_stable_page",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_partial_owner_body_packet_retries_the_same_stable_page",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "context",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_new_discovery_session_and_frozen_legacy_session_keep_distinct_semantics",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_new_discovery_session_and_frozen_legacy_session_keep_distinct_semantics",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "context",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_all_current_owner_content_pages_to_completion_and_deduplicates_exact_body",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_all_current_owner_content_pages_to_completion_and_deduplicates_exact_body",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "context",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_screening.OwnerScreeningTests.test_core_then_complementary_route_record_and_protected_window",
+      "kind": "python",
+      "selector": "test_reading_owner_screening.OwnerScreeningTests.test_core_then_complementary_route_record_and_protected_window",
+      "path": "automation/tests/test_reading_owner_screening.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_screening.OwnerScreeningTests.test_exact_duplicate_text_is_merged_but_provenance_is_preserved",
+      "kind": "python",
+      "selector": "test_reading_owner_screening.OwnerScreeningTests.test_exact_duplicate_text_is_merged_but_provenance_is_preserved",
+      "path": "automation/tests/test_reading_owner_screening.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_screening.OwnerScreeningTests.test_single_complete_l4_can_report_complete",
+      "kind": "python",
+      "selector": "test_reading_owner_screening.OwnerScreeningTests.test_single_complete_l4_can_report_complete",
+      "path": "automation/tests/test_reading_owner_screening.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_screening.OwnerScreeningTests.test_no_relevant_owner_offers_but_does_not_run_fulltext_compensation",
+      "kind": "python",
+      "selector": "test_reading_owner_screening.OwnerScreeningTests.test_no_relevant_owner_offers_but_does_not_run_fulltext_compensation",
+      "path": "automation/tests/test_reading_owner_screening.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "AI不确定或无相关Owner时系统未经用户选择自动搜索全文。",
+        "reason": "保护全文补偿只作为可选动作返回，不能由判断结果自动触发。",
+        "review_triggers": [
+          "Owner批量判断",
+          "显式全文补偿"
+        ],
+        "reviewed_at": "2026-09-17T19:39:48Z",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260917T181639Z-AF7701FD84AD；本轮定向回归通过，按Owner发现计划选择不可替代的隔离、撤权/陈旧和显式补偿边界。"
+      }
+    },
+    {
+      "id": "python:test_reading_owner_screening.OwnerScreeningTests.test_quick_relevant_owner_does_not_direct_to_full_read",
+      "kind": "python",
+      "selector": "test_reading_owner_screening.OwnerScreeningTests.test_quick_relevant_owner_does_not_direct_to_full_read",
+      "path": "automation/tests/test_reading_owner_screening.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_query_plan.ReadingQueryPlanTests.test_owner_fusion_votes_once_per_signal_family_and_keeps_unique_hits",
+      "kind": "python",
+      "selector": "test_reading_query_plan.ReadingQueryPlanTests.test_owner_fusion_votes_once_per_signal_family_and_keeps_unique_hits",
+      "path": "automation/tests/test_reading_query_plan.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_overlong_input_is_hit_centered_before_scoring",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_overlong_input_is_hit_centered_before_scoring",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_required_rejects_any_unscorable_window",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_required_rejects_any_unscorable_window",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_failed_auto_window_does_not_cancel_later_windows",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_failed_auto_window_does_not_cancel_later_windows",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesTests.test_owner_screening_packets_are_atomic_and_display_bounded",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesTests.test_owner_screening_packets_are_atomic_and_display_bounded",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "context",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_discovery_screening_and_ce_window_settings_are_strict_and_legacy_read_is_byte_preserving",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_discovery_screening_and_ce_window_settings_are_strict_and_legacy_read_is_byte_preserving",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workspace",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingSessions.test.tsx::显示Owner筛选包和发现缺口，只有用户点击才启动全文补偿",
+      "kind": "component",
+      "selector": "显示Owner筛选包和发现缺口，只有用户点击才启动全文补偿",
+      "path": "automation/frontend/src/ReadingSessions.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::saves bounded Owner packets and per-window CE policy",
+      "kind": "component",
+      "selector": "saves bounded Owner packets and per-window CE policy",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
       "capability": "workbench",
       "quick": false,
       "full": true,
@@ -13581,6 +13882,125 @@
         "component:src/ReadingEvidence.test.tsx::定向证据仅列固定链接不预读全文或暴露原始字段",
         "browser:e2e/workbench.spec.ts::记忆摘要进入完整文稿与来源图片证据"
       ]
+    },
+    {
+      "at": "2026-09-17T19:36:52.233526+00:00",
+      "reason": "登记Owner独立发现索引、状态、水位与权限用例",
+      "added": [
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_independent_projection_uses_only_compressed_discovery_surfaces",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_rebuild_is_idempotent_and_refuses_changed_head",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_lexical_and_vector_watermarks_fail_independently",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_gaps_are_structural_and_projection_readiness_is_separate",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_discovery_vector_backend_uses_a_separate_collection_namespace",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_public_memory_actions_expose_gap_and_rebuild_without_canonical_writes",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_projection_version_is_explicit_and_fulltext_tables_are_untouched",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_query_rechecks_external_source_permission_after_indexing",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_canonical_commit_invalidates_discovery_before_full_index_failure"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:21.401908+00:00",
+      "reason": "登记发现缺口和重建HTTP契约用例",
+      "added": [
+        "python:test_memory_http.MemoryHttpTests.test_discovery_gap_and_rebuild_actions_use_real_http_dispatch"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:21.878267+00:00",
+      "reason": "登记Owner批量判断和显式全文补偿HTTP链路",
+      "added": [
+        "python:test_reading_delegation.ReadingDelegationTests.test_real_http_owner_assessment_and_explicit_fulltext_compensation"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:22.342417+00:00",
+      "reason": "登记Owner发现分页、完整阅读和兼容边界",
+      "added": [
+        "python:test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_page_by_owner_without_projection_crowding",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_partial_owner_body_packet_retries_the_same_stable_page",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_new_discovery_session_and_frozen_legacy_session_keep_distinct_semantics",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_all_current_owner_content_pages_to_completion_and_deduplicates_exact_body"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:22.814630+00:00",
+      "reason": "登记覆盖互补筛选包与禁止自动全文补偿用例",
+      "added": [
+        "python:test_reading_owner_screening.OwnerScreeningTests.test_core_then_complementary_route_record_and_protected_window",
+        "python:test_reading_owner_screening.OwnerScreeningTests.test_exact_duplicate_text_is_merged_but_provenance_is_preserved",
+        "python:test_reading_owner_screening.OwnerScreeningTests.test_single_complete_l4_can_report_complete",
+        "python:test_reading_owner_screening.OwnerScreeningTests.test_no_relevant_owner_offers_but_does_not_run_fulltext_compensation",
+        "python:test_reading_owner_screening.OwnerScreeningTests.test_quick_relevant_owner_does_not_direct_to_full_read"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:23.284461+00:00",
+      "reason": "登记Owner级跨路线融合用例",
+      "added": [
+        "python:test_reading_query_plan.ReadingQueryPlanTests.test_owner_fusion_votes_once_per_signal_family_and_keeps_unique_hits"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:23.751433+00:00",
+      "reason": "登记CE单窗口截取和局部失败用例",
+      "added": [
+        "python:test_reading_reranking.ReadingRerankingTests.test_overlong_input_is_hit_centered_before_scoring",
+        "python:test_reading_reranking.ReadingRerankingTests.test_required_rejects_any_unscorable_window",
+        "python:test_reading_reranking.ReadingRerankingTests.test_failed_auto_window_does_not_cancel_later_windows"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:24.200116+00:00",
+      "reason": "登记Owner筛选包原子显示边界",
+      "added": [
+        "python:test_recent_notes_evidence.RecentNotesTests.test_owner_screening_packets_are_atomic_and_display_bounded"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:24.653412+00:00",
+      "reason": "登记Owner筛选包和CE窗口设置契约",
+      "added": [
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_discovery_screening_and_ce_window_settings_are_strict_and_legacy_read_is_byte_preserving"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:25.145571+00:00",
+      "reason": "登记Owner发现状态、筛选包和用户全文补偿组件行为",
+      "added": [
+        "component:src/ReadingSessions.test.tsx::显示Owner筛选包和发现缺口，只有用户点击才启动全文补偿"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:37:25.600722+00:00",
+      "reason": "登记Owner筛选包和CE窗口设置组件行为",
+      "added": [
+        "component:src/WorkspaceSettings.test.tsx::saves bounded Owner packets and per-window CE policy"
+      ]
+    },
+    {
+      "at": "2026-09-17T19:38:12Z",
+      "reason": "Owner发现路径替代旧候选分页与整批CE回退测试，登记新行为后移除已不存在的选择器",
+      "removed": [
+        "python:test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_progress_one_per_page_then_skip_selected",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_owner_sessions_without_delivery_fields_do_not_replay_old_candidates",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_partial_pending_packet_remains_resumable_without_repeating_text",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_process_preferred_and_document_scope_not_retrieval_level",
+        "python:test_reading_reranking.ReadingRerankingTests.test_failed_batch_does_not_charge_unattempted_pairs",
+        "python:test_reading_reranking.ReadingRerankingTests.test_overlong_input_is_not_silently_truncated_or_sent"
+      ],
+      "previous_catalog": ".local/testing/catalog-history/revision-123-ce2fd1eb673641869820573f79d49ab1.json"
+    },
+    {
+      "at": "2026-09-17T19:39:48Z",
+      "reason": "将Owner发现索引隔离、撤权/陈旧拒绝、派生重建不写规范内容和用户显式全文补偿纳入quick基线",
+      "updated": [
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_independent_projection_uses_only_compressed_discovery_surfaces",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_public_memory_actions_expose_gap_and_rebuild_without_canonical_writes",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_query_rechecks_external_source_permission_after_indexing",
+        "python:test_memory_discovery_index.MemoryDiscoveryIndexTests.test_rebuild_is_idempotent_and_refuses_changed_head",
+        "python:test_reading_owner_screening.OwnerScreeningTests.test_no_relevant_owner_offers_but_does_not_run_fulltext_compensation"
+      ],
+      "previous_catalog": ".local/testing/catalog-history/revision-124-78dc3976c4054ffd8a8fabdd3daab2f2.json"
     }
   ]
 }

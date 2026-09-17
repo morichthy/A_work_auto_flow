@@ -23,6 +23,7 @@
 | 导入已有资料、来源变化与历史位置 | [EXISTING_MATERIALS](EXISTING_MATERIALS.md) |
 | 材料内容来源、正文块/混合召回、固定展开、兼容表示、联想与维护 | [MATERIAL_QUERY](MATERIAL_QUERY.md)；[KNOWLEDGE_FACETS](KNOWLEDGE_FACETS.md) 定义可选知识分类 |
 | AI正文候选去重、三模式Owner/片段阅读与研究式笔记交接 | [AI_READING](AI_READING.md)：standard/associative/quick、CLI/HTTP、子Agent与单Agent回退、引用按需展开、综合note重验、旧RS兼容；统一参数见[工作区设置](WORKSPACE_SETTINGS.md) |
+| Owner压缩发现索引、Owner融合、互补筛选包和用户全文补偿 | [OWNER_DISCOVERY_RETRIEVAL](design/OWNER_DISCOVERY_RETRIEVAL.md)：现行索引实体、排序、筛选、旧Owner修订规则、失败边界、验证结果和效果评估限制 |
 | 中英等义查询、领域术语/关联扩展和词库维护 | [QUERY_TERMS](QUERY_TERMS.md)：用户词库、公共种子、出处、单跳扩展与升级补缺；请求字段见AI_READING |
 | 旧材料检索与规范记忆检索 | [RETRIEVAL](RETRIEVAL.md)、[MEMORY_USAGE](MEMORY_USAGE.md) |
 | 材料图、正式证据与观察 | [MATERIAL_RELATIONS](MATERIAL_RELATIONS.md)、[EVIDENCE_CONTROLS](EVIDENCE_CONTROLS.md)、[EVIDENCE_VIEW_MONITOR](EVIDENCE_VIEW_MONITOR.md) |

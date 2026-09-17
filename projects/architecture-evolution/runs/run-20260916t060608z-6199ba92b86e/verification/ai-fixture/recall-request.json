@@ -1,0 +1,54 @@
+{
+  "question": "阅读 Northstar 温度换算方法：核对换算公式、变量及单位、适用条件、误差处理和反例，并区分名称或温度主题相似但不适用的材料。",
+  "keywords": [
+    "Northstar",
+    "温度换算",
+    "换算公式",
+    "误差处理",
+    "适用条件"
+  ],
+  "scope": {
+    "owner_ids": [
+      "RES-MQ-A"
+    ],
+    "levels": null,
+    "kinds": null,
+    "roles": null,
+    "outcomes": null,
+    "review_states": null,
+    "validities": null,
+    "include_unknown": false,
+    "excluded_refs": [],
+    "excluded_owner_ids": [],
+    "recorded_from": null,
+    "recorded_before": null,
+    "source_ids": null,
+    "include_refs": [],
+    "exclude_ids": [],
+    "confidence_levels": null,
+    "time_window": null,
+    "applicability_conditions": [],
+    "applicability_exclusions": [],
+    "owner_types": null
+  },
+  "reason": "实际完整阅读固定方法与干扰材料；技术问题且语料语言未知，保留中文原查询并补充英文检索。",
+  "query_variants": [
+    {
+      "id": "english",
+      "language": "en",
+      "question": "Read the Northstar temperature-conversion method and verify its conversion formula, variables and units, applicability conditions, uncertainty treatment, and counterexamples; distinguish similarly named or temperature-related but inapplicable material.",
+      "lexical_terms": [
+        "Northstar",
+        "temperature conversion",
+        "conversion formula",
+        "uncertainty",
+        "applicability"
+      ]
+    }
+  ],
+  "protected_terms": [
+    "Northstar"],
+  "corpus_language": "unknown",
+  "language_reason": "尚未阅读获准材料，不能假定语料语言；该任务是技术方法核验，按流程保留中文原查询并补充完整英文技术查询。",
+  "query_domains": ["general"]
+}

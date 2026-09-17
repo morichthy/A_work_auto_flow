@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "document_source": "independent",
+  "document": {
+    "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+    "revision": 3,
+    "title": "子Agent材料阅读与有界笔记交接完整报告",
+    "document_type": "research_process",
+    "purpose": "复现阅读上下文隔离、主侧交接及边界验证，并区分历史默认low与当前可编辑模型偏好",
+    "audience": "框架开发者和AI工作流使用者",
+    "scope": "仅2026-09-16子Agent材料阅读与有界笔记交接，不重新认可历史业务结论；含本轮能力偏好、旧设置无损兼容与宿主传递扩展。；追加真实浮点材料阅读的默认预算失败和放宽预算计时诊断，不含性能优化实施。",
+    "common_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "1df804130728e6619ebfb2c63920cb51e4875769265ad7b00fac3d7add52efe9",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "target_kind": "record"
+      }
+    ],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 3,
+        "sha256": "d526670cbb8f2e4ec5b5cc6e23db19089184addd16199f7b58873be4da037d89",
+        "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "section_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+      "ref": {
+        "locator": "",
+        "relation": "references",
+        "revision": 3,
+        "sha256": "d526670cbb8f2e4ec5b5cc6e23db19089184addd16199f7b58873be4da037d89",
+        "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "target_kind": "record"
+      },
+      "section_key": "reading-delegation-20260916",
+      "title": "子Agent阅读与主Agent交接",
+      "role": "methods",
+      "unit_refs": [
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 2,
+          "sha256": "1df804130728e6619ebfb2c63920cb51e4875769265ad7b00fac3d7add52efe9",
+          "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+          "target_kind": "record"
+        },
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 2,
+          "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+          "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+          "target_kind": "record"
+        }
+      ],
+      "source_issues": []
+    }
+  ],
+  "report_candidates": [
+    {
+      "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+      "revision": 3,
+      "title": "子Agent材料阅读与有界笔记交接完整报告",
+      "updated_at": "2026-09-16T09:56:06.513548Z",
+      "document_type": "research_process"
+    },
+    {
+      "record_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+      "revision": 2,
+      "title": "工作区统一设置：协作、检索预算与兼容验证完整报告",
+      "updated_at": "2026-09-16T08:42:16.535462Z",
+      "document_type": "research_process"
+    },
+    {
+      "record_id": "MEM-5c827f1d-99ff-5a60-a150-ac28ad89c877",
+      "revision": 1,
+      "title": "召回排序演进：正文、条件与Cross-encoder完整报告",
+      "updated_at": "2026-09-16T05:04:03.117159Z",
+      "document_type": "research_process"
+    },
+    {
+      "record_id": "MEM-ef137680-afa6-59b8-a263-f2bb33d256c4",
+      "revision": 7,
+      "title": "表示查询：当前实现与核心简报",
+      "updated_at": "2026-09-10T06:55:31.655678Z",
+      "document_type": "research_report"
+    },
+    {
+      "record_id": "MEM-3264fce7-c63f-504e-bdb5-3aaa1169eb7b",
+      "revision": 7,
+      "title": "表示查询：完整设计与实施过程",
+      "updated_at": "2026-09-10T06:55:31.655678Z",
+      "document_type": "research_process"
+    }
+  ],
+  "watch_baseline": {
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "head": "COM-30a66039-b38e-4b62-95bf-24120d0af4f6",
+    "unit_ids": [
+      "MEM-0bb96a65-0ada-5001-80cb-14904ef684d1",
+      "MEM-192a48a9-191c-5018-8c58-bae968b45ae2",
+      "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+      "MEM-2c7941ed-b272-573c-ad70-2c7739ccac99",
+      "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+      "MEM-3d6097e5-9028-5e74-b2ca-196db59ed90c",
+      "MEM-4143f480-712a-5739-8044-3535ecaf1b0a",
+      "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+      "MEM-76c2ed5f-d911-5435-9818-f5266bfc77e5",
+      "MEM-7faf0c58-7e42-59db-9613-b29e6f7c39ca",
+      "MEM-7fc816dc-2a9c-5189-82ad-1906b6a917e8",
+      "MEM-8933de07-288b-5782-ad81-67a05a133b19",
+      "MEM-8d589423-c595-5a80-898d-23d974868c7c",
+      "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+      "MEM-b0390c59-c458-5690-bc68-6dd030d32de0",
+      "MEM-b0d161c1-cb11-5c55-8d6c-58da7204cc4b",
+      "MEM-c0c9cca2-5a17-5634-86f7-3dbb3dec7902",
+      "MEM-c40996c6-fd17-59b9-84a3-9b373cdbcd64",
+      "MEM-ea9c08fd-4dc8-54f8-abf8-16c1869fb19d",
+      "MEM-ecc8c6cc-b362-5450-bffc-da7418c2c745"
+    ]
+  },
+  "missing": [],
+  "basis_heads": {
+    "PRJ-ARCHITECTURE-EVOLUTION": "COM-30a66039-b38e-4b62-95bf-24120d0af4f6"
+  },
+  "metrics": {
+    "elapsed_ms": 8495.17,
+    "inventory_owners": 42,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 61,
+    "resolved_sections": 1
+  },
+  "writes": 0
+}

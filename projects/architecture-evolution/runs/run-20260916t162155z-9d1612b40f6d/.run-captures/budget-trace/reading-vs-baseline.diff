@@ -1,0 +1,104 @@
+--- baseline/automation/scripts/material_query/reading.py
++++ current/automation/scripts/material_query/reading.py
+@@ -7,6 +7,7 @@
+ from contextlib import contextmanager
+ from copy import deepcopy
+ from dataclasses import asdict, replace
++from datetime import datetime, timezone
+ import json
+ import os
+ import re
+@@ -101,6 +102,14 @@
+ 
+     def state(self, session, *, query=None):
+         request = parse(json_value(query or session['query']), QueryRequest)
++        # 宿主权限可以扩大，但保存的阅读会话仍只在原授权域内回源。
++        # 收紧临时请求的硬上限，不修改RS的query/access或其他并发查询。
++        if session.get('access') is not None:
++            ceiling = request.scope_ceiling.owner_ids
++            allowed = set(session['access'])
++            if ceiling is not None:
++                allowed.intersection_update(ceiling)
++            request = replace(request, scope_ceiling=replace(request.scope_ceiling, owner_ids=tuple(sorted(allowed))))
+         state = self.app._new(request)
+         self.state_ids.append(state.query_id)
+         state.ledger = self.ledger
+@@ -145,7 +154,9 @@
+                     'max_chars必须是512..30000整数')
+         else:
+             object_fields(raw, {'session_id'} if viewing else common | extras[action],
+-                          query_plan.PLAN_FIELDS | {'reranking'} if action == 'recall' else ())
++                          query_plan.PLAN_FIELDS | {'reranking'} if action == 'recall' else {'notes_only'} if action == 'view' else ())
++        if action == 'view':
++            require(type(raw.get('notes_only', False)) is bool, 'notes_only必须是布尔值')
+         file = path(self.root, raw['session_id'], 'HEAD.json')
+         if not viewing:
+             text(raw['request_id'], 'request_id')
+@@ -157,7 +168,7 @@
+         with locked(file):
+             session = read_json(file)
+             # 不允许跨可信授权域读取保存的工作笔记。相同域内仍逐项重核来源。
+-            if session['access'] != self.access():
++            if not self.can_access(session):
+                 raise QueryError('DENIED', '阅读会话不属于当前授权域')
+             self.ledger = Ledger(parse(session['query']['budget'], Budget))
+             self.ledger.used.update(session['consumed'])
+@@ -179,9 +190,11 @@
+                 if 'expected_revision' in raw and raw['expected_revision'] != session['revision']:
+                     raise QueryError('CONFLICT', '阅读记录已有新版本，请先续接')
+                 require(not session.get('archived') or action in {'view', 'resume', 'archive', 'handoff'}, '已归档会话请先恢复，再继续工作')
+-                value = getattr(self, 'resume' if action == 'view' else action)(session, raw, state)
++                method = 'notes_view' if action == 'view' and raw.get('notes_only') else 'resume' if action == 'view' else action
++                value = getattr(self, method)(session, raw, state)
+                 if not viewing:
+                     session['revision'] += 1
++                    session['updated_at'] = datetime.now(timezone.utc).isoformat()
+                     session['requests'][raw['request_id']] = signature
+                 value.update(session_id=session['session_id'], revision=session['revision'])
+                 result = envelope(json_value(value), state=state, status='partial' if value.get('gaps') else 'ok',
+@@ -196,10 +209,22 @@
+                     archive = path(self.root, session['session_id'], f"revision-{session['revision']}-{uuid.uuid4().hex}.json")
+                     save(archive, session)
+                 save(file, session)
++            if result.get('value') is not None and action in {'note', 'decide', 'view', 'handoff'}:
++                # 快照是尽力生成的派生文件；失败不能把已保存的HEAD伪报成失败。
++                from .reading_snapshot import write_snapshot
++                try:
++                    write_snapshot(self.root, session)
++                except (OSError, ValueError, QueryError, MemoryError):
++                    result.setdefault('warnings', []).append('阅读记录已保存/读取，但可读Markdown副本更新失败；以RS当前版本为准')
+             return result
+ 
+     def access(self):
+         return None if self.app.access_owner_ids is None else sorted(self.app.access_owner_ids)
++
++    def can_access(self, session):
++        """当前可信权限须覆盖原域；窄域不得读取原无限域会话。"""
++        current, original = self.access(), session['access']
++        return current is None or original is not None and set(original).issubset(current)
+ 
+     def start(self, raw):
+         object_fields(raw, {'session_id', 'goal', 'conditions', 'query'}, {'owner_id', 'checkpoint_ref', 'reranking'})
+@@ -228,6 +253,7 @@
+                            consumed=state.ledger.snapshot(), rounds=[], candidates={}, notes={}, decisions=[],
+                            requests={}, expansion_count=0, phase='ready', **binding, archived=False,
+                            reranking=ranking_options)
++            session['updated_at'] = datetime.now(timezone.utc).isoformat()
+             save(file, session)
+         return envelope({'session_id': session['session_id'], 'revision': 1, 'next_action': 'recall',
+                          'guidance': GUIDANCE}, state=state)
+@@ -589,6 +615,14 @@
+             self.ledger.charge('output_chars', serialized_size(value))
+         return value
+ 
++    def notes_view(self, session, raw, state):
++        """供工作台浏览笔记；省去召回诊断，仍支付原会话累计费用。"""
++        from .reading_snapshot import notes_value
++        from .reading_delegation import serialized_size
++        value = notes_value(session)
++        self.ledger.charge('output_chars', serialized_size(value))
++        return value
++
+     def resume(self, session, raw, state):
+         lines = ['# 当前问题', session['goal'], f"阅读记录 {session['session_id']} · 读取版本 r{session['revision']}（本次视图）",
+                  '\n## 条件', *['- ' + item for item in session['conditions']], '\n## 已读理解与必要细节']

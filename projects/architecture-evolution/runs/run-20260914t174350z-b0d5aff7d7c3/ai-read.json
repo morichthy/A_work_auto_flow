@@ -1,0 +1,9 @@
+{
+  "session_id": "RS-97a3e089-e45d-46d1-a2ff-2cf6292f6c96",
+  "expected_revision": 2,
+  "request_id": "ai-read-bilingual-full-1",
+  "candidate_ids": [
+    "RC-b178a3beb19b9148a90919dd",
+    "RC-b9065ef0d072745bcd3adbf8"
+  ]
+}

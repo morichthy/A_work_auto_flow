@@ -1,0 +1,81 @@
+{
+  "body_markdown": "",
+  "change_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+  "content_hash": "9ec47493116eb6724730bc7630b0f81f7bc1a3e1ae188636478fa596b89d5b8a",
+  "created_at": "2026-09-16T06:41:08.025489Z",
+  "created_by": {
+    "id": "codex-reading-delegation",
+    "kind": "ai"
+  },
+  "discovery": "workspace_summary",
+  "keywords": [
+    "reading-note",
+    "subagent",
+    "上下文预算",
+    "固定来源",
+    "handoff"
+  ],
+  "kind": "document",
+  "level": null,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "payload": {
+    "audience": "框架开发者和AI工作流使用者",
+    "common_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "target_kind": "record"
+      }
+    ],
+    "document_type": "research_process",
+    "missing_refs": [],
+    "purpose": "复现阅读上下文隔离、主侧交接及边界验证",
+    "scope": "仅2026-09-16子Agent材料阅读与有界笔记交接，不重新认可历史业务结论",
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "f93fccaab7b186e5adefd49f47888b552c45d8fca7b7c60bc9721b410589d74c",
+        "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "target_kind": "record"
+      }
+    ],
+    "watch_refs": []
+  },
+  "previous_revision": null,
+  "provenance_gap": null,
+  "record_hash": "8f943445fda90acab96cae1c5e013b43eb7f54f888fa11e50f7492f987ed8779",
+  "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+  "record_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+  "revision": 1,
+  "schema_version": 3,
+  "sensitivity": "internal",
+  "sources": [
+    {
+      "locator": "",
+      "relation": "references",
+      "revision": 1,
+      "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+      "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+      "target_kind": "record"
+    },
+    {
+      "locator": "",
+      "relation": "references",
+      "revision": 1,
+      "sha256": "f93fccaab7b186e5adefd49f47888b552c45d8fca7b7c60bc9721b410589d74c",
+      "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+      "target_kind": "record"
+    }
+  ],
+  "title": "子Agent材料阅读与有界笔记交接完整报告",
+  "updated_at": "2026-09-16T06:41:08.025489Z",
+  "updated_by": {
+    "id": "codex-reading-delegation",
+    "kind": "ai"
+  }
+}

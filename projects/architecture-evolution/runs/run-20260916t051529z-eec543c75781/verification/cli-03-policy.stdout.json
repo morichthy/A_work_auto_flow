@@ -1,0 +1,7 @@
+{
+  "revision": "8a52accb71a0750c6e227f43f01949c78170d208f16983c892acc07c1ecabaa5",
+  "subagents": "off",
+  "fallback": "single-agent",
+  "host_capability_required": true
+}
+

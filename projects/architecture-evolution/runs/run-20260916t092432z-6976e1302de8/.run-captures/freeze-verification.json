@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "run_id": "RUN-20260916T085438Z-3E40D5ED8471",
+      "status": "failed",
+      "checked_files": 36,
+      "run_sha256": "ba856268125881a6ae6ffc5135c95a61d4ffff92c0cb342849a0487a01a5cb40"
+    },
+    {
+      "run_id": "RUN-20260916T091635Z-EFFBEF761124",
+      "status": "failed",
+      "checked_files": 27,
+      "run_sha256": "d7c8980f5125cd20b725c923ed29e1d2484b79b67a55f2e45956b6c53f68dd22"
+    },
+    {
+      "run_id": "RUN-20260916T092432Z-6976E1302DE8",
+      "status": "succeeded",
+      "checked_files": 58,
+      "run_sha256": "bf00bb13851748095446999ed23cccd35a5dac36b9b36e5ade72cbc8f98b52e6"
+    }
+  ],
+  "source_files": 484,
+  "stage_total_s": 470.011,
+  "scope": "固定产物与源码ZIP哈希、连续时间分解合计；不代表业务科学复核。"
+}

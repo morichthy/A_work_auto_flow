@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260912T195347Z-39FFE0EE7711",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "AI多路检索与阅读会话实现验证",
+    "keywords": [
+      "阅读会话",
+      "多路召回"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-12T19:53:47Z",
+    "started_at": null,
+    "ended_at": "2026-09-12T20:08:37.793113Z",
+    "owner": "Codex",
+    "question": "验证多路分层发现、完整阅读、必要细节和持久续接是否实际可用",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {},
+    "code": {
+      "commit": "fa9de29c0fa4cd8fbc20c599ee7fd3397a919865",
+      "dirty": true,
+      "snapshot_manifest": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source-fingerprints.json"
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "check": "related_behavior",
+        "status": "passed",
+        "details": "55项相关执行，最终阅读模块10项通过；合并为56项不同用例"
+      },
+      {
+        "check": "windows_upgrade",
+        "status": "passed",
+        "details": "18项真实升级测试，阅读会话加入旧数据保护"
+      },
+      {
+        "check": "actual_ai",
+        "status": "passed",
+        "details": "浮点实例真实CLI全文阅读、AI笔记及新进程恢复；非人工或科学复核"
+      },
+      {
+        "check": "catalog",
+        "status": "passed",
+        "details": "revision69，644项登记，审计无错误；不是全运行"
+      }
+    ],
+    "metrics": {},
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/RESULTS.md",
+        "sha256": "3dd4c64f44161f0b1fd7626413280a5f789d97ab0f9142d746f1d163449ef3cd",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.529750Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/READING_NOTE.md",
+        "sha256": "d8a29426802661fac04a05a0c32940ff88f301a2ce8207333a8b8c6c9baee513",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.546784Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/behavior-tests.log",
+        "sha256": "e746155614b85147d78ffa195f1a7fda8ab4012f973f5ea28131fdf5dadfc32b",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.563591Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/behavior-tests.json",
+        "sha256": "59c750d533f2ab7efbe5a91f9507f0a372af161be62e99b9ba4ffcf993a36579",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.582108Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source-fingerprints.json",
+        "sha256": "9d8c05a0e06ca581d40f6fc89106f9018ad37416e259659dd187b51d713161d0",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.601189Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "当前授权方案的CLI/HTTP+Skill实现可用；保存、索引、交付、AI理解和科学复核分别表达。",
+    "limitations": [
+      "未做业务题集/规模对照、全库回归、人工及第二物理机验收",
+      "没有后台AI或独立阅读面板",
+      "升级执行后仅补阅读新修订标记和包表示元数据，最终10项定向验证；未重复无关升级测试"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [
+      "RES-AI-EXPERIENCE-CONTEXT"
+    ],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxMlQxOTUzNDdaLTM5RkZFMEVFNzcxMSIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIkFJ5aSa6Lev5qOA57Si5LiO6ZiF6K+75Lya6K+d5a6e546w6aqM6K+BIiwNCiAgImtleXdvcmRzIjogWw0KICAgICLpmIXor7vkvJror50iLA0KICAgICLlpJrot6/lj6zlm54iDQogIF0sDQogICJyZXZpZXdfaGlzdG9yeSI6IFtdLA0KICAiY2xhaW1zIjogW10sDQogICJkZXBlbmRlbmNpZXMiOiBbXSwNCiAgInJ1bl90eXBlIjogImFuYWx5c2lzIiwNCiAgInN0YXR1cyI6ICJzdWNjZWVkZWQiLA0KICAiY3JlYXRlZF9hdCI6ICIyMDI2LTA5LTEyVDE5OjUzOjQ3WiIsDQogICJzdGFydGVkX2F0IjogbnVsbCwNCiAgImVuZGVkX2F0IjogIjIwMjYtMDktMTJUMjA6MDg6MzcuNzkzMTEzWiIsDQogICJvd25lciI6ICJDb2RleCIsDQogICJxdWVzdGlvbiI6ICLpqozor4HlpJrot6/liIblsYLlj5HnjrDjgIHlrozmlbTpmIXor7vjgIHlv4XopoHnu4boioLlkozmjIHkuYXnu63mjqXmmK/lkKblrp7pmYXlj6/nlKgiLA0KICAiaHlwb3RoZXNlcyI6IFtdLA0KICAiaW5wdXRzIjogW10sDQogICJwYXJhbWV0ZXJzIjoge30sDQogICJjb2RlIjogew0KICAgICJjb21taXQiOiAiZmE5ZGUyOWMwZmE0Y2Q4ZmJjMjBjNTk5ZWU3ZmQzMzk3YTkxOTg2NSIsDQogICAgImRpcnR5IjogdHJ1ZSwNCiAgICAic25hcHNob3RfbWFuaWZlc3QiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxMnQxOTUzNDd6LTM5ZmZlMGVlNzcxMS9zb3VyY2UtZmluZ2VycHJpbnRzLmpzb24iDQogIH0sDQogICJlbnZpcm9ubWVudCI6IHsNCiAgICAicHl0aG9uIjogIjMuMTIuMTAiLA0KICAgICJwbGF0Zm9ybSI6ICJXaW5kb3dzLTExLTEwLjAuMjI2MzEtU1AwIiwNCiAgICAibG9ja19vcl9pbWFnZV9kaWdlc3QiOiBudWxsDQogIH0sDQogICJyYW5kb21fc2VlZHMiOiBbXSwNCiAgInF1YWxpdHlfcmVzdWx0cyI6IFsNCiAgICB7DQogICAgICAiY2hlY2siOiAicmVsYXRlZF9iZWhhdmlvciIsDQogICAgICAic3RhdHVzIjogInBhc3NlZCIsDQogICAgICAiZGV0YWlscyI6ICI1NemhueebuOWFs+aJp+ihjO+8jOacgOe7iOmYheivu+aooeWdlzEw6aG56YCa6L+H77yb5ZCI5bm25Li6NTbpobnkuI3lkIznlKjkvosiDQogICAgfSwNCiAgICB7DQogICAgICAiY2hlY2siOiAid2luZG93c191cGdyYWRlIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJkZXRhaWxzIjogIjE46aG555yf5a6e5Y2H57qn5rWL6K+V77yM6ZiF6K+75Lya6K+d5Yqg5YWl5pen5pWw5o2u5L+d5oqkIg0KICAgIH0sDQogICAgew0KICAgICAgImNoZWNrIjogImFjdHVhbF9haSIsDQogICAgICAic3RhdHVzIjogInBhc3NlZCIsDQogICAgICAiZGV0YWlscyI6ICLmta7ngrnlrp7kvovnnJ/lrp5DTEnlhajmlofpmIXor7vjgIFBSeeslOiusOWPiuaWsOi/m+eoi+aBouWkje+8m+mdnuS6uuW3peaIluenkeWtpuWkjeaguCINCiAgICB9LA0KICAgIHsNCiAgICAgICJjaGVjayI6ICJjYXRhbG9nIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJkZXRhaWxzIjogInJldmlzaW9uNjnvvIw2NDTpobnnmbvorrDvvIzlrqHorqHml6DplJnor6/vvJvkuI3mmK/lhajov5DooYwiDQogICAgfQ0KICBdLA0KICAibWV0cmljcyI6IHt9LA0KICAiYXJ0aWZhY3RzIjogWw0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTJ0MTk1MzQ3ei0zOWZmZTBlZTc3MTEvUkVTVUxUUy5tZCIsDQogICAgICAic2hhMjU2IjogIjNkZDRjNjRmNDQxNjFmMGIxZmQ3NjI2NDEzMjgwYTVmNzg5ZDk3YWIwZjkxNDJkNzQ2ZjFkMTYzNDQ5ZWYzY2QiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xMlQyMDowODozOS41Mjk3NTBaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxMnQxOTUzNDd6LTM5ZmZlMGVlNzcxMS9SRUFESU5HX05PVEUubWQiLA0KICAgICAgInNoYTI1NiI6ICJkOGEyOTQyNjgwMjY2MWZhYzA0YTA1YTBjMzI5NDBmZjg4ZjMwMWEyY2U4MjA3MzMzYThiOGM2YzliYWVlNTEzIiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTJUMjA6MDg6MzkuNTQ2Nzg0WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTJ0MTk1MzQ3ei0zOWZmZTBlZTc3MTEvYmVoYXZpb3ItdGVzdHMubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiZTc0NjE1NTYxNGI4NTE0N2Q3OGZmYTE5NWYxYTdmZGE4YWI0MDEyZjk3M2Y1ZWEyODEzMWZkZjVkYWRmYzMyYiIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTEyVDIwOjA4OjM5LjU2MzU5MVoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTEydDE5NTM0N3otMzlmZmUwZWU3NzExL2JlaGF2aW9yLXRlc3RzLmpzb24iLA0KICAgICAgInNoYTI1NiI6ICI1OWM3NTBkNTMzZjJhYjdlZmJlNWE5MWY5NTA3ZjBhMzcyYWYxNjFiZTYyZTk5YjliYTRmZmNmOTkzYTM2NTc5IiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTJUMjA6MDg6MzkuNTgyMTA4WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTJ0MTk1MzQ3ei0zOWZmZTBlZTc3MTEvc291cmNlLWZpbmdlcnByaW50cy5qc29uIiwNCiAgICAgICJzaGEyNTYiOiAiOWQ4YzA1YTBlMDZjYTU4MWQ0MGY2ZmM4OTEwNmY5MDE4YWQzNzQxNmUyNTk2NTlkZDE4N2I1MWQ3MTMxNjFkMCIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTEyVDIwOjA4OjM5LjYwMTE4OVoiDQogICAgfQ0KICBdLA0KICAibGluZWFnZV9ldmVudHMiOiAibGluZWFnZS5qc29ubCIsDQogICJjb25jbHVzaW9uIjogIuW9k+WJjeaOiOadg+aWueahiOeahENMSS9IVFRQK1NraWxs5a6e546w5Y+v55So77yb5L+d5a2Y44CB57Si5byV44CB5Lqk5LuY44CBQUnnkIbop6Plkoznp5HlrablpI3moLjliIbliKvooajovr7jgIIiLA0KICAibGltaXRhdGlvbnMiOiBbDQogICAgIuacquWBmuS4muWKoemimOmbhi/op4TmqKHlr7nnhafjgIHlhajlupPlm57lvZLjgIHkurrlt6Xlj4rnrKzkuozniannkIbmnLrpqozmlLYiLA0KICAgICLmsqHmnInlkI7lj7BBSeaIlueLrOeri+mYheivu+mdouadvyIsDQogICAgIuWNh+e6p+aJp+ihjOWQjuS7heihpemYheivu+aWsOS/ruiuouagh+iusOWSjOWMheihqOekuuWFg+aVsOaNru+8jOacgOe7iDEw6aG55a6a5ZCR6aqM6K+B77yb5pyq6YeN5aSN5peg5YWz5Y2H57qn5rWL6K+VIg0KICBdLA0KICAicGFyZW50X3J1bl9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfbW9kdWxlX2lkcyI6IFtdLA0KICAicmVsYXRlZF9yZXNlYXJjaF9pZHMiOiBbDQogICAgIlJFUy1BSS1FWFBFUklFTkNFLUNPTlRFWFQiDQogIF0sDQogICJyZWxhdGVkX2RhdGFzZXRfaWRzIjogW10sDQogICJyZXZpZXciOiB7DQogICAgInN0YXR1cyI6ICJub3QtcmV2aWV3ZWQiLA0KICAgICJyZXZpZXdlciI6IG51bGwsDQogICAgImRhdGUiOiBudWxsDQogIH0sDQogICJzZW5zaXRpdml0eSI6ICJpbnRlcm5hbCINCn0NCg==",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260912T195347Z-39FFE0EE7711",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "AI多路检索与阅读会话实现验证",
+    "keywords": [
+      "阅读会话",
+      "多路召回"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-12T19:53:47Z",
+    "started_at": null,
+    "ended_at": "2026-09-12T20:08:37.793113Z",
+    "owner": "Codex",
+    "question": "验证多路分层发现、完整阅读、必要细节和持久续接是否实际可用",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source-fingerprints.json",
+        "sha256": "9d8c05a0e06ca581d40f6fc89106f9018ad37416e259659dd187b51d713161d0",
+        "role": "input",
+        "registered_at": "2026-09-12T20:18:17.046312Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source/automation/tests/test_reading_workflow.py",
+        "sha256": "dfe235f5861ed69103ec574c749407c0d2a8656241743e21b6b8cb6bfe84f2c8",
+        "role": "input",
+        "registered_at": "2026-09-12T20:18:17.065101Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source/automation/tests/upgrade_fixture.py",
+        "sha256": "8f1f0a63372638ea7e336b4da32f89dbb3e4c039468fc3596ddaf89b66d1bf79",
+        "role": "input",
+        "registered_at": "2026-09-12T20:18:17.083622Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/ai-check/attempt02/note-request.json",
+        "sha256": "a29656de30bb36ffc1e6631424d19d7ec7bc5a4d2e3e341bea20690b05c3b4c1",
+        "role": "input",
+        "registered_at": "2026-09-12T20:18:17.100932Z"
+      }
+    ],
+    "parameters": {},
+    "code": {
+      "commit": "fa9de29c0fa4cd8fbc20c599ee7fd3397a919865",
+      "dirty": true,
+      "snapshot_manifest": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source-fingerprints.json"
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "check": "related_behavior",
+        "status": "passed",
+        "details": "55项相关执行，最终阅读模块10项通过；合并为56项不同用例"
+      },
+      {
+        "check": "windows_upgrade",
+        "status": "passed",
+        "details": "18项真实升级测试，阅读会话加入旧数据保护"
+      },
+      {
+        "check": "actual_ai",
+        "status": "passed",
+        "details": "浮点实例真实CLI全文阅读、AI笔记及新进程恢复；非人工或科学复核"
+      },
+      {
+        "check": "catalog",
+        "status": "passed",
+        "details": "revision69，644项登记，审计无错误；不是全运行"
+      }
+    ],
+    "metrics": {},
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/RESULTS.md",
+        "sha256": "3dd4c64f44161f0b1fd7626413280a5f789d97ab0f9142d746f1d163449ef3cd",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.529750Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/READING_NOTE.md",
+        "sha256": "d8a29426802661fac04a05a0c32940ff88f301a2ce8207333a8b8c6c9baee513",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.546784Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/behavior-tests.log",
+        "sha256": "e746155614b85147d78ffa195f1a7fda8ab4012f973f5ea28131fdf5dadfc32b",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.563591Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/behavior-tests.json",
+        "sha256": "59c750d533f2ab7efbe5a91f9507f0a372af161be62e99b9ba4ffcf993a36579",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.582108Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source-fingerprints.json",
+        "sha256": "9d8c05a0e06ca581d40f6fc89106f9018ad37416e259659dd187b51d713161d0",
+        "role": "artifact",
+        "registered_at": "2026-09-12T20:08:39.601189Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "当前授权方案的CLI/HTTP+Skill实现可用；保存、索引、交付、AI理解和科学复核分别表达。",
+    "limitations": [
+      "未做业务题集/规模对照、全库回归、人工及第二物理机验收",
+      "没有后台AI或独立阅读面板",
+      "升级执行后仅补阅读新修订标记和包表示元数据，最终10项定向验证；未重复无关升级测试"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [
+      "RES-AI-EXPERIENCE-CONTEXT"
+    ],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-12T20:18:17.159053Z"
+}

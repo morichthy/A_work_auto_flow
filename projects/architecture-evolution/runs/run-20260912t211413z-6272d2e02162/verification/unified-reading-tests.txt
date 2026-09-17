@@ -1,0 +1,20 @@
+test_archive_preserves_files_blocks_work_and_can_restore (test_reading_workflow.ReadingWorkflowTests.test_archive_preserves_files_blocks_work_and_can_restore) ... ok
+test_binding_requires_real_owner_and_correct_checkpoint (test_reading_workflow.ReadingWorkflowTests.test_binding_requires_real_owner_and_correct_checkpoint) ... ok
+test_budget_consumption_persists_after_exhaustion_and_restart (test_reading_workflow.ReadingWorkflowTests.test_budget_consumption_persists_after_exhaustion_and_restart) ... ok
+test_expansion_is_judgment_based_and_explicit_question_is_preserved (test_reading_workflow.ReadingWorkflowTests.test_expansion_is_judgment_based_and_explicit_question_is_preserved) ... ok
+test_fixed_checkpoint_binding_and_view_budget_do_not_rewrite_history (test_reading_workflow.ReadingWorkflowTests.test_fixed_checkpoint_binding_and_view_budget_do_not_rewrite_history) ... ok
+test_full_read_then_note_and_cross_process_resume (test_reading_workflow.ReadingWorkflowTests.test_full_read_then_note_and_cross_process_resume) ... ok
+test_independent_lanes_short_full_and_technical_required_blocks (test_reading_workflow.ReadingWorkflowTests.test_independent_lanes_short_full_and_technical_required_blocks) ... ok
+test_listing_and_view_hide_revoked_sources (test_reading_workflow.ReadingWorkflowTests.test_listing_and_view_hide_revoked_sources) ... ok
+test_new_revision_marks_old_understanding_stale_without_rewriting_it (test_reading_workflow.ReadingWorkflowTests.test_new_revision_marks_old_understanding_stale_without_rewriting_it) ... ok
+test_owner_binding_listing_and_latest_view_survive_restart (test_reading_workflow.ReadingWorkflowTests.test_owner_binding_listing_and_latest_view_survive_restart) ... ok
+test_paging_keeps_scope_and_delivers_unread_short_records (test_reading_workflow.ReadingWorkflowTests.test_paging_keeps_scope_and_delivers_unread_short_records) ... ok
+test_replay_conflict_and_unrecognized_candidate (test_reading_workflow.ReadingWorkflowTests.test_replay_conflict_and_unrecognized_candidate) ... ok
+test_scope_ceiling_and_access_identity_survive_restart (test_reading_workflow.ReadingWorkflowTests.test_scope_ceiling_and_access_identity_survive_restart) ... ok
+test_shared_definition_is_delivered_once_across_multiple_hits (test_reading_workflow.ReadingWorkflowTests.test_shared_definition_is_delivered_once_across_multiple_hits) ... ok
+test_source_revocation_blocks_saved_notes_and_retry (test_reading_workflow.ReadingWorkflowTests.test_source_revocation_blocks_saved_notes_and_retry) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 90.098s
+
+OK

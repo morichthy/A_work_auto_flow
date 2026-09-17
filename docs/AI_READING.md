@@ -8,8 +8,8 @@
 
 1. 填模板的 goal、conditions、query.question、范围，必要时用 owner_id 绑定本次任务对象，再 reading-start。任务归属 Owner 与检索材料 Owner 可以不同。
 2. reading-delegate 根据协作开关和宿主能力返回任务包。宿主实际派工才算启动 reader；关闭或无能力时沿同 RS 单 Agent 执行。
-3. `standard` 与 `associative` 的 reading-recall 在程序内部多路召回、融合、条件核对与重排。AI 候选仅有 `owner_id` 和 `text`；每个Owner先交一段，未确定相关性时用reading-page继续待交片段。`quick` 同样只交付实际召回片段，但每条带 candidate_id、fixed sources 和 `coverage="delivered_recall_fragments_only"`，不能由候选推断全文覆盖。
-4. standard/associative 中，AI 确定某 Owner 与问题相关，即 reading-read 指定 owner_id。已选 Owner 的其余候选无需继续判断。一次读取一个 Owner 的已有完整文稿，优先 research_process；只有 research_report 时明确回退和可能遗漏。quick 不调用 reading-read，而是对实际交付片段逐条 reading-assess；未被判为有用的片段不能作为 quick note 依据。
+3. `standard` 与 `associative` 的 reading-recall 只查询独立发现投影，在路线内、跨路线分别融合 Owner，并返回每 Owner 的互补筛选包。每包通常 2–3 个窗口、硬上限 4；窗口保留通道、固定引用、位置、命中原因及 coverage/gap，不能当作完整正文。AI 通过 reading-assess-owners 把实际包判断为 `relevant`、`uncertain` 或 `irrelevant`；`uncertain` 不自动进入全文路径。发现 `unavailable`、`incomplete` 或 `insufficient` 时回执给出不同缺口和 `fulltext_compensation_available`，但不会暗中查询 blocks/documents。`quick` 同样只交付实际筛选片段，不能由候选推断全文覆盖。
+4. standard/associative 中，只有判断为 `relevant` 的 Owner 可以 reading-read 指定 owner_id。已选 Owner 的其余候选无需继续判断。一次读取一个 Owner 当前全部可读的完整正文，稳定分页直至 `has_more=false`；优先 research_process，只有 research_report 或真实正文时明确回退和可能遗漏。quick 不调用 reading-read，而是对实际交付片段逐条 reading-assess；未被判为有用的片段不能作为 quick note 依据。
 5. 阅读正文时保留图片、L0/Run 与其他材料的固定引用，需要时显式展开。引用存在不等于原件已经读过，更不等于内容已复核。
 6. standard/associative 逐篇以 reading-note 保存研究式笔记；quick 仅用已接受片段写同质量 note，并明确它不是全文阅读。associative 可在信息不足时由主 Agent 制定新的联想问题、搜索文本和关键词，reader 只执行给定文本并报告材料线索，受会话的 enabled/max_rounds 限制；它是召回导航，不能把词语相似写成可验证联系。跨 Owner 的理解用 reading-synthesize 保存综合 note，且只引用实际交付依据。来源或其 Owner note 底稿变化后必须重新检查综合 note；不能沿用它冒充当前理解。reading-decide 记录下一步。主 Agent 只通过 reading-handoff 接收最终笔记，用于后续工作，不安排固定复检或额外审核调用。
 
@@ -23,6 +23,8 @@ CLI 从工作区根运行；HTTP 使用现有带会话前缀的 POST `api/v1/mat
 .\workbench.cmd material-query reading-template
 .\workbench.cmd material-query reading-start --request start.json
 .\workbench.cmd material-query reading-recall --request recall.json
+.\workbench.cmd material-query reading-assess-owners --request assessments.json
+.\workbench.cmd material-query reading-recall-fulltext --request fulltext.json
 .\workbench.cmd material-query reading-read --request read.json
 .\workbench.cmd material-query reading-note --request note.json
 .\workbench.cmd material-query reading-configure --request configure.json
@@ -39,6 +41,8 @@ scope只筛直接候选，scope_ceiling约束获准必要依据；二者不能�
 | 动作 | 本模式额外字段 |
 |---|---|
 | recall | question、keywords 数组、完整 scope、reason；可选 retrieval_kind=direct/associative、association_text、clue_sources；语言规划须匹配实际子问题，reranking 见下文 |
+| assess-owners | assessments 数组；每项为本轮实际 `owner_id`、`packet_digest`、`status`（relevant/uncertain/irrelevant）和 reason；包版本变化须重新判断 |
+| recall-fulltext | 不接收新的查询范围或关键词；只能在该 RS 最近 discovery 轮报告补偿可用后，由用户明确选择执行，复用冻结的 scope、查询计划、预算、版本与排除 |
 | page | 无；沿冻结查询继续；standard/associative 跳过已完整阅读 Owner，quick 继续交付其尚未判断的片段 |
 | read | owner_id；按需可加 source_refs 数组，只接受该 Owner 阅读时已返回的固定引用 |
 | note | owner_id、research_note，结构见下文；quick 可选 candidate_ids 限定已接受片段 |
@@ -91,6 +95,8 @@ Owner 模式主要控制项为 `reading.context.max_owners` 和 `note_max_tokens
 
 ## 查询规划与重排
 
+默认路径先查询独立的 Owner 压缩发现投影，再做 Owner 级融合和覆盖互补筛选包；投影只含 L4/L3、L2 紧凑内容、L1 `retrieval_description` 和 Owner 元数据，不复用全文索引的 level 过滤。发现索引不可用、覆盖不完整或结果不足时只返回缺口，由用户明确选择是否执行 L1 blocks、完整文稿等全文补偿召回。相关 Owner 被选中后的完整阅读仍是 standard/associative 的正常步骤，不属于全库补偿。manual MQ、legacy RS 和既有冻结查询继续使用原全文流程。详细状态、升级验证与效果评估边界见[Owner发现设计](design/OWNER_DISCOVERY_RETRIEVAL.md)。
+
 原问题保留，AI 可在 recall 增加下列字段。程序不替 AI 翻译，也不将英文当可信度或访问权限。
 
 | 字段 | 内容 |
@@ -112,7 +118,7 @@ reranking 可在模板/start/recall 中指定，随轮次冻结：
 
 mode 为 off/auto/required；候选窗启用时至少覆盖 result_limit。每层候选固定回读命中块及必要定义，离线 Cross-encoder 评分，再结合显式条件冲突分组；unknown 与满足不人为分档，低分不删除。literal 支持 eq/ne，numeric 另支持 lt/le/gt/ge；复杂句、多对象、否定歧义或单位不明保持 unknown。AI 仍判断通用语义和适用性。
 
-标准 CE 的问题、正文与特殊 token 合计窗口 512；不隐式切断公式。超长、缺模型或输入、费用不足等在 auto 下公开回退，required 不能完成则失败。重排元数据在会话内部保留，不把重复命中说明当正文反复返回。模型位于 services/reranker，运行不联网下载；分发见[依赖手册](DEPENDENCY_RELEASE.md)。软件可用不能证明 Recall/nDCG 提升，需独立题集验证。
+标准 CE 的问题、单个筛选窗口正文与特殊 token 合计不超过 512；超长项由确定性命中中心窗口截取，保留标题、实际命中和关键条件。`auto` 只让失败窗口保持原排序，不使同批其他窗口回退；`required` 的失败、费用和账本语义仍明确失败。重排不删除 Owner，也不会在同一 Owner 的第二个窗口之前省略其他 Owner 的首窗。重排元数据在会话内部保留，不把重复命中说明当正文反复返回。模型位于 services/reranker，运行不联网下载；分发见[依赖手册](DEPENDENCY_RELEASE.md)。软件可用不能证明 Recall/nDCG 提升，需独立题集验证。
 
 ## 存储、预算与恢复
 

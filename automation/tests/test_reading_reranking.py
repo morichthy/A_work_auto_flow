@@ -64,14 +64,28 @@ class ReadingRerankingTests(unittest.TestCase):
         with self.assertRaises(QueryError):
             self.run_rank(options=reranking.settings({'mode': 'required'}), factory=fail)
 
-    def test_overlong_input_is_not_silently_truncated_or_sent(self):
+    def test_overlong_input_is_hit_centered_before_scoring(self):
         items = self.items()
         items[1]['text'] = 'answer' * 1000
         ledger = self.ledger()
         result = self.run_rank(items=items, ledger=ledger)
-        self.assertEqual(result['diagnostics']['status'], 'fallback')
-        self.assertEqual(ledger.snapshot()['model_calls'], 0)
-        self.assertIn('input_too_long', result['items'][1]['ranking']['issues'])
+        self.assertEqual(result['diagnostics']['status'], 'reranked')
+        self.assertEqual(result['diagnostics']['scored_count'], 3)
+        self.assertEqual(ledger.snapshot()['model_calls'], 1)
+        long_row = next(row for row in result['items'] if row['key'] == '1')
+        self.assertIn('input_truncated', long_row['ranking']['issues'])
+        self.assertLessEqual(long_row['ranking']['input_tokens'], 512)
+        self.assertIsNotNone(long_row['ranking']['ce_score'])
+
+    def test_required_rejects_any_unscorable_window(self):
+        items = self.items()
+        items[1]['text'] = 'answer' * 1000
+        class CannotFit(Provider):
+            def count_tokens(self, question, text):
+                return 1000
+        with self.assertRaises(QueryError):
+            self.run_rank(items=items, options=reranking.settings({'mode': 'required'}),
+                          factory=lambda _: CannotFit())
 
     def test_insufficient_budget_never_calls_provider(self):
         ledger = self.ledger(rerank_items=0)
@@ -94,7 +108,7 @@ class ReadingRerankingTests(unittest.TestCase):
         self.assertEqual(again['diagnostics']['status'], 'fallback')
         self.assertEqual(again['diagnostics']['model'], {'model': 'older'})
 
-    def test_failed_batch_does_not_charge_unattempted_pairs(self):
+    def test_failed_auto_window_does_not_cancel_later_windows(self):
         class FailingBatch(Provider):
             batch_size = 1
 
@@ -106,9 +120,10 @@ class ReadingRerankingTests(unittest.TestCase):
         ledger = self.ledger()
         result = self.run_rank(ledger=ledger, factory=lambda _: FailingBatch())
         self.assertEqual(result['diagnostics']['status'], 'fallback')
-        self.assertEqual(ledger.snapshot()['model_calls'], 1)
-        self.assertEqual(ledger.snapshot()['rerank_items'], 1)
-        self.assertEqual(ledger.snapshot()['model_input_tokens'], Provider().count_tokens('query', self.items()[0]['text']))
+        self.assertEqual(ledger.snapshot()['model_calls'], 3)
+        self.assertEqual(ledger.snapshot()['rerank_items'], 3)
+        self.assertEqual(ledger.snapshot()['model_input_tokens'], sum(
+            Provider().count_tokens('query', item['text']) for item in self.items()))
 
     def test_cancellation_after_inference_stops_before_next_batch(self):
         ledger = self.ledger()

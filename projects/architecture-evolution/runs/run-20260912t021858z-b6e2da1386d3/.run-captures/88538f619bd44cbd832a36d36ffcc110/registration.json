@@ -1,0 +1,410 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260912T021858Z-B6E2DA1386D3",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "基础检索召回审计、补齐与验证",
+    "keywords": [
+      "基础检索",
+      "技术正文",
+      "混合召回",
+      "BM25",
+      "RRF",
+      "固定引用"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-12T02:18:58Z",
+    "started_at": "2026-09-12T02:18:58Z",
+    "ended_at": "2026-09-12T02:48:35.093419Z",
+    "owner": null,
+    "question": "基础检索与召回是否覆盖技术正文、混合召回和固定回源，缺口如何补齐？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {
+      "model_changed": false,
+      "dimensions": 384,
+      "max_query_tokens": 512,
+      "diagnostic_windows_per_record_per_channel": 4,
+      "real_synthetic_questions": 4
+    },
+    "code": {
+      "commit": "fa9de29c0fa4cd8fbc20c599ee7fd3397a919865",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "check": "final_targeted",
+        "status": "passed",
+        "details": "81 tests; final-targeted.log"
+      },
+      {
+        "check": "windows_upgrade",
+        "status": "passed",
+        "details": "18 tests; upgrade.log"
+      },
+      {
+        "check": "historical_B01",
+        "status": "failed",
+        "details": "Frozen fixture manifest mismatch; preserved"
+      },
+      {
+        "check": "actual_AI_A07",
+        "status": "passed",
+        "details": "Codex actual read; human acceptance pending"
+      }
+    ],
+    "metrics": {
+      "final_targeted_passed": 81,
+      "upgrade_passed": 18,
+      "rebuilt_owners": 26,
+      "canonical_rebuild_writes": 0,
+      "real_top1_correct": 4,
+      "real_precision_at3": 0.3333333333333333
+    },
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "补齐正文块投影、材料查询dense和按记录限窗；最终81项定向及18项升级通过，26对象索引更新。历史B01失败保留；真实质量只作四题小样本与A07检查。",
+    "limitations": [
+      "历史B01冻结输入/数量指纹失败，非全回归通过",
+      "小样本不代表业务相关性或万条规模",
+      "本地向量仍扫描获准点；单次推理不能中途硬取消",
+      "人工与第二物理机待验收",
+      "高层多路调度、查询扩词、自动背景和上下文持续管理仍属研究方案"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [
+      "RES-AI-EXPERIENCE-CONTEXT"
+    ],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxMlQwMjE4NThaLUI2RTJEQTEzODZEMyIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIuWfuuehgOajgOe0ouWPrOWbnuWuoeiuoeOAgeihpem9kOS4jumqjOivgSIsDQogICJrZXl3b3JkcyI6IFsNCiAgICAi5Z+656GA5qOA57SiIiwNCiAgICAi5oqA5pyv5q2j5paHIiwNCiAgICAi5re35ZCI5Y+s5ZueIiwNCiAgICAiQk0yNSIsDQogICAgIlJSRiIsDQogICAgIuWbuuWumuW8leeUqCINCiAgXSwNCiAgInJldmlld19oaXN0b3J5IjogW10sDQogICJjbGFpbXMiOiBbXSwNCiAgImRlcGVuZGVuY2llcyI6IFtdLA0KICAicnVuX3R5cGUiOiAiYW5hbHlzaXMiLA0KICAic3RhdHVzIjogInN1Y2NlZWRlZCIsDQogICJjcmVhdGVkX2F0IjogIjIwMjYtMDktMTJUMDI6MTg6NThaIiwNCiAgInN0YXJ0ZWRfYXQiOiAiMjAyNi0wOS0xMlQwMjoxODo1OFoiLA0KICAiZW5kZWRfYXQiOiAiMjAyNi0wOS0xMlQwMjo0ODozNS4wOTM0MTlaIiwNCiAgIm93bmVyIjogbnVsbCwNCiAgInF1ZXN0aW9uIjogIuWfuuehgOajgOe0ouS4juWPrOWbnuaYr+WQpuimhuebluaKgOacr+ato+aWh+OAgea3t+WQiOWPrOWbnuWSjOWbuuWumuWbnua6kO+8jOe8uuWPo+WmguS9leihpem9kO+8nyIsDQogICJoeXBvdGhlc2VzIjogW10sDQogICJpbnB1dHMiOiBbXSwNCiAgInBhcmFtZXRlcnMiOiB7DQogICAgIm1vZGVsX2NoYW5nZWQiOiBmYWxzZSwNCiAgICAiZGltZW5zaW9ucyI6IDM4NCwNCiAgICAibWF4X3F1ZXJ5X3Rva2VucyI6IDUxMiwNCiAgICAiZGlhZ25vc3RpY193aW5kb3dzX3Blcl9yZWNvcmRfcGVyX2NoYW5uZWwiOiA0LA0KICAgICJyZWFsX3N5bnRoZXRpY19xdWVzdGlvbnMiOiA0DQogIH0sDQogICJjb2RlIjogew0KICAgICJjb21taXQiOiAiZmE5ZGUyOWMwZmE0Y2Q4ZmJjMjBjNTk5ZWU3ZmQzMzk3YTkxOTg2NSIsDQogICAgImRpcnR5IjogdHJ1ZQ0KICB9LA0KICAiZW52aXJvbm1lbnQiOiB7DQogICAgInB5dGhvbiI6ICIzLjEyLjEwIiwNCiAgICAicGxhdGZvcm0iOiAiV2luZG93cy0xMS0xMC4wLjIyNjMxLVNQMCIsDQogICAgImxvY2tfb3JfaW1hZ2VfZGlnZXN0IjogbnVsbA0KICB9LA0KICAicmFuZG9tX3NlZWRzIjogW10sDQogICJxdWFsaXR5X3Jlc3VsdHMiOiBbDQogICAgew0KICAgICAgImNoZWNrIjogImZpbmFsX3RhcmdldGVkIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJkZXRhaWxzIjogIjgxIHRlc3RzOyBmaW5hbC10YXJnZXRlZC5sb2ciDQogICAgfSwNCiAgICB7DQogICAgICAiY2hlY2siOiAid2luZG93c191cGdyYWRlIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJkZXRhaWxzIjogIjE4IHRlc3RzOyB1cGdyYWRlLmxvZyINCiAgICB9LA0KICAgIHsNCiAgICAgICJjaGVjayI6ICJoaXN0b3JpY2FsX0IwMSIsDQogICAgICAic3RhdHVzIjogImZhaWxlZCIsDQogICAgICAiZGV0YWlscyI6ICJGcm96ZW4gZml4dHVyZSBtYW5pZmVzdCBtaXNtYXRjaDsgcHJlc2VydmVkIg0KICAgIH0sDQogICAgew0KICAgICAgImNoZWNrIjogImFjdHVhbF9BSV9BMDciLA0KICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLA0KICAgICAgImRldGFpbHMiOiAiQ29kZXggYWN0dWFsIHJlYWQ7IGh1bWFuIGFjY2VwdGFuY2UgcGVuZGluZyINCiAgICB9DQogIF0sDQogICJtZXRyaWNzIjogew0KICAgICJmaW5hbF90YXJnZXRlZF9wYXNzZWQiOiA4MSwNCiAgICAidXBncmFkZV9wYXNzZWQiOiAxOCwNCiAgICAicmVidWlsdF9vd25lcnMiOiAyNiwNCiAgICAiY2Fub25pY2FsX3JlYnVpbGRfd3JpdGVzIjogMCwNCiAgICAicmVhbF90b3AxX2NvcnJlY3QiOiA0LA0KICAgICJyZWFsX3ByZWNpc2lvbl9hdDMiOiAwLjMzMzMzMzMzMzMzMzMzMzMNCiAgfSwNCiAgImFydGlmYWN0cyI6IFtdLA0KICAibGluZWFnZV9ldmVudHMiOiAibGluZWFnZS5qc29ubCIsDQogICJjb25jbHVzaW9uIjogIuihpem9kOato+aWh+Wdl+aKleW9seOAgeadkOaWmeafpeivomRlbnNl5ZKM5oyJ6K6w5b2V6ZmQ56qX77yb5pyA57uIODHpobnlrprlkJHlj4oxOOmhueWNh+e6p+mAmui/h++8jDI25a+56LGh57Si5byV5pu05paw44CC5Y6G5Y+yQjAx5aSx6LSl5L+d55WZ77yb55yf5a6e6LSo6YeP5Y+q5L2c5Zub6aKY5bCP5qC35pys5LiOQTA35qOA5p+l44CCIiwNCiAgImxpbWl0YXRpb25zIjogWw0KICAgICLljoblj7JCMDHlhrvnu5PovpPlhaUv5pWw6YeP5oyH57q55aSx6LSl77yM6Z2e5YWo5Zue5b2S6YCa6L+HIiwNCiAgICAi5bCP5qC35pys5LiN5Luj6KGo5Lia5Yqh55u45YWz5oCn5oiW5LiH5p2h6KeE5qihIiwNCiAgICAi5pys5Zyw5ZCR6YeP5LuN5omr5o+P6I635YeG54K577yb5Y2V5qyh5o6o55CG5LiN6IO95Lit6YCU56Gs5Y+W5raIIiwNCiAgICAi5Lq65bel5LiO56ys5LqM54mp55CG5py65b6F6aqM5pS2IiwNCiAgICAi6auY5bGC5aSa6Lev6LCD5bqm44CB5p+l6K+i5omp6K+N44CB6Ieq5Yqo6IOM5pmv5ZKM5LiK5LiL5paH5oyB57ut566h55CG5LuN5bGe56CU56m25pa55qGIIg0KICBdLA0KICAicGFyZW50X3J1bl9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfbW9kdWxlX2lkcyI6IFtdLA0KICAicmVsYXRlZF9yZXNlYXJjaF9pZHMiOiBbDQogICAgIlJFUy1BSS1FWFBFUklFTkNFLUNPTlRFWFQiDQogIF0sDQogICJyZWxhdGVkX2RhdGFzZXRfaWRzIjogW10sDQogICJyZXZpZXciOiB7DQogICAgInN0YXR1cyI6ICJub3QtcmV2aWV3ZWQiLA0KICAgICJyZXZpZXdlciI6IG51bGwsDQogICAgImRhdGUiOiBudWxsDQogIH0sDQogICJzZW5zaXRpdml0eSI6ICJpbnRlcm5hbCINCn0NCg==",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260912T021858Z-B6E2DA1386D3",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "基础检索召回审计、补齐与验证",
+    "keywords": [
+      "基础检索",
+      "技术正文",
+      "混合召回",
+      "BM25",
+      "RRF",
+      "固定引用"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-12T02:18:58Z",
+    "started_at": "2026-09-12T02:18:58Z",
+    "ended_at": "2026-09-12T02:48:35.093419Z",
+    "owner": null,
+    "question": "基础检索与召回是否覆盖技术正文、混合召回和固定回源，缺口如何补齐？",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__scripts__material_query__budget.py.snapshot",
+        "sha256": "d16e79ef32e38421a3fa58599289e567feb2d59a00ee3bb685a5238b777360a2",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.445168Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__scripts__material_query__contracts.py.snapshot",
+        "sha256": "50366bd524bbf1b2001dbc14fc419fd77d189269f3faddf8c5517bff7977cf39",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.456792Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__scripts__material_query__coordinator.py.snapshot",
+        "sha256": "43642d6872cff18dbae4f03b23d2536bba49be8af811b7ff9dd4570d66cd6913",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.468407Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__scripts__material_query__history_search.py.snapshot",
+        "sha256": "21c727b737fc9dc51fd9f9483ae4d073a8e2fa0a87e532d07bd633173f018ba6",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.478494Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__scripts__material_query__recall.py.snapshot",
+        "sha256": "646d777cd1f27eb52136a6da48d6f8bb36e32239ee5569b768da1706c2b2e032",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.489412Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__scripts__memory__index.py.snapshot",
+        "sha256": "bc739da93a8596ad515b4592a41ecf3443422fb4628d3403d65b2e8b18382364",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.501411Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__scripts__memory__search.py.snapshot",
+        "sha256": "afe3d950b0df29c49022360f5e567746559eaf4c176b7a594cb8074744fd476a",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.513395Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__scripts__memory__technical_units.py.snapshot",
+        "sha256": "fe707cba7c75e6272b90f37734396d680960b5133d287c82abb3ef5cd75da287",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.526903Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__scripts__qdrant_backend.py.snapshot",
+        "sha256": "08c26b1dfb12099b9afd66f2b0e00bebe079143ef2ba7be01e41489570ee612d",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.538903Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__testing__catalog.json.snapshot",
+        "sha256": "49443a9fb378abed671b824b98fded302289c1bc9fb94b56cc930e880dd117f0",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.550904Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__tests__test_material_dense_real.py.snapshot",
+        "sha256": "0ced8d49092b3e5f9ad932f9dce34a470d9dbc35b726286eac88ed3d80670d66",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.562903Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__tests__test_material_recall.py.snapshot",
+        "sha256": "20071417ff5370b6d12133eeb2aae05475e280890c778f5208265a0bdf025cb7",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.575908Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/automation__tests__test_memory_documents_v3.py.snapshot",
+        "sha256": "fc640f7d69739fdc6c549a61fe9f94e890c41c6e703986a9e657da449fee223a",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.586918Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code/services__qdrant__model-manifest.json.snapshot",
+        "sha256": "8bd7a882766c881dd29766c89e7bacfba32deb98308b5d69cee4b3e453c5476f",
+        "role": "input",
+        "registered_at": "2026-09-12T02:49:18.599415Z"
+      }
+    ],
+    "parameters": {
+      "model_changed": false,
+      "dimensions": 384,
+      "max_query_tokens": 512,
+      "diagnostic_windows_per_record_per_channel": 4,
+      "real_synthetic_questions": 4
+    },
+    "code": {
+      "commit": "fa9de29c0fa4cd8fbc20c599ee7fd3397a919865",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "check": "final_targeted",
+        "status": "passed",
+        "details": "81 tests; final-targeted.log"
+      },
+      {
+        "check": "windows_upgrade",
+        "status": "passed",
+        "details": "18 tests; upgrade.log"
+      },
+      {
+        "check": "historical_B01",
+        "status": "failed",
+        "details": "Frozen fixture manifest mismatch; preserved"
+      },
+      {
+        "check": "actual_AI_A07",
+        "status": "passed",
+        "details": "Codex actual read; human acceptance pending"
+      }
+    ],
+    "metrics": {
+      "final_targeted_passed": 81,
+      "upgrade_passed": 18,
+      "rebuilt_owners": 26,
+      "canonical_rebuild_writes": 0,
+      "real_top1_correct": 4,
+      "real_precision_at3": 0.3333333333333333
+    },
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/RESULTS.md",
+        "sha256": "bc3f94eec88e0b9bd03a17387f671cff3c321c2a459cea5efc7b1bb1924e5b76",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.611438Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code-manifest.json",
+        "sha256": "dadd8c5666054b6506d28262e3ae721ec9cf4736210c4e29a5d414d4c87a5463",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.623438Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-targeted.log",
+        "sha256": "3e37aa2b4f071e928f4ad9c05ba87a81c255c99881257d98c2cf0c7f4d156846",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.635571Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/upgrade.log",
+        "sha256": "31164625d707821621d771a735da4c75fbbe20fc3053731020743348cb9cfc50",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.647578Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/memory-suite.log",
+        "sha256": "fafa18b223d887a618063ca4ce14d14ee7abe243302c2a76196da0a07191a883",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.660572Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/material-suite.log",
+        "sha256": "6fcc1958c76a738f76301262849c16623ac9eaf31a327703ef907f5d64489fce",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.672572Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/real-model-final.log",
+        "sha256": "fd859405eaf05f3caefe38be0b80d8a431eb2893ef81fc4105139b9ee743aea9",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.685572Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/real-model.log",
+        "sha256": "a836e2ba491bac1d80bfdb2349f5ac1d6da6bcedff76bc66cc6fc32a794faa13",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.697571Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/real-model-fixed.log",
+        "sha256": "b6d8d9ff28caa15e3f4a2d3347253cb4303947d44a3bfc273765630f1e8fb5ca",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.710577Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/recall.log",
+        "sha256": "51df965fe378c19e301111d55372379cc000735268d8e22f7d4fd79e82044de9",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.722577Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/workspace-rebuild.json",
+        "sha256": "af404bbf74c82ffbfbbc8166cc0f7b301655a223d586ea26237d93cd31fde67a",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.735126Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/actual-ai-request.json",
+        "sha256": "d05872b980198b07138860c27a2126ff7cda99f0aec2fb4ca81e317293723266",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.748133Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/actual-ai-query.json",
+        "sha256": "64f3c9a48a27cb64b5c693c925089cd111b931202bdb6fafe46bc990eb195b81",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.761131Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/baseline/body-only.log",
+        "sha256": "4e3a670b52fe0ea32f2eb1cfa9d8315173b85209654315f9277cf7beb563fcdb",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.774125Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/baseline/memory-index.py.snapshot",
+        "sha256": "fd224c67290a08e6e5b7a55c0991e5035075a7ec56efb67a1e63bf104a67263a",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.787134Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/baseline/coordinator.py.snapshot",
+        "sha256": "4231476d8c3251fb4c9f9077d817222063440b384ff40d777b8ac61723e209f4",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.799126Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/baseline/history-search.py.snapshot",
+        "sha256": "9c4bd96525a511bc2f38c7f012e72235d3afa186dcc1a7c48ccbee607cb2d1e4",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.819141Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/baseline/memory-search.py.snapshot",
+        "sha256": "b7aa1c364279c52eabd049df094caadd570aad6935cea382fba54b3c725543b6",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.831423Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/baseline/budget.py.snapshot",
+        "sha256": "bc4f8cb9f4bacb1ee58a791c2cd0fdd6d754f78119c7e19325c62b76216f1ae5",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.842421Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/baseline/catalog.json.snapshot",
+        "sha256": "4b64cb33a65b77a321dd2834c24a4b90ef5b6ef66bd393b0cc567795bf2cb5ce",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.856422Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/baseline/catalog-before-review.json.snapshot",
+        "sha256": "0b17ccabf1241bbae23ccf4e33a708c222035a9782781fbf0a7f3e47fd5832d6",
+        "role": "artifact",
+        "registered_at": "2026-09-12T02:49:18.869423Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "补齐正文块投影、材料查询dense和按记录限窗；最终81项定向及18项升级通过，26对象索引更新。历史B01失败保留；真实质量只作四题小样本与A07检查。",
+    "limitations": [
+      "历史B01冻结输入/数量指纹失败，非全回归通过",
+      "小样本不代表业务相关性或万条规模",
+      "本地向量仍扫描获准点；单次推理不能中途硬取消",
+      "人工与第二物理机待验收",
+      "高层多路调度、查询扩词、自动背景和上下文持续管理仍属研究方案"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [
+      "RES-AI-EXPERIENCE-CONTEXT"
+    ],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-12T02:49:19.239680Z"
+}

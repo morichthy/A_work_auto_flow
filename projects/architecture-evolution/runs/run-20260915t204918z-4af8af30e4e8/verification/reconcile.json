@@ -1,0 +1,54 @@
+{
+  "index_status": "pending",
+  "owners": [
+    {
+      "owner_id": "RES-R",
+      "generation": 9,
+      "index_status": "pending",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 9,
+        "changed_entries": 0,
+        "removed_entries": 0,
+        "unchanged": true
+      },
+      "vector": {
+        "status": "pending",
+        "indexed_generation": null,
+        "error": {
+          "code": "CAPABILITY_UNAVAILABLE",
+          "message": "未配置本地向量后端",
+          "details": {},
+          "errors": []
+        }
+      },
+      "state": {
+        "owner_id": "RES-R",
+        "indexed_generation": 9,
+        "vector_generation": null,
+        "target_generation": 9,
+        "fts_status": "indexed",
+        "vector_status": "pending",
+        "encoder_version": null,
+        "vector_collection": null,
+        "native_fingerprint": "9062724f53998a2f88f466c8f0ac50ce66d33e12d439c73494ff8f84001a5a49",
+        "dependency_signature": "ef6ab8e76058d036e06e2deffec0ab80afd6a067c4ba6ff7ea10fbe0c3cae13d",
+        "vector_signature": null,
+        "error": "{\"code\":\"CAPABILITY_UNAVAILABLE\",\"details\":{},\"errors\":[],\"message\":\"未配置本地向量后端\"}",
+        "updated_at": "2026-09-15T20:47:51.855179Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": {
+        "code": "CAPABILITY_UNAVAILABLE",
+        "message": "未配置本地向量后端",
+        "details": {},
+        "errors": []
+      },
+      "elapsed_seconds": 0.06307949999973061
+    }
+  ],
+  "removed_owners": [],
+  "pending_removals": [],
+  "canonical_writes": 0
+}

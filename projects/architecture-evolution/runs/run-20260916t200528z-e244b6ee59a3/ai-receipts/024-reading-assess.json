@@ -1,0 +1,44 @@
+{
+  "action": "reading-assess",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+    "expected_revision": 2,
+    "request_id": "ai-quick-assess-a",
+    "candidate_id": "RC-b069b603e9306b78f4476ac2",
+    "useful": true,
+    "reason": "实际片段定义f、dt、dphi与单位，给出小时间误差换算及合成代入；还明确上游阈值只是待验证方向，可直接回答模型与边界。"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "candidate_id": "RC-b069b603e9306b78f4476ac2",
+      "assessment": {
+        "useful": true,
+        "reason": "实际片段定义f、dt、dphi与单位，给出小时间误差换算及合成代入；还明确上游阈值只是待验证方向，可直接回答模型与边界。",
+        "sources_digest": "a1fa0d49a87e95d335d418da3f50b70f7a2d541f80ec66840dfb097d457143d1"
+      },
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+      "revision": 3
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 188,
+      "read_bytes": 79981,
+      "output_chars": 254,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

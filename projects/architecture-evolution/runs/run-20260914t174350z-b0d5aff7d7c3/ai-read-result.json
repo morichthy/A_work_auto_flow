@@ -1,0 +1,116 @@
+{
+  "status": "ok",
+  "value": {
+    "readings": [
+      {
+        "candidate_id": "RC-b178a3beb19b9148a90919dd",
+        "link": "D:/共享桌面/A_work/A_work_auto_flow/.local/bilingual-query-run-20260914t174350z-b0d5aff7d7c3/synthetic-workspace/research/mq-a/memory/commits/COM-21abaedd-8c12-5355-b57c-c200442da479/records/MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8.json",
+        "packet": {
+          "packet_id": "PKT-44f70090-3b6d-4aa3-827d-a569f34e6972",
+          "query_id": "MQ-6da28384-b7de-4e39-94dd-f16e9e926054",
+          "definition": {
+            "key": "full",
+            "version": "1"
+          },
+          "parts": [
+            {
+              "group": "direct",
+              "heading": "SYNTHETIC ONLY X200 v2.1 retrieval note",
+              "markdown": "SYNTHETIC ONLY: X200 v2.1 is an invented retrieval system. mm denotes millimetres.\n\nQuery expansion for cross-lingual information retrieval uses bilingual equivalent queries. Retain the error constraint ≤ 0.5 mm in each equivalent query. Related terms are exploration hints, not equivalent conditions.",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                  "revision": 1,
+                  "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                  "locator": null
+                }
+              ],
+              "selectors": [
+                "detail.blocks"
+              ],
+              "omitted": []
+            }
+          ],
+          "contributors": [
+            {
+              "kind": "record",
+              "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+              "revision": 1,
+              "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+              "locator": null
+            }
+          ],
+          "complete": true,
+          "canonical": false
+        }
+      },
+      {
+        "candidate_id": "RC-b9065ef0d072745bcd3adbf8",
+        "link": "D:/共享桌面/A_work/A_work_auto_flow/.local/bilingual-query-run-20260914t174350z-b0d5aff7d7c3/synthetic-workspace/research/mq-a/memory/commits/COM-96b757cc-4b6b-5e2b-9e7f-e83c59a5d3be/records/MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80.json",
+        "packet": {
+          "packet_id": "PKT-cb7cafb9-653d-4f03-ac4e-58f38db79372",
+          "query_id": "MQ-60a29b49-9aac-4138-a2bb-d9acefd17251",
+          "definition": {
+            "key": "full",
+            "version": "1"
+          },
+          "parts": [
+            {
+              "group": "direct",
+              "heading": "SYNTHETIC ONLY X200 v2.0 retrieval note",
+              "markdown": "SYNTHETIC ONLY: X200 v2.0 is an invented retrieval system. mm denotes millimetres.\n\nQuery expansion for cross-lingual information retrieval uses bilingual equivalent queries. This earlier version drops numerical constraints during query translation. Related terms are exploration hints, not equivalent conditions.",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                  "revision": 1,
+                  "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                  "locator": null
+                }
+              ],
+              "selectors": [
+                "detail.blocks"
+              ],
+              "omitted": []
+            }
+          ],
+          "contributors": [
+            {
+              "kind": "record",
+              "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+              "revision": 1,
+              "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+              "locator": null
+            }
+          ],
+          "complete": true,
+          "canonical": false
+        }
+      }
+    ],
+    "gaps": [],
+    "session_id": "RS-97a3e089-e45d-46d1-a2ff-2cf6292f6c96",
+    "revision": 3
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 719,
+    "read_bytes": 360916,
+    "output_chars": 4758,
+    "candidates": 9,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}
+

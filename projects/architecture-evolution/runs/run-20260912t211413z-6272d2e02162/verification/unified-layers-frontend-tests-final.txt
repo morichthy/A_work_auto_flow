@@ -1,0 +1,43 @@
+
+> rd-workbench@1.0.0 test
+> vitest run --fileParallelism=false
+
+
+ RUN  v3.2.7 D:/共享桌面/A_work/A_work_auto_flow/automation/frontend
+
+ ❯ src/memory-contract.test.ts (3 tests | 1 failed) 6721ms
+   ✓ C08 Python / frontend structural memory contract parity > 校验新增研究经过、经验分类、概览的完整正文与必需字段  925ms
+   × C08 Python / frontend structural memory contract parity > executes every registered kind and positive/negative variant in both runtimes 5794ms
+     → Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ C08 Python / frontend structural memory contract parity > rejects non-finite browser values before JSON can coerce them to null 1ms
+ ✓ src/MaterialQuery.test.tsx (6 tests) 1324ms
+   ✓ 材料查询固定范围与回执 > 默认查概览与经验，展开沿用固定查询；取消树选择不扩大范围  375ms
+   ✓ 材料查询固定范围与回执 > 候选选择传递查询摘要，材料包四区独立保留部分结果与缺口  322ms
+ ✓ src/MaterialMaintenance.test.tsx (9 tests) 638ms
+ ✓ src/ResearchDocument.test.tsx (6 tests) 382ms
+ ✓ src/Memory.test.tsx (1 test) 245ms
+ ✓ src/graph-model.test.ts (7 tests) 112ms
+ ✓ src/components.test.tsx (1 test) 33ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/memory-contract.test.ts > C08 Python / frontend structural memory contract parity > executes every registered kind and positive/negative variant in both runtimes
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/memory-contract.test.ts:34:3
+     32|       );
+     33|   });
+     34|   it("executes every registered kind and positive/negative variant in …
+       |   ^
+     35|     // The installed offline runtime is reused; no pip/npm/network fal…
+     36|     const root = resolve("../..");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 6 passed (7)
+      Tests  1 failed | 32 passed (33)
+   Start at  03:06:22
+   Duration  19.26s (transform 516ms, setup 1.08s, collect 2.58s, tests 9.46s, environment 4.33s, prepare 656ms)
+

@@ -1,0 +1,89 @@
+{
+  "action": "reading-note",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+    "expected_revision": 3,
+    "request_id": "ai-note-a-1",
+    "owner_id": "RES-MQ-A",
+    "research_note": {
+      "question": "phase_case相位误差的定义、单位、适用条件和可验证上游线索是什么？",
+      "conditions": [
+        "合成教学模型，不是实际仪器实验",
+        "小时间误差近似",
+        "本次读取的是该Owner最新research_process，不覆盖其全部材料"
+      ],
+      "understanding": "相位误差由采样时刻误差在信号频率处换算而来：时间误差越大或频率越高，相位误差线性增大。该材料给出的是局部小误差模型，未证明真实系统中的抖动来源。",
+      "logic": [
+        "固定正文定义了f、dt和dphi及其单位。",
+        "代入小时间误差关系可将时间误差转换为相位误差。",
+        "正文仅提出过零检测阈值波动作为待探索方向，未给出其到dt的实测链条，因此只能作为下一步线索。"
+      ],
+      "details": [
+        "公式：$d\\phi=2\\pi f\\,dt$，其中$f$为信号频率（Hz），$dt$为采样时刻误差（s），$d\\phi$为相位误差（rad）。",
+        "示例：$f=1000\\,\\mathrm{Hz}$、$dt=1\\times10^{-6}\\,\\mathrm{s}$时，$d\\phi\\approx0.006283\\,\\mathrm{rad}$。",
+        "该结果描述小时间误差下的换算，不足以区分时钟、阈值、噪声或电源等上游原因。"
+      ],
+      "sources": [
+        "MEM-dd64109e-8cac-589c-8710-b58677a92aa3",
+        "MEM-c9deeddf-4732-57ec-b745-1656291533ff",
+        "MEM-c8416f3d-0493-5965-89bb-7935cddc845d",
+        "SRC-MQ-A"
+      ],
+      "limitations": [
+        "同类文稿有多个，本次只读到最新一份。",
+        "dense召回不可用。",
+        "没有读取到能验证时间抖动来源的上游材料；不能据此断言电源或阈值导致相位误差。"
+      ],
+      "next_steps": [
+        "以“过零检测阈值波动如何造成采样时刻误差”为新问题，在获准范围内查找上游材料；若无直接依据，保留未知。"
+      ],
+      "exploration_clues": [
+        {
+          "text": "过零检测阈值波动可能影响采样时刻，从而经$d\\phi=2\\pi fdt$传递为相位误差。",
+          "reason": "A正文仅明确提出该方向，且给出了时间误差到相位误差的换算。",
+          "sources": [
+            "MEM-c8416f3d-0493-5965-89bb-7935cddc845d"
+          ],
+          "next_query": "过零检测 阈值波动 采样时刻误差 phase_case",
+          "limitations": [
+            "尚无阈值波动到dt的测量或机制证据",
+            "未验证电源与相位误差的联系"
+          ]
+        }
+      ]
+    }
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "owner_id": "RES-MQ-A",
+      "estimated_note_tokens": 2559,
+      "note_max_tokens": 16000,
+      "over_budget": false,
+      "token_estimation": "utf8_bytes_conservative; not_host_exact_tokens",
+      "gaps": [],
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+      "revision": 4
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 328,
+      "read_bytes": 66033,
+      "output_chars": 200,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

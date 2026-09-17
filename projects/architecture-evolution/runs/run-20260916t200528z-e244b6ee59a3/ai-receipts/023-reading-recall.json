@@ -1,0 +1,183 @@
+{
+  "action": "reading-recall",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+    "expected_revision": 1,
+    "request_id": "ai-quick-recall",
+    "question": "phase_case相位误差的定义、单位、适用条件和可验证上游线索是什么？",
+    "keywords": [
+      "phase_case",
+      "相位误差"
+    ],
+    "scope": {
+      "owner_ids": [
+        "RES-MQ-A",
+        "PRJ-MQ-B"
+      ],
+      "levels": null,
+      "kinds": null,
+      "roles": null,
+      "outcomes": null,
+      "review_states": null,
+      "validities": null,
+      "include_unknown": false,
+      "excluded_refs": [],
+      "excluded_owner_ids": [],
+      "recorded_from": null,
+      "recorded_before": null,
+      "source_ids": null,
+      "include_refs": [],
+      "exclude_ids": [],
+      "confidence_levels": null,
+      "time_window": null,
+      "applicability_conditions": [],
+      "applicability_exclusions": [],
+      "owner_types": null
+    },
+    "reason": "快速模式以当前问题召回片段，逐条判断；只引用本次实际交付文字。",
+    "query_variants": [
+      {
+        "id": "original",
+        "language": "zh",
+        "question": "phase_case相位误差的定义、单位、适用条件和可验证上游线索是什么？",
+        "lexical_terms": [
+          "phase_case",
+          "相位误差"
+        ]
+      },
+      {
+        "id": "en",
+        "language": "en",
+        "question": "What are the definition, units, validity conditions and verifiable upstream clues of phase error in phase_case?",
+        "lexical_terms": [
+          "phase_case",
+          "phase error",
+          "upstream"
+        ]
+      }
+    ],
+    "protected_terms": [
+      "phase_case"
+    ],
+    "corpus_language": "unknown",
+    "language_reason": "本独立quick会话尚未交付材料，以中英文等义查询覆盖潜在语料。",
+    "query_domains": []
+  },
+  "response": {
+    "status": "partial",
+    "value": {
+      "candidates": [
+        {
+          "owner_id": "RES-MQ-A",
+          "text": "这是合成教学模型，不是实际仪器实验。f 为信号频率（Hz），dt 为采样时刻误差（s），dphi 为相位误差（rad）。\n\n本材料没有解释时间抖动来自哪里。可探索过零检测阈值波动；该提示只是方向，尚未验证电源与相位之间的联系。\n\n小时间误差模型：$dphi=2\\pi f\\,dt$。取 f=1000 Hz、dt=1e-6 s，得到 dphi≈0.006283 rad。",
+          "candidate_id": "RC-b069b603e9306b78f4476ac2",
+          "sources": [
+            {
+              "kind": "record",
+              "id": "MEM-c9deeddf-4732-57ec-b745-1656291533ff",
+              "revision": 1,
+              "sha256": "c784a97174670668da51bb6b47aa91a1cae84951f3213f1b7b0061e63000c9a5",
+              "locator": "block:definitions"
+            },
+            {
+              "kind": "record",
+              "id": "MEM-c9deeddf-4732-57ec-b745-1656291533ff",
+              "revision": 1,
+              "sha256": "c784a97174670668da51bb6b47aa91a1cae84951f3213f1b7b0061e63000c9a5",
+              "locator": "block:optional"
+            },
+            {
+              "kind": "record",
+              "id": "MEM-c9deeddf-4732-57ec-b745-1656291533ff",
+              "revision": 1,
+              "sha256": "c784a97174670668da51bb6b47aa91a1cae84951f3213f1b7b0061e63000c9a5",
+              "locator": "block:result"
+            }
+          ],
+          "coverage": "delivered_recall_fragments_only"
+        },
+        {
+          "owner_id": "PRJ-MQ-B",
+          "text": "这是合成线性化模型。dv 为阈值电压扰动（V），S 为过零附近电压斜率（V/s），dt 为时间偏移（s）。\n\n局部线性、斜率非零且扰动很小时，$dt\\approx dv/S$。取 dv=0.001 V、S=1000 V/s，则 dt=1e-6 s。\n\n斜率接近零或波形非线性时不能直接套用。这里只讨论阈值扰动，不证明电源纹波就是扰动来源；需要独立测量供电到阈值的传递。",
+          "candidate_id": "RC-30d2e258833d9126ad3cdc6e",
+          "sources": [
+            {
+              "kind": "record",
+              "id": "MEM-7bce9502-eb77-5467-aeea-a68903f1622b",
+              "revision": 1,
+              "sha256": "810395c979d28979258f2eb32889179245c858322c330b92755689ee9b8c588b",
+              "locator": "block:definitions"
+            },
+            {
+              "kind": "record",
+              "id": "MEM-7bce9502-eb77-5467-aeea-a68903f1622b",
+              "revision": 1,
+              "sha256": "810395c979d28979258f2eb32889179245c858322c330b92755689ee9b8c588b",
+              "locator": "block:result"
+            },
+            {
+              "kind": "record",
+              "id": "MEM-7bce9502-eb77-5467-aeea-a68903f1622b",
+              "revision": 1,
+              "sha256": "810395c979d28979258f2eb32889179245c858322c330b92755689ee9b8c588b",
+              "locator": "block:optional"
+            }
+          ],
+          "coverage": "delivered_recall_fragments_only"
+        }
+      ],
+      "gaps": [
+        "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+        "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+      ],
+      "has_more": true,
+      "pending_owner_count": 2,
+      "mode": "owner_document",
+      "strategy": "quick",
+      "association": {
+        "enabled": false,
+        "max_rounds": 3
+      },
+      "association_text": "",
+      "next_action": "assess",
+      "guidance": "逐条reading-assess判断实际召回片段，再仅按已接受固定片段写research_note；reading-page续接，不自动读取全文。",
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+      "revision": 2
+    },
+    "code": null,
+    "warnings": [
+      "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+      "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+    ],
+    "issues": [
+      {
+        "code": "PARTIAL",
+        "message": "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      },
+      {
+        "code": "PARTIAL",
+        "message": "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      }
+    ],
+    "consumed": {
+      "wall_ms": 829,
+      "read_bytes": 447234,
+      "output_chars": 2212,
+      "candidates": 6,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

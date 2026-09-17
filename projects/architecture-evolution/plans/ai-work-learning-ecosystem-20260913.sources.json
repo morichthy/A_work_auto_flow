@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-13",
+  "candidate_count": 26,
+  "comparison_basis": "AI参与工作→自动留下依据和过程→综合经验→支持下一次工作",
+  "local_files": [
+    {
+      "path": "context/NOW.md",
+      "sha256": "1d9cc806d3cf47a06f8147515f58852f1aaf0b3f94a4aab9185529d85d130b11"
+    },
+    {
+      "path": "docs/CORE.md",
+      "sha256": "f43d7a80f467f82a9743e5061b3807b75bdb3dad9fafbb8c11892364fbd2eaf5"
+    },
+    {
+      "path": "docs/AI_READING.md",
+      "sha256": "7dc1065ead8e84e0804ba4601aecb196e3148c58f860933cc746276f046eec7e"
+    },
+    {
+      "path": "docs/MEMORY_STORAGE_EXPLAINED.md",
+      "sha256": "e9ea41ad6b363e9239695c705eb55a0d84305418f0e91e0757966c8c659625da"
+    },
+    {
+      "path": "automation/scripts/memory/store.py",
+      "sha256": "f7ee3c21023aee5169cd75eaf749888248388e2820aa0c515923caf6b2b4ff71"
+    },
+    {
+      "path": "automation/scripts/memory/service.py",
+      "sha256": "6b34358a769d4e418a12564011b6b1c80fed6e57f4a90e5b993e7c8b6b8d935b"
+    },
+    {
+      "path": "automation/scripts/run_capture.py",
+      "sha256": "3abc181c0b744fea2e49ef9b9e44bf6110d07e5003d681f3c3b8c4f0bed29aef"
+    }
+  ],
+  "web_sources": [
+    "https://github.com/NousResearch/hermes-agent",
+    "https://github.com/letta-ai/letta-code",
+    "https://github.com/agent0ai/agent-zero",
+    "https://github.com/Memento-Teams/Memento-Skills",
+    "https://code.claude.com/docs/en/memory",
+    "https://docs.devin.ai/product-guides/knowledge",
+    "https://platform.claude.com/docs/en/managed-agents/dreams",
+    "https://hermes-agent.nousresearch.com/docs/user-guide/features/skills",
+    "https://www.letta.com/constitution/",
+    "https://www.letta.com/blog/introducing-the-letta-code-app/",
+    "https://www.letta.com/blog/sleep-time-compute/",
+    "https://github.com/agent0ai/agent-zero/blob/main/docs/guides/memory.md",
+    "https://docs.devin.ai/product-guides/session-insights",
+    "https://docs.devin.ai/use-cases/gallery/scheduled-knowledge-maintenance",
+    "https://advances.edisonscientific.com/research/how-we-built-kosmos/",
+    "https://github.com/microsoft/RD-Agent",
+    "https://github.com/SakanaAI/AI-Scientist-v2",
+    "https://www.k-dense.ai/faq",
+    "https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/",
+    "https://edisonscientific.com/news/announcing-kosmos",
+    "https://github.com/agentscope-ai/ReMe",
+    "https://github.com/volcengine/OpenViking",
+    "https://github.com/vectorize-io/hindsight",
+    "https://github.com/NevaMind-AI/memU",
+    "https://github.com/MemTensor/MemOS",
+    "https://github.com/thedotmack/claude-mem",
+    "https://github.com/ace-agent/ace",
+    "https://github.com/langchain-ai/langmem",
+    "https://github.com/mem0ai/mem0",
+    "https://github.com/getzep/graphiti",
+    "https://github.com/volcengine/OpenViking/blob/main/docs/en/concepts/08-session.md",
+    "https://github.com/agentscope-ai/docs/blob/main/reme/latest/en/concepts.mdx",
+    "https://github.com/MemTensor/MemOS/blob/main/apps/memos-local-plugin/core/skill/README.md",
+    "https://aclanthology.org/2026.acl-demo.27/",
+    "https://arxiv.org/abs/2510.04618",
+    "https://github.com/OpenHands/OpenHands",
+    "https://docs.openhands.dev/sdk/guides/skill",
+    "https://docs.openclaw.ai/concepts/memory",
+    "https://arxiv.org/abs/2308.10144",
+    "https://arxiv.org/abs/2508.06433"
+  ],
+  "web_bytes_archived": false,
+  "reviewer": "ai:codex",
+  "previous_record": {
+    "target_kind": "record",
+    "target_id": "MEM-c0c9cca2-5a17-5634-86f7-3dbb3dec7902",
+    "revision": 2,
+    "sha256": "594c214785a7c6c11e8da50912a30f8f5f492d6f65b46b06ba17f8df2c8fe568",
+    "locator": "block:openbis-mechanisms",
+    "relation": "references"
+  }
+}

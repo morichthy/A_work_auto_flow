@@ -1,0 +1,81 @@
+{
+  "schema_version": 3,
+  "request_id": "7eec4892-cd96-443a-9bd9-bc6376570ed8",
+  "actor": {
+    "kind": "ai",
+    "id": "codex-reading-delegation"
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": "COM-436b1b07-e74f-43e6-b8fd-189d21a2ea9d",
+  "operations": [
+    {
+      "op": "put_record",
+      "client_key": "reader-document",
+      "draft": {
+        "schema_version": 3,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "document",
+        "title": "子Agent材料阅读与有界笔记交接完整报告",
+        "level": null,
+        "body_markdown": "",
+        "payload": {
+          "document_type": "research_process",
+          "purpose": "复现阅读上下文隔离、主侧交接及边界验证",
+          "audience": "框架开发者和AI工作流使用者",
+          "scope": "仅2026-09-16子Agent材料阅读与有界笔记交接，不重新认可历史业务结论",
+          "common_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+              "revision": 1,
+              "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "section_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+              "revision": 1,
+              "sha256": "f93fccaab7b186e5adefd49f47888b552c45d8fca7b7c60bc9721b410589d74c",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "watch_refs": [],
+          "missing_refs": []
+        },
+        "sources": [
+          {
+            "target_kind": "record",
+            "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+            "revision": 1,
+            "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+            "locator": "",
+            "relation": "references"
+          },
+          {
+            "target_kind": "record",
+            "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+            "revision": 1,
+            "sha256": "f93fccaab7b186e5adefd49f47888b552c45d8fca7b7c60bc9721b410589d74c",
+            "locator": "",
+            "relation": "references"
+          }
+        ],
+        "provenance_gap": null,
+        "record_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+        "discovery": "workspace_summary",
+        "sensitivity": "internal",
+        "keywords": [
+          "reading-note",
+          "subagent",
+          "上下文预算",
+          "固定来源",
+          "handoff"
+        ]
+      }
+    }
+  ]
+}

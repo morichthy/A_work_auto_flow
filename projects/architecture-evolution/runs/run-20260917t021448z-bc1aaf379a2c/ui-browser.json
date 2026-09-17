@@ -1,0 +1,355 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--grep",
+      "记忆摘要进入|三模式会话|对象阅读清单|最近问题重开|首页自动阅读",
+      "--output",
+      "../../projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/ui-browser"
+    ],
+    "configFile": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\playwright.config.ts",
+    "rootDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/共享桌面/A_work/A_work_auto_flow/projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/ui-browser",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tmp/workbench-e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "workbench.spec.ts",
+      "file": "workbench.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "记忆摘要进入完整文稿与来源图片证据",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6041,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:29:12.234Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-1dd317029d3f59a8443f",
+          "file": "workbench.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "最近问题重开选择、公式与编号引用双向证据导航真实接口",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11006,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('选中证据详情').getByRole('heading', { name: '面板固定方法', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByLabel('选中证据详情').getByRole('heading', { name: '面板固定方法', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('选中证据详情').getByRole('heading', { name: '面板固定方法', exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('选中证据详情').getByRole('heading', { name: '面板固定方法', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByLabel('选中证据详情').getByRole('heading', { name: '面板固定方法', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('选中证据详情').getByRole('heading', { name: '面板固定方法', exact: true })\u001b[22m\n\n    at D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts:122:7",
+                    "location": {
+                      "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                      "column": 7,
+                      "line": 122
+                    },
+                    "snippet": "  120 |     await expect(\n  121 |       detail.getByRole(\"heading\", { name: \"面板固定方法\", exact: true }),\n> 122 |     ).toBeVisible();\n      |       ^\n  123 |     await expect(\n  124 |       detail.getByRole(\"heading\", { name: \"关键上下文\", exact: true }),\n  125 |     ).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                        "column": 7,
+                        "line": 122
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('选中证据详情').getByRole('heading', { name: '面板固定方法', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByLabel('选中证据详情').getByRole('heading', { name: '面板固定方法', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('选中证据详情').getByRole('heading', { name: '面板固定方法', exact: true })\u001b[22m\n\n\n  120 |     await expect(\n  121 |       detail.getByRole(\"heading\", { name: \"面板固定方法\", exact: true }),\n> 122 |     ).toBeVisible();\n      |       ^\n  123 |     await expect(\n  124 |       detail.getByRole(\"heading\", { name: \"关键上下文\", exact: true }),\n  125 |     ).toBeVisible();\n    at D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts:122:7"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:29:18.684Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\共享桌面\\A_work\\A_work_auto_flow\\projects\\architecture-evolution\\runs\\run-20260917t021448z-bc1aaf379a2c\\ui-browser\\workbench-最近问题重开选择、公式与编号引用双向证据导航真实接口\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                    "column": 7,
+                    "line": 122
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-d73c3597ffba5d89bc63",
+          "file": "workbench.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "三模式会话显式保存方向、重新载入与快速覆盖提示真实接口",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8424,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:29:30.853Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "reading-configured",
+                      "contentType": "application/json",
+                      "body": "ewogICJzdHJhdGVneSI6ICJhc3NvY2lhdGl2ZSIsCiAgImFzc29jaWF0aW9uIjogewogICAgImVuYWJsZWQiOiB0cnVlLAogICAgIm1heF9yb3VuZHMiOiAzCiAgfSwKICAiYXNzb2NpYXRpb25fdGV4dCI6ICLmuKnluqblgY/nva7kuI7ph4/ljJbor6/lt67nmoTogZTns7siLAogICJzeW50aGVzaXNfaW5jbHVkZWQiOiBmYWxzZSwKICAicmVmZXJlbmNlcyI6IFsKICAgIHsKICAgICAgIm51bWJlciI6IDEsCiAgICAgICJyZWYiOiB7CiAgICAgICAgImtpbmQiOiAicmVjb3JkIiwKICAgICAgICAiaWQiOiAiTUVNLWI5NzA1NzRmLTUyZmQtNWIyZi04OTEwLTBjMTE3MTYxNWI4MSIsCiAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAic2hhMjU2IjogIjlkZmQyZGU4ZDYzN2ZjNWYxODAzMmFkNzM4NjQxNDk5NzAwNzVhMzIxMzBjNGI0Y2UzMmZjYjk0NDFlZTk1ODkiLAogICAgICAgICJsb2NhdG9yIjogbnVsbAogICAgICB9LAogICAgICAidGl0bGUiOiAi6K+B5o2u6Z2i5p2/5a6M5pW05paH56i/IiwKICAgICAgInVybCI6ICIjL2V2aWRlbmNlP2lkPU1FTS1iOTcwNTc0Zi01MmZkLTViMmYtODkxMC0wYzExNzE2MTViODEmcmV2aXNpb249MSZzaGEyNTY9OWRmZDJkZThkNjM3ZmM1ZjE4MDMyYWQ3Mzg2NDE0OTk3MDA3NWEzMjEzMGM0YjRjZTMyZmNiOTQ0MWVlOTU4OSIsCiAgICAgICJzZWN0aW9uX293bmVyX2lkIjogIlJFUy1TWU5USEVUSUMiCiAgICB9CiAgXSwKICAiZ29hbCI6ICLlkIjmiJDpmIXor7vkvJror50iLAogICJjb25kaXRpb25zIjogWwogICAgIuS/neeVmeWNleS9jeS4juWJjeaPkCIKICBdLAogICJsYXRlc3RfZGVjaXNpb24iOiBudWxsLAogICJjb250ZXh0X21hcmtkb3duIjogIiMjIFJFUy1TWU5USEVUSUNcblxuIyMjIOeQhuino1xuXG7lkIjmiJDpmIXor7vnkIbop6PvvJrkv53nlZnliY3mj5BcblxuIyMjIOadoeS7tlxuXG7nu53lr7nmuKnluqZcblxuIyMjIOmAu+i+keS4juWBh+iuvlxuXG7moLjlr7nmmL7npLrnmoTljZXkvY3liY3mj5BcblxuIyMjIOe7huiKguOAgeWPguaVsOOAgeWNleS9jeS4jui+ueeVjFxuXG7nu53lr7nmuKnluqblgY/nva4yNzMuMTVcblxu6KGM5YaF5YWs5byPIFxcKFQ9dCsyNzMuMTVcXCnvvIzlsZXnpLrlhazlvI8gXFxbXFxEZWx0YSBUPTAuMDFcXF1cblxuIyMjIOmZkOWItuOAgeWPjeS+i+S4juW+hemqjOivgVxuXG7lkIjmiJDmtYvor5VcblxuIyMjIOWPr+mAieeahOS4i+S4gOatpeW7uuiurlxuXG7mo4Dmn6XpmIXor7vpnaLmnb9cblxu5pys6IqC5L6d5o2u77yaWzFd44CCXG5cbiMjIyDlj4LogIPmlofnjK5cblxuWzFdIOivgeaNrumdouadv+WujOaVtOaWh+eovyIsCiAgIm1vZGUiOiAib3duZXJfZG9jdW1lbnQiLAogICJwaGFzZSI6ICJyZXZpZXciLAogICJpbmNsdWRlZF9vd25lcl9pZHMiOiBbCiAgICAiUkVTLVNZTlRIRVRJQyIKICBdLAogICJub3Rlc19jb3VudCI6IDEsCiAgIm9taXR0ZWRfbm90ZV9jb3VudCI6IDAsCiAgInVubm90ZWRfY2FuZGlkYXRlX2NvdW50IjogMCwKICAiZXN0aW1hdGVkX25vdGVfdG9rZW5zIjogNDM0LAogICJub3RlX21heF90b2tlbnMiOiA2MDAwLAogICJ0b2tlbl9lc3RpbWF0aW9uIjogInV0ZjhfYnl0ZXNfY29uc2VydmF0aXZlOyBub3RfaG9zdF9leGFjdF90b2tlbnMiLAogICJjb21wbGV0ZSI6IGZhbHNlLAogICJnYXBzIjogWwogICAgIuemu+e6v0Nyb3NzLWVuY29kZXLkuI3lj6/nlKjvvIjnvLrmqKHlnovjgIHphY3nva7miJbmjIfnurnlvILluLjvvInvvJvkv53nlZnlgJnpgInlj4rljp9SUkbnm7jlr7npobrluo/vvIzmmL7lvI/mnaHku7blhrLnqoHku43ljZXliJciLAogICAgIue0ouW8leawtOS9jee8uuWwkSBvd25lciDorrDlvZXvvIzkuI3og73noa7orqTlvZPliY3opobnm5YiLAogICAgIuWPrOWbnumAmumBkyBkZW5zZSDkuI3lj6/nlKjvvJvkv53nlZnlhbbku5bpgJrpgZPjgILmnKrphY3nva7mnKzlnLDlkJHph4/lkI7nq68iLAogICAgIumYheivu+WwmuacquWujOaIkCIKICBdLAogICJuZWVkc191c2VyX2lucHV0IjogZmFsc2UsCiAgIm93bmVyX3Byb2dyZXNzIjogewogICAgIlJFUy1TWU5USEVUSUMiOiB7CiAgICAgICJzZWxlY3RlZCI6IHRydWUsCiAgICAgICJmdWxsX2RlbGl2ZXJlZCI6IHRydWUsCiAgICAgICJzb3VyY2VzIjogWwogICAgICAgIHsKICAgICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgICAiaWQiOiAiTUVNLTdkMTUzODBjLTg4ZjItNTUzOS1hZjg4LTM0NjkyZmFjMzQ0OCIsCiAgICAgICAgICAicmV2aXNpb24iOiAxLAogICAgICAgICAgInNoYTI1NiI6ICJlMzFlMWVmNWRmOTg0MGI1YjBmZWFlMWM3MDUzZjMzNzBkODk5ODMwNmEyYTk3Yjc4ODM1ODMwNmZmMTcyMDM0IiwKICAgICAgICAgICJsb2NhdG9yIjogIiIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgICAiaWQiOiAiTUVNLTA4Y2FiOGM5LTNjOWMtNTljYS04OGMyLTVmZDVlNjBjMjlkYSIsCiAgICAgICAgICAicmV2aXNpb24iOiAxLAogICAgICAgICAgInNoYTI1NiI6ICI1NjBiZjIyMjdiZjhiOGY4MDlmODBjNjY3NWY4MGUxNmY2Y2EyM2Q0ZjJkMGEwZmZjMjZmZGRmYWM5NzY2M2UyIiwKICAgICAgICAgICJsb2NhdG9yIjogImJsb2NrOnJlc3VsdCIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgICAiaWQiOiAiTUVNLWI5NzA1NzRmLTUyZmQtNWIyZi04OTEwLTBjMTE3MTYxNWI4MSIsCiAgICAgICAgICAicmV2aXNpb24iOiAxLAogICAgICAgICAgInNoYTI1NiI6ICI5ZGZkMmRlOGQ2MzdmYzVmMTgwMzJhZDczODY0MTQ5OTcwMDc1YTMyMTMwYzRiNGNlMzJmY2I5NDQxZWU5NTg5IiwKICAgICAgICAgICJsb2NhdG9yIjogbnVsbAogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAib3duZXIiLAogICAgICAgICAgImlkIjogIlJVTi1TWU5USEVUSUMiLAogICAgICAgICAgInJldmlzaW9uIjogbnVsbCwKICAgICAgICAgICJzaGEyNTYiOiAiMGQwNWVlOTVjMmY4ZTBlOGVkYjQzYWVmYTNhNzA4ODFkMjI0OWMzZWJkY2RhZTY1YTYxZjVmY2RlMmMyYjBiNSIsCiAgICAgICAgICAibG9jYXRvciI6ICIiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJyZWNvcmQiLAogICAgICAgICAgImlkIjogIk1FTS0wOGNhYjhjOS0zYzljLTU5Y2EtODhjMi01ZmQ1ZTYwYzI5ZGEiLAogICAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAgICJzaGEyNTYiOiAiNTYwYmYyMjI3YmY4YjhmODA5ZjgwYzY2NzVmODBlMTZmNmNhMjNkNGYyZDBhMGZmYzI2ZmRkZmFjOTc2NjNlMiIsCiAgICAgICAgICAibG9jYXRvciI6ICIiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJmaWxlIiwKICAgICAgICAgICJpZCI6ICJTUkMtUEFORUwtRklHVVJFIiwKICAgICAgICAgICJyZXZpc2lvbiI6IG51bGwsCiAgICAgICAgICAic2hhMjU2IjogImJlMjhmYzYyYzM3MWZiMTk5ZjIwY2JlNTg3MjhkNzVjMzZhOGRiYmI5ODhlNzNhODJmZDkyZmIzMTZmYzdkNDkiLAogICAgICAgICAgImxvY2F0b3IiOiAiIgogICAgICAgIH0KICAgICAgXSwKICAgICAgInJlYWRpbmdfZm9ybSI6ICJyZXNlYXJjaF9wcm9jZXNzIiwKICAgICAgInJvb3RfcmVmcyI6IFsKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJyZWNvcmQiLAogICAgICAgICAgImlkIjogIk1FTS1iOTcwNTc0Zi01MmZkLTViMmYtODkxMC0wYzExNzE2MTViODEiLAogICAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAgICJzaGEyNTYiOiAiOWRmZDJkZThkNjM3ZmM1ZjE4MDMyYWQ3Mzg2NDE0OTk3MDA3NWEzMjEzMGM0YjRjZTMyZmNiOTQ0MWVlOTU4OSIsCiAgICAgICAgICAibG9jYXRvciI6IG51bGwKICAgICAgICB9CiAgICAgIF0sCiAgICAgICJyZWZlcmVuY2VfbWFwIjogWwogICAgICAgIHsKICAgICAgICAgICJraW5kIjogImZpZ3VyZSIsCiAgICAgICAgICAiaW5kZXgiOiAwLAogICAgICAgICAgImNhcHRpb24iOiAi5ZCI5oiQ5Y+X5o6n5Zu+54mHIiwKICAgICAgICAgICJtYXJrZXIiOiAiZmlndXJlOk1FTS0wOGNhYjhjOS0zYzljLTU5Y2EtODhjMi01ZmQ1ZTYwYzI5ZGE6MCIsCiAgICAgICAgICAicmVmIjogewogICAgICAgICAgICAia2luZCI6ICJmaWxlIiwKICAgICAgICAgICAgImlkIjogIlNSQy1QQU5FTC1GSUdVUkUiLAogICAgICAgICAgICAicmV2aXNpb24iOiBudWxsLAogICAgICAgICAgICAic2hhMjU2IjogImJlMjhmYzYyYzM3MWZiMTk5ZjIwY2JlNTg3MjhkNzVjMzZhOGRiYmI5ODhlNzNhODJmZDkyZmIzMTZmYzdkNDkiLAogICAgICAgICAgICAibG9jYXRvciI6ICIiCiAgICAgICAgICB9LAogICAgICAgICAgInJlY29yZF9yZWYiOiB7CiAgICAgICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgICAgICJpZCI6ICJNRU0tMDhjYWI4YzktM2M5Yy01OWNhLTg4YzItNWZkNWU2MGMyOWRhIiwKICAgICAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAgICAgInNoYTI1NiI6ICI1NjBiZjIyMjdiZjhiOGY4MDlmODBjNjY3NWY4MGUxNmY2Y2EyM2Q0ZjJkMGEwZmZjMjZmZGRmYWM5NzY2M2UyIiwKICAgICAgICAgICAgImxvY2F0b3IiOiBudWxsCiAgICAgICAgICB9LAogICAgICAgICAgImJsb2NrX2lkcyI6IFsKICAgICAgICAgICAgInJlc3VsdCIKICAgICAgICAgIF0sCiAgICAgICAgICAiZXhwYW5kZWQiOiBmYWxzZQogICAgICAgIH0KICAgICAgXSwKICAgICAgImdhcHMiOiBbXSwKICAgICAgImRlbGl2ZXJlZF9zb3VyY2VzIjogWwogICAgICAgIHsKICAgICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgICAiaWQiOiAiTUVNLTdkMTUzODBjLTg4ZjItNTUzOS1hZjg4LTM0NjkyZmFjMzQ0OCIsCiAgICAgICAgICAicmV2aXNpb24iOiAxLAogICAgICAgICAgInNoYTI1NiI6ICJlMzFlMWVmNWRmOTg0MGI1YjBmZWFlMWM3MDUzZjMzNzBkODk5ODMwNmEyYTk3Yjc4ODM1ODMwNmZmMTcyMDM0IiwKICAgICAgICAgICJsb2NhdG9yIjogIiIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgICAiaWQiOiAiTUVNLTA4Y2FiOGM5LTNjOWMtNTljYS04OGMyLTVmZDVlNjBjMjlkYSIsCiAgICAgICAgICAicmV2aXNpb24iOiAxLAogICAgICAgICAgInNoYTI1NiI6ICI1NjBiZjIyMjdiZjhiOGY4MDlmODBjNjY3NWY4MGUxNmY2Y2EyM2Q0ZjJkMGEwZmZjMjZmZGRmYWM5NzY2M2UyIiwKICAgICAgICAgICJsb2NhdG9yIjogImJsb2NrOmRlZmluaXRpb25zIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAicmVjb3JkIiwKICAgICAgICAgICJpZCI6ICJNRU0tMDhjYWI4YzktM2M5Yy01OWNhLTg4YzItNWZkNWU2MGMyOWRhIiwKICAgICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgICAic2hhMjU2IjogIjU2MGJmMjIyN2JmOGI4ZjgwOWY4MGM2Njc1ZjgwZTE2ZjZjYTIzZDRmMmQwYTBmZmMyNmZkZGZhYzk3NjYzZTIiLAogICAgICAgICAgImxvY2F0b3IiOiAiYmxvY2s6cmVzdWx0IgogICAgICAgIH0KICAgICAgXQogICAgfQogIH0sCiAgIm93bmVyX2lkIjogIlJFUy1TWU5USEVUSUMiLAogICJhcmNoaXZlZCI6IGZhbHNlLAogICJyb3VuZF9jb3VudCI6IDEsCiAgImNhbmRpZGF0ZXMiOiBbCiAgICB7CiAgICAgICJjYW5kaWRhdGVfaWQiOiAiUkMtMDkwNDRkMTJkZDRlMjJjNzM3NWUyNTJlIiwKICAgICAgInRpdGxlIjogIuivgeaNrumdouadv+WujOaVtOaWh+eovyIsCiAgICAgICJsaW5rIjogIkQ6L+WFseS6q+ahjOmdoi9BX3dvcmsvQV93b3JrX2F1dG9fZmxvdy8ubG9jYWwvd2ItZTJlLXBmdHp2NmUwL+S4reaWhyDmspnnm5IvcmVzZWFyY2gvc3ludGhldGljLXRvcGljL21lbW9yeS9jb21taXRzL0NPTS00MzA2ZGNjOS0yYzI3LTRjNWMtYTg5Ny04MTRmZjc1NjY4YTgvcmVjb3Jkcy9NRU0tYjk3MDU3NGYtNTJmZC01YjJmLTg5MTAtMGMxMTcxNjE1YjgxLmpzb24iLAogICAgICAicmVmIjogewogICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgImlkIjogIk1FTS1iOTcwNTc0Zi01MmZkLTViMmYtODkxMC0wYzExNzE2MTViODEiLAogICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgInNoYTI1NiI6ICI5ZGZkMmRlOGQ2MzdmYzVmMTgwMzJhZDczODY0MTQ5OTcwMDc1YTMyMTMwYzRiNGNlMzJmY2I5NDQxZWU5NTg5IiwKICAgICAgICAibG9jYXRvciI6IG51bGwKICAgICAgfSwKICAgICAgImNpdGVkX3NvdXJjZXMiOiBbCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAicmVjb3JkIiwKICAgICAgICAgICJpZCI6ICJNRU0tYjk3MDU3NGYtNTJmZC01YjJmLTg5MTAtMGMxMTcxNjE1YjgxIiwKICAgICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgICAic2hhMjU2IjogIjlkZmQyZGU4ZDYzN2ZjNWYxODAzMmFkNzM4NjQxNDk5NzAwNzVhMzIxMzBjNGI0Y2UzMmZjYjk0NDFlZTk1ODkiLAogICAgICAgICAgImxvY2F0b3IiOiBudWxsCiAgICAgICAgfQogICAgICBdLAogICAgICAic3RhdHVzIjogIueslOiusOWbuuWumuWHuuWkhO+8iOmcgOaMiemcgOWxleW8gO+8iSIsCiAgICAgICJzdGFsZSI6IGZhbHNlLAogICAgICAiaGFzX25vdGUiOiB0cnVlCiAgICB9CiAgXSwKICAicGVuZGluZ19vd25lcl9jb3VudCI6IDAsCiAgImhhc19tb3JlIjogZmFsc2UsCiAgInNlc3Npb25faWQiOiAiUlMtNTgwOWMwYTYtZGEyNy00NDc4LWI4ZTMtZjIxMTkyYTNmOGNjIiwKICAicmV2aXNpb24iOiA2Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-5fa3428be9c14be3e143",
+          "file": "workbench.spec.ts",
+          "line": 161,
+          "column": 1
+        },
+        {
+          "title": "首页自动阅读笔记、定向证据与主题导航真实接口",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 11568,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/panelreading 前提：绝对温度/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/panelreading 前提：绝对温度/) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/panelreading 前提：绝对温度/)\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/panelreading 前提：绝对温度/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/panelreading 前提：绝对温度/) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/panelreading 前提：绝对温度/)\u001b[22m\n\n    at D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts:252:58",
+                    "location": {
+                      "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                      "column": 58,
+                      "line": 252
+                    },
+                    "snippet": "  250 |       page.getByRole(\"heading\", { name: \"L1 技术单元\", exact: true }),\n  251 |     ).toBeVisible();\n> 252 |     await expect(page.getByText(/panelreading 前提：绝对温度/)).toBeVisible();\n      |                                                          ^\n  253 |     await page.screenshot({\n  254 |       path: resolve(\n  255 |         root,"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                        "column": 58,
+                        "line": 252
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText(/panelreading 前提：绝对温度/)\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText(/panelreading 前提：绝对温度/) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText(/panelreading 前提：绝对温度/)\u001b[22m\n\n\n  250 |       page.getByRole(\"heading\", { name: \"L1 技术单元\", exact: true }),\n  251 |     ).toBeVisible();\n> 252 |     await expect(page.getByText(/panelreading 前提：绝对温度/)).toBeVisible();\n      |                                                          ^\n  253 |     await page.screenshot({\n  254 |       path: resolve(\n  255 |         root,\n    at D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts:252:58"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:29:39.744Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\共享桌面\\A_work\\A_work_auto_flow\\projects\\architecture-evolution\\runs\\run-20260917t021448z-bc1aaf379a2c\\ui-browser\\workbench-首页自动阅读笔记、定向证据与主题导航真实接口\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                    "column": 58,
+                    "line": 252
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-0e621bef0c370a9ce3b4",
+          "file": "workbench.spec.ts",
+          "line": 230,
+          "column": 1
+        },
+        {
+          "title": "对象阅读清单、完整原文和版本导出真实接口",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10665,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: '面板固定方法', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: '面板固定方法', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: '面板固定方法', exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: '面板固定方法', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: '面板固定方法', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: '面板固定方法', exact: true })\u001b[22m\n\n    at D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts:648:7",
+                    "location": {
+                      "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                      "column": 7,
+                      "line": 648
+                    },
+                    "snippet": "  646 |     await expect(\n  647 |       page.getByRole(\"heading\", { name: \"面板固定方法\", exact: true }),\n> 648 |     ).toBeVisible();\n      |       ^\n  649 |     await page.screenshot({\n  650 |       path: resolve(root, \".local/unified-reading-panel.png\"),\n  651 |       fullPage: true,"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                        "column": 7,
+                        "line": 648
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: '面板固定方法', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: '面板固定方法', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: '面板固定方法', exact: true })\u001b[22m\n\n\n  646 |     await expect(\n  647 |       page.getByRole(\"heading\", { name: \"面板固定方法\", exact: true }),\n> 648 |     ).toBeVisible();\n      |       ^\n  649 |     await page.screenshot({\n  650 |       path: resolve(root, \".local/unified-reading-panel.png\"),\n  651 |       fullPage: true,\n    at D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts:648:7"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:29:52.408Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\共享桌面\\A_work\\A_work_auto_flow\\projects\\architecture-evolution\\runs\\run-20260917t021448z-bc1aaf379a2c\\ui-browser\\workbench-对象阅读清单、完整原文和版本导出真实接口\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\workbench.spec.ts",
+                    "column": 7,
+                    "line": 648
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-b1b436ffa9ba38ce605c",
+          "file": "workbench.spec.ts",
+          "line": 611,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-17T02:29:11.191Z",
+    "duration": 52831.357,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

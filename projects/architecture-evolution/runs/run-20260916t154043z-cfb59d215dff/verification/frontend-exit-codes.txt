@@ -1,0 +1,2 @@
+typecheck_exit=0
+components_exit=0

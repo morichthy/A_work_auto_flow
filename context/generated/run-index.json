@@ -321,6 +321,653 @@
     "blocking_run_ids": []
   },
   {
+    "run_id": "RUN-20260912T021858Z-B6E2DA1386D3",
+    "project_id": null,
+    "title": "基础检索召回审计、补齐与验证",
+    "created_at": "2026-09-12T02:18:58Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "基础检索",
+      "技术正文",
+      "混合召回",
+      "BM25",
+      "RRF",
+      "固定引用"
+    ],
+    "question": "基础检索与召回是否覆盖技术正文、混合召回和固定回源，缺口如何补齐？",
+    "conclusion": "补齐正文块投影、材料查询dense和按记录限窗；最终81项定向及18项升级通过，26对象索引更新。历史B01失败保留；真实质量只作四题小样本与A07检查。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260912T195347Z-39FFE0EE7711",
+    "project_id": null,
+    "title": "AI多路检索与阅读会话实现验证",
+    "created_at": "2026-09-12T19:53:47Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "阅读会话",
+      "多路召回"
+    ],
+    "question": "验证多路分层发现、完整阅读、必要细节和持久续接是否实际可用",
+    "conclusion": "当前授权方案的CLI/HTTP+Skill实现可用；保存、索引、交付、AI理解和科学复核分别表达。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260912T211413Z-6272D2E02162",
+    "project_id": null,
+    "title": "统一工作流与跨对象阅读入口实施及一致性验证",
+    "created_at": "2026-09-12T21:14:13Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "统一工作流",
+      "work-loop",
+      "阅读记录",
+      "跨对象经验",
+      "Skill一致性",
+      "旧数据保护"
+    ],
+    "question": "统一所有Owner的工作与记录入口，并审查Skill、代码接口、工作流、文档和旧数据升级保护是否连贯。",
+    "conclusion": "统一工作流与阅读可见入口已实现，本次相关软件失败修正后复验通过。Run succeeded表示本次实现/审查执行结束，不代表全量首次通过或科学结论已复核；历史B01仍失败。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260912T225116Z-CEA0BB98886E",
+    "project_id": null,
+    "title": "v0.2.0框架清理与纯源码发布验证",
+    "created_at": "2026-09-12T22:51:16Z",
+    "status": "failed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [],
+    "question": "清理旧Skill并验证纯框架发行，排除本地经验与记录",
+    "conclusion": "发行准备与验证完成；B01历史测试失败保留，最终外发被自动审批阻止，Release仍为草稿。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260912t225116z-cea0bb98886e/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260914T174350Z-B0D5AFF7D7C3",
+    "project_id": null,
+    "title": "中英查询计划与术语扩展实施验证",
+    "created_at": "2026-09-14T17:43:50Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "中英查询",
+      "query expansion",
+      "术语库",
+      "RRF",
+      "条件保真",
+      "Windows升级"
+    ],
+    "question": "如何按语料语言生成保真等义查询、使用中英及关联术语库，并在固定范围与累计预算内分路召回和核对条件？",
+    "conclusion": "AI阅读查询计划、中英及关联术语库与升级保护已实现；58项软件测试通过。实际AI合成流程验证成立，真实业务检索收益仍待固定问题集评估。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260915T204918Z-4AF8AF30E4E8",
+    "project_id": null,
+    "title": "整理更新当前成果 Skill 与安装升级验证",
+    "created_at": "2026-09-15T20:49:18Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "成果同步",
+      "consolidate-results",
+      "文稿版本"
+    ],
+    "question": "验证成果整理Skill的发现安装、旧工作区升级保留和隔离文稿更新流程",
+    "conclusion": "Skill及调用入口已接入；7项安装器和18项部署检查通过；隔离公开API文稿更新与AI全文自查完成。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260915t204918z-4af8af30e4e8/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260915T211906Z-DC3A7C82C601",
+    "project_id": null,
+    "title": "v0.3.0 正式发布与隔离交付验证",
+    "created_at": "2026-09-15T21:19:06Z",
+    "status": "failed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "release",
+      "升级验证"
+    ],
+    "question": "核对当前框架版本的源码、依赖、旧工作区保护及正式发布结果。",
+    "conclusion": "v0.3.0已正式发布；源码、依赖及远端附件核验通过。后端既有B01失败和误触发的暂缓规模超时分别保留。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T035620Z-93ACA3A94BAE",
+    "project_id": null,
+    "title": "召回排序演进：基线、Cross-encoder与条件特征",
+    "created_at": "2026-09-16T03:56:20Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "retrieval",
+      "Cross-encoder",
+      "reranking",
+      "显式条件",
+      "offline-model"
+    ],
+    "question": "在保留各层候选覆盖、权限及费用边界下改善前列排序，并测量新增成本。",
+    "conclusion": "已实现正文/条件/CE重排及离线交付；冻结小样本改善前列质量，尚不代表业务质量达标或端到端提速。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t035620z-93aca3a94bae/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T051529Z-EEC543C75781",
+    "project_id": null,
+    "title": "工作区统一设置：协作开关与检索预算",
+    "created_at": "2026-09-16T05:15:29Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "workspace-settings",
+      "配置缓存",
+      "单Agent",
+      "检索预算",
+      "CAS"
+    ],
+    "question": "怎样提供可配置检索默认值和无子Agent兼容，同时避免AI逐次解析设置？",
+    "conclusion": "统一设置已接入CLI/HTTP/工作台与新查询模板，旧RS预算固定；必要验证通过。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t051529z-eec543c75781/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T060608Z-6199BA92B86E",
+    "project_id": null,
+    "title": "子Agent材料阅读与有界笔记交接验证",
+    "created_at": "2026-09-16T06:06:08Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "subagent",
+      "reading-note",
+      "上下文预算",
+      "固定引用"
+    ],
+    "question": "如何由独立低成本子Agent完成材料检索与完整阅读，让主Agent仅使用有界且可追溯的reading note？",
+    "conclusion": "已接入宿主委派/单Agent回退与同RS有界笔记交接；52项不同阅读测试有通过证据，实际低成本reader修订后保留必要细节。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t060608z-6199ba92b86e/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T081757Z-4C8B6EB90E82",
+    "project_id": null,
+    "title": "子Agent能力偏好配置与发布边界验证",
+    "created_at": "2026-09-16T08:17:57Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "workspace-settings",
+      "subagent",
+      "能力偏好",
+      "升级保护"
+    ],
+    "question": "如何配置子Agent能力偏好，保留低能力默认、旧配置及源码/私人设置的发布边界？",
+    "conclusion": "设置页与后端已支持自由文本能力要求，默认较低能力/低成本/低推理；旧文件只读兼容，自定义偏好在委派和升级中保留。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T085438Z-3E40D5ED8471",
+    "project_id": null,
+    "title": "浮点数材料阅读全链路分阶段计时",
+    "created_at": "2026-09-16T08:54:38Z",
+    "status": "failed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "reading-latency",
+      "real-materials",
+      "budget-failure",
+      "bounded-candidates"
+    ],
+    "question": "浮点求和真实主题查询→AI交互→reading note→主Agent上下文的分阶段计时及瓶颈。",
+    "conclusion": "默认真实浮点阅读在79.706秒召回后因累计输出预算79972/80000失败，未交付候选及笔记；配置读取0.457毫秒，失败与宿主交互时序完整保留。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t085438z-3e40d5ed8471/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T091635Z-EFFBEF761124",
+    "project_id": null,
+    "title": "浮点阅读链路候选限流独立对照计时",
+    "created_at": "2026-09-16T09:16:35Z",
+    "status": "failed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "reading-latency",
+      "bounded-candidates",
+      "real-materials",
+      "budget-failure"
+    ],
+    "question": "浮点求和真实主题查询→AI交互→reading note→主Agent上下文的分阶段计时及瓶颈。",
+    "conclusion": "相同80k预算下将每层交付与CE候选窗缩至2/2仍在67.428秒后BUDGET失败，未交付候选；仅减候选数量不足以保证真实阅读闭环。",
+    "parent_run_ids": [
+      "RUN-20260916T085438Z-3E40D5ED8471"
+    ],
+    "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T092432Z-6976E1302DE8",
+    "project_id": null,
+    "title": "浮点阅读完整链路放宽预算诊断",
+    "created_at": "2026-09-16T09:24:32Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "reading-latency",
+      "diagnostic-budget",
+      "real-materials",
+      "budget-failure",
+      "bounded-candidates"
+    ],
+    "question": "浮点求和真实主题查询→AI交互→reading note→主Agent上下文的分阶段计时及瓶颈。",
+    "conclusion": "真实浮点阅读默认10/30及限流2/2两次预算失败；最小1/1双语诊断在100k字符/32MiB预算内完成note→handoff→主侧接受，覆盖partial。完整可观察墙钟470.011秒，API内71.932秒；召回39.947秒中分路29.113秒、正文准备8.443秒、CE推理0.089秒。原read回执332692字符含327792图像data_url并触发工具截断，主侧note1901字符。独立profile显示handoff主要成本在来源复核；尚未实施性能优化。",
+    "parent_run_ids": [
+      "RUN-20260916T085438Z-3E40D5ED8471",
+      "RUN-20260916T091635Z-EFFBEF761124"
+    ],
+    "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T154043Z-CFB59D215DFF",
+    "project_id": null,
+    "title": "工作台监测范围与页面状态修复",
+    "created_at": "2026-09-16T15:40:43Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "工作台",
+      "状态保留",
+      "文件监测"
+    ],
+    "question": "修复工作台Owner监测范围、证据首载与状态保留、对象记忆手动生成及功能排序",
+    "conclusion": "五项修复已实施，相关回归及真实升级场景通过；首次失败与复验见RESULTS.md，尚未发布。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+    "project_id": null,
+    "title": "阅读笔记可读上下文与工作台入口修复",
+    "created_at": "2026-09-16T15:58:57Z",
+    "status": "failed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "reading note",
+      "工作台"
+    ],
+    "question": "如何使当前阅读笔记可发现、可读并关联定向证据，同时保护私人数据及旧工作区？",
+    "conclusion": "阅读上下文、首页与主题导航修复已验证；完整浏览器选择仍含既有失败。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T162155Z-9D1612B40F6D",
+    "project_id": null,
+    "title": "每路召回10的逐笔预算诊断",
+    "created_at": "2026-09-16T16:21:55Z",
+    "status": "failed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "recall",
+      "budget-accounting",
+      "instrumented-replay",
+      "floating-point"
+    ],
+    "question": "浮点求和中顺序求和、Kahan补偿与math.fsum在强抵消输入上有哪些差异和失效边界？",
+    "conclusion": "召回10/重排30、100000字符上限仍失败；内部搜索46872与诊断46443主导消耗，正文6555。完整结论见RESULTS.md。",
+    "parent_run_ids": [
+      "RUN-20260916T085438Z-3E40D5ED8471"
+    ],
+    "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T181657Z-4D7EFFF321BA",
+    "project_id": null,
+    "title": "Owner文稿阅读与note上下文预算改造",
+    "created_at": "2026-09-16T18:16:57Z",
+    "status": "completed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "owner-document",
+      "reading-note",
+      "context-budget",
+      "progressive-retrieval"
+    ],
+    "question": "能否通过渐进Owner候选、完整文稿阅读和研究式note，隔离内部检索诊断与主Agent上下文预算？",
+    "conclusion": "Owner模式候选渐进交付并按固定正文去重，内部搜索/诊断与AI输出分离；实际完成一篇完整文稿阅读和保留公式、Run及图引用的研究式note。首批320字符，最终note估算5517/6000无遗漏。软件相关验证通过，CE回退与约89秒召回延迟仍存在。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T195725Z-16CDCD28570D",
+    "project_id": null,
+    "title": "Reader默认语义自查与确定性引用检查",
+    "created_at": "2026-09-16T19:57:25Z",
+    "status": "completed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "reading-note",
+      "citation-validation"
+    ],
+    "question": "如何固化reader提取、自查与确定性引用检查，同时不增加主Agent固定复检？",
+    "conclusion": "直接reader任务包和Skill固化相关内容/来源提取及同任务自查补齐；note保存时拒绝显式来源ID未知或漏登，不新增主Agent固定复检、模型/搜索调用或质量清单交接。23项Owner、10项委派及一次合成reader首稿验收通过。",
+    "parent_run_ids": [
+      "RUN-20260916T181657Z-4D7EFFF321BA"
+    ],
+    "path": "projects/architecture-evolution/runs/run-20260916t195725z-16cdcd28570d/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T200528Z-E244B6EE59A3",
+    "project_id": null,
+    "title": "三种阅读模式与联想note开发验证",
+    "created_at": "2026-09-16T20:05:28Z",
+    "status": "completed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "reading modes",
+      "联想检索"
+    ],
+    "question": "三种阅读策略能否保持固定证据、累计范围和note质量边界，并由工作台控制？",
+    "conclusion": "三模式、可保存默认配置、联想线索与综合note已实现；最终软件及合成AI验证见RESULTS.md。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T201935Z-6C6692A35C2A",
+    "project_id": null,
+    "title": "阅读笔记叙事深度与存储职责澄清",
+    "created_at": "2026-09-16T20:19:35Z",
+    "status": "completed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "reading-note",
+      "research-narrative"
+    ],
+    "question": "解释JSON会话与Markdown文稿职责，并让note成为可读、细节充分、能续接研究的简化完整文稿。",
+    "conclusion": "已明确.local/JSON是会话状态的工程选择，不是笔记正文的格式要求；强化reader连续研究叙事、方法/证据/认识修正和必要细节要求。已生成固定历史浮点文稿的可读Markdown样例，未迁移存储或覆盖旧笔记。实时新RS召回失败，不能声称已完成实际RS替换。",
+    "parent_run_ids": [
+      "RUN-20260916T195725Z-16CDCD28570D"
+    ],
+    "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260916T212839Z-337776B112FC",
+    "project_id": null,
+    "title": "最近问题笔记与证据详情性能及引用改进",
+    "created_at": "2026-09-16T21:28:39Z",
+    "status": "completed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "recent reading notes",
+      "evidence navigation"
+    ],
+    "question": "最近问题笔记能否快速展示，且公式、固定引用和记录详情导航保持可追溯？",
+    "conclusion": "最近24小时多问题选择、轻量快照、编号引用、公式及证据详情已实施；验证与实际限制见RESULTS.md。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260916t212839z-337776b112fc/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260917T021448Z-BC1AAF379A2C",
+    "project_id": null,
+    "title": "阅读内容纯化与分类型证据详情修复",
+    "created_at": "2026-09-17T02:14:48Z",
+    "status": "completed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "reading note",
+      "evidence detail",
+      "inline citations",
+      "registered image"
+    ],
+    "question": "阅读知识正文、分类型证据及图片是否正确展示，旧工作区升级后数据是否保留？",
+    "conclusion": "本轮六项修复及相关回归通过；实际浮点r9 HEAD不变，完整文稿与4图可读。详见RESULTS.md。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260917T033921Z-F62D40725A33",
+    "project_id": null,
+    "title": "分层记录独立性与确认状态展示验证",
+    "created_at": "2026-09-17T03:39:21Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "分层记录",
+      "独立上下文",
+      "证据详情",
+      "确认状态",
+      "浮点求和",
+      "Windows升级"
+    ],
+    "question": "怎样保证每条L0-L4记录脱离聊天仍能理解和复用，并在证据页面正确显示确认状态、引用和必要类型？",
+    "conclusion": "完成全部Owner独立记录规则、浮点当前记录与两文稿修订、证据确认状态与六类主筛选；12页真实快照及针对性软件验证通过，无新增科学确认。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260917t033921z-f62d40725a33/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260917T050927Z-ED84CD45D259",
+    "project_id": null,
+    "title": "v0.4.0发布与实际发行包验收",
+    "created_at": "2026-09-17T05:09:27Z",
+    "status": "failed",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "Release",
+      "离线升级"
+    ],
+    "question": "实际受控源码和配套离线依赖是否可升级已有Windows工作区，并保留数据、明确失败和验证边界？",
+    "conclusion": "本地v0.4.0发布准备完成：后端745项去重覆盖744通过、1既有B01失败；85组件、24常规浏览器及实际离线全链通过。尚待公开仓库具体目的地授权，未推送或发布。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260917T181639Z-AF7701FD84AD",
+    "project_id": null,
+    "title": "实现Owner压缩发现索引与互补筛选包",
+    "created_at": "2026-09-17T18:16:39Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "owner-discovery",
+      "retrieval",
+      "screening"
+    ],
+    "question": "如何按既定计划实现独立Owner发现索引、Owner级融合、互补筛选包、显式全文补偿及其产品入口，并保持现有安全与兼容边界？",
+    "conclusion": "独立Owner发现索引、Owner级融合、互补筛选包、CE单窗口处理、三态判断、相关Owner完整分页、quick边界、显式全文补偿、工作台入口和三个既有Owner重建均已完成并通过目标验证。",
+    "parent_run_ids": [],
+    "path": "projects/architecture-evolution/runs/run-20260917t181639z-af7701fd84ad/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
+    "run_id": "RUN-20260911T220732Z-537995938D50",
+    "project_id": null,
+    "title": "检索方案讨论与一手文献证据整理 v0.1",
+    "created_at": "2026-09-11T22:07:32Z",
+    "status": "succeeded",
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "keywords": [
+      "经验检索",
+      "上下文组织",
+      "RAG",
+      "方案比较",
+      "召回"
+    ],
+    "question": "选择能高召回复用历史经验并维持同问题上下文的检索、阅读及编排方案；解释候选取舍和业界依据。",
+    "conclusion": "完成一手来源阅读、用户讨论整理及静态代码比较；形成 v0.1 方案和待执行评价方法。未开展本地检索性能实验，方案有效性与最终选型未复核。",
+    "parent_run_ids": [],
+    "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/run.json",
+    "needs_revalidation": false,
+    "blocking_run_ids": []
+  },
+  {
     "run_id": "RUN-20260908T201214Z-D0AB308F66AD",
     "project_id": null,
     "title": "求和探索01：大数与小增量的顺序影响",

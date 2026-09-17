@@ -5,7 +5,10 @@ body reads or prove semantic truth. All candidates still pass fixed source check
 """
 from memory import index
 from memory.errors import MemoryError
+from .coordinator import owner_allowed
+from .legacy_adapter import from_legacy
 from .validation import QueryError
+from .wire import json_value
 
 
 def dense(root, db, state, owner_ids, source_kinds, limit):
@@ -66,3 +69,51 @@ def dense(root, db, state, owner_ids, source_kinds, limit):
             except Exception:
                 gaps.append('本地向量连接关闭失败；保留已核验候选')
     return output, gaps
+
+
+def discovery(root, state, reader, route, limit):
+    """Adapt the independent Owner discovery projection to query-plan rows.
+
+    The memory provider validates projection watermarks and canonical HEADs.
+    This adapter additionally intersects the immutable query scope and trusted
+    Reader access before search, then converts legacy fixed refs at the module
+    boundary.  It never falls back to the full-text tables.
+    """
+    from memory import discovery as provider
+    allowed = []
+    for owner_id in reader.views:
+        try:
+            owner = reader.owner(owner_id)
+        except QueryError:
+            continue
+        if owner_allowed(owner, state.request):
+            allowed.append(owner_id)
+    if not allowed:
+        return [], {'status': 'ready', 'states': [], 'degradation': [], 'projection_version': provider.PROJECTION_VERSION}
+    query = route['question'] if route['channel'] == 'dense' else ' '.join(route['keywords'])
+    if not query.strip():
+        query = state.request.question
+    channel = 'lexical' if route['channel'] == 'identity' else route['channel']
+    try:
+        result = provider.search(root, query, owner_ids=allowed, channel=channel, limit=limit)
+    except MemoryError as exc:
+        return [], {'status': 'unavailable', 'states': [],
+                    'degradation': [{'reason': exc.code}], 'projection_version': provider.PROJECTION_VERSION}
+    rows = []
+    for hit in result['hits']:
+        state.ledger.checkpoint()
+        ref, _relation = from_legacy(hit['fixed_ref'])
+        fixed = json_value(ref)
+        # Identity contributes only for an exact Owner/projection/source/ref ID.
+        if route['channel'] == 'identity':
+            needle = state.request.question.casefold().strip()
+            identities = {hit['owner_id'].casefold(), hit['projection_id'].casefold(),
+                          fixed['id'].casefold()}
+            if needle not in identities:
+                continue
+        score = -hit['score'] if channel == 'lexical' else hit['score']
+        normalized_hit = {**hit, 'fixed_ref': fixed, 'refs': [fixed],
+                          'channels': [route['channel']], 'relevance_score': score}
+        rows.append({'owner_id': hit['owner_id'], 'title': hit['title'], 'refs': [fixed],
+                     'channels': [route['channel']], 'hits': [normalized_hit]})
+    return rows, {**result, 'projection_version': provider.PROJECTION_VERSION}

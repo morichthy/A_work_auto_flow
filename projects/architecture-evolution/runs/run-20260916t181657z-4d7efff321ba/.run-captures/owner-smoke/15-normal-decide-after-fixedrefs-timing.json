@@ -1,0 +1,7 @@
+{
+  "action": "reading-decide",
+  "wall_ms": 12524.892,
+  "measurement": "API dispatch wall time; no host-model internal timing",
+  "request_snapshot": "projects\\architecture-evolution\\runs\\run-20260916t181657z-4d7efff321ba\\.run-captures\\owner-smoke\\15-normal-decide-after-fixedrefs-receipt.json.request-snapshot.json",
+  "request_sha256": "4610401d30b211e208ef986e0b6100645eab5cee6ecf1f5c951d791ac0ec6a24"
+}

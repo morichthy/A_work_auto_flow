@@ -1,0 +1,64 @@
+{
+  "unit": {
+    "target_kind": "record",
+    "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+    "revision": 1,
+    "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+    "locator": "",
+    "relation": "references"
+  },
+  "section": {
+    "target_kind": "record",
+    "target_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+    "revision": 1,
+    "sha256": "8ea83d522ab2422ae9217eb6826b2d877692e833e515097aa021d9689770176c",
+    "locator": "",
+    "relation": "references"
+  },
+  "document": {
+    "target_kind": "record",
+    "target_id": "MEM-5c827f1d-99ff-5a60-a150-ac28ad89c877",
+    "revision": 1,
+    "sha256": "35490052295d59e2c0ed99997d97b341a26822a4cf95059731195981b8268d97",
+    "locator": "",
+    "relation": "references"
+  },
+  "overview": {
+    "target_kind": "record",
+    "target_id": "MEM-3227e150-36dd-5d01-825d-38c7362989b2",
+    "revision": 1,
+    "sha256": "993d53cbbddeb4279b7cd9efd7eb47873d738d7afaef91e008c24cb694fc60ea",
+    "locator": "",
+    "relation": "references"
+  },
+  "document_complete": true,
+  "coverage": {
+    "included_detail_ids": [
+      "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285"
+    ],
+    "uncovered_detail_ids": [
+      "MEM-0bb96a65-0ada-5001-80cb-14904ef684d1",
+      "MEM-192a48a9-191c-5018-8c58-bae968b45ae2",
+      "MEM-2c7941ed-b272-573c-ad70-2c7739ccac99",
+      "MEM-3d6097e5-9028-5e74-b2ca-196db59ed90c",
+      "MEM-4143f480-712a-5739-8044-3535ecaf1b0a",
+      "MEM-76c2ed5f-d911-5435-9818-f5266bfc77e5",
+      "MEM-7faf0c58-7e42-59db-9613-b29e6f7c39ca",
+      "MEM-7fc816dc-2a9c-5189-82ad-1906b6a917e8",
+      "MEM-8933de07-288b-5782-ad81-67a05a133b19",
+      "MEM-8d589423-c595-5a80-898d-23d974868c7c",
+      "MEM-b0390c59-c458-5690-bc68-6dd030d32de0",
+      "MEM-b0d161c1-cb11-5c55-8d6c-58da7204cc4b",
+      "MEM-c0c9cca2-5a17-5634-86f7-3dbb3dec7902",
+      "MEM-c40996c6-fd17-59b9-84a3-9b373cdbcd64",
+      "MEM-ea9c08fd-4dc8-54f8-abf8-16c1869fb19d",
+      "MEM-ecc8c6cc-b362-5450-bffc-da7418c2c745"
+    ]
+  },
+  "version_hints": [],
+  "head": {
+    "commit_id": "COM-05193f16-a923-43c1-9897-859c60658115",
+    "generation": 30,
+    "manifest_hash": "c89b25752a7dad8efdfc93508855ea30d97abf275c98bcd251b3d671ba1ec348"
+  }
+}

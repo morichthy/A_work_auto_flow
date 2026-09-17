@@ -1,0 +1,205 @@
+{
+  "owner": {
+    "schema_version": 1,
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "owner_type": "project",
+    "native_ref": {
+      "id_field": "project_id",
+      "id_value": "PRJ-ARCHITECTURE-EVOLUTION",
+      "path": "projects/architecture-evolution/project.json"
+    },
+    "memory_home": "projects/architecture-evolution/memory",
+    "adapter_version": 1,
+    "temporary": false,
+    "persisted": true,
+    "title": "框架架构演进与文档一致性",
+    "fingerprint": "6b7eb7daf36d4e7b0c1d93f848e8977d4bba9cafdc2a632e2dd8baa35ec7bca7",
+    "native_data": {
+      "schema_version": 1,
+      "project_id": "PRJ-ARCHITECTURE-EVOLUTION",
+      "slug": "architecture-evolution",
+      "title": "框架架构演进与文档一致性",
+      "status": "active",
+      "lifecycle_stage": "develop",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-16",
+      "owners": [],
+      "domain_tags": [
+        "framework-architecture",
+        "documentation-consistency",
+        "memory",
+        "retrieval"
+      ],
+      "sensitivity": "internal",
+      "objectives": [
+        "按实际代码和明确时间核对现行文档",
+        "维护模块职责及变更影响图",
+        "按有用内容保存项目L0-L4，文稿按需，并维护可见工作上下文",
+        "定义并实现表示查询、存储适配与语义维护的可替换接口"
+      ],
+      "non_goals": [
+        "不替换384维召回编码器与存储引擎；正文重排使用独立可选模型",
+        "不直接改写历史Run、规范记忆和合成fixture；新增内容走公共提交",
+        "不把框架软件模块登记成公司核心算法",
+        "不启动后台同步、规模测试或对外发布"
+      ],
+      "module_ids": [],
+      "dataset_ids": [],
+      "active_research_ids": [
+        "RES-AI-EXPERIENCE-CONTEXT"
+      ],
+      "active_plan": "plans/workspace-settings-20260916.md",
+      "open_questions": [
+        "怎样以小步适配落实本轮契约，并保持已有固定引用和用户入口？",
+        "如何以固定问题集验证候选召回、误联想、延迟和上下文成本？"
+      ]
+    },
+    "created_at": "2026-09-09T17:16:28.592511Z",
+    "created_by": {
+      "id": "assistant",
+      "kind": "ai"
+    }
+  },
+  "record": {
+    "body_markdown": "",
+    "change_reason": "沿用既有身份补充子Agent能力偏好；保留原阶段固定块、失败及验证范围，更新现行章节、概览和文稿固定关系。",
+    "content_hash": "da9a8b4369aa75e36aa45a2497ecb175af6a528cf027390634d20e9ff5e7afeb",
+    "created_at": "2026-09-16T06:39:16.610691Z",
+    "created_by": {
+      "id": "codex-reading-delegation",
+      "kind": "ai"
+    },
+    "discovery": "workspace_summary",
+    "keywords": [
+      "reading-note",
+      "subagent",
+      "上下文预算",
+      "固定来源",
+      "handoff",
+      "subagent_requirements",
+      "能力偏好"
+    ],
+    "kind": "document_section",
+    "level": null,
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "payload": {
+      "blocks": [
+        {
+          "evidence_refs": [
+            {
+              "locator": "",
+              "relation": "references",
+              "revision": 1,
+              "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+              "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+              "target_kind": "record"
+            }
+          ],
+          "markdown": "以下原委派单元r1保留当时实现、低成本reader及全部验证限制；其中固定low选择是历史行为，现行模型选择由后续能力偏好更新说明限定。",
+          "type": "prose"
+        },
+        {
+          "evidence_refs": [
+            {
+              "locator": "",
+              "relation": "references",
+              "revision": 1,
+              "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+              "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+              "target_kind": "record"
+            },
+            {
+              "locator": "",
+              "relation": "references",
+              "revision": 1,
+              "sha256": "039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f",
+              "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+              "target_kind": "record"
+            }
+          ],
+          "markdown": "本章记录独立新增的阅读委派能力；统一设置的历史报告保留其当时验证范围，作为固定基线引用。",
+          "type": "prose"
+        },
+        {
+          "block_ids": [
+            "reader-results"
+          ],
+          "ref": {
+            "locator": "",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+            "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+            "target_kind": "record"
+          },
+          "type": "unit"
+        },
+        {
+          "evidence_refs": [
+            {
+              "locator": "",
+              "relation": "references",
+              "revision": 2,
+              "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+              "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+              "target_kind": "record"
+            }
+          ],
+          "markdown": "新增 collaboration.subagent_requirements 自由文本模型/能力偏好；缺省优先低成本、较低能力可用模型和低推理深度，并须完成检索、完整阅读与结构化笔记。用户自定义文本原样保留，去除首尾空白后限1–2000字符；经policy及委派包交给宿主按实际可用模型选择。off始终优先，无宿主能力仍同RS回退；偏好不授予工具或材料权限，不扩大原RS预算。\n\n旧schema-1缺新字段仅内存补默认，原字节及revision不变；完整写入禁止遗漏字段丢失偏好。软件和本机合成升级验证不证明指定模型实际可用、业务阅读质量、总费用或端到端延迟改善；原阶段实际reader、字符对比、失败和覆盖缺口均保留为历史证据。",
+          "type": "prose"
+        },
+        {
+          "block_ids": [
+            "requirements-results"
+          ],
+          "ref": {
+            "locator": "",
+            "relation": "references",
+            "revision": 2,
+            "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+            "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+            "target_kind": "record"
+          },
+          "type": "unit"
+        }
+      ],
+      "missing_refs": [],
+      "role": "methods",
+      "section_key": "reading-delegation-20260916",
+      "title": "子Agent阅读与主Agent交接",
+      "watch_refs": []
+    },
+    "previous_revision": 1,
+    "provenance_gap": null,
+    "record_hash": "6e1724a70a537bbabb7319140b22afd9a4ed1cdeac68933a6a92a3eaaf0d87a5",
+    "record_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+    "record_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+    "revision": 2,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "target_kind": "record"
+      }
+    ],
+    "title": "子Agent阅读与主Agent交接",
+    "updated_at": "2026-09-16T08:40:29.082101Z",
+    "updated_by": {
+      "id": "codex-capability-settings",
+      "kind": "ai"
+    }
+  }
+}

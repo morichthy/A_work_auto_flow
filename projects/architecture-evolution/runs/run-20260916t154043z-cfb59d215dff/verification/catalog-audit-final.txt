@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "discovered_count": 753,
+  "catalog_count": 752,
+  "unclassified": [
+    "component:src/MaterialNavigation.test.tsx::按类型列出实际主题并将记录定位到对应Owner，不请求文件目录",
+    "component:src/MemoryNavigation.test.tsx::首页记录深链接直接定位目标Owner与记录，不被首个Owner覆盖",
+    "component:src/ReadingEvidence.test.tsx::证据入口只显示当前note实际已引用候选并保留固定版本"
+  ],
+  "missing": [],
+  "errors": [],
+  "discovery_fingerprint": "3f9dd8253ed835c02e95c25fe76df712f972b29a253e50bc9d1d536555ae25f2",
+  "catalog_fingerprint": "fcd31341ffd4a6c04682a3e5491b03d9d9147f4384f51e756e743042683bb992"
+}
+

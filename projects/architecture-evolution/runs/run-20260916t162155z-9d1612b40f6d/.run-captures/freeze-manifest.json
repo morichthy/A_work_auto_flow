@@ -1,0 +1,49 @@
+{
+  "run_id": "RUN-20260916T162155Z-9D1612B40F6D",
+  "inputs": {
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/analyze_budget.py": "52b9b2258c732e805641c82bf6ce6e2bb2a8cf7ebf6140557ca7752f762dd02e",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/apply_budget_trace_results.py": "85acc08b753c250282b2ad886e3e4f9f4dddfc4c3a5f07bc2be25f1ede9b26d1",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/capture_memory_baseline.py": "2610ddd78cca427d996eace96f66287b83affa97a90488a9849965b5d6e1fa63",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/compare_baseline.py": "d61224840f9eaa3d5050c9ed3c029d936929558d442c2966dea583dab367346e",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/decompose_budget.py": "545f737346f882cdf0c8432158bafc5a8d0bc8a7f218fe7aa665bde1d7062bbf",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/final_metrics.py": "9130dc7e50438fef14c55edc77ee5100f15e15660ad0ef72c69e7cc6044fb75a",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/freeze_budget.py": "0d3abb6b94239090a385f42b8c4b732da18d45eadcab2f5b25662442a2249454",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/inspect_results.py": "4b2fca94f303c5772d7031232a51ae01d8383b891bb26bbfe5eadbcab0f5466a",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/trace_budget.py": "8132b63c90c5a01519267111d27ad496f87c2d183cd7dc8a1008b6576bc7426a",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/source-manifest.json": "221a92e7b0546b369edcc06ef0ee1cf3b30179799a6fa83c16777da3900f4ce9",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/source-snapshot.zip": "0d31c60146b1e3c948e50a69e94596d3cfa4d606e7636cadea2fc9d626c11200"
+  },
+  "artifacts": {
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/analysis.json": "b02268f2fdb66bdb8e9028691a25ae079d1b9e6801f375f587a9366c68d5383b",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/baseline-code-comparison.json": "24b291ab7cc1d39d6ec21cfc007481eb03dfa7718d7de245947c8de34f379f97",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/calls.json": "807aaffe63efd8293cc849665feefcab6eece9bec0bbdd8eec8aaa0692c8affd",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/charges.csv": "fcfa1c22d1889ad5efd11c0d355b73850246fc34cad6b3e0db3dc604fc662e1f",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/decomposition.json": "afa3b0ea5ec70e8ce5c712d35c26ef99d1849dd3eb91b49c2d8a10b89ac99873",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/events.json": "291cb9efee47815fcf52a1ee4c8ecb32ddf26cd288ca2b5aad480b02d494c225",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/final-metrics.json": "90ad1755e9c71542466e52b9f1e335d84ac13d58b238db5206bbb7d70eabaebd",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-recall-request.json": "a28c66f3d8f3bbe11b5a2354a39624f7e836adcb3d95484a1a898446373064fb",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-recall-response.json": "9ee2a912e6799f88e047a2a130deff92dbdc87f13d6a27de56f64af20fa17d80",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-start-request.json": "fd5a1143131bfcc0d5edf7590ee69efc2dfca2de295323eb6ceb857543b6c44f",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-start-response.json": "15f053adc52b55f8948214dc06d4303bd99af4fc0b35529ca8a32689678fba53",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-template-request.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-template-response.json": "eb49ce21cff8a8a0fc6a456560830ba8ed354aa06faf0ab47e41b0e682ec272b",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-vs-baseline.diff": "46335e8a7d92a9b5625be0f8e47571624e4b672a587c5d3c2fde1138d52f2463",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/summary.json": "3401c525e07b0e09b18cca5b0bfe4367593cf8e6cc985a492570e16ed08446ee",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/document-request.json": "5085a72b20faa559d9e6a3e0d1d14056e6a868fa643867120c48d883d958bb74",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/document.json": "da8f4459443cab9ae5d46882b6e2b78380fa16433987b3a86237599b25224007",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/outline.json": "a80d80d5c8698421df95a34ba4a6b712c63ec558b3e3e56cb12a2e9c9c9a0af5",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/overview.json": "22df37d9b1aa3a7d8073efeab1b750a58c729c390c4a3e3c8add82dbed3c2571",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/owner-start.json": "0d2a25fa68589fbae58f7461e20c57217003259b88a62687eb8ace088796b80a",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/section.json": "e5248de4e9fddeb63806ecaa3555b36a02dd16fd9a4d8571b361037074a29514",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/unit.json": "1abedb8bdc0fd566908f8b85b64e138f1688061fe56b3b28f5bfef8ff46c05bc",
+    "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/RESULTS.md": "3e810340ffb040238193cebf14a7f218089fdb281e03797306319c5b26bebbc5"
+  },
+  "assertions": {
+    "successful_output_chars": 99986,
+    "unique_part_text_chars": 8634,
+    "part_outcomes": 33,
+    "diagnostic_hit_texts_verified_against_search": 42,
+    "source_files_verified": 99
+  },
+  "note": "manifest excludes own hash, registration receipt, mutable run.json and future closure"
+}

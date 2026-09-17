@@ -6,7 +6,7 @@
   "status": "active",
   "lifecycle_stage": "develop",
   "created_at": "2026-09-09",
-  "updated_at": "2026-09-10",
+  "updated_at": "2026-09-16",
   "owners": [],
   "domain_tags": [
     "framework-architecture",
@@ -18,19 +18,21 @@
   "objectives": [
     "按实际代码和明确时间核对现行文档",
     "维护模块职责及变更影响图",
-    "默认按研究标准保存项目L0-L4及完整/精简文稿",
+    "按有用内容保存项目L0-L4，文稿按需，并维护可见工作上下文",
     "定义并实现表示查询、存储适配与语义维护的可替换接口"
   ],
   "non_goals": [
-    "本轮不切换检索算法或存储引擎",
+    "不替换384维召回编码器与存储引擎；正文重排使用独立可选模型",
     "不直接改写历史Run、规范记忆和合成fixture；新增内容走公共提交",
     "不把框架软件模块登记成公司核心算法",
     "不启动后台同步、规模测试或对外发布"
   ],
   "module_ids": [],
   "dataset_ids": [],
-  "active_research_ids": [],
-  "active_plan": "runs/run-20260909t194710z-3cf36b2fdd60/IMPLEMENTATION_TRACKER.md",
+  "active_research_ids": [
+    "RES-AI-EXPERIENCE-CONTEXT"
+  ],
+  "active_plan": "plans/workspace-settings-20260916.md",
   "open_questions": [
     "怎样以小步适配落实本轮契约，并保持已有固定引用和用户入口？",
     "如何以固定问题集验证候选召回、误联想、延迟和上下文成本？"

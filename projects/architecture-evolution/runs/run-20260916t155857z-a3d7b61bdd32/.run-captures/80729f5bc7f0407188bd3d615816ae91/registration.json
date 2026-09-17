@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "阅读笔记可读上下文与工作台入口修复",
+    "keywords": [
+      "reading note",
+      "工作台"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "failed",
+    "created_at": "2026-09-16T15:58:57Z",
+    "started_at": null,
+    "ended_at": "2026-09-16T16:32:23.121820+00:00",
+    "owner": null,
+    "question": "如何使当前阅读笔记可发现、可读并关联定向证据，同时保护私人数据及旧工作区？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {},
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "targeted_reading_and_upgrade_checks",
+        "status": "passed"
+      },
+      {
+        "name": "browser_scale_N0",
+        "status": "failed",
+        "detail": "既有规模场景60秒定位超时；其余5项通过"
+      }
+    ],
+    "metrics": {
+      "backend_passed": 31,
+      "component_passed": 17,
+      "browser_passed": 5,
+      "browser_failed": 1,
+      "deployment_unique_passed": 19,
+      "real_list_seconds": 20.266
+    },
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "阅读上下文、首页与主题导航修复已验证；完整浏览器选择仍含既有失败。",
+    "limitations": [
+      "列表逐会话核验来源仍较慢",
+      "既有规模N0超时未修复",
+      "未验证第二台物理机",
+      "AI一致性自查不等于科学复核"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxNlQxNTU4NTdaLUEzRDdCNjFCREQzMiIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIumYheivu+eslOiusOWPr+ivu+S4iuS4i+aWh+S4juW3peS9nOWPsOWFpeWPo+S/ruWkjSIsDQogICJrZXl3b3JkcyI6IFsNCiAgICAicmVhZGluZyBub3RlIiwNCiAgICAi5bel5L2c5Y+wIg0KICBdLA0KICAicmV2aWV3X2hpc3RvcnkiOiBbXSwNCiAgImNsYWltcyI6IFtdLA0KICAiZGVwZW5kZW5jaWVzIjogW10sDQogICJydW5fdHlwZSI6ICJhbmFseXNpcyIsDQogICJzdGF0dXMiOiAiZmFpbGVkIiwNCiAgImNyZWF0ZWRfYXQiOiAiMjAyNi0wOS0xNlQxNTo1ODo1N1oiLA0KICAic3RhcnRlZF9hdCI6IG51bGwsDQogICJlbmRlZF9hdCI6ICIyMDI2LTA5LTE2VDE2OjMyOjIzLjEyMTgyMCswMDowMCIsDQogICJvd25lciI6IG51bGwsDQogICJxdWVzdGlvbiI6ICLlpoLkvZXkvb/lvZPliY3pmIXor7vnrJTorrDlj6/lj5HnjrDjgIHlj6/or7vlubblhbPogZTlrprlkJHor4Hmja7vvIzlkIzml7bkv53miqTnp4HkurrmlbDmja7lj4rml6flt6XkvZzljLrvvJ8iLA0KICAiaHlwb3RoZXNlcyI6IFtdLA0KICAiaW5wdXRzIjogW10sDQogICJwYXJhbWV0ZXJzIjoge30sDQogICJjb2RlIjogew0KICAgICJjb21taXQiOiAiODlhZDMwNzUzNTg5ZmI3YjkxOWIzZGI3NWNkZjkxZDQ3NDQ5ZjRjYSIsDQogICAgImRpcnR5IjogdHJ1ZQ0KICB9LA0KICAiZW52aXJvbm1lbnQiOiB7DQogICAgInB5dGhvbiI6ICIzLjEyLjEwIiwNCiAgICAicGxhdGZvcm0iOiAiV2luZG93cy0xMS0xMC4wLjIyNjMxLVNQMCIsDQogICAgImxvY2tfb3JfaW1hZ2VfZGlnZXN0IjogbnVsbA0KICB9LA0KICAicmFuZG9tX3NlZWRzIjogW10sDQogICJxdWFsaXR5X3Jlc3VsdHMiOiBbDQogICAgew0KICAgICAgIm5hbWUiOiAidGFyZ2V0ZWRfcmVhZGluZ19hbmRfdXBncmFkZV9jaGVja3MiLA0KICAgICAgInN0YXR1cyI6ICJwYXNzZWQiDQogICAgfSwNCiAgICB7DQogICAgICAibmFtZSI6ICJicm93c2VyX3NjYWxlX04wIiwNCiAgICAgICJzdGF0dXMiOiAiZmFpbGVkIiwNCiAgICAgICJkZXRhaWwiOiAi5pei5pyJ6KeE5qih5Zy65pmvNjDnp5LlrprkvY3otoXml7bvvJvlhbbkvZk16aG56YCa6L+HIg0KICAgIH0NCiAgXSwNCiAgIm1ldHJpY3MiOiB7DQogICAgImJhY2tlbmRfcGFzc2VkIjogMzEsDQogICAgImNvbXBvbmVudF9wYXNzZWQiOiAxNywNCiAgICAiYnJvd3Nlcl9wYXNzZWQiOiA1LA0KICAgICJicm93c2VyX2ZhaWxlZCI6IDEsDQogICAgImRlcGxveW1lbnRfdW5pcXVlX3Bhc3NlZCI6IDE5LA0KICAgICJyZWFsX2xpc3Rfc2Vjb25kcyI6IDIwLjI2Ng0KICB9LA0KICAiYXJ0aWZhY3RzIjogW10sDQogICJsaW5lYWdlX2V2ZW50cyI6ICJsaW5lYWdlLmpzb25sIiwNCiAgImNvbmNsdXNpb24iOiAi6ZiF6K+75LiK5LiL5paH44CB6aaW6aG15LiO5Li76aKY5a+86Iiq5L+u5aSN5bey6aqM6K+B77yb5a6M5pW05rWP6KeI5Zmo6YCJ5oup5LuN5ZCr5pei5pyJ5aSx6LSl44CCIiwNCiAgImxpbWl0YXRpb25zIjogWw0KICAgICLliJfooajpgJDkvJror53moLjpqozmnaXmupDku43ovoPmhaIiLA0KICAgICLml6LmnInop4TmqKFOMOi2heaXtuacquS/ruWkjSIsDQogICAgIuacqumqjOivgeesrOS6jOWPsOeJqeeQhuacuiIsDQogICAgIkFJ5LiA6Ie05oCn6Ieq5p+l5LiN562J5LqO56eR5a2m5aSN5qC4Ig0KICBdLA0KICAicGFyZW50X3J1bl9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfbW9kdWxlX2lkcyI6IFtdLA0KICAicmVsYXRlZF9yZXNlYXJjaF9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfZGF0YXNldF9pZHMiOiBbXSwNCiAgInJldmlldyI6IHsNCiAgICAic3RhdHVzIjogIm5vdC1yZXZpZXdlZCIsDQogICAgInJldmlld2VyIjogbnVsbCwNCiAgICAiZGF0ZSI6IG51bGwNCiAgfSwNCiAgInNlbnNpdGl2aXR5IjogImludGVybmFsIg0KfQ0K",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "阅读笔记可读上下文与工作台入口修复",
+    "keywords": [
+      "reading note",
+      "工作台"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "failed",
+    "created_at": "2026-09-16T15:58:57Z",
+    "started_at": null,
+    "ended_at": "2026-09-16T16:32:23.121820+00:00",
+    "owner": null,
+    "question": "如何使当前阅读笔记可发现、可读并关联定向证据，同时保护私人数据及旧工作区？",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/verification/source-snapshot.zip",
+        "sha256": "c99b225c352e9c9865d50265cfacc469ea4f952f307eb6ecb090b97a39b8eaf5",
+        "role": "input",
+        "registered_at": "2026-09-16T16:32:25.122700Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/verification/source-manifest.json",
+        "sha256": "fe72d775a8a4111080f257cfcc948b6ec955e3776055dccbb83f45c357ae2dc0",
+        "role": "input",
+        "registered_at": "2026-09-16T16:32:25.139694Z"
+      }
+    ],
+    "parameters": {},
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "targeted_reading_and_upgrade_checks",
+        "status": "passed"
+      },
+      {
+        "name": "browser_scale_N0",
+        "status": "failed",
+        "detail": "既有规模场景60秒定位超时；其余5项通过"
+      }
+    ],
+    "metrics": {
+      "backend_passed": 31,
+      "component_passed": 17,
+      "browser_passed": 5,
+      "browser_failed": 1,
+      "deployment_unique_passed": 19,
+      "real_list_seconds": 20.266
+    },
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/RESULTS.md",
+        "sha256": "cb753e99166050f6a7766e6456e1db81c586f95bfc728867c5e4b62d2c0b6661",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:32:25.156700Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/verification/test-evidence.zip",
+        "sha256": "da9592dd5c3fae6367042e9f624fc8e511bbb97de54de8bd2f9f286d31a1c538",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:32:25.177702Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/verification/reading-note-r5.md",
+        "sha256": "17431e7ae3d21ecaccb30bc97b3c597bfa6513a31c93a5cb11ab66c0730575fc",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:32:25.198329Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "阅读上下文、首页与主题导航修复已验证；完整浏览器选择仍含既有失败。",
+    "limitations": [
+      "列表逐会话核验来源仍较慢",
+      "既有规模N0超时未修复",
+      "未验证第二台物理机",
+      "AI一致性自查不等于科学复核"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-16T16:32:25.296637Z"
+}

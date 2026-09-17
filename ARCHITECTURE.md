@@ -1,6 +1,6 @@
 # 当前技术架构
 
-本页维护实际模块、依赖和状态所有权；用户概念与用法见 [README](README.md)，功能输入输出见 [CORE](docs/CORE.md)，细节见[文档索引](docs/README.md)。核对日期：2026-09-17；当前采用统一work-loop与按内容保存策略，阅读会话支持Owner绑定、双语查询规划和用户术语库，重要成果通过consolidate-results维护全文，兼容既有材料查询 v0.2 与固定来源读取。历史设计不替代运行代码；具体程序指纹见对应实施 Run。
+本页维护实际模块、依赖和状态所有权；用户概念与用法见 [README](README.md)，功能输入输出见 [CORE](docs/CORE.md)，细节见[文档索引](docs/README.md)。核对日期：2026-09-18；当前采用统一work-loop与按内容保存策略，阅读会话支持Owner绑定、双语查询规划和用户术语库，重要成果通过consolidate-results维护全文，兼容既有材料查询 v0.2 与固定来源读取。Owner压缩发现投影、Owner融合、筛选包和显式全文补偿已接入；旧 Owner 修复、真实升级恢复及端到端验证仍在收口。历史设计不替代运行代码；具体程序指纹见对应实施 Run。
 
 ## 稳定设计约束
 
@@ -13,6 +13,7 @@
 | 性能收益须有依据 | 新抽象、缓存或图机制须解决已存在或高度确定的问题；用可重复评估比较准确度、召回、错误关联、延迟与上下文成本。输出 Top-K 或短正文不能证明底层读取有界 |
 | 对象、内容、文稿分开 | 复用 Research、Run、Project、核心算法、数据、工具、知识和报告的稳定身份，不复制等价 Owner；Project 聚合目标和引用，不另存算法副本。L0 是原件追溯，L1 检索说明与完整块分开，层级不是可信等级，独立章节/文稿不另造记忆层 |
 | 权威记录与派生数据分开 | 原件、规范修订和复核记录不能被索引替代。索引可重建；Q/CTX/CF、QMEM/PKT 等已保存回执是查询与选择的历史，不能当作临时索引随意清理；MQ 进程内请求状态另有到期规则 |
+| 发现与全文读取分开 | Owner默认发现使用独立压缩投影和独立水位，不能以全文索引的level过滤冒充；命中回到规范固定版本核验。全库全文补偿由用户明确选择，已选Owner的完整阅读仍是标准流程；legacy RS和手动MQ保留全文兼容路径。 |
 | 写入和恢复保持单一边界 | 规范写入走 MEM 服务，保留版本冲突、幂等、不可变历史和单 Owner 事务边界；索引失败补偿投影，不重复创建业务记录，不把跨对象部分完成写成全局成功 |
 | 语义判断与程序执行分开 | AI/人负责综合、反证、迁移判断和实际审查；程序校验、固定读取、组装及提交。影响提示和监测只产生关注/候选，不自动改章节引用、撤回结论或晋升复核；相似和导航采纳不等于科学支持 |
 | 请求边界贯穿全链路 | 查询、续页、展开与组包保留用途、范围、排除、权限、固定版本及适用预算；普通MQ/legacy RS保留累计账本，Owner阅读分开单次资源保护与最终note上下文，来源选择不放宽授权。候选不是已读正文，组包无缺口不代表研究完整 |
@@ -55,12 +56,12 @@ flowchart TD
 | MEM 规范版本 | `memory/contracts.py`、`service.py`、`store.py`、`recovery.py`：验证、CAS、幂等和恢复；schema 在 `automation/schemas/` | DOC/EVD/RET/MQ 的全部读取者、生成类型与旧版迁移 |
 | DOC 技术内容 | `memory/technical_units.py`、`documents.py`、`history.py`、`research.py`：完整块、可选章节/文稿与续接 | MEM 字段、RET 表示、MQ 组包/定位、EVD 影响检查、APP 与研究 Skill |
 | EVD 来源与证据 | `evidence.py`、`memory/evidence_adapter.py`、`impact.py`、`lineage.py`：复核、权限和已登记依赖影响 | 所有正文返回、正式筛选、文稿、关联、监测与导出 |
-| RET 投影与基础检索 | `retrieval.py`、`context_engine.py`、`qdrant_backend.py`、`memory/index.py`、`search.py`、`packets.py`、`associations.py` | MQ 召回/覆盖、旧 API、来源撤权、模型隔离、相关性和读取成本 |
+| RET 投影与基础检索 | `retrieval.py`、`context_engine.py`、`qdrant_backend.py`、`memory/index.py`、`memory/discovery.py`、`search.py`、`packets.py`、`associations.py`；discovery 从L4/L3/L2紧凑内容和L1检索说明构建独立词法/向量投影 | MQ 召回/覆盖、旧 API、来源撤权、模型隔离、相关性和读取成本；discovery不得复用全文表加level过滤 |
 | MQ 材料查询应用 | `material_query/`：Coordinator 编排；`recall.py` 适配既有本地向量并核对条目指纹；Reader/Writer 适配；`content.py` 固定关联展开，`catalog_search.py` 全来源召回，`history_search.py` 有界旧修订查询，`documents.py` 文稿去重与有序组装，`native_sources.py` 核验旧 Run claim；StateStore/Ledger 管请求状态和累计预算；Foundation 接旧功能分组 | MEM 事务、RET 水位、DOC 固定块、EVD 准入、APP 生成契约与三个专项 Skill |
 | APP 产品入口 | `workspace_cli.py`、`memory/api.py`、`material_query/api.py`、`workbench_app/`、`automation/frontend/src/` | 同一动作的 CLI/HTTP/UI 请求与错误、任务进度、契约、构建资源、操作文档 |
 | CFG 工作区默认设置 | `workspace_settings.py` 唯一契约/校验/CAS/缓存；`workspace_settings_cli.py`、APP settings API与设置页是适配层 | MQ capabilities/READ template消费默认策略与联想限制，GUIDE消费协作策略；旧RS预算、用户设置升级保护、UI并发保存与缓存失效 |
 | GUIDE 规则与说明 | `automation/workflows/` 方法源、`.agents/skills/` 发现入口及六份必读文档 | 所描述能力的代码/契约、用户入口、测试选择；不复制一套业务状态 |
-| READ AI 阅读工作流 | `material_query/reading.py`、`reading_catalog.py`：持久问题会话与有界目录发现；`reading_owner.py`管理正文去重、逐Owner文稿/引用按需展开和研究式note，`reading_strategy.py`管理standard/associative/quick、逐条判断和综合note，旧模式保留；复用 MQ Reader/Assembler/Ledger，AI 判断由 material-query Skill 与直接派工要求指导；reader自查、note保存时做确定性引用检查，不增主Agent审核环节 | MQ 权限/预算与固定回源、CLI/HTTP及ReadingSessions界面、原件新修订、GUIDE 续接策略、QA 用户工作数据升级保留；不增加规范记忆类型或向量后端 |
+| READ AI 阅读工作流 | `material_query/reading.py`、`reading_catalog.py`：持久问题会话与有界目录发现；`reading_owner.py`管理 discovery 融合、互补筛选包、三态判断、逐Owner正文/引用按需展开和显式全文补偿，`owner_screening.py` 选择窗口，`reading_strategy.py`管理standard/associative/quick、逐条判断和综合note，旧模式保留；复用 MQ Reader/Assembler/Ledger | MQ 权限/预算与固定回源、CLI/HTTP及ReadingSessions界面、原件新修订、GUIDE 续接策略、QA 用户工作数据升级保留；发现包不是完整正文，CE不删除Owner，全文补偿不能自动触发 |
 | QA 测试与交付 | `automation/testing/`、`automation/tests/`、`deployment.py` 及依赖分发 | catalog 与实际回执、前端指纹、旧业务/自定义 Skill 保留、离线包与恢复 |
 
 表中一行变化时检查其实际调用者、数据消费者和对应细节文档；不是要求每次全模块重测。文档路由与维护方式见 [DOCUMENTATION_MAINTENANCE](docs/DOCUMENTATION_MAINTENANCE.md)。
@@ -74,6 +75,7 @@ flowchart TD
 | 对象、Run、来源授权 | 原生 manifest、`run.json`、`retrieval/sources.json` 及获准原件 | 文件存在不等于登记；登记不保证固定原件仍可读 |
 | 规范内容与历史 | Owner 的 `memory_home` 中 owner/commits/HEAD 与事务回执，MemoryStore 管理 | 单 Owner 提交可见；旧修订不改写，没有跨 Owner 全局事务 |
 | 保存与索引 | 保存回执；SQLite `memory_*` 表及 FTS/向量水位 | HEAD 发布后索引失败仍是已保存，reconcile 补偿，不重建同一业务记录 |
+| Owner压缩发现投影 | RET维护的独立discovery entries/FTS、向量collection及每Owner词法/向量水位 | 从当前规范记录确定性派生，可删重建；水位绑定HEAD、投影版本、模型指纹和错误，pending/stale/failed投影不可读；不替代全文索引、正文、证据或复核。旧Owner语义补写必须先走MEM提交再重建 |
 | 查询候选、选择与预算 | MQ 进程内 QueryState、StateStore、Ledger | 默认 900 秒 TTL；游标绑定原请求/会话，重启或到期失效；不是持久知识 |
 | 工作区偏好 | 根`workspace-settings.json`，CFG维护，缺文件使用内置默认 | schema1完整快照、内容hash revision、O_EXCL锁与原子替换；最多64根stat签名进程缓存，仅为派生副本。新模板/页面读取，显式请求及已存RS不被改写；公共源码不分发本机配置 |
 | 当前任务工作上下文 | 所属任务的一份Markdown计划/清单，由AI编辑 | 综合目标、当前依据、必要细节与下一步；RS与Run通过引用接入。不是后台同步、规范知识或第二份阅读数据库；检查点保存交接时点，续接需核验新进展 |
@@ -88,6 +90,8 @@ flowchart TD
 新 Run 默认属于开展工作的 Owner；无归属轻任务可落根 runs，旧布局兼容。来源搬迁通过显式旧路径/固定 SHA 映射回读，不重写旧 Run。
 
 ## 数据流与当前限制
+
+当前数据流为“规范记录 → 独立压缩发现投影 → 路线内Owner折叠 → 跨路线Owner融合 → 覆盖互补筛选包 → AI批量三态判断 → relevant Owner完整阅读”。发现不可用、覆盖不完整或结果不足只返回对应缺口和用户可选的全文补偿动作；补偿复用冻结的范围、计划、预算和版本。CE 对单个窗口执行，超长项局部命中中心截窗，失败窗口不取消其他窗口排序。实现集中在 `memory/discovery.py`、`material_query/recall.py`、`query_plan.py`、`owner_screening.py`、`reranking.py` 与 `reading_owner.py`；发现 SQLite 表和向量 collection 与全文索引分离。真实升级/恢复、HTTP/socket 链路和既有长期 Owner 重建已经验证，结果见[实施 Run](projects/architecture-evolution/runs/run-20260917t181639z-af7701fd84ad/RESULTS.md)。详细设计见 [Owner发现设计](docs/design/OWNER_DISCOVERY_RETRIEVAL.md)，实施计划见[架构演进计划](projects/architecture-evolution/plans/owner-discovery-retrieval-20260918.md)。本轮未评价召回质量或性能，不能据功能回归宣称这些收益。
 
 当前阅读选择与模式控制集中在首页 CurrentReading；旧 ReadingSessions 组件不再作为系统记忆入口，历史 RS 的公开接口与存储保留。EVD 的共享读模型按记录种类装配知识正文，文稿沿固定章节/技术块展开；结构导航与支持证据分开，图片只在选中详情中受控读取。工具注册表身份从对应成员解析，索引诊断不挂到无关健康详情。APP 消费同一证据详情，避免在记忆、阅读与证据页面分别拼接原始字段。
 

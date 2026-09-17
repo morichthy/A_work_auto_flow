@@ -1,0 +1,10 @@
+{
+  "session_id": "RS-97a3e089-e45d-46d1-a2ff-2cf6292f6c96",
+  "expected_revision": 7,
+  "request_id": "ai-finish-1",
+  "direction": "finish",
+  "reason": "已完成实际英文词法与双语向量召回、固定全文阅读、v2.1/v2.0条件核对及笔记；保留合成样例边界",
+  "next_step": "将软件检查与AI自查保存到Run；真实业务问题集另行评估",
+  "outcome": "最终轮实际消耗4次离线编码/128输入token，技术层v2.1排第一；v2.0冲突不采纳。另有2条反馈控制主题候选，读取返回全文后判断与本问题无直接关系。结果partial明确保留范围/来源/版本过滤缺口，不能宣称全库覆盖或业务质量提升。",
+  "human_decision": ""
+}

@@ -1,0 +1,130 @@
+{
+  "action": "reading-recall",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+    "expected_revision": 6,
+    "request_id": "ai-assoc-recall",
+    "question": "过零检测 阈值波动 采样时刻误差 phase_case",
+    "keywords": [
+      "过零检测",
+      "阈值波动",
+      "采样时刻误差",
+      "phase_case"
+    ],
+    "scope": {
+      "owner_ids": [
+        "RES-MQ-A",
+        "PRJ-MQ-B"
+      ],
+      "levels": null,
+      "kinds": null,
+      "roles": null,
+      "outcomes": null,
+      "review_states": null,
+      "validities": null,
+      "include_unknown": false,
+      "excluded_refs": [],
+      "excluded_owner_ids": [],
+      "recorded_from": null,
+      "recorded_before": null
+    },
+    "reason": "现有A笔记给出dphi=2πf dt并提出阈值方向；本轮寻找阈值变化到dt的机制和边界，不把联想冒充原问题等义词。",
+    "retrieval_kind": "associative",
+    "clue_sources": [
+      "MEM-c8416f3d-0493-5965-89bb-7935cddc845d"
+    ],
+    "query_variants": [
+      {
+        "id": "original",
+        "language": "zh",
+        "question": "过零检测 阈值波动 采样时刻误差 phase_case",
+        "lexical_terms": [
+          "过零检测",
+          "阈值波动",
+          "采样时刻误差",
+          "phase_case"
+        ]
+      },
+      {
+        "id": "en",
+        "language": "en",
+        "question": "How do zero-crossing detection threshold fluctuations cause sampling time error in phase_case?",
+        "lexical_terms": [
+          "zero crossing",
+          "threshold fluctuation",
+          "sampling time error",
+          "phase_case"
+        ]
+      }
+    ],
+    "protected_terms": [
+      "phase_case"
+    ],
+    "corpus_language": "unknown",
+    "language_reason": "此前交付为中文，获准上游文稿语言未确认；补英文等义术语检索。",
+    "query_domains": []
+  },
+  "response": {
+    "status": "partial",
+    "value": {
+      "candidates": [
+        {
+          "owner_id": "PRJ-MQ-B",
+          "text": "这是合成线性化模型。dv 为阈值电压扰动（V），S 为过零附近电压斜率（V/s），dt 为时间偏移（s）。\n\n斜率接近零或波形非线性时不能直接套用。这里只讨论阈值扰动，不证明电源纹波就是扰动来源；需要独立测量供电到阈值的传递。\n\n局部线性、斜率非零且扰动很小时，$dt\\approx dv/S$。取 dv=0.001 V、S=1000 V/s，则 dt=1e-6 s。"
+        }
+      ],
+      "gaps": [
+        "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+        "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+      ],
+      "has_more": true,
+      "pending_owner_count": 1,
+      "mode": "owner_document",
+      "strategy": "associative",
+      "association": {
+        "enabled": true,
+        "max_rounds": 3
+      },
+      "association_text": "过零检测 阈值波动 采样时刻误差 phase_case",
+      "next_action": "read",
+      "guidance": "每Owner本页最多一份正文；相关则reading-read(owner_id)，未确定可reading-page继续。",
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+      "revision": 7
+    },
+    "code": null,
+    "warnings": [
+      "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+      "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+    ],
+    "issues": [
+      {
+        "code": "PARTIAL",
+        "message": "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      },
+      {
+        "code": "PARTIAL",
+        "message": "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      }
+    ],
+    "consumed": {
+      "wall_ms": 1093,
+      "read_bytes": 514173,
+      "output_chars": 633,
+      "candidates": 6,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

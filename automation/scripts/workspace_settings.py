@@ -36,7 +36,13 @@ def _defaults():
         'materials': {'result_limit': 20, 'budget': asdict(DEFAULT_BUDGET)},
         'reading': {'strategy': 'standard', 'association': {'enabled': True, 'max_rounds': 3},
                     'result_limit': 10, 'context': {'max_owners': 10, 'note_max_tokens': 6000},
-                    'reranking': {'mode': 'auto', 'candidate_limit': 30},
+                    # 筛选包在Owner级冻结，常规窗口数只决定首批交付，硬上限
+                    # 防止单个Owner的多条命中重新挤占整批上下文。
+                    'screening': {'regular_windows': 3, 'max_windows': 4, 'batch_owners': 10},
+                    # CE逐窗口处理。超长文本围绕实际命中截窗，禁止因一个
+                    # 条目超长把整批回退到原排序。
+                    'reranking': {'mode': 'auto', 'candidate_limit': 30, 'window_tokens': 512,
+                                  'overflow_policy': 'hit_centered_per_window'},
                     'budget': asdict(replace(DEFAULT_BUDGET, candidates=1000, model_calls=20,
                         model_tokens=65536, model_input_tokens=65536, rerank_items=100))},
     }
@@ -64,7 +70,7 @@ def _validate(settings):
     limits = asdict(SERVER_LIMITS)
     for section in ('materials', 'reading'):
         value = settings[section]
-        _fields(value, ('result_limit', 'budget', 'reranking', 'context', 'strategy', 'association') if section == 'reading'
+        _fields(value, ('result_limit', 'budget', 'reranking', 'context', 'screening', 'strategy', 'association') if section == 'reading'
                 else ('result_limit', 'budget'), section)
         if type(value['result_limit']) is not int or not 1 <= value['result_limit'] <= 100:
             _invalid(section + '.result_limit 必须是 1..100 整数')
@@ -88,8 +94,16 @@ def _validate(settings):
     for name, minimum, maximum in (('max_owners', 1, 100), ('note_max_tokens', 512, 50000)):
         if type(context[name]) is not int or not minimum <= context[name] <= maximum:
             _invalid('reading.context.' + name + f' 必须是 {minimum}..{maximum} 整数')
+    screening = settings['reading']['screening']
+    _fields(screening, ('regular_windows', 'max_windows', 'batch_owners'), 'reading.screening')
+    for name, minimum, maximum in (('regular_windows', 1, 4), ('max_windows', 1, 4),
+                                   ('batch_owners', 1, 100)):
+        if type(screening[name]) is not int or not minimum <= screening[name] <= maximum:
+            _invalid('reading.screening.' + name + f' 必须是 {minimum}..{maximum} 整数')
+    if screening['regular_windows'] > screening['max_windows']:
+        _invalid('每个Owner常规窗口数不能大于窗口硬上限')
     ranking = settings['reading']['reranking']
-    _fields(ranking, ('mode', 'candidate_limit'), 'reading.reranking')
+    _fields(ranking, ('mode', 'candidate_limit', 'window_tokens', 'overflow_policy'), 'reading.reranking')
     if ranking['mode'] not in ('off', 'auto', 'required'):
         _invalid('reading.reranking.mode 无效')
     limit = ranking['candidate_limit']
@@ -97,6 +111,10 @@ def _validate(settings):
         _invalid('candidate_limit 必须是 1..100 整数')
     if ranking['mode'] != 'off' and limit < settings['reading']['result_limit']:
         _invalid('重排候选窗不能小于阅读交付数量')
+    if type(ranking['window_tokens']) is not int or not 64 <= ranking['window_tokens'] <= 512:
+        _invalid('reading.reranking.window_tokens 必须是 64..512 整数')
+    if ranking['overflow_policy'] != 'hit_centered_per_window':
+        _invalid('reading.reranking.overflow_policy 只允许 hit_centered_per_window')
     return deepcopy(settings)
 
 
@@ -198,15 +216,31 @@ def _read(root):
         # 仅接受精确旧字段集合，避免借兼容入口掩盖损坏或未知字段。
         if (isinstance(settings, dict) and isinstance(settings.get('reading'), dict)
                 and set(settings['reading']) in ({'result_limit', 'budget', 'reranking'},
-                    {'result_limit', 'budget', 'reranking', 'strategy', 'association'})):
+                    {'result_limit', 'budget', 'reranking', 'strategy', 'association'},
+                    {'result_limit', 'budget', 'reranking', 'screening', 'strategy', 'association'})):
             settings = deepcopy(settings)
             settings['reading']['context'] = _defaults()['reading']['context']
         # 三模式成对补齐，仅接受发布过的完整旧结构；缺半份新配置仍视为损坏。
         if (isinstance(settings, dict) and isinstance(settings.get('reading'), dict)
-                and set(settings['reading']) == {'result_limit', 'budget', 'reranking', 'context'}):
+                and set(settings['reading']) in ({'result_limit', 'budget', 'reranking', 'context'},
+                    {'result_limit', 'budget', 'reranking', 'context', 'screening'})):
             settings = deepcopy(settings)
             settings['reading']['strategy'] = 'standard'
             settings['reading']['association'] = _defaults()['reading']['association']
+        # 2026-09 Owner发现设置只读迁移：仅接受上一版完整reading结构和
+        # 精确旧reranking形状。内存补默认不改变原字节或CAS revision；写入
+        # 仍必须发送完整新结构，避免旧客户端清除新策略。
+        if (isinstance(settings, dict) and isinstance(settings.get('reading'), dict)
+                and set(settings['reading']) == {'result_limit', 'budget', 'reranking', 'context',
+                                                 'strategy', 'association'}
+                and isinstance(settings['reading'].get('reranking'), dict)
+                and set(settings['reading']['reranking']) == {'mode', 'candidate_limit'}):
+            settings = deepcopy(settings)
+            defaults = _defaults()['reading']
+            settings['reading']['screening'] = defaults['screening']
+            settings['reading']['reranking'].update({
+                'window_tokens': defaults['reranking']['window_tokens'],
+                'overflow_policy': defaults['reranking']['overflow_policy']})
         return _remember(root, signature, _snapshot(raw, _validate(settings)))
     raise MemoryError('VERSION_CONFLICT', '设置在读取期间持续变化，请重新读取')
 

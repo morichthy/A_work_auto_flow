@@ -1,0 +1,14 @@
+test_windows_zip_upgrade_entry_and_rollback_preserve_data (test_deployment_workbench.DeploymentWorkbenchTests.test_windows_zip_upgrade_entry_and_rollback_preserve_data) ... ok
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-7f_g781i\旧 工作区\research\升级 研究\runs\run-20260912t220527z-e532c5681255
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-7f_g781i\旧 工作区\projects\升级 项目\runs\run-20260912t220538z-a6bde4722434
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-7f_g781i\旧 工作区\core-algorithms\升级 算法\runs\run-20260912t220538z-d2e5d1a29c85
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-7f_g781i\旧 工作区\runs\升级 父运行\runs\run-20260912t220539z-dd35d6e05cc3
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-7f_g781i\旧 工作区\knowledge\升级 经验.evidence.json.memory.runtime\runs\run-20260912t220539z-4498c405fa5f
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-7f_g781i\旧 工作区\reports\sources\升级 报告.evidence.json.memory.runtime\runs\run-20260912t220540z-b459463904a2
+
+----------------------------------------------------------------------
+Ran 1 test in 159.542s
+
+OK
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-7f_g781i\旧 工作区\data\catalog\升级 数据.dataset.json.memory.runtime\runs\run-20260912t220540z-2bd0e6aa66b1
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-7f_g781i\旧 工作区\tools\runtime\TOOL-USER-SYNTHETIC-0\runs\run-20260912t220541z-705a3c942559

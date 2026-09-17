@@ -1,0 +1,68 @@
+
+> rd-workbench@1.0.0 e2e
+> playwright test --grep-invert 一万
+
+
+Running 16 tests using 1 worker
+
+  ok  1 e2e\material-query.spec.ts:80:1 › 材料查询真实HTTP组装四区、固定依据与来源映射 (3.7s)
+  ok  2 e2e\material-query.spec.ts:154:1 › 维护任务包导出保留未审状态，改变条件使旧候选失效 (2.4s)
+  ok  3 e2e\material-query.spec.ts:209:1 › 真实预算耗尽显示停止原因并保留查询范围 (1.6s)
+  ok  4 e2e\material-query.spec.ts:224:1 › 有效 partial 审查与真实提交保留索引待办，关闭已完成提交 (5.8s)
+  ok  5 e2e\material-query.spec.ts:423:1 › 概览正文通过固定引用展开经过与技术内容，来源切换和取消选择明确 (8.5s)
+  x   6 e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 (0ms)
+  -   7 e2e\memory.spec.ts:154:1 › 四层记录、真实编辑冲突、索引待补偿与安全导出
+  -   8 e2e\memory.spec.ts:283:1 › 连续研究报告、固定图示、目录路由和窄屏阅读
+  -   9 e2e\memory.spec.ts:577:1 › 研究、Run、知识与报告真实记录及辅助对象可区分
+  -  10 e2e\memory.spec.ts:669:1 › 缺范围复核被拒绝并保留逐结论状态
+  -  11 e2e\memory.spec.ts:730:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联
+  -  12 e2e\memory.spec.ts:813:1 › 逐层读取固定原件、返回已读版本，并识别原件变化
+  -  13 e2e\memory.spec.ts:871:1 › 独立双文稿、必要定义、章节上下文与固定修订影响
+  ok 14 e2e\workbench.spec.ts:47:1 › 完整导航、关系、证据、候选和摘要 (6.7s)
+  ok 15 e2e\workbench.spec.ts:143:1 › 勾选联动图与导出，分类结合搜索且保留跨分类勾选 (2.6s)
+  ok 16 e2e\workbench.spec.ts:295:1 › 对象阅读清单、完整原文和版本导出真实接口 (3.5s)
+
+
+  1) e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 ────────────────────────────────────────
+
+    Error: 记忆服务退出 1: Traceback (most recent call last):
+      File "D:\��������\A_work\A_work_auto_flow\automation\scripts\memory\store.py", line 314, in commit_batch
+        os.rename(staging, destination)
+    PermissionError: [WinError 5] �ܾ����ʡ�: 'D:\\��������\\A_work\\A_work_auto_flow\\.local\\memory-browser-yid5jha3\\���� ����ɳ��\\research\\�ϳ� PRESSURE\\memory\\staging\\30c7639e-2102-5562-b7b5-8ce4c99f2942-aa2d629920f3414bbd912d0db5712ce2' -> 'D:\\��������\\A_work\\A_work_auto_flow\\.local\\memory-browser-yid5jha3\\���� ����ɳ��\\research\\�ϳ� PRESSURE\\memory\\commits\\COM-be17dcb6-9770-4d07-a469-528eb317cabe'
+
+    The above exception was the direct cause of the following exception:
+
+    Traceback (most recent call last):
+      File "D:\��������\A_work\A_work_auto_flow\automation\tests\serve_memory_test.py", line 94, in <module>
+        main()
+      File "D:\��������\A_work\A_work_auto_flow\automation\tests\serve_memory_test.py", line 53, in main
+        receipt = service.commit(request)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+      File "D:\��������\A_work\A_work_auto_flow\automation\scripts\memory\service.py", line 389, in commit
+        return self._commit(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+      File "D:\��������\A_work\A_work_auto_flow\automation\scripts\memory\service.py", line 418, in _commit
+        receipt = self.store.commit_batch(owner, request["expected_head"], request["request_id"], request["operations"],
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "D:\��������\A_work\A_work_auto_flow\automation\scripts\memory\store.py", line 332, in commit_batch
+        raise MemoryError("STORAGE_ERROR", str(exc), {"save_status": "committed" if committed else "not_committed",
+    memory.errors.MemoryError: [WinError 5] �ܾ����ʡ�: 'D:\\��������\\A_work\\A_work_auto_flow\\.local\\memory-browser-yid5jha3\\���� ����ɳ��\\research\\�ϳ� PRESSURE\\memory\\staging\\30c7639e-2102-5562-b7b5-8ce4c99f2942-aa2d629920f3414bbd912d0db5712ce2' -> 'D:\\��������\\A_work\\A_work_auto_flow\\.local\\memory-browser-yid5jha3\\���� ����ɳ��\\research\\�ϳ� PRESSURE\\memory\\commits\\COM-be17dcb6-9770-4d07-a469-528eb317cabe'
+
+
+      107 |     process.on("exit", (code) => {
+      108 |       clearTimeout(timer);
+    > 109 |       fail(Error(`记忆服务退出 ${code}: ${output}`));
+          |            ^
+      110 |     });
+      111 |   });
+      112 | });
+        at ChildProcess.<anonymous> (D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\memory.spec.ts:109:12)
+
+    Error Context: test-results\memory-L0统一材料、无来源条目的Run、固定原件预览与清单导出\error-context.md
+
+    Error Context: test-results\memory-L0统一材料、无来源条目的Run、固定原件预览与清单导出\error-context.md
+
+  1 failed
+    e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 ─────────────────────────────────────────
+  7 did not run
+  8 passed (58.3s)

@@ -1,0 +1,2930 @@
+{
+  "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+  "fixture_version": 1,
+  "split": "development",
+  "phase": "development",
+  "k": 6,
+  "model": {
+    "provider": "onnx-cross-encoder",
+    "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+    "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+    "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+    "max_length": 512,
+    "batch_size": 16,
+    "implementation": "onnx-pair-batch-v1"
+  },
+  "source_sha256": {
+    "automation\\tests\\evaluate_retrieval_reranking.py": "41077d8e1f11b44015993a0f76299c96185214ce727a9da619317a275be0b49f",
+    "automation\\scripts\\material_query\\cross_encoder.py": "911e5b1e745753b91b8a9907d0e8bfe635d9d03659962060f686a93e0145cb86",
+    "automation\\scripts\\material_query\\reranking.py": "259c1dcfc8fa55e58efec7b6b344b7317de3acc2d2dbad4c039f66cda4af6321",
+    "automation\\scripts\\material_query\\conditions.py": "016de4dd22573a0a5ed574dfb54254d0150c70b200f5508b0556a1b2d8274434",
+    "automation\\scripts\\material_query\\query_plan.py": "006759b01a205ba348b1308cdd91a650a8cb80eb1d112fa824cc2b3c27d2cc41"
+  },
+  "cold_model_load_ms": 3910.2582999985316,
+  "rows": [
+    {
+      "query_id": "DEV-LOWTEMP-X200",
+      "question": "X200 型号在低于 -20°C 时如何避免启动失败？",
+      "query_sha256": "01d50804e7fb8fcfbb19098031698a327058b79d978b1bec31d76e8efefe7b2a",
+      "candidate_ids": [
+        "NEG-X200-5C",
+        "NEG-Y200-M30",
+        "DOC-X200-LOWTEMP",
+        "NEG-X200-NOSTART",
+        "NEG-X200-20C",
+        "NEG-X200-MANUAL",
+        "DOC-X200-HEATER"
+      ],
+      "candidate_coverage": {
+        "recall": 1.0,
+        "ndcg": 0.5060279590656247,
+        "matched": 2,
+        "relevant_count": 2,
+        "dcg": 4.5,
+        "ideal_dcg": 8.892789260714373,
+        "duplicates": 0,
+        "returned_count": 7,
+        "canonical_ids": [
+          "NEG-X200-5C",
+          "NEG-Y200-M30",
+          "DOC-X200-LOWTEMP",
+          "NEG-X200-NOSTART",
+          "NEG-X200-20C",
+          "NEG-X200-MANUAL",
+          "DOC-X200-HEATER"
+        ]
+      },
+      "variants": {
+        "rrf": {
+          "ranking": [
+            "NEG-X200-5C",
+            "NEG-Y200-M30",
+            "DOC-X200-LOWTEMP",
+            "NEG-X200-NOSTART",
+            "NEG-X200-20C",
+            "NEG-X200-MANUAL",
+            "DOC-X200-HEATER"
+          ],
+          "metrics": {
+            "recall": 0.5,
+            "ndcg": 0.3935773014954859,
+            "matched": 1,
+            "relevant_count": 2,
+            "dcg": 3.5,
+            "ideal_dcg": 8.892789260714373,
+            "duplicates": 0,
+            "returned_count": 7,
+            "canonical_ids": [
+              "NEG-X200-5C",
+              "NEG-Y200-M30",
+              "DOC-X200-LOWTEMP",
+              "NEG-X200-NOSTART",
+              "NEG-X200-20C",
+              "NEG-X200-MANUAL"
+            ]
+          },
+          "elapsed_ms": 1.3294999953359365,
+          "model_tokens": 0,
+          "no_answer_false_positive": null
+        },
+        "ce_short": {
+          "input_sha256": "4ef57bc77d302bc6d517525e99f0cb026e813119e9e7510f5eae1192f301ee21",
+          "inputs": [
+            {
+              "canonical_id": "NEG-X200-5C",
+              "text": "X200 cold-start validation\nPreheat improved starting.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Preheat improved starting.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-5C"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-Y200-M30",
+              "text": "Y200 cold-start validation\nPreheat prevents start failure at -30 °C.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Preheat prevents start failure at -30 °C.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-Y200-M30"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-X200-LOWTEMP",
+              "text": "X200 cold-start validation\nX200 at -30 °C; preheat prevents start failure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "X200 at -30 °C; preheat prevents start failure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-X200-LOWTEMP"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-X200-NOSTART",
+              "text": "X200 low-temperature test\nNo preheat procedure was tested.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "No preheat procedure was tested.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-NOSTART"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-X200-20C",
+              "text": "X200 nominal condition\n20 °C nominal startup.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "20 °C nominal startup.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-20C"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-X200-MANUAL",
+              "text": "X200 operation manual\nStarting guidance.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Starting guidance.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-MANUAL"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-X200-HEATER",
+              "text": "X200 heater procedure\nPreheat procedure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Preheat procedure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-X200-HEATER"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [],
+          "ranking": [
+            "DOC-X200-LOWTEMP",
+            "NEG-Y200-M30",
+            "NEG-X200-20C",
+            "NEG-X200-5C",
+            "NEG-X200-NOSTART",
+            "NEG-X200-MANUAL",
+            "DOC-X200-HEATER"
+          ],
+          "metrics": {
+            "recall": 0.5,
+            "ndcg": 0.7871546029909718,
+            "matched": 1,
+            "relevant_count": 2,
+            "dcg": 7.0,
+            "ideal_dcg": 8.892789260714373,
+            "duplicates": 0,
+            "returned_count": 7,
+            "canonical_ids": [
+              "DOC-X200-LOWTEMP",
+              "NEG-Y200-M30",
+              "NEG-X200-20C",
+              "NEG-X200-5C",
+              "NEG-X200-NOSTART",
+              "NEG-X200-MANUAL"
+            ]
+          },
+          "model_tokens": 486,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-X200-LOWTEMP",
+                "NEG-Y200-M30",
+                "NEG-X200-20C",
+                "NEG-X200-5C",
+                "NEG-X200-NOSTART",
+                "NEG-X200-MANUAL",
+                "DOC-X200-HEATER"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 7,
+                "scored_count": 7,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.0411000000895001,
+                "model_load_ms": 4.8051999983727,
+                "inference_ms": 132.07210000109626,
+                "total_ms": 141.53420000366168
+              },
+              "cost": {
+                "wall_ms": 141,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 243,
+                "model_calls": 1,
+                "model_input_tokens": 243,
+                "model_output_tokens": 0,
+                "rerank_items": 7
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-X200-LOWTEMP": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 5.971817493438721,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 43
+                },
+                "NEG-Y200-M30": {
+                  "original_rank": 2,
+                  "final_rank": 2,
+                  "ce_score": 0.5579156279563904,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 40
+                },
+                "NEG-X200-20C": {
+                  "original_rank": 5,
+                  "final_rank": 3,
+                  "ce_score": -1.5265250205993652,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 31
+                },
+                "NEG-X200-5C": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": -2.4221253395080566,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 34
+                },
+                "NEG-X200-NOSTART": {
+                  "original_rank": 4,
+                  "final_rank": 5,
+                  "ce_score": -3.0760815143585205,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 36
+                },
+                "NEG-X200-MANUAL": {
+                  "original_rank": 6,
+                  "final_rank": 6,
+                  "ce_score": -4.231227397918701,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 29
+                },
+                "DOC-X200-HEATER": {
+                  "original_rank": 7,
+                  "final_rank": 7,
+                  "ce_score": -5.02122163772583,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 30
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-X200-LOWTEMP",
+                "NEG-Y200-M30",
+                "NEG-X200-20C",
+                "NEG-X200-5C",
+                "NEG-X200-NOSTART",
+                "NEG-X200-MANUAL",
+                "DOC-X200-HEATER"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 7,
+                "scored_count": 7,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.042100000428035855,
+                "model_load_ms": 6.028099996910896,
+                "inference_ms": 144.70280000386992,
+                "total_ms": 152.3765000019921
+              },
+              "cost": {
+                "wall_ms": 155,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 243,
+                "model_calls": 1,
+                "model_input_tokens": 243,
+                "model_output_tokens": 0,
+                "rerank_items": 7
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-X200-LOWTEMP": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 5.971817493438721,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 43
+                },
+                "NEG-Y200-M30": {
+                  "original_rank": 2,
+                  "final_rank": 2,
+                  "ce_score": 0.5579156279563904,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 40
+                },
+                "NEG-X200-20C": {
+                  "original_rank": 5,
+                  "final_rank": 3,
+                  "ce_score": -1.5265250205993652,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 31
+                },
+                "NEG-X200-5C": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": -2.4221253395080566,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 34
+                },
+                "NEG-X200-NOSTART": {
+                  "original_rank": 4,
+                  "final_rank": 5,
+                  "ce_score": -3.0760815143585205,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 36
+                },
+                "NEG-X200-MANUAL": {
+                  "original_rank": 6,
+                  "final_rank": 6,
+                  "ce_score": -4.231227397918701,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 29
+                },
+                "DOC-X200-HEATER": {
+                  "original_rank": 7,
+                  "final_rank": 7,
+                  "ce_score": -5.02122163772583,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 30
+                }
+              }
+            }
+          ]
+        },
+        "ce_context": {
+          "input_sha256": "1db565be5d004b774e5179bdfb0a5cfc967034d8416683b08a0e7c319c871e48",
+          "inputs": [
+            {
+              "canonical_id": "NEG-X200-5C",
+              "text": "X200 cold-start validation\nDevice model: X200. Ambient temperature: 5 °C. Preheat improved starting. This does not establish behavior below -20 °C.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. Ambient temperature: 5 °C. Preheat improved starting. This does not establish behavior below -20 °C.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-5C"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-Y200-M30",
+              "text": "Y200 cold-start validation\nDevice model: Y200. Ambient temperature: -30 °C. Preheat prevented start failure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: Y200. Ambient temperature: -30 °C. Preheat prevented start failure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-Y200-M30"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-X200-LOWTEMP",
+              "text": "X200 cold-start validation\nDevice model: X200. Ambient temperature: -30 °C. A battery preheat cycle before ignition prevented start failure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. Ambient temperature: -30 °C. A battery preheat cycle before ignition prevented start failure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-X200-LOWTEMP"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-X200-NOSTART",
+              "text": "X200 low-temperature test\nDevice model: X200. Ambient temperature: -30 °C. No preheat procedure was tested; the report does not claim avoidance of start failure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. Ambient temperature: -30 °C. No preheat procedure was tested; the report does not claim avoidance of start failure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-NOSTART"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-X200-20C",
+              "text": "X200 nominal condition\nDevice model: X200. Ambient temperature: 20 °C. The nominal startup timing is reported.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. Ambient temperature: 20 °C. The nominal startup timing is reported.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-20C"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-X200-MANUAL",
+              "text": "X200 operation manual\nDevice model: X200. The operating temperature is not stated in this excerpt.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. The operating temperature is not stated in this excerpt.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-MANUAL"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-X200-HEATER",
+              "text": "X200 heater procedure\nThe procedure applies to X200 under -25 °C chamber conditions and reduces start failures.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "The procedure applies to X200 under -25 °C chamber conditions and reduces start failures.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-X200-HEATER"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [],
+          "ranking": [
+            "DOC-X200-LOWTEMP",
+            "DOC-X200-HEATER",
+            "NEG-X200-NOSTART",
+            "NEG-X200-5C",
+            "NEG-Y200-M30",
+            "NEG-X200-20C",
+            "NEG-X200-MANUAL"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 1.0,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 8.892789260714373,
+            "ideal_dcg": 8.892789260714373,
+            "duplicates": 0,
+            "returned_count": 7,
+            "canonical_ids": [
+              "DOC-X200-LOWTEMP",
+              "DOC-X200-HEATER",
+              "NEG-X200-NOSTART",
+              "NEG-X200-5C",
+              "NEG-Y200-M30",
+              "NEG-X200-20C"
+            ]
+          },
+          "model_tokens": 724,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-X200-LOWTEMP",
+                "DOC-X200-HEATER",
+                "NEG-X200-NOSTART",
+                "NEG-X200-5C",
+                "NEG-Y200-M30",
+                "NEG-X200-20C",
+                "NEG-X200-MANUAL"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 7,
+                "scored_count": 7,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.04340000305091962,
+                "model_load_ms": 10.859399997571018,
+                "inference_ms": 174.8682999968878,
+                "total_ms": 188.8466000018525
+              },
+              "cost": {
+                "wall_ms": 188,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 362,
+                "model_calls": 1,
+                "model_input_tokens": 362,
+                "model_output_tokens": 0,
+                "rerank_items": 7
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-X200-LOWTEMP": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 4.826268672943115,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 56
+                },
+                "DOC-X200-HEATER": {
+                  "original_rank": 7,
+                  "final_rank": 2,
+                  "ce_score": 4.699123382568359,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 48
+                },
+                "NEG-X200-NOSTART": {
+                  "original_rank": 4,
+                  "final_rank": 3,
+                  "ce_score": 3.656421422958374,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 61
+                },
+                "NEG-X200-5C": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 1.527742624282837,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 58
+                },
+                "NEG-Y200-M30": {
+                  "original_rank": 2,
+                  "final_rank": 5,
+                  "ce_score": 1.216072916984558,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-X200-20C": {
+                  "original_rank": 5,
+                  "final_rank": 6,
+                  "ce_score": -1.3884414434432983,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 46
+                },
+                "NEG-X200-MANUAL": {
+                  "original_rank": 6,
+                  "final_rank": 7,
+                  "ce_score": -4.942851543426514,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 44
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-X200-LOWTEMP",
+                "DOC-X200-HEATER",
+                "NEG-X200-NOSTART",
+                "NEG-X200-5C",
+                "NEG-Y200-M30",
+                "NEG-X200-20C",
+                "NEG-X200-MANUAL"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 7,
+                "scored_count": 7,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.05729999975301325,
+                "model_load_ms": 4.085999993549194,
+                "inference_ms": 287.4059000023408,
+                "total_ms": 304.11139999341685
+              },
+              "cost": {
+                "wall_ms": 296,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 362,
+                "model_calls": 1,
+                "model_input_tokens": 362,
+                "model_output_tokens": 0,
+                "rerank_items": 7
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-X200-LOWTEMP": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 4.826268672943115,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 56
+                },
+                "DOC-X200-HEATER": {
+                  "original_rank": 7,
+                  "final_rank": 2,
+                  "ce_score": 4.699123382568359,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 48
+                },
+                "NEG-X200-NOSTART": {
+                  "original_rank": 4,
+                  "final_rank": 3,
+                  "ce_score": 3.656421422958374,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 61
+                },
+                "NEG-X200-5C": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 1.527742624282837,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 58
+                },
+                "NEG-Y200-M30": {
+                  "original_rank": 2,
+                  "final_rank": 5,
+                  "ce_score": 1.216072916984558,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-X200-20C": {
+                  "original_rank": 5,
+                  "final_rank": 6,
+                  "ce_score": -1.3884414434432983,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 46
+                },
+                "NEG-X200-MANUAL": {
+                  "original_rank": 6,
+                  "final_rank": 7,
+                  "ce_score": -4.942851543426514,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 44
+                }
+              }
+            }
+          ]
+        },
+        "ce_context_conditions": {
+          "input_sha256": "1db565be5d004b774e5179bdfb0a5cfc967034d8416683b08a0e7c319c871e48",
+          "inputs": [
+            {
+              "canonical_id": "NEG-X200-5C",
+              "text": "X200 cold-start validation\nDevice model: X200. Ambient temperature: 5 °C. Preheat improved starting. This does not establish behavior below -20 °C.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. Ambient temperature: 5 °C. Preheat improved starting. This does not establish behavior below -20 °C.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-5C"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-Y200-M30",
+              "text": "Y200 cold-start validation\nDevice model: Y200. Ambient temperature: -30 °C. Preheat prevented start failure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: Y200. Ambient temperature: -30 °C. Preheat prevented start failure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-Y200-M30"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-X200-LOWTEMP",
+              "text": "X200 cold-start validation\nDevice model: X200. Ambient temperature: -30 °C. A battery preheat cycle before ignition prevented start failure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. Ambient temperature: -30 °C. A battery preheat cycle before ignition prevented start failure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-X200-LOWTEMP"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-X200-NOSTART",
+              "text": "X200 low-temperature test\nDevice model: X200. Ambient temperature: -30 °C. No preheat procedure was tested; the report does not claim avoidance of start failure.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. Ambient temperature: -30 °C. No preheat procedure was tested; the report does not claim avoidance of start failure.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-NOSTART"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-X200-20C",
+              "text": "X200 nominal condition\nDevice model: X200. Ambient temperature: 20 °C. The nominal startup timing is reported.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. Ambient temperature: 20 °C. The nominal startup timing is reported.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-20C"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-X200-MANUAL",
+              "text": "X200 operation manual\nDevice model: X200. The operating temperature is not stated in this excerpt.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Device model: X200. The operating temperature is not stated in this excerpt.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-X200-MANUAL"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-X200-HEATER",
+              "text": "X200 heater procedure\nThe procedure applies to X200 under -25 °C chamber conditions and reduces start failures.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "The procedure applies to X200 under -25 °C chamber conditions and reduces start failures.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-X200-HEATER"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "id": "model",
+              "field": "model",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "X200"
+            },
+            {
+              "id": "temperature",
+              "field": "temperature",
+              "kind": "numeric",
+              "operator": "lt",
+              "expected": -20.0,
+              "unit": "°C"
+            },
+            {
+              "id": "intent",
+              "field": "intent",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "avoid start failure"
+            }
+          ],
+          "ranking": [
+            "DOC-X200-LOWTEMP",
+            "DOC-X200-HEATER",
+            "NEG-X200-NOSTART",
+            "NEG-X200-5C",
+            "NEG-Y200-M30",
+            "NEG-X200-20C",
+            "NEG-X200-MANUAL"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 1.0,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 8.892789260714373,
+            "ideal_dcg": 8.892789260714373,
+            "duplicates": 0,
+            "returned_count": 7,
+            "canonical_ids": [
+              "DOC-X200-LOWTEMP",
+              "DOC-X200-HEATER",
+              "NEG-X200-NOSTART",
+              "NEG-X200-5C",
+              "NEG-Y200-M30",
+              "NEG-X200-20C"
+            ]
+          },
+          "model_tokens": 724,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-X200-LOWTEMP",
+                "DOC-X200-HEATER",
+                "NEG-X200-NOSTART",
+                "NEG-X200-5C",
+                "NEG-Y200-M30",
+                "NEG-X200-20C",
+                "NEG-X200-MANUAL"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 7,
+                "scored_count": 7,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 2.137200004654005,
+                "model_load_ms": 12.422100000549108,
+                "inference_ms": 352.1649000031175,
+                "total_ms": 368.77559999993537
+              },
+              "cost": {
+                "wall_ms": 375,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 362,
+                "model_calls": 1,
+                "model_input_tokens": 362,
+                "model_output_tokens": 0,
+                "rerank_items": 7
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-X200-LOWTEMP": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 4.826268672943115,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 56
+                },
+                "DOC-X200-HEATER": {
+                  "original_rank": 7,
+                  "final_rank": 2,
+                  "ce_score": 4.699123382568359,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 48
+                },
+                "NEG-X200-NOSTART": {
+                  "original_rank": 4,
+                  "final_rank": 3,
+                  "ce_score": 3.656421422958374,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 61
+                },
+                "NEG-X200-5C": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 1.527742624282837,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 58
+                },
+                "NEG-Y200-M30": {
+                  "original_rank": 2,
+                  "final_rank": 5,
+                  "ce_score": 1.216072916984558,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-X200-20C": {
+                  "original_rank": 5,
+                  "final_rank": 6,
+                  "ce_score": -1.3884414434432983,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 46
+                },
+                "NEG-X200-MANUAL": {
+                  "original_rank": 6,
+                  "final_rank": 7,
+                  "ce_score": -4.942851543426514,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 44
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-X200-LOWTEMP",
+                "DOC-X200-HEATER",
+                "NEG-X200-NOSTART",
+                "NEG-X200-5C",
+                "NEG-Y200-M30",
+                "NEG-X200-20C",
+                "NEG-X200-MANUAL"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 7,
+                "scored_count": 7,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.3865000035148114,
+                "model_load_ms": 3.314500005217269,
+                "inference_ms": 279.1685999982292,
+                "total_ms": 284.70280000328785
+              },
+              "cost": {
+                "wall_ms": 281,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 362,
+                "model_calls": 1,
+                "model_input_tokens": 362,
+                "model_output_tokens": 0,
+                "rerank_items": 7
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-X200-LOWTEMP": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 4.826268672943115,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 56
+                },
+                "DOC-X200-HEATER": {
+                  "original_rank": 7,
+                  "final_rank": 2,
+                  "ce_score": 4.699123382568359,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 48
+                },
+                "NEG-X200-NOSTART": {
+                  "original_rank": 4,
+                  "final_rank": 3,
+                  "ce_score": 3.656421422958374,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 61
+                },
+                "NEG-X200-5C": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 1.527742624282837,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 58
+                },
+                "NEG-Y200-M30": {
+                  "original_rank": 2,
+                  "final_rank": 5,
+                  "ce_score": 1.216072916984558,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-X200-20C": {
+                  "original_rank": 5,
+                  "final_rank": 6,
+                  "ce_score": -1.3884414434432983,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 46
+                },
+                "NEG-X200-MANUAL": {
+                  "original_rank": 6,
+                  "final_rank": 7,
+                  "ce_score": -4.942851543426514,
+                  "conditions": [
+                    {
+                      "id": "model",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "temperature",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "intent",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 44
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "DEV-BILINGUAL-DEDUP",
+      "question": "在 plasma-assisted coating 中，哪项结果证明 3.0 mm nozzle gap 降低 porosity？",
+      "query_sha256": "59a4fa5943e99ad8d071fbba108b12cdacc952e62f4ad4b8c19195963978efec",
+      "candidate_ids": [
+        "NEG-COATING-30MM",
+        "NEG-COATING-3MM-HIGH",
+        "DOC-COATING-3MM",
+        "NEG-COATING-UNKNOWN",
+        "DOC-COATING-3MM-BLOCK"
+      ],
+      "candidate_coverage": {
+        "recall": 1.0,
+        "ndcg": 0.5240828591646209,
+        "matched": 2,
+        "relevant_count": 2,
+        "dcg": 4.660558421703625,
+        "ideal_dcg": 8.892789260714373,
+        "duplicates": 0,
+        "returned_count": 5,
+        "canonical_ids": [
+          "NEG-COATING-30MM",
+          "NEG-COATING-3MM-HIGH",
+          "DOC-COATING-3MM",
+          "NEG-COATING-UNKNOWN",
+          "DOC-COATING-3MM-BLOCK"
+        ]
+      },
+      "variants": {
+        "rrf": {
+          "ranking": [
+            "NEG-COATING-30MM",
+            "NEG-COATING-3MM-HIGH",
+            "DOC-COATING-3MM",
+            "NEG-COATING-UNKNOWN",
+            "DOC-COATING-3MM-BLOCK"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 0.5240828591646209,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 4.660558421703625,
+            "ideal_dcg": 8.892789260714373,
+            "duplicates": 0,
+            "returned_count": 5,
+            "canonical_ids": [
+              "NEG-COATING-30MM",
+              "NEG-COATING-3MM-HIGH",
+              "DOC-COATING-3MM",
+              "NEG-COATING-UNKNOWN",
+              "DOC-COATING-3MM-BLOCK"
+            ]
+          },
+          "elapsed_ms": 0.7715000028838404,
+          "model_tokens": 0,
+          "no_answer_false_positive": null
+        },
+        "ce_short": {
+          "input_sha256": "d767ed366305979e75fa6b9a408025d257d0a809e5675a3d3a2f0a11803a53b2",
+          "inputs": [
+            {
+              "canonical_id": "NEG-COATING-30MM",
+              "text": "Plasma-assisted coating gap study\n30 mm gap result.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "30 mm gap result.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-COATING-30MM"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-COATING-3MM-HIGH",
+              "text": "Plasma-assisted coating gap study\n3.0 mm porosity result.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "3.0 mm porosity result.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-COATING-3MM-HIGH"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-COATING-3MM",
+              "text": "Plasma-assisted coating gap study\n3.0 mm gap reduced porosity.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "3.0 mm gap reduced porosity.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-COATING-3MM"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-COATING-UNKNOWN",
+              "text": "Coating process note\nPorosity measurement.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Porosity measurement.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-COATING-UNKNOWN"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-COATING-3MM-BLOCK",
+              "text": "Plasma-assisted coating gap study: Table 2\n3.0 mm, porosity 1.2%.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "3.0 mm, porosity 1.2%.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-COATING-3MM-BLOCK"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [],
+          "ranking": [
+            "DOC-COATING-3MM",
+            "NEG-COATING-3MM-HIGH",
+            "DOC-COATING-3MM-BLOCK",
+            "NEG-COATING-30MM",
+            "NEG-COATING-UNKNOWN"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 0.95583058934618,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 8.5,
+            "ideal_dcg": 8.892789260714373,
+            "duplicates": 0,
+            "returned_count": 5,
+            "canonical_ids": [
+              "DOC-COATING-3MM",
+              "NEG-COATING-3MM-HIGH",
+              "DOC-COATING-3MM-BLOCK",
+              "NEG-COATING-30MM",
+              "NEG-COATING-UNKNOWN"
+            ]
+          },
+          "model_tokens": 442,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "DOC-COATING-3MM",
+                "NEG-COATING-3MM-HIGH",
+                "DOC-COATING-3MM-BLOCK",
+                "NEG-COATING-30MM",
+                "NEG-COATING-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 5,
+                "scored_count": 5,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.030399998649954796,
+                "model_load_ms": 4.825100004381966,
+                "inference_ms": 110.56600000301842,
+                "total_ms": 117.73810000158846
+              },
+              "cost": {
+                "wall_ms": 125,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 221,
+                "model_calls": 1,
+                "model_input_tokens": 221,
+                "model_output_tokens": 0,
+                "rerank_items": 5
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-COATING-3MM": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 10.791996955871582,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 46
+                },
+                "NEG-COATING-3MM-HIGH": {
+                  "original_rank": 2,
+                  "final_rank": 2,
+                  "ce_score": 10.142127990722656,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 44
+                },
+                "DOC-COATING-3MM-BLOCK": {
+                  "original_rank": 5,
+                  "final_rank": 3,
+                  "ce_score": 7.210316181182861,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-COATING-30MM": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 4.319324493408203,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 43
+                },
+                "NEG-COATING-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 5,
+                  "ce_score": -4.917421340942383,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 39
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "DOC-COATING-3MM",
+                "NEG-COATING-3MM-HIGH",
+                "DOC-COATING-3MM-BLOCK",
+                "NEG-COATING-30MM",
+                "NEG-COATING-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 5,
+                "scored_count": 5,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.026699999580159783,
+                "model_load_ms": 4.612099997757468,
+                "inference_ms": 183.8424000015948,
+                "total_ms": 189.66100000398
+              },
+              "cost": {
+                "wall_ms": 186,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 221,
+                "model_calls": 1,
+                "model_input_tokens": 221,
+                "model_output_tokens": 0,
+                "rerank_items": 5
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "DOC-COATING-3MM": {
+                  "original_rank": 3,
+                  "final_rank": 1,
+                  "ce_score": 10.791996955871582,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 46
+                },
+                "NEG-COATING-3MM-HIGH": {
+                  "original_rank": 2,
+                  "final_rank": 2,
+                  "ce_score": 10.142127990722656,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 44
+                },
+                "DOC-COATING-3MM-BLOCK": {
+                  "original_rank": 5,
+                  "final_rank": 3,
+                  "ce_score": 7.210316181182861,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 49
+                },
+                "NEG-COATING-30MM": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 4.319324493408203,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 43
+                },
+                "NEG-COATING-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 5,
+                  "ce_score": -4.917421340942383,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 39
+                }
+              }
+            }
+          ]
+        },
+        "ce_context": {
+          "input_sha256": "f422835915f92cf8fbdf7b5dd7715942c6bf67476cdc1a735e360ef079f3802e",
+          "inputs": [
+            {
+              "canonical_id": "NEG-COATING-30MM",
+              "text": "Plasma-assisted coating gap study\nPlasma-assisted coating at a 30 mm nozzle gap is outside the requested 3.0 mm setting.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Plasma-assisted coating at a 30 mm nozzle gap is outside the requested 3.0 mm setting.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-COATING-30MM"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-COATING-3MM-HIGH",
+              "text": "Plasma-assisted coating gap study\nAt a 3.0 mm nozzle gap, porosity increased to 3.1% relative to the control.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "At a 3.0 mm nozzle gap, porosity increased to 3.1% relative to the control.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-COATING-3MM-HIGH"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-COATING-3MM",
+              "text": "Plasma-assisted coating gap study\nTable 2, plasma-assisted coating: nozzle gap 3.0 mm; porosity 1.2%, lower than the 5.0 mm control (2.1%).",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Table 2, plasma-assisted coating: nozzle gap 3.0 mm; porosity 1.2%, lower than the 5.0 mm control (2.1%).",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-COATING-3MM"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-COATING-UNKNOWN",
+              "text": "Coating process note\nThe process and nozzle gap are not stated in the available passage.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "The process and nozzle gap are not stated in the available passage.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-COATING-UNKNOWN"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-COATING-3MM-BLOCK",
+              "text": "Plasma-assisted coating gap study: Table 2\nTable 2 header: nozzle gap (mm), porosity (%). For plasma-assisted coating, 3.0 mm = 1.2%; 5.0 mm control = 2.1%.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Table 2 header: nozzle gap (mm), porosity (%). For plasma-assisted coating, 3.0 mm = 1.2%; 5.0 mm control = 2.1%.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-COATING-3MM-BLOCK"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [],
+          "ranking": [
+            "NEG-COATING-3MM-HIGH",
+            "DOC-COATING-3MM",
+            "DOC-COATING-3MM-BLOCK",
+            "NEG-COATING-30MM",
+            "NEG-COATING-UNKNOWN"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 0.6653152460429406,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 5.9165082750002025,
+            "ideal_dcg": 8.892789260714373,
+            "duplicates": 0,
+            "returned_count": 5,
+            "canonical_ids": [
+              "NEG-COATING-3MM-HIGH",
+              "DOC-COATING-3MM",
+              "DOC-COATING-3MM-BLOCK",
+              "NEG-COATING-30MM",
+              "NEG-COATING-UNKNOWN"
+            ]
+          },
+          "model_tokens": 636,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "NEG-COATING-3MM-HIGH",
+                "DOC-COATING-3MM",
+                "DOC-COATING-3MM-BLOCK",
+                "NEG-COATING-30MM",
+                "NEG-COATING-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 5,
+                "scored_count": 5,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.019699997210409492,
+                "model_load_ms": 3.3046999960788526,
+                "inference_ms": 190.4426000037347,
+                "total_ms": 196.74529999610968
+              },
+              "cost": {
+                "wall_ms": 188,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 318,
+                "model_calls": 1,
+                "model_input_tokens": 318,
+                "model_output_tokens": 0,
+                "rerank_items": 5
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "NEG-COATING-3MM-HIGH": {
+                  "original_rank": 2,
+                  "final_rank": 1,
+                  "ce_score": 10.177319526672363,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 58
+                },
+                "DOC-COATING-3MM": {
+                  "original_rank": 3,
+                  "final_rank": 2,
+                  "ce_score": 8.624207496643066,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 70
+                },
+                "DOC-COATING-3MM-BLOCK": {
+                  "original_rank": 5,
+                  "final_rank": 3,
+                  "ce_score": 6.932875633239746,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 79
+                },
+                "NEG-COATING-30MM": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 4.435612678527832,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 62
+                },
+                "NEG-COATING-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 5,
+                  "ce_score": -4.932283878326416,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 49
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "NEG-COATING-3MM-HIGH",
+                "DOC-COATING-3MM",
+                "DOC-COATING-3MM-BLOCK",
+                "NEG-COATING-30MM",
+                "NEG-COATING-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 5,
+                "scored_count": 5,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.026599998818710446,
+                "model_load_ms": 4.482699994696304,
+                "inference_ms": 292.34339999675285,
+                "total_ms": 298.4664000032353
+              },
+              "cost": {
+                "wall_ms": 311,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 318,
+                "model_calls": 1,
+                "model_input_tokens": 318,
+                "model_output_tokens": 0,
+                "rerank_items": 5
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "NEG-COATING-3MM-HIGH": {
+                  "original_rank": 2,
+                  "final_rank": 1,
+                  "ce_score": 10.177319526672363,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 58
+                },
+                "DOC-COATING-3MM": {
+                  "original_rank": 3,
+                  "final_rank": 2,
+                  "ce_score": 8.624207496643066,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 70
+                },
+                "DOC-COATING-3MM-BLOCK": {
+                  "original_rank": 5,
+                  "final_rank": 3,
+                  "ce_score": 6.932875633239746,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 79
+                },
+                "NEG-COATING-30MM": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 4.435612678527832,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 62
+                },
+                "NEG-COATING-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 5,
+                  "ce_score": -4.932283878326416,
+                  "conditions": [],
+                  "issues": [],
+                  "input_tokens": 49
+                }
+              }
+            }
+          ]
+        },
+        "ce_context_conditions": {
+          "input_sha256": "f422835915f92cf8fbdf7b5dd7715942c6bf67476cdc1a735e360ef079f3802e",
+          "inputs": [
+            {
+              "canonical_id": "NEG-COATING-30MM",
+              "text": "Plasma-assisted coating gap study\nPlasma-assisted coating at a 30 mm nozzle gap is outside the requested 3.0 mm setting.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Plasma-assisted coating at a 30 mm nozzle gap is outside the requested 3.0 mm setting.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-COATING-30MM"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-COATING-3MM-HIGH",
+              "text": "Plasma-assisted coating gap study\nAt a 3.0 mm nozzle gap, porosity increased to 3.1% relative to the control.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "At a 3.0 mm nozzle gap, porosity increased to 3.1% relative to the control.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-COATING-3MM-HIGH"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-COATING-3MM",
+              "text": "Plasma-assisted coating gap study\nTable 2, plasma-assisted coating: nozzle gap 3.0 mm; porosity 1.2%, lower than the 5.0 mm control (2.1%).",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Table 2, plasma-assisted coating: nozzle gap 3.0 mm; porosity 1.2%, lower than the 5.0 mm control (2.1%).",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-COATING-3MM"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "NEG-COATING-UNKNOWN",
+              "text": "Coating process note\nThe process and nozzle gap are not stated in the available passage.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "The process and nozzle gap are not stated in the available passage.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "NEG-COATING-UNKNOWN"
+                  }
+                }
+              ]
+            },
+            {
+              "canonical_id": "DOC-COATING-3MM-BLOCK",
+              "text": "Plasma-assisted coating gap study: Table 2\nTable 2 header: nozzle gap (mm), porosity (%). For plasma-assisted coating, 3.0 mm = 1.2%; 5.0 mm control = 2.1%.",
+              "complete": true,
+              "evidence_parts": [
+                {
+                  "text": "Table 2 header: nozzle gap (mm), porosity (%). For plasma-assisted coating, 3.0 mm = 1.2%; 5.0 mm control = 2.1%.",
+                  "role": "direct",
+                  "ref": {
+                    "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+                    "canonical_id": "DOC-COATING-3MM-BLOCK"
+                  }
+                }
+              ]
+            }
+          ],
+          "conditions": [
+            {
+              "id": "process",
+              "field": "process",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "plasma-assisted coating"
+            },
+            {
+              "id": "nozzle_gap",
+              "field": "nozzle_gap",
+              "kind": "numeric",
+              "operator": "eq",
+              "expected": 3.0,
+              "unit": "mm"
+            },
+            {
+              "id": "outcome",
+              "field": "outcome",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "lower porosity"
+            }
+          ],
+          "ranking": [
+            "NEG-COATING-3MM-HIGH",
+            "DOC-COATING-3MM",
+            "DOC-COATING-3MM-BLOCK",
+            "NEG-COATING-30MM",
+            "NEG-COATING-UNKNOWN"
+          ],
+          "metrics": {
+            "recall": 1.0,
+            "ndcg": 0.6653152460429406,
+            "matched": 2,
+            "relevant_count": 2,
+            "dcg": 5.9165082750002025,
+            "ideal_dcg": 8.892789260714373,
+            "duplicates": 0,
+            "returned_count": 5,
+            "canonical_ids": [
+              "NEG-COATING-3MM-HIGH",
+              "DOC-COATING-3MM",
+              "DOC-COATING-3MM-BLOCK",
+              "NEG-COATING-30MM",
+              "NEG-COATING-UNKNOWN"
+            ]
+          },
+          "model_tokens": 636,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": null,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [
+                "NEG-COATING-3MM-HIGH",
+                "DOC-COATING-3MM",
+                "DOC-COATING-3MM-BLOCK",
+                "NEG-COATING-30MM",
+                "NEG-COATING-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 5,
+                "scored_count": 5,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 2.1422999998321757,
+                "model_load_ms": 7.723500006250106,
+                "inference_ms": 183.73330000031274,
+                "total_ms": 203.22630000009667
+              },
+              "cost": {
+                "wall_ms": 203,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 318,
+                "model_calls": 1,
+                "model_input_tokens": 318,
+                "model_output_tokens": 0,
+                "rerank_items": 5
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "NEG-COATING-3MM-HIGH": {
+                  "original_rank": 2,
+                  "final_rank": 1,
+                  "ce_score": 10.177319526672363,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 58
+                },
+                "DOC-COATING-3MM": {
+                  "original_rank": 3,
+                  "final_rank": 2,
+                  "ce_score": 8.624207496643066,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 70
+                },
+                "DOC-COATING-3MM-BLOCK": {
+                  "original_rank": 5,
+                  "final_rank": 3,
+                  "ce_score": 6.932875633239746,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 79
+                },
+                "NEG-COATING-30MM": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 4.435612678527832,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 62
+                },
+                "NEG-COATING-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 5,
+                  "ce_score": -4.932283878326416,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 49
+                }
+              }
+            },
+            {
+              "repeat": 1,
+              "ranking": [
+                "NEG-COATING-3MM-HIGH",
+                "DOC-COATING-3MM",
+                "DOC-COATING-3MM-BLOCK",
+                "NEG-COATING-30MM",
+                "NEG-COATING-UNKNOWN"
+              ],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "reranked",
+                "candidate_count": 5,
+                "scored_count": 5,
+                "model": {
+                  "provider": "onnx-cross-encoder",
+                  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+                  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+                  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+                  "max_length": 512,
+                  "batch_size": 16,
+                  "implementation": "onnx-pair-batch-v1"
+                },
+                "condition_ms": 0.3080000024056062,
+                "model_load_ms": 4.041500003950205,
+                "inference_ms": 278.54089999891585,
+                "total_ms": 284.6016999974381
+              },
+              "cost": {
+                "wall_ms": 281,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 318,
+                "model_calls": 1,
+                "model_input_tokens": 318,
+                "model_output_tokens": 0,
+                "rerank_items": 5
+              },
+              "gaps": [],
+              "scores_and_conditions": {
+                "NEG-COATING-3MM-HIGH": {
+                  "original_rank": 2,
+                  "final_rank": 1,
+                  "ce_score": 10.177319526672363,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 58
+                },
+                "DOC-COATING-3MM": {
+                  "original_rank": 3,
+                  "final_rank": 2,
+                  "ce_score": 8.624207496643066,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 70
+                },
+                "DOC-COATING-3MM-BLOCK": {
+                  "original_rank": 5,
+                  "final_rank": 3,
+                  "ce_score": 6.932875633239746,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 79
+                },
+                "NEG-COATING-30MM": {
+                  "original_rank": 1,
+                  "final_rank": 4,
+                  "ce_score": 4.435612678527832,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 62
+                },
+                "NEG-COATING-UNKNOWN": {
+                  "original_rank": 4,
+                  "final_rank": 5,
+                  "ce_score": -4.932283878326416,
+                  "conditions": [
+                    {
+                      "id": "process",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "nozzle_gap",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    },
+                    {
+                      "id": "outcome",
+                      "status": "unknown",
+                      "reason": "insufficient_evidence",
+                      "evidence": []
+                    }
+                  ],
+                  "issues": [],
+                  "input_tokens": 49
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query_id": "DEV-NOANSWER",
+      "question": "Does the Z900 manual approve operation below -50 °C?",
+      "query_sha256": "5389d199263593fd13b28da3840e8a2bb0c5a96becb8b868d6b0578c58f761e0",
+      "candidate_ids": [],
+      "candidate_coverage": {
+        "recall": null,
+        "ndcg": null,
+        "matched": 0,
+        "relevant_count": 0,
+        "dcg": 0,
+        "ideal_dcg": 0,
+        "duplicates": 0,
+        "returned_count": 0,
+        "canonical_ids": []
+      },
+      "variants": {
+        "rrf": {
+          "ranking": [],
+          "metrics": {
+            "recall": null,
+            "ndcg": null,
+            "matched": 0,
+            "relevant_count": 0,
+            "dcg": 0,
+            "ideal_dcg": 0,
+            "duplicates": 0,
+            "returned_count": 0,
+            "canonical_ids": []
+          },
+          "elapsed_ms": 0.019599996448960155,
+          "model_tokens": 0,
+          "no_answer_false_positive": false
+        },
+        "ce_short": {
+          "input_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "inputs": [],
+          "conditions": [],
+          "ranking": [],
+          "metrics": {
+            "recall": null,
+            "ndcg": null,
+            "matched": 0,
+            "relevant_count": 0,
+            "dcg": 0,
+            "ideal_dcg": 0,
+            "duplicates": 0,
+            "returned_count": 0,
+            "canonical_ids": []
+          },
+          "model_tokens": 0,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": false,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "off",
+                "candidate_count": 0,
+                "scored_count": 0,
+                "model": null,
+                "condition_ms": 0.0,
+                "model_load_ms": 0.0,
+                "inference_ms": 0.0,
+                "total_ms": 0.012500000593718141
+              },
+              "cost": {
+                "wall_ms": 0,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 0,
+                "model_calls": 0,
+                "model_input_tokens": 0,
+                "model_output_tokens": 0,
+                "rerank_items": 0
+              },
+              "gaps": [],
+              "scores_and_conditions": {}
+            },
+            {
+              "repeat": 1,
+              "ranking": [],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "off",
+                "candidate_count": 0,
+                "scored_count": 0,
+                "model": null,
+                "condition_ms": 0.0,
+                "model_load_ms": 0.0,
+                "inference_ms": 0.0,
+                "total_ms": 0.00530000397702679
+              },
+              "cost": {
+                "wall_ms": 0,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 0,
+                "model_calls": 0,
+                "model_input_tokens": 0,
+                "model_output_tokens": 0,
+                "rerank_items": 0
+              },
+              "gaps": [],
+              "scores_and_conditions": {}
+            }
+          ]
+        },
+        "ce_context": {
+          "input_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "inputs": [],
+          "conditions": [],
+          "ranking": [],
+          "metrics": {
+            "recall": null,
+            "ndcg": null,
+            "matched": 0,
+            "relevant_count": 0,
+            "dcg": 0,
+            "ideal_dcg": 0,
+            "duplicates": 0,
+            "returned_count": 0,
+            "canonical_ids": []
+          },
+          "model_tokens": 0,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": false,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "off",
+                "candidate_count": 0,
+                "scored_count": 0,
+                "model": null,
+                "condition_ms": 0.0,
+                "model_load_ms": 0.0,
+                "inference_ms": 0.0,
+                "total_ms": 0.005200003215577453
+              },
+              "cost": {
+                "wall_ms": 0,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 0,
+                "model_calls": 0,
+                "model_input_tokens": 0,
+                "model_output_tokens": 0,
+                "rerank_items": 0
+              },
+              "gaps": [],
+              "scores_and_conditions": {}
+            },
+            {
+              "repeat": 1,
+              "ranking": [],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "off",
+                "candidate_count": 0,
+                "scored_count": 0,
+                "model": null,
+                "condition_ms": 0.0,
+                "model_load_ms": 0.0,
+                "inference_ms": 0.0,
+                "total_ms": 0.0047000066842883825
+              },
+              "cost": {
+                "wall_ms": 0,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 0,
+                "model_calls": 0,
+                "model_input_tokens": 0,
+                "model_output_tokens": 0,
+                "rerank_items": 0
+              },
+              "gaps": [],
+              "scores_and_conditions": {}
+            }
+          ]
+        },
+        "ce_context_conditions": {
+          "input_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "inputs": [],
+          "conditions": [
+            {
+              "id": "model",
+              "field": "model",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "Z900"
+            },
+            {
+              "id": "temperature",
+              "field": "temperature",
+              "kind": "numeric",
+              "operator": "lt",
+              "expected": -50.0,
+              "unit": "°C"
+            },
+            {
+              "id": "intent",
+              "field": "intent",
+              "kind": "literal",
+              "operator": "eq",
+              "expected": "approved operation"
+            }
+          ],
+          "ranking": [],
+          "metrics": {
+            "recall": null,
+            "ndcg": null,
+            "matched": 0,
+            "relevant_count": 0,
+            "dcg": 0,
+            "ideal_dcg": 0,
+            "duplicates": 0,
+            "returned_count": 0,
+            "canonical_ids": []
+          },
+          "model_tokens": 0,
+          "warm_repeat_stable": true,
+          "no_answer_false_positive": false,
+          "attempts": [
+            {
+              "repeat": 0,
+              "ranking": [],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "off",
+                "candidate_count": 0,
+                "scored_count": 0,
+                "model": null,
+                "condition_ms": 0.0,
+                "model_load_ms": 0.0,
+                "inference_ms": 0.0,
+                "total_ms": 0.0046000059228390455
+              },
+              "cost": {
+                "wall_ms": 0,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 0,
+                "model_calls": 0,
+                "model_input_tokens": 0,
+                "model_output_tokens": 0,
+                "rerank_items": 0
+              },
+              "gaps": [],
+              "scores_and_conditions": {}
+            },
+            {
+              "repeat": 1,
+              "ranking": [],
+              "diagnostics": {
+                "version": "context-conditions-ce-v1",
+                "mode": "required",
+                "status": "off",
+                "candidate_count": 0,
+                "scored_count": 0,
+                "model": null,
+                "condition_ms": 0.0,
+                "model_load_ms": 0.0,
+                "inference_ms": 0.0,
+                "total_ms": 0.0039000005926936865
+              },
+              "cost": {
+                "wall_ms": 0,
+                "read_bytes": 0,
+                "output_chars": 0,
+                "candidates": 0,
+                "graph_nodes": 0,
+                "graph_edges": 0,
+                "graph_hops": 0,
+                "model_tokens": 0,
+                "model_calls": 0,
+                "model_input_tokens": 0,
+                "model_output_tokens": 0,
+                "rerank_items": 0
+              },
+              "gaps": [],
+              "scores_and_conditions": {}
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "rrf": {
+      "scored_queries": 2,
+      "recall_at_6": 0.75,
+      "ndcg_at_6": 0.45883008033005346,
+      "no_answer_count": 1,
+      "no_answer_false_positives": 0,
+      "total_model_tokens_including_repeat": 0,
+      "condition_status_counts": {}
+    },
+    "ce_short": {
+      "scored_queries": 2,
+      "recall_at_6": 0.75,
+      "ndcg_at_6": 0.871492596168576,
+      "no_answer_count": 1,
+      "no_answer_false_positives": 0,
+      "total_model_tokens_including_repeat": 928,
+      "condition_status_counts": {}
+    },
+    "ce_context": {
+      "scored_queries": 2,
+      "recall_at_6": 1.0,
+      "ndcg_at_6": 0.8326576230214703,
+      "no_answer_count": 1,
+      "no_answer_false_positives": 0,
+      "total_model_tokens_including_repeat": 1360,
+      "condition_status_counts": {}
+    },
+    "ce_context_conditions": {
+      "scored_queries": 2,
+      "recall_at_6": 1.0,
+      "ndcg_at_6": 0.8326576230214703,
+      "no_answer_count": 1,
+      "no_answer_false_positives": 0,
+      "total_model_tokens_including_repeat": 1360,
+      "condition_status_counts": {
+        "unknown": 36
+      }
+    }
+  },
+  "limitations": [
+    "合成固定候选池；不含线上召回、权限回读及上下文组装耗时。",
+    "短输入是有意的消融输入，并不声称它具有完整上下文。",
+    "条件只使用查询显式字段；未知不转成满足或冲突。",
+    "无答案误报仅测是否返回候选；没有训练分数阈值，空候选题不能验证拒答能力。",
+    "冷耗时是进程首次加载，操作系统文件缓存未清空；暖运行重复一次并如实计费。"
+  ]
+}

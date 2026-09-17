@@ -1,0 +1,28 @@
+{
+  "repo": {
+    "full_name": "livky/A_work_auto_flow",
+    "private": false,
+    "default_branch": "main"
+  },
+  "releases": [
+    {
+      "id": 387728000,
+      "tag_name": "v0.2.0",
+      "draft": false,
+      "html_url": "https://github.com/livky/A_work_auto_flow/releases/tag/v0.2.0"
+    },
+    {
+      "id": 384175029,
+      "tag_name": "v0.1.1",
+      "draft": false,
+      "html_url": "https://github.com/livky/A_work_auto_flow/releases/tag/v0.1.1"
+    },
+    {
+      "id": 384012804,
+      "tag_name": "v0.1.0",
+      "draft": false,
+      "html_url": "https://github.com/livky/A_work_auto_flow/releases/tag/v0.1.0"
+    }
+  ],
+  "main": "28f05ad8408991e8ec21fcd50dc5fbf59218093b"
+}

@@ -1,0 +1,140 @@
+{
+  "actor": "setup",
+  "action": "reading-start",
+  "request": {
+    "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+    "goal": "阅读Northstar温度换算材料，判断方法能否复用；保留公式、变量单位、适用条件、误差处理与反例，区分相似但不适用材料。仅合成验收，不认可现实工程结论。",
+    "conditions": [
+      "只读本RS获准固定合成材料，不递归委派，不伪造缺失工况。"
+    ],
+    "query": {
+      "definition": {
+        "key": "full",
+        "version": "1"
+      },
+      "question": "Northstar阅读验收",
+      "keywords": [],
+      "scope": {
+        "owner_ids": [
+          "RES-MQ-A"
+        ],
+        "levels": null,
+        "kinds": null,
+        "roles": null,
+        "outcomes": null,
+        "review_states": null,
+        "validities": null,
+        "include_unknown": false,
+        "excluded_refs": [],
+        "excluded_owner_ids": [],
+        "recorded_from": null,
+        "recorded_before": null,
+        "source_ids": null,
+        "include_refs": [],
+        "exclude_ids": [],
+        "confidence_levels": null,
+        "time_window": null,
+        "applicability_conditions": [],
+        "applicability_exclusions": [],
+        "owner_types": null
+      },
+      "scope_ceiling": {
+        "owner_ids": [
+          "RES-MQ-A"
+        ],
+        "levels": null,
+        "kinds": null,
+        "roles": null,
+        "outcomes": null,
+        "review_states": null,
+        "validities": null,
+        "include_unknown": false,
+        "excluded_refs": [],
+        "excluded_owner_ids": [],
+        "recorded_from": null,
+        "recorded_before": null,
+        "source_ids": null,
+        "include_refs": [],
+        "exclude_ids": [],
+        "confidence_levels": null,
+        "time_window": null,
+        "applicability_conditions": [],
+        "applicability_exclusions": [],
+        "owner_types": null
+      },
+      "purpose": "exploration",
+      "association": {
+        "mode": "off",
+        "strategy": "existing-relations",
+        "strategy_version": "1",
+        "max_items": 0,
+        "output_share": 0.0,
+        "supplement_scope": null
+      },
+      "budget": {
+        "wall_ms": 300000,
+        "read_bytes": 16777216,
+        "output_chars": 80000,
+        "candidates": 100,
+        "graph_nodes": 50,
+        "graph_edges": 100,
+        "graph_hops": 2,
+        "model_tokens": 3072,
+        "model_calls": 6,
+        "model_input_tokens": 3072,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      },
+      "freshness": "current",
+      "result_limit": 3,
+      "missing_policy": "skip",
+      "fallback_definitions": [],
+      "applicability": "",
+      "channels": [
+        "identity",
+        "lexical"
+      ],
+      "dialect": "plain",
+      "ranking_strategy": "topic-evidence-v2",
+      "ranking_version": "1",
+      "allow_index_repair": false,
+      "max_staleness_seconds": null,
+      "content_source": null
+    },
+    "reranking": {
+      "mode": "off",
+      "candidate_limit": 3,
+      "conditions": []
+    }
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+      "revision": 1,
+      "next_action": "recall",
+      "guidance": "先读返回的正文；可保留直接用途或有具体连接理由的间接启发。长链连接逐步注明依据和假设。保留候选后 reading-read 读完整记录，再 reading-note 保存理解、连接和必要细节。有可检验下一步先执行，失败后定向扩查。"
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 0,
+      "read_bytes": 0,
+      "output_chars": 0,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  },
+  "response_serialized_chars": 576,
+  "value_serialized_chars": 228
+}

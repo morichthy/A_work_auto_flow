@@ -127,7 +127,8 @@ class ReadingDelegationTests(unittest.TestCase):
         parser = argparse.ArgumentParser()
         sub = parser.add_subparsers(dest='command', required=True)
         add_commands(sub)
-        for action in ('reading-delegate', 'reading-handoff'):
+        for action in ('reading-delegate', 'reading-handoff', 'reading-assess-owners',
+                       'reading-recall-fulltext'):
             parsed = parser.parse_args(['material-query', action, '--request', 'request.json'])
             self.assertEqual(parsed.action, action)
         request = self.root / 'delegate.json'
@@ -285,6 +286,63 @@ class ReadingDelegationTests(unittest.TestCase):
             status, handoff = post('reading-handoff', {'session_id': self.sid, 'max_chars': 512})
             self.assertEqual(status, 200, handoff)
             self.assertNotIn('coverage', json.dumps(handoff, ensure_ascii=False))
+        finally:
+            server.shutdown(); server.server_close(); thread.join(timeout=3)
+
+    def test_real_http_owner_assessment_and_explicit_fulltext_compensation(self):
+        """The UI action names cross the real socket and keep CAS revisions server-owned."""
+        from memory import discovery
+        from memory.store import MemoryStore
+        from memory import owners
+        owner_id = self.fixture.owner_ids['A']
+        owner = owners.resolve_owner(self.root, owner_id)
+        head = MemoryStore(self.root).read_snapshot(owner)['head']
+        # setUpClass adds records after the shared projection was built. Repair
+        # this copied workspace through the same public maintenance primitive
+        # expected in production, with vectors off for deterministic tests.
+        discovery.rebuild_owner(self.root, owner_id, head,
+            projection_version=discovery.PROJECTION_VERSION, vector='off')
+        service = SimpleNamespace(root=self.root, materials=self.app)
+        server, url = evidence_view.create_server(self.root, controller=SimpleNamespace(app=service))
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+
+        def post(action, payload):
+            parsed = urlsplit(url)
+            request = Request(url + 'api/v1/materials/' + action, json.dumps(payload).encode(), {
+                'Content-Type': 'application/json', 'Origin': f'{parsed.scheme}://{parsed.netloc}'})
+            try:
+                response = urlopen(request, timeout=20)
+            except HTTPError as exc:
+                response = exc
+            with response:
+                return response.status, json.loads(response.read())
+
+        owner_sid = 'RS-' + str(uuid.uuid4())
+        try:
+            status, started = post('reading-start', {'session_id': owner_sid,
+                'goal': '真实HTTP Owner发现', 'conditions': [],
+                'query': json_value(self.query), 'mode': 'owner_document'})
+            self.assertEqual(status, 200, started)
+            status, recalled = post('reading-recall', {'session_id': owner_sid,
+                'expected_revision': started['value']['revision'], 'request_id': str(uuid.uuid4()),
+                'question': 'delegationfixture', 'keywords': ['delegationfixture'],
+                'scope': json_value(self.scope), 'reason': '真实HTTP发现'})
+            self.assertEqual(status, 200, recalled)
+            self.assertTrue(recalled['value']['owner_packets'], recalled)
+            packet = recalled['value']['owner_packets'][0]
+            status, assessed = post('reading-assess-owners', {'session_id': owner_sid,
+                'expected_revision': recalled['value']['revision'], 'request_id': str(uuid.uuid4()),
+                'assessments': [{'owner_id': packet['owner_id'], 'status': 'relevant',
+                                 'reason': '合成HTTP流程命中',
+                                 'packet_digest': packet['packet_digest']}]})
+            self.assertEqual(status, 200, assessed)
+            self.assertEqual(assessed['value']['assessments'][0]['status'], 'relevant')
+            status, compensated = post('reading-recall-fulltext', {'session_id': owner_sid,
+                'expected_revision': assessed['value']['revision'], 'request_id': str(uuid.uuid4())})
+            self.assertEqual(status, 200, compensated)
+            self.assertEqual(compensated['value']['retrieval_source'], 'fulltext_compensation')
+            self.assertFalse(compensated['value']['fulltext_compensation_available'])
         finally:
             server.shutdown(); server.server_close(); thread.join(timeout=3)
 

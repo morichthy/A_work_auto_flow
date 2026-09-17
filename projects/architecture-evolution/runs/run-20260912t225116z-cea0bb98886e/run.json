@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260912T225116Z-CEA0BB98886E",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "v0.2.0框架清理与纯源码发布验证",
+  "keywords": [],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "failed",
+  "created_at": "2026-09-12T22:51:16Z",
+  "started_at": "2026-09-12T22:51:16Z",
+  "ended_at": "2026-09-12T23:14:17.738121+00:00",
+  "owner": null,
+  "question": "清理旧Skill并验证纯框架发行，排除本地经验与记录",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t225116z-cea0bb98886e/source.zip",
+      "sha256": "b8e3767d146d196ce5ee68aa13d003c4a278db4da4ba7255dcbb2074d5252617",
+      "role": "input",
+      "registered_at": "2026-09-12T23:14:21.642381Z"
+    }
+  ],
+  "parameters": {},
+  "code": {
+    "commit": "28f05ad",
+    "dirty": false
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [
+    {
+      "check": "backend",
+      "status": "failed",
+      "note": "601用例，修正复验后仅既有B01失败"
+    },
+    {
+      "check": "offline-release",
+      "status": "passed",
+      "note": "安装/扩展旧工作区升级/再次打包/恢复通过"
+    }
+  ],
+  "metrics": {},
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t225116z-cea0bb98886e/RESULTS.md",
+      "sha256": "15efce43158a412e8413a9051d7a009e79e685e4a92c2625904e67ddc85fae50",
+      "role": "artifact",
+      "registered_at": "2026-09-12T23:14:21.663196Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t225116z-cea0bb98886e/verification.zip",
+      "sha256": "d4253223e57d662c10100ab0ebeb423274b3c4308917896ec3c4d35ff5fb9805",
+      "role": "artifact",
+      "registered_at": "2026-09-12T23:14:21.690429Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t225116z-cea0bb98886e/PUBLICATION.json",
+      "sha256": "e5533ab165197c0b25f87bf47471931107d95f8619f8eb1f978abbdd91d9b566",
+      "role": "artifact",
+      "registered_at": "2026-09-13T04:54:31.288024Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "发行准备与验证完成；B01历史测试失败保留，最终外发被自动审批阻止，Release仍为草稿。",
+  "limitations": [
+    "不是全量测试全部通过",
+    "非第二物理机或业务验收",
+    "最终提交尚未推送、Release尚未公开"
+  ],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "research_id": "RES-AI-EXPERIENCE-CONTEXT",
+  "slug": "ai-experience-context",
+  "title": "AI 经验检索与上下文组织方案研究",
+  "status": "active",
+  "created_at": "2026-09-11",
+  "updated_at": "2026-09-12",
+  "owners": [],
+  "sensitivity": "internal",
+  "related_project_ids": [
+    "PRJ-ARCHITECTURE-EVOLUTION"
+  ],
+  "related_module_ids": [],
+  "decision_to_support": "选择能高召回复用历史经验并维持同问题上下文的检索、阅读及编排方案；解释候选取舍和业界依据。",
+  "target_date": null,
+  "open_evidence_gaps": [
+    "尚无本地固定题集与对照实验",
+    "正文块索引收益和代价未测量",
+    "停止判据与上下文恢复机制未定型"
+  ],
+  "claims": [],
+  "dependencies": []
+}

@@ -1,0 +1,104 @@
+{
+  "revision": "8a52accb71a0750c6e227f43f01949c78170d208f16983c892acc07c1ecabaa5",
+  "settings": {
+    "collaboration": {
+      "subagents": "off"
+    },
+    "materials": {
+      "budget": {
+        "candidates": 100,
+        "graph_edges": 100,
+        "graph_hops": 2,
+        "graph_nodes": 50,
+        "model_calls": 1,
+        "model_input_tokens": 512,
+        "model_output_tokens": 0,
+        "model_tokens": 512,
+        "output_chars": 80000,
+        "read_bytes": 16777216,
+        "rerank_items": 0,
+        "wall_ms": 300000
+      },
+      "result_limit": 20
+    },
+    "reading": {
+      "budget": {
+        "candidates": 1000,
+        "graph_edges": 100,
+        "graph_hops": 2,
+        "graph_nodes": 50,
+        "model_calls": 20,
+        "model_input_tokens": 65536,
+        "model_output_tokens": 0,
+        "model_tokens": 65536,
+        "output_chars": 6000,
+        "read_bytes": 16777216,
+        "rerank_items": 100,
+        "wall_ms": 300000
+      },
+      "reranking": {
+        "candidate_limit": 3,
+        "mode": "off"
+      },
+      "result_limit": 3
+    }
+  },
+  "defaults": {
+    "collaboration": {
+      "subagents": "auto"
+    },
+    "materials": {
+      "result_limit": 20,
+      "budget": {
+        "wall_ms": 300000,
+        "read_bytes": 16777216,
+        "output_chars": 80000,
+        "candidates": 100,
+        "graph_nodes": 50,
+        "graph_edges": 100,
+        "graph_hops": 2,
+        "model_tokens": 512,
+        "model_calls": 1,
+        "model_input_tokens": 512,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      }
+    },
+    "reading": {
+      "result_limit": 10,
+      "reranking": {
+        "mode": "auto",
+        "candidate_limit": 30
+      },
+      "budget": {
+        "wall_ms": 300000,
+        "read_bytes": 16777216,
+        "output_chars": 80000,
+        "candidates": 1000,
+        "graph_nodes": 50,
+        "graph_edges": 100,
+        "graph_hops": 2,
+        "model_tokens": 65536,
+        "model_calls": 20,
+        "model_input_tokens": 65536,
+        "model_output_tokens": 0,
+        "rerank_items": 100
+      }
+    }
+  },
+  "limits": {
+    "wall_ms": 600000,
+    "read_bytes": 33554432,
+    "output_chars": 100000,
+    "candidates": 2000,
+    "graph_nodes": 1000,
+    "graph_edges": 2000,
+    "graph_hops": 6,
+    "model_tokens": 200000,
+    "model_calls": 20,
+    "model_input_tokens": 150000,
+    "model_output_tokens": 50000,
+    "rerank_items": 200
+  }
+}
+

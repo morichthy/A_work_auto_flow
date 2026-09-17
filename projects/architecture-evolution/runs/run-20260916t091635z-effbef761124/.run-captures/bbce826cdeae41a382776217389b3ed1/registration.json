@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T091635Z-EFFBEF761124",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "浮点阅读链路候选限流独立对照计时",
+    "keywords": [
+      "reading-latency",
+      "bounded-candidates",
+      "real-materials",
+      "budget-failure"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "failed",
+    "created_at": "2026-09-16T09:16:35Z",
+    "started_at": "2026-09-16T09:19:03.482986Z",
+    "ended_at": "2026-09-16T09:49:06.477544Z",
+    "owner": null,
+    "question": "浮点求和真实主题查询→AI交互→reading note→主Agent上下文的分阶段计时及瓶颈。",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {
+      "reader_model": "gpt-5.6-terra",
+      "reader_reasoning": "low",
+      "reader_fork_turns": "none",
+      "reader_context": "fresh isolated reader",
+      "source_owner_id": "RES-FLOATING-POINT-SUMMATION",
+      "reading_defaults": {
+        "result_limit": 10,
+        "reranking": {
+          "mode": "auto",
+          "candidate_limit": 30
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 16777216,
+          "output_chars": 80000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        }
+      },
+      "variant": {
+        "type": "variant",
+        "utc_ns": 1789550344437679200,
+        "result_limit": 2,
+        "reranking": {
+          "mode": "auto",
+          "candidate_limit": 2,
+          "conditions": []
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 16777216,
+          "output_chars": 80000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        },
+        "explicit_overrides": {
+          "result_limit": 2,
+          "rerank_candidate_limit": 2
+        }
+      },
+      "relationship": {
+        "baseline_run_id": "RUN-20260916T085438Z-3E40D5ED8471",
+        "bounded_candidate_run_id": "RUN-20260916T091635Z-EFFBEF761124",
+        "expanded_budget_diagnostic_run_id": "RUN-20260916T092432Z-6976E1302DE8",
+        "kind": "默认配置、独立候选限流失败对照、显式扩大预算诊断；非重复随机性能试验或优化完成",
+        "instrument_failure": "基线verification/latency-attempt-01保留初始DENIED；未创建RS，不纳入正常查询baseline。",
+        "comparison_boundary": "对照复用已规划query；第三Run收紧结果与CE为1/1、减少英文变体、提高预算至服务器上限，属多变量最小闭环诊断；不能据E2E差推速度提升归因。",
+        "diagnostic_prepare_failure": "第三Run .run-captures/latency-attempt-01保留超SERVER_LIMITS的VALIDATION拒绝，未创建RS。"
+      }
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "actual_reading_workflow",
+        "status": "failed",
+        "scope": "真实RS工作流，以最终metrics.workflow_completed及固定回执为据；不是业务结论复核。"
+      }
+    ],
+    "metrics": {
+      "schema_version": 1,
+      "workflow_completed": false,
+      "coverage_complete": false,
+      "conclusion": "相同80k预算下将每层交付与CE候选窗缩至2/2仍在67.428秒后BUDGET失败，未交付候选；仅减候选数量不足以保证真实阅读闭环。",
+      "recall_dispatch_s": 67.4278877,
+      "output_budget": 80000,
+      "output_consumed": 79954,
+      "read_bytes_consumed": 6235277,
+      "result_limit": 2,
+      "rerank_candidate_limit": 2,
+      "query_count": 3,
+      "notes_generated": 0,
+      "main_context_received": false,
+      "status": "BUDGET"
+    },
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "相同80k预算下将每层交付与CE候选窗缩至2/2仍在67.428秒后BUDGET失败，未交付候选；仅减候选数量不足以保证真实阅读闭环。",
+    "limitations": [
+      "单主题单次运行，不能推断p95或全库性能。",
+      "AI调用间隔含调度、排队、工具交互，不是纯模型推理。",
+      "profile单列诊断，不混入baseline；初始仪表DENIED保留。",
+      "第三Run扩大预算只用于观测后半段，不证明优化完成或默认配置可用。",
+      "Windows本机测量，未做第二物理机/业务人工验收。"
+    ],
+    "parent_run_ids": [
+      "RUN-20260916T085438Z-3E40D5ED8471"
+    ],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxNlQwOTE2MzVaLUVGRkJFRjc2MTEyNCIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIua1rueCuemYheivu+mTvui3r+WAmemAiemZkOa1geeLrOeri+WvueeFp+iuoeaXtiIsDQogICJrZXl3b3JkcyI6IFsNCiAgICAicmVhZGluZy1sYXRlbmN5IiwNCiAgICAiYm91bmRlZC1jYW5kaWRhdGVzIiwNCiAgICAicmVhbC1tYXRlcmlhbHMiLA0KICAgICJidWRnZXQtZmFpbHVyZSINCiAgXSwNCiAgInJldmlld19oaXN0b3J5IjogW10sDQogICJjbGFpbXMiOiBbXSwNCiAgImRlcGVuZGVuY2llcyI6IFtdLA0KICAicnVuX3R5cGUiOiAiYW5hbHlzaXMiLA0KICAic3RhdHVzIjogImZhaWxlZCIsDQogICJjcmVhdGVkX2F0IjogIjIwMjYtMDktMTZUMDk6MTY6MzVaIiwNCiAgInN0YXJ0ZWRfYXQiOiAiMjAyNi0wOS0xNlQwOToxOTowMy40ODI5ODZaIiwNCiAgImVuZGVkX2F0IjogIjIwMjYtMDktMTZUMDk6NDk6MDYuNDc3NTQ0WiIsDQogICJvd25lciI6IG51bGwsDQogICJxdWVzdGlvbiI6ICLmta7ngrnmsYLlkoznnJ/lrp7kuLvpopjmn6Xor6LihpJBSeS6pOS6kuKGknJlYWRpbmcgbm90ZeKGkuS4u0FnZW505LiK5LiL5paH55qE5YiG6Zi25q616K6h5pe25Y+K55O26aKI44CCIiwNCiAgImh5cG90aGVzZXMiOiBbXSwNCiAgImlucHV0cyI6IFtdLA0KICAicGFyYW1ldGVycyI6IHsNCiAgICAicmVhZGVyX21vZGVsIjogImdwdC01LjYtdGVycmEiLA0KICAgICJyZWFkZXJfcmVhc29uaW5nIjogImxvdyIsDQogICAgInJlYWRlcl9mb3JrX3R1cm5zIjogIm5vbmUiLA0KICAgICJyZWFkZXJfY29udGV4dCI6ICJmcmVzaCBpc29sYXRlZCByZWFkZXIiLA0KICAgICJzb3VyY2Vfb3duZXJfaWQiOiAiUkVTLUZMT0FUSU5HLVBPSU5ULVNVTU1BVElPTiIsDQogICAgInJlYWRpbmdfZGVmYXVsdHMiOiB7DQogICAgICAicmVzdWx0X2xpbWl0IjogMTAsDQogICAgICAicmVyYW5raW5nIjogew0KICAgICAgICAibW9kZSI6ICJhdXRvIiwNCiAgICAgICAgImNhbmRpZGF0ZV9saW1pdCI6IDMwDQogICAgICB9LA0KICAgICAgImJ1ZGdldCI6IHsNCiAgICAgICAgIndhbGxfbXMiOiAzMDAwMDAsDQogICAgICAgICJyZWFkX2J5dGVzIjogMTY3NzcyMTYsDQogICAgICAgICJvdXRwdXRfY2hhcnMiOiA4MDAwMCwNCiAgICAgICAgImNhbmRpZGF0ZXMiOiAxMDAwLA0KICAgICAgICAiZ3JhcGhfbm9kZXMiOiA1MCwNCiAgICAgICAgImdyYXBoX2VkZ2VzIjogMTAwLA0KICAgICAgICAiZ3JhcGhfaG9wcyI6IDIsDQogICAgICAgICJtb2RlbF90b2tlbnMiOiA2NTUzNiwNCiAgICAgICAgIm1vZGVsX2NhbGxzIjogMjAsDQogICAgICAgICJtb2RlbF9pbnB1dF90b2tlbnMiOiA2NTUzNiwNCiAgICAgICAgIm1vZGVsX291dHB1dF90b2tlbnMiOiAwLA0KICAgICAgICAicmVyYW5rX2l0ZW1zIjogMTAwDQogICAgICB9DQogICAgfSwNCiAgICAidmFyaWFudCI6IHsNCiAgICAgICJ0eXBlIjogInZhcmlhbnQiLA0KICAgICAgInV0Y19ucyI6IDE3ODk1NTAzNDQ0Mzc2NzkyMDAsDQogICAgICAicmVzdWx0X2xpbWl0IjogMiwNCiAgICAgICJyZXJhbmtpbmciOiB7DQogICAgICAgICJtb2RlIjogImF1dG8iLA0KICAgICAgICAiY2FuZGlkYXRlX2xpbWl0IjogMiwNCiAgICAgICAgImNvbmRpdGlvbnMiOiBbXQ0KICAgICAgfSwNCiAgICAgICJidWRnZXQiOiB7DQogICAgICAgICJ3YWxsX21zIjogMzAwMDAwLA0KICAgICAgICAicmVhZF9ieXRlcyI6IDE2Nzc3MjE2LA0KICAgICAgICAib3V0cHV0X2NoYXJzIjogODAwMDAsDQogICAgICAgICJjYW5kaWRhdGVzIjogMTAwMCwNCiAgICAgICAgImdyYXBoX25vZGVzIjogNTAsDQogICAgICAgICJncmFwaF9lZGdlcyI6IDEwMCwNCiAgICAgICAgImdyYXBoX2hvcHMiOiAyLA0KICAgICAgICAibW9kZWxfdG9rZW5zIjogNjU1MzYsDQogICAgICAgICJtb2RlbF9jYWxscyI6IDIwLA0KICAgICAgICAibW9kZWxfaW5wdXRfdG9rZW5zIjogNjU1MzYsDQogICAgICAgICJtb2RlbF9vdXRwdXRfdG9rZW5zIjogMCwNCiAgICAgICAgInJlcmFua19pdGVtcyI6IDEwMA0KICAgICAgfSwNCiAgICAgICJleHBsaWNpdF9vdmVycmlkZXMiOiB7DQogICAgICAgICJyZXN1bHRfbGltaXQiOiAyLA0KICAgICAgICAicmVyYW5rX2NhbmRpZGF0ZV9saW1pdCI6IDINCiAgICAgIH0NCiAgICB9LA0KICAgICJyZWxhdGlvbnNoaXAiOiB7DQogICAgICAiYmFzZWxpbmVfcnVuX2lkIjogIlJVTi0yMDI2MDkxNlQwODU0MzhaLTNFNDBENUVEODQ3MSIsDQogICAgICAiYm91bmRlZF9jYW5kaWRhdGVfcnVuX2lkIjogIlJVTi0yMDI2MDkxNlQwOTE2MzVaLUVGRkJFRjc2MTEyNCIsDQogICAgICAiZXhwYW5kZWRfYnVkZ2V0X2RpYWdub3N0aWNfcnVuX2lkIjogIlJVTi0yMDI2MDkxNlQwOTI0MzJaLTY5NzZFMTMwMkRFOCIsDQogICAgICAia2luZCI6ICLpu5jorqTphY3nva7jgIHni6znq4vlgJnpgInpmZDmtYHlpLHotKXlr7nnhafjgIHmmL7lvI/mianlpKfpooTnrpfor4rmlq3vvJvpnZ7ph43lpI3pmo/mnLrmgKfog73or5XpqozmiJbkvJjljJblrozmiJAiLA0KICAgICAgImluc3RydW1lbnRfZmFpbHVyZSI6ICLln7rnur92ZXJpZmljYXRpb24vbGF0ZW5jeS1hdHRlbXB0LTAx5L+d55WZ5Yid5aeLREVOSUVE77yb5pyq5Yib5bu6UlPvvIzkuI3nurPlhaXmraPluLjmn6Xor6JiYXNlbGluZeOAgiIsDQogICAgICAiY29tcGFyaXNvbl9ib3VuZGFyeSI6ICLlr7nnhaflpI3nlKjlt7Lop4TliJJxdWVyee+8m+esrOS4iVJ1buaUtue0p+e7k+aenOS4jkNF5Li6MS8x44CB5YeP5bCR6Iux5paH5Y+Y5L2T44CB5o+Q6auY6aKE566X6Iez5pyN5Yqh5Zmo5LiK6ZmQ77yM5bGe5aSa5Y+Y6YeP5pyA5bCP6Zet546v6K+K5pat77yb5LiN6IO95o2uRTJF5beu5o6o6YCf5bqm5o+Q5Y2H5b2S5Zug44CCIiwNCiAgICAgICJkaWFnbm9zdGljX3ByZXBhcmVfZmFpbHVyZSI6ICLnrKzkuIlSdW4gLnJ1bi1jYXB0dXJlcy9sYXRlbmN5LWF0dGVtcHQtMDHkv53nlZnotoVTRVJWRVJfTElNSVRT55qEVkFMSURBVElPTuaLkue7ne+8jOacquWIm+W7ulJT44CCIg0KICAgIH0NCiAgfSwNCiAgImNvZGUiOiB7DQogICAgImNvbW1pdCI6ICI4OWFkMzA3NTM1ODlmYjdiOTE5YjNkYjc1Y2RmOTFkNDc0NDlmNGNhIiwNCiAgICAiZGlydHkiOiB0cnVlDQogIH0sDQogICJlbnZpcm9ubWVudCI6IHsNCiAgICAicHl0aG9uIjogIjMuMTIuMTAiLA0KICAgICJwbGF0Zm9ybSI6ICJXaW5kb3dzLTExLTEwLjAuMjI2MzEtU1AwIiwNCiAgICAibG9ja19vcl9pbWFnZV9kaWdlc3QiOiBudWxsDQogIH0sDQogICJyYW5kb21fc2VlZHMiOiBbXSwNCiAgInF1YWxpdHlfcmVzdWx0cyI6IFsNCiAgICB7DQogICAgICAibmFtZSI6ICJhY3R1YWxfcmVhZGluZ193b3JrZmxvdyIsDQogICAgICAic3RhdHVzIjogImZhaWxlZCIsDQogICAgICAic2NvcGUiOiAi55yf5a6eUlPlt6XkvZzmtYHvvIzku6XmnIDnu4htZXRyaWNzLndvcmtmbG93X2NvbXBsZXRlZOWPiuWbuuWumuWbnuaJp+S4uuaNru+8m+S4jeaYr+S4muWKoee7k+iuuuWkjeaguOOAgiINCiAgICB9DQogIF0sDQogICJtZXRyaWNzIjogew0KICAgICJzY2hlbWFfdmVyc2lvbiI6IDEsDQogICAgIndvcmtmbG93X2NvbXBsZXRlZCI6IGZhbHNlLA0KICAgICJjb3ZlcmFnZV9jb21wbGV0ZSI6IGZhbHNlLA0KICAgICJjb25jbHVzaW9uIjogIuebuOWQjDgwa+mihOeul+S4i+Wwhuavj+WxguS6pOS7mOS4jkNF5YCZ6YCJ56qX57yp6IezMi8y5LuN5ZyoNjcuNDI456eS5ZCOQlVER0VU5aSx6LSl77yM5pyq5Lqk5LuY5YCZ6YCJ77yb5LuF5YeP5YCZ6YCJ5pWw6YeP5LiN6Laz5Lul5L+d6K+B55yf5a6e6ZiF6K+76Zet546v44CCIiwNCiAgICAicmVjYWxsX2Rpc3BhdGNoX3MiOiA2Ny40Mjc4ODc3LA0KICAgICJvdXRwdXRfYnVkZ2V0IjogODAwMDAsDQogICAgIm91dHB1dF9jb25zdW1lZCI6IDc5OTU0LA0KICAgICJyZWFkX2J5dGVzX2NvbnN1bWVkIjogNjIzNTI3NywNCiAgICAicmVzdWx0X2xpbWl0IjogMiwNCiAgICAicmVyYW5rX2NhbmRpZGF0ZV9saW1pdCI6IDIsDQogICAgInF1ZXJ5X2NvdW50IjogMywNCiAgICAibm90ZXNfZ2VuZXJhdGVkIjogMCwNCiAgICAibWFpbl9jb250ZXh0X3JlY2VpdmVkIjogZmFsc2UsDQogICAgInN0YXR1cyI6ICJCVURHRVQiDQogIH0sDQogICJhcnRpZmFjdHMiOiBbXSwNCiAgImxpbmVhZ2VfZXZlbnRzIjogImxpbmVhZ2UuanNvbmwiLA0KICAiY29uY2x1c2lvbiI6ICLnm7jlkIw4MGvpooTnrpfkuIvlsIbmr4/lsYLkuqTku5jkuI5DReWAmemAieeql+e8qeiHszIvMuS7jeWcqDY3LjQyOOenkuWQjkJVREdFVOWksei0pe+8jOacquS6pOS7mOWAmemAie+8m+S7heWHj+WAmemAieaVsOmHj+S4jei2s+S7peS/neivgeecn+WunumYheivu+mXreeOr+OAgiIsDQogICJsaW1pdGF0aW9ucyI6IFsNCiAgICAi5Y2V5Li76aKY5Y2V5qyh6L+Q6KGM77yM5LiN6IO95o6o5patcDk15oiW5YWo5bqT5oCn6IO944CCIiwNCiAgICAiQUnosIPnlKjpl7TpmpTlkKvosIPluqbjgIHmjpLpmJ/jgIHlt6XlhbfkuqTkupLvvIzkuI3mmK/nuq/mqKHlnovmjqjnkIbjgIIiLA0KICAgICJwcm9maWxl5Y2V5YiX6K+K5pat77yM5LiN5re35YWlYmFzZWxpbmXvvJvliJ3lp4vku6rooahERU5JRUTkv53nlZnjgIIiLA0KICAgICLnrKzkuIlSdW7mianlpKfpooTnrpflj6rnlKjkuo7op4LmtYvlkI7ljYrmrrXvvIzkuI3or4HmmI7kvJjljJblrozmiJDmiJbpu5jorqTphY3nva7lj6/nlKjjgIIiLA0KICAgICJXaW5kb3dz5pys5py65rWL6YeP77yM5pyq5YGa56ys5LqM54mp55CG5py6L+S4muWKoeS6uuW3pemqjOaUtuOAgiINCiAgXSwNCiAgInBhcmVudF9ydW5faWRzIjogWw0KICAgICJSVU4tMjAyNjA5MTZUMDg1NDM4Wi0zRTQwRDVFRDg0NzEiDQogIF0sDQogICJyZWxhdGVkX21vZHVsZV9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfcmVzZWFyY2hfaWRzIjogW10sDQogICJyZWxhdGVkX2RhdGFzZXRfaWRzIjogW10sDQogICJyZXZpZXciOiB7DQogICAgInN0YXR1cyI6ICJub3QtcmV2aWV3ZWQiLA0KICAgICJyZXZpZXdlciI6IG51bGwsDQogICAgImRhdGUiOiBudWxsDQogIH0sDQogICJzZW5zaXRpdml0eSI6ICJpbnRlcm5hbCINCn0NCg==",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T091635Z-EFFBEF761124",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "浮点阅读链路候选限流独立对照计时",
+    "keywords": [
+      "reading-latency",
+      "bounded-candidates",
+      "real-materials",
+      "budget-failure"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "failed",
+    "created_at": "2026-09-16T09:16:35Z",
+    "started_at": "2026-09-16T09:19:03.482986Z",
+    "ended_at": "2026-09-16T09:49:06.477544Z",
+    "owner": null,
+    "question": "浮点求和真实主题查询→AI交互→reading note→主Agent上下文的分阶段计时及瓶颈。",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t085438z-3e40d5ed8471/verification/framework-source-snapshot.zip",
+        "sha256": "4b00e374303f1cad5b4d832164bfa8513fd2ba0e06bed13a06da8c51f76c2095",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:10.222211Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t085438z-3e40d5ed8471/verification/source-manifest.json",
+        "sha256": "694f39061c8e658033424b443c5b624774e92cc60506247869e7da96b9acfade",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:10.235031Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/scripts/freeze_latency_runs.py",
+        "sha256": "b4171469e124283da3ce20e5cf5d6ec2bcf6b0bb4464ceb8d9bbbc80ba89be47",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:10.247729Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/scripts/latency_driver.py",
+        "sha256": "38af32c66e1aaa633478108aeb06fdc2b052fbe6353ec3131c39c0b67d4c4203",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:10.260385Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/scripts/summarize_latency.py",
+        "sha256": "1027ec456a8a7e4711ced9af126dd245c84fa9865cbb503eee97fdfece5bebda",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:10.273517Z"
+      }
+    ],
+    "parameters": {
+      "reader_model": "gpt-5.6-terra",
+      "reader_reasoning": "low",
+      "reader_fork_turns": "none",
+      "reader_context": "fresh isolated reader",
+      "source_owner_id": "RES-FLOATING-POINT-SUMMATION",
+      "reading_defaults": {
+        "result_limit": 10,
+        "reranking": {
+          "mode": "auto",
+          "candidate_limit": 30
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 16777216,
+          "output_chars": 80000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        }
+      },
+      "variant": {
+        "type": "variant",
+        "utc_ns": 1789550344437679200,
+        "result_limit": 2,
+        "reranking": {
+          "mode": "auto",
+          "candidate_limit": 2,
+          "conditions": []
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 16777216,
+          "output_chars": 80000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        },
+        "explicit_overrides": {
+          "result_limit": 2,
+          "rerank_candidate_limit": 2
+        }
+      },
+      "relationship": {
+        "baseline_run_id": "RUN-20260916T085438Z-3E40D5ED8471",
+        "bounded_candidate_run_id": "RUN-20260916T091635Z-EFFBEF761124",
+        "expanded_budget_diagnostic_run_id": "RUN-20260916T092432Z-6976E1302DE8",
+        "kind": "默认配置、独立候选限流失败对照、显式扩大预算诊断；非重复随机性能试验或优化完成",
+        "instrument_failure": "基线verification/latency-attempt-01保留初始DENIED；未创建RS，不纳入正常查询baseline。",
+        "comparison_boundary": "对照复用已规划query；第三Run收紧结果与CE为1/1、减少英文变体、提高预算至服务器上限，属多变量最小闭环诊断；不能据E2E差推速度提升归因。",
+        "diagnostic_prepare_failure": "第三Run .run-captures/latency-attempt-01保留超SERVER_LIMITS的VALIDATION拒绝，未创建RS。"
+      }
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "actual_reading_workflow",
+        "status": "failed",
+        "scope": "真实RS工作流，以最终metrics.workflow_completed及固定回执为据；不是业务结论复核。"
+      }
+    ],
+    "metrics": {
+      "schema_version": 1,
+      "workflow_completed": false,
+      "coverage_complete": false,
+      "conclusion": "相同80k预算下将每层交付与CE候选窗缩至2/2仍在67.428秒后BUDGET失败，未交付候选；仅减候选数量不足以保证真实阅读闭环。",
+      "recall_dispatch_s": 67.4278877,
+      "output_budget": 80000,
+      "output_consumed": 79954,
+      "read_bytes_consumed": 6235277,
+      "result_limit": 2,
+      "rerank_candidate_limit": 2,
+      "query_count": 3,
+      "notes_generated": 0,
+      "main_context_received": false,
+      "status": "BUDGET"
+    },
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550344406749000-main-reading-template-request.json",
+        "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.286515Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550344406749000-main-reading-template-response.json",
+        "sha256": "b9d7bb1d495b36b82d544e016230c47c79a2150b1dae748ad789c53962cbe584",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.300507Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550344438678400-main-reading-start-request.json",
+        "sha256": "f259468d8a66796766fff5b13d89456dafb9fd36f44d59e771e121bac988ef92",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.313508Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550344438678400-main-reading-start-response.json",
+        "sha256": "97faa5935ca482251518f8a50daf2a5619881acf95a7e0f0ae3d68543b9dee85",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.326507Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550345771491900-main-reading-delegate-request.json",
+        "sha256": "0076a72e6f695bc010484d49ea9234299faa65274f857665cc2495230545075d",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.343004Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550345771491900-main-reading-delegate-response.json",
+        "sha256": "7c1d6e872697e5c6d6783c3ffd7c49b8923ad342ce46b6ec88570a2eb7409deb",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.356766Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550462247670000-reader-reading-view-request.json",
+        "sha256": "38e7cb20a381823e7f4249a2f21dcdb1489d7daa6b9fd910b9e0726cf20d9bab",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.371029Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550462247670000-reader-reading-view-response.json",
+        "sha256": "a8992141af71544e1cb516240af6df61bfe9f0a0f0d541ebf120971952f857a2",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.385315Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550490343853000-reader-reading-recall-request.json",
+        "sha256": "b70141da0fdadc23eb8f55e74274b0c7097615a43272f7d00c19b651f1b48108",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.397749Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550490343853000-reader-reading-recall-response.json",
+        "sha256": "6ee2cc850f0393a43ce129e26e5b2b5bd256a91b63ca7733d844f4ca6e73870c",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.413618Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/empty.json",
+        "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.427540Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/events.jsonl",
+        "sha256": "cffb700f45b8cd0df669dcdc1a502bd0faed0341a7d83561e00b5b002c2d14dc",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.440889Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/reader-outer-events.json",
+        "sha256": "ec5e3091ef7462a54d106f7fd3ada86fbd4538fbfa930d27978effb8bd69e5e8",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.453985Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/requests/recall.json",
+        "sha256": "8ff0a4277abd4d9bd78f8c3e008676cae6553cce45b2f4a85d5dca986d5d98be",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.467153Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/root-outer-events.json",
+        "sha256": "262dc846043fab0406edb2a5a46b7c8b83aca1ec5720070475073385f3446ff1",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.479878Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/state.json",
+        "sha256": "0beb7d7d7f2872b0aa3d11ca87e0c29c26df26977a3ad298375ea45a34544011",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.491630Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/summary.json",
+        "sha256": "2b24af3ddd8787963455ab98d4e4875a44355fb7e8a44214643e17adca55d2d9",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.505627Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/timeline.csv",
+        "sha256": "640a3dd3fa34b75aaabe3c539ae63ce09890aa9bee7efed6056f508288f95548",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.519365Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/RESULTS.md",
+        "sha256": "22906e28aa5a1c29b613b9eb9063d8ec95aae01a8c5ff9c825988bf9d87ddc0a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.534415Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/verification/metrics.json",
+        "sha256": "8c1b2e6d4b405e176db395bcccd9bd68b3418da911546c8c5dfc78ca1ba14d1b",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.551253Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/verification/plan-at-freeze.md",
+        "sha256": "9a5a1e5da7bc9119d7caa9ddcd9bf1be7162fee9c07b431595b518f3ed121e8e",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.564173Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/verification/run-relationship.json",
+        "sha256": "7d78d3a21035a7fbc818af65fac23b004f552e6a34bf2ae0dbaaebad26ae5bdd",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.577391Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/verification/freeze-evidence-manifest.json",
+        "sha256": "e05a81592aba447567fa15f46003f05de291e9de4936cc4a262ff51ad0610815",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:10.589906Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "相同80k预算下将每层交付与CE候选窗缩至2/2仍在67.428秒后BUDGET失败，未交付候选；仅减候选数量不足以保证真实阅读闭环。",
+    "limitations": [
+      "单主题单次运行，不能推断p95或全库性能。",
+      "AI调用间隔含调度、排队、工具交互，不是纯模型推理。",
+      "profile单列诊断，不混入baseline；初始仪表DENIED保留。",
+      "第三Run扩大预算只用于观测后半段，不证明优化完成或默认配置可用。",
+      "Windows本机测量，未做第二物理机/业务人工验收。"
+    ],
+    "parent_run_ids": [
+      "RUN-20260916T085438Z-3E40D5ED8471"
+    ],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-16T09:49:10.916017Z"
+}

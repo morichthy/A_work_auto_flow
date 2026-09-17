@@ -1,0 +1,23 @@
+{
+  "head": {
+    "commit_id": "COM-c0a2a7d0-b753-4e08-b53a-d795bff84389",
+    "generation": 9,
+    "manifest_hash": "e4a2a0bdbeced2747d0d285f28484e660f0680321706586143487c39a7860af6"
+  },
+  "document": {
+    "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+    "revision": 2,
+    "record_hash": "e92860797e51c9821180bf9d9e379839000e086072d051e1730e77fd51343aa1"
+  },
+  "complete": true,
+  "report_coverage": {
+    "included_detail_ids": [
+      "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+      "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab"
+    ],
+    "uncovered_detail_ids": []
+  },
+  "report_version_hints": [],
+  "index_status": "pending",
+  "full_report_unchanged": true
+}

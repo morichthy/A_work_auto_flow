@@ -1,0 +1,44 @@
+{
+  "action": "reading-assess",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+    "expected_revision": 6,
+    "request_id": "ai-quick-reject-a",
+    "candidate_id": "RC-ba1fd008e22c61c056df8440",
+    "useful": false,
+    "reason": "该实际片段同样只有一般控制量定义，不能仅凭Owner相同把它当phase_case相位误差依据；没有交付连接关系，当前不采用。"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "candidate_id": "RC-ba1fd008e22c61c056df8440",
+      "assessment": {
+        "useful": false,
+        "reason": "该实际片段同样只有一般控制量定义，不能仅凭Owner相同把它当phase_case相位误差依据；没有交付连接关系，当前不采用。",
+        "sources_digest": "ffe743847a346c14801b02e439056afe4156d4eb3df92cb2cfc17ecfc8f40728"
+      },
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+      "revision": 7
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 172,
+      "read_bytes": 82419,
+      "output_chars": 258,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

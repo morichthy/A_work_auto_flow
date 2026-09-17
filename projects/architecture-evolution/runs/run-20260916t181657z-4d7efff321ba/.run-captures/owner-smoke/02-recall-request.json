@@ -1,0 +1,18 @@
+{
+  "session_id": "RS-12cfd61c-790d-41f7-bb86-e1d4242c2744",
+  "expected_revision": 1,
+  "request_id": "owner-smoke-recall-01",
+  "question": "对于浮点求和，naive、pairwise 和 Kahan summation 各自依赖哪些精度假设，误差和失败边界是什么？",
+  "keywords": ["naive summation", "pairwise summation", "Kahan summation", "floating-point error"],
+  "scope": {"owner_ids": ["RES-FLOATING-POINT-SUMMATION"], "levels": null, "kinds": null, "roles": null, "outcomes": null, "review_states": null, "validities": null, "include_unknown": false, "excluded_refs": [], "excluded_owner_ids": [], "recorded_from": null, "recorded_before": null, "source_ids": null, "include_refs": [], "exclude_ids": [], "confidence_levels": null, "time_window": null, "applicability_conditions": [], "applicability_exclusions": [], "owner_types": null},
+  "reason": "只从获准浮点研究Owner发现正文入口，再由Owner文稿读取完整过程。",
+  "query_variants": [
+    {"id": "zh-mechanism", "language": "zh", "question": "浮点顺序求和、pairwise求和和Kahan补偿求和的误差假设、抵消影响与失效边界", "lexical_terms": ["顺序求和", "pairwise", "Kahan", "补偿", "抵消"]},
+    {"id": "en-mechanism", "language": "en", "question": "naive sequential summation, pairwise summation, and Kahan compensated summation error assumptions, cancellation, and failure boundaries", "lexical_terms": ["naive summation", "pairwise summation", "Kahan summation", "cancellation", "error bound"]}
+  ],
+  "protected_terms": [],
+  "corpus_language": "mixed",
+  "language_reason": "目标Owner同时包含中文研究叙述与英文数值术语，使用中英等义查询而不以语言作为可靠性判断。",
+  "query_domains": ["numerical analysis", "floating-point arithmetic"],
+  "reranking": {"mode": "auto", "candidate_limit": 30, "conditions": []}
+}

@@ -1,0 +1,34 @@
+{
+  "unit": {
+    "target_kind": "record",
+    "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+    "revision": 3,
+    "sha256": "09d72b77690d58ddd07ad5c86b84f970de0d8b2e7ee6e0a178aee1614f8c1472",
+    "locator": "",
+    "relation": "references"
+  },
+  "section": {
+    "target_kind": "record",
+    "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+    "revision": 4,
+    "sha256": "62ce88c050451a7a031bff6b9d9a59efc72fa4215f7a683df5fc78dabcfb2b1e",
+    "locator": "",
+    "relation": "references"
+  },
+  "overview": {
+    "target_kind": "record",
+    "target_id": "MEM-b8db41b4-3a97-5f26-ba21-87f6cce7d155",
+    "revision": 5,
+    "sha256": "93a8827bb9163f9f217a475f5d902e70153c2a4236fa3c486908a6806a9ae1a4",
+    "locator": "",
+    "relation": "references"
+  },
+  "document": {
+    "target_kind": "record",
+    "target_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+    "revision": 5,
+    "sha256": "dc93c95f5c217f8b18b7f4f1d91e7cfedf9c1422b3ea18101b97c072f071b16b",
+    "locator": "",
+    "relation": "references"
+  }
+}

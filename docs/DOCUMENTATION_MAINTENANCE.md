@@ -2,6 +2,8 @@
 
 规范 L0–L4 写作要求变化时，同次核对记录标准、请求示例和实际生成入口 work-loop/context-maintenance/semantic-maintenance/consolidate-results；共同定义放 RESEARCH_RECORDING，各 Skill 引用并落实本阶段检查。单条独立可读与全文连贯分别验收，不能靠字段非空、文稿已同步或索引成功替代。
 
+压缩发现面、Owner融合、筛选包或全文补偿边界变化时，同次核对 ARCHITECTURE 的模块/状态、CORE 伪代码、OWNER_DISCOVERY_RETRIEVAL 细节、MEMORY_STORAGE_EXPLAINED 的实体、AI_READING/RETRIEVAL 的用户行为、材料查询 Skill、CLI/HTTP/UI 类型和 TESTING/catalog。独立发现投影与全文索引分别说明，不能用 level 过滤或返回片段较少推断底层读取已经隔离。
+
 recent/snapshot、证据search/detail变化时，同次核对展示快照、handoff和固定引用导航；展示缓存不能替代授权或来源核验。
 
 阅读 note 的材料内容与会话编排状态分别维护。写作规范变化需同步直接 worker 指导、material-query 与成果整理方法；证据详情按类型适配时核对正文、块级依据、文末参考文献和图片权限，不能仅增加字段展示，也不能替历史记录猜测引用位置。

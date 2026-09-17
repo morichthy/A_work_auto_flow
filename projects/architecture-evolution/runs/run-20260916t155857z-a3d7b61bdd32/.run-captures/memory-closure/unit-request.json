@@ -1,0 +1,93 @@
+{
+  "schema_version": 3,
+  "request_id": "f90b9563-c531-48c4-a694-bc017c348a51",
+  "actor": {
+    "kind": "ai",
+    "id": "codex-reading-note-closure"
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": "COM-03105bc0-e652-405f-82b7-4273317b8ec6",
+  "operations": [
+    {
+      "op": "put_record",
+      "client_key": "reading-ui-storage",
+      "draft": {
+        "schema_version": 3,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "detail",
+        "level": "L1",
+        "title": "阅读笔记可读副本与工作台入口：固定依据及验证",
+        "body_markdown": "",
+        "keywords": [
+          "reading-note",
+          "Markdown派生快照",
+          "当前笔记",
+          "固定版本证据",
+          "Windows升级"
+        ],
+        "payload": {
+          "unit_type": "analysis",
+          "retrieval_description": {
+            "question": "如何使已授权阅读笔记可读、可发现并准确定位其固定依据？",
+            "method": "公开RS/记忆接口、单一当前选择、固定引用一层展开及分级软件验证。",
+            "key_findings": [
+              "工作台共享当前阅读笔记；授权覆盖原RS域后可查看，原查询范围与预算保持；列表先筛选后分页，有笔记优先。合法接口派生Markdown，JSON仍是权威；当前笔记证据仅固定引用及一层显式sources，不用同Owner全库冒充依据。"
+            ],
+            "applicable": [
+              "本机Windows x64工作台与合法RS阅读接口"
+            ],
+            "not_applicable": [
+              "总费用或检索速度改善证明",
+              "科学结论认可"
+            ],
+            "limitations": [
+              "真实浮点RS仍r5/partial、2条候选未记笔记；列表5项约20.266秒，未完成性能优化。规模N0浏览器超时保留为失败；非record证据仅组件覆盖，第二物理机和业务科学复核未完成；未发布。"
+            ]
+          },
+          "run_ref": {
+            "target_kind": "owner",
+            "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+            "revision": null,
+            "sha256": "7a0e22f7bfa7e3560609d51b7b751dcb0c83d1d60bc77872f080838aace0f5a7",
+            "relation": "input",
+            "locator": "RESULTS及本轮固定验证产物"
+          },
+          "evidence_refs": [
+            {
+              "target_kind": "owner",
+              "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+              "revision": null,
+              "sha256": "7a0e22f7bfa7e3560609d51b7b751dcb0c83d1d60bc77872f080838aace0f5a7",
+              "relation": "input",
+              "locator": "RESULTS及本轮固定验证产物"
+            }
+          ],
+          "blocks": [
+            {
+              "block_id": "reading-ui-storage-results",
+              "role": "results",
+              "markdown": "# 阅读上下文与工作台入口修复\n\n## 结果与范围\n\n本次将阅读笔记从“需要找到私人 JSON 或手动点会话”改为工作台首页默认可读正文，并补齐本地 Markdown 入口、会话发现、主题导航和定向证据。原 RS 是唯一状态源，没有重建浮点阅读会话、提高预算或改写其科学内容；源码未推送发布。\n\n真实目标 `RS-47e7e8ce-9f60-4fd0-af4d-a7580a69cb04` 仍为 r5，合法精简查看成功返回 1 条笔记、0 条因展示窗口遗漏、2 条未记笔记候选。结果为 partial：原交付缺口、窗口未完和重排回退保留。当前副本为 `context/reading-notes/RS-47e7e8ce-9f60-4fd0-af4d-a7580a69cb04/current.md`。\n\n## 保存策略与根因\n\n- `.local/reading-sessions/<RS-ID>/HEAD.json` 保存目标、笔记、固定来源、授权、预算和请求状态；修订历史仍保留。JSON 为机器状态，正常 AI 使用 `reading-handoff.context_markdown`，不需要加载整份 HEAD。\n- 新增 `reading_snapshot.py`，合法 note/decide/view/handoff 后原子生成 `context/reading-notes/<RS-ID>/current.md`。旧会话下一次合法查看补齐；派生写入失败只报告副本失败，不能把已保存的规范状态说成未保存。\n- 副本按问题、理解、问题关系、关键细节、限制、下一步和固定出处编排；保留公式与引用，不含字段形式的引用 JSON 或空正文块定位。其独立 30,000 字符窗口不证明主 AI 收到了同样多内容，遗漏明确显示。\n- Markdown 不反向更新 JSON、不自动晋升知识，也不自动反映后续撤权；AI 继续工作仍通过公开接口重新授权。副本不进入 Git/公共源码、普通检索或通用全量上下文；升级保留原文件。私人 portable 备份与公开源码不同，本次没有更改其规则。\n- 旧列表先对随机 UUID 目录分页再筛选，可能出现无结果首页；现在先按对象/授权/归档筛选，有笔记优先、内容更新时间降序，再分页。只读预算更新不冒充笔记内容更新。\n- 旧实现要求宿主与 RS 授权域完全相同，普通本机工作台不能看限定域创建的会话。现在当前可信权限覆盖原域可查看，但请求范围上限仍收紧到原域，较窄域和撤权仍拒绝。\n\n## 工作台行为\n\n1. 首页醒目展示当前笔记。当前标签页中用户选择优先；首次默认最新未归档且有笔记的会话。首页与阅读记录共享选择，同一快照切页不重复获取正文。\n2. 阅读记录进入后自动展示；刷新沿用所选会话并读取最新正文，翻页不更换正文。明确区分归属对象（Owner）与问题会话（RS），错误/撤权时撤下旧正文，迟到请求不能覆盖新对象。\n3. 默认使用 `reading-view` 的 `notes_only:true`：整个 value（含固定引用）限 30,000 字符，保留覆盖限制，不附整轮检索诊断；仍使用原会话账本。\n4. 首页仅保留“查看证据与影响”主入口，默认围绕当前笔记的直接固定引用及一层显式 sources 展开；固定 revision/hash 核对后展示 L0–L4、其他记录及文件/Run 来源。没有关联的层级明确为空，不把同 Owner 的全部记录说成证据。系统记忆链接标明查看当前记录，固定版本正文保留在证据面板。\n5. “观察与环境”收进顶部紧凑菜单。材料导航按实际 Owner/记录主题显示中文类别，Run 默认折叠；点击主题定位对应系统记忆，不再展示目录文件名。\n\n## 验证与真实限制\n\n| 范围 | 实际结果 |\n| --- | --- |\n| 后端阅读 | 31 项通过：workflow 18、delegation 10、handoff 3；权限超集/原域、预算、撤权、固定引用、旧会话、排序与快照失败保护 |\n| 前端组件 | 17 项通过；最终证据展示修补后相关 2 项复验通过，不重复累计 |\n| 实际 Edge 浏览器 | 最终 6 项中 5 通过、1 失败。新首页/定向证据/主题导航、阅读自动展示/刷新/固定原文/版本导出及原正常导航通过；既有规模场景 N0 定位 60 秒超时未修 |\n| 类型/构建 | typecheck 与生产构建通过；60 个源码、65 个资源 SHA256 全部一致 |\n| Windows 分发与升级 | 19 项不同用例最终均有通过证据：17 项首次通过，2 项在构建稳定后复验通过；真实 setup.cmd 预览、升级、重复升级与恢复通过（145.727秒），保留首次构建竞态日志 |\n| 真实私人会话 | 原浮点 RS r5 成功回读并生成 Markdown，未重置预算；公开接口回执见 backend/real-view.json |\n| 软件登记 | 新增权限防线与交互/源码归档场景；testing audit 无未登记/缺失/错误 |\n\n完整浏览器回归不是全绿，因此本验证 Run 保留 failed 状态；这不否定上述已通过的新功能链路，也不把原规模问题隐藏为通过。首次前端缓存写权限、构建期间源码指纹变化及旧按钮/字段断言失配均保留记录，按新行为修正断言而不删除来源撤权、数值、导出版本等保护。\n\n最终前端源码指纹：`f3cb77c7455a4360318329c08658c98ef512b4b95dcf94dd55f6fa9380561b8b`；产品 JS `index-BL0x6A3Q.js`。最终日志为 `.run-captures/frontend/reading-e2e-final.log` 和 JSON，构建为 `build-markdown-assertion.log`，组件说明为 `component-checks.md`。首页宽/窄和证据截图在 `.run-captures/home/`，主 Agent 已视觉检查。\n\n列表目前仍逐会话核验来源；真实全局 5 项约 20.266 秒，目录核验预算不足会明确报错。此次修复不宣称即时加载、总体召回提速、总 token/费用下降或科学结论正确。实际浏览器合成 fixture 验证了记录引用；非 record 来源展示有组件覆盖，没有声称已完成真实业务全来源端到端验收。第二台物理机未验收。\n\n## 文档与成果维护\n\nREADME、ARCHITECTURE、CORE、文档索引、TESTING 已按影响维护；DOCUMENTATION_MAINTENANCE 已核对、职责无变化。细节维护于 AI_READING、WORKBENCH_DEVELOPMENT、MEMORY_STORAGE_EXPLAINED、UPGRADE_TESTING、DEVELOPMENT_HISTORY 和 material-query Skill；work-loop 仍使用同 RS 的有界交接，不改为自动读取所有 Markdown。\n\n本次任务计划为 `projects/architecture-evolution/plans/reading-note-workbench-20260916.md`。规范概览/文稿的完整阅读与提交回读单独保存在 `.run-captures/memory-closure/`；本报告不冒充全 Project 历史成果已同步。\n",
+              "requires_block_ids": []
+            }
+          ],
+          "figures": [],
+          "missing_refs": []
+        },
+        "sources": [
+          {
+            "target_kind": "owner",
+            "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+            "revision": null,
+            "sha256": "7a0e22f7bfa7e3560609d51b7b751dcb0c83d1d60bc77872f080838aace0f5a7",
+            "relation": "input",
+            "locator": "RESULTS及本轮固定验证产物"
+          }
+        ],
+        "provenance_gap": null,
+        "record_reason": "保存阅读笔记可读性、授权兼容、定向证据和导航修复的实施依据与失败边界。",
+        "discovery": "workspace_summary",
+        "sensitivity": "internal"
+      }
+    }
+  ]
+}

@@ -1,0 +1,2068 @@
+AGENTS.md:7: trailing whitespace.
++- 默认使用 [work-loop](automation/workflows/work-loop/SKILL.md)统一工作与记录；查本地材料使用material-query。目录类型只表示归属，不决定另一套流程。极小且无复用价值的操作可不新增记录。
+AGENTS.md:10: trailing whitespace.
++- 从索引和显式引用检索，不把全部历史、共享盘目录树或日志加入上下文。算法问答使用分阶段证据包：目标算法说明优先，其他材料按角色/必要性装载；读取 manifest 的缺失/排除项。旧CTX任务证据不足时调用 context-feedback 扩展（最多两级）；新问题使用material-query阅读工作流，保持用户选择与预算；达到上限后说明具体缺口。
+AGENTS.md:12: trailing whitespace.
++- 框架开发、修复及开发规范调整使用 [development-checks](automation/workflows/development-checks/SKILL.md)：按影响读取并维护文档/Skill；全局整合、发布或用户要求全面审查时前后完整阅读六份并逐项维护。全局架构和模块影响只维护在 `ARCHITECTURE.md`，任务计划/Run 保存本次处置及必要快照。
+AGENTS.md:13: trailing whitespace.
++- 开发方案按实际影响查 `docs/DEVELOPMENT_HISTORY.md`；全局整合前完整读，重要选择和替代理由及时记录，保留历史依据。
+AGENTS.md:21: trailing whitespace.
++- 所有Owner使用work-loop按有用内容组合L0–L4：原始依据、完整方法/分析、有依据经过、可复用认识、介绍/概览。缺层正常，不补空条目；文稿按实际交付或阅读需要组织。保留来源、固定版本、失败和适用边界；已有显式策略及用户指定优先。详见 `docs/RESEARCH_RECORDING.md`。
+AGENTS.md:23: trailing whitespace.
++- 当前 L1 是实验、方法、推导或分析技术单元，检索说明与完整正文块分离；只有实验必须绑定实际 Run。L2 统一为研究经过，L4 统一为整体概览；章节与完整/精简研究文稿独立，`level=null`。旧事件/地图经实际审查后以完整新修订迁移，保留原固定版本，不在工作台提供双入口。定义集中在 [研究记录标准](docs/RESEARCH_RECORDING.md)，不能用全局替换改写历史。
+AGENTS.md:64: trailing whitespace.
++1. 开发完成后按 development-checks 的影响范围维护六份现行文档；全局整合/发布或全面审查时完整重读。README 保持概念、目录作用及维护方式、主要功能、用法和已有知识导入清楚易读；常用操作由 Skill 承载，细节从文档索引展开。
+AGENTS.md:82: trailing whitespace.
++## 表示查询与语义工作 Skill
+AGENTS.md:84: trailing whitespace.
++- 开发后按影响检查Skill及调用者；默认入口、跨域契约、发布或全面审查时逐条检查全部活跃与兼容Skill的适用时机、公开接口、发现/安装及替代去向，保留历史和自定义内容。
+AGENTS.md:85: trailing whitespace.
++
+AGENTS.md:86: trailing whitespace.
++- 按内容来源选择、固定展开或兼容表示查询材料时，读取并调用 [material-query](automation/workflows/material-query/SKILL.md)。
+README.md:9: trailing whitespace.
++- 按概览与经验、研究经过、技术内容查找已有正文；技术块支持词法与可选本地向量召回，选择固定候选并沿明确关联展开。
+README.md:10: trailing whitespace.
++- 统一 `$work-loop` 负责归属、记录与续接；极小无复用价值操作可不建档。需要本地依据时调用 `$material-query`。
+README.md:11: trailing whitespace.
++- AI 可围绕同一问题建立阅读会话：多路跨层发现、保留后完整阅读、保存理解和必要细节，带来源链接续接工作。工作台“系统记忆→阅读记录”按对象查看最新笔记与固定原文，亦可导出版本快照。见 [AI 阅读](docs/AI_READING.md)。
+README.md:25: trailing whitespace.
++| L0–L4 | L0 原始材料追溯；L1 完整技术单元；L2 研究经过；L3 区分观察、结论、假设、建议的经验；L4 对象介绍/阶段概览。所有对象按需组合，层级不是可信等级 |
+README.md:26: trailing whitespace.
++| 技术单元与文稿 | L1 含检索说明和完整技术块；章节固定引用块，可按需要组织完整过程或精简报告，`level=null` |
+README.md:30: trailing whitespace.
++完整概念、核心调用与算法、关联和上下文结构、Skill 解析顺序及本地保存机制见 [CORE](docs/CORE.md)，随相关实现同次维护；完整字段和记录要求见 [研究记录标准](docs/RESEARCH_RECORDING.md)。
+README.md:59: trailing whitespace.
++| 查材料或理解算法 | 默认工作入口 `$work-loop`；按内容来源查已有正文用 `$material-query` 或工作台“材料查询”。先看范围/可用性，选固定候选，再组包并检查缺口 |
+README.md:60: trailing whitespace.
++| 开展研究/实验 | 用 `$work-loop`；新 Python 实验可 `run-execute`，已有产物可 `run-register`。登记后 L0 自动投影；技术内容由 AI/人编写，实验型单元绑定真实 Run |
+README.md:67: trailing whitespace.
++材料查询先按 Research、Project、Knowledge、Run 等标准类型筛选对象，支持多选和名称查找。内容默认查“概览与经验”（L4/L3），也可选“研究经过”（L2）、“技术内容”（L1）或“所有来源”（包含已登记文稿、章节、来源和 Run）。默认查当前修订；显式允许历史后，旧命中保留版本标记和原固定引用。
+README.md:68: trailing whitespace.
++
+README.md:69: trailing whitespace.
++选中候选后，上方操作区可组装、展开研究经过/技术内容、深化，或“返回完整文稿”。完整文稿按所属文稿去重，按原章节次序呈现正文及受控图表。展开沿作者固定关联，缺少正文、来源或关联时显示缺口。默认允许读取所选材料引用的获准必要依据（可跨对象），高级选项可收紧；直接候选仍受所选范围限制，显式排除和来源授权始终有效。同一查询累计计量，默认活动执行时间5分钟、读取16 MiB、输出80,000字符，阅读页面的等待时间不计入执行预算。用法见[材料查询](docs/MATERIAL_QUERY.md)。
+README.md:70: trailing whitespace.
++
+README.md:71: trailing whitespace.
++旧事件和地图须实际整理正文、保存新修订并更新索引，才进入新经过/概览；迁移方法见[记忆使用指南](docs/MEMORY_USAGE.md)。材料查询支持身份、词法、可选本地向量及既有关联导航，自动结构发现与生成式模型代理尚未注册。
+README.md:106: trailing whitespace.
++讨论全局方案前完整读、局部方案按相关决定读 [开发决策与演进记录](docs/DEVELOPMENT_HISTORY.md)，了解选择理由、历史错误和未决讨论；开发后补实际结果与新教训，详细证据按链接追溯。
+README.md:107: trailing whitespace.
++
+README.md:108: trailing whitespace.
++开发按Skill列出的影响范围维护六份核心文档；全局整合、发布或明确要求全审时前后完整阅读。当前技术框架/影响表只维护在 [ARCHITECTURE](ARCHITECTURE.md)，功能定义在 [CORE](docs/CORE.md)。任务计划、历史决定和实际验证留在所属 Project/Run，规则见 [文档维护](docs/DOCUMENTATION_MAINTENANCE.md)与[测试选择](docs/TESTING.md)。
+README.md:110: trailing whitespace.
++开发按development-checks选择受影响文档、Skill和验证；全局工作流整合、发布或明确要求全审时完整核对六文档与所有入口。默认7项活跃Skill，旧research-loop/workspace-context保留方法源兼容跳转；工作、记录和续接统一由work-loop负责，格式质量按成品技能处理。见[工作流入口](automation/workflows/README.md)。
+automation/scripts/install_workspace_skills.py:8: trailing whitespace.
++import hashlib
+automation/scripts/install_workspace_skills.py:16: trailing whitespace.
++NAMES = ("work-loop", "context-maintenance", "evidence-inspection", "development-checks",
+automation/scripts/install_workspace_skills.py:17: trailing whitespace.
++         "material-query", "association-exploration", "semantic-maintenance")
+automation/scripts/install_workspace_skills.py:18: trailing whitespace.
++COMPAT_NAMES = ("research-loop", "workspace-context")
+automation/scripts/install_workspace_skills.py:19: trailing whitespace.
++
+automation/scripts/install_workspace_skills.py:20: trailing whitespace.
++
+automation/scripts/install_workspace_skills.py:21: trailing whitespace.
++# 2026-09-13 前受控发现入口的 LF/CRLF 字节指纹；只迁移完全匹配者。
+automation/scripts/install_workspace_skills.py:22: trailing whitespace.
++# 不根据名称或一段模板文字认定用户文件可替换，历史方法保存在 workflow 兼容入口。
+automation/scripts/install_workspace_skills.py:23: trailing whitespace.
++PREVIOUS_MANAGED = {'association-exploration': ['2979f6fa4114059618bc364c60e307e410b4efbb6dcdbb560386aa991a58107f', '4d2ed7c2bac82422983715b9ef99ce3ecb3e40f4715cd1a954797a27c8f484a8'], 'context-maintenance': ['84543bac5b571ce3ba7414ec1675d19e5b0c0827feb280c986dc6ce5f86a3fbd', '8538d7d6cf5db31d1ea99ea6595b81050db803aba706df589ecb1b34038de017'], 'development-checks': ['3ac90d2b123399b8596baa69542ca5765a43e19fea7829aa33cef9b910dff4fe', '9243cb98b16feefbf387dbeae7a4117aace8b08ccf30d06277e739e9b0495675'], 'evidence-inspection': ['387eebe30817e291f83f5795d0ec4a51891822f6fa2cb60ba8f8efd11eaca9dc', 'd776775be39c097b2be50a4b338e712135c7b8c9162f3f615caf6f6d7afa9ec8'], 'material-query': ['4756d3e9e6043e1a060b2b9e9ad7d3ad9163ca12731f2484e8e1792d6fcb82f1', '8caa9093fab6cc480805f7610e94c190b89c0a1c06d867044584a70a7b2dbc1f'], 'research-loop': ['2c9ce71079e07e313386bb56f0e7bc87fc633e80d3cf70efc5d43e0f4195fd93', 'e677af033a799a61184590c4bc03d3586f5e0cfd16b4c330afbaa0f4f5a05237'], 'semantic-maintenance': ['5c1c16cc595f533bd9822e1646be8f3ebce782ee05fdbc7ae6be3d897ef9ecb3', 'd5e5268a7a1786243b69679e1c9056d8026cc4d6490e88038873d16b10cd959a'], 'workspace-context': ['4184ada37071ed999403c2e490df26acfea1f6fb0e2f0755fcf3d978a09576e2', 'a3566b779aed9ffc1371b1df35301f7507c19e47a5c9fcedbea9a6a4a884cbbc']}
+automation/scripts/install_workspace_skills.py:24: trailing whitespace.
++
+automation/scripts/install_workspace_skills.py:25: trailing whitespace.
++
+automation/scripts/install_workspace_skills.py:26: trailing whitespace.
++def generated(root, name):
+automation/scripts/install_workspace_skills.py:27: trailing whitespace.
++    text = (Path(root) / 'automation/workflows' / name / 'SKILL.md').read_text(encoding='utf-8')
+automation/scripts/install_workspace_skills.py:28: trailing whitespace.
++    frontmatter = re.match(r"---\s*\n(.*?)\n---", text, re.S)
+automation/scripts/install_workspace_skills.py:29: trailing whitespace.
++    if not frontmatter:
+automation/scripts/install_workspace_skills.py:30: trailing whitespace.
++        raise ValueError('工作流缺少 frontmatter：' + name)
+automation/scripts/install_workspace_skills.py:31: trailing whitespace.
++    return "---\n" + frontmatter.group(1) + "\n---\n\n# 工作区技能入口\n\n" + (
+automation/scripts/install_workspace_skills.py:32: trailing whitespace.
++        f"在含 workspace.json 的当前研发工作区使用。读取 [完整工作流](../../../automation/workflows/{name}/SKILL.md)，"
+automation/scripts/install_workspace_skills.py:33: trailing whitespace.
++        "按本轮任务执行；根 AGENTS 与用户明确要求优先。本文件只用于技能发现，方法和命令在工作流源维护。\n")
+automation/scripts/install_workspace_skills.py:34: trailing whitespace.
++
+automation/scripts/install_workspace_skills.py:35: trailing whitespace.
++
+automation/scripts/install_workspace_skills.py:36: trailing whitespace.
++def managed_updates(source, target):
+automation/scripts/install_workspace_skills.py:37: trailing whitespace.
++    """供 setup 的预览/备份/恢复事务使用；不直接写文件或删除目录。"""
+automation/scripts/install_workspace_skills.py:38: trailing whitespace.
++    from deployment import safe, digest
+automation/scripts/install_workspace_skills.py:39: trailing whitespace.
++    entries = []
+automation/scripts/install_workspace_skills.py:40: trailing whitespace.
++    for name, fingerprints in PREVIOUS_MANAGED.items():
+automation/scripts/install_workspace_skills.py:41: trailing whitespace.
++        relative = '.agents/skills/' + name + '/SKILL.md'
+automation/scripts/install_workspace_skills.py:42: trailing whitespace.
++        file = safe(target, relative)
+automation/scripts/install_workspace_skills.py:43: trailing whitespace.
++        before = digest(file)
+automation/scripts/install_workspace_skills.py:44: trailing whitespace.
++        if before not in fingerprints:
+automation/scripts/install_workspace_skills.py:45: trailing whitespace.
++            continue
+automation/scripts/install_workspace_skills.py:46: trailing whitespace.
++        if name in COMPAT_NAMES:
+automation/scripts/install_workspace_skills.py:47: trailing whitespace.
++            entries.append({'path': relative, 'before': before, 'after': None})
+automation/scripts/install_workspace_skills.py:48: trailing whitespace.
++        else:
+automation/scripts/install_workspace_skills.py:49: trailing whitespace.
++            content = generated(source, name)
+automation/scripts/install_workspace_skills.py:50: trailing whitespace.
++            if file.read_text(encoding='utf-8') != content:
+automation/scripts/install_workspace_skills.py:51: trailing whitespace.
++                entries.append({'path': relative, 'before': before,
+automation/scripts/install_workspace_skills.py:52: trailing whitespace.
++                                'after': hashlib.sha256(content.encode()).hexdigest(), 'content': content})
+automation/scripts/install_workspace_skills.py:53: trailing whitespace.
++    return entries
+automation/scripts/install_workspace_skills.py:59: trailing whitespace.
++    if not selected or not set(selected).issubset(NAMES + COMPAT_NAMES):
+automation/scripts/install_workspace_skills.py:63: trailing whitespace.
++        content = generated(ROOT, name)
+automation/scripts/install_workspace_skills.py:87: trailing whitespace.
++    parser.add_argument("--name", choices=NAMES + COMPAT_NAMES, action="append", help="只安装指定入口（含旧名兼容），保留其他本地修改；可重复")
+automation/tests/test_deployment_workbench.py:251: trailing whitespace.
++    def test_memory_release_inputs_are_explicit_and_importable(self):
+automation/tests/test_deployment_workbench.py:252: trailing whitespace.
++        names = set(deploy.framework_files(ROOT))
+automation/tests/test_deployment_workbench.py:253: trailing whitespace.
++        self.assertTrue({
+automation/tests/test_deployment_workbench.py:254: trailing whitespace.
++            'automation/schemas/material-query.schema.json',
+automation/tests/test_deployment_workbench.py:255: trailing whitespace.
++            'docs/design/representation-query-v0.2/RUNTIME_STATUS.md',
+automation/tests/test_deployment_workbench.py:256: trailing whitespace.
++            'docs/design/representation-query-v0.2/inheritance-map.json',
+automation/tests/test_deployment_workbench.py:257: trailing whitespace.
++            'automation/workflows/material-query/SKILL.md',
+automation/tests/test_deployment_workbench.py:258: trailing whitespace.
++            'automation/workflows/association-exploration/SKILL.md',
+automation/tests/test_deployment_workbench.py:259: trailing whitespace.
++            'automation/workflows/semantic-maintenance/SKILL.md',
+automation/tests/test_deployment_workbench.py:260: trailing whitespace.
++            'automation/tests/fixtures/material-query/query-valid.json',
+automation/tests/test_deployment_workbench.py:261: trailing whitespace.
++        }.issubset(names))
+automation/tests/test_deployment_workbench.py:276: trailing whitespace.
++        code = "import sys;sys.path.insert(0,sys.argv[1]);from memory.service import MemoryService;from memory.contracts import SCHEMA;from material_query.foundation import METHOD_MAP;from material_query.definitions import listing;assert 'OwnerDescriptor' in SCHEMA['$defs'];assert len(METHOD_MAP)==43;assert len(listing())==6;print('memory-schema-ok')"
+automation/tests/test_deployment_workbench.py:285: trailing whitespace.
++        # 受控旧入口迁移，用户同名改写和附属文件应保留；纳入真实setup链路。
+automation/tests/test_deployment_workbench.py:286: trailing whitespace.
++        legacy = '.agents/skills/research-loop/SKILL.md'
+automation/tests/test_deployment_workbench.py:289: trailing whitespace.
++        self.write(self.root, '.agents/skills/research-loop/user-note.txt', 'keep companion')
+automation/tests/test_deployment_workbench.py:290: trailing whitespace.
++        custom = self.write(self.root, '.agents/skills/workspace-context/SKILL.md', 'CUSTOM KEEP')
+automation/tests/test_deployment_workbench.py:311: trailing whitespace.
++        self.assertFalse((self.root / legacy).exists())
+automation/tests/test_deployment_workbench.py:312: trailing whitespace.
++        self.assertEqual(custom.read_text(encoding='utf-8'), 'CUSTOM KEEP')
+automation/tests/test_deployment_workbench.py:313: trailing whitespace.
++        self.assertEqual((self.root / '.agents/skills/research-loop/user-note.txt').read_text(), 'keep companion')
+automation/tests/test_deployment_workbench.py:440: trailing whitespace.
++        self.assertEqual((self.root / legacy).read_bytes(), legacy_bytes)
+automation/tests/test_deployment_workbench.py:441: trailing whitespace.
++        self.assertEqual(custom.read_text(encoding='utf-8'), 'CUSTOM KEEP')
+automation/tests/test_install_workspace_skills.py:27: trailing whitespace.
++        for name in installer.NAMES + installer.COMPAT_NAMES:
+automation/tests/test_install_workspace_skills.py:50: trailing whitespace.
++        self.assertEqual(installer.NAMES, ("work-loop", "context-maintenance", "evidence-inspection", "development-checks",
+automation/tests/test_install_workspace_skills.py:51: trailing whitespace.
++                                         "material-query", "association-exploration", "semantic-maintenance"))
+automation/tests/test_install_workspace_skills.py:68: trailing whitespace.
++        self.custom("work-loop", b"user-owned research skill\r\n")
+automation/tests/test_install_workspace_skills.py:73: trailing whitespace.
++        self.assertIn("+name: work-loop", preview.stderr)
+automation/tests/test_install_workspace_skills.py:79: trailing whitespace.
++        self.assertIn("+name: work-loop", applied.stderr)
+automation/tests/test_install_workspace_skills.py:94: trailing whitespace.
++    def test_managed_migration_is_fingerprinted_backed_up_and_reversible(self):
+automation/tests/test_install_workspace_skills.py:95: trailing whitespace.
++        import upgrade_fixture
+automation/tests/test_install_workspace_skills.py:96: trailing whitespace.
++        legacy = self.custom('research-loop', upgrade_fixture.legacy_skill('research-loop').encode())
+automation/tests/test_install_workspace_skills.py:97: trailing whitespace.
++        old = legacy.read_bytes()
+automation/tests/test_install_workspace_skills.py:98: trailing whitespace.
++        changed = self.custom('material-query', (upgrade_fixture.legacy_skill('material-query') + '用户附加约束').encode())
+automation/tests/test_install_workspace_skills.py:99: trailing whitespace.
++        original = changed.read_bytes()
+automation/tests/test_install_workspace_skills.py:100: trailing whitespace.
++        entries = installer.managed_updates(self.root, self.root)
+automation/tests/test_install_workspace_skills.py:101: trailing whitespace.
++        self.assertEqual([item['path'] for item in entries], ['.agents/skills/research-loop/SKILL.md'])
+automation/tests/test_install_workspace_skills.py:102: trailing whitespace.
++        self.assertEqual(legacy.read_bytes(), old)
+automation/tests/test_install_workspace_skills.py:103: trailing whitespace.
++        backup = deployment.apply_upgrade(self.root, self.root, entries)
+automation/tests/test_install_workspace_skills.py:104: trailing whitespace.
++        self.assertFalse(legacy.exists())
+automation/tests/test_install_workspace_skills.py:105: trailing whitespace.
++        self.assertEqual(changed.read_bytes(), original)
+automation/tests/test_install_workspace_skills.py:106: trailing whitespace.
++        deployment.rollback(backup)
+automation/tests/test_install_workspace_skills.py:107: trailing whitespace.
++        self.assertEqual(legacy.read_bytes(), old)
+automation/tests/test_install_workspace_skills.py:108: trailing whitespace.
++        self.assertEqual(changed.read_bytes(), original)
+automation/tests/test_install_workspace_skills.py:109: trailing whitespace.
++
+automation/tests/upgrade_fixture.py:147: trailing whitespace.
++
+automation/tests/upgrade_fixture.py:148: trailing whitespace.
++def legacy_skill(name):
+automation/tests/upgrade_fixture.py:149: trailing whitespace.
++    descriptions = {
+automation/tests/upgrade_fixture.py:150: trailing whitespace.
++        'research-loop': '规划并执行专题研究、数据诊断、模型设计验证和证据报告的闭环；适用于论文阅读、仿真、反证和可复现综合，不用于简单事实问答。',
+automation/tests/upgrade_fixture.py:151: trailing whitespace.
++        'material-query': '按内容来源、标准类型和版本查询已有研发材料，选择候选后展开正文或读取完整文稿，核对来源、预算和缺口；不自动生成新结论。',
+automation/tests/upgrade_fixture.py:152: trailing whitespace.
++    }
+automation/tests/upgrade_fixture.py:153: trailing whitespace.
++    return f"---\nname: {name}\ndescription: {descriptions[name]}\n---\n\n# 工作区技能入口\n\n在含 workspace.json 的当前研发工作区使用。读取 [完整工作流](../../../automation/workflows/{name}/SKILL.md)，按本轮任务执行；根 AGENTS 与用户明确要求优先。本文件只用于技能发现，方法和命令在工作流源维护。\n"
+automation/tests/upgrade_fixture.py:154: trailing whitespace.
++
+automation/tests/upgrade_fixture.py:193: trailing whitespace.
++    directories.update(memory_directories)
+automation/tests/upgrade_fixture.py:194: trailing whitespace.
++    # Preserve an explicit, fingerprint-pinned legacy locator after a research
+automation/tests/upgrade_fixture.py:195: trailing whitespace.
++    # Run was moved. The old path remains absent throughout real setup cycles.
+automation/tests/upgrade_fixture.py:196: trailing whitespace.
++    relocated = 'research/用户迁移 样例/历史运行/结果.txt'
+automation/tests/upgrade_fixture.py:197: trailing whitespace.
++    write(relocated, 'SYNTHETIC ONLY frozen relocated evidence\n')
+automation/tests/upgrade_fixture.py:198: trailing whitespace.
++    source_registry = root / 'retrieval/sources.json'
+automation/tests/upgrade_fixture.py:199: trailing whitespace.
++    registered = json.loads(source_registry.read_text(encoding='utf-8'))
+automation/tests/upgrade_fixture.py:200: trailing whitespace.
++    registered['sources'].append({'source_id': 'SRC-UPGRADE-RELOCATED', 'path': relocated,
+automation/tests/upgrade_fixture.py:201: trailing whitespace.
++        'relocated_from': 'runs/旧布局/结果.txt', 'enabled': True, 'sensitivity': 'internal',
+automation/tests/upgrade_fixture.py:202: trailing whitespace.
++        'sha256': hashlib.sha256((root / relocated).read_bytes()).hexdigest()})
+automation/tests/upgrade_fixture.py:203: trailing whitespace.
++    source_registry.write_text(json.dumps(registered, ensure_ascii=False, indent=2), encoding='utf-8')
+automation/tests/upgrade_fixture.py:354: trailing whitespace.
++    home = root / owners.resolve_owner(root, v3_owner)['memory_home']
+automation/tests/upgrade_fixture.py:359: trailing whitespace.
++        elif path.is_file():
+automation/tests/upgrade_fixture.py:360: trailing whitespace.
++            names.append(relative)
+automation/tests/upgrade_fixture.py:361: trailing whitespace.
++    # Maintenance plans are durable user work under .local, unlike rebuildable
+automation/tests/upgrade_fixture.py:362: trailing whitespace.
++    # index caches. Create one through the actual public application so upgrades
+automation/tests/upgrade_fixture.py:363: trailing whitespace.
++    # must preserve its real fixed context/read receipt and versioned plan bytes.
+automation/tests/upgrade_fixture.py:364: trailing whitespace.
++    # This is an unreviewed software fixture, never a fabricated AI assessment.
+automation/tests/upgrade_fixture.py:365: trailing whitespace.
++    from material_query.api import dispatch as material_dispatch
+automation/tests/upgrade_fixture.py:366: trailing whitespace.
++    from material_query.contracts import Scope, MaintenanceRequest
+automation/tests/upgrade_fixture.py:367: trailing whitespace.
++    from material_query.coordinator import Coordinator
+automation/tests/upgrade_fixture.py:368: trailing whitespace.
++    from material_query.legacy_adapter import from_legacy
+automation/tests/upgrade_fixture.py:369: trailing whitespace.
++    from material_query.wire import json_value
+automation/tests/upgrade_fixture.py:370: trailing whitespace.
++    material_app = Coordinator(root)
+automation/tests/upgrade_fixture.py:371: trailing whitespace.
++    try:
+automation/tests/upgrade_fixture.py:372: trailing whitespace.
++        material_scope = Scope((v3_owner,), None, None, None, None, None, None, False, (), (), None, None)
+automation/tests/upgrade_fixture.py:373: trailing whitespace.
++        request = MaintenanceRequest((from_legacy(unit_ref)[0],), material_scope, "dependency-review", "1")
+automation/tests/upgrade_fixture.py:374: trailing whitespace.
++        planned = material_dispatch(material_app, "maintenance-plan", json_value(request))
+automation/tests/upgrade_fixture.py:375: trailing whitespace.
++        assert planned.get('value') and planned['value']['plan_id'], planned
+automation/tests/upgrade_fixture.py:376: trailing whitespace.
++        # Reading sessions are durable user work too. Exercise the public
+automation/tests/upgrade_fixture.py:377: trailing whitespace.
++        # creation/decision API, then protect HEAD and immutable history bytes.
+automation/tests/upgrade_fixture.py:378: trailing whitespace.
++        template = material_dispatch(material_app, 'reading-template', {})['value']
+automation/tests/upgrade_fixture.py:380: trailing whitespace.
++        template['query']['scope'] = json_value(material_scope)
+automation/tests/upgrade_fixture.py:381: trailing whitespace.
++        template['query']['scope_ceiling'] = json_value(material_scope)
+automation/tests/upgrade_fixture.py:382: trailing whitespace.
++        started = material_dispatch(material_app, 'reading-start', template)
+automation/tests/upgrade_fixture.py:383: trailing whitespace.
++        assert started['status'] == 'ok', started
+automation/tests/upgrade_fixture.py:384: trailing whitespace.
++        decided = material_dispatch(material_app, 'reading-decide', {
+automation/tests/upgrade_fixture.py:385: trailing whitespace.
++            'session_id': template['session_id'], 'expected_revision': 1, 'request_id': 'upgrade-decision',
+automation/tests/upgrade_fixture.py:386: trailing whitespace.
++            'direction': 'proceed', 'reason': '合成上下文足够', 'next_step': '升级后继续验证',
+automation/tests/upgrade_fixture.py:387: trailing whitespace.
++            'outcome': '', 'human_decision': ''})
+automation/tests/upgrade_fixture.py:388: trailing whitespace.
++        assert decided['status'] == 'ok', decided
+automation/tests/upgrade_fixture.py:389: trailing whitespace.
++    finally:
+automation/tests/upgrade_fixture.py:390: trailing whitespace.
++        material_app.close()
+automation/tests/upgrade_fixture.py:391: trailing whitespace.
++    plan_home = root / '.local/material-query/plans'
+automation/tests/upgrade_fixture.py:392: trailing whitespace.
++    for path in [plan_home, *plan_home.rglob('*')]:
+automation/tests/upgrade_fixture.py:393: trailing whitespace.
++        relative = path.relative_to(root).as_posix()
+automation/tests/upgrade_fixture.py:394: trailing whitespace.
++        if path.is_dir():
+automation/tests/upgrade_fixture.py:395: trailing whitespace.
++            directories.add(relative)
+automation/tests/upgrade_fixture.py:396: trailing whitespace.
++        elif path.is_file():
+automation/tests/upgrade_fixture.py:397: trailing whitespace.
++            names.append(relative)
+automation/tests/upgrade_fixture.py:398: trailing whitespace.
++    reading_home = root / '.local/reading-sessions'
+automation/tests/upgrade_fixture.py:399: trailing whitespace.
++    for path in [reading_home, *reading_home.rglob('*')]:
+automation/tests/upgrade_fixture.py:400: trailing whitespace.
++        relative = path.relative_to(root).as_posix()
+automation/tests/upgrade_fixture.py:401: trailing whitespace.
++        if path.is_dir():
+automation/tests/upgrade_fixture.py:402: trailing whitespace.
++            directories.add(relative)
+automation/tests/upgrade_fixture.py:403: trailing whitespace.
++        elif path.is_file():
+automation/tests/upgrade_fixture.py:404: trailing whitespace.
++            names.append(relative)
+automation/tests/upgrade_fixture.py:421: trailing whitespace.
++def assert_preserved(root, expected):
+automation/tests/upgrade_fixture.py:427: trailing whitespace.
++    for name in expected['directories']:
+automation/tests/upgrade_fixture.py:428: trailing whitespace.
++        if not (root / name).is_dir():
+automation/tests/upgrade_fixture.py:429: trailing whitespace.
++            raise AssertionError('Protected directory missing: ' + name)
+automation/tests/upgrade_fixture.py:430: trailing whitespace.
++    if 'research/用户迁移 样例/历史运行/结果.txt' in expected['files']:
+automation/tests/upgrade_fixture.py:431: trailing whitespace.
++        import evidence
+automation/tests/upgrade_fixture.py:432: trailing whitespace.
++        resolved = evidence.reference_path(root, 'runs/旧布局/结果.txt')
+automation/tests/upgrade_fixture.py:433: trailing whitespace.
++        if resolved != (root / 'research/用户迁移 样例/历史运行/结果.txt').resolve():
+automation/tests/upgrade_fixture.py:434: trailing whitespace.
++            raise AssertionError('Pinned source relocation no longer resolves')
+automation/workflows/README.md:1: trailing whitespace.
++# AI 工作流入口
+automation/workflows/README.md:3: trailing whitespace.
++默认由[work-loop](work-loop/SKILL.md)完成归属、工作记录和交接，方法由AI按任务判断。各Owner共用按内容组合的L0–L4，不强制每轮补层或双文稿。
+automation/workflows/README.md:5: trailing whitespace.
++| 活跃Skill | 何时使用 |
+automation/workflows/README.md:7: trailing whitespace.
++| [work-loop](work-loop/SKILL.md) | 有产物、结论或复用价值的工作；极小操作可不新增记录 |
+automation/workflows/README.md:8: trailing whitespace.
++| [material-query](material-query/SKILL.md) | 查本地材料、完整阅读和维护阅读记录 |
+automation/workflows/README.md:9: trailing whitespace.
++| [context-maintenance](context-maintenance/SKILL.md) | 批量接入、来源整理与文档代码映射 |
+automation/workflows/README.md:10: trailing whitespace.
++| [development-checks](development-checks/SKILL.md) | 开发验证及受影响文档/接口维护 |
+automation/workflows/README.md:11: trailing whitespace.
++| [association-exploration](association-exploration/SKILL.md) | 专门跨领域结构分析 |
+automation/workflows/README.md:12: trailing whitespace.
++| [evidence-inspection](evidence-inspection/SKILL.md) | 复核/依据追溯和显式监测 |
+automation/workflows/README.md:13: trailing whitespace.
++| [semantic-maintenance](semantic-maintenance/SKILL.md) | 新依据对下游内容的实际语义修订 |
+automation/workflows/README.md:15: trailing whitespace.
++默认发现/安装7项。research-loop和workspace-context的方法源仅保留短兼容跳转，可显式--name安装；不在默认选择中。旧CTX/CF/MQ/QMEM/PKT各自兼容，不能改名混用。主Skill不复制参数手册；公共动作见[参考](../../docs/WORKFLOW_ACTIONS.md)。
+automation/workflows/README.md:16: trailing whitespace.
++
+automation/workflows/README.md:17: trailing whitespace.
++单独安装器只补缺失入口，冲突输出差异；setup升级只对精确匹配已登记旧指纹的受控入口更新/退休，进入同一可恢复备份。用户修改/未知版本继续保留，需按差异合并。旧受控发现入口退休需验证指纹并保留备份；不能按旧名称批量删除自定义Skill。升级仍用setup.cmd，不以单装Skill替代升级。开发全局整合时核对全部活跃/兼容入口与实际工具调用。
+automation/workflows/context-maintenance/SKILL.md:16: trailing whitespace.
++普通保存和交接使用[work-loop](../work-loop/SKILL.md)及公共memory接口。来源新修订影响既有结论时用semantic-maintenance实际审查；不通过重算旧哈希消除差异。批次结构变化后refresh-index/validate，相关检索投影按真实变化更新；用户未要求时不创建后台维护。
+automation/workflows/development-checks/SKILL.md:3: trailing whitespace.
++description: 开发、修复和接口变更时按影响选择验证，并核对相关文档与Skill；全局整合或发布时做完整一致性审查。
+automation/workflows/development-checks/SKILL.md:5: trailing whitespace.
++
+automation/workflows/development-checks/SKILL.md:6: trailing whitespace.
++# 开发检查
+automation/workflows/development-checks/SKILL.md:7: trailing whitespace.
++
+automation/workflows/development-checks/SKILL.md:8: trailing whitespace.
++普通工作由work-loop主导；本Skill只补开发需要的验证和维护，不规定实现方法。只要求计划时交付计划，不实施产品。
+automation/workflows/development-checks/SKILL.md:9: trailing whitespace.
++
+automation/workflows/development-checks/SKILL.md:10: trailing whitespace.
++先通过ARCHITECTURE与实际代码定位受影响模块，查DEVELOPMENT_HISTORY中相关选择；全局架构/工作流整合前完整读历史。按影响读取下表，已有上下文足够不重复加载。修改后核对对应说明和调用者；全局整合、发布或用户要求全面审查时，前后完整阅读六份文档并逐项记录处置。
+automation/workflows/development-checks/SKILL.md:11: trailing whitespace.
++
+automation/workflows/development-checks/SKILL.md:12: trailing whitespace.
++| 文档 | 何时读取/维护 |
+automation/workflows/development-checks/SKILL.md:13: trailing whitespace.
++|---|---|
+automation/workflows/development-checks/SKILL.md:14: trailing whitespace.
++| [README](../../../README.md) | 用户概念、功能、常用入口和目录发生变化 |
+automation/workflows/development-checks/SKILL.md:15: trailing whitespace.
++| [ARCHITECTURE](../../../ARCHITECTURE.md) | 职责、依赖、状态、数据流与实现差距；全局唯一架构入口 |
+automation/workflows/development-checks/SKILL.md:16: trailing whitespace.
++| [CORE](../../../docs/CORE.md) | 功能定义、交接、关键行为与调用方式 |
+automation/workflows/development-checks/SKILL.md:17: trailing whitespace.
++| [docs/README](../../../docs/README.md) | 查详细手册或新增/移动入口 |
+automation/workflows/development-checks/SKILL.md:18: trailing whitespace.
++| [文档维护](../../../docs/DOCUMENTATION_MAINTENANCE.md) | 规则/Skill/文档职责调整及全面一致性审查 |
+automation/workflows/development-checks/SKILL.md:19: trailing whitespace.
++| [TESTING](../../../docs/TESTING.md) | 根据风险选测试和维护对应catalog |
+automation/workflows/development-checks/SKILL.md:20: trailing whitespace.
++
+automation/workflows/development-checks/SKILL.md:21: trailing whitespace.
++测试验证用户行为和真实失败边界，不以文字匹配代替功能；相关检查通过后不机械重复无关全套测试。实际AI、人工、科学结论与软件结果分开报告。执行记录保留实际源码/输入和限制。
+automation/workflows/development-checks/SKILL.md:22: trailing whitespace.
++
+automation/workflows/development-checks/SKILL.md:23: trailing whitespace.
++接口变化追踪CLI/HTTP/UI、生成类型与Skill实例。前端须类型检查、相关组件/浏览器验证、构建和指纹；涉及发现、安装、缓存或恢复时跑真实setup扩展旧工作区升级/恢复，保护业务及自定义内容；依赖/模型变化按离线分发规范验证。不能把上述边界因“精简”取消。
+automation/workflows/development-checks/SKILL.md:24: trailing whitespace.
++
+automation/workflows/development-checks/SKILL.md:25: trailing whitespace.
++局部变更逐条核对受影响Skill与直接调用者；入口/契约跨域变化、发布或全面审查时检查所有活跃及兼容Skill的适用时机、真实动作、发现/安装与替代去向。根规则和方法源不重复写完整流程。旧规则/证据保留固定历史，不按名称删除自定义Skill。
+automation/workflows/development-checks/SKILL.md:26: trailing whitespace.
++
+automation/workflows/development-checks/SKILL.md:27: trailing whitespace.
++完成时在本次计划或Run写清改动、验证、文档/Skill处置及缺口；记录重要决定和被替代的理由。结构变化refresh-index/validate。详细约定按上表读取，不为一次改动新建平行维护清单。
+automation/workflows/evidence-inspection/SKILL.md:6: trailing whitespace.
++# 证据查看与只读监测
+automation/workflows/evidence-inspection/SKILL.md:7: trailing whitespace.
++
+automation/workflows/evidence-inspection/SKILL.md:8: trailing whitespace.
++核对框架保存或检索规则时，以 [ARCHITECTURE.md](../../../ARCHITECTURE.md) 和当前契约为入口；发现文档漂移按 [文档维护约定](../../../docs/DOCUMENTATION_MAINTENANCE.md) 定位需同步页面，历史验证结论不因文案更新而晋升。
+automation/workflows/evidence-inspection/SKILL.md:14: trailing whitespace.
++默认知识检索查看L1–L4；L0是统一原始材料视图，含 Run 登记与独立来源。先用 `memory raw-materials` 指定 owner_id 看清单，再用 `memory raw-material` 指定 material_id 核验并有界读取；请求见[统一入口](../../../docs/WORKFLOW_ACTIONS.md)。执行与登记回执的区别见[执行手册](../../../docs/RUN_CAPTURE.md)：文件已保存不代表脚本成功，退出码为零也不代表科学结论已复核。明确追溯某条来源也可使用固定引用展开，或search的 `retrieval_mode:"trace"` 配合实际ID选择，不能靠空查询遍历所有原始日志。旧v1记录读取时采用新有效层级，但核验仍使用原修订哈希；层级平移不代表结论重新验证。
+automation/workflows/evidence-inspection/SKILL.md:15: trailing whitespace.
++
+automation/workflows/evidence-inspection/SKILL.md:16: trailing whitespace.
++v3 L1 的检索说明不代替完整技术块，实验/方法/推导/分析按实际内容区分；v2 正文继续按原版本核验。研究过程 research_process 与精简报告 research_report 使用独立 document/document_section，level=null；查看时用 document/outline，局部核对用 section-context。用 document-impact 检查固定来源、变化关注和双文稿版本差异；其 requires_review 提示不自动撤回结论或改写章节，watch_refs 不是科学支持关系。当前请求与回读字段见 [请求示例第 9 节](../../../docs/MEMORY_REQUESTS.md)。
+automation/workflows/research-loop/SKILL.md:8: trailing whitespace.
++读取[work-loop](../work-loop/SKILL.md)并按实际任务执行。研究、开发、分析与整理共用记录协议，不强制补齐L0–L4或双文稿。旧Run、记录与查询身份保留，不能把本入口改名解释为迁移了历史数据。
+automation/workflows/workspace-context/SKILL.md:8: trailing whitespace.
++一般工作进入[work-loop](../work-loop/SKILL.md)，查本地材料使用[material-query](../material-query/SKILL.md)。公司算法定义与实现核对时按需读[算法专项参考](../work-loop/references/core-algorithms.md)。已有CTX/CF仍按[原接口](../../../docs/RETRIEVAL.md)续接，不转换或改写历史身份。
+context/NOW.md:3: trailing whitespace.
++更新：2026-09-13。默认工作入口[work-loop](../automation/workflows/work-loop/SKILL.md)，本地查阅用material-query；小操作可不建档。各Owner按有用内容组合L0–L4，文稿按需。规则、代码和接口现状分别见[架构](../ARCHITECTURE.md)、[CORE](../docs/CORE.md)与[手册索引](../docs/README.md)。
+context/NOW.md:5: trailing whitespace.
++## 当前开发
+context/NOW.md:7: trailing whitespace.
++[统一工作流计划](../projects/architecture-evolution/plans/unified-workflow-skills-20260913.md)正在验收收口，实施Run为RUN-20260912T211413Z-6272D2E02162。默认7项活跃Skill，research-loop/workspace-context方法源保留短兼容跳转。各Owner默认normal、auto_summary=false、允许L0–L4；既有显式策略优先。
+context/NOW.md:9: trailing whitespace.
++工作台“系统记忆→选择对象→阅读记录”显示该Owner绑定RS；全局列表也能发现未绑定旧会话。阅读HEAD是真源，Markdown导出是版本快照；支持查看、固定原文、绑定检查点、归档/恢复。是否补查由AI判断，历史ask_user仍需真实意见；授权与累计预算不放宽。无后台AI或自动经验生成。
+context/NOW.md:11: trailing whitespace.
++## 当前基础能力与限制
+context/NOW.md:13: trailing whitespace.
++- v4聚合契约兼容v1–v3；新L2经过、L4概览和分类经验用v4，L1/独立文稿用v3。旧修订及固定字节保留，不能批量改类型名迁移。
+context/NOW.md:14: trailing whitespace.
++- 材料查询按内容来源/标准Owner筛选，身份/词法/可选本地向量召回；AI阅读分别查各层，短候选全文、L1命中块及必要定义，保留后再完整阅读。索引、完整交付、AI理解和结论复核是不同状态。
+context/NOW.md:15: trailing whitespace.
++- 来源修订/撤权需回查；历史导出不可绕过当前授权。RS是私人工作数据，不能按缓存清理。Qdrant local仍有进程排他限制。
+context/NOW.md:16: trailing whitespace.
++- Windows升级仍走独立新版源码的setup.cmd，保留原业务/配置和恢复回执；本次没有更换模型或依赖。标准模型自动迁移只限约定名称/路径与兼容384维。
+context/NOW.md:18: trailing whitespace.
++## 历史与待验收
+context/NOW.md:20: trailing whitespace.
++- 层级整理与浮点迁移：[实施记录](../projects/architecture-evolution/runs/run-20260910t125056z-8d1e5d9047b1/RESULTS.md)、[后续收口](../projects/architecture-evolution/runs/run-20260910t183626z-429304f92e99/RESULTS.md)。固定研究报告保留当时定义，新工作以现行手册为准。
+context/NOW.md:21: trailing whitespace.
++- 正文块索引：[2026-09-12结果](../projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/RESULTS.md)；初版阅读流程：[原计划](../projects/architecture-evolution/plans/ai-reading-workflow-20260913.md)。
+context/NOW.md:22: trailing whitespace.
++- 历史独立题集检索质量未通过、万条规模暂缓；真实业务质量、人工与第二物理机验收分别待审，不能用当前软件检查抵消。历史缺来源/旧指纹问题仍保留。详情见[Project](../projects/architecture-evolution/README.md)及[历史状态](../docs/design/system-memory/STATUS.md)。
+context/NOW.md:23: trailing whitespace.
++- [人工检查表](../projects/architecture-evolution/runs/run-20260910t063103z-902da8123205/HUMAN_CHECKLIST.md)未填项不当作通过；无自动远程备份、通用代码影响监听器或企业连接器。
+context/START_HERE.md:3: trailing whitespace.
++本工作区默认使用[work-loop](../automation/workflows/work-loop/SKILL.md)完成工作与记录，不先区分研究、项目开发、算法问答或工具使用。极小且无复用价值的操作可不新增记录。
+context/START_HERE.md:5: trailing whitespace.
++先读[NOW](NOW.md)，按任务定位已有Owner和最近AGENTS；已有上下文足够不重复装载。用户指定归属优先，其次沿用已有对象；没有归属的小分析可以只建Run，不为分类创建空项目。
+context/START_HERE.md:7: trailing whitespace.
++| 当前需要 | 入口 |
+context/START_HERE.md:8: trailing whitespace.
++|---|---|
+context/START_HERE.md:9: trailing whitespace.
++| 查本地材料/经验、完整阅读与阅读记录 | [material-query](../automation/workflows/material-query/SKILL.md)；已有RS按Owner列出/查看 |
+context/START_HERE.md:10: trailing whitespace.
++| 查对象目录 | [派生索引](generated/workspace-index.md)，或memory list-owners |
+context/START_HERE.md:11: trailing whitespace.
++| 批量接入资料与来源映射 | [context-maintenance](../automation/workflows/context-maintenance/SKILL.md) |
+context/START_HERE.md:12: trailing whitespace.
++| 公司核心算法原文与实现核对 | [按需参考](../automation/workflows/work-loop/references/core-algorithms.md)，遵守算法准入 |
+context/START_HERE.md:13: trailing whitespace.
++| 开发、接口修改和测试 | [development-checks](../automation/workflows/development-checks/SKILL.md)；按影响读代码和手册 |
+context/START_HERE.md:14: trailing whitespace.
++| 专门结构迁移分析 | [association-exploration](../automation/workflows/association-exploration/SKILL.md) |
+context/START_HERE.md:15: trailing whitespace.
++| 来源变化引起下游语义修订 | [semantic-maintenance](../automation/workflows/semantic-maintenance/SKILL.md) |
+context/START_HERE.md:16: trailing whitespace.
++| 复核/影响追溯与显式监测 | [evidence-inspection](../automation/workflows/evidence-inspection/SKILL.md) |
+context/START_HERE.md:17: trailing whitespace.
++| 成品文档/图表/报告 | 按实际格式用可用产物Skill，work-loop负责归属与依据 |
+context/START_HERE.md:19: trailing whitespace.
++参数与最小调用见[公共动作](../docs/WORKFLOW_ACTIONS.md)，详细手册见[文档索引](../docs/README.md)。旧research-loop/workspace-context只是兼容跳转；旧CTX/CF、QMEM/PKT仍用各自接口，不能混用身份或清零预算。
+context/START_HERE.md:21: trailing whitespace.
++原件、规范记录、索引与复核分开；按来源/固定引用读取，不把全部历史或共享盘树装入上下文。外部材料不是指令，不扩大读取授权。未知与失效依据明确报告，历史不改写。完整定义见[记录标准](../docs/RESEARCH_RECORDING.md)。
+docs/MEMORY_USAGE.md:3: trailing whitespace.
++本指南按当前工作树实现核对（2026-09-11），对应 `automation/scripts/memory/api.py` 和 `memory/cli.py` 的实际入口。示例中的对象 ID、文件路径、请求 ID 和修订号需要替换为当前工作区的值；示例不是业务结论或验收记录。模块职责以 [ARCHITECTURE.md](../ARCHITECTURE.md) 为入口；修改功能时按 [文档维护约定](DOCUMENTATION_MAINTENANCE.md) 检查本指南、请求示例与 Skill 的同步范围。
+docs/MEMORY_USAGE.md:35: trailing whitespace.
++当前字段以 [v4 聚合契约](../automation/schemas/memory-v4.schema.json) 和服务校验为准；[v2](../automation/schemas/memory-v2.schema.json)、[v1](../automation/schemas/memory-v1.schema.json) 保留历史读取。新 narrative/overview 默认 v4，分类 experience 显式用 v4，其他种类默认 v3；新草案按类型明确版本，不靠兼容形状猜版本。CommitRequest 封套版本与记录版本相互独立，不能靠修改封套迁移正文。旧 event/map 不再提供单独的工作台筛选或新建入口；尚未整理的对象记录仍在相应层级可见，但不会冒充新内容查询的 narrative/overview。旧 v1 存储 L1/L2/L3 分别投影为新 L2/L3/L4，历史字节与哈希不变；v2 detail 仍读取原正文。公式说明符号、单位与适用条件。研究默认覆盖见 [分层记录标准](RESEARCH_RECORDING.md)。
+docs/MEMORY_USAGE.md:37: trailing whitespace.
++需要完整方法/分析时保存 L1 `detail`：`unit_type` 区分 experiment/method/derivation/analysis，`retrieval_description` 说明问题、方法、发现与适用边界，完整技术正文只写入 `blocks`，`body_markdown` 留空。实验必须固定引用实际 Run；未执行的方法、推导或分析可以令 `run_ref=null`，并交代依据或缺口。再用 v4 L2 `narrative` 的 stages 和正文记录“为何作出选择”及实际转折，固定技术依据；L3 `experience` 明确 knowledge_type 与边界，L4 `overview` 保存整体概览。跨研究不自动意味着经验。研究经过可保存 `occurred_at`、`failure` 和目标/路线/Run 引用；失败字段记录类别、范围、结果、不能推出的判断和重试条件。经验的 `failure_modes` 不能代替实际失败经过，也不重复登记实验。
+docs/MEMORY_USAGE.md:39: trailing whitespace.
++### 整理旧事件和地图
+docs/MEMORY_USAGE.md:41: trailing whitespace.
++先读旧正文、实际依据、失败与适用边界，再编写新内容。通过 `put_record` 修订同一个 ID：只允许 event→narrative、map→overview，记录版本为 4，必须有完整 `body_markdown`、`change_reason`，并在 `sources` 中用 `relation: references` 固定上一修订的 ID、revision 和 record_hash。仍需通过正常 schema、来源授权和 HEAD/修订冲突检查；服务不会自动推导正文或展开关联。
+docs/MEMORY_USAGE.md:42: trailing whitespace.
++
+docs/MEMORY_USAGE.md:43: trailing whitespace.
++新修订成为当前记录，索引按相同身份更新，不同时留下两条当前记录；旧修订、旧引用及审查历史保持不变。将经过和技术单元保存回读后，再用实际 revision/SHA 写入经验、概览的展开关系。完成后以 `memory rebuild --request 请求.json` 提交 `{"scope":["对象ID"],"vector":"auto"}`，分别核对保存、全文索引与向量索引状态。数据整理不重跑实验，也不提升科学复核状态。
+docs/MEMORY_USAGE.md:44: trailing whitespace.
++
+docs/MEMORY_USAGE.md:45: trailing whitespace.
++各类Owner默认使用work-loop，按有用内容保存L0依据、L1方法/分析、L2有依据的经过、L3可复用认识及L4概览。允许缺层，文稿按阅读和交付需要编排；不为每轮凑记录或强制双文稿。固定引用复用原件，来源主张、AI推断与本次验证明确区分。已有显式对象策略保留。
+docs/MEMORY_USAGE.md:46: trailing whitespace.
++
+docs/MEMORY_USAGE.md:47: trailing whitespace.
++需要构造请求时，只读[请求示例](MEMORY_REQUESTS.md)的当前动作。work-loop统一归属/记录/续接，material-query负责查阅与阅读记录，其他专项按需使用。所有Owner可按内容组合L0–L4，缺层正常，文稿按需；默认normal与auto_summary=false不改写已有显式策略。旧research-loop/workspace-context保留兼容跳转，安装器默认登记7项。
+docs/MEMORY_USAGE.md:105: trailing whitespace.
++`retrieval_mode` 默认为 `knowledge`：发现 L1 技术说明及更高层知识，v3 技术单元的检索说明与稳定正文块均可召回，候选预览仍用说明，完整正文在固定引用展开时读取。technical-blocks v4派生投影需要重建，旧水位不会因HEAD未变就算覆盖。查文稿或章节使用 `documents`，该模式使用全文通道并关闭向量，不能同时要求 `vector:"required"`。L0 追溯用 `trace` 并显式选择实际 ID，或用 `raw-materials` / `raw-material` 查看已登记材料。独立文稿不默认混入知识排名；三种模式都保留权限、排除和版本检查。
+docs/OBJECT_RUN_STORAGE.md:3: trailing whitespace.
++核对日期：2026-09-13。本文描述当前实现，区分程序自动行为、AI 工作方法和未实现的自动化；对象已有策略或本次明确要求可以改变默认行为。
+docs/OBJECT_RUN_STORAGE.md:4: trailing whitespace.
++
+docs/OBJECT_RUN_STORAGE.md:5: trailing whitespace.
++当前模块职责以 [ARCHITECTURE.md](../ARCHITECTURE.md) 为入口；保存/归属规则变化时，按 [文档维护约定](DOCUMENTATION_MAINTENANCE.md) 同步本页、执行手册与对应 Skill。
+docs/OBJECT_RUN_STORAGE.md:64: trailing whitespace.
++| L1 detail | v3 实验、方法、推导或分析技术单元；检索说明与稳定完整正文块 | AI 阅读真实证据后写入，不由日志自动生成 |
+docs/OBJECT_RUN_STORAGE.md:65: trailing whitespace.
++| L2 narrative | 有依据的研究/工作经过、选择与转折 | AI按实际价值保存，注明本次经过或来源叙述 |
+docs/OBJECT_RUN_STORAGE.md:67: trailing whitespace.
++| L4 overview | 用途、适用条件、现状、未决事项和导航 | AI按内容维护 |
+docs/OBJECT_RUN_STORAGE.md:68: trailing whitespace.
++
+docs/OBJECT_RUN_STORAGE.md:69: trailing whitespace.
++独立 `document_section` 章节、`document` 研究过程文稿/精简报告、目标、路线、检查点等是辅助类型，level 为 null。两类文稿分别使用 `research_process` / `research_report`，通过固定章节引用组织同一批技术单元，L4 是整体概览。L1 的实验说明固定引用 Run；方法、推导和分析可以没有实际执行的 Run，须明确依据或缺口。说明文档不会再算一次实验。每条记忆只有一个 owner_id，存入该 owner 的 memory_home，通过公共记忆提交保存历史修订，不在父子对象两边复制正文。
+docs/OBJECT_RUN_STORAGE.md:71: trailing whitespace.
++新L1/章节/文稿使用v3，narrative/overview及分类experience使用v4；旧字节与固定引用保留。旧event/map实际整理后才提交新修订，不做原地替换。完整字段见[记录标准](RESEARCH_RECORDING.md)。
+docs/OBJECT_RUN_STORAGE.md:80: trailing whitespace.
++- 更高层技术说明、经过、经验和概览不自动从子对象复制到父对象。文件保存、索引成功、结论复核是三个不同状态。
+docs/OBJECT_RUN_STORAGE.md:82: trailing whitespace.
++## 默认策略与工作入口
+docs/OBJECT_RUN_STORAGE.md:84: trailing whitespace.
++各类Owner默认使用work-loop，按有用内容保存L0依据、L1方法/分析、L2有依据的经过、L3可复用认识及L4概览。允许缺层，文稿按阅读和交付需要编排；不为每轮凑记录或强制双文稿。固定引用复用原件，来源主张、AI推断与本次验证明确区分。已有显式对象策略保留。
+docs/OBJECT_RUN_STORAGE.md:86: trailing whitespace.
++基础默认basic、normal、retain=L0–L4、owner_only、auto_summary=false、auto_deepen=false、checkpoint=true；Research/Project保留explore兼容值，粒度也是normal。retain表示可保留的内容，不是必填层；auto_summary不是后台调度。有效策略由memory inspect回读，已有显式配置优先，子Run不因目录继承父策略。CommitRequest没有任意request_overrides字段。
+docs/OBJECT_RUN_STORAGE.md:88: trailing whitespace.
++work-loop负责各类工作归属/记录/交接；material-query负责材料与阅读记录；开发、批量整理、结构迁移、复核追溯、下游语义维护按需使用对应专项Skill。run-execute/run-register是工具，不是另一主Skill。极小无复用价值操作不另建档。
+docs/OBJECT_RUN_STORAGE.md:90: trailing whitespace.
++## 运行中的阅读记录在哪里
+docs/OBJECT_RUN_STORAGE.md:91: trailing whitespace.
++
+docs/OBJECT_RUN_STORAGE.md:92: trailing whitespace.
++工作台“系统记忆→选择对象→阅读记录”按owner_id列出RS，打开时从`.local/reading-sessions/RS-ID/HEAD.json`读取最新状态。CLI可用`material-query reading-list --owner ID`及`reading-view --session RS-ID --markdown`。未绑定旧会话在全局列表发现后显式bind；可关联固定检查点，关联保存在RS内。检查点是整体工作交接，RS下一步只指阅读子任务。
+docs/OBJECT_RUN_STORAGE.md:94: trailing whitespace.
++RS保存已交付候选、AI理解、必要细节、出处、尝试及预算；不复制原正文、不进入知识索引。Markdown导出标明版本，是快照；JSON由服务维护。归档只改状态并保留历史，不能删除原件或撤销知识结论。授权和来源变化需重新检查，旧导出不作为绕过撤权的入口。字段/容量/预算边界见[AI阅读](AI_READING.md)。
+docs/OBJECT_RUN_STORAGE.md:103: trailing whitespace.
++本页记录现行归属和保存方式；父子递归聚合、后台自动总结和策略继承不能由目录结构推断，具体边界见上文。
+docs/RESEARCH_RECORDING.md:3: trailing whitespace.
++本页定义所有Owner共用的分层记录标准，现行v4聚合契约兼容v1–v3。默认由work-loop按有用内容选择记录，层级表达内容职责，不是可信程度。小操作可不新增记录，缺层正常，不因目录类型要求补齐或自动生成双文稿。技术正文、固定来源与实际回读要求不变。模块职责见[ARCHITECTURE](../ARCHITECTURE.md)。
+docs/RESEARCH_RECORDING.md:5: trailing whitespace.
++## 所有Owner的共同默认
+docs/RESEARCH_RECORDING.md:7: trailing whitespace.
++Research、Project、核心算法、工具、数据、知识、报告和Run都可保存L0–L4。默认retain允许全部层、granularity=normal、auto_summary=false，由AI在有用内容/交接节点保存，不后台生成或要求补空层。Research/Project保留mode=explore兼容标记，其余basic；这些标记不构成不同工作流程。已有Owner显式策略不改写，inspect返回有效值及来源。
+docs/RESEARCH_RECORDING.md:9: trailing whitespace.
++原文方法步骤可写L1（method、run_ref=null）；文献明确记载的经过或本次实际取舍可写L2，必须区分是谁做的。用途/接口/适用条件可写L4；有独立复用价值的观察、主张、假设或建议写L3，注明来源叙述、AI推断或本次验证。纯概览可直接固定引用L0，不造L1/L2。未提取或未索引原文细节仍须报告缺口。
+docs/RESEARCH_RECORDING.md:10: trailing whitespace.
++
+docs/RESEARCH_RECORDING.md:11: trailing whitespace.
++有实际产物的独立执行用Run，重要选择、失败与可复用分析按内容记录。文稿按实际交付/阅读需要编排，可只维护一种；若交付两种必须依据一致。每个事实只有一个权威归属，其他对象固定引用，不复制。
+docs/RESEARCH_RECORDING.md:21: trailing whitespace.
++| L4 | overview（v4）   | 对象介绍、用途/方法、结果或当前阶段、限制和未决事项                           | 总览与检索；关系可选         |
+docs/RESEARCH_RECORDING.md:29: trailing whitespace.
++- narrative：`question`、`stages`（每阶段 situation/action/reason/outcome/evidence_refs）、`limitations`；解释路线为何变化，操作日志仍留 Run。可选 `occurred_at`、`failure`、目标/路线/问题/Run 引用保留实际发生时间、失败分类与研究关联；不把迁移时间当发生时间。
+docs/RESEARCH_RECORDING.md:51: trailing whitespace.
++## 需要 L1 时如何写
+docs/RESEARCH_RECORDING.md:73: trailing whitespace.
++## 保存、回读与完整性检查
+docs/RESEARCH_RECORDING.md:74: trailing whitespace.
++
+docs/RESEARCH_RECORDING.md:75: trailing whitespace.
++当前工作台只展示统一的 L2/L4 层级入口。旧事件和地图迁移须实际阅读、提交完整 v4 新修订，并固定引用其上一修订，不能直接改规范 JSON；流程见 [旧内容整理](MEMORY_USAGE.md#整理旧事件和地图)。保存新经过后回读 revision/SHA，再修订经验与概览的展开关系，并重建对应对象索引。历史研究事实、失败执行和结论复核不随迁移升级。
+docs/RESEARCH_RECORDING.md:86: trailing whitespace.
++保存实际产生的有用内容并核对其固定依据；需要续接时记录下一步。缺层正常，没有独立经验就不生成空条目；未知事实明确缺口，不靠虚构字段通过校验。
+docs/RESEARCH_RECORDING.md:92: trailing whitespace.
++L0–L4规定内容如何保存，不规定报告按什么目录阅读。工作台的“研究经过”页还提供独立文稿阅读：问题与范围、共同方法、详细实验、讨论、结论与下一步。L2 narrative 则是其中有依据的过程内容。先展开实验事实，随后综合经验；不要把五层各加一个标题直接拼接。
+docs/RESEARCH_RECORDING.md:94: trailing whitespace.
++新文稿使用独立的 `document` 与 `document_section` 记录，两者 level 为 null。文稿保存目的、读者、范围、公共固定依据和有序 `section_refs`；章节保存标题、稳定 section_key、角色及有序 blocks。完整过程的 `document_type` 为 `research_process`，精简报告为 `research_report`，两者共享固定依据、独立组织正文。L4 overview 保存整体概览；旧地图经实际整理后用新修订迁入 overview，旧 `map.payload.report` 仅供历史固定阅读，不用于新文稿。
+docs/RESEARCH_RECORDING.md:111: trailing whitespace.
++1. 需要文稿时确定问题、读者和范围，保存实际需要的技术单元/经过，回读固定版本。
+docs/RESEARCH_RECORDING.md:112: trailing whitespace.
++2. 按本次变化维护已有 L3 经验和 L4 概览（旧地图保留，整理为概览需另存新内容）；单独保存章节，再用其固定引用保存文稿。环境重试等过程可在附录交代。
+docs/RETRIEVAL.md:1: trailing whitespace.
++# 检索、上下文选择与反馈手册
+docs/RETRIEVAL.md:2: trailing whitespace.
++
+docs/RETRIEVAL.md:3: trailing whitespace.
++现行说明核对日期：2026-09-09。当前同时保留文件检索与版本记忆检索；它们复用部分基础设施，返回身份、默认选项和上下文包仍有区别。
+docs/RETRIEVAL.md:4: trailing whitespace.
++
+docs/RETRIEVAL.md:5: trailing whitespace.
++正式结论导出使用 `purpose=formal` 并提供适用 `scope`，只装载通过版本、复核和依赖检查的结论。默认 exploration 可读取获准探索材料及风险提示。详细复核与封存入口见 [证据准入手册](EVIDENCE_CONTROLS.md)。
+docs/RETRIEVAL.md:6: trailing whitespace.
++
+docs/RETRIEVAL.md:7: trailing whitespace.
++检索找候选，上下文策略决定实际读多少。整体数据流与模块边界见 [架构说明](../ARCHITECTURE.md)；本页集中说明命令、配置与恢复。
+docs/RETRIEVAL.md:8: trailing whitespace.
++
+docs/RETRIEVAL.md:9: trailing whitespace.
++## 先选择入口
+docs/RETRIEVAL.md:10: trailing whitespace.
++
+docs/RETRIEVAL.md:11: trailing whitespace.
++| 需要查什么 | 入口与身份 | 当前边界 |
+docs/RETRIEVAL.md:12: trailing whitespace.
++|---|---|---|
+docs/RETRIEVAL.md:13: trailing whitespace.
++| 已登记算法文档、代码和其他可索引文件 | `search-knowledge` 返回 `Q-*` / `SRC-*`；`retrieve-context` 返回 `CTX-*` 和文件清单 | 文件级召回与角色策略；默认刷新文件索引，向量是否启用由配置决定 |
+docs/RETRIEVAL.md:14: trailing whitespace.
++| L1 技术单元、事件、经验、地图及既有 Run/CLM | `memory search --request 文件` 返回 `QMEM-*` 与规范 ID | 默认 `vector=auto`；向量不可用可明确降级，`required` 则报错；不会将全部旧自由文件自动转成记忆 |
+docs/RETRIEVAL.md:15: trailing whitespace.
++| 给 AI 按预算装载记忆 | `memory context --request 文件` 返回 `PKT-*` manifest 与 `context_text` | 查询缺省 `vector=off`；默认 16000 Unicode 码点，受配置硬上限约束；内部查询不另存 QMEM 回执 |
+docs/RETRIEVAL.md:16: trailing whitespace.
++| 原始输入、结果、日志和脚本 | `memory raw-materials` / `raw-material`，或固定来源引用 | L0 追溯入口；常规知识检索不召回原始大日志与记忆事务 |
+docs/RETRIEVAL.md:17: trailing whitespace.
++| 完整过程或精简研究报告 | `memory document`；局部编辑用 `outline` / `section-context` | 新文稿是独立 `document` / `document_section`，不等同于 L4 地图；文稿导航检索显式使用 `retrieval_mode=documents` |
+docs/RETRIEVAL.md:18: trailing whitespace.
++
+docs/RETRIEVAL.md:19: trailing whitespace.
++记忆请求写法见 [版本记忆指南](MEMORY_USAGE.md) 和 [请求示例](MEMORY_REQUESTS.md)。L1 v3 技术单元用检索说明发现问题、方法和适用边界，完整正文按稳定块读取；实验单元固定 Run，方法、推导和分析不要求虚构一次运行。文稿不进入默认知识排名，明确选中或文稿导航模式才读取。详见 [分层记录标准](RESEARCH_RECORDING.md)。
+docs/RETRIEVAL.md:20: trailing whitespace.
++
+docs/RETRIEVAL.md:21: trailing whitespace.
++两套全文表共存于 `retrieval/generated/search.sqlite3`：旧 `docs/chunks/terms` 与新 `memory_*`。向量分别使用按模型、编码版本隔离的 `workspace_*` 和 `memory_v1_*` 集合；集合前缀不是当前记录契约版本。新检索只适配已有 Run 文件命中到原 RUN 身份，并保留独立 CLM；未适配的文件仍走文件检索。共用数据库和模型不表示查询策略已完全合并。
+docs/RETRIEVAL.md:22: trailing whitespace.
++
+docs/RETRIEVAL.md:23: trailing whitespace.
++## 文件检索常用操作
+docs/RETRIEVAL.md:38: trailing whitespace.
++读取返回的 Markdown 和 manifest。算法问答使用 `$work-loop` 并按需查其核心算法参考；普通创建操作不必每次调用技能。`search-runs` 是 Run 元数据 AND 检索，`build-context` 是规则/导航快照，两者不替代材料检索。
+docs/RETRIEVAL.md:40: trailing whitespace.
++## 文件证据包的分阶段装载
+docs/RETRIEVAL.md:41: trailing whitespace.
++
+docs/RETRIEVAL.md:42: trailing whitespace.
++本节表格描述 `retrieve-context` / `context-feedback`，不是 `memory context` 的默认预算表。
+docs/RETRIEVAL.md:62: trailing whitespace.
++## 文件查询的用户选择与自动扩展
+docs/RETRIEVAL.md:105: trailing whitespace.
++path/related 以工作区根为基准，也接受绝对文件路径。related 只连接已索引来源，不授权读取新文件。可用 enabled=false 停止召回，原件和历史保留。context_mode 可设 full/excerpt；角色为 algorithm、core-code、application-code、run、research、knowledge、project、media、document。角色不确定时不伪装成确定判断；路径推断只是默认值。
+docs/RETRIEVAL.md:106: trailing whitespace.
++
+docs/RETRIEVAL.md:107: trailing whitespace.
++核心算法仅指公司文档定义的关键模型算法。普通代码默认 application-code；已关联算法的 core-algorithms/<slug>/code 内实现默认 core-code，apps、ui、tests、utils 等辅助目录仍按应用代码处理。算法卡 README 和 docs/algorithm 下的说明可作为算法基线，目录规则及辅助 README 不自动充当算法说明。原位文档/代码通过显式 context_role 指定角色，必须有文档—实现映射依据；module_ids 只表达关联，不将工具变成算法对象。preferences.modules、--module 和 MOD-ID 保留兼容名称，语义均为核心算法。
+docs/RETRIEVAL.md:124: trailing whitespace.
++文件来源 ID 由规范化绝对路径派生，内容用 SHA-256 标识。文件查询默认刷新，装载前再检查；缺失/禁用/损坏来源停止旧内容召回。文件索引保留历史指纹和查询，不保留完整旧原文快照，也不会自动决定并存版本哪个正确。规范记忆则保留不可变提交及旧修订，不能把两种历史能力混为一谈。旧 Run 复用前检查输入、适用域和复核状态，正常升级不意味着旧结论错误。
+docs/RETRIEVAL.md:125: trailing whitespace.
++
+docs/RETRIEVAL.md:126: trailing whitespace.
++当前知识索引排除 L0 原始材料、Run 的原始脚本/产物、规范记忆提交文件等；材料保持登记并不表示正文会进入排名。Run 可以保存在归属对象的 `runs/`，旧根目录及旧项目路径仍可定位；不要按“所有 Run 都在根 runs”维护来源。
+docs/RETRIEVAL.md:127: trailing whitespace.
++
+docs/RETRIEVAL.md:128: trailing whitespace.
++## 记忆查询的排序、装载与关联
+docs/RETRIEVAL.md:129: trailing whitespace.
++
+docs/RETRIEVAL.md:130: trailing whitespace.
++记忆检索使用中文双字词及英文标识符分词、SQLite FTS5 BM25、本地多表示向量和规范 ID 精确命中。各通道先按同一规范身份折叠，再使用等权 Reciprocal Rank Fusion：
+docs/RETRIEVAL.md:131: trailing whitespace.
++
+docs/RETRIEVAL.md:132: trailing whitespace.
++\[
+docs/RETRIEVAL.md:133: trailing whitespace.
++s(d)=\sum_{c\in C_d}\frac{1}{60+r_c(d)}.
+docs/RETRIEVAL.md:134: trailing whitespace.
++\]
+docs/RETRIEVAL.md:135: trailing whitespace.
++
+docs/RETRIEVAL.md:136: trailing whitespace.
++其中 \(d\) 是规范记录，\(C_d\) 为命中它的通道，\(r_c(d)\) 是该通道折叠后的名次，从 1 开始。探索问题明确命中已登记主题关键词时，先列主题记录，再列其余候选；具体结论可先于包含它的宽泛 Run。相关分数不是可信概率。当前没有已接入的神经重排器；`retrieval_interfaces.py` 中的替换契约尚未驱动具体后端组合。
+docs/RETRIEVAL.md:137: trailing whitespace.
++
+docs/RETRIEVAL.md:138: trailing whitespace.
++`memory search` 不默认全量重建索引；索引缺失或投影版本旧时可补建，普通内容修订依靠提交后的索引同步及 `reconcile`。候选返回前核对当前来源和版本，旧索引命中可以被剔除并报告 `index_stale`；这不保证未同步的新内容已经可召回。`off/auto/required`、FTS/向量水位和降级原因均应读取回执，不以“有结果”推断全部通道就绪。
+docs/RETRIEVAL.md:139: trailing whitespace.
++
+docs/RETRIEVAL.md:140: trailing whitespace.
++记忆材料包保留 `include/full/exclude`、purpose/scope、原预算和两次扩展上限。`full` 无法完整放入时记录 `required_not_full`，不会静默截掉限定条件。普通 `memory context` 只对检索选中的固定引用组包，并输出一跳导航引用；不会自动把所有已接受的相似关联两跳装入正文。关联提议、处理及版本变化见 [材料关系手册](MATERIAL_RELATIONS.md)。评估代码中的 `complete_graph_context` 额外执行关联扩展，不能视作默认生产上下文行为。
+docs/RETRIEVAL.md:141: trailing whitespace.
++
+docs/RETRIEVAL.md:142: trailing whitespace.
++返回数量与正文预算目前不等于计算成本上限：记忆查询仍读取全表元数据、完整 FTS 候选及全部获准向量窗口，证据快照还会读取各对象当前记录。现有实现有规范去重和回源检查，但尚不能据 Top-K 或预算值承诺大型语料延迟。后续同步规则见 [文档维护手册](DOCUMENTATION_MAINTENANCE.md)。
+docs/RETRIEVAL.md:146: trailing whitespace.
++context-feedback 保存一次调查是否解决及缺口；retrieval-feedback 保存单份来源是否相关、漏检或版本错误。两者互不替代，不改变 Run 复核状态，也不自动训练模型。
+docs/RETRIEVAL.md:147: trailing whitespace.
++
+docs/RETRIEVAL.md:148: trailing whitespace.
++以上反馈分别接收文件查询的 `CTX-*` 和 `Q-*`。记忆查询的 `QMEM-*` 使用 `memory feedback`，固定目标 Ref 并保存为对象内反馈记录；不能把 QMEM 传给旧反馈命令。`memory context` 返回的 PKT 不是持久查询回执，需要记录检索使用反馈时先通过 `memory search` 保存查询。所有反馈都不自动修改全局排名策略或将 AI 观察升级为人工复核。
+docs/RETRIEVAL.md:168: trailing whitespace.
++评估输出文件级 Recall@K 和 MRR，空集返回 unavailable，不伪报满分。评估不写真实查询日志。它尚不衡量答案正确率、版本正确率或上下文是否充分；需结合调查反馈和人工/适用验证，保留未用于调参的问题。
+docs/RETRIEVAL.md:169: trailing whitespace.
++
+docs/RETRIEVAL.md:170: trailing whitespace.
++记忆评价另由 `automation/scripts/memory/evaluation.py` 按规范 ID 计算 Recall、nDCG、重复率、必需边界丢失与正式禁用结果，包含真实通道消融和额外图扩展方案。合成标注、功能测试与现实业务有效性分开报告。当前记录的独立题集质量未过门槛、万条规模暂缓，见 [执行状态](design/system-memory/STATUS.md)；其中历史固定 Run 未随 main 源码分发，不能仅凭文档摘要声称已重新核验原始测量。
+docs/RETRIEVAL.md:178: trailing whitespace.
++| queries/、feedback/、sessions/、context-feedback/、strategies/ | Q/QMEM 查询、文件单源反馈、CTX 调查、扩展反馈、策略历史 | 否，按获批方式备份 |
+docs/RETRIEVAL.md:179: trailing whitespace.
++| 各对象的规范 memory 目录 | 记忆正文、修订、QMEM 使用反馈及处理记录；HEAD 是当前提交入口 | 否；通过公共记忆服务维护，不手工删除或改写哈希 |
+docs/RETRIEVAL.md:183: trailing whitespace.
++当前锁定环境为 Python 3.12.10 Windows x64、Qdrant client 1.19.0、FastEmbed 0.8.0、多语言 MiniLM 384 维、pypdf 6.17.0、RapidOCR 1.4.4；当前副本是否完整安装以 `doctor` 实测为准。模型文件加载时校验 SHA-256，集合身份包含模型清单及编码库版本；升级产生新集合，旧集合不自动删除。
+docs/UPGRADE_TESTING.md:9: trailing whitespace.
++fixture 返回每个受保护文件的 SHA-256 和需要保留的目录集合。预览、升级、重复升级、恢复后逐项核对；登记表和旧配置也纳入保护。新增框架文件可以写入，因此不简单比较升级前后整棵树是否完全相同。
+docs/UPGRADE_TESTING.md:11: trailing whitespace.
++历史 Run 搬迁场景保留不存在的旧路径、现位置文件及带固定 SHA-256 的 `relocated_from` 来源登记；每轮保护核对还实际解析旧引用，确保升级后历史内容仍可读取。
+docs/UPGRADE_TESTING.md:12: trailing whitespace.
++
+docs/UPGRADE_TESTING.md:13: trailing whitespace.
++Run 自动登记场景还包括 `.run-captures/` 内的登记回执、失败日志、多层结果和空目录，以及名为 `outputs/run.json` 的非元数据原始文件。此保留容器不作为业务卡或常规知识正文扫描，升级仍逐项保护其字节；父 Run 与普通业务目录的真实损坏继续报错。
+docs/UPGRADE_TESTING.md:14: trailing whitespace.
++
+docs/UPGRADE_TESTING.md:15: trailing whitespace.
++材料查询场景通过公开维护入口创建未审查计划，将`.local/material-query/plans/`中的实际固定上下文、交付回执和不可覆盖计划版本加入保护清单。这些用户维护进度与可重建索引缓存分开，预览、升级、重复升级及恢复均逐项核对原字节；合成计划不标记为实际AI审查通过。
+docs/UPGRADE_TESTING.md:16: trailing whitespace.
++
+docs/UPGRADE_TESTING.md:17: trailing whitespace.
++当前 fixture 还通过真实创建/提交入口覆盖八类对象内 Run：目录型 owner 使用自己的 runs，单文件 owner 使用 memory_home.runtime/runs，工具使用 tools/runtime 下的 runs。记忆保护包含 owner/HEAD、不可变提交、幂等回执及故障现场；v1/v2 历史、旧 L1 正文和 map 编排继续按固定版本读取。另有 v3 方法技术单元、稳定块依赖、独立章节及 research_process/research_report 双文稿，升级后的读取检查核对固定 SHA 和必需定义闭包。它们是合成软件场景，不提供业务模型有效性的证明。
+docs/UPGRADE_TESTING.md:21: trailing whitespace.
++阅读会话场景通过公开 reading-template/start/decide 创建真实 RS 目标、条件、下一步与修订历史，将 `.local/reading-sessions/` 的 HEAD/历史文件纳入同一保护清单；预览、升级、重复升级及恢复须逐项保留字节。它不是可重建索引缓存。会话含真实owner_id绑定。
+docs/UPGRADE_TESTING.md:22: trailing whitespace.
++
+docs/UPGRADE_TESTING.md:23: trailing whitespace.
++受控Skill退休场景核对旧入口精确LF/CRLF指纹：默认research-loop/workspace-context只移除发现文件，保留方法源兼容跳转和附属文件；新版活跃入口更新进入同一备份回执。用户修改的同名入口保持字节，未知版本不自动处理。真实setup预览不写入、升级退休、重复无变动、rollback恢复原字节；新增work-loop随受控源码发现入口补缺。
+docs/UPGRADE_TESTING.md:24: trailing whitespace.
++
+docs/UPGRADE_TESTING.md:29: trailing whitespace.
++| 框架清单、安装、升级、恢复 | 真实 Windows setup.cmd 的预览、升级、重复升级及恢复；全部保护文件和空目录保持 |
+docs/UPGRADE_TESTING.md:30: trailing whitespace.
++| 源码发行边界 | 核对实际 git archive 清单：规则、模板、当前文档和受控测试输入齐全，Project/研究/核心算法/Run 实例按 export-ignore 排除 |
+docs/UPGRADE_TESTING.md:34: trailing whitespace.
++普通升级集成测试已纳入 `unittest discover`，Windows 下不会因没有模型而跳过；它使用 core 安装流程，避免每次小改动都复制大型模型。完整依赖测试显式运行，不能把 core 测试当成 full 模型验收。
+docs/UPGRADE_TESTING.md:35: trailing whitespace.
++
+docs/UPGRADE_TESTING.md:36: trailing whitespace.
++发行 ZIP 与完整开发 checkout 是不同范围。Project 实例中的计划/影响图不进入公共源码；[通用文档维护约定](DOCUMENTATION_MAINTENANCE.md) 和公共 Skill 入口应在包内可用，不能靠发布被排除的实例补齐必需链接。升级清单也不应把新版目录的开发实例复制成旧工作区业务记录。
+docs/UPGRADE_TESTING.md:55: trailing whitespace.
++验收只使用合成材料，记录实际程序版本、场景规模、完整性结果及跳过项。同机中文路径验证不等于另一台物理机和真实业务验证。
+docs/UPGRADE_TESTING.md:56: trailing whitespace.
++
+docs/UPGRADE_TESTING.md:57: trailing whitespace.
++现有测试代码说明“可检查什么”；实际是否通过取决于对应版本的执行记录。main 保留程序与合成配方，不保证包含每次历史验收的固定 Run/完整日志。缺少产物时注明不能据当前源码复核该历史结果，不以新文档替代旧证据或把人工待审算作通过。
+docs/WORKBENCH_DEVELOPMENT.md:1: trailing whitespace.
++# 工作台开发与扩展
+docs/WORKBENCH_DEVELOPMENT.md:2: trailing whitespace.
++
+docs/WORKBENCH_DEVELOPMENT.md:3: trailing whitespace.
++现行说明核对日期：2026-09-13。主要维护面包含材料关系、业务证据、版本记忆/研究文稿及材料查询 v0.2；全局数据流与模块影响见 [架构说明](../ARCHITECTURE.md)，其他细节从 [文档索引](README.md) 进入。本页按前端/API 影响阅读，不是每次开发的全量必读文件。
+docs/WORKBENCH_DEVELOPMENT.md:4: trailing whitespace.
++
+docs/WORKBENCH_DEVELOPMENT.md:12: trailing whitespace.
++| `src/Relations.tsx`、`src/Evidence.tsx` | 材料关系、证据页面及交互状态 |
+docs/WORKBENCH_DEVELOPMENT.md:13: trailing whitespace.
++| `src/Memory.tsx`、`src/ReadingSessions.tsx`、`src/memory-contract.ts` | 对象记忆、L0、研究文稿、按Owner的实时阅读记录与固定请求的界面/契约检查 |
+docs/WORKBENCH_DEVELOPMENT.md:14: trailing whitespace.
++| `src/MaterialQuery.tsx`、`MaterialStructure.tsx`、`MaterialPacket.tsx` | 材料查询、逻辑/存储范围、固定候选与材料包；表示选择不是规范层级迁移 |
+docs/WORKBENCH_DEVELOPMENT.md:18: trailing whitespace.
++| `contracts/graph.schema.json`、`src/generated/contracts.ts` | 图 API 契约与生成类型 |
+docs/WORKBENCH_DEVELOPMENT.md:19: trailing whitespace.
++| `automation/schemas/memory-v4.schema.json`、`src/generated/memory-schema.ts` | 当前记忆契约与前端生成副本；旧v1–v3按版本兼容；新L1/文稿仍用v3 |
+docs/WORKBENCH_DEVELOPMENT.md:20: trailing whitespace.
++| `automation/scripts/material_query/contracts.py`、`automation/schemas/material-query.schema.json` | 查询运行字段真源与生成 schema；同一前端生成流程纳入查询契约 |
+docs/WORKBENCH_DEVELOPMENT.md:23: trailing whitespace.
++| `projection.py`、`analysis.py` | 业务材料适配、关键词及只读向量分析 |
+docs/WORKBENCH_DEVELOPMENT.md:24: trailing whitespace.
++| `automation/scripts/memory/api.py`、`service.py`、`store.py` | CLI/HTTP 固定动作、领域提交和对象不可变存储 |
+docs/WORKBENCH_DEVELOPMENT.md:25: trailing whitespace.
++| `memory/index.py`、`search.py`、`packets.py` | 可重建索引、规范身份排序及有预算的材料包 |
+docs/WORKBENCH_DEVELOPMENT.md:26: trailing whitespace.
++| `memory/technical_units.py`、`documents.py` | L1 技术块与独立双文稿/章节的读取、编排和影响检查 |
+docs/WORKBENCH_DEVELOPMENT.md:27: trailing whitespace.
++| `automation/scripts/material_query/api.py`、`coordinator.py`、`state.py` | 查询应用动作、范围/预算和短期查询状态；复用原 memory 存储，维护计划独立持久保存 |
+docs/WORKBENCH_DEVELOPMENT.md:32: trailing whitespace.
++物理目录不是业务图数据库。原材料仍为现有 JSON/Markdown 和受控原件，规范记忆由各对象的 HEAD/不可变提交维护；投影、分析、视图偏好和候选独立保存。新 Run 按唯一对象归属保存，旧位置不因工作台升级而搬移。聚合边不写回正式依赖；`supports`、`input` 与 `contradicts`、`background` 保持原义及方向。
+docs/WORKBENCH_DEVELOPMENT.md:33: trailing whitespace.
++
+docs/WORKBENCH_DEVELOPMENT.md:34: trailing whitespace.
++L1 v3 保存检索说明与稳定技术正文块；新完整过程和简版报告用独立 document/document_section 固定引用。L2 统一为研究经过、L4 统一为整体概览，筛选/新建/总结只提供一个入口；旧记录的实际迁移经统一写服务保存完整新修订，不通过界面别名伪造新内容。旧固定引用仍可读。界面不得直接修订规范 JSON、假设原始日志可常规搜索或以候选处理状态替代结论复核。材料关系页的两跳展示、memory 导航关联及评估用图扩展相互独立，默认 `memory context` 未自动执行整个关联遍历。详见 [检索](RETRIEVAL.md) 与 [材料关系](MATERIAL_RELATIONS.md)。
+docs/WORKBENCH_DEVELOPMENT.md:38: trailing whitespace.
++历史构建记录使用过 Node 22.11、npm 10.9；开发时记录实际环境，依赖精确版本以锁文件为准。
+docs/WORKBENCH_DEVELOPMENT.md:93: trailing whitespace.
++图 Schema 版本为 1；记忆记录契约为 v3，兼容历史 v1/v2；材料查询应用契约为 v0.2。不要把 HTTP `/api/v1/` 或向量集合 `memory_v1_*` 当作记录版本。图、memory 和 material_query 由各自运行契约验证，前端副本来自各自 Schema；`npm run contracts` 同步前端生成项。后端生成工具在对应模块，改变字段时同步真实调用方与边界测试，不能编辑设计目录来代替修改运行真源。
+docs/WORKBENCH_DEVELOPMENT.md:97: trailing whitespace.
++`deployment.framework_files` 按资源清单纳入升级及备份，`portable.py` 排除开发缓存。修改前按 [分级测试入口](TESTING.md) 选择验证；前端变更后必须重建资源和指纹，涉及发行清单、扫描、安装或恢复还需执行真实 setup 的扩展旧工作区场景。纯文档修订不因此重跑全部模型或性能测试。结构性变更后运行 `refresh-index`、`validate`，实际文件检索材料变化时再刷新对应索引。完整集成验证要求实际必要模型，基础配置缺模型应明确报告，不能将跳过算作完整通过。
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:7: trailing whitespace.
++2026-09-12基础召回更新：Coordinator的dense通道接入既有本地标准编码器，技术块正文进入可重建投影，词法/向量按记录限制窗口并固定命中来源。内置查询编码计入Ledger；Foundation通用ModelProvider/Tokenizer注册与任意IndexKey仍未开放，不能把新增dense解释为旧协议全覆盖。具体操作和升级见[材料查询手册](../../MATERIAL_QUERY.md)，本页原P0/P3回执保持历史时点。
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:8: trailing whitespace.
++
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:9: trailing whitespace.
++2026-09-13阅读层补充：reading-list/view/bind/archive为RS工作状态公开动作，支持Owner/固定检查点与工作台查看；不计入旧43项Foundation协议，不修改冻结inheritance-map。当前流程由work-loop和material-query指导，具体边界见[AI阅读](../../AI_READING.md)。
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:10: trailing whitespace.
++
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:13: trailing whitespace.
++Python 入口位于 `automation/scripts/material_query/foundation.py`：`Foundation(coordinator).dispatch(action, raw)`。公共 API 使用 `foundation/<action>`；CLI 的 `material-query foundation-capabilities` 查看能力，`material-query foundation --request` 在同一进程内建立查询并执行一个底层动作。需要多步 read→rerank、分页→index-plan→index-execute 的工作使用保有 query 的应用 API。`capabilities` 只接受空对象；`definition-resolve` 是不读业务材料的纯版本别名映射；其余动作必须携带现有 `query_id`，复用原请求、可信 owner 权限、scope 上限、排除、累计账本、活动锁和 TTL。未知字段及不支持的硬语义明确拒绝。
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:122: trailing whitespace.
++测试数字只证明所列软件行为。模型有效性、业务资料正确性、实际 AI 语义审查、人工验收、第二台物理机和完整离线升级均不由这些结果证明。主测试 Run、README/技能入口、预构建资源、迁移清单、真实 setup.cmd 升级/恢复和发布完整性由主集成任务记录，不能用这两组测试替代。
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:123: trailing whitespace.
++
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:124: trailing whitespace.
++## 7. 继承审计后的补充闭合
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:125: trailing whitespace.
++
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:126: trailing whitespace.
++逐项执行状态改由固定 Run 的 [38 项继承验收](../../../projects/architecture-evolution/runs/run-20260909t194710z-3cf36b2fdd60/INHERITANCE_ACCEPTANCE.md) 与机器回执记录；上表保留较早的实际执行，不把较早次数改写成新版本全通过。完整旧 DTO、未配置模型和未覆盖后端的限制仍逐项保留。
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:127: trailing whitespace.
++
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:128: trailing whitespace.
++此次补充包括规范可选知识分类与逐 claim 交叉筛选、多表示原始分数/固定命中/片段、按最终结果数增量读取与续查、真实通道故障贯穿最终包、缺水位降级、结构化 Issue/Basis、四项独立模型额度边界、版本化表示别名、旧关系与平行边、获准/拒绝路径差异，以及 domain 多来源撤权和新 claim 追加适用 review。
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:129: trailing whitespace.
++
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:130: trailing whitespace.
++P3 最终模块回归 **20/20，81.543 秒**；模型额度账本 **15/15，0.005 秒**；Foundation 较早补充 **24/24，62.690 秒**。随后 C17 新测试的两个夹具/断言错误分别保留原失败回执；仅修正测试体后的定向回归 **1/1，35.792 秒**，没有将失败的 25 项模块执行重写为全通过。详情与源码指纹见 [补充回执](../../../projects/architecture-evolution/runs/run-20260909t194710z-3cf36b2fdd60/inheritance-closure-final.json)。主任务完整测试另行记录。
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:131: trailing whitespace.
++
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:132: trailing whitespace.
++`references/input/same_entity/mentions` 与现有关系并存，平行边保留 `legacy_relation/evidence_relations`。未注册规范关系明确报告缺口。关联可选 `differences` 保存显式审查的差异；拒绝/撤回/旧修订边只在有权范围内作为诊断输出，不加入可导航路径，也不能成为扩展桥。规范状态改变后，已缓存的获准边须重新授权并失效。路径仍为有界最短固定链，不声称枚举全部替代路径。
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:133: trailing whitespace.
++
+docs/design/representation-query-v0.2/RUNTIME_STATUS.md:134: trailing whitespace.
++别名转换必须指定 `source_contract_version=0.1` 与 `target_definition_version=1`，显式将 `topic_synthesis/domain_synthesis` 转为 `topic/domain`；未知版本拒绝。当前 `model_providers/tokenizers` 为空，独立模型成本边界的通过只证明账本，不能当作真实模型运行或分词费用验收。
+projects/AGENTS.md:5: trailing whitespace.
++Project用于系统级或大型工作；通用核心算法与独立研究可继续在根目录管理并由项目引用。项目直接开展的计算用 `new-run --owner PRJ-ID` 保存到项目内 runs/；研究、算法等对象的计算保存在各自 runs/，根 runs/作为无归属轻量任务的默认目录。不为创建 Run 建空项目，不复制跨对象共用的 Run。旧项目布局和旧根Run保持兼容、保留原ID及历史。
+projects/AGENTS.md:6: trailing whitespace.
++
+projects/AGENTS.md:7: trailing whitespace.
++各类Owner默认使用work-loop，按有用内容保存L0依据、L1方法/分析、L2有依据的经过、L3可复用认识及L4概览。允许缺层，文稿按阅读和交付需要编排；不为每轮凑记录或强制双文稿。固定引用复用原件，来源主张、AI推断与本次验证明确区分。已有显式对象策略保留。
+projects/AGENTS.md:8: trailing whitespace.
++
+projects/AGENTS.md:9: trailing whitespace.
++保存使用公共 memory validate-draft/commit，再 inspect/document 回读。默认策略只指导记录，不启动后台总结，也不自动接受结论。
+projects/AGENTS.md:10: trailing whitespace.
++
+projects/AGENTS.md:11: trailing whitespace.
++变更时更新实际影响的引用和状态，复核/纠错遵循 context/MEMORY.md，结构性变更后刷新索引与 validate。
+projects/_template/AGENTS.md:10: trailing whitespace.
++## 项目特有约束
+projects/_template/AGENTS.md:11: trailing whitespace.
++
+projects/_template/AGENTS.md:12: trailing whitespace.
++所有Owner使用work-loop按有用内容组合L0–L4：原始依据、完整方法/分析、有依据经过、可复用认识、介绍/概览。缺层正常，不补空条目；文稿按实际交付或阅读需要组织。保留来源、固定版本、失败和适用边界；已有显式策略及用户指定优先。详见 `docs/RESEARCH_RECORDING.md`。
+projects/_template/AGENTS.md:13: trailing whitespace.
++
+projects/_template/README.md:10: trailing whitespace.
++描述本交付视图的目标、边界和成功标准。系统级工作可在本项目内保存 Run；引用外部算法、研究和 Run 时使用其稳定 ID，不复制正文。
+projects/_template/README.md:30: trailing whitespace.
++- 分析与 Run：本项目的 `runs/`；其他对象及历史根 `runs/` 中的运行通过 RUN-ID 引用
+projects/_template/README.md:32: trailing whitespace.
++- 项目报告：引用根 `reports/`
+projects/_template/README.md:33: trailing whitespace.
++
+projects/_template/README.md:34: trailing whitespace.
++## 默认记录与阅读
+projects/_template/README.md:35: trailing whitespace.
++
+projects/_template/README.md:36: trailing whitespace.
++各类Owner默认使用work-loop，按有用内容保存L0依据、L1方法/分析、L2有依据的经过、L3可复用认识及L4概览。允许缺层，文稿按阅读和交付需要编排；不为每轮凑记录或强制双文稿。固定引用复用原件，来源主张、AI推断与本次验证明确区分。已有显式对象策略保留。
+projects/_template/README.md:37: trailing whitespace.
++
+projects/_template/README.md:38: trailing whitespace.
++先 `workbench.cmd memory inspect {{project_id}}`，查看 HEAD 和有效策略，再用公开 validate-draft/commit 保存，通过 document 回读完整过程或精简报告。默认值不会自行调用 AI；维护责任在当前任务。显式对象策略仍优先。详见根目录 `docs/RESEARCH_RECORDING.md`。
+projects/_template/README.md:39: trailing whitespace.
++
+projects/_template/README.md:50: trailing whitespace.
++- [ ] 关键结论有批准 Run 和报告清单
+projects/_template/README.md:51: trailing whitespace.
++- [ ] 实质工作已检查 L0–L4 覆盖，正文及完整/精简文稿经公共入口回读；缺口和待审如实保留
+projects/architecture-evolution/project.json:22: trailing whitespace.
++    "定义并实现表示查询、存储适配与语义维护的可替换接口"
+projects/architecture-evolution/project.json:32: trailing whitespace.
++  "active_research_ids": [
+projects/architecture-evolution/project.json:33: trailing whitespace.
++    "RES-AI-EXPERIENCE-CONTEXT"
+projects/architecture-evolution/project.json:34: trailing whitespace.
++  ],
+projects/architecture-evolution/project.json:35: trailing whitespace.
++  "active_plan": "runs/run-20260909t194710z-3cf36b2fdd60/IMPLEMENTATION_TRACKER.md",
+research/AGENTS.md:5: trailing whitespace.
++默认使用work-loop；下列计划/台账与方法是持续研究的可选辅助，按任务价值选择，不为简单整理强制创建或填满。
+research/AGENTS.md:6: trailing whitespace.
++
+research/AGENTS.md:15: trailing whitespace.
++## 证据要求
+research/AGENTS.md:16: trailing whitespace.
++
+research/AGENTS.md:17: trailing whitespace.
++- 本研究的独立计算使用 `new-run --owner RES-ID` 写入本目录的 `runs/`；根 runs 只接收无业务归属任务。Run 一次执行只保存一份，跨对象通过固定 ID 引用。
+research/AGENTS.md:18: trailing whitespace.
++- 所有Owner使用work-loop按有用内容组合L0–L4：原始依据、完整方法/分析、有依据经过、可复用认识、介绍/概览。缺层正常，不补空条目；文稿按实际交付或阅读需要组织。保留来源、固定版本、失败和适用边界；已有显式策略及用户指定优先。详见 [记录标准](../docs/RESEARCH_RECORDING.md)。
+research/AGENTS.md:19: trailing whitespace.
++- 新 L1 v3 完整正文存稳定 blocks，检索说明只用于发现；旧 v2 正文和历史哈希保持原样。完整过程与简版文稿使用独立 document/document_section，固定引用 L1 块并补齐所需定义。新 L2 narrative、L4 overview 使用 v4；旧 event/map 经实际整理后以同一 ID 的新修订迁移，保留前版固定依据。旧 map.payload.report 仅作历史阅读，不继续充当新文稿容器。
+research/AGENTS.md:20: trailing whitespace.
++- 原始数组、完整日志和事务历史默认不进入知识召回；通过 L1 的固定引用追溯。记录规范见 [分层记录标准](../docs/RESEARCH_RECORDING.md)。事后整理须标明补写时间，不能冒充当时已有记录或新的计算。
+research/AGENTS.md:28: trailing whitespace.
++## 按需采用的研究方法
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:1: trailing whitespace.
++{
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:2: trailing whitespace.
++    "body_markdown": "三轮实际计算表明：本研究的显式逐项累加对顺序敏感；Kahan实现未消除所选抵消结构的全部误差；Neumaier与math.fsum在第二轮6种排列和第三轮30种排列中均与精确基准一致。该观察只适用于已保存输入与脚本，不能推出任意浮点输入都准确，也未比较运行时间。\n\n## 新增过程依据\n本次逐步复核150个结果全部一致，三篇L1补齐了中间数值、公式、图表和参数。Kahan的补偿在所选三项抵消中再次舍入，不能只凭采用补偿保证精确。先固定输入与精确参考，再观察逐步状态；环境失败应与数值反例分别记录。\n\n## 适用与禁用范围\n仅限已保存有限整数binary64样本与本机环境。其他分布、极端指数、平台和性能须新建Run验证；本次没有人工认可。",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:3: trailing whitespace.
++    "change_reason": "按用户要求实际整理为统一层级；本次审阅旧正文、技术单元与边界，保留原修订和科学复核状态。",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:4: trailing whitespace.
++    "content_hash": "11ff8c69dcdf4698699f98e0e224e732d4995450414d6d2eb3fa48d52665f6ce",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:5: trailing whitespace.
++    "created_at": "2026-09-08T20:15:35.156441Z",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:6: trailing whitespace.
++    "created_by": {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:7: trailing whitespace.
++        "id": "summation-research-assistant",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:8: trailing whitespace.
++        "kind": "ai"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:9: trailing whitespace.
++    },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:10: trailing whitespace.
++    "discovery": "workspace_summary",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:11: trailing whitespace.
++    "keywords": [
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:12: trailing whitespace.
++        "浮点求和",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:13: trailing whitespace.
++        "数值稳定性",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:14: trailing whitespace.
++        "experience"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:15: trailing whitespace.
++    ],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:16: trailing whitespace.
++    "kind": "experience",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:17: trailing whitespace.
++    "level": "L3",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:18: trailing whitespace.
++    "owner_id": "RES-FLOATING-POINT-SUMMATION",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:19: trailing whitespace.
++    "payload": {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:20: trailing whitespace.
++        "applicable": [
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:21: trailing whitespace.
++            "本研究已保存的有限整数浮点输入与脚本"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:22: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:23: trailing whitespace.
++        "claim_refs": [],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:24: trailing whitespace.
++        "claims": [],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:25: trailing whitespace.
++        "failure_modes": [
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:26: trailing whitespace.
++            "小增量被舍入丢失",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:27: trailing whitespace.
++            "当前Kahan实现仍有抵消反例",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:28: trailing whitespace.
++            "绘图环境执行失败不等同数值方法失败"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:29: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:30: trailing whitespace.
++        "knowledge_type": "recommendation",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:31: trailing whitespace.
++        "missing_refs": [],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:32: trailing whitespace.
++        "problem_structure": "有限精度累加中大数与小量抵消导致顺序误差",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:33: trailing whitespace.
++        "process_refs": [
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:34: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:35: trailing whitespace.
++                "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:36: trailing whitespace.
++                "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:37: trailing whitespace.
++                "revision": 2,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:38: trailing whitespace.
++                "sha256": "b50b8b21c347c1e52191d37d2dbde380348662fe27209443b61e8e5ebed72ba5",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:39: trailing whitespace.
++                "target_id": "MEM-eae11b05-09a7-5f4e-a2fd-65fc1ec6000e",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:40: trailing whitespace.
++                "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:41: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:42: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:43: trailing whitespace.
++                "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:44: trailing whitespace.
++                "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:45: trailing whitespace.
++                "revision": 2,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:46: trailing whitespace.
++                "sha256": "a942f1da2177c0891dc763954370584341392a0175f17291f982fbc50d7412ea",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:47: trailing whitespace.
++                "target_id": "MEM-f1b731ce-9e87-502b-a9cf-a93c3f47c5f6",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:48: trailing whitespace.
++                "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:49: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:50: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:51: trailing whitespace.
++                "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:52: trailing whitespace.
++                "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:53: trailing whitespace.
++                "revision": 2,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:54: trailing whitespace.
++                "sha256": "1b61f018e96f5470d965e544db1825c90019eeec5645a8262059653a4005932a",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:55: trailing whitespace.
++                "target_id": "MEM-77b35d77-f6c1-5d05-80a1-7c3b9d5e9d09",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:56: trailing whitespace.
++                "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:57: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:58: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:59: trailing whitespace.
++                "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:60: trailing whitespace.
++                "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:61: trailing whitespace.
++                "revision": 2,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:62: trailing whitespace.
++                "sha256": "9c45cccad3503930316fce746545db9fa27060d11a98cda8cf8a1485ab82be57",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:63: trailing whitespace.
++                "target_id": "MEM-d117fbde-ec6b-5168-9a40-f4a25459aa2a",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:64: trailing whitespace.
++                "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:65: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:66: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:67: trailing whitespace.
++                "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:68: trailing whitespace.
++                "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:69: trailing whitespace.
++                "revision": 2,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:70: trailing whitespace.
++                "sha256": "9561ea1bf2be1f46bb6713f48c93787de7f59362c2ee762ed0810ed559630202",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:71: trailing whitespace.
++                "target_id": "MEM-ff3cf263-e13e-51b3-8a4f-6c7574040f10",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:72: trailing whitespace.
++                "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:73: trailing whitespace.
++            }
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:74: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:75: trailing whitespace.
++        "prohibited": [
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:76: trailing whitespace.
++            "据少量排列保证任意输入正确",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:77: trailing whitespace.
++            "把精确命中当作性能更快或现实模型有效"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:78: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:79: trailing whitespace.
++        "recommendation": "在目标输入上比较精确参考，不把单一补偿方法当作无条件保证",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:80: trailing whitespace.
++        "retry_conditions": [
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:81: trailing whitespace.
++            "补充非整数、极端指数和跨平台数据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:82: trailing whitespace.
++            "复算读取固定数组并核对SHA，绘图与数值验证分别核验"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:83: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:84: trailing whitespace.
++        "technical_refs": [
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:85: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:86: trailing whitespace.
++                "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:87: trailing whitespace.
++                "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:88: trailing whitespace.
++                "revision": 1,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:89: trailing whitespace.
++                "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:90: trailing whitespace.
++                "target_id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:91: trailing whitespace.
++                "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:92: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:93: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:94: trailing whitespace.
++                "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:95: trailing whitespace.
++                "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:96: trailing whitespace.
++                "revision": 3,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:97: trailing whitespace.
++                "sha256": "c9ab320069397e5219eca068d85e33fd7636368db676026a7f9d3f1f68863c20",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:98: trailing whitespace.
++                "target_id": "MEM-c52df8fb-ca9e-53a7-a49b-342592884a50",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:99: trailing whitespace.
++                "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:100: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:101: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:102: trailing whitespace.
++                "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:103: trailing whitespace.
++                "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:104: trailing whitespace.
++                "revision": 3,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:105: trailing whitespace.
++                "sha256": "f622c9730e82aa63f77c098592809f4aef8b601cfe747931c42974de741ad9cd",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:106: trailing whitespace.
++                "target_id": "MEM-c4a61c00-1bf1-59b3-a65e-0fa4847db2e1",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:107: trailing whitespace.
++                "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:108: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:109: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:110: trailing whitespace.
++                "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:111: trailing whitespace.
++                "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:112: trailing whitespace.
++                "revision": 3,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:113: trailing whitespace.
++                "sha256": "4e863128333d48e4bb228682a3664fbabd1155143bc92db2d6a1d1b50db6cf86",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:114: trailing whitespace.
++                "target_id": "MEM-96f79923-f023-509e-a002-40f2d5a4fca1",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:115: trailing whitespace.
++                "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:116: trailing whitespace.
++            }
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:117: trailing whitespace.
++        ]
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:118: trailing whitespace.
++    },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:119: trailing whitespace.
++    "previous_revision": 3,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:120: trailing whitespace.
++    "provenance_gap": null,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:121: trailing whitespace.
++    "record_hash": "2319ac0118a505f1a42d3f4f723b80d2585c4f0f064b1cf21c1d54a63f664f41",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:122: trailing whitespace.
++    "record_id": "MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:123: trailing whitespace.
++    "record_reason": "依据已完成研究补齐可独立阅读的过程，保存与复核状态分开；未重跑实验",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:124: trailing whitespace.
++    "revision": 4,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:125: trailing whitespace.
++    "schema_version": 4,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:126: trailing whitespace.
++    "sensitivity": "internal",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:127: trailing whitespace.
++    "sources": [
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:128: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:129: trailing whitespace.
++            "locator": "summary and rows",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:130: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:131: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:132: trailing whitespace.
++            "sha256": "cdb1f9e4f0580d5baaea4a09416f75801e6c5d01eab96c601ded00a28e31134d",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:133: trailing whitespace.
++            "target_id": "SRC-SUMMATION-R01",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:134: trailing whitespace.
++            "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:135: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:136: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:137: trailing whitespace.
++            "locator": "summary and rows",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:138: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:139: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:140: trailing whitespace.
++            "sha256": "f5ef99109b146631abf1fc7256fc62287cbf125c6535ba097da4440570fc8247",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:141: trailing whitespace.
++            "target_id": "SRC-SUMMATION-R02",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:142: trailing whitespace.
++            "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:143: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:144: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:145: trailing whitespace.
++            "locator": "summary and rows",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:146: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:147: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:148: trailing whitespace.
++            "sha256": "693058d77bb3ed61e94535369bbfa4d74b6a2ed7f406a8af0b5782a0dc4fa7ef",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:149: trailing whitespace.
++            "target_id": "SRC-SUMMATION-R03",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:150: trailing whitespace.
++            "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:151: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:152: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:153: trailing whitespace.
++            "locator": "正文与固定来源",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:154: trailing whitespace.
++            "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:155: trailing whitespace.
++            "revision": 2,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:156: trailing whitespace.
++            "sha256": "dc9821dc9a06369e2bafab5e5e67403eb1444c3a7fe9f3c2434f7676e75839b3",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:157: trailing whitespace.
++            "target_id": "MEM-c52df8fb-ca9e-53a7-a49b-342592884a50",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:158: trailing whitespace.
++            "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:159: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:160: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:161: trailing whitespace.
++            "locator": "正文与固定来源",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:162: trailing whitespace.
++            "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:163: trailing whitespace.
++            "revision": 2,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:164: trailing whitespace.
++            "sha256": "f328dc9c5581cb4e194f9e3d0f9f3bd8b3f79d5849f89676c3f826b90c3b6e3d",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:165: trailing whitespace.
++            "target_id": "MEM-c4a61c00-1bf1-59b3-a65e-0fa4847db2e1",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:166: trailing whitespace.
++            "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:167: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:168: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:169: trailing whitespace.
++            "locator": "正文与固定来源",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:170: trailing whitespace.
++            "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:171: trailing whitespace.
++            "revision": 2,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:172: trailing whitespace.
++            "sha256": "933c2a91533f4ed179d5cebc3b090b81efff525ef181cfdd42716a022a9503c8",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:173: trailing whitespace.
++            "target_id": "MEM-96f79923-f023-509e-a002-40f2d5a4fca1",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:174: trailing whitespace.
++            "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:175: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:176: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:177: trailing whitespace.
++            "locator": "run.json",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:178: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:179: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:180: trailing whitespace.
++            "sha256": "8efe2879a142667db6d174693fc5738228e9904902d7a2c884e720d75d014b05",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:181: trailing whitespace.
++            "target_id": "RUN-20260908T215458Z-04C7D84D40D8",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:182: trailing whitespace.
++            "target_kind": "owner"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:183: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:184: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:185: trailing whitespace.
++            "locator": "完整正文与固定依据",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:186: trailing whitespace.
++            "relation": "references",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:187: trailing whitespace.
++            "revision": 3,
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:188: trailing whitespace.
++            "sha256": "c1545ee2a072322142632e4363f13a5aaba1ce1b17902766618d8fbf4a6b15fe",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:189: trailing whitespace.
++            "target_id": "MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:190: trailing whitespace.
++            "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:191: trailing whitespace.
++        }
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:192: trailing whitespace.
++    ],
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:193: trailing whitespace.
++    "title": "大数抵消场景的求和方法局部比较",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:194: trailing whitespace.
++    "updated_at": "2026-09-10T18:53:49.152324Z",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:195: trailing whitespace.
++    "updated_by": {
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:196: trailing whitespace.
++        "id": "codex-unified-layer-migration",
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:197: trailing whitespace.
++        "kind": "ai"
+research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:198: trailing whitespace.
++    }
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:1: trailing whitespace.
++{
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:2: trailing whitespace.
++    "body_markdown": "",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:3: trailing whitespace.
++    "change_reason": "按已审稿的独立技术单元和双文档结构保存可读研究内容",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:4: trailing whitespace.
++    "content_hash": "b2fe52003261bfb269394f072f34a47bbb3517b9987b7e7c73904da7cf1cfcf6",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:5: trailing whitespace.
++    "created_at": "2026-09-09T06:28:10.010613Z",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:6: trailing whitespace.
++    "created_by": {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:7: trailing whitespace.
++        "id": "codex-approved-v3-report-author",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:8: trailing whitespace.
++        "kind": "ai"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:9: trailing whitespace.
++    },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:10: trailing whitespace.
++    "discovery": "workspace_summary",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:11: trailing whitespace.
++    "keywords": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:12: trailing whitespace.
++        "浮点求和",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:13: trailing whitespace.
++        "顺序敏感",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:14: trailing whitespace.
++        "补偿",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:15: trailing whitespace.
++        "有限构造输入"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:16: trailing whitespace.
++    ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:17: trailing whitespace.
++    "kind": "detail",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:18: trailing whitespace.
++    "level": "L1",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:19: trailing whitespace.
++    "owner_id": "RES-FLOATING-POINT-SUMMATION",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:20: trailing whitespace.
++    "payload": {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:21: trailing whitespace.
++        "blocks": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:22: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:23: trailing whitespace.
++                "block_id": "definitions",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:24: trailing whitespace.
++                "markdown": "## 定义与范围\n\n本技术单元说明既有浮点求和研究采用的计算方法。它是对已保存实现与结果的整理，不是一次新的实验。输入为程序实际收到的有限binary64数列 $x_1,\\ldots,x_n$，所有数值无量纲。$n$表示项数，$s_i$表示处理第$i$项后的累加值，$\\operatorname{fl}$表示脚本实际执行一次浮点运算后的舍入。原复核环境为CPython 3.12.10、Windows 11 x64，有效位53位；本研究未切换舍入模式或验证其他平台。",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:25: trailing whitespace.
++                "requires_block_ids": [],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:26: trailing whitespace.
++                "role": "definitions"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:27: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:28: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:29: trailing whitespace.
++                "block_id": "reference",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:30: trailing whitespace.
++                "markdown": "## 精确基准与误差\n\n对实际浮点值逐项转换为精确有理数，再求参考和：\n\n$$\nS_{\\mathrm{ref}}=\\sum_{i=1}^{n}\\operatorname{Fraction}(x_i),\\qquad\ne_{\\mathrm{abs}}=\\left|\\operatorname{Fraction}(\\widehat S)-S_{\\mathrm{ref}}\\right|.\n$$\n\n$\\widehat S$为被测方法的实际返回值。精确命中指$e_{\\mathrm{abs}}=0$，不使用容差；绝对误差不需要除以参考和，因此也适用于零和。这个基准衡量求和运算相对已表示输入的误差，不衡量十进制原始文本转换为binary64时的误差。三轮构造整数和另用于交叉核对。",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:31: trailing whitespace.
++                "requires_block_ids": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:32: trailing whitespace.
++                    "definitions"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:33: trailing whitespace.
++                ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:34: trailing whitespace.
++                "role": "methods"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:35: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:36: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:37: trailing whitespace.
++                "block_id": "sequential",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:38: trailing whitespace.
++                "markdown": "## 显式逐项累加\n\n$$s_0=0,\\qquad s_i=\\operatorname{fl}(s_{i-1}+x_i),\\qquad\\widehat S=s_n.$$\n\n每一项按给定顺序进入累加器。小量若在大数处被舍入掉，后续抵消不保证能恢复它。这里特指保存脚本中的显式循环，不能把结果直接推广为其他库、编译器或并行归约的行为。",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:39: trailing whitespace.
++                "requires_block_ids": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:40: trailing whitespace.
++                    "definitions"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:41: trailing whitespace.
++                ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:42: trailing whitespace.
++                "role": "methods"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:43: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:44: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:45: trailing whitespace.
++                "block_id": "kahan",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:46: trailing whitespace.
++                "markdown": "## Kahan补偿\n\n初值$s_0=c_0=0$，按照保存实现递推：\n\n$$\ny_i=\\operatorname{fl}(x_i-c_{i-1}),\\qquad\nt_i=\\operatorname{fl}(s_{i-1}+y_i),\n$$\n$$\nc_i=\\operatorname{fl}\\!\\left(\\operatorname{fl}(t_i-s_{i-1})-y_i\\right),\\qquad s_i=t_i,\n\\qquad\\widehat S=s_n.\n$$\n\n$c_i$为下一步将减去的补偿值，$y_i$为补偿后的输入。补偿变量存在不等于最终结果无误差；第二轮固定轨迹显示，小量对应的补偿在下一步仍可能被舍入。该技术单元不据一次反例推断Kahan对所有输入都无效。",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:47: trailing whitespace.
++                "requires_block_ids": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:48: trailing whitespace.
++                    "definitions"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:49: trailing whitespace.
++                ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:50: trailing whitespace.
++                "role": "methods"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:51: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:52: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:53: trailing whitespace.
++                "block_id": "neumaier",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:54: trailing whitespace.
++                "markdown": "## Neumaier校正\n\n同样以$s_0=c_0=0$开始，先计算$t_i=\\operatorname{fl}(s_{i-1}+x_i)$，再按幅值选择本步校正量$\\delta_i$：\n\n$$\n\\delta_i=\\begin{cases}\n\\operatorname{fl}\\!\\left(\\operatorname{fl}(s_{i-1}-t_i)+x_i\\right),&|s_{i-1}|\\ge|x_i|,\\\\\n\\operatorname{fl}\\!\\left(\\operatorname{fl}(x_i-t_i)+s_{i-1}\\right),&|s_{i-1}|<|x_i|,\n\\end{cases}\n\\quad c_i=\\operatorname{fl}(c_{i-1}+\\delta_i),\\quad s_i=t_i.\n$$\n\n分支右侧的加减严格按保存脚本的浮点操作顺序计算；最终返回$\\widehat S=\\operatorname{fl}(s_n+c_n)$。这里$c_i$累积校正，和Kahan中下一步减去的补偿含义不同，不能互换符号或递推式。第二轮三项抵消输入的固定轨迹解释了该实现如何在最后保留小量，但不构成任意序列精确性的证明。",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:55: trailing whitespace.
++                "requires_block_ids": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:56: trailing whitespace.
++                    "definitions"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:57: trailing whitespace.
++                ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:58: trailing whitespace.
++                "role": "methods"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:59: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:60: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:61: trailing whitespace.
++                "block_id": "scope",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:62: trailing whitespace.
++                "markdown": "## 对照方法与可迁移边界\n\nmath.fsum仅作为实际输出对照，本研究没有观测它的内部部分和，不能为其编写伪造的逐步轨迹。各方法的具体观察必须回到对应实验的固定输入与结果。\n\n精确基准、记录排列和比较误差的方法可为类似有限浮点求和任务提供验证思路；已测命中率只属于三轮构造输入，不是实际业务误差概率。本研究未检验非整数输入、极端指数、跨平台表现或运行时间，也未覆盖NaN、无穷值或溢出行为。研究仍为not-reviewed。",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:63: trailing whitespace.
++                "requires_block_ids": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:64: trailing whitespace.
++                    "definitions"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:65: trailing whitespace.
++                ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:66: trailing whitespace.
++                "role": "limitations"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:67: trailing whitespace.
++            }
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:68: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:69: trailing whitespace.
++        "evidence_refs": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:70: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:71: trailing whitespace.
++                "locator": "全文",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:72: trailing whitespace.
++                "relation": "input",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:73: trailing whitespace.
++                "revision": null,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:74: trailing whitespace.
++                "sha256": "bf89c9889ac3795214b21b6a3d19557750da1304fc60fb58d63d119784e7ceed",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:75: trailing whitespace.
++                "target_id": "SRC-SUMMATION-REPORT-V2-METHODS",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:76: trailing whitespace.
++                "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:77: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:78: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:79: trailing whitespace.
++                "locator": "全文",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:80: trailing whitespace.
++                "relation": "input",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:81: trailing whitespace.
++                "revision": null,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:82: trailing whitespace.
++                "sha256": "70b04d20e8973083af0f7a99a27c8715d97791bf051fbbd1a5f8d3b3c410df0a",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:83: trailing whitespace.
++                "target_id": "SRC-SUMMATION-REPORT-V2-ROUND-02",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:84: trailing whitespace.
++                "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:85: trailing whitespace.
++            },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:86: trailing whitespace.
++            {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:87: trailing whitespace.
++                "locator": "全文",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:88: trailing whitespace.
++                "relation": "input",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:89: trailing whitespace.
++                "revision": null,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:90: trailing whitespace.
++                "sha256": "739d2ce2c6922dc7ce74dfea9ac22d987dd6b8d353484e70c615fc96d2f22074",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:91: trailing whitespace.
++                "target_id": "SRC-SUMMATION-TRACE-VERIFY",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:92: trailing whitespace.
++                "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:93: trailing whitespace.
++            }
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:94: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:95: trailing whitespace.
++        "figures": [],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:96: trailing whitespace.
++        "missing_refs": [],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:97: trailing whitespace.
++        "retrieval_description": {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:98: trailing whitespace.
++            "applicable": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:99: trailing whitespace.
++                "保存脚本与有限构造浮点输入的解释、误差核对和反例分析。"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:100: trailing whitespace.
++            ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:101: trailing whitespace.
++            "key_findings": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:102: trailing whitespace.
++                "精确命中针对已表示binary64输入，不混入十进制转换误差。",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:103: trailing whitespace.
++                "补偿变量含义和舍入顺序不同，有限样本精确不能证明普适正确。"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:104: trailing whitespace.
++            ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:105: trailing whitespace.
++            "limitations": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:106: trailing whitespace.
++                "非整数、极端指数、跨平台、性能及非有限值未验证；未人工科学复核。"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:107: trailing whitespace.
++            ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:108: trailing whitespace.
++            "method": "精确有理数基准、显式逐项累加、Kahan与Neumaier递推及实际输出对照。",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:109: trailing whitespace.
++            "not_applicable": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:110: trailing whitespace.
++                "任意输入精确性保证、业务误差概率和性能排名。"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:111: trailing whitespace.
++            ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:112: trailing whitespace.
++            "question": "如何对实际浮点输入建立精确求和基准，并解释不同补偿方法的操作与边界？"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:113: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:114: trailing whitespace.
++        "run_ref": null,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:115: trailing whitespace.
++        "unit_type": "method"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:116: trailing whitespace.
++    },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:117: trailing whitespace.
++    "previous_revision": null,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:118: trailing whitespace.
++    "provenance_gap": "基于已保存构造输入整理，未重跑实验，未人工科学复核",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:119: trailing whitespace.
++    "record_hash": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:120: trailing whitespace.
++    "record_id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:121: trailing whitespace.
++    "record_reason": "按已审稿的独立技术单元和双文档结构保存可读研究内容",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:122: trailing whitespace.
++    "revision": 1,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:123: trailing whitespace.
++    "schema_version": 3,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:124: trailing whitespace.
++    "sensitivity": "internal",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:125: trailing whitespace.
++    "sources": [
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:126: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:127: trailing whitespace.
++            "locator": "全文",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:128: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:129: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:130: trailing whitespace.
++            "sha256": "bf89c9889ac3795214b21b6a3d19557750da1304fc60fb58d63d119784e7ceed",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:131: trailing whitespace.
++            "target_id": "SRC-SUMMATION-REPORT-V2-METHODS",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:132: trailing whitespace.
++            "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:133: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:134: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:135: trailing whitespace.
++            "locator": "全文",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:136: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:137: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:138: trailing whitespace.
++            "sha256": "70b04d20e8973083af0f7a99a27c8715d97791bf051fbbd1a5f8d3b3c410df0a",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:139: trailing whitespace.
++            "target_id": "SRC-SUMMATION-REPORT-V2-ROUND-02",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:140: trailing whitespace.
++            "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:141: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:142: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:143: trailing whitespace.
++            "locator": "全文",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:144: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:145: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:146: trailing whitespace.
++            "sha256": "739d2ce2c6922dc7ce74dfea9ac22d987dd6b8d353484e70c615fc96d2f22074",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:147: trailing whitespace.
++            "target_id": "SRC-SUMMATION-TRACE-VERIFY",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:148: trailing whitespace.
++            "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:149: trailing whitespace.
++        }
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:150: trailing whitespace.
++    ],
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:151: trailing whitespace.
++    "title": "浮点求和方法：精确基准、递推与适用条件",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:152: trailing whitespace.
++    "updated_at": "2026-09-09T06:28:10.010613Z",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:153: trailing whitespace.
++    "updated_by": {
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:154: trailing whitespace.
++        "id": "codex-approved-v3-report-author",
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:155: trailing whitespace.
++        "kind": "ai"
+research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json:156: trailing whitespace.
++    }
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:1: trailing whitespace.
++{
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:2: trailing whitespace.
++    "body_markdown": "三轮实际计算表明：本研究的显式逐项累加对顺序敏感；Kahan实现未消除所选抵消结构的全部误差；Neumaier与math.fsum在第二轮6种排列和第三轮30种排列中均与精确基准一致。该观察只适用于已保存输入与脚本，不能推出任意浮点输入都准确，也未比较运行时间。\n\n## 新增过程依据\n本次逐步复核150个结果全部一致，三篇L1补齐了中间数值、公式、图表和参数。Kahan的补偿在所选三项抵消中再次舍入，不能只凭采用补偿保证精确。先固定输入与精确参考，再观察逐步状态；环境失败应与数值反例分别记录。\n\n## 适用与禁用范围\n仅限已保存有限整数binary64样本与本机环境。其他分布、极端指数、平台和性能须新建Run验证；本次没有人工认可。",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:3: trailing whitespace.
++    "change_reason": "将当前经验的详细实验依据绑定到已回读的新正文修订；数值判断、适用范围及未复核状态保持不变，原经验修订完整保留。",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:4: trailing whitespace.
++    "content_hash": "7c3f849830089d12205497767579bbf01d9761a30d0596ce610032d30830ad08",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:5: trailing whitespace.
++    "created_at": "2026-09-08T20:15:35.156441Z",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:6: trailing whitespace.
++    "created_by": {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:7: trailing whitespace.
++        "id": "summation-research-assistant",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:8: trailing whitespace.
++        "kind": "ai"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:9: trailing whitespace.
++    },
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:10: trailing whitespace.
++    "discovery": "workspace_summary",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:11: trailing whitespace.
++    "keywords": [
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:12: trailing whitespace.
++        "浮点求和",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:13: trailing whitespace.
++        "数值稳定性",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:14: trailing whitespace.
++        "experience"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:15: trailing whitespace.
++    ],
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:16: trailing whitespace.
++    "kind": "experience",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:17: trailing whitespace.
++    "level": "L3",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:18: trailing whitespace.
++    "owner_id": "RES-FLOATING-POINT-SUMMATION",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:19: trailing whitespace.
++    "payload": {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:20: trailing whitespace.
++        "applicable": [
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:21: trailing whitespace.
++            "本研究已保存的有限整数浮点输入与脚本"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:22: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:23: trailing whitespace.
++        "claim_refs": [],
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:24: trailing whitespace.
++        "claims": [],
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:25: trailing whitespace.
++        "failure_modes": [
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:26: trailing whitespace.
++            "小增量被舍入丢失",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:27: trailing whitespace.
++            "当前Kahan实现仍有抵消反例",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:28: trailing whitespace.
++            "绘图环境执行失败不等同数值方法失败"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:29: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:30: trailing whitespace.
++        "missing_refs": [],
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:31: trailing whitespace.
++        "problem_structure": "有限精度累加中大数与小量抵消导致顺序误差",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:32: trailing whitespace.
++        "prohibited": [
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:33: trailing whitespace.
++            "据少量排列保证任意输入正确",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:34: trailing whitespace.
++            "把精确命中当作性能更快或现实模型有效"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:35: trailing whitespace.
++        ],
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:36: trailing whitespace.
++        "recommendation": "在目标输入上比较精确参考，不把单一补偿方法当作无条件保证",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:37: trailing whitespace.
++        "retry_conditions": [
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:38: trailing whitespace.
++            "补充非整数、极端指数和跨平台数据",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:39: trailing whitespace.
++            "复算读取固定数组并核对SHA，绘图与数值验证分别核验"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:40: trailing whitespace.
++        ]
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:41: trailing whitespace.
++    },
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:42: trailing whitespace.
++    "previous_revision": 2,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:43: trailing whitespace.
++    "provenance_gap": null,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:44: trailing whitespace.
++    "record_hash": "c1545ee2a072322142632e4363f13a5aaba1ce1b17902766618d8fbf4a6b15fe",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:45: trailing whitespace.
++    "record_id": "MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:46: trailing whitespace.
++    "record_reason": "依据已完成研究补齐可独立阅读的过程，保存与复核状态分开；未重跑实验",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:47: trailing whitespace.
++    "revision": 3,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:48: trailing whitespace.
++    "schema_version": 2,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:49: trailing whitespace.
++    "sensitivity": "internal",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:50: trailing whitespace.
++    "sources": [
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:51: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:52: trailing whitespace.
++            "locator": "summary and rows",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:53: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:54: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:55: trailing whitespace.
++            "sha256": "cdb1f9e4f0580d5baaea4a09416f75801e6c5d01eab96c601ded00a28e31134d",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:56: trailing whitespace.
++            "target_id": "SRC-SUMMATION-R01",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:57: trailing whitespace.
++            "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:58: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:59: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:60: trailing whitespace.
++            "locator": "summary and rows",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:61: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:62: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:63: trailing whitespace.
++            "sha256": "f5ef99109b146631abf1fc7256fc62287cbf125c6535ba097da4440570fc8247",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:64: trailing whitespace.
++            "target_id": "SRC-SUMMATION-R02",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:65: trailing whitespace.
++            "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:66: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:67: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:68: trailing whitespace.
++            "locator": "summary and rows",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:69: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:70: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:71: trailing whitespace.
++            "sha256": "693058d77bb3ed61e94535369bbfa4d74b6a2ed7f406a8af0b5782a0dc4fa7ef",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:72: trailing whitespace.
++            "target_id": "SRC-SUMMATION-R03",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:73: trailing whitespace.
++            "target_kind": "file"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:74: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:75: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:76: trailing whitespace.
++            "locator": "正文与固定来源",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:77: trailing whitespace.
++            "relation": "references",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:78: trailing whitespace.
++            "revision": 2,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:79: trailing whitespace.
++            "sha256": "dc9821dc9a06369e2bafab5e5e67403eb1444c3a7fe9f3c2434f7676e75839b3",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:80: trailing whitespace.
++            "target_id": "MEM-c52df8fb-ca9e-53a7-a49b-342592884a50",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:81: trailing whitespace.
++            "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:82: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:83: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:84: trailing whitespace.
++            "locator": "正文与固定来源",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:85: trailing whitespace.
++            "relation": "references",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:86: trailing whitespace.
++            "revision": 2,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:87: trailing whitespace.
++            "sha256": "f328dc9c5581cb4e194f9e3d0f9f3bd8b3f79d5849f89676c3f826b90c3b6e3d",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:88: trailing whitespace.
++            "target_id": "MEM-c4a61c00-1bf1-59b3-a65e-0fa4847db2e1",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:89: trailing whitespace.
++            "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:90: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:91: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:92: trailing whitespace.
++            "locator": "正文与固定来源",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:93: trailing whitespace.
++            "relation": "references",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:94: trailing whitespace.
++            "revision": 2,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:95: trailing whitespace.
++            "sha256": "933c2a91533f4ed179d5cebc3b090b81efff525ef181cfdd42716a022a9503c8",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:96: trailing whitespace.
++            "target_id": "MEM-96f79923-f023-509e-a002-40f2d5a4fca1",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:97: trailing whitespace.
++            "target_kind": "record"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:98: trailing whitespace.
++        },
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:99: trailing whitespace.
++        {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:100: trailing whitespace.
++            "locator": "run.json",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:101: trailing whitespace.
++            "relation": "input",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:102: trailing whitespace.
++            "revision": null,
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:103: trailing whitespace.
++            "sha256": "8efe2879a142667db6d174693fc5738228e9904902d7a2c884e720d75d014b05",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:104: trailing whitespace.
++            "target_id": "RUN-20260908T215458Z-04C7D84D40D8",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:105: trailing whitespace.
++            "target_kind": "owner"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:106: trailing whitespace.
++        }
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:107: trailing whitespace.
++    ],
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:108: trailing whitespace.
++    "title": "大数抵消场景的求和方法局部比较",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:109: trailing whitespace.
++    "updated_at": "2026-09-09T04:43:23.451992Z",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:110: trailing whitespace.
++    "updated_by": {
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:111: trailing whitespace.
++        "id": "codex-report-writing-agent",
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:112: trailing whitespace.
++        "kind": "ai"
+research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json:113: trailing whitespace.
++    }
+retrieval/sources.json:627: trailing whitespace.
++    },
+retrieval/sources.json:628: trailing whitespace.
++    {
+retrieval/sources.json:629: trailing whitespace.
++      "source_id": "SRC-AI-CONTEXT-V01-USER-PROPOSAL",
+retrieval/sources.json:630: trailing whitespace.
++      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/user-proposal.txt",
+retrieval/sources.json:631: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:632: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:633: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:634: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:635: trailing whitespace.
++    },
+retrieval/sources.json:636: trailing whitespace.
++    {
+retrieval/sources.json:637: trailing whitespace.
++      "source_id": "SRC-AI-CONTEXT-V01-DISCUSSION-BEFORE-RESEARCH",
+retrieval/sources.json:638: trailing whitespace.
++      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/discussion-before-research.md",
+retrieval/sources.json:639: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:640: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:641: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:642: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:643: trailing whitespace.
++    },
+retrieval/sources.json:644: trailing whitespace.
++    {
+retrieval/sources.json:645: trailing whitespace.
++      "source_id": "SRC-AI-CONTEXT-V01-MEMORY-INDEX",
+retrieval/sources.json:646: trailing whitespace.
++      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/memory-index.py",
+retrieval/sources.json:647: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:648: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:649: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:650: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:651: trailing whitespace.
++    },
+retrieval/sources.json:652: trailing whitespace.
++    {
+retrieval/sources.json:653: trailing whitespace.
++      "source_id": "SRC-AI-CONTEXT-V01-TECHNICAL-UNITS",
+retrieval/sources.json:654: trailing whitespace.
++      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/technical-units.py",
+retrieval/sources.json:655: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:656: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:657: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:658: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:659: trailing whitespace.
++    },
+retrieval/sources.json:660: trailing whitespace.
++    {
+retrieval/sources.json:661: trailing whitespace.
++      "source_id": "SRC-AI-CONTEXT-V01-MATERIAL-QUERY-COORDINATOR",
+retrieval/sources.json:662: trailing whitespace.
++      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/material-query-coordinator.py",
+retrieval/sources.json:663: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:664: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:665: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:666: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:667: trailing whitespace.
++    },
+retrieval/sources.json:668: trailing whitespace.
++    {
+retrieval/sources.json:669: trailing whitespace.
++      "source_id": "SRC-AI-CONTEXT-V01-PRIMARY-SOURCE-NOTES",
+retrieval/sources.json:670: trailing whitespace.
++      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/primary-source-notes.md",
+retrieval/sources.json:671: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:672: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:673: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:674: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:675: trailing whitespace.
++    },
+retrieval/sources.json:676: trailing whitespace.
++    {
+retrieval/sources.json:677: trailing whitespace.
++      "source_id": "SRC-AI-CONTEXT-V01-DISCUSSION-DECISIONS",
+retrieval/sources.json:678: trailing whitespace.
++      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/discussion-decisions.md",
+retrieval/sources.json:679: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:680: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:681: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:682: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:683: trailing whitespace.
++    },
+retrieval/sources.json:684: trailing whitespace.
++    {
+retrieval/sources.json:685: trailing whitespace.
++      "source_id": "SRC-AI-CONTEXT-EFFICIENCY-20260912",
+retrieval/sources.json:686: trailing whitespace.
++      "path": "research/ai-experience-context/discussions/20260912-cross-layer-efficiency.md",
+retrieval/sources.json:687: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:688: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:689: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:690: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:691: trailing whitespace.
++    },
+retrieval/sources.json:692: trailing whitespace.
++    {
+retrieval/sources.json:693: trailing whitespace.
++      "source_id": "SRC-RETRIEVAL-FOUNDATION-20260912-RESULTS",
+retrieval/sources.json:694: trailing whitespace.
++      "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/RESULTS.md",
+retrieval/sources.json:695: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:696: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:697: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:698: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:699: trailing whitespace.
++    },
+retrieval/sources.json:700: trailing whitespace.
++    {
+retrieval/sources.json:701: trailing whitespace.
++      "source_id": "SRC-RETRIEVAL-FOUNDATION-20260912-CODE-MANIFEST",
+retrieval/sources.json:702: trailing whitespace.
++      "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code-manifest.json",
+retrieval/sources.json:703: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:704: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:705: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:706: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:707: trailing whitespace.
++    },
+retrieval/sources.json:708: trailing whitespace.
++    {
+retrieval/sources.json:709: trailing whitespace.
++      "source_id": "SRC-AI-CONTEXT-MULTIROUTE-20260913",
+retrieval/sources.json:710: trailing whitespace.
++      "path": "research/ai-experience-context/discussions/20260913-multiroute-reading.md",
+retrieval/sources.json:711: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:712: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:713: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:714: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:715: trailing whitespace.
++    },
+retrieval/sources.json:716: trailing whitespace.
++    {
+retrieval/sources.json:717: trailing whitespace.
++      "source_id": "SRC-AI-READING-20260913-RESULTS",
+retrieval/sources.json:718: trailing whitespace.
++      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/RESULTS.md",
+retrieval/sources.json:719: trailing whitespace.
++      "enabled": true,
+retrieval/sources.json:720: trailing whitespace.
++      "sensitivity": "internal",
+retrieval/sources.json:721: trailing whitespace.
++      "context_role": "research",
+retrieval/sources.json:722: trailing whitespace.
++      "discovery": "trace_only"
+retrieval/sources.json:725: trailing whitespace.
++}
+tools/AGENTS.md:3: trailing whitespace.
++## 组织方式
+tools/AGENTS.md:4: trailing whitespace.
++
+tools/AGENTS.md:5: trailing whitespace.
++- 文件读写、清洗、绘图、通用数值函数、接口适配和脚本功能属于工具；模块化实现不构成核心算法收录资格。只有公司算法/模块文档定义的关键模型算法进入 core-algorithms，工具可引用其 MOD-ID。
+tools/AGENTS.md:11: trailing whitespace.
++工作与记录统一使用work-loop：源码留scripts/packages，通用方法和经验在tools/memory/TOOL-ID，工具自身验证在tools/runtime/TOOL-ID/runs。处理业务数据的Run归业务Owner，以固定引用复用工具经验；不重复同一次执行。
+tools/AGENTS.md:12: trailing whitespace.
++

@@ -1,0 +1,76 @@
+{
+  "valid": false,
+  "errors": [
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "/payload/role",
+      "message": "Value is outside enum"
+    }
+  ],
+  "record": {
+    "schema_version": 3,
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "kind": "document_section",
+    "title": "正文重排完整实施与验证",
+    "level": null,
+    "body_markdown": "",
+    "payload": {
+      "section_key": "reranking-20260916",
+      "title": "正文重排完整实施与验证",
+      "role": "results",
+      "blocks": [
+        {
+          "type": "prose",
+          "markdown": "本章是2026-09-16独立重排演进的完整结果；历史表示查询设计仍保留原固定版本。",
+          "evidence_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+              "revision": 1,
+              "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+              "locator": "",
+              "relation": "references"
+            }
+          ]
+        },
+        {
+          "type": "unit",
+          "ref": {
+            "target_kind": "record",
+            "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+            "revision": 1,
+            "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+            "locator": "",
+            "relation": "references"
+          },
+          "block_ids": [
+            "implementation-results"
+          ]
+        }
+      ],
+      "watch_refs": [],
+      "missing_refs": []
+    },
+    "sources": [
+      {
+        "target_kind": "record",
+        "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+        "revision": 1,
+        "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+        "locator": "",
+        "relation": "references"
+      }
+    ],
+    "provenance_gap": null,
+    "record_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+    "discovery": "workspace_summary",
+    "sensitivity": "internal",
+    "keywords": [
+      "Cross-encoder",
+      "重排",
+      "显式条件",
+      "冻结基线",
+      "离线模型"
+    ]
+  }
+}

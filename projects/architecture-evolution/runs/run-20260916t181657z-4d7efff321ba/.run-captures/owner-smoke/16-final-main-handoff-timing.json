@@ -1,0 +1,7 @@
+{
+  "action": "reading-handoff",
+  "wall_ms": 9.171,
+  "measurement": "API dispatch wall time; no host-model internal timing",
+  "request_snapshot": "projects\\architecture-evolution\\runs\\run-20260916t181657z-4d7efff321ba\\.run-captures\\owner-smoke\\16-final-main-handoff-receipt.json.request-snapshot.json",
+  "request_sha256": "1c6dc25d95d9afe700c39e5783caf107d5bbb4011dbdbc1e983d198c565cc65d"
+}

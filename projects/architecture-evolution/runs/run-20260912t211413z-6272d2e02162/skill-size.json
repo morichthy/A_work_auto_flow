@@ -1,0 +1,47 @@
+[
+  {
+    "skill": "association-exploration",
+    "before_chars": 542,
+    "after_chars": 571
+  },
+  {
+    "skill": "context-maintenance",
+    "before_chars": 4437,
+    "after_chars": 724
+  },
+  {
+    "skill": "development-checks",
+    "before_chars": 1719,
+    "after_chars": 1172
+  },
+  {
+    "skill": "evidence-inspection",
+    "before_chars": 3400,
+    "after_chars": 3397
+  },
+  {
+    "skill": "material-query",
+    "before_chars": 3141,
+    "after_chars": 1043
+  },
+  {
+    "skill": "research-loop",
+    "before_chars": 5445,
+    "after_chars": 196
+  },
+  {
+    "skill": "semantic-maintenance",
+    "before_chars": 992,
+    "after_chars": 992
+  },
+  {
+    "skill": "work-loop",
+    "before_chars": null,
+    "after_chars": 1192
+  },
+  {
+    "skill": "workspace-context",
+    "before_chars": 3977,
+    "after_chars": 324
+  }
+]

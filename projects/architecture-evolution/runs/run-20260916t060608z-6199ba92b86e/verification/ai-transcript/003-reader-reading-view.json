@@ -1,0 +1,46 @@
+{
+  "actor": "reader",
+  "action": "reading-view",
+  "request": {
+    "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "context_markdown": "# 当前问题\n\n阅读Northstar温度换算材料，判断方法能否复用；保留公式、变量单位、适用条件、误差处理与反例，区分相似但不适用材料。仅合成验收，不认可现实工程结论。\n\n阅读记录 RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51 · 读取版本 r1（本次视图）\n\n\n## 条件\n\n- 只读本RS获准固定合成材料，不递归委派，不伪造缺失工况。\n\n\n## 已读理解与必要细节\n\n\n## 尝试与下一步\n\n\n## 阅读清单",
+      "phase": "ready",
+      "round_count": 0,
+      "owner_id": null,
+      "checkpoint_ref": null,
+      "archived": false,
+      "candidates": [],
+      "unnoted_candidate_ids": [],
+      "coverage": [],
+      "guidance": "先读返回的正文；可保留直接用途或有具体连接理由的间接启发。长链连接逐步注明依据和假设。保留候选后 reading-read 读完整记录，再 reading-note 保存理解、连接和必要细节。有可检验下一步先执行，失败后定向扩查。",
+      "gaps": [],
+      "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+      "revision": 1
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 62,
+      "read_bytes": 7259,
+      "output_chars": 2492,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  },
+  "response_serialized_chars": 996,
+  "value_serialized_chars": 641
+}

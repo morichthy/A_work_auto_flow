@@ -1,0 +1,82 @@
+{
+  "status": "partial",
+  "value": {
+    "owner_id": "RES-MQ-A",
+    "text": "本章固定说明。\n\n# 合成温度校准材料\n\nreadingfixture。摄氏温度 $t$ 单位为 °C，热力学温度 $T$ 单位为 K；合成电压 $V$ 单位为 V。模型 $V=a t+b$，$a=0.01$ V/°C、$b=0.50$ V，材料只覆盖 $0\\le t\\le80$ °C，不是现实传感器验证。\n\n原先直接把电压读数当温度会混淆单位，因此材料先固定线性校准和温标。反算 $t=(V-b)/a$，$T=t+273.15$。合成输入 $V=0.75$ V 对应 $t=25$ °C、$T=298.15$ K。假定 $a,b$ 无误差且电压标准不确定度 $u_V=0.002$ V，则 $u_t=u_V/|a|=0.2$ °C，$u_T=0.2$ K；若校准参数也不确定，该误差式不完整。\n\n材料将95 °C作为超出校准区间的反例，没有验证其线性外推。材料建议如需扩展温区，应先加入独立边界校准样本；这只是材料中的建议，并无已完成实验。温标平移保留温差与不确定度数值，可作为跨温标比较的线索；没有给出后续检索词。",
+    "sources": [
+      {
+        "kind": "record",
+        "id": "MEM-c2496d3a-fd09-59f5-95f9-b5eb259e61dc",
+        "revision": 1,
+        "sha256": "cf982060470a1e986ca7c031ca8bc0b04b97af5f18e597d958fb5ed93f0a4b40",
+        "locator": ""
+      },
+      {
+        "kind": "record",
+        "id": "MEM-22b24377-bb99-5e34-bb9a-9bc1d2f5a70a",
+        "revision": 1,
+        "sha256": "c91dd310b2e3be7af43bc25c7e84952500cb6e902fbc43cc79a0634850436f5c",
+        "locator": ""
+      },
+      {
+        "kind": "record",
+        "id": "MEM-9ba4fafb-f8b1-5afc-86b5-5cb4532762a9",
+        "revision": 1,
+        "sha256": "37ed58315083826cf2ec25d063549b0073de5dcc2e3eac8fdf66a58f95659b2e",
+        "locator": null
+      },
+      {
+        "kind": "file",
+        "id": "SRC-MQ-A",
+        "revision": null,
+        "sha256": "3b61870b28f5cd291e45c94dcc6fab78c0f6f4e584098772a2a6035b8ecf537c",
+        "locator": "完整合成输入"
+      }
+    ],
+    "document_refs": [
+      {
+        "kind": "record",
+        "id": "MEM-9ba4fafb-f8b1-5afc-86b5-5cb4532762a9",
+        "revision": 1,
+        "sha256": "37ed58315083826cf2ec25d063549b0073de5dcc2e3eac8fdf66a58f95659b2e",
+        "locator": null
+      }
+    ],
+    "references": [],
+    "reading_form": "research_process",
+    "complete": true,
+    "gaps": [
+      "Owner内有记录不满足当前授权或固定来源不可用，未交付"
+    ],
+    "session_id": "RS-2417fd8d-07bf-4f6d-b937-9cb5956d2df4",
+    "revision": 3
+  },
+  "code": null,
+  "warnings": [
+    "Owner内有记录不满足当前授权或固定来源不可用，未交付"
+  ],
+  "issues": [
+    {
+      "code": "PARTIAL",
+      "message": "Owner内有记录不满足当前授权或固定来源不可用，未交付",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    }
+  ],
+  "consumed": {
+    "wall_ms": 265,
+    "read_bytes": 156312,
+    "output_chars": 1521,
+    "candidates": 3,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

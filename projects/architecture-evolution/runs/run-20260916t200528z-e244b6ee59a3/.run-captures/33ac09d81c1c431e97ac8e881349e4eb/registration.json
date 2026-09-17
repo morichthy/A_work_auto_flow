@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T200528Z-E244B6EE59A3",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "三种阅读模式与联想note开发验证",
+    "keywords": [
+      "reading modes",
+      "联想检索"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "completed",
+    "created_at": "2026-09-16T20:05:28Z",
+    "started_at": "2026-09-16T20:05:28Z",
+    "ended_at": "2026-09-16T20:47:52.752246+00:00",
+    "owner": null,
+    "question": "三种阅读策略能否保持固定证据、累计范围和note质量边界，并由工作台控制？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {},
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "三模式、可保存默认配置、联想线索与综合note已实现；最终软件及合成AI验证见RESULTS.md。",
+    "limitations": [
+      "AI自查不等于科学复核或用户认可。",
+      "合成场景不能证明真实业务召回率、错误关联率或提速。",
+      "仅本机Windows隔离升级验证；未发布，第二物理机未验收。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxNlQyMDA1MjhaLUUyNDRCNkVFNTlBMyIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIuS4ieenjemYheivu+aooeW8j+S4juiBlOaDs25vdGXlvIDlj5Hpqozor4EiLA0KICAia2V5d29yZHMiOiBbDQogICAgInJlYWRpbmcgbW9kZXMiLA0KICAgICLogZTmg7Pmo4DntKIiDQogIF0sDQogICJyZXZpZXdfaGlzdG9yeSI6IFtdLA0KICAiY2xhaW1zIjogW10sDQogICJkZXBlbmRlbmNpZXMiOiBbXSwNCiAgInJ1bl90eXBlIjogImFuYWx5c2lzIiwNCiAgInN0YXR1cyI6ICJjb21wbGV0ZWQiLA0KICAiY3JlYXRlZF9hdCI6ICIyMDI2LTA5LTE2VDIwOjA1OjI4WiIsDQogICJzdGFydGVkX2F0IjogIjIwMjYtMDktMTZUMjA6MDU6MjhaIiwNCiAgImVuZGVkX2F0IjogIjIwMjYtMDktMTZUMjA6NDc6NTIuNzUyMjQ2KzAwOjAwIiwNCiAgIm93bmVyIjogbnVsbCwNCiAgInF1ZXN0aW9uIjogIuS4ieenjemYheivu+etlueVpeiDveWQpuS/neaMgeWbuuWumuivgeaNruOAgee0r+iuoeiMg+WbtOWSjG5vdGXotKjph4/ovrnnlYzvvIzlubbnlLHlt6XkvZzlj7DmjqfliLbvvJ8iLA0KICAiaHlwb3RoZXNlcyI6IFtdLA0KICAiaW5wdXRzIjogW10sDQogICJwYXJhbWV0ZXJzIjoge30sDQogICJjb2RlIjogew0KICAgICJjb21taXQiOiAiODlhZDMwNzUzNTg5ZmI3YjkxOWIzZGI3NWNkZjkxZDQ3NDQ5ZjRjYSIsDQogICAgImRpcnR5IjogdHJ1ZQ0KICB9LA0KICAiZW52aXJvbm1lbnQiOiB7DQogICAgInB5dGhvbiI6ICIzLjEyLjEwIiwNCiAgICAicGxhdGZvcm0iOiAiV2luZG93cy0xMS0xMC4wLjIyNjMxLVNQMCIsDQogICAgImxvY2tfb3JfaW1hZ2VfZGlnZXN0IjogbnVsbA0KICB9LA0KICAicmFuZG9tX3NlZWRzIjogW10sDQogICJxdWFsaXR5X3Jlc3VsdHMiOiBbXSwNCiAgIm1ldHJpY3MiOiB7fSwNCiAgImFydGlmYWN0cyI6IFtdLA0KICAibGluZWFnZV9ldmVudHMiOiAibGluZWFnZS5qc29ubCIsDQogICJjb25jbHVzaW9uIjogIuS4ieaooeW8j+OAgeWPr+S/neWtmOm7mOiupOmFjee9ruOAgeiBlOaDs+e6v+e0ouS4jue7vOWQiG5vdGXlt7Llrp7njrDvvJvmnIDnu4jova/ku7blj4rlkIjmiJBBSemqjOivgeingVJFU1VMVFMubWTjgIIiLA0KICAibGltaXRhdGlvbnMiOiBbDQogICAgIkFJ6Ieq5p+l5LiN562J5LqO56eR5a2m5aSN5qC45oiW55So5oi36K6k5Y+v44CCIiwNCiAgICAi5ZCI5oiQ5Zy65pmv5LiN6IO96K+B5piO55yf5a6e5Lia5Yqh5Y+s5Zue546H44CB6ZSZ6K+v5YWz6IGU546H5oiW5o+Q6YCf44CCIiwNCiAgICAi5LuF5pys5py6V2luZG93c+malOemu+WNh+e6p+mqjOivge+8m+acquWPkeW4g++8jOesrOS6jOeJqeeQhuacuuacqumqjOaUtuOAgiINCiAgXSwNCiAgInBhcmVudF9ydW5faWRzIjogW10sDQogICJyZWxhdGVkX21vZHVsZV9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfcmVzZWFyY2hfaWRzIjogW10sDQogICJyZWxhdGVkX2RhdGFzZXRfaWRzIjogW10sDQogICJyZXZpZXciOiB7DQogICAgInN0YXR1cyI6ICJub3QtcmV2aWV3ZWQiLA0KICAgICJyZXZpZXdlciI6IG51bGwsDQogICAgImRhdGUiOiBudWxsDQogIH0sDQogICJzZW5zaXRpdml0eSI6ICJpbnRlcm5hbCINCn0NCg==",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T200528Z-E244B6EE59A3",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "三种阅读模式与联想note开发验证",
+    "keywords": [
+      "reading modes",
+      "联想检索"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "completed",
+    "created_at": "2026-09-16T20:05:28Z",
+    "started_at": "2026-09-16T20:05:28Z",
+    "ended_at": "2026-09-16T20:47:52.752246+00:00",
+    "owner": null,
+    "question": "三种阅读策略能否保持固定证据、累计范围和note质量边界，并由工作台控制？",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/.run-captures/final-evidence/source.zip",
+        "sha256": "b9cb9891e473c7eee0f9eac843e5727d070c533f0713fd1efc8f265a5e20a822",
+        "role": "input",
+        "registered_at": "2026-09-16T20:47:54.063755Z"
+      }
+    ],
+    "parameters": {},
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/.run-captures/final-evidence/receipts.zip",
+        "sha256": "d0fe0dcc58c38ef4ee0c852214b3090d1cb6c777dfccc4c4177fdb2fece0aba1",
+        "role": "artifact",
+        "registered_at": "2026-09-16T20:47:54.077915Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/.run-captures/final-evidence/manifest.json",
+        "sha256": "887b63faf946bc0cc3c86522ff5453fc69595e80e82d1266e92cb70932cf27a6",
+        "role": "artifact",
+        "registered_at": "2026-09-16T20:47:54.091690Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/RESULTS.md",
+        "sha256": "51f8ee681b267fd55f873437287da8da6e613447c89d6eec466bd2a41f69bbb2",
+        "role": "artifact",
+        "registered_at": "2026-09-16T20:47:54.102908Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/freeze_evidence.py",
+        "sha256": "021afc31cd500d6de281bc1eaf23733a9bfa77788c045033748440447de68c05",
+        "role": "artifact",
+        "registered_at": "2026-09-16T20:47:54.115696Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "三模式、可保存默认配置、联想线索与综合note已实现；最终软件及合成AI验证见RESULTS.md。",
+    "limitations": [
+      "AI自查不等于科学复核或用户认可。",
+      "合成场景不能证明真实业务召回率、错误关联率或提速。",
+      "仅本机Windows隔离升级验证；未发布，第二物理机未验收。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-16T20:47:54.167981Z"
+}

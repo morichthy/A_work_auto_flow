@@ -1,0 +1,12 @@
+{
+  "first_attempt": {"status": "rejected", "code": "SOURCE_MISSING", "reason": "sandbox denied writing .local/reading-sessions; direct traceback identified WinError 5"},
+  "status": "ok",
+  "value": {"session_id": "RS-12cfd61c-790d-41f7-bb86-e1d4242c2744", "revision": 1, "next_action": "recall"},
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {"wall_ms": 0, "read_bytes": 0, "output_chars": 0, "candidates": 0, "graph_nodes": 0, "graph_edges": 0, "graph_hops": 0, "model_tokens": 0, "model_calls": 0, "model_input_tokens": 0, "model_output_tokens": 0, "rerank_items": 0},
+  "stop_reason": null,
+  "wall_ms": 1984,
+  "measurement": "成功调用的Stopwatch覆盖CLI进程；没有AI模型调用。首次受限尝试耗时4488ms，未创建RS。"
+}

@@ -72,7 +72,8 @@ def rendered():
     # needs a concrete value schema so a successful response cannot hide an
     # arbitrary unvalidated payload behind TypeVar T.
     for target in ("SearchReceipt", "MaterialPacket", "QueryJob", "TreePage", "MaintenancePlan", "MaintenanceReceipt", "MaintenanceStatusReceipt", "DeepenReceipt",
-                   "RepresentationDefinition", "Realization", "AssociationProposal"):
+                   "RepresentationDefinition", "Realization", "AssociationProposal",
+                   "OwnerAssessmentReceipt"):
         result_schema = deepcopy(defs["Result"])
         result_schema["properties"]["value"] = {"anyOf": [{"$ref": "#/$defs/" + target}, {"type": "null"}]}
         defs["Result_" + target] = result_schema

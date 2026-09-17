@@ -1,0 +1,160 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "e2e/settings.spec.ts"
+    ],
+    "configFile": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\playwright.config.ts",
+    "rootDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tmp/workbench-e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "settings.spec.ts",
+      "file": "settings.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "真实HTTP保存配置并在页面重新载入后保持",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2010,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T05:33:06.001Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "settings-receipt",
+                      "contentType": "application/json",
+                      "body": "ewogICJyZXZpc2lvbiI6ICIxMjFmN2E2OTljZTJlYjI0NTFkZGI3NWQ4OWQ5ZDUxZjFhYWE4NWM5NmU1ZGExMGI4MmY4NzcyOGE3YWJjYTRlIiwKICAic2V0dGluZ3MiOiB7CiAgICAiY29sbGFib3JhdGlvbiI6IHsKICAgICAgInN1YmFnZW50cyI6ICJhdXRvIgogICAgfSwKICAgICJtYXRlcmlhbHMiOiB7CiAgICAgICJidWRnZXQiOiB7CiAgICAgICAgImNhbmRpZGF0ZXMiOiAxMDAsCiAgICAgICAgImdyYXBoX2VkZ2VzIjogMTAwLAogICAgICAgICJncmFwaF9ob3BzIjogMiwKICAgICAgICAiZ3JhcGhfbm9kZXMiOiA1MCwKICAgICAgICAibW9kZWxfY2FsbHMiOiAxLAogICAgICAgICJtb2RlbF9pbnB1dF90b2tlbnMiOiA1MTIsCiAgICAgICAgIm1vZGVsX291dHB1dF90b2tlbnMiOiAwLAogICAgICAgICJtb2RlbF90b2tlbnMiOiA1MTIsCiAgICAgICAgIm91dHB1dF9jaGFycyI6IDgwMDAwLAogICAgICAgICJyZWFkX2J5dGVzIjogMTY3NzcyMTYsCiAgICAgICAgInJlcmFua19pdGVtcyI6IDAsCiAgICAgICAgIndhbGxfbXMiOiAzMDAwMDAKICAgICAgfSwKICAgICAgInJlc3VsdF9saW1pdCI6IDEyCiAgICB9LAogICAgInJlYWRpbmciOiB7CiAgICAgICJidWRnZXQiOiB7CiAgICAgICAgImNhbmRpZGF0ZXMiOiAxMDAwLAogICAgICAgICJncmFwaF9lZGdlcyI6IDEwMCwKICAgICAgICAiZ3JhcGhfaG9wcyI6IDIsCiAgICAgICAgImdyYXBoX25vZGVzIjogNTAsCiAgICAgICAgIm1vZGVsX2NhbGxzIjogMjAsCiAgICAgICAgIm1vZGVsX2lucHV0X3Rva2VucyI6IDY1NTM2LAogICAgICAgICJtb2RlbF9vdXRwdXRfdG9rZW5zIjogMCwKICAgICAgICAibW9kZWxfdG9rZW5zIjogNjU1MzYsCiAgICAgICAgIm91dHB1dF9jaGFycyI6IDgwMDAwLAogICAgICAgICJyZWFkX2J5dGVzIjogMTY3NzcyMTYsCiAgICAgICAgInJlcmFua19pdGVtcyI6IDEwMCwKICAgICAgICAid2FsbF9tcyI6IDMwMDAwMAogICAgICB9LAogICAgICAicmVyYW5raW5nIjogewogICAgICAgICJjYW5kaWRhdGVfbGltaXQiOiAzMCwKICAgICAgICAibW9kZSI6ICJhdXRvIgogICAgICB9LAogICAgICAicmVzdWx0X2xpbWl0IjogMTAKICAgIH0KICB9LAogICJkZWZhdWx0cyI6IHsKICAgICJjb2xsYWJvcmF0aW9uIjogewogICAgICAic3ViYWdlbnRzIjogImF1dG8iCiAgICB9LAogICAgIm1hdGVyaWFscyI6IHsKICAgICAgInJlc3VsdF9saW1pdCI6IDIwLAogICAgICAiYnVkZ2V0IjogewogICAgICAgICJ3YWxsX21zIjogMzAwMDAwLAogICAgICAgICJyZWFkX2J5dGVzIjogMTY3NzcyMTYsCiAgICAgICAgIm91dHB1dF9jaGFycyI6IDgwMDAwLAogICAgICAgICJjYW5kaWRhdGVzIjogMTAwLAogICAgICAgICJncmFwaF9ub2RlcyI6IDUwLAogICAgICAgICJncmFwaF9lZGdlcyI6IDEwMCwKICAgICAgICAiZ3JhcGhfaG9wcyI6IDIsCiAgICAgICAgIm1vZGVsX3Rva2VucyI6IDUxMiwKICAgICAgICAibW9kZWxfY2FsbHMiOiAxLAogICAgICAgICJtb2RlbF9pbnB1dF90b2tlbnMiOiA1MTIsCiAgICAgICAgIm1vZGVsX291dHB1dF90b2tlbnMiOiAwLAogICAgICAgICJyZXJhbmtfaXRlbXMiOiAwCiAgICAgIH0KICAgIH0sCiAgICAicmVhZGluZyI6IHsKICAgICAgInJlc3VsdF9saW1pdCI6IDEwLAogICAgICAicmVyYW5raW5nIjogewogICAgICAgICJtb2RlIjogImF1dG8iLAogICAgICAgICJjYW5kaWRhdGVfbGltaXQiOiAzMAogICAgICB9LAogICAgICAiYnVkZ2V0IjogewogICAgICAgICJ3YWxsX21zIjogMzAwMDAwLAogICAgICAgICJyZWFkX2J5dGVzIjogMTY3NzcyMTYsCiAgICAgICAgIm91dHB1dF9jaGFycyI6IDgwMDAwLAogICAgICAgICJjYW5kaWRhdGVzIjogMTAwMCwKICAgICAgICAiZ3JhcGhfbm9kZXMiOiA1MCwKICAgICAgICAiZ3JhcGhfZWRnZXMiOiAxMDAsCiAgICAgICAgImdyYXBoX2hvcHMiOiAyLAogICAgICAgICJtb2RlbF90b2tlbnMiOiA2NTUzNiwKICAgICAgICAibW9kZWxfY2FsbHMiOiAyMCwKICAgICAgICAibW9kZWxfaW5wdXRfdG9rZW5zIjogNjU1MzYsCiAgICAgICAgIm1vZGVsX291dHB1dF90b2tlbnMiOiAwLAogICAgICAgICJyZXJhbmtfaXRlbXMiOiAxMDAKICAgICAgfQogICAgfQogIH0sCiAgImxpbWl0cyI6IHsKICAgICJ3YWxsX21zIjogNjAwMDAwLAogICAgInJlYWRfYnl0ZXMiOiAzMzU1NDQzMiwKICAgICJvdXRwdXRfY2hhcnMiOiAxMDAwMDAsCiAgICAiY2FuZGlkYXRlcyI6IDIwMDAsCiAgICAiZ3JhcGhfbm9kZXMiOiAxMDAwLAogICAgImdyYXBoX2VkZ2VzIjogMjAwMCwKICAgICJncmFwaF9ob3BzIjogNiwKICAgICJtb2RlbF90b2tlbnMiOiAyMDAwMDAsCiAgICAibW9kZWxfY2FsbHMiOiAyMCwKICAgICJtb2RlbF9pbnB1dF90b2tlbnMiOiAxNTAwMDAsCiAgICAibW9kZWxfb3V0cHV0X3Rva2VucyI6IDUwMDAwLAogICAgInJlcmFua19pdGVtcyI6IDIwMAogIH0KfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-dafb3b6f5e105c775247",
+          "file": "settings.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "设置草稿跨导航保留，冲突不清空，显式重读后保存",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1398,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T05:33:10.438Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-86b75302883d2c7725e2",
+          "file": "settings.spec.ts",
+          "line": 86,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-16T05:33:04.503Z",
+    "duration": 8223.563,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

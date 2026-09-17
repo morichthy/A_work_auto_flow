@@ -1,0 +1,52 @@
+usage: workbench.cmd memory [-h]
+                            {inspect,list-owners,validate-draft,commit,review,search,history,document,outline,section-context,document-impact,figure,resume,context,expand,prepare,consolidate,summaries-prepare,summaries-save,associations-propose,associations-decide,associations-view,feedback,reconcile,rebuild,export,migration-export,migration-preview,migration-import,migration-recover,ingest-preview,ingest-apply,impact,question-validity,source-lineage,raw-materials,raw-material,adopt-owner,recover}
+                            ...
+
+版本记忆、证据复核、研究续接与阶段巩固；JSON 请求和可解析回执
+
+positional arguments:
+  {inspect,list-owners,validate-draft,commit,review,search,history,document,outline,section-context,document-impact,figure,resume,context,expand,prepare,consolidate,summaries-prepare,summaries-save,associations-propose,associations-decide,associations-view,feedback,reconcile,rebuild,export,migration-export,migration-preview,migration-import,migration-recover,ingest-preview,ingest-apply,impact,question-validity,source-lineage,raw-materials,raw-material,adopt-owner,recover}
+    inspect             读取对象或固定记录修订
+    list-owners         只读列出已有业务对象
+    validate-draft      从 UTF-8 JSON 文件读取请求
+    commit              从 UTF-8 JSON 文件读取请求
+    review              从 UTF-8 JSON 文件读取请求
+    search              从 UTF-8 JSON 文件读取请求
+    history             从 UTF-8 JSON 文件读取请求
+    document            从 UTF-8 JSON 文件读取请求
+    outline             从 UTF-8 JSON 文件读取请求
+    section-context     从 UTF-8 JSON 文件读取请求
+    document-impact     从 UTF-8 JSON 文件读取请求
+    figure              从 UTF-8 JSON 文件读取请求
+    resume              从 UTF-8 JSON 文件读取请求
+    context             从 UTF-8 JSON 文件读取请求
+    expand              从 UTF-8 JSON 文件读取请求
+    prepare             从 UTF-8 JSON 文件读取请求
+    consolidate         从 UTF-8 JSON 文件读取请求
+    summaries-prepare   从 UTF-8 JSON 文件读取请求
+    summaries-save      从 UTF-8 JSON 文件读取请求
+    associations-propose
+                        从 UTF-8 JSON 文件读取请求
+    associations-decide
+                        从 UTF-8 JSON 文件读取请求
+    associations-view   从 UTF-8 JSON 文件读取请求
+    feedback            从 UTF-8 JSON 文件读取请求
+    reconcile           从 UTF-8 JSON 文件读取请求
+    rebuild             从 UTF-8 JSON 文件读取请求
+    export              从 UTF-8 JSON 文件读取请求
+    migration-export    从 UTF-8 JSON 文件读取请求
+    migration-preview   从 UTF-8 JSON 文件读取请求
+    migration-import    从 UTF-8 JSON 文件读取请求
+    migration-recover   从 UTF-8 JSON 文件读取请求
+    ingest-preview      从 UTF-8 JSON 文件读取请求
+    ingest-apply        从 UTF-8 JSON 文件读取请求
+    impact              从 UTF-8 JSON 文件读取请求
+    question-validity   从 UTF-8 JSON 文件读取请求
+    source-lineage      从 UTF-8 JSON 文件读取请求
+    raw-materials       从 UTF-8 JSON 文件读取请求
+    raw-material        从 UTF-8 JSON 文件读取请求
+    adopt-owner         为已有材料创建记忆入口；原文件不变
+    recover             检查未完成事务；--apply 仅归档已证明退出的锁
+
+options:
+  -h, --help            show this help message and exit

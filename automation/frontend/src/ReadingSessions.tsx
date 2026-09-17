@@ -4,7 +4,11 @@ import { readingNoteName } from "./readingNoteName";
 import { ResearchMarkdown } from "./ResearchDocument";
 import { MaterialPacket } from "./MaterialPacket";
 import { ReadingMode } from "./ReadingMode";
-import type { MaterialPacket as Packet } from "./generated/material-query";
+import { OwnerDiscovery } from "./OwnerDiscovery";
+import type {
+  MaterialPacket as Packet,
+  OwnerFulltextRecallRequest,
+} from "./generated/material-query";
 import {
   useCurrentReading,
   failureMessage,
@@ -132,6 +136,44 @@ export function ReadingSessions({ ownerId }: { ownerId: string }) {
         current?.clear();
         setError(failureMessage(e));
       }
+    } finally {
+      if (token === generation.current) setBusy(false);
+    }
+  }
+
+  async function recallFulltext() {
+    if (!reading) return;
+    const token = ++generation.current;
+    setBusy(true);
+    setError("");
+    try {
+      const request: OwnerFulltextRecallRequest = {
+        session_id: reading.session_id,
+        expected_revision: reading.revision,
+        request_id: crypto.randomUUID(),
+      };
+      const response = await api<
+        Result<
+          Pick<
+            Reading,
+            | "revision"
+            | "discovery"
+            | "owner_packets"
+            | "fulltext_compensation_available"
+            | "fulltext_compensation_reason"
+            | "gaps"
+          >
+        >
+      >("materials/reading-recall-fulltext", request);
+      if (token !== generation.current) return;
+      if (!response.value)
+        throw Error(failureMessage(response, "全文补偿召回不可用"));
+      const next = { ...reading, ...response.value };
+      setReading(next);
+      setSnapshotRevision(next.revision);
+      current?.accept(next);
+    } catch (e) {
+      if (token === generation.current) setError(failureMessage(e));
     } finally {
       if (token === generation.current) setBusy(false);
     }
@@ -273,6 +315,11 @@ export function ReadingSessions({ ownerId }: { ownerId: string }) {
               {gap}
             </p>
           ))}
+          <OwnerDiscovery
+            reading={reading}
+            busy={busy}
+            onFulltext={() => void recallFulltext()}
+          />
           <ResearchMarkdown text={reading.context_markdown} />
           <h3>打开固定原文</h3>
           <ul>

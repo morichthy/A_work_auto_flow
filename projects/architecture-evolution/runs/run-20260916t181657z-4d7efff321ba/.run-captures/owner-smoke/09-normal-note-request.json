@@ -1,0 +1,31 @@
+{
+  "session_id": "RS-a8f812d7-d8f9-4862-8e8f-932cc5649d3b",
+  "expected_revision": 3,
+  "request_id": "owner-normal-note-01",
+  "owner_id": "RES-FLOATING-POINT-SUMMATION",
+  "research_note": {
+    "question": "在实际获准的 RES-FLOATING-POINT-SUMMATION 材料中，naive、pairwise 与 Kahan 求和的精度假设和误差边界分别是什么？",
+    "conditions": ["已完整读取该 Owner 的 research_process。", "输入为 CPython 3.12.10 / Windows 11 x64 上实际接收的有限、无量纲 binary64 数列。", "参考值是已表示浮点输入转为 Fraction 后的精确和，而非十进制文本的转换误差。", "正文实验只覆盖构造的整数浮点、指定排列和未改变舍入模式的环境。"],
+    "understanding": "朴素逐项累加按 s_i=fl(s_{i-1}+x_i) 运行，因而会随输入顺序在每一步丢失大数附近不能表示的小增量；后续抵消不会必然恢复该损失。文稿未给出或测量 pairwise summation 的递推、结果或边界，不能把本研究的朴素结果外推到 pairwise reduction。Kahan 以补偿项修正下一次输入，但补偿项本身也可能在后续大数运算中再次舍入；它不是对任意序列零误差的保证。",
+    "logic": ["误差按 e_abs=|Fraction(S_hat)-S_ref| 计算，精确命中要求 e_abs=0 且不用容差。", "第一轮以 [10^16, 1,...,1]、其逆序及尾部抵消定位顺序敏感的小量损失。", "第二轮枚举 [10^16,1,-10^16] 的六种排列，并读取 Kahan 的逐步状态。", "第三轮将该三项结构重复 10 次，固定抽取 30 个排列，以检查反例是否仍出现。"],
+    "details": ["第一轮中朴素逐项累加只精确命中 1/3，最大绝对误差为 1000；math.fsum 为 3/3、误差 0。", "第二轮六种排列中朴素与 Kahan 均为 2/6 精确命中、最大绝对误差 1。", "对 [10^16,1,-10^16]，Kahan 在第二步产生 c=-1，但第三步的修正输入仍舍入为 -10^16，返回 0 而参考和为 1。", "第三轮 30 个固定排列中，朴素为 0/30、最大误差 10；Kahan 为 5/30、最大误差 10。", "文稿还观察到 Neumaier 与 math.fsum 在第二、三轮所测构造样本中均精确，但这不是本问题中 pairwise 的证据。"],
+    "sources": [
+      {
+        "kind": "record",
+        "id": "MEM-ab9db095-2545-594c-9e94-f72bab43c464",
+        "revision": 1,
+        "sha256": "7ec02e5b385cb80bc294834069510f0488407862ba37fcc43cfd52268d32889b",
+        "locator": null
+      },
+      {
+        "kind": "record",
+        "id": "MEM-96f79923-f023-509e-a002-40f2d5a4fca1",
+        "revision": 3,
+        "sha256": "4e863128333d48e4bb228682a3664fbabd1155143bc92db2d6a1d1b50db6cf86",
+        "locator": "完整正文与固定依据"
+      }
+    ],
+    "limitations": ["pairwise 是提问中的比较对象，但完整文稿没有为它提供算法定义、实验输出或性能数据，因此它是明确证据缺口，不能用 naive 或 Kahan 的结果替代。", "所有计数只属于有限构造输入，不是实际业务数据失败概率。", "未覆盖非整数表示误差、极端指数、NaN/无穷值、溢出/下溢、跨平台或运行时间。", "研究状态仍为 not-reviewed。"],
+    "next_steps": ["若需比较 pairwise，应单独固定其实现和二叉归约分组规则。", "在相同 Fraction 参考下报告每个固定输入的误差，并另设目标数据域、规模和重复次数的性能实验。", "跨平台复算应读取保存数组而非只依赖随机种子。"]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "request_id": "0169ed52-c50f-4a99-8577-b049cfc0a9b6",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "commit_id": "COM-d0850f5c-c74d-4270-8b05-d6b3d25f76ab",
+  "generation": 27,
+  "save_status": "committed",
+  "record_results": [
+    {
+      "client_key": "reranking-unit",
+      "record_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+      "revision": 1,
+      "content_hash": "d8db7d40af47ab20284bb2aa23f8bafb5234eb356f69bbb7d1bf49ec9aa66a49",
+      "status": "created"
+    }
+  ],
+  "index_status": "indexed",
+  "index_details": {
+    "fts": "indexed",
+    "vector": "indexed",
+    "indexed_generation": 27,
+    "vector_generation": 27,
+    "target_generation": 27,
+    "encoder_version": "memory-record-representation-v4-technical-blocks",
+    "collection": "memory_v1_a82dc3c961a4",
+    "error": null
+  },
+  "warnings": [],
+  "error": null,
+  "recovery_ref": null
+}

@@ -1,0 +1,14 @@
+{
+  "spawn_sent_ms": 1789550352341,
+  "events": [
+    {
+      "label": "control_prepare",
+      "sent_ms": 1789550334328,
+      "returned_ms": 1789550347170,
+      "chunk_id": "48cdfa",
+      "wall_time_seconds": 3.9748431,
+      "exit_code": 0,
+      "original_token_count": 1575
+    }
+  ]
+}

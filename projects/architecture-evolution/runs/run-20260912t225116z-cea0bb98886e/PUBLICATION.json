@@ -1,0 +1,33 @@
+{
+  "status": "published",
+  "commit": "28f05ad8408991e8ec21fcd50dc5fbf59218093b",
+  "url": "https://github.com/livky/A_work_auto_flow/releases/tag/v0.2.0",
+  "release_id": 387728000,
+  "published_at": "2026-09-13T04:52:51Z",
+  "assets": [
+    {
+      "name": "dependencies-windows-x64.zip",
+      "size": 371463278,
+      "digest": "sha256:7810752e15ff40b88e04bae0eedae57f20355ca2da51febba7505a787361d3a4",
+      "browser_download_url": "https://github.com/livky/A_work_auto_flow/releases/download/v0.2.0/dependencies-windows-x64.zip"
+    },
+    {
+      "name": "dependencies-windows-x64.zip.sha256",
+      "size": 96,
+      "digest": "sha256:3e437015426d2451d41580697c72901f9c60435564d73ff77ca3e96acd8f0228",
+      "browser_download_url": "https://github.com/livky/A_work_auto_flow/releases/download/v0.2.0/dependencies-windows-x64.zip.sha256"
+    },
+    {
+      "name": "framework-source-v0.2.0.zip",
+      "size": 3115984,
+      "digest": "sha256:b8e3767d146d196ce5ee68aa13d003c4a278db4da4ba7255dcbb2074d5252617",
+      "browser_download_url": "https://github.com/livky/A_work_auto_flow/releases/download/v0.2.0/framework-source-v0.2.0.zip"
+    },
+    {
+      "name": "framework-source-v0.2.0.zip.sha256",
+      "size": 95,
+      "digest": "sha256:e9212d6e15913e0a57b93e0b5a6d0026be066ff750e15e94eaa3c7b1c71dfc6c",
+      "browser_download_url": "https://github.com/livky/A_work_auto_flow/releases/download/v0.2.0/framework-source-v0.2.0.zip.sha256"
+    }
+  ]
+}

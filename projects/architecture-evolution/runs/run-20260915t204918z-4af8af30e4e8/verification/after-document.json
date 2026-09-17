@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "owner_id": "RES-R",
+  "title": "SYNTHETIC ONLY",
+  "document_source": "independent",
+  "document": {
+    "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+    "revision": 2,
+    "title": "合成 document",
+    "document_type": "research_process",
+    "purpose": "验证合成研究文档",
+    "audience": "研究人员",
+    "scope": "仅合成软件验收",
+    "common_refs": [],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "887a27b3dffffeffd44f7f5c6cd8ff44702c3ca77fa19f82092b6a99f404538a",
+        "target_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "report": {
+    "version": 1,
+    "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+    "revision": 2,
+    "title": "合成 document",
+    "sections": [
+      {
+        "section_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+        "section_key": "method",
+        "title": "合成章节 method",
+        "role": "methods",
+        "ref": {
+          "locator": "",
+          "relation": "references",
+          "revision": 2,
+          "sha256": "887a27b3dffffeffd44f7f5c6cd8ff44702c3ca77fa19f82092b6a99f404538a",
+          "target_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+          "target_kind": "record"
+        },
+        "source_issues": [],
+        "blocks": [
+          {
+            "evidence_refs": [],
+            "markdown": "本章将摄氏温度转换为开尔文，仅在 t >= -273.15 °C 的合成适用域内使用；后附反例说明拒绝域外输入的原因。",
+            "type": "prose",
+            "source_issues": []
+          },
+          {
+            "ref": {
+              "locator": "",
+              "relation": "references",
+              "revision": 2,
+              "sha256": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+              "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+              "target_kind": "record"
+            },
+            "type": "unit",
+            "item": {
+              "id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+              "level": "L1",
+              "record": {
+                "body_markdown": "",
+                "change_reason": "补齐变量单位和绝对零度边界",
+                "content_hash": "73cce818a9de44f50358361c9984fec53cfde92906e51ec631f48f555d64c69b",
+                "created_at": "2026-09-15T20:47:09.532982Z",
+                "created_by": {
+                  "id": "consolidate-results-synthetic-check",
+                  "kind": "ai"
+                },
+                "discovery": "owner_only",
+                "keywords": [],
+                "kind": "detail",
+                "level": "L1",
+                "owner_id": "RES-R",
+                "payload": {
+                  "blocks": [
+                    {
+                      "block_id": "definitions",
+                      "markdown": "定义：t 为摄氏温度（°C），T 为热力学温度（K）；合成输入限定 t >= -273.15 °C。",
+                      "requires_block_ids": [],
+                      "role": "definitions"
+                    },
+                    {
+                      "block_id": "result",
+                      "markdown": "完整过程 ONLY_FULL_RESULT：$T=t+273.15$。",
+                      "requires_block_ids": [
+                        "definitions"
+                      ],
+                      "role": "results"
+                    },
+                    {
+                      "block_id": "optional",
+                      "markdown": "未选择的 OPTIONAL_BLOCK。",
+                      "requires_block_ids": [],
+                      "role": "appendix"
+                    }
+                  ],
+                  "evidence_refs": [],
+                  "figures": [],
+                  "missing_refs": [],
+                  "retrieval_description": {
+                    "applicable": [
+                      "摄氏温标的合成输入"
+                    ],
+                    "key_findings": [
+                      "只证明合成流程可读"
+                    ],
+                    "limitations": [
+                      "未验证传感器误差"
+                    ],
+                    "method": "按温度基准和单位换算",
+                    "not_applicable": [
+                      "不得直接用于华氏温标或现实测量"
+                    ],
+                    "question": "合成温标换算的定义"
+                  },
+                  "run_ref": null,
+                  "unit_type": "method"
+                },
+                "previous_revision": 1,
+                "provenance_gap": "合成接口验证，无现实实验",
+                "record_hash": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+                "record_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+                "record_reason": "合成完整成果同步验证",
+                "revision": 2,
+                "schema_version": 3,
+                "sensitivity": "internal",
+                "sources": [],
+                "title": "合成 detail",
+                "updated_at": "2026-09-15T20:47:10.470129Z",
+                "updated_by": {
+                  "id": "consolidate-results-synthetic-check",
+                  "kind": "ai"
+                }
+              },
+              "source_issues": [],
+              "formal_eligibility": "not_evaluated"
+            },
+            "resolved_blocks": [
+              {
+                "block_id": "definitions",
+                "markdown": "定义：t 为摄氏温度（°C），T 为热力学温度（K）；合成输入限定 t >= -273.15 °C。",
+                "requires_block_ids": [],
+                "role": "definitions"
+              },
+              {
+                "block_id": "result",
+                "markdown": "完整过程 ONLY_FULL_RESULT：$T=t+273.15$。",
+                "requires_block_ids": [
+                  "definitions"
+                ],
+                "role": "results"
+              },
+              {
+                "block_id": "optional",
+                "markdown": "未选择的 OPTIONAL_BLOCK。",
+                "requires_block_ids": [],
+                "role": "appendix"
+              }
+            ],
+            "required_block_ids": [],
+            "source_issues": []
+          },
+          {
+            "ref": {
+              "locator": "",
+              "relation": "references",
+              "revision": 1,
+              "sha256": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+              "target_id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+              "target_kind": "record"
+            },
+            "type": "unit",
+            "item": {
+              "id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+              "level": "L1",
+              "record": {
+                "body_markdown": "",
+                "change_reason": "合成完整成果同步验证",
+                "content_hash": "9f0044f1bcd3833181e3edaa76441c319e4f24ad04cceb247ace547c0bab8d25",
+                "created_at": "2026-09-15T20:47:10.648308Z",
+                "created_by": {
+                  "id": "consolidate-results-synthetic-check",
+                  "kind": "ai"
+                },
+                "discovery": "owner_only",
+                "keywords": [],
+                "kind": "detail",
+                "level": "L1",
+                "owner_id": "RES-R",
+                "payload": {
+                  "blocks": [
+                    {
+                      "block_id": "counterexample",
+                      "markdown": "边界反例：t=-300 °C 代入得到 T=-26.85 K。该输入超出既定适用域，必须拒绝；这不代表现实传感器已验证。",
+                      "requires_block_ids": [],
+                      "role": "results"
+                    }
+                  ],
+                  "evidence_refs": [],
+                  "figures": [],
+                  "missing_refs": [],
+                  "retrieval_description": {
+                    "applicable": [
+                      "摄氏温标的合成输入"
+                    ],
+                    "key_findings": [
+                      "只证明合成流程可读"
+                    ],
+                    "limitations": [
+                      "未验证传感器误差"
+                    ],
+                    "method": "按温度基准和单位换算",
+                    "not_applicable": [
+                      "不得直接用于华氏温标或现实测量"
+                    ],
+                    "question": "换算后负开尔文的反例"
+                  },
+                  "run_ref": null,
+                  "unit_type": "method"
+                },
+                "previous_revision": null,
+                "provenance_gap": "合成接口验证，无现实实验",
+                "record_hash": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+                "record_id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+                "record_reason": "合成完整成果同步验证",
+                "revision": 1,
+                "schema_version": 3,
+                "sensitivity": "internal",
+                "sources": [],
+                "title": "合成边界反例",
+                "updated_at": "2026-09-15T20:47:10.648308Z",
+                "updated_by": {
+                  "id": "consolidate-results-synthetic-check",
+                  "kind": "ai"
+                }
+              },
+              "source_issues": [],
+              "formal_eligibility": "not_evaluated"
+            },
+            "resolved_blocks": [
+              {
+                "block_id": "counterexample",
+                "markdown": "边界反例：t=-300 °C 代入得到 T=-26.85 K。该输入超出既定适用域，必须拒绝；这不代表现实传感器已验证。",
+                "requires_block_ids": [],
+                "role": "results"
+              }
+            ],
+            "required_block_ids": [],
+            "source_issues": []
+          }
+        ]
+      }
+    ],
+    "complete": true
+  },
+  "items": [],
+  "missing": [],
+  "generated_at": "2026-09-15T20:47:32.512169Z",
+  "report_candidates": [
+    {
+      "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+      "revision": 2,
+      "title": "合成 document",
+      "updated_at": "2026-09-15T20:47:32.380536Z",
+      "document_type": "research_process"
+    }
+  ],
+  "report_coverage": {
+    "included_detail_ids": [
+      "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+      "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab"
+    ],
+    "uncovered_detail_ids": []
+  },
+  "report_version_hints": [],
+  "basis_heads": {
+    "RES-R": "COM-c0a2a7d0-b753-4e08-b53a-d795bff84389"
+  },
+  "metrics": {
+    "elapsed_ms": 11.9,
+    "inventory_owners": 1,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 5,
+    "resolved_sections": 1
+  },
+  "writes": 0
+}

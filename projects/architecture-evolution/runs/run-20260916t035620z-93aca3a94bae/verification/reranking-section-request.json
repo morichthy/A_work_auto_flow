@@ -1,0 +1,82 @@
+{
+  "schema_version": 3,
+  "request_id": "57219d61-d1aa-4f73-a8fd-2fec100f7ccf",
+  "actor": {
+    "kind": "ai",
+    "id": "codex-reranking-implementation"
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": "COM-d0850f5c-c74d-4270-8b05-d6b3d25f76ab",
+  "operations": [
+    {
+      "op": "put_record",
+      "client_key": "reranking-section",
+      "draft": {
+        "schema_version": 3,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "document_section",
+        "title": "正文重排完整实施与验证",
+        "level": null,
+        "body_markdown": "",
+        "payload": {
+          "section_key": "reranking-20260916",
+          "title": "正文重排完整实施与验证",
+          "role": "methods",
+          "blocks": [
+            {
+              "type": "prose",
+              "markdown": "本章是2026-09-16独立重排演进的完整结果；历史表示查询设计仍保留原固定版本。",
+              "evidence_refs": [
+                {
+                  "target_kind": "record",
+                  "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+                  "revision": 1,
+                  "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+                  "locator": "",
+                  "relation": "references"
+                }
+              ]
+            },
+            {
+              "type": "unit",
+              "ref": {
+                "target_kind": "record",
+                "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+                "revision": 1,
+                "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+                "locator": "",
+                "relation": "references"
+              },
+              "block_ids": [
+                "implementation-results"
+              ]
+            }
+          ],
+          "watch_refs": [],
+          "missing_refs": []
+        },
+        "sources": [
+          {
+            "target_kind": "record",
+            "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+            "revision": 1,
+            "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+            "locator": "",
+            "relation": "references"
+          }
+        ],
+        "provenance_gap": null,
+        "record_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+        "discovery": "workspace_summary",
+        "sensitivity": "internal",
+        "keywords": [
+          "Cross-encoder",
+          "重排",
+          "显式条件",
+          "冻结基线",
+          "离线模型"
+        ]
+      }
+    }
+  ]
+}

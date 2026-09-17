@@ -1,0 +1,52 @@
+{
+  "status": "partial",
+  "value": {
+    "context_markdown": "# 当前问题\n\n在直接候选仍限定浮点研究Owner的前提下，允许其已注册必要依据通过当前授权核验，读取完整research_process并比较naive、pairwise与Kahan的误差条件。\n\n直接候选仅限RES-FLOATING-POINT-SUMMATION。\n\nscope_ceiling保留模板默认null，以便服务按当前注册授权核验必要引用；这不是扩大直接召回范围。\n\n不把阅读或Run执行说成科学复核。\n\n下一步：由主任务读取 handoff，将本次 Owner note 用于后续工程评审。\n\n理由：已对唯一候选 Owner 完整交付 research_process，并基于实际文本保存带固定出处的研究 note；pairwise 证据缺口已明确记录。\n\n结果/缺口：完成 owner_document 正常全文路径验收；本次材料未提供 pairwise 的定义或实验结果。\n\n## RES-FLOATING-POINT-SUMMATION\n\n### 问题\n\n在实际获准的 RES-FLOATING-POINT-SUMMATION 材料中，naive、pairwise 与 Kahan 求和的精度假设和误差边界分别是什么？\n\n### 理解\n\n朴素逐项累加按 s_i=fl(s_{i-1}+x_i) 运行，会随顺序在每一步丢失大数附近不能表示的小增量，后续抵消不保证恢复。文稿没有给出或测量 pairwise 的递推、结果或边界，不能将本研究的朴素结果外推给 pairwise。Kahan 用补偿项修正下一次输入，但补偿也可能在后续大数运算中再被舍入，因而不保证任意序列零误差。\n\n### 条件\n\n已完整读取该 Owner 的 research_process。\n\n输入是 CPython 3.12.10 / Windows 11 x64 上的有限、无量纲 binary64 数列。\n\n参考和为已表示浮点输入转为 Fraction 后的精确和。\n\n构造实验未改变舍入模式，也不衡量十进制文本转换误差。\n\n### 逻辑与假设\n\n绝对误差为 e_abs=|Fraction(S_hat)-S_ref|，精确命中要求 e_abs=0，且不用容差。\n\n第一轮以大数前后放置 1000 个单位增量及尾部抵消，定位顺序敏感损失。\n\n第二轮枚举 [10^16,1,-10^16] 的六种排列并检查 Kahan 状态。\n\n第三轮重复该三项结构 10 次，固定检查 30 个排列。\n\n### 细节、参数、单位与边界\n\n第一轮朴素逐项累加精确命中 1/3，最大绝对误差 1000；math.fsum 为 3/3、误差 0。\n\n第二轮朴素与 Kahan 均为 2/6 精确命中，最大绝对误差 1。\n\n对 [10^16,1,-10^16]，Kahan 第二步产生 c=-1，第三步修正输入仍舍入为 -10^16，返回 0 而参考和为 1。\n\n第三轮朴素为 0/30、最大误差 10；Kahan 为 5/30、最大误差 10。\n\nNeumaier 与 math.fsum 在第二、三轮构造样本中均精确；这不是 pairwise 的证据。\n\n### 限制、反例与待验证\n\npairwise 缺少算法定义、实验输出和性能数据，不能由 naive 或 Kahan 代替。\n\n计数只属于有限构造输入，不是业务失败概率。\n\n未覆盖非整数表示、极端指数、NaN、无穷值、溢出、下溢、跨平台或运行时间。\n\n研究状态为 not-reviewed。\n\n### 下一步\n\n固定 pairwise 的实现和二叉归约分组规则。\n\n用相同 Fraction 参考报告每个固定输入的误差。\n\n单独设定目标数据域、规模和重复次数的性能实验。\n\n跨平台复算读取保存数组而非只依赖随机种子。\n\n### 固定出处\n\n[1] record:MEM-ab9db095-2545-594c-9e94-f72bab43c464@1 sha256:7ec02e5b385cb80bc294834069510f0488407862ba37fcc43cfd52268d32889b\n\n[2] record:MEM-96f79923-f023-509e-a002-40f2d5a4fca1@3 sha256:4e863128333d48e4bb228682a3664fbabd1155143bc92db2d6a1d1b50db6cf86 locator:完整正文与固定依据",
+    "mode": "owner_document",
+    "phase": "finish",
+    "included_owner_ids": [
+      "RES-FLOATING-POINT-SUMMATION"
+    ],
+    "notes_count": 1,
+    "omitted_note_count": 0,
+    "unnoted_candidate_count": 0,
+    "estimated_note_tokens": 3531,
+    "note_max_tokens": 6000,
+    "token_estimation": "utf8_bytes_conservative; not_host_exact_tokens",
+    "complete": false,
+    "gaps": [
+      "重排正文缺失或超过模型token窗口，未静默截断；保留候选及原RRF相对顺序，显式条件冲突仍单列"
+    ],
+    "needs_user_input": false,
+    "session_id": "RS-a8f812d7-d8f9-4862-8e8f-932cc5649d3b",
+    "revision": 5
+  },
+  "code": null,
+  "warnings": [
+    "重排正文缺失或超过模型token窗口，未静默截断；保留候选及原RRF相对顺序，显式条件冲突仍单列"
+  ],
+  "issues": [
+    {
+      "code": "PARTIAL",
+      "message": "重排正文缺失或超过模型token窗口，未静默截断；保留候选及原RRF相对顺序，显式条件冲突仍单列",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    }
+  ],
+  "consumed": {
+    "wall_ms": 12844,
+    "read_bytes": 947981,
+    "output_chars": 2371,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

@@ -1,0 +1,27 @@
+{
+  "status": "ok",
+  "value": {
+    "archived": true,
+    "session_id": "RS-14f953a4-cf8d-42db-9661-76870ba51512",
+    "revision": 2
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 1312,
+    "read_bytes": 4306,
+    "output_chars": 0,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

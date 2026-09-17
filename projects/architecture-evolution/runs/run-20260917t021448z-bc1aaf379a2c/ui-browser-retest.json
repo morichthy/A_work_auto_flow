@@ -1,0 +1,271 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--grep",
+      "记忆摘要进入|三模式会话|对象阅读清单|最近问题重开|首页自动阅读",
+      "--output",
+      "../../projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/ui-browser-retest"
+    ],
+    "configFile": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\playwright.config.ts",
+    "rootDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/共享桌面/A_work/A_work_auto_flow/projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/ui-browser-retest",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tmp/workbench-e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "workbench.spec.ts",
+      "file": "workbench.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "记忆摘要进入完整文稿与来源图片证据",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7082,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:35:47.849Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-1dd317029d3f59a8443f",
+          "file": "workbench.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "最近问题重开选择、公式与编号引用双向证据导航真实接口",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7674,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:35:55.677Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "navigation-metrics",
+                      "contentType": "application/json",
+                      "body": "eyJmaXJzdE5vdGVNcyI6MzM2LCJyZXF1ZXN0cyI6WyIvNWNiNjM0NmU3MzQ2YWQwMzkxNzY1ZGM3YzdiY2YyYmQxNWI3Njg5ZTI2ODc4YzM4LyIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXNzZXRzL2luZGV4LUM1dXFqVUxVLmpzIiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hc3NldHMvZ3JhcGgtbEFtUUtTV3IuanMiLCIvNWNiNjM0NmU3MzQ2YWQwMzkxNzY1ZGM3YzdiY2YyYmQxNWI3Njg5ZTI2ODc4YzM4L2Fzc2V0cy9pbmRleC1xUlp0bDRLWi5jc3MiLCIvNWNiNjM0NmU3MzQ2YWQwMzkxNzY1ZGM3YzdiY2YyYmQxNWI3Njg5ZTI2ODc4YzM4L2FwaS92MS9tZW1vcnkvbGlzdC1vd25lcnMiLCIvNWNiNjM0NmU3MzQ2YWQwMzkxNzY1ZGM3YzdiY2YyYmQxNWI3Njg5ZTI2ODc4YzM4L2FwaS93b3JrYmVuY2giLCIvNWNiNjM0NmU3MzQ2YWQwMzkxNzY1ZGM3YzdiY2YyYmQxNWI3Njg5ZTI2ODc4YzM4L2FwaS92MS9qb2JzIiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hcGkvdjEvY2FwYWJpbGl0aWVzIiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hcGkvdjEvcmVhZGluZy1ub3Rlcy9yZWNlbnQiLCIvNWNiNjM0NmU3MzQ2YWQwMzkxNzY1ZGM3YzdiY2YyYmQxNWI3Njg5ZTI2ODc4YzM4L2FwaS92MS9yZWFkaW5nLW5vdGVzL3NuYXBzaG90IiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hc3NldHMvS2FUZVhfTWF0aC1JdGFsaWMtdDUzQUVUTS0ud29mZjIiLCIvNWNiNjM0NmU3MzQ2YWQwMzkxNzY1ZGM3YzdiY2YyYmQxNWI3Njg5ZTI2ODc4YzM4L2Fzc2V0cy9LYVRlWF9NYWluLVJlZ3VsYXItQjIyTnZpb3Aud29mZjIiLCIvNWNiNjM0NmU3MzQ2YWQwMzkxNzY1ZGM3YzdiY2YyYmQxNWI3Njg5ZTI2ODc4YzM4L2FwaS92MS9yZWFkaW5nLW5vdGVzL3NuYXBzaG90IiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC8iLCIvNWNiNjM0NmU3MzQ2YWQwMzkxNzY1ZGM3YzdiY2YyYmQxNWI3Njg5ZTI2ODc4YzM4L2Fzc2V0cy9pbmRleC1DNXVxalVMVS5qcyIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXNzZXRzL2dyYXBoLWxBbVFLU1dyLmpzIiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hc3NldHMvaW5kZXgtcVJadGw0S1ouY3NzIiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hcGkvdjEvbWVtb3J5L2xpc3Qtb3duZXJzIiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hcGkvd29ya2JlbmNoIiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hcGkvdjEvam9icyIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXBpL3YxL2NhcGFiaWxpdGllcyIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXBpL3YxL3JlYWRpbmctbm90ZXMvcmVjZW50IiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hcGkvdjEvcmVhZGluZy1ub3Rlcy9zbmFwc2hvdCIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXNzZXRzL0thVGVYX01hdGgtSXRhbGljLXQ1M0FFVE0tLndvZmYyIiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hc3NldHMvS2FUZVhfTWFpbi1SZWd1bGFyLUIyMk52aW9wLndvZmYyIiwiLzVjYjYzNDZlNzM0NmFkMDM5MTc2NWRjN2M3YmNmMmJkMTViNzY4OWUyNjg3OGMzOC9hcGkvdjEvcmVhZGluZy1ub3Rlcy9zbmFwc2hvdCIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXBpL3YxL2V2aWRlbmNlL3NlYXJjaCIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXBpL3YxL2V2aWRlbmNlL2RldGFpbCIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXBpL3YxL2V2aWRlbmNlL2RldGFpbCIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXBpL3YxL2V2aWRlbmNlL2RldGFpbCIsIi81Y2I2MzQ2ZTczNDZhZDAzOTE3NjVkYzdjN2JjZjJiZDE1Yjc2ODllMjY4NzhjMzgvYXBpL3YxL2V2aWRlbmNlL2RldGFpbCJdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-d73c3597ffba5d89bc63",
+          "file": "workbench.spec.ts",
+          "line": 67,
+          "column": 1
+        },
+        {
+          "title": "三模式会话显式保存方向、重新载入与快速覆盖提示真实接口",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8883,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:36:03.362Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "reading-configured",
+                      "contentType": "application/json",
+                      "body": "ewogICJzdHJhdGVneSI6ICJhc3NvY2lhdGl2ZSIsCiAgImFzc29jaWF0aW9uIjogewogICAgImVuYWJsZWQiOiB0cnVlLAogICAgIm1heF9yb3VuZHMiOiAzCiAgfSwKICAiYXNzb2NpYXRpb25fdGV4dCI6ICLmuKnluqblgY/nva7kuI7ph4/ljJbor6/lt67nmoTogZTns7siLAogICJzeW50aGVzaXNfaW5jbHVkZWQiOiBmYWxzZSwKICAicmVmZXJlbmNlcyI6IFsKICAgIHsKICAgICAgIm51bWJlciI6IDEsCiAgICAgICJyZWYiOiB7CiAgICAgICAgImtpbmQiOiAicmVjb3JkIiwKICAgICAgICAiaWQiOiAiTUVNLTlhMjIzNmYzLTcyNGMtNTNiMS04Mjc1LTUzOWVmNjMyNjBhZSIsCiAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAic2hhMjU2IjogImYxMGI1NjUwNzQxMzM2Y2JjZjg3MTM4Y2IzZTAxODlmY2FkMjI2ZDRhYjMyMThkNzAyNWY1Njc4Y2U1NzUxMTgiLAogICAgICAgICJsb2NhdG9yIjogbnVsbAogICAgICB9LAogICAgICAidGl0bGUiOiAi6K+B5o2u6Z2i5p2/5a6M5pW05paH56i/IiwKICAgICAgInVybCI6ICIjL2V2aWRlbmNlP2lkPU1FTS05YTIyMzZmMy03MjRjLTUzYjEtODI3NS01MzllZjYzMjYwYWUmcmV2aXNpb249MSZzaGEyNTY9ZjEwYjU2NTA3NDEzMzZjYmNmODcxMzhjYjNlMDE4OWZjYWQyMjZkNGFiMzIxOGQ3MDI1ZjU2NzhjZTU3NTExOCIsCiAgICAgICJzZWN0aW9uX293bmVyX2lkIjogIlJFUy1TWU5USEVUSUMiCiAgICB9CiAgXSwKICAiY29udGV4dF9tYXJrZG93biI6ICIjIyBSRVMtU1lOVEhFVElDXG5cbiMjIyDnkIbop6Ncblxu5ZCI5oiQ6ZiF6K+755CG6Kej77ya5L+d55WZ5YmN5o+QXG5cbiMjIyDmnaHku7Zcblxu57ud5a+55rip5bqmXG5cbiMjIyDpgLvovpHkuI7lgYforr5cblxu5qC45a+55pi+56S655qE5Y2V5L2N5YmN5o+QXG5cbiMjIyDnu4boioLjgIHlj4LmlbDjgIHljZXkvY3kuI7ovrnnlYxcblxu57ud5a+55rip5bqm5YGP572uMjczLjE1XG5cbuihjOWGheWFrOW8jyBcXChUPXQrMjczLjE1XFwp77yM5bGV56S65YWs5byPIFxcW1xcRGVsdGEgVD0wLjAxXFxdXG5cbiMjIyDpmZDliLbjgIHlj43kvovkuI7lvoXpqozor4Fcblxu5ZCI5oiQ5rWL6K+VXG5cbiMjIyDlj6/pgInnmoTkuIvkuIDmraXlu7rorq5cblxu5qOA5p+l6ZiF6K+76Z2i5p2/XG5cbuacrOiKguS+neaNru+8mlsxXeOAglxuXG4jIyMg5Y+C6ICD5paH54yuXG5cblsxXSDor4Hmja7pnaLmnb/lrozmlbTmlofnqL8iLAogICJtb2RlIjogIm93bmVyX2RvY3VtZW50IiwKICAicGhhc2UiOiAicmV2aWV3IiwKICAiaW5jbHVkZWRfb3duZXJfaWRzIjogWwogICAgIlJFUy1TWU5USEVUSUMiCiAgXSwKICAibm90ZXNfY291bnQiOiAxLAogICJvbWl0dGVkX25vdGVfY291bnQiOiAwLAogICJ1bm5vdGVkX2NhbmRpZGF0ZV9jb3VudCI6IDAsCiAgImVzdGltYXRlZF9ub3RlX3Rva2VucyI6IDQzNCwKICAibm90ZV9tYXhfdG9rZW5zIjogNjAwMCwKICAidG9rZW5fZXN0aW1hdGlvbiI6ICJ1dGY4X2J5dGVzX2NvbnNlcnZhdGl2ZTsgbm90X2hvc3RfZXhhY3RfdG9rZW5zIiwKICAiY29tcGxldGUiOiBmYWxzZSwKICAiZ2FwcyI6IFsKICAgICLnprvnur9Dcm9zcy1lbmNvZGVy5LiN5Y+v55So77yI57y65qih5Z6L44CB6YWN572u5oiW5oyH57q55byC5bi477yJ77yb5L+d55WZ5YCZ6YCJ5Y+K5Y6fUlJG55u45a+56aG65bqP77yM5pi+5byP5p2h5Lu25Yay56qB5LuN5Y2V5YiXIiwKICAgICLntKLlvJXmsLTkvY3nvLrlsJEgb3duZXIg6K6w5b2V77yM5LiN6IO956Gu6K6k5b2T5YmN6KaG55uWIiwKICAgICLlj6zlm57pgJrpgZMgZGVuc2Ug5LiN5Y+v55So77yb5L+d55WZ5YW25LuW6YCa6YGT44CC5pyq6YWN572u5pys5Zyw5ZCR6YeP5ZCO56uvIiwKICAgICLpmIXor7vlsJrmnKrlrozmiJAiCiAgXSwKICAibmVlZHNfdXNlcl9pbnB1dCI6IGZhbHNlLAogICJvd25lcl9wcm9ncmVzcyI6IHsKICAgICJSRVMtU1lOVEhFVElDIjogewogICAgICAic2VsZWN0ZWQiOiB0cnVlLAogICAgICAiZnVsbF9kZWxpdmVyZWQiOiB0cnVlLAogICAgICAic291cmNlcyI6IFsKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJyZWNvcmQiLAogICAgICAgICAgImlkIjogIk1FTS1kOTgyOGM0OS0xNWQzLTU0MDQtODA4ZC03Zjc3ZWVmN2M2MDkiLAogICAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAgICJzaGEyNTYiOiAiMmE4MTQzNDc5ZjI2ZGI1NjJjZmIxMTdiYTUyYTg3ZDBkNDNlZjU3OWM0YWY3MjNjYzM1MjY5NGMwNGJiMGYyYiIsCiAgICAgICAgICAibG9jYXRvciI6ICIiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJyZWNvcmQiLAogICAgICAgICAgImlkIjogIk1FTS1iZTAwYmZmYi05MTk0LTUxMTEtODU5MC1mZjUyMjI3ZjRkZTYiLAogICAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAgICJzaGEyNTYiOiAiZjY3MTc5ZWUyNjIwNTVlODUyZWQ1NzgwNGNkMDI5ODUzMGY3M2ZhM2ExNDI0MTVmZjE3ZGU2N2U2NzA3NGMzMiIsCiAgICAgICAgICAibG9jYXRvciI6ICJibG9jazpyZXN1bHQiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJyZWNvcmQiLAogICAgICAgICAgImlkIjogIk1FTS05YTIyMzZmMy03MjRjLTUzYjEtODI3NS01MzllZjYzMjYwYWUiLAogICAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAgICJzaGEyNTYiOiAiZjEwYjU2NTA3NDEzMzZjYmNmODcxMzhjYjNlMDE4OWZjYWQyMjZkNGFiMzIxOGQ3MDI1ZjU2NzhjZTU3NTExOCIsCiAgICAgICAgICAibG9jYXRvciI6IG51bGwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJraW5kIjogIm93bmVyIiwKICAgICAgICAgICJpZCI6ICJSVU4tU1lOVEhFVElDIiwKICAgICAgICAgICJyZXZpc2lvbiI6IG51bGwsCiAgICAgICAgICAic2hhMjU2IjogIjBkMDVlZTk1YzJmOGUwZThlZGI0M2FlZmEzYTcwODgxZDIyNDljM2ViZGNkYWU2NWE2MWY1ZmNkZTJjMmIwYjUiLAogICAgICAgICAgImxvY2F0b3IiOiAiIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAicmVjb3JkIiwKICAgICAgICAgICJpZCI6ICJNRU0tYmUwMGJmZmItOTE5NC01MTExLTg1OTAtZmY1MjIyN2Y0ZGU2IiwKICAgICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgICAic2hhMjU2IjogImY2NzE3OWVlMjYyMDU1ZTg1MmVkNTc4MDRjZDAyOTg1MzBmNzNmYTNhMTQyNDE1ZmYxN2RlNjdlNjcwNzRjMzIiLAogICAgICAgICAgImxvY2F0b3IiOiAiIgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAiZmlsZSIsCiAgICAgICAgICAiaWQiOiAiU1JDLVBBTkVMLUZJR1VSRSIsCiAgICAgICAgICAicmV2aXNpb24iOiBudWxsLAogICAgICAgICAgInNoYTI1NiI6ICJiZTI4ZmM2MmMzNzFmYjE5OWYyMGNiZTU4NzI4ZDc1YzM2YThkYmJiOTg4ZTczYTgyZmQ5MmZiMzE2ZmM3ZDQ5IiwKICAgICAgICAgICJsb2NhdG9yIjogIiIKICAgICAgICB9CiAgICAgIF0sCiAgICAgICJyZWFkaW5nX2Zvcm0iOiAicmVzZWFyY2hfcHJvY2VzcyIsCiAgICAgICJyb290X3JlZnMiOiBbCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAicmVjb3JkIiwKICAgICAgICAgICJpZCI6ICJNRU0tOWEyMjM2ZjMtNzI0Yy01M2IxLTgyNzUtNTM5ZWY2MzI2MGFlIiwKICAgICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgICAic2hhMjU2IjogImYxMGI1NjUwNzQxMzM2Y2JjZjg3MTM4Y2IzZTAxODlmY2FkMjI2ZDRhYjMyMThkNzAyNWY1Njc4Y2U1NzUxMTgiLAogICAgICAgICAgImxvY2F0b3IiOiBudWxsCiAgICAgICAgfQogICAgICBdLAogICAgICAicmVmZXJlbmNlX21hcCI6IFsKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJmaWd1cmUiLAogICAgICAgICAgImluZGV4IjogMCwKICAgICAgICAgICJjYXB0aW9uIjogIuWQiOaIkOWPl+aOp+WbvueJhyIsCiAgICAgICAgICAibWFya2VyIjogImZpZ3VyZTpNRU0tYmUwMGJmZmItOTE5NC01MTExLTg1OTAtZmY1MjIyN2Y0ZGU2OjAiLAogICAgICAgICAgInJlZiI6IHsKICAgICAgICAgICAgImtpbmQiOiAiZmlsZSIsCiAgICAgICAgICAgICJpZCI6ICJTUkMtUEFORUwtRklHVVJFIiwKICAgICAgICAgICAgInJldmlzaW9uIjogbnVsbCwKICAgICAgICAgICAgInNoYTI1NiI6ICJiZTI4ZmM2MmMzNzFmYjE5OWYyMGNiZTU4NzI4ZDc1YzM2YThkYmJiOTg4ZTczYTgyZmQ5MmZiMzE2ZmM3ZDQ5IiwKICAgICAgICAgICAgImxvY2F0b3IiOiAiIgogICAgICAgICAgfSwKICAgICAgICAgICJyZWNvcmRfcmVmIjogewogICAgICAgICAgICAia2luZCI6ICJyZWNvcmQiLAogICAgICAgICAgICAiaWQiOiAiTUVNLWJlMDBiZmZiLTkxOTQtNTExMS04NTkwLWZmNTIyMjdmNGRlNiIsCiAgICAgICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgICAgICJzaGEyNTYiOiAiZjY3MTc5ZWUyNjIwNTVlODUyZWQ1NzgwNGNkMDI5ODUzMGY3M2ZhM2ExNDI0MTVmZjE3ZGU2N2U2NzA3NGMzMiIsCiAgICAgICAgICAgICJsb2NhdG9yIjogbnVsbAogICAgICAgICAgfSwKICAgICAgICAgICJibG9ja19pZHMiOiBbCiAgICAgICAgICAgICJyZXN1bHQiCiAgICAgICAgICBdLAogICAgICAgICAgImV4cGFuZGVkIjogZmFsc2UKICAgICAgICB9CiAgICAgIF0sCiAgICAgICJnYXBzIjogW10sCiAgICAgICJkZWxpdmVyZWRfc291cmNlcyI6IFsKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJyZWNvcmQiLAogICAgICAgICAgImlkIjogIk1FTS1kOTgyOGM0OS0xNWQzLTU0MDQtODA4ZC03Zjc3ZWVmN2M2MDkiLAogICAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAgICJzaGEyNTYiOiAiMmE4MTQzNDc5ZjI2ZGI1NjJjZmIxMTdiYTUyYTg3ZDBkNDNlZjU3OWM0YWY3MjNjYzM1MjY5NGMwNGJiMGYyYiIsCiAgICAgICAgICAibG9jYXRvciI6ICIiCiAgICAgICAgfSwKICAgICAgICB7CiAgICAgICAgICAia2luZCI6ICJyZWNvcmQiLAogICAgICAgICAgImlkIjogIk1FTS1iZTAwYmZmYi05MTk0LTUxMTEtODU5MC1mZjUyMjI3ZjRkZTYiLAogICAgICAgICAgInJldmlzaW9uIjogMSwKICAgICAgICAgICJzaGEyNTYiOiAiZjY3MTc5ZWUyNjIwNTVlODUyZWQ1NzgwNGNkMDI5ODUzMGY3M2ZhM2ExNDI0MTVmZjE3ZGU2N2U2NzA3NGMzMiIsCiAgICAgICAgICAibG9jYXRvciI6ICJibG9jazpkZWZpbml0aW9ucyIKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgICAiaWQiOiAiTUVNLWJlMDBiZmZiLTkxOTQtNTExMS04NTkwLWZmNTIyMjdmNGRlNiIsCiAgICAgICAgICAicmV2aXNpb24iOiAxLAogICAgICAgICAgInNoYTI1NiI6ICJmNjcxNzllZTI2MjA1NWU4NTJlZDU3ODA0Y2QwMjk4NTMwZjczZmEzYTE0MjQxNWZmMTdkZTY3ZTY3MDc0YzMyIiwKICAgICAgICAgICJsb2NhdG9yIjogImJsb2NrOnJlc3VsdCIKICAgICAgICB9CiAgICAgIF0KICAgIH0KICB9LAogICJvd25lcl9pZCI6ICJSRVMtU1lOVEhFVElDIiwKICAiZ29hbCI6ICLlkIjmiJDpmIXor7vkvJror50iLAogICJhcmNoaXZlZCI6IGZhbHNlLAogICJyb3VuZF9jb3VudCI6IDEsCiAgImNhbmRpZGF0ZXMiOiBbCiAgICB7CiAgICAgICJjYW5kaWRhdGVfaWQiOiAiUkMtMWZmMzk2Nzg5YmNlYjUyYzVkNDA2NjA3IiwKICAgICAgInRpdGxlIjogIuivgeaNrumdouadv+WujOaVtOaWh+eovyIsCiAgICAgICJsaW5rIjogIkQ6L+WFseS6q+ahjOmdoi9BX3dvcmsvQV93b3JrX2F1dG9fZmxvdy8ubG9jYWwvd2ItZTJlLXkwbGVyNjUyL+S4reaWhyDmspnnm5IvcmVzZWFyY2gvc3ludGhldGljLXRvcGljL21lbW9yeS9jb21taXRzL0NPTS02ZGE4MmE4ZS1iZTQzLTQ1MGItOGFjMy0yN2VjZTRkNjI2YmMvcmVjb3Jkcy9NRU0tOWEyMjM2ZjMtNzI0Yy01M2IxLTgyNzUtNTM5ZWY2MzI2MGFlLmpzb24iLAogICAgICAicmVmIjogewogICAgICAgICJraW5kIjogInJlY29yZCIsCiAgICAgICAgImlkIjogIk1FTS05YTIyMzZmMy03MjRjLTUzYjEtODI3NS01MzllZjYzMjYwYWUiLAogICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgInNoYTI1NiI6ICJmMTBiNTY1MDc0MTMzNmNiY2Y4NzEzOGNiM2UwMTg5ZmNhZDIyNmQ0YWIzMjE4ZDcwMjVmNTY3OGNlNTc1MTE4IiwKICAgICAgICAibG9jYXRvciI6IG51bGwKICAgICAgfSwKICAgICAgImNpdGVkX3NvdXJjZXMiOiBbCiAgICAgICAgewogICAgICAgICAgImtpbmQiOiAicmVjb3JkIiwKICAgICAgICAgICJpZCI6ICJNRU0tOWEyMjM2ZjMtNzI0Yy01M2IxLTgyNzUtNTM5ZWY2MzI2MGFlIiwKICAgICAgICAgICJyZXZpc2lvbiI6IDEsCiAgICAgICAgICAic2hhMjU2IjogImYxMGI1NjUwNzQxMzM2Y2JjZjg3MTM4Y2IzZTAxODlmY2FkMjI2ZDRhYjMyMThkNzAyNWY1Njc4Y2U1NzUxMTgiLAogICAgICAgICAgImxvY2F0b3IiOiBudWxsCiAgICAgICAgfQogICAgICBdLAogICAgICAic3RhdHVzIjogIueslOiusOWbuuWumuWHuuWkhO+8iOmcgOaMiemcgOWxleW8gO+8iSIsCiAgICAgICJzdGFsZSI6IGZhbHNlLAogICAgICAiaGFzX25vdGUiOiB0cnVlCiAgICB9CiAgXSwKICAicGVuZGluZ19vd25lcl9jb3VudCI6IDAsCiAgImhhc19tb3JlIjogZmFsc2UsCiAgInNlc3Npb25faWQiOiAiUlMtZWMxOWYyMGYtNTllZi00MjAzLWFjODUtYmE4NTYzZTNjOGM3IiwKICAicmV2aXNpb24iOiA2Cn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-5fa3428be9c14be3e143",
+          "file": "workbench.spec.ts",
+          "line": 163,
+          "column": 1
+        },
+        {
+          "title": "首页自动阅读笔记、定向证据与主题导航真实接口",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7271,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:36:12.255Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-0e621bef0c370a9ce3b4",
+          "file": "workbench.spec.ts",
+          "line": 232,
+          "column": 1
+        },
+        {
+          "title": "对象阅读清单、完整原文和版本导出真实接口",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7359,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T02:36:19.536Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-b1b436ffa9ba38ce605c",
+          "file": "workbench.spec.ts",
+          "line": 615,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-17T02:35:46.625Z",
+    "duration": 40861.950000000004,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,826 @@
+{
+  "scope": "runtime/tests/workflows and touched engineering docs; not a release",
+  "files": [
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "0f7ce463596d8f9168d89a93f49b1d1daae59e502e30983292839371a25055f8"
+    },
+    {
+      "path": "automation/scripts/command_registration.py",
+      "sha256": "7beb06270bed67cc9808757a40e2f565dbd866a998b88e7130f0d31a4a188c9a"
+    },
+    {
+      "path": "automation/scripts/context_engine.py",
+      "sha256": "b5acbfcec9ca22e5ba4b4681e571b893af3ed035a27c6f46088b5f7560c4a829"
+    },
+    {
+      "path": "automation/scripts/dependency_bundle.py",
+      "sha256": "abebccb1fe33f445daf09458971a335bb85f941da7f13080c2cb4153822067b2"
+    },
+    {
+      "path": "automation/scripts/deployment.py",
+      "sha256": "87e67f59ed73304d893669a04a1fe798e339ebddc05b4c6a2a07391a247ffe50"
+    },
+    {
+      "path": "automation/scripts/evidence.py",
+      "sha256": "35192a63800c619158fd72f4457a5f198a4713adb628922781fa5a936639f78c"
+    },
+    {
+      "path": "automation/scripts/evidence_observer.py",
+      "sha256": "67e541572481bb3d45de1083428af116635307d18978ea4f5fe358139d6a5671"
+    },
+    {
+      "path": "automation/scripts/evidence_view.py",
+      "sha256": "ccccb332ca448b59699ca59c4a4b1aa2df0c4f11b516a1791e7a4276a26c566e"
+    },
+    {
+      "path": "automation/scripts/health.py",
+      "sha256": "23320a93633e26e700d689e306a6a67db85a3def767b6b4b1bc26489431ca0ee"
+    },
+    {
+      "path": "automation/scripts/install_workspace_skills.py",
+      "sha256": "b179d2208a0809b0aa13522d83062d80de5fac280d332853d2986036e76e7d1c"
+    },
+    {
+      "path": "automation/scripts/local_test_data.py",
+      "sha256": "59f9322008bf1a9607d7681df098bda13b6b85e2fa20fc96d407fa914a1bfa3a"
+    },
+    {
+      "path": "automation/scripts/manifest_discovery.py",
+      "sha256": "d8afd9f334270176e505bc963ddf309023c8d08a36da291b72786acb5690aea6"
+    },
+    {
+      "path": "automation/scripts/material_extract.py",
+      "sha256": "de8cd46f0f2314dc1bc52452c9c43c2554c2ff630498712670ea191ec7019b91"
+    },
+    {
+      "path": "automation/scripts/material_query/__init__.py",
+      "sha256": "6e083c786c8d6914bff9cd380f793a943f7f1255f62cc8ca01c90e0bef84a01c"
+    },
+    {
+      "path": "automation/scripts/material_query/api.py",
+      "sha256": "eea68e02c18d6bd701513bb356464838989e2082da2c804ea832960f0026daf6"
+    },
+    {
+      "path": "automation/scripts/material_query/assembly.py",
+      "sha256": "b78b43c035123a57002b221a2b5b157dfec8f83dd751c62d80391eb299fa7693"
+    },
+    {
+      "path": "automation/scripts/material_query/associations.py",
+      "sha256": "e856b5449a87115d5ceae9d0aa8ac552eac36d1ab76d547b7bd1b5266d85e569"
+    },
+    {
+      "path": "automation/scripts/material_query/budget.py",
+      "sha256": "d16e79ef32e38421a3fa58599289e567feb2d59a00ee3bb685a5238b777360a2"
+    },
+    {
+      "path": "automation/scripts/material_query/catalog_search.py",
+      "sha256": "8b86643c90b7630896eaba836caca121e81de557739c4cfa6ca3b16947bf38e3"
+    },
+    {
+      "path": "automation/scripts/material_query/cli.py",
+      "sha256": "e36898c49d1bc3c29f84bac22e9b73c85ae531343775bb730616e3d929495d54"
+    },
+    {
+      "path": "automation/scripts/material_query/conditions.py",
+      "sha256": "945652e27505ecd2034c04a4069bcc39be70a8cf50e1506d34f2e93324faec05"
+    },
+    {
+      "path": "automation/scripts/material_query/content.py",
+      "sha256": "356807a6a2dc0c13e35b17dad03b68759e9f0726703d85f6b182338f7e6b928f"
+    },
+    {
+      "path": "automation/scripts/material_query/contracts.py",
+      "sha256": "50366bd524bbf1b2001dbc14fc419fd77d189269f3faddf8c5517bff7977cf39"
+    },
+    {
+      "path": "automation/scripts/material_query/coordinator.py",
+      "sha256": "a0fc1602caa767aa5093f2ed4976c9fa5c654b624551565cc997892c9967cbfa"
+    },
+    {
+      "path": "automation/scripts/material_query/cross_encoder.py",
+      "sha256": "911e5b1e745753b91b8a9907d0e8bfe635d9d03659962060f686a93e0145cb86"
+    },
+    {
+      "path": "automation/scripts/material_query/deepening.py",
+      "sha256": "aa4673b9ab6bf09ca7137897eec3f9c2ffd6871b2e4649012e618001a4fa7203"
+    },
+    {
+      "path": "automation/scripts/material_query/definitions.py",
+      "sha256": "afda997c48a2f47e600fc195cfff56ee43e499598138b0f076317ccd65576796"
+    },
+    {
+      "path": "automation/scripts/material_query/documents.py",
+      "sha256": "4f52bd091154023c49b30e1fe6e7ebd55622affe8864d4a6cbb8877bf83e3894"
+    },
+    {
+      "path": "automation/scripts/material_query/evidence.py",
+      "sha256": "002acbcfb3b91d668952b53664ebfaf6d4b907634f27973862eaae3064528129"
+    },
+    {
+      "path": "automation/scripts/material_query/facets.py",
+      "sha256": "77939af80f20bbbe26f191be6303b8b98b0f2d46b2804c3274b346743354919b"
+    },
+    {
+      "path": "automation/scripts/material_query/foundation.py",
+      "sha256": "17628df6eaa3f4454aa8216f63da80e260233d9e7fece3aaad5703d9eb6c5616"
+    },
+    {
+      "path": "automation/scripts/material_query/generate_types.py",
+      "sha256": "f2f81619bdb89b3761aa430c5856279a77374147eeece579db7b800ec94739f7"
+    },
+    {
+      "path": "automation/scripts/material_query/history_search.py",
+      "sha256": "21c727b737fc9dc51fd9f9483ae4d073a8e2fa0a87e532d07bd633173f018ba6"
+    },
+    {
+      "path": "automation/scripts/material_query/legacy_adapter.py",
+      "sha256": "32f4682d27ca40d16bbb5204fa8470e06becb20d489720b46fc1237d38eba74a"
+    },
+    {
+      "path": "automation/scripts/material_query/maintenance.py",
+      "sha256": "4f3c9f4e1ba5fa5319d1bc05ff864343860f6e705787d21c0309cd881b5bf9b3"
+    },
+    {
+      "path": "automation/scripts/material_query/native_sources.py",
+      "sha256": "cec00d15ace627e65158353c50725fcdd5ac78ee5bc0493ed14308bd9fc29d89"
+    },
+    {
+      "path": "automation/scripts/material_query/query_plan.py",
+      "sha256": "006759b01a205ba348b1308cdd91a650a8cb80eb1d112fa824cc2b3c27d2cc41"
+    },
+    {
+      "path": "automation/scripts/material_query/reader.py",
+      "sha256": "16222af71389f9f7cf73f21eda89ded2885a615dbd2c4e1683ce819a9b75e8c2"
+    },
+    {
+      "path": "automation/scripts/material_query/reading.py",
+      "sha256": "20f916090d3f5837ab98fd3ab283627be337090eb6c26fc60790f1b8fd9ebed2"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_catalog.py",
+      "sha256": "e5c3c2868aa08cca623e2b65604b00399e8fc0c5e39d806d9c92032410fdc5ef"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_delegation.py",
+      "sha256": "68ea1f6bac90656151309a43433adff0898a63d1d06d99a684e001e8dd378bb5"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_owner.py",
+      "sha256": "baa1280c732143cf481b087e08ad56e68662e9f287311c4918826526eeebcf0a"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_snapshot.py",
+      "sha256": "7d594983d5250cf048e09ed968d270736c87636a1761ad90846fa1e26f3c9732"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_strategy.py",
+      "sha256": "a003df5187a0139c73611bff885cebb59f3d4b357ec6405ab70cc609b93502fa"
+    },
+    {
+      "path": "automation/scripts/material_query/recall.py",
+      "sha256": "646d777cd1f27eb52136a6da48d6f8bb36e32239ee5569b768da1706c2b2e032"
+    },
+    {
+      "path": "automation/scripts/material_query/representations.py",
+      "sha256": "01902beeec4737bfaaa5ed1dedde01bbc1e4908d3307915ea847f726b2bea86b"
+    },
+    {
+      "path": "automation/scripts/material_query/reranking.py",
+      "sha256": "4aecd53168eaa53f71cfded038cd4209848ba1aa6b7718e2b8ece5682dce2be1"
+    },
+    {
+      "path": "automation/scripts/material_query/state.py",
+      "sha256": "a3a8ec2f1cd285916ad8fd06bd8ddfe41a6462da7607983736a2455fbae418e0"
+    },
+    {
+      "path": "automation/scripts/material_query/structure.py",
+      "sha256": "604473206bcb217dbf40fa905f2dc9826d135837ea95bc0778321dfa1179f3e8"
+    },
+    {
+      "path": "automation/scripts/material_query/validation.py",
+      "sha256": "fb55287634efaaf72ef0b431e0950c1e3d003fa0bc886f2fb1566da150f3ab51"
+    },
+    {
+      "path": "automation/scripts/material_query/wire.py",
+      "sha256": "69d7e89ead5abdc496d00b329dc6426093fdf12556b312f912f80e285de4804b"
+    },
+    {
+      "path": "automation/scripts/material_query/writer.py",
+      "sha256": "89f5405306c63e563f709e39d69f1cb2b02700bb0eedf57ef2a9aa11730716c9"
+    },
+    {
+      "path": "automation/scripts/memory/__init__.py",
+      "sha256": "61907042291bd9d20903f7626238fe5267a8d590431a716ccb7b2ba1d7409978"
+    },
+    {
+      "path": "automation/scripts/memory/api.py",
+      "sha256": "0fdffeb172a17c2e03d449822d56a8f211f00d6a4effd13699462411aeea5ac2"
+    },
+    {
+      "path": "automation/scripts/memory/associations.py",
+      "sha256": "5bfdc5e2c7ee0fd3e82128d7fc129f3628ee511f798cc3242553dea7b49ec9b2"
+    },
+    {
+      "path": "automation/scripts/memory/benchmark.py",
+      "sha256": "e34f3a7f82444dd4dcdb8507f49be98a3ec83170f9481e05109e6233cebda388"
+    },
+    {
+      "path": "automation/scripts/memory/cli.py",
+      "sha256": "dda16bd47bb5296b08944376b20fc405ed1cd39484463e8e17bf28d938d9dae0"
+    },
+    {
+      "path": "automation/scripts/memory/consolidation.py",
+      "sha256": "1ebc20cf805098c0fcff8a1d8225bb53b75a84bbb3513be34fe6df508735732c"
+    },
+    {
+      "path": "automation/scripts/memory/contracts.py",
+      "sha256": "e34727c79518893fb7a0e58ad0a1ad76c96bf91a64c8f662c660d08788e66588"
+    },
+    {
+      "path": "automation/scripts/memory/document.py",
+      "sha256": "626d2f7975e06f4119537ade9be0ebb1bcfe2c00324f389a050027a5a4ec4b10"
+    },
+    {
+      "path": "automation/scripts/memory/documents.py",
+      "sha256": "4642b398c416a9515b7864cdea7f7287fd76cc9e9e146814f038bca63ed690bd"
+    },
+    {
+      "path": "automation/scripts/memory/errors.py",
+      "sha256": "76e6fcc4b4b56d594e3aa3ccb08b7a05d16af3c7ef774944b4457d1d62513f43"
+    },
+    {
+      "path": "automation/scripts/memory/evaluation.py",
+      "sha256": "26af265a5a61dece7c8ef2429941a70b961d8efc5f5c3a91f447da7c1a423b03"
+    },
+    {
+      "path": "automation/scripts/memory/evidence_adapter.py",
+      "sha256": "b787082cb5ad5ac05e9a797d875be374e765ffc387a09063982f482d3f2fb45a"
+    },
+    {
+      "path": "automation/scripts/memory/facets.py",
+      "sha256": "c4524341179769ba5f2a340a8824862a54d73cd924437ae60169f856d3c94df7"
+    },
+    {
+      "path": "automation/scripts/memory/feedback.py",
+      "sha256": "f6f6d537efcaa6be42ba6e334fd01df813cc05e3d9d1a0f049cc07cb4c0a3819"
+    },
+    {
+      "path": "automation/scripts/memory/generate_types.py",
+      "sha256": "69db69d22eb6fac535e1d0e8c2cec6284c3b04233f14b888600926244678d391"
+    },
+    {
+      "path": "automation/scripts/memory/history.py",
+      "sha256": "cb8bd8156247edb01b20cb6c4fda5eddee0351d437f1d50cd3e5fb5e2619dec0"
+    },
+    {
+      "path": "automation/scripts/memory/impact.py",
+      "sha256": "b90c99e373985c1a36ea11ce12aad06c208aea486402971f8359f4b76079df0a"
+    },
+    {
+      "path": "automation/scripts/memory/index.py",
+      "sha256": "bc739da93a8596ad515b4592a41ecf3443422fb4628d3403d65b2e8b18382364"
+    },
+    {
+      "path": "automation/scripts/memory/lineage.py",
+      "sha256": "b92fd219ab990cd5e2d2ed4c27520f6556676a046f02c886213d1b8de9ab3357"
+    },
+    {
+      "path": "automation/scripts/memory/migration.py",
+      "sha256": "457d0efc065c6f0609bfd17be9e5c5987e10d885de76c2f9d830c540be99e99d"
+    },
+    {
+      "path": "automation/scripts/memory/owners.py",
+      "sha256": "a54bb703b1fd2101099dcdda74832882f443a7e64b76fff6593eed50f8bd10fe"
+    },
+    {
+      "path": "automation/scripts/memory/packets.py",
+      "sha256": "a790ae3b5a10252e511f47644e11eaf9f53c86b7879e120b2f6a376e55f0bc45"
+    },
+    {
+      "path": "automation/scripts/memory/policy.py",
+      "sha256": "8d400bfe1be33d952b469db980029ae9d4d36bc6c3f28608f8e32f06fbdd748a"
+    },
+    {
+      "path": "automation/scripts/memory/raw_materials.py",
+      "sha256": "4f735783552288890caa21e9b1d5a02a46cfc438f37446ec1cb56d81fef876b5"
+    },
+    {
+      "path": "automation/scripts/memory/recovery.py",
+      "sha256": "71b662607ed9881c6a7d2fb9bba60fe43959476261b511585757d9d57ca029dd"
+    },
+    {
+      "path": "automation/scripts/memory/render.py",
+      "sha256": "35e6b31b123d10a10753e584e50e5a79b41ff9ac2923933f4621b938e9af13cf"
+    },
+    {
+      "path": "automation/scripts/memory/research.py",
+      "sha256": "abc71414b01d3d5a88bff69e92c1f42466bf5dff77a218430ec6208ec88314ea"
+    },
+    {
+      "path": "automation/scripts/memory/search.py",
+      "sha256": "afe3d950b0df29c49022360f5e567746559eaf4c176b7a594cb8074744fd476a"
+    },
+    {
+      "path": "automation/scripts/memory/service.py",
+      "sha256": "6b34358a769d4e418a12564011b6b1c80fed6e57f4a90e5b993e7c8b6b8d935b"
+    },
+    {
+      "path": "automation/scripts/memory/store.py",
+      "sha256": "f7ee3c21023aee5169cd75eaf749888248388e2820aa0c515923caf6b2b4ff71"
+    },
+    {
+      "path": "automation/scripts/memory/summaries.py",
+      "sha256": "946e0104aa21d6d9fe19e15389caf3660a0aa5ee6f142d68191c83a99f3a2e3f"
+    },
+    {
+      "path": "automation/scripts/memory/technical_units.py",
+      "sha256": "fe707cba7c75e6272b90f37734396d680960b5133d287c82abb3ef5cd75da287"
+    },
+    {
+      "path": "automation/scripts/portable.py",
+      "sha256": "3eb7ce3b08f75de5382647ac6cd1a6e0cff5170e131e2ea0d15393072d15cb6c"
+    },
+    {
+      "path": "automation/scripts/qdrant_backend.py",
+      "sha256": "08c26b1dfb12099b9afd66f2b0e00bebe079143ef2ba7be01e41489570ee612d"
+    },
+    {
+      "path": "automation/scripts/retrieval.py",
+      "sha256": "f4194cf0324ff276358de88b9743fc7771c81f461e89b79d411f72dd3545d258"
+    },
+    {
+      "path": "automation/scripts/retrieval_interfaces.py",
+      "sha256": "6d09f25f1d188a918a136f95e2ffb4fcf2a592e6a1f861c967b2412fb75e532e"
+    },
+    {
+      "path": "automation/scripts/run_capture.py",
+      "sha256": "3abc181c0b744fea2e49ef9b9e44bf6110d07e5003d681f3c3b8c4f0bed29aef"
+    },
+    {
+      "path": "automation/scripts/workbench.py",
+      "sha256": "95207b0b42742a429a7b2916d91cebf1929cc6d0e6faa34bf82c3af74a62d84c"
+    },
+    {
+      "path": "automation/scripts/workbench_app/__init__.py",
+      "sha256": "0aec33de8a981c0ddc555da7a233b8a97ee21601a6469baca6a2a31761d5f88e"
+    },
+    {
+      "path": "automation/scripts/workbench_app/analysis.py",
+      "sha256": "82e57b36c8c88526634c862044daeb38f48d8eafc7ff3b9515fb18db6469e929"
+    },
+    {
+      "path": "automation/scripts/workbench_app/cli.py",
+      "sha256": "f43549c5cf00a87cf1c49ffd575aee5cb1952b7c5d47b499a31e684f2af51667"
+    },
+    {
+      "path": "automation/scripts/workbench_app/contracts.py",
+      "sha256": "72669467747fd0e7d77226ea263745d99a1731955147028b277edf3de9290b1b"
+    },
+    {
+      "path": "automation/scripts/workbench_app/jobs.py",
+      "sha256": "fb6b8f8502bcccd5e836008e584eda65b51819b8f074794e5977c026f925872c"
+    },
+    {
+      "path": "automation/scripts/workbench_app/projection.py",
+      "sha256": "92eb280ca9d82acfa154c8fdcac0f990eb7c90e2707757f507ae71c195418184"
+    },
+    {
+      "path": "automation/scripts/workbench_app/service.py",
+      "sha256": "260c416cb4913ad330785db4df41d9913fdca4042db87830264eeaaf08fa1372"
+    },
+    {
+      "path": "automation/scripts/workbench_app/storage.py",
+      "sha256": "d67f460f240c00ed1c3637b1e76ff0f570b6a6bc965749a07a285f0f404a1eb0"
+    },
+    {
+      "path": "automation/scripts/workbench_app/web.py",
+      "sha256": "458dcd26a919c22a7a27cafc80fca92ae2741939bf4f0638267eea4641726a3c"
+    },
+    {
+      "path": "automation/scripts/workspace_cli.py",
+      "sha256": "13b20fb41cd4a3a297676cf04392c52ee589b7cb564c259b4b02a39686153240"
+    },
+    {
+      "path": "automation/scripts/workspace_settings.py",
+      "sha256": "5ff7ff68b3483a17d370bd66bfe97f5fdc60de35bb22c76db2e8c0c8a542e4e2"
+    },
+    {
+      "path": "automation/scripts/workspace_settings_cli.py",
+      "sha256": "b2c92d7adf7b925bc53ef57e314af9c19422f965dd49f75fa684e51a3bbf866a"
+    },
+    {
+      "path": "automation/testing/catalog.json",
+      "sha256": "28c8ad1824570d303f7e7dd092e441fe0cb923ba96a9a0665d96bf083da906e9"
+    },
+    {
+      "path": "automation/tests/evaluate_retrieval_reranking.py",
+      "sha256": "41077d8e1f11b44015993a0f76299c96185214ce727a9da619317a275be0b49f"
+    },
+    {
+      "path": "automation/tests/material_query_fixture.py",
+      "sha256": "2ed937ea30a332a34cb6ae9a80350543aef208b6a4f2e59c4a87cc87e63f5d40"
+    },
+    {
+      "path": "automation/tests/memory_contract_matrix.py",
+      "sha256": "14d5d5b96f31ee3f473138adba1569f8bb7a1d3fe898a0cec177785eecf2b5b8"
+    },
+    {
+      "path": "automation/tests/memory_evaluation_run.py",
+      "sha256": "a540aca05daea58eee4fdd13118175bb525ceb25d10f4ad4255a4912005c42f6"
+    },
+    {
+      "path": "automation/tests/memory_fixture.py",
+      "sha256": "8ffacac9e2dc72268b9620c3cb2d209b6743141b2fcdb859c7afa25b2394b79e"
+    },
+    {
+      "path": "automation/tests/reading_panel_fixture.py",
+      "sha256": "df895b9a17bf0235161c20f446d7c94c26650a155cdc03d6ea53739624bb28b8"
+    },
+    {
+      "path": "automation/tests/serve_memory_test.py",
+      "sha256": "9fde0615555e64dd63edac4d058a24be114d0a2a773e22cacfb5596fc3812145"
+    },
+    {
+      "path": "automation/tests/serve_workbench_test.py",
+      "sha256": "c2b749c232e43e99802bc60e326270c746d73fc8d51972bbc564400d90df00ad"
+    },
+    {
+      "path": "automation/tests/test_ai_review.py",
+      "sha256": "45fe1934a0c8dc44c1f4770deef558f8f68f7359e5069cc439b2e273b90075b1"
+    },
+    {
+      "path": "automation/tests/test_content_query.py",
+      "sha256": "01167773876d032dbf1c914a785bebdd54a169c9d89578cf9cda85d38fb5553d"
+    },
+    {
+      "path": "automation/tests/test_context_engine.py",
+      "sha256": "2f25522b4f71e083936499b89d953f586ace6b547f09e0775973beaaa7db4ef3"
+    },
+    {
+      "path": "automation/tests/test_dependency_bundle.py",
+      "sha256": "5ff04be6424d33c72820ab9419580b374fd707fa7272fda175667accca3b1fe1"
+    },
+    {
+      "path": "automation/tests/test_deployment_workbench.py",
+      "sha256": "acfa4fc06cee3eebf174271f8bd5dcafb0f75b7be2ecae834182e89ef4e91fea"
+    },
+    {
+      "path": "automation/tests/test_evidence.py",
+      "sha256": "e8c3ea1bd89baefc4b198132be7b50d47e174851077796c3bcab744b9f808dbc"
+    },
+    {
+      "path": "automation/tests/test_evidence_observer.py",
+      "sha256": "639a6d9d915efb415a714d85ce1a40a04ae260e8cc84aa61c9fc08de51061dd9"
+    },
+    {
+      "path": "automation/tests/test_http_rejection.py",
+      "sha256": "0c9fa2fc873dafa56e2e34da57696c187c7a7156b4e36d0f007a94dbda45a9ec"
+    },
+    {
+      "path": "automation/tests/test_install_workspace_skills.py",
+      "sha256": "5299650df40e8ec5723164fdad678457447d8a1abd8c06a7d6263424b6f3cc7f"
+    },
+    {
+      "path": "automation/tests/test_local_retrieval.py",
+      "sha256": "276f507ca74b1c8d91988b2ab82f794d4a39e7eeb5c53ea6572ac7f7b70c0ab1"
+    },
+    {
+      "path": "automation/tests/test_material_api.py",
+      "sha256": "ce44ee8f771522be54c5fb79b67ea88a077252c5293872ecdc550b08031af4f3"
+    },
+    {
+      "path": "automation/tests/test_material_assembly.py",
+      "sha256": "66631b7bc0f2d17d614bd61316c955399a43f864f745a6b02ee88c729801d64e"
+    },
+    {
+      "path": "automation/tests/test_material_budget.py",
+      "sha256": "e8dd79fe1bc1f6388fef3d0dae6a779e6c3336b1e2bd305f793bd648dab3b49f"
+    },
+    {
+      "path": "automation/tests/test_material_conditions.py",
+      "sha256": "fe70cd0a13f23c98079439969cbaee7bf2f3166fdce9ecb13edb7d8368bccbe8"
+    },
+    {
+      "path": "automation/tests/test_material_cross_encoder.py",
+      "sha256": "6f01c35c6dcb29f759c4054907d94f9d0f416c7f7823b44132d80c9d6206d311"
+    },
+    {
+      "path": "automation/tests/test_material_deepening.py",
+      "sha256": "2d2cf7fc136222d1ff039b40c60e5e8bcbc663f6d14d4bad9f72ef1bd00cf12e"
+    },
+    {
+      "path": "automation/tests/test_material_dense_real.py",
+      "sha256": "0ced8d49092b3e5f9ad932f9dce34a470d9dbc35b726286eac88ed3d80670d66"
+    },
+    {
+      "path": "automation/tests/test_material_domain_scope.py",
+      "sha256": "dbf5d453bf18a0a330360e8a9c9f7f9105cb86c91aec73fafa55269b8513d6d8"
+    },
+    {
+      "path": "automation/tests/test_material_evidence.py",
+      "sha256": "62248c59d3849a4b6c704c755dac93c7e0d2f6b53b44cb753629ee21ac826b7b"
+    },
+    {
+      "path": "automation/tests/test_material_facets.py",
+      "sha256": "1a3ad90e7d9f90308d0ea5a417e8f5cdf5ec6208ddf628275f044c40bcb54ab5"
+    },
+    {
+      "path": "automation/tests/test_material_foundation.py",
+      "sha256": "7ff3da2837df3d0bf909be787b8cc81759386421d76fcd08209ba169692aed4b"
+    },
+    {
+      "path": "automation/tests/test_material_maintenance.py",
+      "sha256": "a6c1832cb089dfc6f1287669655add98b0b8d964a787c894f65af719e0072dd3"
+    },
+    {
+      "path": "automation/tests/test_material_maintenance_status.py",
+      "sha256": "68debfe2561f6b4489f479eb37829df43f8a686b22e74d0d4b45cd373794156f"
+    },
+    {
+      "path": "automation/tests/test_material_queries.py",
+      "sha256": "b8824d00ae9aed02d91160d3a8b1892ec550d90bc0172ee6f09240c4f3771247"
+    },
+    {
+      "path": "automation/tests/test_material_query_fixture.py",
+      "sha256": "854d2e9a58a09fb0a9dde399d8aad33350633b4c02ef5f088915d74efa74098f"
+    },
+    {
+      "path": "automation/tests/test_material_query_options.py",
+      "sha256": "92b7a5e0eb1eb1acae9c11f19055e237f68612069193f985a9d8f52abbd3c404"
+    },
+    {
+      "path": "automation/tests/test_material_recall.py",
+      "sha256": "20071417ff5370b6d12133eeb2aae05475e280890c778f5208265a0bdf025cb7"
+    },
+    {
+      "path": "automation/tests/test_material_review_inheritance.py",
+      "sha256": "758fbf274691d96e7da0aa4fc2a2cc77b7fcb1cb6017dccba2981482f9da228c"
+    },
+    {
+      "path": "automation/tests/test_material_scope.py",
+      "sha256": "7e76ecbc29779784babaf8f829505bb51b51bfd7c4e59977bab2264d9cd029fe"
+    },
+    {
+      "path": "automation/tests/test_memory_association_navigation.py",
+      "sha256": "9ff4db506699dbc4c910336d26aac8933a43cbd4223a5860560691de1b2aee15"
+    },
+    {
+      "path": "automation/tests/test_memory_associations.py",
+      "sha256": "ae3363bb57a4bde8a59546173a91250d9c02f7ebc0df2681e533facf9724ab1b"
+    },
+    {
+      "path": "automation/tests/test_memory_associations_real.py",
+      "sha256": "90e39442b9c040871ec0cdc6cd79e4032b8bbbc44750e37f6ad82e3feaf39e1b"
+    },
+    {
+      "path": "automation/tests/test_memory_consolidation.py",
+      "sha256": "58ff92bd37481a4ad27dee0d94b6169e81b4125acabc80257e90fa921ce18111"
+    },
+    {
+      "path": "automation/tests/test_memory_contract_service.py",
+      "sha256": "94d99dfcf1c06ff1fa39cebfbd6101d04af26b00106ccbd2e3b32b27f28cd4c6"
+    },
+    {
+      "path": "automation/tests/test_memory_contracts.py",
+      "sha256": "2b7a0ed31d9084f2da22bbe9f2fe38ec2d5a9bb03d56bb5d4b190ddccade6454"
+    },
+    {
+      "path": "automation/tests/test_memory_document.py",
+      "sha256": "5c38be98acf559e14324020012f78cd20aa6d6fbaedff5fd2eec9b016755d1fc"
+    },
+    {
+      "path": "automation/tests/test_memory_documents_v3.py",
+      "sha256": "fc640f7d69739fdc6c549a61fe9f94e890c41c6e703986a9e657da449fee223a"
+    },
+    {
+      "path": "automation/tests/test_memory_evaluation.py",
+      "sha256": "eb231c1a357e6c8ffc4d32e4f5892cb2d08c45591a602e8ec75bab786753e371"
+    },
+    {
+      "path": "automation/tests/test_memory_evidence.py",
+      "sha256": "86eaa91d30cf80e82326e552862ce89a92ed9b706b8fa06f6fdc5726472b4e84"
+    },
+    {
+      "path": "automation/tests/test_memory_feedback.py",
+      "sha256": "96ff1a9fabae8069f5be61a395cf3dea6f6272e69ff45c3b916356b5d77bc4b4"
+    },
+    {
+      "path": "automation/tests/test_memory_fixture.py",
+      "sha256": "fc59dd57ec6b7c2dfb88f927cb8b55b4f59216b146b2b874b954ecc1f2b5ba51"
+    },
+    {
+      "path": "automation/tests/test_memory_frozen_summary.py",
+      "sha256": "b5fb5a0ec852e21cd74cd4f2ffb1f2f043c7b6a7282bbe303662a5e0fcc2a9a2"
+    },
+    {
+      "path": "automation/tests/test_memory_http.py",
+      "sha256": "d1366164b892a9ada465a0090a0c9e7c2ae028ddd21c936a3fa4f2924c2070e2"
+    },
+    {
+      "path": "automation/tests/test_memory_impact_visibility.py",
+      "sha256": "a2a5b3f2c1f77e48355144726a268bb521f6be4620f8c0a05e1b3879533ba190"
+    },
+    {
+      "path": "automation/tests/test_memory_index.py",
+      "sha256": "2f8eec4b20739fb9bfbf39d689187a28ae0709cd0b4f8e4b11a90d438149a33b"
+    },
+    {
+      "path": "automation/tests/test_memory_layer_migration.py",
+      "sha256": "2edb06920a9c4d69df118bf488b4fa13e7f825cefe4052c6a32730adb0bcfc3d"
+    },
+    {
+      "path": "automation/tests/test_memory_legacy_identity.py",
+      "sha256": "ff52a71a032d40155043bf12ce4d33ffdf654ae24b58a1d452bff5310c41be73"
+    },
+    {
+      "path": "automation/tests/test_memory_levels_v2.py",
+      "sha256": "6936e906c1bd7b106433cfd73fb5c4b6425184522af3e4e3d6222bec806b26d7"
+    },
+    {
+      "path": "automation/tests/test_memory_lineage.py",
+      "sha256": "c0c36b987cc4a05457d5f315a901c28b311ed5ef63185d5248ce78475fe4d31b"
+    },
+    {
+      "path": "automation/tests/test_memory_migration.py",
+      "sha256": "3c51cdfeb183c4f3eb2a636c9faeaa555aff2198e6c5d29cff42918cd1c1c0f6"
+    },
+    {
+      "path": "automation/tests/test_memory_navigation.py",
+      "sha256": "f059290265ed61be5c1ced6a3286af16f6a49691b61fc0eb5d88fd256859d06b"
+    },
+    {
+      "path": "automation/tests/test_memory_owner_service.py",
+      "sha256": "66acd6104fa1abf7ecd66ae0d0df422642721e88e14bd0bce61df668f4069d87"
+    },
+    {
+      "path": "automation/tests/test_memory_owners.py",
+      "sha256": "2dcb8a130057d34aa9841a48e5564b0373d0327548e52df67d4c88abe88b4095"
+    },
+    {
+      "path": "automation/tests/test_memory_packets.py",
+      "sha256": "da8087a382c1306b026b500cdf1c70a556a4de0eff42c9db12d5055e39fc1369"
+    },
+    {
+      "path": "automation/tests/test_memory_ranking_policy.py",
+      "sha256": "944631d55d76ce92957ea672f14e6e008729ec22ef45e209aec02379eb7646a4"
+    },
+    {
+      "path": "automation/tests/test_memory_research.py",
+      "sha256": "409e0a604df11b60fd22a358d82ea1758379e5de8f07e989fcb0e5e7c5fe1eb1"
+    },
+    {
+      "path": "automation/tests/test_memory_snapshot_paths.py",
+      "sha256": "f49e2c8aaa33909fc167b98aad3442aab54c306047e0ec261a9cb4f2ea38ff17"
+    },
+    {
+      "path": "automation/tests/test_memory_store.py",
+      "sha256": "8cd1b9bf2340fb9d142e71f153c0bd622fa7442ade083267dc7cc56d71473b2f"
+    },
+    {
+      "path": "automation/tests/test_owned_runs.py",
+      "sha256": "fdc512512e64fed64a6f1f815375c58276df6c8e82cac42fe9e5f6c650d7c21b"
+    },
+    {
+      "path": "automation/tests/test_portable.py",
+      "sha256": "12c6a71b7969c315cdfca29a7852bcd179e0d3b5d60e4a1bd6465683871f084f"
+    },
+    {
+      "path": "automation/tests/test_raw_materials.py",
+      "sha256": "0ef2aff7132b4e20308a4c93e3f579a6f40c5dbacb547a12f3ecdb68827b2aed"
+    },
+    {
+      "path": "automation/tests/test_reading_delegation.py",
+      "sha256": "b39591a0a7bdc68913f7c406297556144e684e9e069eda849454a56af93c468e"
+    },
+    {
+      "path": "automation/tests/test_reading_handoff_view.py",
+      "sha256": "025d66ce690218c9927f6e8d1624645a2a1a0573c364f636f8eb81a6a8c494f5"
+    },
+    {
+      "path": "automation/tests/test_reading_owner_document.py",
+      "sha256": "7485654a7d33ae327405f9c6a98d4f99145576a50483cda09ba8cd198dad2ca4"
+    },
+    {
+      "path": "automation/tests/test_reading_query_plan.py",
+      "sha256": "92d188c77252f8916e31b872c8ca746069f7b8bf9ec674dca5e93f2bb6806503"
+    },
+    {
+      "path": "automation/tests/test_reading_reranking.py",
+      "sha256": "ffd86b06a8cb7d398a388c5ace940b7e2f849c2d3d5003df97bb86b3c7f1a2a6"
+    },
+    {
+      "path": "automation/tests/test_reading_reranking_integration.py",
+      "sha256": "710ffb0786b7d95ac6fb551a9f00dfada46117ceb898a51516ab4a6e28316307"
+    },
+    {
+      "path": "automation/tests/test_reading_three_modes.py",
+      "sha256": "78ffd408c102631051ecb63bcb58e2b3036ca8ecf20b0a06a61e123ec71f5ea7"
+    },
+    {
+      "path": "automation/tests/test_reading_workflow.py",
+      "sha256": "cdcc6064d124663d253a5afca496308a09a5e336536c9f1a234cc3ff3de3fa9f"
+    },
+    {
+      "path": "automation/tests/test_representation_contracts.py",
+      "sha256": "9671645b0ab234edf43038eb0cae8f9a6b1d932cb9f60d7b9faa18b26fbf21d4"
+    },
+    {
+      "path": "automation/tests/test_retrieval.py",
+      "sha256": "1b5e3abdd656eafc1e42f9c717fa6eedac9e0b2aee10676b77f25f26451e777e"
+    },
+    {
+      "path": "automation/tests/test_retrieval_layers.py",
+      "sha256": "643ca8dd84a854754cc81376a011c8ae1ef3eb2cb5ecb0806849537d219b262e"
+    },
+    {
+      "path": "automation/tests/test_retrieval_reranking_baseline.py",
+      "sha256": "61bd36c6423d421f84057d11c264fe50cb7afaf8939c6e16b75a34854ee0786c"
+    },
+    {
+      "path": "automation/tests/test_run_capture.py",
+      "sha256": "326da1581daf716787edebcb07ebfa3cd8a729e776f336f2a692ee93eaf01228"
+    },
+    {
+      "path": "automation/tests/test_test_tiers.py",
+      "sha256": "3b0ae9d90d50e91920f44849ab68d591354c7962a57b899477e82c1aaa6e6a4b"
+    },
+    {
+      "path": "automation/tests/test_unified_workflow.py",
+      "sha256": "5847114016c1271211474bdaec749d49d6ae09cfba984280dc40272392a35d73"
+    },
+    {
+      "path": "automation/tests/test_workbench_relations.py",
+      "sha256": "ccb7608dbf2c151be7703fae0a5e190579b2900ab15b37f0f23fdd3ec5fbe118"
+    },
+    {
+      "path": "automation/tests/test_workspace_cli.py",
+      "sha256": "30cdf03d3eb2d2e3603a21195a6665d82bfa46d8ba0924ef8e17ae9eae470d73"
+    },
+    {
+      "path": "automation/tests/test_workspace_settings.py",
+      "sha256": "28654257c4da07714b95a0ce8f6ef90423110360601f6d3ce3f205bbb267de5b"
+    },
+    {
+      "path": "automation/tests/test_workspace_settings_integration.py",
+      "sha256": "70b4d94fda4b9f00b70ff061829ae1e0cd4f92d375b582c3a01f42f357f90890"
+    },
+    {
+      "path": "automation/tests/upgrade_fixture.py",
+      "sha256": "23da57e37b9ee0d01a99261c83904e5ddfbaa535a1d25d05fbf605c0c8b3a02a"
+    },
+    {
+      "path": "automation/tests/verify_dependency_release.py",
+      "sha256": "e0353880807df0000c4a9d6e3143a9637a4da3c5e04a323f7770e8edf2abd584"
+    },
+    {
+      "path": "automation/workflows/association-exploration/SKILL.md",
+      "sha256": "073e1471bab39890df421c795d3d671c51aca4e842e2215a2b23c8fdd41125cf"
+    },
+    {
+      "path": "automation/workflows/consolidate-results/SKILL.md",
+      "sha256": "07bc13e12a7262b88e3f0165f502bcc747a909d2b36bf1ca569c630d2baf1cf9"
+    },
+    {
+      "path": "automation/workflows/context-maintenance/SKILL.md",
+      "sha256": "669aa3e0d5afdf29b6df3427e82c5fd88b333cf632e448245b1d6bc3b7907c36"
+    },
+    {
+      "path": "automation/workflows/development-checks/SKILL.md",
+      "sha256": "3573e882abe498f4afed886c1de46148b00245d7eb3cb74180d063aba0dbd35c"
+    },
+    {
+      "path": "automation/workflows/evidence-inspection/SKILL.md",
+      "sha256": "03450413002bb6f8ef3574d960cf0e7ef66f21d2521b2a0a922dcd5cf769bf71"
+    },
+    {
+      "path": "automation/workflows/material-query/SKILL.md",
+      "sha256": "dbb3da6174dff51bd9992d4bdf558a72d9a4ec5f8abfade108ef81d779f62a0e"
+    },
+    {
+      "path": "automation/workflows/semantic-maintenance/SKILL.md",
+      "sha256": "f6475ec3601e7f84d8fdb47f10188490235365f2168dbd283035660f02caabf9"
+    },
+    {
+      "path": "automation/workflows/work-loop/SKILL.md",
+      "sha256": "dab3b75419cc9e11576dad8d2fe49dedeb6ffc99872bad7676fc853d867fc79a"
+    },
+    {
+      "path": "docs/AI_READING.md",
+      "sha256": "f873acd6df46202944c1060d1809ec0075c9b176ddad2301dfe53666dce5cd5f"
+    },
+    {
+      "path": "docs/CORE.md",
+      "sha256": "14679513f4d6a7ea6d318f9bf5158bd32722acd3038b62318684c713d02835b1"
+    },
+    {
+      "path": "docs/DEVELOPMENT_HISTORY.md",
+      "sha256": "a9131dbf353b702963150c082fa1131180f576e197195260a5b98e65e80ddddb"
+    },
+    {
+      "path": "docs/TESTING.md",
+      "sha256": "bd59cb3f1aa3adb17eb263eb6c99dad194608b953953674cf161d2c607a30140"
+    }
+  ],
+  "archive_sha256": "74d472300bad6d1db28a9a5c7222712f74b15bddc0375fa3f7bafb17a8945ba0"
+}

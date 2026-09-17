@@ -1,0 +1,30 @@
+{
+  "status": "ok",
+  "value": {
+    "direction": "finish",
+    "next_step": "由主任务读取 handoff，将该 Owner note 用于后续工程评审。",
+    "needs_user_input": false,
+    "expansion_count": 0,
+    "session_id": "RS-a8f812d7-d8f9-4862-8e8f-932cc5649d3b",
+    "revision": 8
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 12453,
+    "read_bytes": 951289,
+    "output_chars": 0,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

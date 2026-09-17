@@ -18,9 +18,9 @@
 | --- | --- |
 | `source` | L0 的内部来源记录：独立来源或受控摘录；Run 输入/产物由统一 L0 视图汇总，无需再复制一条 source |
 | `detail` | L1：实验、方法、推导或分析技术单元；检索说明用于发现，稳定正文块保存完整解释，实验绑定原生 Run |
-| `narrative`（v4） | L2：有依据的研究路线、尝试、失败、选择理由与转折，保存完整正文 |
+| `narrative`（v4） | L2：有依据的研究、实施、使用、排错或决策经过，保存完整正文 |
 | `experience` | L3：局部经验、适用与禁止迁移条件、失败模式 |
-| `overview`（v4） | L4：项目/研究整体问题、方法、结果、当前阶段、限制和未决事项 |
+| `overview`（v4） | L4：Owner 顶层发现入口，说明用途、范围、主要内容/方法、结果或状态、限制和未决事项；短经验可只有本条且保存全文 |
 | `document_section` | 独立章节，level=null；用衔接文字和固定技术块组织阅读 |
 | `document` | 完整研究过程或精简研究报告，level=null；固定有序章节、目的、读者与范围 |
 | `question` | 问题、尝试、剩余缺口与解决依据 |
@@ -36,7 +36,9 @@
 
 当前字段以 [v4 聚合契约](../automation/schemas/memory-v4.schema.json) 和服务校验为准；[v2](../automation/schemas/memory-v2.schema.json)、[v1](../automation/schemas/memory-v1.schema.json) 保留历史读取。新 narrative/overview 默认 v4，分类 experience 显式用 v4，其他种类默认 v3；新草案按类型明确版本，不靠兼容形状猜版本。CommitRequest 封套版本与记录版本相互独立，不能靠修改封套迁移正文。旧 event/map 不再提供单独的工作台筛选或新建入口；尚未整理的对象记录仍在相应层级可见，但不会冒充新内容查询的 narrative/overview。旧 v1 存储 L1/L2/L3 分别投影为新 L2/L3/L4，历史字节与哈希不变；v2 detail 仍读取原正文。公式说明符号、单位与适用条件。研究默认覆盖见 [分层记录标准](RESEARCH_RECORDING.md)。
 
-需要完整方法/分析时保存 L1 `detail`：`unit_type` 区分 experiment/method/derivation/analysis，`retrieval_description` 说明问题、方法、发现与适用边界，完整技术正文只写入 `blocks`，`body_markdown` 留空。实验必须固定引用实际 Run；未执行的方法、推导或分析可以令 `run_ref=null`，并交代依据或缺口。再用 v4 L2 `narrative` 的 stages 和正文记录“为何作出选择”及实际转折，固定技术依据；L3 `experience` 明确 knowledge_type 与边界，L4 `overview` 保存整体概览。跨研究不自动意味着经验。研究经过可保存 `occurred_at`、`failure` 和目标/路线/Run 引用；失败字段记录类别、范围、结果、不能推出的判断和重试条件。经验的 `failure_modes` 不能代替实际失败经过，也不重复登记实验。
+L0–L4 是所有 Owner 共用的内容压缩、发现和展开层级，不只表示研究阶段。需要完整方法/分析时保存 L1 `detail`：`unit_type` 区分 experiment/method/derivation/analysis，`retrieval_description` 说明问题、方法、发现与适用边界，完整技术正文只写入 `blocks`，`body_markdown` 留空。实验必须固定引用实际 Run；未执行的方法、推导或分析可以令 `run_ref=null`，并交代依据或缺口。L2 `narrative` 用 stages 和正文记录研究或其他实际过程中的选择、转折和结果；L3 `experience` 明确 knowledge_type 与边界；L4 `overview` 保存顶层发现概览。跨研究或正文相似不自动意味着经验。失败字段记录类别、范围、结果、不能推出的判断和重试条件；经验的 `failure_modes` 不能代替实际失败经过，也不重复登记实验。
+
+预期长期复用的新建或实质更新 Owner 至少维护一条自足 L4；短经验可以只保存完整 L4，不补造其他层。形成记录时还要检查主体过程之外的可迁移方法、失败、边界和偶然发现：可独立复用的判断写 L3，方法/定义/计算细节写 L1 检索说明和 blocks。展开 refs、证据 `supports/input` 与 association 导航分别维护，不能互相冒充。
 
 ### 整理旧事件和地图
 
@@ -44,7 +46,7 @@
 
 新修订成为当前记录，索引按相同身份更新，不同时留下两条当前记录；旧修订、旧引用及审查历史保持不变。将经过和技术单元保存回读后，再用实际 revision/SHA 写入经验、概览的展开关系。完成后以 `memory rebuild --request 请求.json` 提交 `{"scope":["对象ID"],"vector":"auto"}`，分别核对保存、全文索引与向量索引状态。数据整理不重跑实验，也不提升科学复核状态。
 
-各类Owner默认使用work-loop，按有用内容保存L0依据、L1方法/分析、L2有依据的经过、L3可复用认识及L4概览。允许缺层，文稿按阅读和交付需要编排；不为每轮凑记录或强制双文稿。固定引用复用原件，来源主张、AI推断与本次验证明确区分。已有显式对象策略保留。
+各类Owner默认使用work-loop，按有用内容保存L0依据、L1完整细节、L2有依据的经过、L3可复用认识及L4顶层概览。允许缺层；可复用 Owner 的 L4 是发现入口，短经验可只保留 L4 全文。文稿按阅读和交付需要编排，不为每轮凑记录或强制双文稿。固定引用复用原件，来源主张、AI推断与本次验证明确区分。已有显式对象策略保留。
 
 需要构造请求时，只读[请求示例](MEMORY_REQUESTS.md)的当前动作。work-loop统一归属/记录/续接，material-query负责查阅与阅读记录，其他专项按需使用。所有Owner可按内容组合L0–L4，缺层正常，文稿按需；默认normal与auto_summary=false不改写已有显式策略。旧research-loop/workspace-context保留兼容跳转，安装器默认登记7项。
 

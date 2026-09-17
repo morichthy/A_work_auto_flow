@@ -1,0 +1,5 @@
+WARNING: 内部链接不存在：projects\architecture-evolution\runs\run-20260910t183626z-429304f92e99\verification\architecture-snapshot.md -> README.md
+WARNING: 内部链接不存在：projects\architecture-evolution\runs\run-20260910t183626z-429304f92e99\verification\architecture-snapshot.md -> docs/CORE.md
+WARNING: 内部链接不存在：projects\architecture-evolution\runs\run-20260910t183626z-429304f92e99\verification\architecture-snapshot.md -> docs/DOCUMENTATION_MAINTENANCE.md
+WARNING: 内部链接不存在：projects\architecture-evolution\runs\run-20260910t183626z-429304f92e99\verification\architecture-snapshot.md -> docs/README.md
+校验通过：0 个错误，4 个警告。

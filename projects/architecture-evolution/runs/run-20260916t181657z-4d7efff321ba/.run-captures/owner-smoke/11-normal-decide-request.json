@@ -1,0 +1,10 @@
+{
+  "session_id": "RS-a8f812d7-d8f9-4862-8e8f-932cc5649d3b",
+  "expected_revision": 4,
+  "request_id": "owner-normal-decide-01",
+  "direction": "finish",
+  "reason": "已对唯一候选 Owner 完整交付 research_process，并基于实际文本保存带固定出处的研究 note；pairwise 证据缺口已明确记录。",
+  "next_step": "由主任务读取 handoff，将本次 Owner note 用于后续工程评审。",
+  "outcome": "完成 owner_document 正常全文路径验收；本次材料未提供 pairwise 的定义或实验结果。",
+  "human_decision": ""
+}

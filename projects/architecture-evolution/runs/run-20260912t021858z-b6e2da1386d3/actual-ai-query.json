@@ -1,0 +1,527 @@
+{
+  "search": {
+    "status": "ok",
+    "value": {
+      "query_id": "MQ-5d64f477-560b-413e-b884-ca5e789407eb",
+      "request_digest": "5f3706ab9c2d7c544d8a4c010b7dc123b20889e5ec7a576b09f1b590c8f279a9",
+      "candidates": [
+        {
+          "candidate_id": "C-877f910d9b54811c3cfb085f",
+          "refs": [
+            {
+              "kind": "record",
+              "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+              "revision": 1,
+              "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+              "locator": null
+            }
+          ],
+          "title": "检索、展开与上下文组织的机制比较",
+          "excerpt": "问题：\n哪些机制分别处理细节未召回、读后误排除和后续上下文丢失？\n\n方法：\n基于一手来源与本地代码快照，按作用阶段和失败类型比较候选路线。\n\n主要发现：\n- 补检索背景、Small2Big 和返回展开表示可组合，但不是同一步\n- 摘要门槛与正文索引覆盖是不同漏检来源\n- 有界全文与图式综合应进入比较，不能只比较 A/B 顺序\n\n适用条件：\n- 本工作区经验检索方案讨论和后续对照设计\n\n不适用条件：\n- 不能当作已实现能力或已验证最优方案\n\n限制：\n- 尚无本地题集对照与性能结果；本轮方案和建议未经现实有效性复核。",
+          "content_kind": "detail",
+          "knowledge_type": null,
+          "is_latest": true,
+          "owner_type": "research",
+          "channels": [
+            "lexical",
+            "dense"
+          ],
+          "score": 0.03252247488101534,
+          "realization": {
+            "definition": {
+              "key": "full",
+              "version": "1"
+            },
+            "refs": [
+              {
+                "kind": "record",
+                "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                "revision": 1,
+                "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                "locator": null
+              }
+            ],
+            "state": "direct",
+            "missing_selectors": [],
+            "generator_version": null
+          },
+          "evidence_status": "not-assessed",
+          "group": "direct",
+          "hits": [
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 1,
+              "raw_score": -23.437666504077313,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                  "revision": 1,
+                  "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                  "locator": "block:stages"
+                }
+              ],
+              "matched_text": "## 三个相近想法的区别\n| 机制 | 时机 | 做什么 | 解决什么 | 仍不解决什么 |\n|---|---|---|---|---|\n| 给技术块补检索背景 | 建索引前 | 把可回源的主体、工况、所属方法和局部作用附到检索投影 | 孤立块只有‘设为零’而缺少对象，难被问题命中 | 背景生成错误、正文没被索引、后续阅读不完整 |\n| 小块检索、大块阅读 | 查询与读取之间 | 细节块命中后沿固定关系找必要定义、步骤及单元/章节 | 细节易发现，同时避免断章取义 | 根本没"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 2,
+              "raw_score": -9.498762188809739,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                  "revision": 1,
+                  "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                  "locator": "block:families"
+                }
+              ],
+              "matched_text": "## 扩大后的候选路线\n| 路线 | 优点及适合的问题 | 代价与风险 | 本轮位置 |\n|---|---|---|---|\n| 有界全文阅读 | 已选定少量研究，要求复原完整经过；不受 top-k 候选裁剪影响 | 字数、时延和注意力负担；全文送入也不保证所有细节被使用 | 必须保留的基线，超预算则分批并记录覆盖 [S8] |\n| A/B 分层导航与兜底 | 先了解研究背景，再下探；概览题容易解释 | 上层命中不等于覆盖，严格门槛会漏底层；多轮串行有延迟 | 用户方案基线，"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 3,
+              "raw_score": -7.443173501319212,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                  "revision": 1,
+                  "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                  "locator": "block:local"
+                }
+              ],
+              "matched_text": "py 的 _row 对 v3 detail 使用 technical_units.description_text 构造检索正文，并移除派生 payload 中 blocks/figures。这说明 technical 类型筛选不等于完整技术块正文已经可搜。material-query-coordinator.py 的 capabilities 当前登记 identity/lexical，未登记 dense 模型提供器。\n\n因此存在两类风险：①候选已出现，AI 因摘要主题不相"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 4,
+              "raw_score": -3.898719981068731,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                  "revision": 1,
+                  "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                  "locator": "block:scope"
+                }
+              ],
+              "matched_text": "## 比较对象与定义\n目标不是多找材料本身，而是在合理时间内找到对当前问题有用、条件完整且可以回源的历史经验。候选发现、阅读判别、最终上下文组装、跨轮恢复是四个不同环节。L1–L4 表达本地内容职责，不是可信等级，也不天然构成按主题聚类的检索树。\n\n相关性可发生在局部：一篇研究总体主题不同，其中某一步误差诊断仍可能有用。充分性则问这些材料是否足以支持本轮答案或可执行的下一步。二者均不能只由命中分数判断。"
+            },
+            {
+              "channel": "dense",
+              "provider": "dense",
+              "provider_version": "memory-record-representation-v4-technical-blocks",
+              "rank": 5,
+              "raw_score": 0.44667145124665736,
+              "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                  "revision": 1,
+                  "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                  "locator": "block:stages"
+                }
+              ],
+              "matched_text": "后的滤波器恢复步骤’；命中后阅读应带触发条件、初始化定义和失败案例；返回包还应说明来自哪个固定版本、哪些必要部分未读。三者方向一致但不可相互替代。[S3、S4]"
+            },
+            {
+              "channel": "dense",
+              "provider": "dense",
+              "provider_version": "memory-record-representation-v4-technical-blocks",
+              "rank": 6,
+              "raw_score": 0.42241479770231233,
+              "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                  "revision": 1,
+                  "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                  "locator": null
+                }
+              ],
+              "matched_text": "问题：\n哪些机制分别处理细节未召回、读后误排除和后续上下文丢失？\n\n方法：\n基于一手来源与本地代码快照，按作用阶段和失败类型比较候选路线。\n\n主要发现：\n- 补检索背景、Small2Big 和返回展开表示可组合，但不是同一步\n- 摘要门槛与正文索引覆盖是不同漏检来源\n- 有界全文与图式综合应进入比较，不能只比较 A/B 顺序\n\n适用条件：\n- 本工作区经验检索方案讨论和后续对照设计\n\n不适用条件：\n- 不能当作已实现能力或已验证最优方案\n\n限制：\n- 尚无本地题集对照与性能结"
+            },
+            {
+              "channel": "dense",
+              "provider": "dense",
+              "provider_version": "memory-record-representation-v4-technical-blocks",
+              "rank": 7,
+              "raw_score": 0.3886661886341767,
+              "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                  "revision": 1,
+                  "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                  "locator": "block:scope"
+                }
+              ],
+              "matched_text": "## 比较对象与定义\n目标不是多找材料本身，而是在合理时间内找到对当前问题有用、条件完整且可以回源的历史经验。候选发现、阅读判别、最终上下文组装、跨轮恢复是四个不同环节。L1–L4 表达本地内容职责，不是可信等级，也不天然构成按主题聚类的检索树。\n\n相关性可发生在局部：一篇研究总体主题不同，其中某一步误差诊断仍可能有用。充分性则问这些材料是否足以支持本轮答案或可执行的下一步。二者均不能只由命中分数判断。"
+            },
+            {
+              "channel": "dense",
+              "provider": "dense",
+              "provider_version": "memory-record-representation-v4-technical-blocks",
+              "rank": 8,
+              "raw_score": 0.26144872275429787,
+              "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                  "revision": 1,
+                  "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                  "locator": "block:stages"
+                }
+              ],
+              "matched_text": "## 三个相近想法的区别\n| 机制 | 时机 | 做什么 | 解决什么 | 仍不解决什么 |\n|---|---|---|---|---|\n| 给技术块补检索背景 | 建索引前 | 把可回源的主体、工况、所属方法和局部作用附到检索投影 | 孤立块只有‘设为零’而缺少对象，难被问题命中 | 背景生成错误、正文没被索引、后续阅读不完整 |\n| 小块检索、大块阅读 | 查询与读取之间 | 细节块命中后沿固定关系找必要定义、步骤及单元/章节 | 细节易发现，同时避免断章取义 | 根本没"
+            }
+          ],
+          "evaluated_claim_refs": [],
+          "unresolved_claim_refs": [],
+          "unknown_facets": []
+        },
+        {
+          "candidate_id": "C-95d08eb4006f17921ef9b617",
+          "refs": [
+            {
+              "kind": "record",
+              "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+              "revision": 1,
+              "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+              "locator": null
+            }
+          ],
+          "title": "跨层独立召回的效率取舍与正文覆盖核对范围",
+          "excerpt": "问题：\n跨层独立召回会降低效率吗？\n\n方法：\n分离候选覆盖与实际调度，比较简化时延、总工作量与阅读成本。\n\n主要发现：\n- 独立召回不必等于并发请求\n- 可减少串行等待但可能增加检索和阅读工作量\n- 正文覆盖待专项核对，不能泛化静态发现\n\n适用条件：\n- 当前检索方案比较\n\n不适用条件：\n- 不能当作实测加速或已修复索引\n\n限制：\n- 模型忽略争用和AI判别；没有本地测量",
+          "content_kind": "detail",
+          "knowledge_type": null,
+          "is_latest": true,
+          "owner_type": "research",
+          "channels": [
+            "lexical",
+            "dense"
+          ],
+          "score": 0.032018442622950824,
+          "realization": {
+            "definition": {
+              "key": "full",
+              "version": "1"
+            },
+            "refs": [
+              {
+                "kind": "record",
+                "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+                "revision": 1,
+                "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+                "locator": null
+              }
+            ],
+            "state": "direct",
+            "missing_selectors": [],
+            "generator_version": null
+          },
+          "evidence_status": "not-assessed",
+          "group": "direct",
+          "hits": [
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 13,
+              "raw_score": -2.1419331135874073,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+                  "revision": 1,
+                  "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+                  "locator": null
+                }
+              ],
+              "matched_text": "率取舍与正文覆盖核对范围\n问题：\n跨层独立召回会降低效率吗？\n\n方法：\n分离候选覆盖与实际调度，比较简化时延、总工作量与阅读成本。\n\n主要发现：\n- 独立召回不必等于并发请求\n- 可减少串行等待但可能增加检索和阅读工作量\n- 正文覆盖待专项核对，不能泛化静态发现\n\n适用条件：\n- 当前检索方案比较\n\n不适用条件：\n- 不能当作实测加速或已修复索引\n\n限制：\n- 模型忽略争用和AI判别；没有本地测量\n跨层召回 效率 技术正文 索引覆盖"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 14,
+              "raw_score": -1.94265296921034,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+                  "revision": 1,
+                  "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+                  "locator": "block:analysis"
+                }
+              ],
+              "matched_text": " A→B 只有需要时才查底层，独立双路若每次都查会增加部分查询。等待时延可能降低：能够并发且资源充足时，不必等高层查询及阅读判断结束才开始底层。最终耗时也可能增加：如果双路带来更多候选，后续展开与 AI 阅读会增加；检索并发不能自动抵消阅读成本。\n\n若只看两路检索、忽略决策和资源争用，令高层、底层耗时分别为 t_H、t_L，串行兜底启动底层的概率为 p，则简化时间关系为：\n\n\\[\\mathbb{E}[T_{serial}]\\approx t_H+p\\,t_L,\\qquad T"
+            },
+            {
+              "channel": "dense",
+              "provider": "dense",
+              "provider_version": "memory-record-representation-v4-technical-blocks",
+              "rank": 1,
+              "raw_score": 0.4661665766477302,
+              "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+                  "revision": 1,
+                  "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+                  "locator": null
+                }
+              ],
+              "matched_text": "问题：\n跨层独立召回会降低效率吗？\n\n方法：\n分离候选覆盖与实际调度，比较简化时延、总工作量与阅读成本。\n\n主要发现：\n- 独立召回不必等于并发请求\n- 可减少串行等待但可能增加检索和阅读工作量\n- 正文覆盖待专项核对，不能泛化静态发现\n\n适用条件：\n- 当前检索方案比较\n\n不适用条件：\n- 不能当作实测加速或已修复索引\n\n限制：\n- 模型忽略争用和AI判别；没有本地测量\n跨层召回 效率 技术正文 索引覆盖"
+            },
+            {
+              "channel": "dense",
+              "provider": "dense",
+              "provider_version": "memory-record-representation-v4-technical-blocks",
+              "rank": 2,
+              "raw_score": 0.40952583831193345,
+              "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+                  "revision": 1,
+                  "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+                  "locator": "block:analysis"
+                }
+              ],
+              "matched_text": "仅有 memory/index.py 等静态依据，尚未证明每个公开入口的端到端行为。后续沿技术内容入口核对索引字段、词法/向量通道、过滤、当前索引水位和展开；使用只出现在正文、不在检索说明/标题/关键词的固定线索做对照，同时排除分词、权限和旧索引导致的混淆。分别确认正文存在、索引覆盖、候选发现和回源展开。完成前不宣称已修复，亦不将局部静态发现泛化到所有全文入口。"
+            },
+            {
+              "channel": "dense",
+              "provider": "dense",
+              "provider_version": "memory-record-representation-v4-technical-blocks",
+              "rank": 3,
+              "raw_score": 0.2704716200566137,
+              "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+                  "revision": 1,
+                  "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+                  "locator": "block:analysis"
+                }
+              ],
+              "matched_text": "## 独立召回与并行调度\n高层与底层各自获得候选机会，是召回覆盖策略；串行、并行或同一后端一次执行多路候选，是调度实现。独立召回不等于必须开启两个进程或同时读取两份全文。\n\n## 效率分别衡量\n总工作量可能增加：原 A→B 只有需要时才查底层，独立双路若每次都查会增加部分查询。等待时延可能降低：能够并发且资源充足时，不必等高层查询及阅读判断结束才开始底层。最终耗时也可能增加：如果双路带来更多候选，后续展开与 AI 阅读会增加；检索并发不能自动抵消阅读成本。\n\n若只看两路检索、"
+            },
+            {
+              "channel": "dense",
+              "provider": "dense",
+              "provider_version": "memory-record-representation-v4-technical-blocks",
+              "rank": 4,
+              "raw_score": 0.19753548448338332,
+              "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+                  "revision": 1,
+                  "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+                  "locator": "block:analysis"
+                }
+              ],
+              "matched_text": "秒），\\(p\\in[0,1]\\) 为无量纲概率。这个简化模型不是本地测量，不能用于承诺加速比，也没有包括 AI 判别和展开。相同覆盖下若两路本来都必查，比较应取 p=1；不能将少查材料的快当作等质量优势。\n\n## 优先减少重复工作\n候选先合并，以固定记录/修订/块身份去重，再读取必要上下文；共同定义、同一技术单元和已读固定版本复用读取结果。不同条件、不同版本与相反结论不合并消失。按批交付展开正文，减少每条独立往返，但不把尚未阅读的低分候选标成无关。相同问题的公共范围/版本核验"
+            }
+          ],
+          "evaluated_claim_refs": [],
+          "unresolved_claim_refs": [],
+          "unknown_facets": []
+        }
+      ],
+      "next_cursor": "c04e1457-cea1-4386-af86-1ba6c5b575f2",
+      "expires_at": "2026-09-12T02:59:45.798810Z",
+      "gaps": []
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 4875,
+      "read_bytes": 37752,
+      "output_chars": 3457,
+      "candidates": 2,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 17,
+      "model_calls": 1,
+      "model_input_tokens": 17,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": "page",
+    "basis": {
+      "refs": [
+        {
+          "kind": "record",
+          "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+          "revision": 1,
+          "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+          "locator": null
+        },
+        {
+          "kind": "record",
+          "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+          "revision": 1,
+          "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+          "locator": null
+        }
+      ],
+      "owner_heads": [
+        [
+          "RES-AI-EXPERIENCE-CONTEXT",
+          "COM-12c18e95-5b06-47ed-b0dc-00b22d26c333"
+        ]
+      ],
+      "index_watermarks": [
+        [
+          "RES-AI-EXPERIENCE-CONTEXT",
+          "8"
+        ]
+      ],
+      "consistency": "fixed_refs",
+      "observed_at": "2026-09-12T02:44:50.680050Z",
+      "basis_id": "BASIS-9304ba481ee8e56eff42e5b44a27f9e3a21e6d583f58e3af8f4165c60491c7a6"
+    }
+  },
+  "assembly": {
+    "status": "ok",
+    "value": {
+      "packet_id": "PKT-d0a9e845-e0ba-4334-b5ed-3b7ed9aba7ea",
+      "query_id": "MQ-5d64f477-560b-413e-b884-ca5e789407eb",
+      "definition": {
+        "key": "full",
+        "version": "1"
+      },
+      "parts": [
+        {
+          "group": "direct",
+          "heading": "检索、展开与上下文组织的机制比较",
+          "markdown": "## 比较对象与定义\n目标不是多找材料本身，而是在合理时间内找到对当前问题有用、条件完整且可以回源的历史经验。候选发现、阅读判别、最终上下文组装、跨轮恢复是四个不同环节。L1–L4 表达本地内容职责，不是可信等级，也不天然构成按主题聚类的检索树。\n\n相关性可发生在局部：一篇研究总体主题不同，其中某一步误差诊断仍可能有用。充分性则问这些材料是否足以支持本轮答案或可执行的下一步。二者均不能只由命中分数判断。\n\n## 三个相近想法的区别\n| 机制 | 时机 | 做什么 | 解决什么 | 仍不解决什么 |\n|---|---|---|---|---|\n| 给技术块补检索背景 | 建索引前 | 把可回源的主体、工况、所属方法和局部作用附到检索投影 | 孤立块只有‘设为零’而缺少对象，难被问题命中 | 背景生成错误、正文没被索引、后续阅读不完整 |\n| 小块检索、大块阅读 | 查询与读取之间 | 细节块命中后沿固定关系找必要定义、步骤及单元/章节 | 细节易发现，同时避免断章取义 | 根本没有候选时无从展开 |\n| 返回展开后的表示 | 查询接口交付时 | 将选中内容及展开依据送给 AI，标明已读、缺失、未展开及预算 | 避免 AI 只看简短检索说明就排除材料 | 返回的大块未必可用于发现；表示生成不能偷偷改写来源 |\n\n例如原技术块是‘将偏置状态置零后重新初始化’。索引背景可以补‘温漂标定失败后的滤波器恢复步骤’；命中后阅读应带触发条件、初始化定义和失败案例；返回包还应说明来自哪个固定版本、哪些必要部分未读。三者方向一致但不可相互替代。[S3、S4]\n\n## 扩大后的候选路线\n| 路线 | 优点及适合的问题 | 代价与风险 | 本轮位置 |\n|---|---|---|---|\n| 有界全文阅读 | 已选定少量研究，要求复原完整经过；不受 top-k 候选裁剪影响 | 字数、时延和注意力负担；全文送入也不保证所有细节被使用 | 必须保留的基线，超预算则分批并记录覆盖 [S8] |\n| A/B 分层导航与兜底 | 先了解研究背景，再下探；概览题容易解释 | 上层命中不等于覆盖，严格门槛会漏底层；多轮串行有延迟 | 用户方案基线，按实际收益评判 |\n| 平面技术块检索＋展开 | 精确定位操作、公式、故障和条件；不依赖高层先命中 | 切块损失语境，需必要定义闭包；重复与排名控制 | 与分层基线对照 [S2、S3] |\n| 多层独立召回＋融合 | 宏观经验与局部细节都可入候选 | 同源重复、层间分数不可直接比较；不宜未经测试锁定层配额 | v0.1 推荐候选 [S1] |\n| 多轮语料反馈检索 | 用初检术语重述子问题，逐步补缺 | 查询漂移、重复调用、错误候选自我强化 | 用户接受原则，作为可组合控制策略 [S5] |\n| 图/关系与全局综合 | 实体跨文档、多跳关系或整个材料集主题综合 | 建图抽取遗漏、错误边、更新开销，仍需原始正文核对 | 扩展研究范围，按题型决定是否进入试验 [S9] |\n\n这些不是六个互斥成品。全文、块和多层决定候选/阅读粒度；词法与向量决定匹配；背景补充决定索引内容；查询反馈决定迭代；图式导航决定关系扩展。先按维度比较，避免把所有增强一次叠加后无法判断收益来自哪里。\n\n## 本地已核对事实与实现差距\n静态代码快照 memory-index.py 的 _row 对 v3 detail 使用 technical_units.description_text 构造检索正文，并移除派生 payload 中 blocks/figures。这说明 technical 类型筛选不等于完整技术块正文已经可搜。material-query-coordinator.py 的 capabilities 当前登记 identity/lexical，未登记 dense 模型提供器。\n\n因此存在两类风险：①候选已出现，AI 因摘要主题不相关提前排除；②有用内容只在正文，候选根本未出现。扩大后阅读主要处理①；独立底层/正文块发现主要处理②。不是已证实全库存在多少漏检，更不能声称扩大 Top-K 或写新 Skill 就修复了底层索引。\n\n建议的块投影只应是可重建检索数据，仍指向 record/revision/block；正文、复核状态和授权继续由现有权威来源负责。新增索引须验证失效、删除、权限、重建及版本水位，不把生成背景变成第二份事实库。\n\n## 证据边界\n本轮完成文献机制比较和静态代码核对，没有本地召回、延迟或最终任务成功率结果。S8 只核对摘要，不用其性能结论选定当前模型；S9 是官方能力概览，不构成本地图方案收益证据。完整源链接和访问范围见同 Run primary-source-notes.md。",
+          "refs": [
+            {
+              "kind": "record",
+              "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+              "revision": 1,
+              "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+              "locator": null
+            }
+          ],
+          "selectors": [
+            "detail.blocks"
+          ],
+          "omitted": []
+        },
+        {
+          "group": "direct",
+          "heading": "跨层独立召回的效率取舍与正文覆盖核对范围",
+          "markdown": "## 独立召回与并行调度\n高层与底层各自获得候选机会，是召回覆盖策略；串行、并行或同一后端一次执行多路候选，是调度实现。独立召回不等于必须开启两个进程或同时读取两份全文。\n\n## 效率分别衡量\n总工作量可能增加：原 A→B 只有需要时才查底层，独立双路若每次都查会增加部分查询。等待时延可能降低：能够并发且资源充足时，不必等高层查询及阅读判断结束才开始底层。最终耗时也可能增加：如果双路带来更多候选，后续展开与 AI 阅读会增加；检索并发不能自动抵消阅读成本。\n\n若只看两路检索、忽略决策和资源争用，令高层、底层耗时分别为 t_H、t_L，串行兜底启动底层的概率为 p，则简化时间关系为：\n\n\\[\\mathbb{E}[T_{serial}]\\approx t_H+p\\,t_L,\\qquad T_{parallel}\\approx\\max(t_H,t_L)+t_M.\\]\n\n其中 \\(t_M\\) 为合并耗时，所有时间使用相同单位（如秒），\\(p\\in[0,1]\\) 为无量纲概率。这个简化模型不是本地测量，不能用于承诺加速比，也没有包括 AI 判别和展开。相同覆盖下若两路本来都必查，比较应取 p=1；不能将少查材料的快当作等质量优势。\n\n## 优先减少重复工作\n候选先合并，以固定记录/修订/块身份去重，再读取必要上下文；共同定义、同一技术单元和已读固定版本复用读取结果。不同条件、不同版本与相反结论不合并消失。按批交付展开正文，减少每条独立往返，但不把尚未阅读的低分候选标成无关。相同问题的公共范围/版本核验能否共享需按现有接口验证；跨调用并发要检查后端边界。当前不规定固定候选配额、并发数或性能收益。\n\n## 当前建议及边界\n保留跨层独立候选的方案，调度方式以后根据本地对照选择。先比相同候选/相近证据覆盖下的时延与工作量，再比真实任务解决质量。现在不保证它一定更快，也不因可能增加搜索成本而放弃对底层细节的发现。\n\n## 单列正文索引核对\n用户明确要求后面专项讨论。当前仅有 memory/index.py 等静态依据，尚未证明每个公开入口的端到端行为。后续沿技术内容入口核对索引字段、词法/向量通道、过滤、当前索引水位和展开；使用只出现在正文、不在检索说明/标题/关键词的固定线索做对照，同时排除分词、权限和旧索引导致的混淆。分别确认正文存在、索引覆盖、候选发现和回源展开。完成前不宣称已修复，亦不将局部静态发现泛化到所有全文入口。",
+          "refs": [
+            {
+              "kind": "record",
+              "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+              "revision": 1,
+              "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+              "locator": null
+            }
+          ],
+          "selectors": [
+            "detail.blocks"
+          ],
+          "omitted": []
+        }
+      ],
+      "contributors": [
+        {
+          "kind": "record",
+          "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+          "revision": 1,
+          "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+          "locator": null
+        },
+        {
+          "kind": "record",
+          "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+          "revision": 1,
+          "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+          "locator": null
+        }
+      ],
+      "complete": true,
+      "canonical": false
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 6359,
+      "read_bytes": 77506,
+      "output_chars": 6457,
+      "candidates": 2,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 17,
+      "model_calls": 1,
+      "model_input_tokens": 17,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": {
+      "refs": [
+        {
+          "kind": "record",
+          "id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+          "revision": 1,
+          "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+          "locator": null
+        },
+        {
+          "kind": "record",
+          "id": "MEM-c592fbff-3e36-5df5-ba99-c84dfc88c01b",
+          "revision": 1,
+          "sha256": "d99e2e8e4a9eecfe054f85063f8483d0bdfef6a08446bc49179f08f90d5e079e",
+          "locator": null
+        }
+      ],
+      "owner_heads": [
+        [
+          "RES-AI-EXPERIENCE-CONTEXT",
+          "COM-12c18e95-5b06-47ed-b0dc-00b22d26c333"
+        ]
+      ],
+      "index_watermarks": [],
+      "consistency": "fixed_refs",
+      "observed_at": "2026-09-12T02:44:52.164574Z",
+      "basis_id": "BASIS-02e99c9c9f8ff1f74cf30f23bfbb1447fc919c89861c4e8bc669cdf46693f02a"
+    }
+  }
+}
+

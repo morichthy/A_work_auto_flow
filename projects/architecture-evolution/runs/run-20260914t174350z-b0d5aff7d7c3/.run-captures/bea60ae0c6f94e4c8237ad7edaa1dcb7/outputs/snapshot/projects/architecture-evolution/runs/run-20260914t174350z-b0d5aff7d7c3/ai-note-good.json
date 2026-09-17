@@ -1,0 +1,36 @@
+{
+  "session_id": "RS-97a3e089-e45d-46d1-a2ff-2cf6292f6c96",
+  "expected_revision": 3,
+  "request_id": "ai-note-good-1",
+  "candidate_id": "RC-b178a3beb19b9148a90919dd",
+  "summary": "实际读完整合成正文：定义块明确X200 v2.1，方法块要求等义查询保留≤0.5 mm条件；可用来验证本次查询条件保真流程。",
+  "connection": {
+    "kind": "direct",
+    "explanation": "该合成文档的型号、版本和方法条件与本次问题一致，仅作为检索软件示例。",
+    "chain": [
+      "definitions指定X200 v2.1与mm单位",
+      "method明确采用双语等义查询并保留误差条件",
+      "相关术语只是探索线索，不能作为等义条件或业务证据"
+    ]
+  },
+  "details": [
+    {
+      "text": "型号X200、版本v2.1：满足本合成问题指定；依据definitions。",
+      "reason": "区分同型号旧版本",
+      "block_ids": [
+        "definitions"
+      ]
+    },
+    {
+      "text": "正文要求Retain the error constraint ≤ 0.5 mm；满足查询中保留该限制的要求，不证明设备实际测量误差≤0.5 mm。",
+      "reason": "区分查询条件与真实测量性能",
+      "block_ids": [
+        "method"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "X200为明示虚构系统，没有真实业务/科学验证",
+    "本轮合成工作区未安装向量模型，dense显示降级，未验证向量收益"
+  ]
+}

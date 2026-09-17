@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260916t212839z-337776b112fc/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T212839Z-337776B112FC",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "最近问题笔记与证据详情性能及引用改进",
+    "keywords": [
+      "recent reading notes",
+      "evidence navigation"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "completed",
+    "created_at": "2026-09-16T21:28:39Z",
+    "started_at": "2026-09-16T21:28:39Z",
+    "ended_at": "2026-09-16T22:16:16.199763+00:00",
+    "owner": null,
+    "question": "最近问题笔记能否快速展示，且公式、固定引用和记录详情导航保持可追溯？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {},
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "最近24小时多问题选择、轻量快照、编号引用、公式及证据详情已实施；验证与实际限制见RESULTS.md。",
+    "limitations": [
+      "快照展示不等于证据或科学结论重新核验。",
+      "早期CLI完整性失败与后续API成功差异未定位，未改写历史指纹。",
+      "本机隔离Windows升级验证；未发布，第二物理机未验收。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxNlQyMTI4MzlaLTMzNzc3NkIxMTJGQyIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIuacgOi/kemXrumimOeslOiusOS4juivgeaNruivpuaDheaAp+iDveWPiuW8leeUqOaUuei/myIsDQogICJrZXl3b3JkcyI6IFsNCiAgICAicmVjZW50IHJlYWRpbmcgbm90ZXMiLA0KICAgICJldmlkZW5jZSBuYXZpZ2F0aW9uIg0KICBdLA0KICAicmV2aWV3X2hpc3RvcnkiOiBbXSwNCiAgImNsYWltcyI6IFtdLA0KICAiZGVwZW5kZW5jaWVzIjogW10sDQogICJydW5fdHlwZSI6ICJhbmFseXNpcyIsDQogICJzdGF0dXMiOiAiY29tcGxldGVkIiwNCiAgImNyZWF0ZWRfYXQiOiAiMjAyNi0wOS0xNlQyMToyODozOVoiLA0KICAic3RhcnRlZF9hdCI6ICIyMDI2LTA5LTE2VDIxOjI4OjM5WiIsDQogICJlbmRlZF9hdCI6ICIyMDI2LTA5LTE2VDIyOjE2OjE2LjE5OTc2MyswMDowMCIsDQogICJvd25lciI6IG51bGwsDQogICJxdWVzdGlvbiI6ICLmnIDov5Hpl67popjnrJTorrDog73lkKblv6vpgJ/lsZXnpLrvvIzkuJTlhazlvI/jgIHlm7rlrprlvJXnlKjlkozorrDlvZXor6bmg4Xlr7zoiKrkv53mjIHlj6/ov73muq/vvJ8iLA0KICAiaHlwb3RoZXNlcyI6IFtdLA0KICAiaW5wdXRzIjogW10sDQogICJwYXJhbWV0ZXJzIjoge30sDQogICJjb2RlIjogew0KICAgICJjb21taXQiOiAiODlhZDMwNzUzNTg5ZmI3YjkxOWIzZGI3NWNkZjkxZDQ3NDQ5ZjRjYSIsDQogICAgImRpcnR5IjogdHJ1ZQ0KICB9LA0KICAiZW52aXJvbm1lbnQiOiB7DQogICAgInB5dGhvbiI6ICIzLjEyLjEwIiwNCiAgICAicGxhdGZvcm0iOiAiV2luZG93cy0xMS0xMC4wLjIyNjMxLVNQMCIsDQogICAgImxvY2tfb3JfaW1hZ2VfZGlnZXN0IjogbnVsbA0KICB9LA0KICAicmFuZG9tX3NlZWRzIjogW10sDQogICJxdWFsaXR5X3Jlc3VsdHMiOiBbXSwNCiAgIm1ldHJpY3MiOiB7fSwNCiAgImFydGlmYWN0cyI6IFtdLA0KICAibGluZWFnZV9ldmVudHMiOiAibGluZWFnZS5qc29ubCIsDQogICJjb25jbHVzaW9uIjogIuacgOi/kTI05bCP5pe25aSa6Zeu6aKY6YCJ5oup44CB6L276YeP5b+r54Wn44CB57yW5Y+35byV55So44CB5YWs5byP5Y+K6K+B5o2u6K+m5oOF5bey5a6e5pa977yb6aqM6K+B5LiO5a6e6ZmF6ZmQ5Yi26KeBUkVTVUxUUy5tZOOAgiIsDQogICJsaW1pdGF0aW9ucyI6IFsNCiAgICAi5b+r54Wn5bGV56S65LiN562J5LqO6K+B5o2u5oiW56eR5a2m57uT6K666YeN5paw5qC46aqM44CCIiwNCiAgICAi5pep5pyfQ0xJ5a6M5pW05oCn5aSx6LSl5LiO5ZCO57utQVBJ5oiQ5Yqf5beu5byC5pyq5a6a5L2N77yM5pyq5pS55YaZ5Y6G5Y+y5oyH57q544CCIiwNCiAgICAi5pys5py66ZqU56a7V2luZG93c+WNh+e6p+mqjOivge+8m+acquWPkeW4g++8jOesrOS6jOeJqeeQhuacuuacqumqjOaUtuOAgiINCiAgXSwNCiAgInBhcmVudF9ydW5faWRzIjogW10sDQogICJyZWxhdGVkX21vZHVsZV9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfcmVzZWFyY2hfaWRzIjogW10sDQogICJyZWxhdGVkX2RhdGFzZXRfaWRzIjogW10sDQogICJyZXZpZXciOiB7DQogICAgInN0YXR1cyI6ICJub3QtcmV2aWV3ZWQiLA0KICAgICJyZXZpZXdlciI6IG51bGwsDQogICAgImRhdGUiOiBudWxsDQogIH0sDQogICJzZW5zaXRpdml0eSI6ICJpbnRlcm5hbCINCn0NCg==",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T212839Z-337776B112FC",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "最近问题笔记与证据详情性能及引用改进",
+    "keywords": [
+      "recent reading notes",
+      "evidence navigation"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "completed",
+    "created_at": "2026-09-16T21:28:39Z",
+    "started_at": "2026-09-16T21:28:39Z",
+    "ended_at": "2026-09-16T22:16:16.199763+00:00",
+    "owner": null,
+    "question": "最近问题笔记能否快速展示，且公式、固定引用和记录详情导航保持可追溯？",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t212839z-337776b112fc/.run-captures/final-evidence/source.zip",
+        "sha256": "21436f9240b6eb361baa5e079a7eeb72e849377f6658f45586e9243188113a5c",
+        "role": "input",
+        "registered_at": "2026-09-16T22:16:17.698562Z"
+      }
+    ],
+    "parameters": {},
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t212839z-337776b112fc/.run-captures/final-evidence/receipts.zip",
+        "sha256": "71ae6899d17f76e3c5ab5e30898507c65bef28d5eace3424e340e282a5d54960",
+        "role": "artifact",
+        "registered_at": "2026-09-16T22:16:17.715045Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t212839z-337776b112fc/.run-captures/final-evidence/manifest.json",
+        "sha256": "1dfbe653cc8e47d0749988c33c9bb42a864f9ad288cfa8a346f9e75c79e25ebf",
+        "role": "artifact",
+        "registered_at": "2026-09-16T22:16:17.728101Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t212839z-337776b112fc/RESULTS.md",
+        "sha256": "ac1e15ddeff044f20cc1bb0ef14f384d2f0d27c55950bc751f856c3b1cd25649",
+        "role": "artifact",
+        "registered_at": "2026-09-16T22:16:17.740099Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t212839z-337776b112fc/freeze_evidence.py",
+        "sha256": "ba028c8e86362cd1c3a493dcf52f7fa493da3ab976752101ae8eeadcfb5637c6",
+        "role": "artifact",
+        "registered_at": "2026-09-16T22:16:17.752311Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "最近24小时多问题选择、轻量快照、编号引用、公式及证据详情已实施；验证与实际限制见RESULTS.md。",
+    "limitations": [
+      "快照展示不等于证据或科学结论重新核验。",
+      "早期CLI完整性失败与后续API成功差异未定位，未改写历史指纹。",
+      "本机隔离Windows升级验证；未发布，第二物理机未验收。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-16T22:16:17.806989Z"
+}

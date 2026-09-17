@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260912T211413Z-6272D2E02162",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "统一工作流与跨对象阅读入口实施及一致性验证",
+  "keywords": [
+    "统一工作流",
+    "work-loop",
+    "阅读记录",
+    "跨对象经验",
+    "Skill一致性",
+    "旧数据保护"
+  ],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "succeeded",
+  "created_at": "2026-09-12T21:14:13Z",
+  "started_at": "2026-09-12T21:14:13Z",
+  "ended_at": "2026-09-12T22:22:12.550512+00:00",
+  "owner": "Codex",
+  "question": "统一所有Owner的工作与记录入口，并审查Skill、代码接口、工作流、文档和旧数据升级保护是否连贯。",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/source.zip",
+      "sha256": "18a9a81715c3959b89be181c1e324d0bcd57be09e00ca96bdd24fc4cfc4ade3b",
+      "role": "input",
+      "registered_at": "2026-09-12T22:22:14.150000Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/source-fingerprints.json",
+      "sha256": "5dbabdeec3346186c009bfba8b24e9f207e8752a16f5450ff1db4827309f7354",
+      "role": "input",
+      "registered_at": "2026-09-12T22:22:14.162002Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/before.zip",
+      "sha256": "c6845e17337266534fbb6a8895d2a98c31b26d4d8879196d6fcea6c2ee7c2536",
+      "role": "input",
+      "registered_at": "2026-09-12T22:22:14.172507Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/before-manifest.json",
+      "sha256": "df22630db65f3981ea2a8ce544f3ed17cdd6ea006feed2c970362d5661c794a3",
+      "role": "input",
+      "registered_at": "2026-09-12T22:22:14.184652Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/before-git-status.txt",
+      "sha256": "ca4b91f2eeaa4894e610003b61fbd37781d92c5e3ac8e1a82c7c8f805602dcea",
+      "role": "input",
+      "registered_at": "2026-09-12T22:22:36.955688Z"
+    }
+  ],
+  "parameters": {},
+  "code": {
+    "commit": "fa9de29c0fa4cd8fbc20c599ee7fd3397a919865",
+    "dirty": true,
+    "snapshot_manifest": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/source-fingerprints.json"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": "5bc0ebab661be8031755b4852953ae9dc054f451ab18def291f5eed078d3d1e4"
+  },
+  "random_seeds": [],
+  "quality_results": [
+    {
+      "check": "backend_full_first_execution",
+      "status": "failed",
+      "details": "598项，5处失败；原日志保留，3个受影响方法的4处失败已定向复验，既有B01仍失败。"
+    },
+    {
+      "check": "changed_behavior_and_compatibility",
+      "status": "passed",
+      "details": "阅读15项、八Owner参数化1项、Owner接口2项及全量相关案例；实际读取/权限/预算/只读边界保留。"
+    },
+    {
+      "check": "windows_setup_upgrade_restore",
+      "status": "passed",
+      "details": "18项不同检查获通过证据：17项回归通过，真实setup完整链路修正换行预期后1项通过。"
+    },
+    {
+      "check": "frontend",
+      "status": "passed",
+      "details": "38组件、16个不同普通浏览器场景、类型检查/构建通过；原失败与修正复验分别保存。"
+    },
+    {
+      "check": "actual_ai",
+      "status": "passed",
+      "details": "独立AI合成场景自查通过，包含公开保存/完整读取/Run失败/检查点/跨进程；非人工认可或真实业务检索质量。"
+    },
+    {
+      "check": "catalog_and_docs",
+      "status": "passed",
+      "details": "r71共655登记、40基线；六文档与9方法逐项审查，工作区0错误/8既有警告。"
+    }
+  ],
+  "metrics": {},
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/RESULTS.md",
+      "sha256": "fae8e6f8cffd11d1af23cbbbb81feec0217b5739dc0c373fe0114d57622c576e",
+      "role": "artifact",
+      "registered_at": "2026-09-12T22:22:14.195654Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/verification.zip",
+      "sha256": "c538795248c05e732be08922ba0a1c2ecbf82164da6019e4807770db3cef0071",
+      "role": "artifact",
+      "registered_at": "2026-09-12T22:22:14.206156Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/ai-forward.zip",
+      "sha256": "d2293042ef7d7205a4823fe771115031ad3dd422b3c46ccd056152665dd8d4c1",
+      "role": "artifact",
+      "registered_at": "2026-09-12T22:22:14.217358Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/skill-size.json",
+      "sha256": "7fce0b11300ec571e951e52db322f47dcf1475437171e48e823aa5920b257bc3",
+      "role": "artifact",
+      "registered_at": "2026-09-12T22:22:14.229356Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "统一工作流与阅读可见入口已实现，本次相关软件失败修正后复验通过。Run succeeded表示本次实现/审查执行结束，不代表全量首次通过或科学结论已复核；历史B01仍失败。",
+  "limitations": [
+    "既有B01冻结计划自检失败未改写；全量首轮与定向复验分别保留，未重新执行整轮全绿。",
+    "源码工作树含之前多轮未提交修改，以本次快照定位；未提交Git或发布。",
+    "无旧流程同题实际AI耗时/质量对照，不能宣称总体检索质量或性能提升。",
+    "万条规模暂缓，人工真实业务及第二物理机未验收；本次无模型或依赖变更。"
+  ],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

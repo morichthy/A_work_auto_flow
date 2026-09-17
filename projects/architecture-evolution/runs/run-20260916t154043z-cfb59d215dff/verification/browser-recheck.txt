@@ -1,0 +1,79 @@
+
+> rd-workbench@1.0.0 e2e
+> playwright test e2e/memory.spec.ts e2e/material-query.spec.ts
+
+
+Running 14 tests using 1 worker
+
+  x   1 e2e\material-query.spec.ts:80:1 › 材料查询真实HTTP组装四区、固定依据与来源映射 (0ms)
+  -   2 e2e\material-query.spec.ts:154:1 › 维护任务包导出保留未审状态，改变条件使旧候选失效
+  -   3 e2e\material-query.spec.ts:209:1 › 真实预算耗尽显示停止原因并保留查询范围
+  -   4 e2e\material-query.spec.ts:224:1 › 有效 partial 审查与真实提交保留索引待办，关闭已完成提交
+  -   5 e2e\material-query.spec.ts:423:1 › 概览正文通过固定引用展开经过与技术内容，来源切换和取消选择明确
+  x   6 e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 (0ms)
+  -   7 e2e\memory.spec.ts:115:1 › 系统记忆默认研究经过，按需生成对象记忆且保持子页结果
+  -   8 e2e\memory.spec.ts:207:1 › 四层记录、真实编辑冲突、索引待补偿与安全导出
+  -   9 e2e\memory.spec.ts:336:1 › 连续研究报告、固定图示、目录路由和窄屏阅读
+  -  10 e2e\memory.spec.ts:644:1 › 研究、Run、知识与报告真实记录及辅助对象可区分
+  -  11 e2e\memory.spec.ts:738:1 › 缺范围复核被拒绝并保留逐结论状态
+  -  12 e2e\memory.spec.ts:799:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联
+  -  13 e2e\memory.spec.ts:891:1 › 逐层读取固定原件、返回已读版本，并识别原件变化
+  -  14 e2e\memory.spec.ts:949:1 › 独立双文稿、必要定义、章节上下文与固定修订影响
+
+
+  1) e2e\material-query.spec.ts:80:1 › 材料查询真实HTTP组装四区、固定依据与来源映射 ────────────────────────────────────
+
+    Error: 材料查询沙盒退出 1：{"root": "D:\\\u5171\u4eab\u684c\u9762\\A_work\\A_work_auto_flow\\.local\\memory-browser-h_h5rm2o\\\u4e2d\u6587 \u8bb0\u5fc6\u6c99\u76d2", "mapping": {"MEM-SRC-THERMAL": "MEM-29b6adf0-30e2-5bff-860a-bab6fb9590ae", "MEM-EXP-THERMAL": "MEM-9540daf8-62bb-5430-bbe6-287086d02f88", "MEM-MAP-THERMAL": "MEM-23409465-26be-5ecb-8192-9dec28b375a8", "MEM-SRC-PRESSURE": "MEM-0762764b-164f-50a8-92bc-6dcebee0e8dd", "MEM-EXP-PRESSURE": "MEM-26dd0bd4-6eed-5d3b-9e07-dc97565b0112", "MEM-MAP-PRESSURE": "MEM-53eba0e9-f89f-57f9-95cc-c7a18eea69d2"}, "source_paths": {"SRC-SYN-THERMAL": "synthetic-sources/thermal.md", "SRC-SYN-PRESSURE": "synthetic-sources/pressure.md", "SRC-SYN-RETRY": "synthetic-sources/retry.md", "SRC-SYN-CACHE": "synthetic-sources/cache.md", "SRC-SYN-VIBRATION": "synthetic-sources/vibration.md", "SRC-SYN-UNITS": "synthetic-sources/units.md", "SRC-SYN-OCR": "synthetic-sources/ocr.md", "SRC-SYN-REPEAT": "synthetic-sources/repeat.md"}}
+    Traceback (most recent call last):
+      File "D:\��������\A_work\A_work_auto_flow\automation\tests\serve_memory_test.py", line 94, in <module>
+        main()
+      File "D:\��������\A_work\A_work_auto_flow\automation\tests\serve_memory_test.py", line 90, in main
+        workbench.serve(fixture.root, open_browser=False)
+      File "D:\��������\A_work\A_work_auto_flow\automation\scripts\workbench.py", line 124, in serve
+        raise ValueError('ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��' + name)
+    ValueError: ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��e2e/memory.spec.ts
+
+
+      46 |     process.on("exit", (code) => {
+      47 |       clearTimeout(timeout);
+    > 48 |       fail(Error(`材料查询沙盒退出 ${code}：${output}`));
+         |            ^
+      49 |     });
+      50 |   });
+      51 | });
+        at ChildProcess.<anonymous> (D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\material-query.spec.ts:48:12)
+
+    Error Context: test-results\material-query-材料查询真实HTTP组装四区、固定依据与来源映射\error-context.md
+
+    Error Context: test-results\material-query-材料查询真实HTTP组装四区、固定依据与来源映射\error-context.md
+
+  2) e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 ────────────────────────────────────────
+
+    Error: 记忆服务退出 1: {"root": "D:\\\u5171\u4eab\u684c\u9762\\A_work\\A_work_auto_flow\\.local\\memory-browser-uddqfqva\\\u4e2d\u6587 \u8bb0\u5fc6\u6c99\u76d2", "mapping": {"MEM-SRC-THERMAL": "MEM-29b6adf0-30e2-5bff-860a-bab6fb9590ae", "MEM-EXP-THERMAL": "MEM-9540daf8-62bb-5430-bbe6-287086d02f88", "MEM-MAP-THERMAL": "MEM-23409465-26be-5ecb-8192-9dec28b375a8", "MEM-SRC-PRESSURE": "MEM-0762764b-164f-50a8-92bc-6dcebee0e8dd", "MEM-EXP-PRESSURE": "MEM-26dd0bd4-6eed-5d3b-9e07-dc97565b0112", "MEM-MAP-PRESSURE": "MEM-53eba0e9-f89f-57f9-95cc-c7a18eea69d2"}, "source_paths": {"SRC-SYN-THERMAL": "synthetic-sources/thermal.md", "SRC-SYN-PRESSURE": "synthetic-sources/pressure.md", "SRC-SYN-RETRY": "synthetic-sources/retry.md", "SRC-SYN-CACHE": "synthetic-sources/cache.md", "SRC-SYN-VIBRATION": "synthetic-sources/vibration.md", "SRC-SYN-UNITS": "synthetic-sources/units.md", "SRC-SYN-OCR": "synthetic-sources/ocr.md", "SRC-SYN-REPEAT": "synthetic-sources/repeat.md"}}
+    Traceback (most recent call last):
+      File "D:\��������\A_work\A_work_auto_flow\automation\tests\serve_memory_test.py", line 94, in <module>
+        main()
+      File "D:\��������\A_work\A_work_auto_flow\automation\tests\serve_memory_test.py", line 90, in main
+        workbench.serve(fixture.root, open_browser=False)
+      File "D:\��������\A_work\A_work_auto_flow\automation\scripts\workbench.py", line 124, in serve
+        raise ValueError('ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��' + name)
+    ValueError: ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��e2e/memory.spec.ts
+
+
+      108 |     process.on("exit", (code) => {
+      109 |       clearTimeout(timer);
+    > 110 |       fail(Error(`记忆服务退出 ${code}: ${output}`));
+          |            ^
+      111 |     });
+      112 |   });
+      113 | });
+        at ChildProcess.<anonymous> (D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\memory.spec.ts:110:12)
+
+    Error Context: test-results\memory-L0统一材料、无来源条目的Run、固定原件预览与清单导出\error-context.md
+
+    Error Context: test-results\memory-L0统一材料、无来源条目的Run、固定原件预览与清单导出\error-context.md
+
+  2 failed
+    e2e\material-query.spec.ts:80:1 › 材料查询真实HTTP组装四区、固定依据与来源映射 ─────────────────────────────────────
+    e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 ─────────────────────────────────────────
+  12 did not run

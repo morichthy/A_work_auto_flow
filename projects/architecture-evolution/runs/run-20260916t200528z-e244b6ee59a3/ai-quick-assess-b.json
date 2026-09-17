@@ -1,0 +1,1 @@
+{"session_id":"RS-123e4567-e89b-42d3-a456-426614174001","expected_revision":3,"request_id":"ai-quick-assess-b","candidate_id":"RC-30d2e258833d9126ad3cdc6e","useful":true,"reason":"实际片段给出dv/S到dt的局部线性机制、量纲、数值示例和斜率近零/非线性边界，为A时间误差提供条件性上游线索且明确不可直接归因电源。"}

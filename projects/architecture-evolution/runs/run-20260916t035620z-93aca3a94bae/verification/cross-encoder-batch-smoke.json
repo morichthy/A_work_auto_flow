@@ -1,0 +1,10 @@
+{
+  "implementation": "onnx-pair-batch-v1",
+  "batch_size": 16,
+  "max_length": 512,
+  "pair_definition": "See cross-encoder-smoke.json for the same two Chinese query/document pairs",
+  "batch_scores": [-1.3465111255645752, -10.08102035522461],
+  "single_scores": [-1.1031274795532227, -10.119453430175781],
+  "absolute_difference": [0.24338364601135254, 0.038433074951171875],
+  "limitation": "Dynamic INT8 quantization varies with batch composition and padding; logits are not cross-batch stable probabilities. No post-hoc tolerance is used as a model quality gate. Both modes retain relevant-before-irrelevant order for this smoke only."
+}

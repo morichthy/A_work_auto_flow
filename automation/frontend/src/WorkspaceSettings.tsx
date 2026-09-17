@@ -10,8 +10,18 @@ export type WorkspaceSettingsValue = {
     strategy: "standard" | "associative" | "quick";
     association: { enabled: boolean; max_rounds: number };
     context: { max_owners: number; note_max_tokens: number };
+    screening: {
+      regular_windows: number;
+      max_windows: number;
+      batch_owners: number;
+    };
     result_limit: number;
-    reranking: { mode: "off" | "auto" | "required"; candidate_limit: number };
+    reranking: {
+      mode: "off" | "auto" | "required";
+      candidate_limit: number;
+      window_tokens: number;
+      overflow_policy: "hit_centered_per_window";
+    };
     budget: Budget;
   };
 };
@@ -52,8 +62,12 @@ function toDraft(value: WorkspaceSettingsValue): Draft {
     association_enabled: String(value.reading.association?.enabled ?? true),
     association_rounds: String(value.reading.association?.max_rounds ?? 3),
     candidate_limit: String(value.reading.reranking.candidate_limit),
+    ce_window_tokens: String(value.reading.reranking.window_tokens),
     max_owners: String(value.reading.context.max_owners),
     note_max_tokens: String(value.reading.context.note_max_tokens),
+    regular_windows: String(value.reading.screening.regular_windows),
+    max_windows: String(value.reading.screening.max_windows),
+    batch_owners: String(value.reading.screening.batch_owners),
   };
   for (const group of ["materials", "reading"] as const) {
     out[group + ".result_limit"] = String(value[group].result_limit);
@@ -121,7 +135,32 @@ function fromDraft(
       512,
     ),
   };
+  value.reading.screening = {
+    regular_windows: integer(
+      draft,
+      "regular_windows",
+      "每个Owner常规窗口数",
+      4,
+      1,
+    ),
+    max_windows: integer(draft, "max_windows", "每个Owner窗口硬上限", 4, 1),
+    batch_owners: integer(draft, "batch_owners", "每批Owner数", 100, 1),
+  };
+  if (
+    value.reading.screening.regular_windows >
+    value.reading.screening.max_windows
+  )
+    throw new Error("每个Owner常规窗口数不能大于窗口硬上限。");
   value.reading.reranking.mode = draft.mode as "off" | "auto" | "required";
+  value.reading.reranking.window_tokens = integer(
+    draft,
+    "ce_window_tokens",
+    "CE单窗token上限",
+    512,
+    64,
+  );
+  // 该版本只提供逐窗口命中中心截取；不允许UI恢复整批回退策略。
+  value.reading.reranking.overflow_policy = "hit_centered_per_window";
   for (const group of ["materials", "reading"] as const) {
     // 两类预算分别编辑；即使调用方复用了同一个默认对象，也不能互相覆盖。
     value[group].budget = { ...value[group].budget };
@@ -367,6 +406,26 @@ export function WorkspaceSettings({ active = true }: { active?: boolean }) {
                   <p className="muted">
                     控制一次阅读的Owner数量和最终交给主agent的note大小。token采用保守估算，
                     不是宿主模型的精确token计数，也不是宿主整个上下文窗口大小。
+                  </p>
+                  <h3>Owner发现筛选包</h3>
+                  <div className="form-grid">
+                    {numberInput(
+                      "regular_windows",
+                      "每个Owner常规窗口数",
+                      4,
+                      1,
+                    )}
+                    {numberInput("max_windows", "每个Owner窗口硬上限", 4, 1)}
+                    {numberInput("batch_owners", "每批Owner数", 100, 1)}
+                    {numberInput(
+                      "ce_window_tokens",
+                      "CE单窗token上限",
+                      512,
+                      64,
+                    )}
+                  </div>
+                  <p className="muted">
+                    每个Owner通常交付少量互补窗口，最多不超过硬上限。CE按单个命中窗口处理；超长文本围绕真实命中截取，不会使整批回退。
                   </p>
                   <details>
                     <summary>高级资源保护（单次操作）</summary>

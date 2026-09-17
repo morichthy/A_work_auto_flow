@@ -1,0 +1,98 @@
+{
+  "status": "partial",
+  "value": {
+    "strategy": "associative",
+    "association": {
+      "enabled": true,
+      "max_rounds": 3
+    },
+    "association_text": "",
+    "synthesis_included": false,
+    "references": [
+      {
+        "number": 1,
+        "ref": {
+          "kind": "record",
+          "id": "MEM-9ba4fafb-f8b1-5afc-86b5-5cb4532762a9",
+          "revision": 1,
+          "sha256": "37ed58315083826cf2ec25d063549b0073de5dcc2e3eac8fdf66a58f95659b2e",
+          "locator": null
+        },
+        "title": "合成校准研究过程",
+        "url": "#/evidence?id=MEM-9ba4fafb-f8b1-5afc-86b5-5cb4532762a9&revision=1&sha256=37ed58315083826cf2ec25d063549b0073de5dcc2e3eac8fdf66a58f95659b2e",
+        "section_owner_id": "RES-MQ-A"
+      }
+    ],
+    "context_markdown": "## RES-MQ-A\n\n### 理解\n\n这份材料先区分电压与温度，避免直接把电压数值当作温度，再通过线性校准反算摄氏温度并转换温标。校准关系为 $V=a t+b$：$V$ 的单位是 V，$t$ 的单位是 °C，斜率 $a=0.01$ V/°C，截距 $b=0.50$ V。反算得到 $t=(V-b)/a$，随后用 $T=t+273.15$ 转为单位 K 的热力学温度。合成输入 $V=0.75$ V 因而对应 $t=25$ °C、$T=298.15$ K。这是材料中给定模型的计算示例，不是现实测量准确性的证明。[[1]]\n\n温标转换只增加固定偏移，因此温差和标准不确定度的数值保持不变，但单位随温标改变。这一关系可以帮助比较以两种温标表达的测量结果，不能用来推定校准区间之外仍满足线性模型。[[1]]\n\n### 条件\n\n合成线性校准；温度范围为0至80 °C，未经现实传感器验证。\n\n### 逻辑与假设\n\n材料针对单位混淆先固定变量与校准关系，再计算温度；随后把温标换算与校准误差分开讨论。其误差传播结论依赖斜率、截距无误差这一假设。[[1]]\n\n### 细节、参数、单位与边界\n\n若 $a,b$ 无误差，且电压标准不确定度为 $u_V=0.002$ V，则\n\n$$u_t=\\frac{u_V}{|a|}=0.2\\;{}^\\circ\\mathrm{C},\\qquad u_T=0.2\\;\\mathrm{K}.$$\n\n这里的 $u_t,u_T$ 分别为摄氏温度和热力学温度的标准不确定度；若校准参数也不确定，上式不能完整描述温度不确定度。[[1]]\n\n材料支持的范围为 $0\\le t\\le80$ °C。95 °C被用作超出区间的反例，线性外推尚未验证；不能把25 °C的计算示例推广为95 °C准确性的证据。[[1]]\n\n### 限制、反例与待验证\n\n材料为合成软件验收输入，不是传感器实验或科学复核。\n\n只读取已交付研究过程正文；原始输入文件未独立展开。Owner仍有未交付记录，不能声称覆盖该Owner全部材料。\n\n校准参数不确定度、95 °C外推均未验证。\n\n### 可选的下一步建议\n\n材料建议：若需扩大温区，应先加入独立边界校准样本；该建议尚未成为已完成实验。\n\n### 待验证联想线索\n\n摄氏与开尔文温标相差固定偏移，温差及标准不确定度数值保持。\n\n关联依据：该关系有助于比较不同温标表达的结果，但不证明跨温区校准模型适用。\n\n限制：材料未给出后续检索词，主Agent也未指定联想搜索文本。\n\n线索依据：[1]\n\n本节依据：[1]。\n\n### 参考文献\n\n[1] 合成校准研究过程",
+    "mode": "owner_document",
+    "phase": "review",
+    "included_owner_ids": [
+      "RES-MQ-A"
+    ],
+    "notes_count": 1,
+    "omitted_note_count": 0,
+    "unnoted_candidate_count": 0,
+    "estimated_note_tokens": 2491,
+    "note_max_tokens": 6000,
+    "token_estimation": "utf8_bytes_conservative; not_host_exact_tokens",
+    "complete": false,
+    "gaps": [
+      "Owner内有记录不满足当前授权或固定来源不可用，未交付",
+      "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+      "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null",
+      "阅读尚未完成"
+    ],
+    "needs_user_input": false,
+    "session_id": "RS-2417fd8d-07bf-4f6d-b937-9cb5956d2df4",
+    "revision": 4
+  },
+  "code": null,
+  "warnings": [
+    "Owner内有记录不满足当前授权或固定来源不可用，未交付",
+    "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+    "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null",
+    "阅读尚未完成"
+  ],
+  "issues": [
+    {
+      "code": "PARTIAL",
+      "message": "Owner内有记录不满足当前授权或固定来源不可用，未交付",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    },
+    {
+      "code": "PARTIAL",
+      "message": "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    },
+    {
+      "code": "PARTIAL",
+      "message": "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    },
+    {
+      "code": "PARTIAL",
+      "message": "阅读尚未完成",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    }
+  ],
+  "consumed": {
+    "wall_ms": 141,
+    "read_bytes": 51065,
+    "output_chars": 2193,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

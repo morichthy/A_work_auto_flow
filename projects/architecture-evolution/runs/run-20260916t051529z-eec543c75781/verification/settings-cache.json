@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "timestamp_utc": "2026-09-16T05:27:46.339907+00:00",
+  "scope": "settings read only in synthetic temporary roots; not material query performance",
+  "platform": "Windows-11-10.0.22631-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "iterations": 2000,
+  "cold_read_ms": 3.1212,
+  "warm_read_ms": {
+    "p50": 0.38795,
+    "p95": 0.7553,
+    "min": 0.327,
+    "max": 3.7081
+  },
+  "json_decodes": {
+    "cold": 1,
+    "warm": 0
+  },
+  "percentile_method": "nearest rank for p95; statistics.median for p50",
+  "threshold": null,
+  "remaining_cost": "Every read still resolves/checks the root, stats the settings path, locks and deep-copies the snapshot.",
+  "limitations": [
+    "Single machine/process synthetic settings; no cross-machine claim.",
+    "Cold means process cache miss; OS filesystem cache is not flushed.",
+    "No retrieval-quality, material-IO, model-inference or end-to-end query benchmark."
+  ],
+  "source_sha256": {
+    "automation\\scripts\\workspace_settings.py": "6e7c23f80847899a503afc5bcf15ede28553042325faf0cf4fd6008e7ad003b0",
+    "projects\\architecture-evolution\\runs\\run-20260916t051529z-eec543c75781\\scripts\\settings_cache_probe.py": "29a006070baf79e9f73713730551302ff0f12309929cb0c508defd6aa30a548d"
+  }
+}

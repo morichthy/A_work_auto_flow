@@ -1,0 +1,78 @@
+[
+  {
+    "path": "automation/workflows/consolidate-results/SKILL.md",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/workflows/work-loop/SKILL.md",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/workflows/semantic-maintenance/SKILL.md",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/scripts/install_workspace_skills.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/tests/test_install_workspace_skills.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/tests/test_deployment_workbench.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/tests/upgrade_fixture.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/scripts/deployment.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/scripts/material_query/query_plan.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/scripts/material_query/reading.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/scripts/workspace_cli.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/scripts/deployment.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/tests/test_reading_query_plan.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/tests/test_reading_workflow.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/tests/test_material_recall.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/tests/test_deployment_workbench.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/tests/upgrade_fixture.py",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/workflows/material-query/SKILL.md",
+    "same_bytes": true
+  },
+  {
+    "path": "automation/templates/query-terms.default.json",
+    "same_bytes": true
+  }
+]

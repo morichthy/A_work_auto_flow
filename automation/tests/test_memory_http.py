@@ -71,6 +71,31 @@ class MemoryHttpTests(unittest.TestCase):
         self.assertEqual(status, 409); self.assertEqual(error['error']['code'], 'VERSION_CONFLICT')
         self.assertEqual(self.service.inspect('RES-TEST')['head']['commit_id'], accepted['commit_id'])
 
+    def test_discovery_gap_and_rebuild_actions_use_real_http_dispatch(self):
+        """The workbench HTTP wildcard must expose the same auditable repair surface."""
+        from memory import discovery
+        from memory.store import MemoryStore
+        from memory import owners
+        self.service.commit(request())
+        owner = owners.resolve_owner(self.root, 'RES-TEST')
+        head = MemoryStore(self.root).read_snapshot(owner)['head']
+        status, gaps = self.post('discovery-gaps', {'owner_id': 'RES-TEST'})
+        self.assertEqual(status, 200, gaps)
+        self.assertEqual(gaps['owners'][0]['owner_id'], 'RES-TEST')
+        status, preview = self.post('rebuild-discovery', {
+            'owner_id': 'RES-TEST', 'expected_head': head,
+            'projection_version': discovery.PROJECTION_VERSION,
+            'vector': 'off', 'dry_run': True})
+        self.assertEqual(status, 200, preview)
+        self.assertTrue(preview['dry_run'])
+        self.assertEqual(preview['writes'], 0)
+        status, built = self.post('rebuild-discovery', {
+            'owner_id': 'RES-TEST', 'expected_head': head,
+            'projection_version': discovery.PROJECTION_VERSION,
+            'vector': 'off'})
+        self.assertEqual(status, 200, built)
+        self.assertEqual(built['index_status'], 'indexed')
+
     def test_U08_origin_shell_and_path_do_not_read_external(self):
         status, _ = self.post('commit', request(), origin='https://untrusted.invalid')
         self.assertEqual(status, 403)

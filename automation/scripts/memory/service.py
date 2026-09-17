@@ -426,6 +426,14 @@ class MemoryService:
         result = deepcopy(receipt)
         try:
             if sync:
+                # Canonical publication invalidates the independent compressed
+                # discovery projection before any other derived sync can fail.
+                # Repair uses rebuild-discovery against this exact HEAD and
+                # never repeats the already-published business commit.
+                from . import discovery
+                owner = owners.resolve_owner(self.root, result["owner_id"])
+                head = self.store.read_snapshot(owner)["head"]
+                discovery.mark_pending(self.root, result["owner_id"], head)
                 index.sync_owner(self.root, result["owner_id"], result.get("generation"))
             state = index.status(self.root, result["owner_id"])
             result.update(index_status=state["index_status"], index_details=state["index_details"])

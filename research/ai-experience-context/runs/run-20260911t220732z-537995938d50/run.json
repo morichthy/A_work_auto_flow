@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260911T220732Z-537995938D50",
+  "owner_id": "RES-AI-EXPERIENCE-CONTEXT",
+  "project_id": null,
+  "title": "检索方案讨论与一手文献证据整理 v0.1",
+  "keywords": [
+    "经验检索",
+    "上下文组织",
+    "RAG",
+    "方案比较",
+    "召回"
+  ],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "succeeded",
+  "created_at": "2026-09-11T22:07:32Z",
+  "started_at": "2026-09-11T22:07:32Z",
+  "ended_at": "2026-09-11T22:22:33.689748Z",
+  "owner": "Codex",
+  "question": "选择能高召回复用历史经验并维持同问题上下文的检索、阅读及编排方案；解释候选取舍和业界依据。",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/user-proposal.txt",
+      "sha256": "98a08fa2646d5fdd93f4e11aa6912c0bc94f9365f0d7cf3a460b258cacb5e8b1",
+      "role": "input",
+      "registered_at": "2026-09-11T22:12:25.609542Z"
+    },
+    {
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/discussion-before-research.md",
+      "sha256": "4377e7a8a6a071604cb5cd36fc561c3c6c64bd20d813811fe612889a2da1983a",
+      "role": "input",
+      "registered_at": "2026-09-11T22:12:25.619952Z"
+    },
+    {
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/memory-index.py",
+      "sha256": "fd224c67290a08e6e5b7a55c0991e5035075a7ec56efb67a1e63bf104a67263a",
+      "role": "input",
+      "registered_at": "2026-09-11T22:12:25.630298Z"
+    },
+    {
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/technical-units.py",
+      "sha256": "fe707cba7c75e6272b90f37734396d680960b5133d287c82abb3ef5cd75da287",
+      "role": "input",
+      "registered_at": "2026-09-11T22:12:25.641394Z"
+    },
+    {
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/material-query-coordinator.py",
+      "sha256": "4231476d8c3251fb4c9f9077d817222063440b384ff40d777b8ac61723e209f4",
+      "role": "input",
+      "registered_at": "2026-09-11T22:12:25.650798Z"
+    }
+  ],
+  "parameters": {
+    "activity": "文献阅读、讨论整理与静态代码核对",
+    "discussion_date_local": "2026-09-12",
+    "timezone": "Asia/Shanghai"
+  },
+  "code": {
+    "commit": "fa9de29c0fa4cd8fbc20c599ee7fd3397a919865",
+    "dirty": true,
+    "note": "工作区包含既有未提交修改；本次核对的实际实现以登记快照和 SHA-256 为准。"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [
+    {
+      "check": "controlled_evidence_registration",
+      "status": "passed",
+      "note": "7个实际文件已由 run-register 固定指纹并回读清单；不表示业务结论已复核。"
+    }
+  ],
+  "metrics": {},
+  "artifacts": [
+    {
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/primary-source-notes.md",
+      "sha256": "8a813a1bc554c3ba757dbcadf08a3c851284bf96aa46796932b4903859148dd2",
+      "role": "artifact",
+      "registered_at": "2026-09-11T22:12:25.662109Z"
+    },
+    {
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/discussion-decisions.md",
+      "sha256": "daf7a21ba20c7a8a3516a57a215cb6cd09713024d7990565bb895642db2b0e3d",
+      "role": "artifact",
+      "registered_at": "2026-09-11T22:12:25.676865Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "完成一手来源阅读、用户讨论整理及静态代码比较；形成 v0.1 方案和待执行评价方法。未开展本地检索性能实验，方案有效性与最终选型未复核。",
+  "limitations": [
+    "本 Run 登记受控证据和分析文稿，不是检索性能实验。",
+    "外部来源保存链接和阅读笔记，不是完整网页离线副本。",
+    "用户认可查询扩展原则，不表示已选定最终架构。"
+  ],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

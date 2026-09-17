@@ -1,0 +1,1457 @@
+{
+  "status": "partial",
+  "value": {
+    "candidates": [
+      {
+        "candidate_id": "RC-40508afca96516a59f4e0963",
+        "title": "SYNTHETIC ONLY A.experience",
+        "ref": {
+          "kind": "record",
+          "id": "MEM-dd3d4471-66dc-59c6-ac70-4bbb3e950da4",
+          "revision": 1,
+          "sha256": "bcd46c877dbe4860534a06b1dbd467704086bf15e5e82bcb062d9329c372ab99",
+          "locator": null
+        },
+        "link": "D:/共享桌面/A_work/A_work_auto_flow/.local/bilingual-query-run-20260914t174350z-b0d5aff7d7c3/synthetic-workspace/research/mq-a/memory/commits/COM-d973ed0c-9b0f-5cfd-8f58-676bb7b94575/records/MEM-dd3d4471-66dc-59c6-ac70-4bbb3e950da4.json",
+        "source": "overview_experience",
+        "reading_form": "full",
+        "packet": {
+          "packet_id": "PKT-2935de03-f53b-44c2-8468-05c37b054bed",
+          "query_id": "MQ-d4a5949e-14e2-47c7-9400-814382480560",
+          "definition": {
+            "key": "full",
+            "version": "1"
+          },
+          "parts": [
+            {
+              "group": "direct",
+              "heading": "SYNTHETIC ONLY A.experience",
+              "markdown": "延迟反馈回路中高增益导致振荡。先获得时延，再逐级提高增益\n\n**适用条件**\n\n- SYNTHETIC ONLY：存在反馈且已知时延\n\n**失败模式**\n\n- 延迟未建模引起振荡\n\n**problem_structure**\n\n延迟反馈回路中高增益导致振荡\n\n**不适用条件**\n\n- 不得直接外推现实数值或将文本相似当科学支持\n\n**建议**\n\n先获得时延，再逐级提高增益\n\n**retry_conditions**\n\n- 独立检查机制、时延与边界",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-dd3d4471-66dc-59c6-ac70-4bbb3e950da4",
+                  "revision": 1,
+                  "sha256": "bcd46c877dbe4860534a06b1dbd467704086bf15e5e82bcb062d9329c372ab99",
+                  "locator": null
+                }
+              ],
+              "selectors": [
+                "experience"
+              ],
+              "omitted": []
+            }
+          ],
+          "contributors": [
+            {
+              "kind": "record",
+              "id": "MEM-dd3d4471-66dc-59c6-ac70-4bbb3e950da4",
+              "revision": 1,
+              "sha256": "bcd46c877dbe4860534a06b1dbd467704086bf15e5e82bcb062d9329c372ab99",
+              "locator": null
+            }
+          ],
+          "complete": true,
+          "canonical": false
+        },
+        "channels": [
+          "dense"
+        ],
+        "hits": [
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 1,
+            "raw_score": 0.26291473562316026,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-dd3d4471-66dc-59c6-ac70-4bbb3e950da4",
+                "revision": 1,
+                "sha256": "bcd46c877dbe4860534a06b1dbd467704086bf15e5e82bcb062d9329c372ab99",
+                "locator": null
+              }
+            ],
+            "matched_text": "延迟反馈回路中高增益导致振荡。先获得时延，再逐级提高增益\nSYNTHETIC ONLY：存在反馈且已知时延\n延迟未建模引起振荡\n延迟反馈回路中高增益导致振荡\n不得直接外推现实数值或将文本相似当科学支持\n先获得时延，再逐级提高增益\n独立检查机制、时延与边界\n合成 反馈 增益 A.experience",
+            "query_source": "original:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 1,
+            "raw_score": 0.24187650492758234,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-dd3d4471-66dc-59c6-ac70-4bbb3e950da4",
+                "revision": 1,
+                "sha256": "bcd46c877dbe4860534a06b1dbd467704086bf15e5e82bcb062d9329c372ab99",
+                "locator": null
+              }
+            ],
+            "matched_text": "延迟反馈回路中高增益导致振荡。先获得时延，再逐级提高增益\nSYNTHETIC ONLY：存在反馈且已知时延\n延迟未建模引起振荡\n延迟反馈回路中高增益导致振荡\n不得直接外推现实数值或将文本相似当科学支持\n先获得时延，再逐级提高增益\n独立检查机制、时延与边界\n合成 反馈 增益 A.experience",
+            "query_source": "english:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          }
+        ],
+        "query_sources": [
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "original:dense",
+            "variant_id": "original",
+            "language": "zh",
+            "kind": "equivalent",
+            "channel": "dense",
+            "weight": 1.0,
+            "rank": 1
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "english:dense",
+            "variant_id": "english",
+            "language": "en",
+            "kind": "equivalent",
+            "channel": "dense",
+            "weight": 1.0,
+            "rank": 1
+          }
+        ],
+        "fusion_score": 0.03278688524590164,
+        "condition_check": "pending",
+        "protected_terms": [
+          "X200",
+          "v2.1",
+          "≤ 0.5 mm",
+          "0.5"
+        ]
+      },
+      {
+        "candidate_id": "RC-491c9e2107323538e7cc2871",
+        "title": "SYNTHETIC ONLY A.conflict",
+        "ref": {
+          "kind": "record",
+          "id": "MEM-2f3b5485-8855-592d-b868-407d3c7fa382",
+          "revision": 1,
+          "sha256": "d2e7fb5ce8f31be09ab002b857ba3909867a151ca583e221aaac17d0d3b5775f",
+          "locator": null
+        },
+        "link": "D:/共享桌面/A_work/A_work_auto_flow/.local/bilingual-query-run-20260914t174350z-b0d5aff7d7c3/synthetic-workspace/research/mq-a/memory/commits/COM-851d0f13-b52b-5d90-96c4-83bbfa639903/records/MEM-2f3b5485-8855-592d-b868-407d3c7fa382.json",
+        "source": "overview_experience",
+        "reading_form": "full",
+        "packet": {
+          "packet_id": "PKT-8648e932-39e9-4c6b-94d4-d9ccd8abe4e1",
+          "query_id": "MQ-d4a5949e-14e2-47c7-9400-814382480560",
+          "definition": {
+            "key": "full",
+            "version": "1"
+          },
+          "parts": [
+            {
+              "group": "direct",
+              "heading": "SYNTHETIC ONLY A.conflict",
+              "markdown": "对同一合成边界的冲突建议。假设没有时延即可直接提高增益；此建议待反证\n\n**适用条件**\n\n- SYNTHETIC ONLY：存在反馈且已知时延\n\n**失败模式**\n\n- 延迟未建模引起振荡\n\n**problem_structure**\n\n对同一合成边界的冲突建议\n\n**不适用条件**\n\n- 不得直接外推现实数值或将文本相似当科学支持\n\n**建议**\n\n假设没有时延即可直接提高增益；此建议待反证\n\n**retry_conditions**\n\n- 独立检查机制、时延与边界",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-2f3b5485-8855-592d-b868-407d3c7fa382",
+                  "revision": 1,
+                  "sha256": "d2e7fb5ce8f31be09ab002b857ba3909867a151ca583e221aaac17d0d3b5775f",
+                  "locator": null
+                }
+              ],
+              "selectors": [
+                "experience"
+              ],
+              "omitted": []
+            }
+          ],
+          "contributors": [
+            {
+              "kind": "record",
+              "id": "MEM-2f3b5485-8855-592d-b868-407d3c7fa382",
+              "revision": 1,
+              "sha256": "d2e7fb5ce8f31be09ab002b857ba3909867a151ca583e221aaac17d0d3b5775f",
+              "locator": null
+            }
+          ],
+          "complete": true,
+          "canonical": false
+        },
+        "channels": [
+          "dense"
+        ],
+        "hits": [
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 2,
+            "raw_score": 0.25038983536850545,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-2f3b5485-8855-592d-b868-407d3c7fa382",
+                "revision": 1,
+                "sha256": "d2e7fb5ce8f31be09ab002b857ba3909867a151ca583e221aaac17d0d3b5775f",
+                "locator": null
+              }
+            ],
+            "matched_text": "对同一合成边界的冲突建议。假设没有时延即可直接提高增益；此建议待反证\nSYNTHETIC ONLY：存在反馈且已知时延\n延迟未建模引起振荡\n对同一合成边界的冲突建议\n不得直接外推现实数值或将文本相似当科学支持\n假设没有时延即可直接提高增益；此建议待反证\n独立检查机制、时延与边界\n合成 反馈 增益 A.conflict",
+            "query_source": "original:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 2,
+            "raw_score": 0.21554616150094852,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-2f3b5485-8855-592d-b868-407d3c7fa382",
+                "revision": 1,
+                "sha256": "d2e7fb5ce8f31be09ab002b857ba3909867a151ca583e221aaac17d0d3b5775f",
+                "locator": null
+              }
+            ],
+            "matched_text": "对同一合成边界的冲突建议。假设没有时延即可直接提高增益；此建议待反证\nSYNTHETIC ONLY：存在反馈且已知时延\n延迟未建模引起振荡\n对同一合成边界的冲突建议\n不得直接外推现实数值或将文本相似当科学支持\n假设没有时延即可直接提高增益；此建议待反证\n独立检查机制、时延与边界\n合成 反馈 增益 A.conflict",
+            "query_source": "english:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          }
+        ],
+        "query_sources": [
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "original:dense",
+            "variant_id": "original",
+            "language": "zh",
+            "kind": "equivalent",
+            "channel": "dense",
+            "weight": 1.0,
+            "rank": 2
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "english:dense",
+            "variant_id": "english",
+            "language": "en",
+            "kind": "equivalent",
+            "channel": "dense",
+            "weight": 1.0,
+            "rank": 2
+          }
+        ],
+        "fusion_score": 0.03225806451612903,
+        "condition_check": "pending",
+        "protected_terms": [
+          "X200",
+          "v2.1",
+          "≤ 0.5 mm",
+          "0.5"
+        ]
+      },
+      {
+        "candidate_id": "RC-b178a3beb19b9148a90919dd",
+        "title": "SYNTHETIC ONLY X200 v2.1 retrieval note",
+        "ref": {
+          "kind": "record",
+          "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+          "revision": 1,
+          "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+          "locator": null
+        },
+        "link": "D:/共享桌面/A_work/A_work_auto_flow/.local/bilingual-query-run-20260914t174350z-b0d5aff7d7c3/synthetic-workspace/research/mq-a/memory/commits/COM-21abaedd-8c12-5355-b57c-c200442da479/records/MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8.json",
+        "source": "technical",
+        "reading_form": "section",
+        "packet": {
+          "packet_id": "PKT-80952e65-687e-4629-b144-958e9a43d5ec",
+          "query_id": "MQ-af8acf4c-4249-4194-8577-4022302a1dfa",
+          "definition": {
+            "key": "section",
+            "version": "1"
+          },
+          "parts": [
+            {
+              "group": "direct",
+              "heading": "definitions",
+              "markdown": "SYNTHETIC ONLY: X200 v2.1 is an invented retrieval system. mm denotes millimetres.",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                  "revision": 1,
+                  "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                  "locator": "block:definitions"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.definitions"
+              ],
+              "omitted": []
+            },
+            {
+              "group": "direct",
+              "heading": "method",
+              "markdown": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. Retain the error constraint ≤ 0.5 mm in each equivalent query. Related terms are exploration hints, not equivalent conditions.",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                  "revision": 1,
+                  "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                  "locator": "block:method"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.method"
+              ],
+              "omitted": []
+            }
+          ],
+          "contributors": [
+            {
+              "kind": "record",
+              "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+              "revision": 1,
+              "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+              "locator": "block:method"
+            }
+          ],
+          "complete": true,
+          "canonical": false
+        },
+        "channels": [
+          "lexical",
+          "dense"
+        ],
+        "hits": [
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 4,
+            "raw_score": -18.57394152466132,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. Retain the error constraint ≤ 0.5 mm in each equivalent query. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "original:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 5,
+            "raw_score": -18.28353960356171,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.1 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "original:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 6,
+            "raw_score": -11.97798209873327,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": null
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY X200 v2.1 retrieval note\n问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.1 query expansion",
+            "query_source": "original:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 1,
+            "raw_score": 0.7321864380940835,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. Retain the error constraint ≤ 0.5 mm in each equivalent query. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "original:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 2,
+            "raw_score": 0.5994212380111585,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.1 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "original:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 3,
+            "raw_score": 0.5561047439978962,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": null
+              }
+            ],
+            "matched_text": "问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.1 query expansion",
+            "query_source": "original:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 1,
+            "raw_score": -35.93881865228164,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. Retain the error constraint ≤ 0.5 mm in each equivalent query. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "english:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 2,
+            "raw_score": -21.00962087749077,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.1 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "english:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 3,
+            "raw_score": -17.861985977437996,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": null
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY X200 v2.1 retrieval note\n问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.1 query expansion",
+            "query_source": "english:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 1,
+            "raw_score": 0.891469000514362,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. Retain the error constraint ≤ 0.5 mm in each equivalent query. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "english:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 2,
+            "raw_score": 0.5360322261383653,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.1 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "english:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 3,
+            "raw_score": 0.48571810230307455,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": null
+              }
+            ],
+            "matched_text": "问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.1 query expansion",
+            "query_source": "english:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 1,
+            "raw_score": -33.44786616755572,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. Retain the error constraint ≤ 0.5 mm in each equivalent query. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "related:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 2,
+            "raw_score": -21.00962087749077,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.1 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "related:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 3,
+            "raw_score": -15.566936443794448,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+                "revision": 1,
+                "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+                "locator": null
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY X200 v2.1 retrieval note\n问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.1 query expansion",
+            "query_source": "related:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          }
+        ],
+        "query_sources": [
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "original:lexical",
+            "variant_id": "original",
+            "language": "zh",
+            "kind": "equivalent",
+            "channel": "lexical",
+            "weight": 1.0,
+            "rank": 2
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "original:dense",
+            "variant_id": "original",
+            "language": "zh",
+            "kind": "equivalent",
+            "channel": "dense",
+            "weight": 1.0,
+            "rank": 1
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "english:lexical",
+            "variant_id": "english",
+            "language": "en",
+            "kind": "equivalent",
+            "channel": "lexical",
+            "weight": 1.0,
+            "rank": 1
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "english:dense",
+            "variant_id": "english",
+            "language": "en",
+            "kind": "equivalent",
+            "channel": "dense",
+            "weight": 1.0,
+            "rank": 1
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "related:lexical",
+            "variant_id": "related",
+            "language": "mixed",
+            "kind": "related",
+            "channel": "lexical",
+            "weight": 0.25,
+            "rank": 1
+          }
+        ],
+        "fusion_score": 0.0694077207826547,
+        "condition_check": "pending",
+        "protected_terms": [
+          "X200",
+          "v2.1",
+          "≤ 0.5 mm",
+          "0.5"
+        ]
+      },
+      {
+        "candidate_id": "RC-b9065ef0d072745bcd3adbf8",
+        "title": "SYNTHETIC ONLY X200 v2.0 retrieval note",
+        "ref": {
+          "kind": "record",
+          "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+          "revision": 1,
+          "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+          "locator": null
+        },
+        "link": "D:/共享桌面/A_work/A_work_auto_flow/.local/bilingual-query-run-20260914t174350z-b0d5aff7d7c3/synthetic-workspace/research/mq-a/memory/commits/COM-96b757cc-4b6b-5e2b-9e7f-e83c59a5d3be/records/MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80.json",
+        "source": "technical",
+        "reading_form": "section",
+        "packet": {
+          "packet_id": "PKT-b51243b5-8f8e-44b7-9259-2e8389f72c43",
+          "query_id": "MQ-af8acf4c-4249-4194-8577-4022302a1dfa",
+          "definition": {
+            "key": "section",
+            "version": "1"
+          },
+          "parts": [
+            {
+              "group": "direct",
+              "heading": "definitions",
+              "markdown": "SYNTHETIC ONLY: X200 v2.0 is an invented retrieval system. mm denotes millimetres.",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                  "revision": 1,
+                  "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                  "locator": "block:definitions"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.definitions"
+              ],
+              "omitted": []
+            },
+            {
+              "group": "direct",
+              "heading": "method",
+              "markdown": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. This earlier version drops numerical constraints during query translation. Related terms are exploration hints, not equivalent conditions.",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                  "revision": 1,
+                  "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                  "locator": "block:method"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.method"
+              ],
+              "omitted": []
+            }
+          ],
+          "contributors": [
+            {
+              "kind": "record",
+              "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+              "revision": 1,
+              "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+              "locator": "block:method"
+            }
+          ],
+          "complete": true,
+          "canonical": false
+        },
+        "channels": [
+          "lexical",
+          "dense"
+        ],
+        "hits": [
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 1,
+            "raw_score": -19.355113705022575,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.0 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "original:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 2,
+            "raw_score": -12.90147599569872,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": null
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY X200 v2.0 retrieval note\n问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.0 query expansion",
+            "query_source": "original:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 3,
+            "raw_score": -10.256505434056205,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. This earlier version drops numerical constraints during query translation. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "original:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 4,
+            "raw_score": 0.6859818026684308,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. This earlier version drops numerical constraints during query translation. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "original:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 5,
+            "raw_score": 0.5942163897118917,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.0 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "original:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 6,
+            "raw_score": 0.5267223761794324,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": null
+              }
+            ],
+            "matched_text": "问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.0 query expansion",
+            "query_source": "original:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 4,
+            "raw_score": -27.905754512379268,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. This earlier version drops numerical constraints during query translation. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "english:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 5,
+            "raw_score": -22.081194978951636,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.0 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "english:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 6,
+            "raw_score": -18.785479874403446,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": null
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY X200 v2.0 retrieval note\n问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.0 query expansion",
+            "query_source": "english:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 4,
+            "raw_score": 0.8506548282538104,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. This earlier version drops numerical constraints during query translation. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "english:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 5,
+            "raw_score": 0.5300376588156194,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.0 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "english:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "dense",
+            "provider": "dense",
+            "provider_version": "memory-record-representation-v4-technical-blocks",
+            "rank": 6,
+            "raw_score": 0.46112217182239656,
+            "score_meaning": "本地向量余弦相似度（越高越相关）；非结论可信度",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": null
+              }
+            ],
+            "matched_text": "问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.0 query expansion",
+            "query_source": "english:dense",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 4,
+            "raw_score": -29.42845446625923,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:method"
+              }
+            ],
+            "matched_text": "Query expansion for cross-lingual information retrieval uses bilingual equivalent queries. This earlier version drops numerical constraints during query translation. Related terms are exploration hints, not equivalent conditions.",
+            "query_source": "related:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 5,
+            "raw_score": -22.081194978951636,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": "block:definitions"
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY: X200 v2.0 is an invented retrieval system. mm denotes millimetres.",
+            "query_source": "related:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          },
+          {
+            "channel": "lexical",
+            "provider": "memory-fts",
+            "provider_version": "memory-v4-technical-blocks",
+            "rank": 6,
+            "raw_score": -16.490430340759897,
+            "score_meaning": "FTS bm25（越低越相关）",
+            "representation_refs": [
+              {
+                "kind": "record",
+                "id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+                "revision": 1,
+                "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+                "locator": null
+              }
+            ],
+            "matched_text": "SYNTHETIC ONLY X200 v2.0 retrieval note\n问题：\n合成温标换算的定义\n\n方法：\n按温度基准和单位换算\n\n主要发现：\n- 只证明合成流程可读\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 未验证传感器误差\nX200 v2.0 query expansion",
+            "query_source": "related:lexical",
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00"
+          }
+        ],
+        "query_sources": [
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "original:lexical",
+            "variant_id": "original",
+            "language": "zh",
+            "kind": "equivalent",
+            "channel": "lexical",
+            "weight": 1.0,
+            "rank": 1
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "original:dense",
+            "variant_id": "original",
+            "language": "zh",
+            "kind": "equivalent",
+            "channel": "dense",
+            "weight": 1.0,
+            "rank": 2
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "english:lexical",
+            "variant_id": "english",
+            "language": "en",
+            "kind": "equivalent",
+            "channel": "lexical",
+            "weight": 1.0,
+            "rank": 2
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "english:dense",
+            "variant_id": "english",
+            "language": "en",
+            "kind": "equivalent",
+            "channel": "dense",
+            "weight": 1.0,
+            "rank": 2
+          },
+          {
+            "query_plan_id": "033f1bfc296601a3958cdc97825a0cabed2181f622aa1cb3cc54e7853d707d00",
+            "id": "related:lexical",
+            "variant_id": "related",
+            "language": "mixed",
+            "kind": "related",
+            "channel": "lexical",
+            "weight": 0.25,
+            "rank": 2
+          }
+        ],
+        "fusion_score": 0.0688127974616605,
+        "condition_check": "pending",
+        "protected_terms": [
+          "X200",
+          "v2.1",
+          "≤ 0.5 mm",
+          "0.5"
+        ]
+      }
+    ],
+    "coverage": {
+      "question": "对于 X200 v2.1，怎样通过查询扩展改善跨语言检索，并保留误差 ≤ 0.5 mm 条件？",
+      "keywords": [
+        "查询扩展",
+        "跨语言检索"
+      ],
+      "reason": "原RS原预算补齐已就绪的真实dense通道，并验证最终来源诊断计量",
+      "scope": {
+        "owner_ids": [
+          "RES-MQ-A"
+        ],
+        "levels": null,
+        "kinds": null,
+        "roles": null,
+        "outcomes": null,
+        "review_states": null,
+        "validities": null,
+        "include_unknown": false,
+        "excluded_refs": [],
+        "excluded_owner_ids": [],
+        "recorded_from": null,
+        "recorded_before": null,
+        "source_ids": null,
+        "include_refs": [],
+        "exclude_ids": [],
+        "confidence_levels": null,
+        "time_window": null,
+        "applicability_conditions": [],
+        "applicability_exclusions": [],
+        "owner_types": null
+      },
+      "lanes": [
+        {
+          "source": "overview_experience",
+          "status": "ok",
+          "warnings": [],
+          "has_more": false,
+          "routes": [
+            {
+              "query_source": "original:identity",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "original:lexical",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "original:dense",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "english:lexical",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "english:dense",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "related:lexical",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            }
+          ]
+        },
+        {
+          "source": "process",
+          "status": "ok",
+          "warnings": [],
+          "has_more": false,
+          "routes": [
+            {
+              "query_source": "original:identity",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "original:lexical",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "original:dense",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "english:lexical",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "english:dense",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "related:lexical",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            }
+          ]
+        },
+        {
+          "source": "technical",
+          "status": "partial",
+          "warnings": [
+            "部分候选因范围、来源或版本不满足而省略"
+          ],
+          "has_more": false,
+          "routes": [
+            {
+              "query_source": "original:identity",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false
+            },
+            {
+              "query_source": "original:lexical",
+              "status": "partial",
+              "warnings": [
+                "部分候选因范围、来源或版本不满足而省略"
+              ],
+              "has_more": false
+            },
+            {
+              "query_source": "original:dense",
+              "status": "partial",
+              "warnings": [
+                "部分候选因范围、来源或版本不满足而省略"
+              ],
+              "has_more": false
+            },
+            {
+              "query_source": "english:lexical",
+              "status": "partial",
+              "warnings": [
+                "部分候选因范围、来源或版本不满足而省略"
+              ],
+              "has_more": false
+            },
+            {
+              "query_source": "english:dense",
+              "status": "partial",
+              "warnings": [
+                "部分候选因范围、来源或版本不满足而省略"
+              ],
+              "has_more": false
+            },
+            {
+              "query_source": "related:lexical",
+              "status": "partial",
+              "warnings": [
+                "部分候选因范围、来源或版本不满足而省略"
+              ],
+              "has_more": false
+            }
+          ]
+        }
+      ],
+      "query_plan": {
+        "variants": [
+          {
+            "id": "original",
+            "language": "zh",
+            "question": "对于 X200 v2.1，怎样通过查询扩展改善跨语言检索，并保留误差 ≤ 0.5 mm 条件？",
+            "lexical_terms": [
+              "X200",
+              "v2.1",
+              "≤ 0.5 mm",
+              "0.5",
+              "查询扩展",
+              "跨语言检索",
+              "检索词扩展",
+              "跨语言信息检索",
+              "CLIR"
+            ]
+          },
+          {
+            "id": "english",
+            "language": "en",
+            "question": "How can query expansion improve cross-lingual retrieval for X200 v2.1 while retaining the error constraint ≤ 0.5 mm?",
+            "lexical_terms": [
+              "X200",
+              "v2.1",
+              "≤ 0.5 mm",
+              "0.5",
+              "query expansion",
+              "cross-lingual retrieval",
+              "cross-lingual information retrieval",
+              "cross-language information retrieval",
+              "CLIR"
+            ]
+          }
+        ],
+        "protected_terms": [
+          "X200",
+          "v2.1",
+          "≤ 0.5 mm",
+          "0.5"
+        ],
+        "corpus_language": "mixed",
+        "language_reason": "已知合成夹具有英文方法和中文检索说明；属于技术问题，补英文关键词和完整语句。未对真实业务语料作语言调查。",
+        "query_domains": [
+          "information-retrieval"
+        ],
+        "dictionary": {
+          "status": "loaded",
+          "path": "retrieval/query-terms.json",
+          "sha256": "ba88d84e3e4362f02a74868b1bb4dc9b8221f754c4d828312ab961de181d183f"
+        },
+        "matched_entries": [
+          {
+            "id": "query-expansion",
+            "domain": "information-retrieval",
+            "zh": [
+              "查询扩展",
+              "检索词扩展"
+            ],
+            "en": [
+              "query expansion"
+            ],
+            "aliases": [],
+            "related": [
+              "cross-lingual information retrieval",
+              "query reformulation"
+            ],
+            "sources": [
+              "https://arxiv.org/abs/2511.19325v1"
+            ],
+            "status": "active"
+          },
+          {
+            "id": "cross-lingual-retrieval",
+            "domain": "information-retrieval",
+            "zh": [
+              "跨语言信息检索",
+              "跨语言检索"
+            ],
+            "en": [
+              "cross-lingual information retrieval",
+              "cross-language information retrieval"
+            ],
+            "aliases": [
+              "CLIR"
+            ],
+            "related": [
+              "query translation",
+              "multilingual embeddings"
+            ],
+            "sources": [
+              "https://arxiv.org/abs/2511.19325v1"
+            ],
+            "status": "active"
+          }
+        ],
+        "related_terms": [
+          "cross-lingual information retrieval",
+          "query reformulation",
+          "query translation",
+          "multilingual embeddings"
+        ],
+        "condition_check": "pending",
+        "english_query_present": true,
+        "language_decision_by": "caller",
+        "translation_validation": "literal_protection_only"
+      }
+    },
+    "gaps": [
+      "部分候选因范围、来源或版本不满足而省略"
+    ],
+    "guidance": "先读返回的正文；可保留直接用途或有具体连接理由的间接启发。长链连接逐步注明依据和假设。保留候选后 reading-read 读完整记录，再 reading-note 保存理解、连接和必要细节。有可检验下一步先执行，失败后定向扩查。",
+    "session_id": "RS-97a3e089-e45d-46d1-a2ff-2cf6292f6c96",
+    "revision": 7
+  },
+  "code": null,
+  "warnings": [
+    "部分候选因范围、来源或版本不满足而省略"
+  ],
+  "issues": [
+    {
+      "code": "PARTIAL",
+      "message": "部分候选因范围、来源或版本不满足而省略",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    }
+  ],
+  "consumed": {
+    "wall_ms": 4549,
+    "read_bytes": 951853,
+    "output_chars": 42020,
+    "candidates": 28,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 128,
+    "model_calls": 4,
+    "model_input_tokens": 128,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}
+

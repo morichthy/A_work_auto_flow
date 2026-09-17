@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "workflow_completed": false,
+  "coverage_complete": false,
+  "conclusion": "默认真实浮点阅读在79.706秒召回后因累计输出预算79972/80000失败，未交付候选及笔记；配置读取0.457毫秒，失败与宿主交互时序完整保留。",
+  "recall_dispatch_s": 79.7062783,
+  "baseline_dispatch_sum_s": 85.1513119,
+  "output_budget": 80000,
+  "output_consumed": 79972,
+  "read_bytes_consumed": 7023917,
+  "result_limit": 10,
+  "rerank_candidate_limit": 30,
+  "query_count": 3,
+  "notes_generated": 0,
+  "main_context_received": false,
+  "status": "BUDGET",
+  "settings_read_ms": 0.457
+}

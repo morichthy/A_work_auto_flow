@@ -1,0 +1,690 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T162155Z-9D1612B40F6D",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "每路召回10的逐笔预算诊断",
+    "keywords": [
+      "recall",
+      "budget-accounting",
+      "instrumented-replay",
+      "floating-point"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "failed",
+    "created_at": "2026-09-16T16:21:55Z",
+    "started_at": "2026-09-16T16:23:58.607846Z",
+    "ended_at": "2026-09-16T16:25:49.713131Z",
+    "owner": null,
+    "question": "浮点求和中顺序求和、Kahan补偿与math.fsum在强抵消输入上有哪些差异和失效边界？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {
+      "session_id": "RS-3e0fc7ab-54ac-4595-81be-467343778d0e",
+      "result_limit": 10,
+      "reranking": {
+        "mode": "auto",
+        "candidate_limit": 30,
+        "conditions": []
+      },
+      "budget": {
+        "wall_ms": 600000,
+        "read_bytes": 33554432,
+        "output_chars": 100000,
+        "candidates": 2000,
+        "graph_nodes": 1000,
+        "graph_edges": 2000,
+        "graph_hops": 6,
+        "model_tokens": 200000,
+        "model_calls": 20,
+        "model_input_tokens": 150000,
+        "model_output_tokens": 50000,
+        "rerank_items": 200
+      },
+      "query_variants": [
+        {
+          "id": "english-mechanism",
+          "language": "en",
+          "question": "How do sequential summation, Kahan compensated summation, and Python math.fsum differ under strong cancellation, including error behavior and failure boundaries?",
+          "lexical_terms": [
+            "sequential summation",
+            "Kahan summation",
+            "compensated summation",
+            "math.fsum",
+            "strong cancellation"
+          ]
+        },
+        {
+          "id": "english-boundaries",
+          "language": "en",
+          "question": "What are the numerical failure modes and limits of naive floating-point summation, Kahan summation, and math.fsum for strongly cancelling inputs?",
+          "lexical_terms": [
+            "floating-point summation",
+            "Kahan summation",
+            "math.fsum",
+            "cancellation",
+            "failure modes"
+          ]
+        }
+      ],
+      "scope": {
+        "owner_ids": [
+          "RES-FLOATING-POINT-SUMMATION"
+        ],
+        "levels": null,
+        "kinds": null,
+        "roles": null,
+        "outcomes": null,
+        "review_states": null,
+        "validities": null,
+        "include_unknown": false,
+        "excluded_refs": [],
+        "excluded_owner_ids": [],
+        "recorded_from": null,
+        "recorded_before": null,
+        "source_ids": null,
+        "include_refs": [],
+        "exclude_ids": [],
+        "confidence_levels": null,
+        "time_window": null,
+        "applicability_conditions": [],
+        "applicability_exclusions": [],
+        "owner_types": null
+      },
+      "scope_ceiling": {
+        "owner_ids": [
+          "PRJ-ARCHITECTURE-EVOLUTION",
+          "RES-FLOATING-POINT-SUMMATION",
+          "RUN-20260908T201214Z-D0AB308F66AD",
+          "RUN-20260908T201228Z-A0980824DC18",
+          "RUN-20260908T201240Z-90107A617CF8",
+          "RUN-20260908T214955Z-2273015D2CEF",
+          "RUN-20260908T215458Z-04C7D84D40D8"
+        ],
+        "levels": null,
+        "kinds": null,
+        "roles": null,
+        "outcomes": null,
+        "review_states": null,
+        "validities": null,
+        "include_unknown": false,
+        "excluded_refs": [],
+        "excluded_owner_ids": [],
+        "recorded_from": null,
+        "recorded_before": null,
+        "source_ids": null,
+        "include_refs": [],
+        "exclude_ids": [],
+        "confidence_levels": null,
+        "time_window": null,
+        "applicability_conditions": [],
+        "applicability_exclusions": [],
+        "owner_types": null
+      },
+      "instrumentation": "Run-only wrappers, original accounting/policy executed; no AI reading/note/handoff"
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "actual_reading_recall",
+        "status": "failed",
+        "scope": "Actual public API rejected BUDGET; not a successful full reading workflow."
+      },
+      {
+        "name": "accounting_trace_consistency",
+        "status": "passed",
+        "scope": "99986 charge sum; 33 part outcomes; 8634 unique text sum; source snapshot fingerprints; 42 fused-hit text fingerprints previously seen in search."
+      }
+    ],
+    "metrics": {
+      "by_charge_site": {
+        "query_plan.py:24:charge_diagnostics": {
+          "success_chars": 46443,
+          "success_calls": 20,
+          "failed_calls": 1,
+          "failed_requested": 563
+        },
+        "coordinator.py:374:_run_search": {
+          "success_chars": 46872,
+          "success_calls": 21,
+          "failed_calls": 0,
+          "failed_requested": 0
+        },
+        "assembly.py:147:add": {
+          "success_chars": 6555,
+          "success_calls": 17,
+          "failed_calls": 0,
+          "failed_requested": 0
+        },
+        "assembly.py:173:add": {
+          "success_chars": 97,
+          "success_calls": 4,
+          "failed_calls": 0,
+          "failed_requested": 0
+        },
+        "coordinator.py:954:_packet": {
+          "success_chars": 19,
+          "success_calls": 1,
+          "failed_calls": 0,
+          "failed_requested": 0
+        }
+      },
+      "output_consumed": 99986,
+      "sum_successful_debits": 99986,
+      "search_chars_by_lane": {
+        "overview_experience": 8223,
+        "process": 14013,
+        "technical": 24636
+      },
+      "search_chars_by_role": {
+        "excerpt": 18231,
+        "matched_text": 28641
+      },
+      "search_unique_chars_by_ref_role_hash": 12546,
+      "search_unique_chars_by_ref_hash": 12546,
+      "search_repeated_chars_by_ref_hash": 34326,
+      "candidate_diagnostic_chars": 40668,
+      "candidate_diagnostic_matched_text_chars": 9663,
+      "candidate_diagnostic_metadata_and_json_chars": 31005,
+      "part_attempts": 33,
+      "part_added_count": 17,
+      "part_skip_counts": {
+        "deduplicated": 6,
+        "budget": 10
+      },
+      "attempted_part_unique_text_chars": 8634,
+      "successful_part_text_chars": 6555,
+      "omitted_unique_part_text_chars": 2079,
+      "image_data_url_chars": 557888,
+      "image_caption_charged_chars": 97
+    },
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "召回10/重排30、100000字符上限仍失败；内部搜索46872与诊断46443主导消耗，正文6555。完整结论见RESULTS.md。",
+    "limitations": [
+      "instrumented replay, elapsed_s includes Coordinator construction/close and observer overhead",
+      "100000 is current server maximum, not a no-budget run",
+      "8634 counts unique attempted text blocks, not hypothetical complete final response or all undiscovered material",
+      "dedup metrics are byte-equivalent Unicode text by fixedref/text hash, not semantic dedup",
+      "image data_url is not charged to output_chars",
+      "no note/AI semantic reading was performed; objective is recall budget diagnosis"
+    ],
+    "parent_run_ids": [
+      "RUN-20260916T085438Z-3E40D5ED8471"
+    ],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxNlQxNjIxNTVaLTlEMTYxMkI0MEY2RCIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIuavj+i3r+WPrOWbnjEw55qE6YCQ56yU6aKE566X6K+K5patIiwNCiAgImtleXdvcmRzIjogWw0KICAgICJyZWNhbGwiLA0KICAgICJidWRnZXQtYWNjb3VudGluZyIsDQogICAgImluc3RydW1lbnRlZC1yZXBsYXkiLA0KICAgICJmbG9hdGluZy1wb2ludCINCiAgXSwNCiAgInJldmlld19oaXN0b3J5IjogW10sDQogICJjbGFpbXMiOiBbXSwNCiAgImRlcGVuZGVuY2llcyI6IFtdLA0KICAicnVuX3R5cGUiOiAiYW5hbHlzaXMiLA0KICAic3RhdHVzIjogImZhaWxlZCIsDQogICJjcmVhdGVkX2F0IjogIjIwMjYtMDktMTZUMTY6MjE6NTVaIiwNCiAgInN0YXJ0ZWRfYXQiOiAiMjAyNi0wOS0xNlQxNjoyMzo1OC42MDc4NDZaIiwNCiAgImVuZGVkX2F0IjogIjIwMjYtMDktMTZUMTY6MjU6NDkuNzEzMTMxWiIsDQogICJvd25lciI6IG51bGwsDQogICJxdWVzdGlvbiI6ICLmta7ngrnmsYLlkozkuK3pobrluo/msYLlkozjgIFLYWhhbuihpeWBv+S4jm1hdGguZnN1beWcqOW8uuaKtea2iOi+k+WFpeS4iuacieWTquS6m+W3ruW8guWSjOWkseaViOi+ueeVjO+8nyIsDQogICJoeXBvdGhlc2VzIjogW10sDQogICJpbnB1dHMiOiBbXSwNCiAgInBhcmFtZXRlcnMiOiB7DQogICAgInNlc3Npb25faWQiOiAiUlMtM2UwZmM3YWItNTRhYy00NTk1LTgxYmUtNDY3MzQzNzc4ZDBlIiwNCiAgICAicmVzdWx0X2xpbWl0IjogMTAsDQogICAgInJlcmFua2luZyI6IHsNCiAgICAgICJtb2RlIjogImF1dG8iLA0KICAgICAgImNhbmRpZGF0ZV9saW1pdCI6IDMwLA0KICAgICAgImNvbmRpdGlvbnMiOiBbXQ0KICAgIH0sDQogICAgImJ1ZGdldCI6IHsNCiAgICAgICJ3YWxsX21zIjogNjAwMDAwLA0KICAgICAgInJlYWRfYnl0ZXMiOiAzMzU1NDQzMiwNCiAgICAgICJvdXRwdXRfY2hhcnMiOiAxMDAwMDAsDQogICAgICAiY2FuZGlkYXRlcyI6IDIwMDAsDQogICAgICAiZ3JhcGhfbm9kZXMiOiAxMDAwLA0KICAgICAgImdyYXBoX2VkZ2VzIjogMjAwMCwNCiAgICAgICJncmFwaF9ob3BzIjogNiwNCiAgICAgICJtb2RlbF90b2tlbnMiOiAyMDAwMDAsDQogICAgICAibW9kZWxfY2FsbHMiOiAyMCwNCiAgICAgICJtb2RlbF9pbnB1dF90b2tlbnMiOiAxNTAwMDAsDQogICAgICAibW9kZWxfb3V0cHV0X3Rva2VucyI6IDUwMDAwLA0KICAgICAgInJlcmFua19pdGVtcyI6IDIwMA0KICAgIH0sDQogICAgInF1ZXJ5X3ZhcmlhbnRzIjogWw0KICAgICAgew0KICAgICAgICAiaWQiOiAiZW5nbGlzaC1tZWNoYW5pc20iLA0KICAgICAgICAibGFuZ3VhZ2UiOiAiZW4iLA0KICAgICAgICAicXVlc3Rpb24iOiAiSG93IGRvIHNlcXVlbnRpYWwgc3VtbWF0aW9uLCBLYWhhbiBjb21wZW5zYXRlZCBzdW1tYXRpb24sIGFuZCBQeXRob24gbWF0aC5mc3VtIGRpZmZlciB1bmRlciBzdHJvbmcgY2FuY2VsbGF0aW9uLCBpbmNsdWRpbmcgZXJyb3IgYmVoYXZpb3IgYW5kIGZhaWx1cmUgYm91bmRhcmllcz8iLA0KICAgICAgICAibGV4aWNhbF90ZXJtcyI6IFsNCiAgICAgICAgICAic2VxdWVudGlhbCBzdW1tYXRpb24iLA0KICAgICAgICAgICJLYWhhbiBzdW1tYXRpb24iLA0KICAgICAgICAgICJjb21wZW5zYXRlZCBzdW1tYXRpb24iLA0KICAgICAgICAgICJtYXRoLmZzdW0iLA0KICAgICAgICAgICJzdHJvbmcgY2FuY2VsbGF0aW9uIg0KICAgICAgICBdDQogICAgICB9LA0KICAgICAgew0KICAgICAgICAiaWQiOiAiZW5nbGlzaC1ib3VuZGFyaWVzIiwNCiAgICAgICAgImxhbmd1YWdlIjogImVuIiwNCiAgICAgICAgInF1ZXN0aW9uIjogIldoYXQgYXJlIHRoZSBudW1lcmljYWwgZmFpbHVyZSBtb2RlcyBhbmQgbGltaXRzIG9mIG5haXZlIGZsb2F0aW5nLXBvaW50IHN1bW1hdGlvbiwgS2FoYW4gc3VtbWF0aW9uLCBhbmQgbWF0aC5mc3VtIGZvciBzdHJvbmdseSBjYW5jZWxsaW5nIGlucHV0cz8iLA0KICAgICAgICAibGV4aWNhbF90ZXJtcyI6IFsNCiAgICAgICAgICAiZmxvYXRpbmctcG9pbnQgc3VtbWF0aW9uIiwNCiAgICAgICAgICAiS2FoYW4gc3VtbWF0aW9uIiwNCiAgICAgICAgICAibWF0aC5mc3VtIiwNCiAgICAgICAgICAiY2FuY2VsbGF0aW9uIiwNCiAgICAgICAgICAiZmFpbHVyZSBtb2RlcyINCiAgICAgICAgXQ0KICAgICAgfQ0KICAgIF0sDQogICAgInNjb3BlIjogew0KICAgICAgIm93bmVyX2lkcyI6IFsNCiAgICAgICAgIlJFUy1GTE9BVElORy1QT0lOVC1TVU1NQVRJT04iDQogICAgICBdLA0KICAgICAgImxldmVscyI6IG51bGwsDQogICAgICAia2luZHMiOiBudWxsLA0KICAgICAgInJvbGVzIjogbnVsbCwNCiAgICAgICJvdXRjb21lcyI6IG51bGwsDQogICAgICAicmV2aWV3X3N0YXRlcyI6IG51bGwsDQogICAgICAidmFsaWRpdGllcyI6IG51bGwsDQogICAgICAiaW5jbHVkZV91bmtub3duIjogZmFsc2UsDQogICAgICAiZXhjbHVkZWRfcmVmcyI6IFtdLA0KICAgICAgImV4Y2x1ZGVkX293bmVyX2lkcyI6IFtdLA0KICAgICAgInJlY29yZGVkX2Zyb20iOiBudWxsLA0KICAgICAgInJlY29yZGVkX2JlZm9yZSI6IG51bGwsDQogICAgICAic291cmNlX2lkcyI6IG51bGwsDQogICAgICAiaW5jbHVkZV9yZWZzIjogW10sDQogICAgICAiZXhjbHVkZV9pZHMiOiBbXSwNCiAgICAgICJjb25maWRlbmNlX2xldmVscyI6IG51bGwsDQogICAgICAidGltZV93aW5kb3ciOiBudWxsLA0KICAgICAgImFwcGxpY2FiaWxpdHlfY29uZGl0aW9ucyI6IFtdLA0KICAgICAgImFwcGxpY2FiaWxpdHlfZXhjbHVzaW9ucyI6IFtdLA0KICAgICAgIm93bmVyX3R5cGVzIjogbnVsbA0KICAgIH0sDQogICAgInNjb3BlX2NlaWxpbmciOiB7DQogICAgICAib3duZXJfaWRzIjogWw0KICAgICAgICAiUFJKLUFSQ0hJVEVDVFVSRS1FVk9MVVRJT04iLA0KICAgICAgICAiUkVTLUZMT0FUSU5HLVBPSU5ULVNVTU1BVElPTiIsDQogICAgICAgICJSVU4tMjAyNjA5MDhUMjAxMjE0Wi1EMEFCMzA4RjY2QUQiLA0KICAgICAgICAiUlVOLTIwMjYwOTA4VDIwMTIyOFotQTA5ODA4MjREQzE4IiwNCiAgICAgICAgIlJVTi0yMDI2MDkwOFQyMDEyNDBaLTkwMTA3QTYxN0NGOCIsDQogICAgICAgICJSVU4tMjAyNjA5MDhUMjE0OTU1Wi0yMjczMDE1RDJDRUYiLA0KICAgICAgICAiUlVOLTIwMjYwOTA4VDIxNTQ1OFotMDRDN0Q4NEQ0MEQ4Ig0KICAgICAgXSwNCiAgICAgICJsZXZlbHMiOiBudWxsLA0KICAgICAgImtpbmRzIjogbnVsbCwNCiAgICAgICJyb2xlcyI6IG51bGwsDQogICAgICAib3V0Y29tZXMiOiBudWxsLA0KICAgICAgInJldmlld19zdGF0ZXMiOiBudWxsLA0KICAgICAgInZhbGlkaXRpZXMiOiBudWxsLA0KICAgICAgImluY2x1ZGVfdW5rbm93biI6IGZhbHNlLA0KICAgICAgImV4Y2x1ZGVkX3JlZnMiOiBbXSwNCiAgICAgICJleGNsdWRlZF9vd25lcl9pZHMiOiBbXSwNCiAgICAgICJyZWNvcmRlZF9mcm9tIjogbnVsbCwNCiAgICAgICJyZWNvcmRlZF9iZWZvcmUiOiBudWxsLA0KICAgICAgInNvdXJjZV9pZHMiOiBudWxsLA0KICAgICAgImluY2x1ZGVfcmVmcyI6IFtdLA0KICAgICAgImV4Y2x1ZGVfaWRzIjogW10sDQogICAgICAiY29uZmlkZW5jZV9sZXZlbHMiOiBudWxsLA0KICAgICAgInRpbWVfd2luZG93IjogbnVsbCwNCiAgICAgICJhcHBsaWNhYmlsaXR5X2NvbmRpdGlvbnMiOiBbXSwNCiAgICAgICJhcHBsaWNhYmlsaXR5X2V4Y2x1c2lvbnMiOiBbXSwNCiAgICAgICJvd25lcl90eXBlcyI6IG51bGwNCiAgICB9LA0KICAgICJpbnN0cnVtZW50YXRpb24iOiAiUnVuLW9ubHkgd3JhcHBlcnMsIG9yaWdpbmFsIGFjY291bnRpbmcvcG9saWN5IGV4ZWN1dGVkOyBubyBBSSByZWFkaW5nL25vdGUvaGFuZG9mZiINCiAgfSwNCiAgImNvZGUiOiB7DQogICAgImNvbW1pdCI6ICI4OWFkMzA3NTM1ODlmYjdiOTE5YjNkYjc1Y2RmOTFkNDc0NDlmNGNhIiwNCiAgICAiZGlydHkiOiB0cnVlDQogIH0sDQogICJlbnZpcm9ubWVudCI6IHsNCiAgICAicHl0aG9uIjogIjMuMTIuMTAiLA0KICAgICJwbGF0Zm9ybSI6ICJXaW5kb3dzLTExLTEwLjAuMjI2MzEtU1AwIiwNCiAgICAibG9ja19vcl9pbWFnZV9kaWdlc3QiOiBudWxsDQogIH0sDQogICJyYW5kb21fc2VlZHMiOiBbXSwNCiAgInF1YWxpdHlfcmVzdWx0cyI6IFsNCiAgICB7DQogICAgICAibmFtZSI6ICJhY3R1YWxfcmVhZGluZ19yZWNhbGwiLA0KICAgICAgInN0YXR1cyI6ICJmYWlsZWQiLA0KICAgICAgInNjb3BlIjogIkFjdHVhbCBwdWJsaWMgQVBJIHJlamVjdGVkIEJVREdFVDsgbm90IGEgc3VjY2Vzc2Z1bCBmdWxsIHJlYWRpbmcgd29ya2Zsb3cuIg0KICAgIH0sDQogICAgew0KICAgICAgIm5hbWUiOiAiYWNjb3VudGluZ190cmFjZV9jb25zaXN0ZW5jeSIsDQogICAgICAic3RhdHVzIjogInBhc3NlZCIsDQogICAgICAic2NvcGUiOiAiOTk5ODYgY2hhcmdlIHN1bTsgMzMgcGFydCBvdXRjb21lczsgODYzNCB1bmlxdWUgdGV4dCBzdW07IHNvdXJjZSBzbmFwc2hvdCBmaW5nZXJwcmludHM7IDQyIGZ1c2VkLWhpdCB0ZXh0IGZpbmdlcnByaW50cyBwcmV2aW91c2x5IHNlZW4gaW4gc2VhcmNoLiINCiAgICB9DQogIF0sDQogICJtZXRyaWNzIjogew0KICAgICJieV9jaGFyZ2Vfc2l0ZSI6IHsNCiAgICAgICJxdWVyeV9wbGFuLnB5OjI0OmNoYXJnZV9kaWFnbm9zdGljcyI6IHsNCiAgICAgICAgInN1Y2Nlc3NfY2hhcnMiOiA0NjQ0MywNCiAgICAgICAgInN1Y2Nlc3NfY2FsbHMiOiAyMCwNCiAgICAgICAgImZhaWxlZF9jYWxscyI6IDEsDQogICAgICAgICJmYWlsZWRfcmVxdWVzdGVkIjogNTYzDQogICAgICB9LA0KICAgICAgImNvb3JkaW5hdG9yLnB5OjM3NDpfcnVuX3NlYXJjaCI6IHsNCiAgICAgICAgInN1Y2Nlc3NfY2hhcnMiOiA0Njg3MiwNCiAgICAgICAgInN1Y2Nlc3NfY2FsbHMiOiAyMSwNCiAgICAgICAgImZhaWxlZF9jYWxscyI6IDAsDQogICAgICAgICJmYWlsZWRfcmVxdWVzdGVkIjogMA0KICAgICAgfSwNCiAgICAgICJhc3NlbWJseS5weToxNDc6YWRkIjogew0KICAgICAgICAic3VjY2Vzc19jaGFycyI6IDY1NTUsDQogICAgICAgICJzdWNjZXNzX2NhbGxzIjogMTcsDQogICAgICAgICJmYWlsZWRfY2FsbHMiOiAwLA0KICAgICAgICAiZmFpbGVkX3JlcXVlc3RlZCI6IDANCiAgICAgIH0sDQogICAgICAiYXNzZW1ibHkucHk6MTczOmFkZCI6IHsNCiAgICAgICAgInN1Y2Nlc3NfY2hhcnMiOiA5NywNCiAgICAgICAgInN1Y2Nlc3NfY2FsbHMiOiA0LA0KICAgICAgICAiZmFpbGVkX2NhbGxzIjogMCwNCiAgICAgICAgImZhaWxlZF9yZXF1ZXN0ZWQiOiAwDQogICAgICB9LA0KICAgICAgImNvb3JkaW5hdG9yLnB5Ojk1NDpfcGFja2V0Ijogew0KICAgICAgICAic3VjY2Vzc19jaGFycyI6IDE5LA0KICAgICAgICAic3VjY2Vzc19jYWxscyI6IDEsDQogICAgICAgICJmYWlsZWRfY2FsbHMiOiAwLA0KICAgICAgICAiZmFpbGVkX3JlcXVlc3RlZCI6IDANCiAgICAgIH0NCiAgICB9LA0KICAgICJvdXRwdXRfY29uc3VtZWQiOiA5OTk4NiwNCiAgICAic3VtX3N1Y2Nlc3NmdWxfZGViaXRzIjogOTk5ODYsDQogICAgInNlYXJjaF9jaGFyc19ieV9sYW5lIjogew0KICAgICAgIm92ZXJ2aWV3X2V4cGVyaWVuY2UiOiA4MjIzLA0KICAgICAgInByb2Nlc3MiOiAxNDAxMywNCiAgICAgICJ0ZWNobmljYWwiOiAyNDYzNg0KICAgIH0sDQogICAgInNlYXJjaF9jaGFyc19ieV9yb2xlIjogew0KICAgICAgImV4Y2VycHQiOiAxODIzMSwNCiAgICAgICJtYXRjaGVkX3RleHQiOiAyODY0MQ0KICAgIH0sDQogICAgInNlYXJjaF91bmlxdWVfY2hhcnNfYnlfcmVmX3JvbGVfaGFzaCI6IDEyNTQ2LA0KICAgICJzZWFyY2hfdW5pcXVlX2NoYXJzX2J5X3JlZl9oYXNoIjogMTI1NDYsDQogICAgInNlYXJjaF9yZXBlYXRlZF9jaGFyc19ieV9yZWZfaGFzaCI6IDM0MzI2LA0KICAgICJjYW5kaWRhdGVfZGlhZ25vc3RpY19jaGFycyI6IDQwNjY4LA0KICAgICJjYW5kaWRhdGVfZGlhZ25vc3RpY19tYXRjaGVkX3RleHRfY2hhcnMiOiA5NjYzLA0KICAgICJjYW5kaWRhdGVfZGlhZ25vc3RpY19tZXRhZGF0YV9hbmRfanNvbl9jaGFycyI6IDMxMDA1LA0KICAgICJwYXJ0X2F0dGVtcHRzIjogMzMsDQogICAgInBhcnRfYWRkZWRfY291bnQiOiAxNywNCiAgICAicGFydF9za2lwX2NvdW50cyI6IHsNCiAgICAgICJkZWR1cGxpY2F0ZWQiOiA2LA0KICAgICAgImJ1ZGdldCI6IDEwDQogICAgfSwNCiAgICAiYXR0ZW1wdGVkX3BhcnRfdW5pcXVlX3RleHRfY2hhcnMiOiA4NjM0LA0KICAgICJzdWNjZXNzZnVsX3BhcnRfdGV4dF9jaGFycyI6IDY1NTUsDQogICAgIm9taXR0ZWRfdW5pcXVlX3BhcnRfdGV4dF9jaGFycyI6IDIwNzksDQogICAgImltYWdlX2RhdGFfdXJsX2NoYXJzIjogNTU3ODg4LA0KICAgICJpbWFnZV9jYXB0aW9uX2NoYXJnZWRfY2hhcnMiOiA5Nw0KICB9LA0KICAiYXJ0aWZhY3RzIjogW10sDQogICJsaW5lYWdlX2V2ZW50cyI6ICJsaW5lYWdlLmpzb25sIiwNCiAgImNvbmNsdXNpb24iOiAi5Y+s5ZueMTAv6YeN5o6SMzDjgIExMDAwMDDlrZfnrKbkuIrpmZDku43lpLHotKXvvJvlhoXpg6jmkJzntKI0Njg3MuS4juiviuaWrTQ2NDQz5Li75a+85raI6ICX77yM5q2j5paHNjU1NeOAguWujOaVtOe7k+iuuuingVJFU1VMVFMubWTjgIIiLA0KICAibGltaXRhdGlvbnMiOiBbDQogICAgImluc3RydW1lbnRlZCByZXBsYXksIGVsYXBzZWRfcyBpbmNsdWRlcyBDb29yZGluYXRvciBjb25zdHJ1Y3Rpb24vY2xvc2UgYW5kIG9ic2VydmVyIG92ZXJoZWFkIiwNCiAgICAiMTAwMDAwIGlzIGN1cnJlbnQgc2VydmVyIG1heGltdW0sIG5vdCBhIG5vLWJ1ZGdldCBydW4iLA0KICAgICI4NjM0IGNvdW50cyB1bmlxdWUgYXR0ZW1wdGVkIHRleHQgYmxvY2tzLCBub3QgaHlwb3RoZXRpY2FsIGNvbXBsZXRlIGZpbmFsIHJlc3BvbnNlIG9yIGFsbCB1bmRpc2NvdmVyZWQgbWF0ZXJpYWwiLA0KICAgICJkZWR1cCBtZXRyaWNzIGFyZSBieXRlLWVxdWl2YWxlbnQgVW5pY29kZSB0ZXh0IGJ5IGZpeGVkcmVmL3RleHQgaGFzaCwgbm90IHNlbWFudGljIGRlZHVwIiwNCiAgICAiaW1hZ2UgZGF0YV91cmwgaXMgbm90IGNoYXJnZWQgdG8gb3V0cHV0X2NoYXJzIiwNCiAgICAibm8gbm90ZS9BSSBzZW1hbnRpYyByZWFkaW5nIHdhcyBwZXJmb3JtZWQ7IG9iamVjdGl2ZSBpcyByZWNhbGwgYnVkZ2V0IGRpYWdub3NpcyINCiAgXSwNCiAgInBhcmVudF9ydW5faWRzIjogWw0KICAgICJSVU4tMjAyNjA5MTZUMDg1NDM4Wi0zRTQwRDVFRDg0NzEiDQogIF0sDQogICJyZWxhdGVkX21vZHVsZV9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfcmVzZWFyY2hfaWRzIjogW10sDQogICJyZWxhdGVkX2RhdGFzZXRfaWRzIjogW10sDQogICJyZXZpZXciOiB7DQogICAgInN0YXR1cyI6ICJub3QtcmV2aWV3ZWQiLA0KICAgICJyZXZpZXdlciI6IG51bGwsDQogICAgImRhdGUiOiBudWxsDQogIH0sDQogICJzZW5zaXRpdml0eSI6ICJpbnRlcm5hbCINCn0NCg==",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T162155Z-9D1612B40F6D",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "每路召回10的逐笔预算诊断",
+    "keywords": [
+      "recall",
+      "budget-accounting",
+      "instrumented-replay",
+      "floating-point"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "failed",
+    "created_at": "2026-09-16T16:21:55Z",
+    "started_at": "2026-09-16T16:23:58.607846Z",
+    "ended_at": "2026-09-16T16:25:49.713131Z",
+    "owner": null,
+    "question": "浮点求和中顺序求和、Kahan补偿与math.fsum在强抵消输入上有哪些差异和失效边界？",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/analyze_budget.py",
+        "sha256": "52b9b2258c732e805641c82bf6ce6e2bb2a8cf7ebf6140557ca7752f762dd02e",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.705113Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/apply_budget_trace_results.py",
+        "sha256": "85acc08b753c250282b2ad886e3e4f9f4dddfc4c3a5f07bc2be25f1ede9b26d1",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.718934Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/capture_memory_baseline.py",
+        "sha256": "2610ddd78cca427d996eace96f66287b83affa97a90488a9849965b5d6e1fa63",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.733128Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/compare_baseline.py",
+        "sha256": "d61224840f9eaa3d5050c9ed3c029d936929558d442c2966dea583dab367346e",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.746509Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/decompose_budget.py",
+        "sha256": "545f737346f882cdf0c8432158bafc5a8d0bc8a7f218fe7aa665bde1d7062bbf",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.761519Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/final_metrics.py",
+        "sha256": "9130dc7e50438fef14c55edc77ee5100f15e15660ad0ef72c69e7cc6044fb75a",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.778049Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/freeze_budget.py",
+        "sha256": "0d3abb6b94239090a385f42b8c4b732da18d45eadcab2f5b25662442a2249454",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.795068Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/inspect_results.py",
+        "sha256": "4b2fca94f303c5772d7031232a51ae01d8383b891bb26bbfe5eadbcab0f5466a",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.810425Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/scripts/trace_budget.py",
+        "sha256": "8132b63c90c5a01519267111d27ad496f87c2d183cd7dc8a1008b6576bc7426a",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.826805Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/source-manifest.json",
+        "sha256": "221a92e7b0546b369edcc06ef0ee1cf3b30179799a6fa83c16777da3900f4ce9",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.843470Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/source-snapshot.zip",
+        "sha256": "0d31c60146b1e3c948e50a69e94596d3cfa4d606e7636cadea2fc9d626c11200",
+        "role": "input",
+        "registered_at": "2026-09-16T16:30:01.860746Z"
+      }
+    ],
+    "parameters": {
+      "session_id": "RS-3e0fc7ab-54ac-4595-81be-467343778d0e",
+      "result_limit": 10,
+      "reranking": {
+        "mode": "auto",
+        "candidate_limit": 30,
+        "conditions": []
+      },
+      "budget": {
+        "wall_ms": 600000,
+        "read_bytes": 33554432,
+        "output_chars": 100000,
+        "candidates": 2000,
+        "graph_nodes": 1000,
+        "graph_edges": 2000,
+        "graph_hops": 6,
+        "model_tokens": 200000,
+        "model_calls": 20,
+        "model_input_tokens": 150000,
+        "model_output_tokens": 50000,
+        "rerank_items": 200
+      },
+      "query_variants": [
+        {
+          "id": "english-mechanism",
+          "language": "en",
+          "question": "How do sequential summation, Kahan compensated summation, and Python math.fsum differ under strong cancellation, including error behavior and failure boundaries?",
+          "lexical_terms": [
+            "sequential summation",
+            "Kahan summation",
+            "compensated summation",
+            "math.fsum",
+            "strong cancellation"
+          ]
+        },
+        {
+          "id": "english-boundaries",
+          "language": "en",
+          "question": "What are the numerical failure modes and limits of naive floating-point summation, Kahan summation, and math.fsum for strongly cancelling inputs?",
+          "lexical_terms": [
+            "floating-point summation",
+            "Kahan summation",
+            "math.fsum",
+            "cancellation",
+            "failure modes"
+          ]
+        }
+      ],
+      "scope": {
+        "owner_ids": [
+          "RES-FLOATING-POINT-SUMMATION"
+        ],
+        "levels": null,
+        "kinds": null,
+        "roles": null,
+        "outcomes": null,
+        "review_states": null,
+        "validities": null,
+        "include_unknown": false,
+        "excluded_refs": [],
+        "excluded_owner_ids": [],
+        "recorded_from": null,
+        "recorded_before": null,
+        "source_ids": null,
+        "include_refs": [],
+        "exclude_ids": [],
+        "confidence_levels": null,
+        "time_window": null,
+        "applicability_conditions": [],
+        "applicability_exclusions": [],
+        "owner_types": null
+      },
+      "scope_ceiling": {
+        "owner_ids": [
+          "PRJ-ARCHITECTURE-EVOLUTION",
+          "RES-FLOATING-POINT-SUMMATION",
+          "RUN-20260908T201214Z-D0AB308F66AD",
+          "RUN-20260908T201228Z-A0980824DC18",
+          "RUN-20260908T201240Z-90107A617CF8",
+          "RUN-20260908T214955Z-2273015D2CEF",
+          "RUN-20260908T215458Z-04C7D84D40D8"
+        ],
+        "levels": null,
+        "kinds": null,
+        "roles": null,
+        "outcomes": null,
+        "review_states": null,
+        "validities": null,
+        "include_unknown": false,
+        "excluded_refs": [],
+        "excluded_owner_ids": [],
+        "recorded_from": null,
+        "recorded_before": null,
+        "source_ids": null,
+        "include_refs": [],
+        "exclude_ids": [],
+        "confidence_levels": null,
+        "time_window": null,
+        "applicability_conditions": [],
+        "applicability_exclusions": [],
+        "owner_types": null
+      },
+      "instrumentation": "Run-only wrappers, original accounting/policy executed; no AI reading/note/handoff"
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "actual_reading_recall",
+        "status": "failed",
+        "scope": "Actual public API rejected BUDGET; not a successful full reading workflow."
+      },
+      {
+        "name": "accounting_trace_consistency",
+        "status": "passed",
+        "scope": "99986 charge sum; 33 part outcomes; 8634 unique text sum; source snapshot fingerprints; 42 fused-hit text fingerprints previously seen in search."
+      }
+    ],
+    "metrics": {
+      "by_charge_site": {
+        "query_plan.py:24:charge_diagnostics": {
+          "success_chars": 46443,
+          "success_calls": 20,
+          "failed_calls": 1,
+          "failed_requested": 563
+        },
+        "coordinator.py:374:_run_search": {
+          "success_chars": 46872,
+          "success_calls": 21,
+          "failed_calls": 0,
+          "failed_requested": 0
+        },
+        "assembly.py:147:add": {
+          "success_chars": 6555,
+          "success_calls": 17,
+          "failed_calls": 0,
+          "failed_requested": 0
+        },
+        "assembly.py:173:add": {
+          "success_chars": 97,
+          "success_calls": 4,
+          "failed_calls": 0,
+          "failed_requested": 0
+        },
+        "coordinator.py:954:_packet": {
+          "success_chars": 19,
+          "success_calls": 1,
+          "failed_calls": 0,
+          "failed_requested": 0
+        }
+      },
+      "output_consumed": 99986,
+      "sum_successful_debits": 99986,
+      "search_chars_by_lane": {
+        "overview_experience": 8223,
+        "process": 14013,
+        "technical": 24636
+      },
+      "search_chars_by_role": {
+        "excerpt": 18231,
+        "matched_text": 28641
+      },
+      "search_unique_chars_by_ref_role_hash": 12546,
+      "search_unique_chars_by_ref_hash": 12546,
+      "search_repeated_chars_by_ref_hash": 34326,
+      "candidate_diagnostic_chars": 40668,
+      "candidate_diagnostic_matched_text_chars": 9663,
+      "candidate_diagnostic_metadata_and_json_chars": 31005,
+      "part_attempts": 33,
+      "part_added_count": 17,
+      "part_skip_counts": {
+        "deduplicated": 6,
+        "budget": 10
+      },
+      "attempted_part_unique_text_chars": 8634,
+      "successful_part_text_chars": 6555,
+      "omitted_unique_part_text_chars": 2079,
+      "image_data_url_chars": 557888,
+      "image_caption_charged_chars": 97
+    },
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/analysis.json",
+        "sha256": "b02268f2fdb66bdb8e9028691a25ae079d1b9e6801f375f587a9366c68d5383b",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:01.877063Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/baseline-code-comparison.json",
+        "sha256": "24b291ab7cc1d39d6ec21cfc007481eb03dfa7718d7de245947c8de34f379f97",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:01.891617Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/calls.json",
+        "sha256": "807aaffe63efd8293cc849665feefcab6eece9bec0bbdd8eec8aaa0692c8affd",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:01.905958Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/charges.csv",
+        "sha256": "fcfa1c22d1889ad5efd11c0d355b73850246fc34cad6b3e0db3dc604fc662e1f",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:01.922524Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/decomposition.json",
+        "sha256": "afa3b0ea5ec70e8ce5c712d35c26ef99d1849dd3eb91b49c2d8a10b89ac99873",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:01.936584Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/events.json",
+        "sha256": "291cb9efee47815fcf52a1ee4c8ecb32ddf26cd288ca2b5aad480b02d494c225",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.060403Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/final-metrics.json",
+        "sha256": "90ad1755e9c71542466e52b9f1e335d84ac13d58b238db5206bbb7d70eabaebd",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.077969Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-recall-request.json",
+        "sha256": "a28c66f3d8f3bbe11b5a2354a39624f7e836adcb3d95484a1a898446373064fb",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.094217Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-recall-response.json",
+        "sha256": "9ee2a912e6799f88e047a2a130deff92dbdc87f13d6a27de56f64af20fa17d80",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.110955Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-start-request.json",
+        "sha256": "fd5a1143131bfcc0d5edf7590ee69efc2dfca2de295323eb6ceb857543b6c44f",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.127488Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-start-response.json",
+        "sha256": "15f053adc52b55f8948214dc06d4303bd99af4fc0b35529ca8a32689678fba53",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.143508Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-template-request.json",
+        "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.159432Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-template-response.json",
+        "sha256": "eb49ce21cff8a8a0fc6a456560830ba8ed354aa06faf0ab47e41b0e682ec272b",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.174893Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/reading-vs-baseline.diff",
+        "sha256": "46335e8a7d92a9b5625be0f8e47571624e4b672a587c5d3c2fde1138d52f2463",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.192544Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/budget-trace/summary.json",
+        "sha256": "3401c525e07b0e09b18cca5b0bfe4367593cf8e6cc985a492570e16ed08446ee",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.211001Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/document-request.json",
+        "sha256": "5085a72b20faa559d9e6a3e0d1d14056e6a868fa643867120c48d883d958bb74",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.230027Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/document.json",
+        "sha256": "da8f4459443cab9ae5d46882b6e2b78380fa16433987b3a86237599b25224007",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.246895Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/outline.json",
+        "sha256": "a80d80d5c8698421df95a34ba4a6b712c63ec558b3e3e56cb12a2e9c9c9a0af5",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.262173Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/overview.json",
+        "sha256": "22df37d9b1aa3a7d8073efeab1b750a58c729c390c4a3e3c8add82dbed3c2571",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.280141Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/owner-start.json",
+        "sha256": "0d2a25fa68589fbae58f7461e20c57217003259b88a62687eb8ace088796b80a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.297143Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/section.json",
+        "sha256": "e5248de4e9fddeb63806ecaa3555b36a02dd16fd9a4d8571b361037074a29514",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.314071Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/memory-baseline/unit.json",
+        "sha256": "1abedb8bdc0fd566908f8b85b64e138f1688061fe56b3b28f5bfef8ff46c05bc",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.330773Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/RESULTS.md",
+        "sha256": "3e810340ffb040238193cebf14a7f218089fdb281e03797306319c5b26bebbc5",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.347098Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t162155z-9d1612b40f6d/.run-captures/freeze-manifest.json",
+        "sha256": "11c3d353f312a4be9e477d2d8ff72f1d38addf47b3d7e13cac1697e25821b7c7",
+        "role": "artifact",
+        "registered_at": "2026-09-16T16:30:02.362577Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "召回10/重排30、100000字符上限仍失败；内部搜索46872与诊断46443主导消耗，正文6555。完整结论见RESULTS.md。",
+    "limitations": [
+      "instrumented replay, elapsed_s includes Coordinator construction/close and observer overhead",
+      "100000 is current server maximum, not a no-budget run",
+      "8634 counts unique attempted text blocks, not hypothetical complete final response or all undiscovered material",
+      "dedup metrics are byte-equivalent Unicode text by fixedref/text hash, not semantic dedup",
+      "image data_url is not charged to output_chars",
+      "no note/AI semantic reading was performed; objective is recall budget diagnosis"
+    ],
+    "parent_run_ids": [
+      "RUN-20260916T085438Z-3E40D5ED8471"
+    ],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-16T16:30:02.796327Z"
+}

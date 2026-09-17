@@ -1,0 +1,7 @@
+{
+  "action": "reading-note",
+  "wall_ms": 13649.595,
+  "measurement": "API dispatch wall time; no host-model internal timing",
+  "request_snapshot": "projects\\architecture-evolution\\runs\\run-20260916t181657z-4d7efff321ba\\.run-captures\\owner-smoke\\12-normal-note-semantic-update-receipt.json.request-snapshot.json",
+  "request_sha256": "bfa9806070b08f80fcb0ab70b73f9a6ae6ce5271eb3a98db2e18311dd931b50b"
+}

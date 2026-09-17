@@ -1,0 +1,575 @@
+{
+  "root": "D:\\共享桌面\\A_work\\A_work_auto_flow\\.local\\consolidate-results-check\\synthetic-65d103e5",
+  "unit": {
+    "body_markdown": "",
+    "change_reason": "合成完整成果同步验证",
+    "content_hash": "12f7712424eb7f64e331ea7efdded61fff7ac4360ea3c321a4459d1ada052c97",
+    "created_at": "2026-09-15T20:47:09.532982Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [],
+    "kind": "detail",
+    "level": "L1",
+    "owner_id": "RES-R",
+    "payload": {
+      "blocks": [
+        {
+          "block_id": "definitions",
+          "markdown": "必要定义 ONLY_DEFINITION；$T$ 的单位为 K。",
+          "requires_block_ids": [],
+          "role": "definitions"
+        },
+        {
+          "block_id": "result",
+          "markdown": "完整过程 ONLY_FULL_RESULT：$T=t+273.15$。",
+          "requires_block_ids": [
+            "definitions"
+          ],
+          "role": "results"
+        },
+        {
+          "block_id": "optional",
+          "markdown": "未选择的 OPTIONAL_BLOCK。",
+          "requires_block_ids": [],
+          "role": "appendix"
+        }
+      ],
+      "evidence_refs": [],
+      "figures": [],
+      "missing_refs": [],
+      "retrieval_description": {
+        "applicable": [
+          "摄氏温标的合成输入"
+        ],
+        "key_findings": [
+          "只证明合成流程可读"
+        ],
+        "limitations": [
+          "未验证传感器误差"
+        ],
+        "method": "按温度基准和单位换算",
+        "not_applicable": [
+          "不得直接用于华氏温标或现实测量"
+        ],
+        "question": "合成温标换算的定义"
+      },
+      "run_ref": null,
+      "unit_type": "method"
+    },
+    "previous_revision": null,
+    "provenance_gap": "合成接口验证，无现实实验",
+    "record_hash": "cc7cc7feabee4aeb8f5fcd8922fb11a30d1b190da19f703e07cfe34fa0870222",
+    "record_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+    "record_reason": "合成完整成果同步验证",
+    "revision": 1,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [],
+    "title": "合成 detail",
+    "updated_at": "2026-09-15T20:47:09.532982Z",
+    "updated_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "section": {
+    "body_markdown": "",
+    "change_reason": "合成完整成果同步验证",
+    "content_hash": "ead506f43c545ee8d44f24ead8b29cf4f95747871c81dd7c131139401c7c78c4",
+    "created_at": "2026-09-15T20:47:09.813959Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [],
+    "kind": "document_section",
+    "level": null,
+    "owner_id": "RES-R",
+    "payload": {
+      "blocks": [
+        {
+          "evidence_refs": [],
+          "markdown": "本章固定说明。",
+          "type": "prose"
+        },
+        {
+          "ref": {
+            "locator": "",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "cc7cc7feabee4aeb8f5fcd8922fb11a30d1b190da19f703e07cfe34fa0870222",
+            "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+            "target_kind": "record"
+          },
+          "type": "unit"
+        }
+      ],
+      "missing_refs": [],
+      "role": "methods",
+      "section_key": "method",
+      "title": "合成章节 method",
+      "watch_refs": []
+    },
+    "previous_revision": null,
+    "provenance_gap": "合成接口验证，无现实实验",
+    "record_hash": "bb48f3ad37fb89199175d6cbbf43665b60d39ddd18df0ac7fa01117cf7c59d6b",
+    "record_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+    "record_reason": "合成完整成果同步验证",
+    "revision": 1,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [],
+    "title": "合成 document_section",
+    "updated_at": "2026-09-15T20:47:09.813959Z",
+    "updated_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "document": {
+    "body_markdown": "",
+    "change_reason": "合成完整成果同步验证",
+    "content_hash": "0e84802b3098d5ddda8b43c95dc8ce50053f0a9cf45a7ca448e919216eb4b8e9",
+    "created_at": "2026-09-15T20:47:10.008036Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [],
+    "kind": "document",
+    "level": null,
+    "owner_id": "RES-R",
+    "payload": {
+      "audience": "研究人员",
+      "common_refs": [],
+      "document_type": "research_process",
+      "missing_refs": [],
+      "purpose": "验证合成研究文档",
+      "scope": "仅合成软件验收",
+      "section_refs": [
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "bb48f3ad37fb89199175d6cbbf43665b60d39ddd18df0ac7fa01117cf7c59d6b",
+          "target_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+          "target_kind": "record"
+        }
+      ],
+      "watch_refs": []
+    },
+    "previous_revision": null,
+    "provenance_gap": "合成接口验证，无现实实验",
+    "record_hash": "76a137e88c8415d96626514a70de07fd9813e390ae07e2061aa1b1c85d667c01",
+    "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+    "record_reason": "合成完整成果同步验证",
+    "revision": 1,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [],
+    "title": "合成 document",
+    "updated_at": "2026-09-15T20:47:10.008036Z",
+    "updated_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "overview": {
+    "body_markdown": "合成摄氏转开尔文换算。输入边界待整理。",
+    "change_reason": "合成完整成果同步验证",
+    "content_hash": "b0418e8e7f23f90675ef628f47a14fee5ef0f7909e041d6d592580fa4994a3dc",
+    "created_at": "2026-09-15T20:47:10.230933Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [],
+    "kind": "overview",
+    "level": "L4",
+    "owner_id": "RES-R",
+    "payload": {
+      "claims": [],
+      "current_stage": "只定义合成换算",
+      "experience_refs": [],
+      "limitations": [
+        "未验证传感器误差"
+      ],
+      "methods": [
+        "线性平移"
+      ],
+      "missing_refs": [],
+      "open_questions": [
+        "输入边界待整理"
+      ],
+      "process_refs": [],
+      "question": "摄氏温度如何转为开尔文",
+      "results": [
+        "T=t+273.15"
+      ],
+      "technical_refs": [
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "cc7cc7feabee4aeb8f5fcd8922fb11a30d1b190da19f703e07cfe34fa0870222",
+          "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+          "target_kind": "record"
+        }
+      ]
+    },
+    "previous_revision": null,
+    "provenance_gap": "合成接口验证，无现实实验",
+    "record_hash": "f9cb5a6c1e1357f1296fcc81288700d1f20a981389f36f00d49ba11833058df4",
+    "record_id": "MEM-88937726-da61-5152-ba68-7f076fcb860d",
+    "record_reason": "合成完整成果同步验证",
+    "revision": 1,
+    "schema_version": 4,
+    "sensitivity": "internal",
+    "sources": [],
+    "title": "合成 overview",
+    "updated_at": "2026-09-15T20:47:10.230933Z",
+    "updated_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "baseline_head": {
+    "commit_id": "COM-22e85f1a-398b-440a-b7d4-92d75faab331",
+    "generation": 4,
+    "manifest_hash": "b3faea077fc73643b02e31f86161f701c229cd0e712440451d46d59cb4bb6b60"
+  },
+  "newer": {
+    "body_markdown": "",
+    "change_reason": "补齐变量单位和绝对零度边界",
+    "content_hash": "73cce818a9de44f50358361c9984fec53cfde92906e51ec631f48f555d64c69b",
+    "created_at": "2026-09-15T20:47:09.532982Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [],
+    "kind": "detail",
+    "level": "L1",
+    "owner_id": "RES-R",
+    "payload": {
+      "blocks": [
+        {
+          "block_id": "definitions",
+          "markdown": "定义：t 为摄氏温度（°C），T 为热力学温度（K）；合成输入限定 t >= -273.15 °C。",
+          "requires_block_ids": [],
+          "role": "definitions"
+        },
+        {
+          "block_id": "result",
+          "markdown": "完整过程 ONLY_FULL_RESULT：$T=t+273.15$。",
+          "requires_block_ids": [
+            "definitions"
+          ],
+          "role": "results"
+        },
+        {
+          "block_id": "optional",
+          "markdown": "未选择的 OPTIONAL_BLOCK。",
+          "requires_block_ids": [],
+          "role": "appendix"
+        }
+      ],
+      "evidence_refs": [],
+      "figures": [],
+      "missing_refs": [],
+      "retrieval_description": {
+        "applicable": [
+          "摄氏温标的合成输入"
+        ],
+        "key_findings": [
+          "只证明合成流程可读"
+        ],
+        "limitations": [
+          "未验证传感器误差"
+        ],
+        "method": "按温度基准和单位换算",
+        "not_applicable": [
+          "不得直接用于华氏温标或现实测量"
+        ],
+        "question": "合成温标换算的定义"
+      },
+      "run_ref": null,
+      "unit_type": "method"
+    },
+    "previous_revision": 1,
+    "provenance_gap": "合成接口验证，无现实实验",
+    "record_hash": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+    "record_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+    "record_reason": "合成完整成果同步验证",
+    "revision": 2,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [],
+    "title": "合成 detail",
+    "updated_at": "2026-09-15T20:47:10.470129Z",
+    "updated_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "new": {
+    "body_markdown": "",
+    "change_reason": "合成完整成果同步验证",
+    "content_hash": "9f0044f1bcd3833181e3edaa76441c319e4f24ad04cceb247ace547c0bab8d25",
+    "created_at": "2026-09-15T20:47:10.648308Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [],
+    "kind": "detail",
+    "level": "L1",
+    "owner_id": "RES-R",
+    "payload": {
+      "blocks": [
+        {
+          "block_id": "counterexample",
+          "markdown": "边界反例：t=-300 °C 代入得到 T=-26.85 K。该输入超出既定适用域，必须拒绝；这不代表现实传感器已验证。",
+          "requires_block_ids": [],
+          "role": "results"
+        }
+      ],
+      "evidence_refs": [],
+      "figures": [],
+      "missing_refs": [],
+      "retrieval_description": {
+        "applicable": [
+          "摄氏温标的合成输入"
+        ],
+        "key_findings": [
+          "只证明合成流程可读"
+        ],
+        "limitations": [
+          "未验证传感器误差"
+        ],
+        "method": "按温度基准和单位换算",
+        "not_applicable": [
+          "不得直接用于华氏温标或现实测量"
+        ],
+        "question": "换算后负开尔文的反例"
+      },
+      "run_ref": null,
+      "unit_type": "method"
+    },
+    "previous_revision": null,
+    "provenance_gap": "合成接口验证，无现实实验",
+    "record_hash": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+    "record_id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+    "record_reason": "合成完整成果同步验证",
+    "revision": 1,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [],
+    "title": "合成边界反例",
+    "updated_at": "2026-09-15T20:47:10.648308Z",
+    "updated_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "final_document": {
+    "body_markdown": "",
+    "change_reason": "固定已同步章节",
+    "content_hash": "31f4b70ebdfa51e05304cad4ffb149aae3c69d93be105b57edd4e5cef196cfc5",
+    "created_at": "2026-09-15T20:47:10.008036Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [],
+    "kind": "document",
+    "level": null,
+    "owner_id": "RES-R",
+    "payload": {
+      "audience": "研究人员",
+      "common_refs": [],
+      "document_type": "research_process",
+      "missing_refs": [],
+      "purpose": "验证合成研究文档",
+      "scope": "仅合成软件验收",
+      "section_refs": [
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 2,
+          "sha256": "887a27b3dffffeffd44f7f5c6cd8ff44702c3ca77fa19f82092b6a99f404538a",
+          "target_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+          "target_kind": "record"
+        }
+      ],
+      "watch_refs": []
+    },
+    "previous_revision": 1,
+    "provenance_gap": "合成接口验证，无现实实验",
+    "record_hash": "e92860797e51c9821180bf9d9e379839000e086072d051e1730e77fd51343aa1",
+    "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+    "record_reason": "合成完整成果同步验证",
+    "revision": 2,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [],
+    "title": "合成 document",
+    "updated_at": "2026-09-15T20:47:32.380536Z",
+    "updated_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "final_section": {
+    "body_markdown": "",
+    "change_reason": "更新定义并纳入之前未编排的边界反例",
+    "content_hash": "c3479f7a935bb935c96f571ecf61ac904407ff8dfc892deed06e9a327827d2d0",
+    "created_at": "2026-09-15T20:47:09.813959Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [],
+    "kind": "document_section",
+    "level": null,
+    "owner_id": "RES-R",
+    "payload": {
+      "blocks": [
+        {
+          "evidence_refs": [],
+          "markdown": "本章将摄氏温度转换为开尔文，仅在 t >= -273.15 °C 的合成适用域内使用；后附反例说明拒绝域外输入的原因。",
+          "type": "prose"
+        },
+        {
+          "ref": {
+            "locator": "",
+            "relation": "references",
+            "revision": 2,
+            "sha256": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+            "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+            "target_kind": "record"
+          },
+          "type": "unit"
+        },
+        {
+          "ref": {
+            "locator": "",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+            "target_id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+            "target_kind": "record"
+          },
+          "type": "unit"
+        }
+      ],
+      "missing_refs": [],
+      "role": "methods",
+      "section_key": "method",
+      "title": "合成章节 method",
+      "watch_refs": []
+    },
+    "previous_revision": 1,
+    "provenance_gap": "合成接口验证，无现实实验",
+    "record_hash": "887a27b3dffffeffd44f7f5c6cd8ff44702c3ca77fa19f82092b6a99f404538a",
+    "record_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+    "record_reason": "合成完整成果同步验证",
+    "revision": 2,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [],
+    "title": "合成 document_section",
+    "updated_at": "2026-09-15T20:47:31.742347Z",
+    "updated_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "final_overview": {
+    "body_markdown": "摄氏转开尔文公式 T=t+273.15；仅适用于 t >= -273.15 °C。域外反例已纳入全文，现实传感器误差仍待验证。",
+    "change_reason": "同步适用域、反例和未决问题",
+    "content_hash": "5455ca2487580326f7c2371ce81fafa77bfee4bc51a668ac806810742c51da4a",
+    "created_at": "2026-09-15T20:47:10.230933Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [],
+    "kind": "overview",
+    "level": "L4",
+    "owner_id": "RES-R",
+    "payload": {
+      "claims": [],
+      "current_stage": "合成定义与反例已编排，现实测量待验证",
+      "experience_refs": [],
+      "limitations": [
+        "只验证合成软件流程",
+        "未验证传感器误差",
+        "t < -273.15 °C 必须拒绝"
+      ],
+      "methods": [
+        "线性平移"
+      ],
+      "missing_refs": [],
+      "open_questions": [
+        "现实传感器误差尚未验证"
+      ],
+      "process_refs": [],
+      "question": "摄氏温度如何转为开尔文",
+      "results": [
+        "T=t+273.15"
+      ],
+      "technical_refs": [
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 2,
+          "sha256": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+          "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+          "target_kind": "record"
+        },
+        {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+          "target_id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+          "target_kind": "record"
+        }
+      ]
+    },
+    "previous_revision": 1,
+    "provenance_gap": "合成接口验证，无现实实验",
+    "record_hash": "a1ad35d3c15cfb6a3c8eebc61f7d93639408a35f9734bcd78bde3725ed41f610",
+    "record_id": "MEM-88937726-da61-5152-ba68-7f076fcb860d",
+    "record_reason": "合成完整成果同步验证",
+    "revision": 2,
+    "schema_version": 4,
+    "sensitivity": "internal",
+    "sources": [],
+    "title": "合成 overview",
+    "updated_at": "2026-09-15T20:47:32.080920Z",
+    "updated_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "final_head": {
+    "commit_id": "COM-c0a2a7d0-b753-4e08-b53a-d795bff84389",
+    "generation": 9,
+    "manifest_hash": "e4a2a0bdbeced2747d0d285f28484e660f0680321706586143487c39a7860af6"
+  },
+  "old_document_preserved": true,
+  "unchanged_revision_preserved": true
+}

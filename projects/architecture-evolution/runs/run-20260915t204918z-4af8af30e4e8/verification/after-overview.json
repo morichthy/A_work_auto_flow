@@ -1,0 +1,70 @@
+{
+  "body_markdown": "摄氏转开尔文公式 T=t+273.15；仅适用于 t >= -273.15 °C。域外反例已纳入全文，现实传感器误差仍待验证。",
+  "change_reason": "同步适用域、反例和未决问题",
+  "content_hash": "5455ca2487580326f7c2371ce81fafa77bfee4bc51a668ac806810742c51da4a",
+  "created_at": "2026-09-15T20:47:10.230933Z",
+  "created_by": {
+    "id": "consolidate-results-synthetic-check",
+    "kind": "ai"
+  },
+  "discovery": "owner_only",
+  "keywords": [],
+  "kind": "overview",
+  "level": "L4",
+  "owner_id": "RES-R",
+  "payload": {
+    "claims": [],
+    "current_stage": "合成定义与反例已编排，现实测量待验证",
+    "experience_refs": [],
+    "limitations": [
+      "只验证合成软件流程",
+      "未验证传感器误差",
+      "t < -273.15 °C 必须拒绝"
+    ],
+    "methods": [
+      "线性平移"
+    ],
+    "missing_refs": [],
+    "open_questions": [
+      "现实传感器误差尚未验证"
+    ],
+    "process_refs": [],
+    "question": "摄氏温度如何转为开尔文",
+    "results": [
+      "T=t+273.15"
+    ],
+    "technical_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+        "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+        "target_id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "previous_revision": 1,
+  "provenance_gap": "合成接口验证，无现实实验",
+  "record_hash": "a1ad35d3c15cfb6a3c8eebc61f7d93639408a35f9734bcd78bde3725ed41f610",
+  "record_id": "MEM-88937726-da61-5152-ba68-7f076fcb860d",
+  "record_reason": "合成完整成果同步验证",
+  "revision": 2,
+  "schema_version": 4,
+  "sensitivity": "internal",
+  "sources": [],
+  "title": "合成 overview",
+  "updated_at": "2026-09-15T20:47:32.080920Z",
+  "updated_by": {
+    "id": "consolidate-results-synthetic-check",
+    "kind": "ai"
+  }
+}

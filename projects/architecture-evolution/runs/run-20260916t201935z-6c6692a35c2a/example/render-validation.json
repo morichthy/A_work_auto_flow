@@ -1,0 +1,12 @@
+{
+  "source": "fixed historical full research_process r1",
+  "normalized_references": 11,
+  "understanding_characters": 1961,
+  "rendered_note_characters": 4876,
+  "estimated_note_tokens_utf8_bytes": 8538,
+  "default_6000_would_fit": false,
+  "example_14000_would_fit": true,
+  "source_id_validation": "passed against fixed delivered receipt; not current authorization check",
+  "live_rs_status": "recall failed; no note loaded",
+  "first_draft_limitations": "v2 corrected Kahan initial conditions, labelled explanatory connections and nested heading levels; not a claim of flawless first draft"
+}

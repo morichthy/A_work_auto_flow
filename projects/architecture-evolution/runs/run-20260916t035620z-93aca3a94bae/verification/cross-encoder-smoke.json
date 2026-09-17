@@ -1,0 +1,12 @@
+{
+  "model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+  "revision": "1427fd652930e4ba29e8149678df786c240d8825",
+  "manifest_sha256": "fb34704cc2ad9cbcd0e9cb6c03b6b36535639889a2d22ff1fafd53bedca9ebf6",
+  "cold_load_seconds": 4.755759700005001,
+  "score_seconds": 0.18589110000175424,
+  "tokens": [26, 24],
+  "scores": [-1.1031274795532227, -10.119453430175781],
+  "pairs": [["低温启动失败如何解决？", "低温条件下先预热电池可以改善启动性能。"], ["低温启动失败如何解决？", "本章节讨论办公室打印机的纸张尺寸。"]],
+  "validation": "4 unittest passed; socket.connect forbidden in real-model test; long input rejected without truncation",
+  "limitation": "CPU Windows x64 local smoke only; not business relevance or portable second-machine acceptance"
+}

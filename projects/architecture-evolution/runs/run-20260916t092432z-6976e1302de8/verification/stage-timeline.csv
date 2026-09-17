@@ -1,0 +1,14 @@
+stage,wall_seconds,backend_dispatch_seconds,boundary
+prepare,12.038,2.576012,valid prepare tool sent to return
+dispatch_and_view,60.325,1.231311,prepare return to recall tool sent
+recall,44.395,39.947214,recall exec sent to last recorded poll return
+select_and_construct_read,25.588,,recall observed return to read tool sent
+full_read,13.669,8.829521,read tool sent to return
+read_understand_note_and_repair,184.270,,read return to valid note tool sent
+save_note,14.116,7.367652,valid note tool sent to return
+prepare_decision,20.556,,note return to decide tool sent
+decide,10.458,6.030266,decide tool sent to return
+reader_to_main_handoff_orchestration,53.878,,decide return to main handoff tool sent
+handoff,13.712,5.950150,main handoff tool sent to return
+main_read_and_accept,17.006,,handoff received to actual acceptance mark
+total,470.011,71.932127,valid prepare tool sent to main acceptance

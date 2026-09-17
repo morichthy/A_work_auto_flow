@@ -1,0 +1,31 @@
+{
+  "root": "C:\\Users\\livky\\AppData\\Local\\Temp\\reading-three-modes-ai-e1jt3idp\\workspace",
+  "owners": {
+    "A": {
+      "owner_id": "RES-MQ-A",
+      "document_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-c8416f3d-0493-5965-89bb-7935cddc845d",
+        "revision": 1,
+        "sha256": "b04c02ac33e9bd00f4293c51a74ad60f6613bd1f3b452c6e854e2320a26e0e30",
+        "locator": "",
+        "relation": "references"
+      }
+    },
+    "B": {
+      "owner_id": "PRJ-MQ-B",
+      "document_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-5d498ddc-7605-518c-b8cc-3c5a66c1c717",
+        "revision": 1,
+        "sha256": "2f398f1b569582e0a1e64bacca760d3907d22c9ef77464612e0fda3daf802259",
+        "locator": "",
+        "relation": "references"
+      }
+    }
+  },
+  "goal": "解释合成phase_case中的相位误差，找出可验证的上游线索。",
+  "limitations": [
+    "合成材料；无现实实验；不证明检索质量普遍提升"
+  ]
+}

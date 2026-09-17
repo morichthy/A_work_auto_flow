@@ -1,0 +1,17 @@
+warning: in the working copy of '.agents/skills/context-maintenance/SKILL.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.agents/skills/development-checks/SKILL.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.agents/skills/material-query/SKILL.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/scripts/material_query/api.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/scripts/material_query/assembly.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/scripts/material_query/budget.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/scripts/material_query/cli.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/scripts/material_query/coordinator.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/scripts/material_query/history_search.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/scripts/memory/search.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/tests/serve_workbench_test.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/tests/test_material_recall.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'automation/tests/test_memory_documents_v3.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'context/generated/run-index.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'context/generated/workspace-index.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/DEVELOPMENT_HISTORY.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'projects/architecture-evolution/README.md', LF will be replaced by CRLF the next time Git touches it

@@ -1,0 +1,81 @@
+{
+  "schema_version": 3,
+  "request_id": "47c54b11-b2d6-43c8-8c98-2998c03aee7e",
+  "actor": {
+    "kind": "ai",
+    "id": "codex-reranking-implementation"
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": "COM-9a50d3a4-df19-4037-b58c-dc4252febf72",
+  "operations": [
+    {
+      "op": "put_record",
+      "client_key": "reranking-document",
+      "draft": {
+        "schema_version": 3,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "document",
+        "title": "召回排序演进：正文、条件与Cross-encoder完整报告",
+        "level": null,
+        "body_markdown": "",
+        "payload": {
+          "document_type": "research_process",
+          "purpose": "复现本轮功能拆解、核心基线、实现及验证边界",
+          "audience": "框架开发与检索评估人员",
+          "scope": "仅2026-09-16新增AI阅读重排，历史v0.1/v0.2稿保持其时点",
+          "common_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+              "revision": 1,
+              "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "section_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+              "revision": 1,
+              "sha256": "8ea83d522ab2422ae9217eb6826b2d877692e833e515097aa021d9689770176c",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "watch_refs": [],
+          "missing_refs": []
+        },
+        "sources": [
+          {
+            "target_kind": "record",
+            "target_id": "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+            "revision": 1,
+            "sha256": "99b75b70d7efbc31f3ff4dc17c38ea8f34529e875873e017886589d7ddb872e0",
+            "locator": "",
+            "relation": "references"
+          },
+          {
+            "target_kind": "record",
+            "target_id": "MEM-2c32da6d-6ddc-5fbd-9947-92dde975b240",
+            "revision": 1,
+            "sha256": "8ea83d522ab2422ae9217eb6826b2d877692e833e515097aa021d9689770176c",
+            "locator": "",
+            "relation": "references"
+          }
+        ],
+        "provenance_gap": null,
+        "record_reason": "保存2026-09-16已授权重排实施、真实验证和边界，供后续复用。",
+        "discovery": "workspace_summary",
+        "sensitivity": "internal",
+        "keywords": [
+          "Cross-encoder",
+          "重排",
+          "显式条件",
+          "冻结基线",
+          "离线模型"
+        ]
+      }
+    }
+  ]
+}

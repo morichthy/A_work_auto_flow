@@ -1,0 +1,33 @@
+{
+  "status": "failed",
+  "value": null,
+  "code": "INTERNAL",
+  "warnings": [
+    "材料完整性检查失败"
+  ],
+  "issues": [
+    {
+      "code": "INTERNAL",
+      "message": "材料完整性检查失败",
+      "affected_refs": [],
+      "retry": "never"
+    }
+  ],
+  "consumed": {
+    "wall_ms": 1438,
+    "read_bytes": 265918,
+    "output_chars": 0,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": "internal",
+  "basis": null
+}
+

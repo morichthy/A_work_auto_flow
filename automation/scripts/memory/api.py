@@ -12,10 +12,12 @@ ACTIONS = ("inspect", "list-owners", "adopt-owner", "validate-draft", "commit", 
            "history", "document", "outline", "section-context", "document-impact", "figure", "resume", "context", "expand", "prepare", "consolidate", "summaries-prepare",
            "summaries-save", "associations-propose", "associations-decide", "associations-view",
            "feedback", "recover", "reconcile", "rebuild", "export", "migration-export", "migration-preview",
+           "rebuild-discovery", "discovery-gaps",
            "migration-import", "migration-recover", "ingest-preview", "ingest-apply",
            "impact", "question-validity", "source-lineage", "raw-materials", "raw-material")
 PREVIEW_ACTIONS = {"validate-draft", "commit", "review", "consolidate", "summaries-save",
-                   "associations-decide", "feedback", "rebuild", "migration-import", "migration-recover", "ingest-apply"}
+                   "associations-decide", "feedback", "rebuild", "rebuild-discovery",
+                   "migration-import", "migration-recover", "ingest-apply"}
 
 
 def dispatch(service, action, request):
@@ -95,6 +97,14 @@ def dispatch(service, action, request):
             from . import index
             return (index.reconcile(service.root, request.get("owner_id"), vector=request.get("vector", "auto"))
                     if action == "reconcile" else index.rebuild(service.root, request.get("scope"), request.get("dry_run", False), vector=request.get("vector", "auto")))
+        if action in {"rebuild-discovery", "discovery-gaps"}:
+            from . import discovery
+            if action == "discovery-gaps":
+                return discovery.gaps(service.root, request.get("owner_id"),
+                                      offset=request.get("offset", 0), limit=request.get("limit", 50))
+            return discovery.rebuild_owner(service.root, request["owner_id"], request["expected_head"],
+                projection_version=request["projection_version"], vector=request.get("vector", "auto"),
+                dry_run=request.get("dry_run", False))
         if action == "export":
             from .render import export
             return export(service, request)

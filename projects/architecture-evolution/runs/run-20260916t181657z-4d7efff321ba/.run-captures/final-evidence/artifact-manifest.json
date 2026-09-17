@@ -1,0 +1,469 @@
+{
+  "files": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/backend-verification.md",
+      "bytes": 7785,
+      "sha256": "b227225d7c55e1d8308ac081eaabc84ae194852a924ff6c88ae8df2e631b7a21"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-assembly-documents-tests.log",
+      "bytes": 1656,
+      "sha256": "99966f7acec0c39314ccd100df5f5bb104899d747db331aa7bfc7b32b977ea10"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-delegation-tests.log",
+      "bytes": 2073,
+      "sha256": "3c53e18bd4877bac5dffe880ce594d3b5f07e8e68736f92aa68d78c2cf38dc3d"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-final-unit-tests.log",
+      "bytes": 638,
+      "sha256": "0899c5bc16f411e73666f71a431bc8f22850e77d530e7f6310d7b87d309ddba8"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-legacy-tests.log",
+      "bytes": 3235,
+      "sha256": "3532b0ba195464fb7a3830f87632ed355d03d3ed1a425f767e1fa59f26d9c0cb"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-progressive-final-tests.log",
+      "bytes": 482,
+      "sha256": "815759015b6eb167661d7ad9fb502c5f02c82ad178d8ce39d4a5ac6eb76c2d51"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-progressive-red.log",
+      "bytes": 3013,
+      "sha256": "b00e1cbecab7c502619d59d095e180d00b45c55b4d7615b90d0d910cb9420ec0"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-progressive-tests-v2.log",
+      "bytes": 2803,
+      "sha256": "d71eefff78af07fedb5e71a10ee663412f85e53a36d0444b5347fc50bf0b1240"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-progressive-tests.log",
+      "bytes": 18358,
+      "sha256": "640c0bbc27bfa774c8039b4361a8b56ac8d4343ed102315cc1c3db9a829fddc3"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-related-tests.log",
+      "bytes": 5500,
+      "sha256": "e675ad5842ff81985d5dec22db2c272b0f9ac64d8a881a61b40062179661eb87"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-run-reference-tests-v2.log",
+      "bytes": 300,
+      "sha256": "99047f2f6f2592c050c348448a058873fb0936b9c28bea082a62f0e22546a9a3"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-run-reference-tests.log",
+      "bytes": 3551,
+      "sha256": "582d9a763d87fd33c3037928397e6db4e0250f37d57c1b4d7420caa045e59c02"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-source-id-red.log",
+      "bytes": 1459,
+      "sha256": "c97c7f6e2e8b8ddab384100aa35e4be4af47172740e1ff642d24b18dfe1456de"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-source-id-tests.log",
+      "bytes": 919,
+      "sha256": "06ed8b5408e415054457092b124f59952cd24a1087e400419d3af7c7e40904a7"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-tests-v2.log",
+      "bytes": 1569,
+      "sha256": "0b66c5a106225c08914dc335524165c4a071871aec75a6fb9f912abf15ce21d0"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-tests-v3.log",
+      "bytes": 1733,
+      "sha256": "736622f1264eb01e3953715ff04a5847557c0fb91f4644b6424566d16b1dff0a"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-tests-v4.log",
+      "bytes": 2053,
+      "sha256": "637615d2f8ee464080e7163d9139ea175941b531cbe0ae84780ff39b32bbf818"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-reading-tests.log",
+      "bytes": 4935,
+      "sha256": "8b7b99591b3d5f6ee053b5bf1d5c629118d2ecb1406190b587d5f7692da773ea"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/owner-review.md",
+      "bytes": 7220,
+      "sha256": "4d4351c249e989bb6037a4b6dadcbc6b8f6e7591cf76574e521e263a6ed0b780"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/settings-e2e.json",
+      "bytes": 8171,
+      "sha256": "3595cf5ec23d21f80e58e1d246375aa63034d57e740dd99a2802a8ba3f989ff4"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/settings-real-http.png",
+      "bytes": 110785,
+      "sha256": "af5c3f00531557ed24acc88f2fc8e3277647c1cab1cab7360dfbd1ebf870d486"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/settings-verification.md",
+      "bytes": 3405,
+      "sha256": "a084424bd5df5125d08c05eaefbd976ec93119a00dc62e98a236430edd798619"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/verification/setup-tests.log",
+      "bytes": 6194,
+      "sha256": "3adc3c47bd718411f6627be669a8bd81b38e8470798106e27ab07ad5eaed53a2"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/00-template-receipt.json",
+      "bytes": 506,
+      "sha256": "1c03f444501e96b1531a86d9a14f1748a7cf936b189a1b2f144ba31620eb0f2d"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/01-start-receipt.json",
+      "bytes": 768,
+      "sha256": "bfdec45ee7b7d05e38c8aa0f66a0dfdc6641fffe1a77031df799899645965ba1"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/01-start-request.json",
+      "bytes": 2771,
+      "sha256": "2c4a93f8c2186825976df8f25b79ced0a4204ab017e32a7b1987b5b2f96ef87f"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/02-recall-first-receipt.json",
+      "bytes": 593,
+      "sha256": "52774627cb110d4b40c251b18980c4f2b7713c569f298450aae429233ce20b28"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/02-recall-request.json",
+      "bytes": 1880,
+      "sha256": "0c09b2cd8d0f454f3908d9955b5d970a92e0c40c7afac5f6ca63a453ab60ed06"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/03-read-owner-request.json",
+      "bytes": 156,
+      "sha256": "bea5452d971e846f810653f113a7fa97526b4e1bae01ae474e9b5a6c14f00a7b"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/04-note-receipt.json",
+      "bytes": 594,
+      "sha256": "6e22d1b049d42f6c0d1284bacb9879b033cda061b3fb29801fc2587242195d5a"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/04-note-request.json",
+      "bytes": 3847,
+      "sha256": "3491902a94369e9ba70f2fb9522a60b410b1257b67301f488c3e24b919dce885"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/05-decide-receipt.json",
+      "bytes": 557,
+      "sha256": "a8acffba29fc826ee520e49a19e9d78a6f5e60df118cb3e79d0471d653cc6547"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/05-decide-request.json",
+      "bytes": 492,
+      "sha256": "866bddd40ccabd2e158731827c94c48c00dae143fc3ee39aed0ec92ee8c01ad8"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/06-normal-start-receipt.json",
+      "bytes": 869,
+      "sha256": "3ab521cd8fb2cf582b4899384003b3e7f8b4dcb617fb59c95ccaf521250a3b0d"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/06-normal-start-request.json",
+      "bytes": 2557,
+      "sha256": "09ea0a1ec674f2208b02f512cdaf48aebf60797b89105fb280bf1ba6ba5b28e1"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/06-normal-start-timing.json",
+      "bytes": 134,
+      "sha256": "23290ad6f21b3ff4eca3f925069bf609e21a1090160537153ed7c93a3b814031"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/07-normal-recall-receipt.json",
+      "bytes": 19604,
+      "sha256": "42dd8ced794cb302ffe62382193360db957a8ba0e2f0774ef5206f9fef960422"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/07-normal-recall-request.json",
+      "bytes": 1589,
+      "sha256": "7f765163c020a3c62aa8e2349c1c3c5d76264e538446dd611a6a095f9cc862fa"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/07-normal-recall-timing.json",
+      "bytes": 136,
+      "sha256": "cb6b07b385beb0f56a565bdfea9387e4ff993afef27cd4987d6052262212f04d"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/08-normal-read-receipt.json",
+      "bytes": 30034,
+      "sha256": "e5473fb240126238dc8309ff6798fdd31b8d8fef5dfbcba82b7b05800b9fab42"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/08-normal-read-request.json",
+      "bytes": 174,
+      "sha256": "ac0fcdfe79a9a69417b7ad3406838ee3ca90e18209111a5e2ee31a97b8b14888"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/08-normal-read-timing.json",
+      "bytes": 134,
+      "sha256": "bc599bbcd38ee654141c76f1587c702e1afeeb3694002584709cb23d71be9db0"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/09-normal-note-receipt.json",
+      "bytes": 672,
+      "sha256": "4a922b54c13b69f5e5a766db2127fccc1d562d9064f64adefde141708d61671c"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/09-normal-note-request.json",
+      "bytes": 3526,
+      "sha256": "c3b1c9f2eb15e8057d659beb09e12d21a17c0870f1689d32005e6a18c54ff897"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/09-normal-note-timing.json",
+      "bytes": 134,
+      "sha256": "4d1b0716cc500140ce7c25a5b602f2dfb97d5384c7b4f0843f0206c3d4c90264"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/10-normal-note-retry-receipt.json",
+      "bytes": 794,
+      "sha256": "ea336099a1c22c12c258b8d29696d3f3c487fb482bc139be872d84bb59b061fb"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/10-normal-note-retry-request.json",
+      "bytes": 3023,
+      "sha256": "d7c6d8708792d46035d20c3120edb0c840625f17964f85df03b13eed377aa508"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/10-normal-note-retry-timing.json",
+      "bytes": 134,
+      "sha256": "7b938d1e64ff4b0c70bb4bbd44a416dfa75d57f7753755451a6e3d5ec3eebbb9"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/11-normal-decide-receipt.json",
+      "bytes": 724,
+      "sha256": "8c054924a3609b59a6ac2f858316834febb7f97c4eca4beb0d8c8a3cd1188c6b"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/11-normal-decide-request.json",
+      "bytes": 570,
+      "sha256": "e587ec664ae2b396e35e73d084f0526ba3a5b91fe057929eee0aeb9f5162eb79"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/11-normal-decide-timing.json",
+      "bytes": 136,
+      "sha256": "c42c65158bd2ec3a5c2619128c07564ddf1def1b7b81d1553276d1bac60c984c"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/12-main-handoff-receipt.json",
+      "bytes": 5166,
+      "sha256": "d29f3b98cbc813a9bb4a854a18faf03a68937d844a9f1dbc91e1551f503c8885"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/12-main-handoff-receipt.json.request-snapshot.json",
+      "bytes": 81,
+      "sha256": "a07c44559b22971f7b76bc888f523fc33370c4fcc9d7b758ca4eadce221e43d5"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/12-main-handoff-request.json",
+      "bytes": 81,
+      "sha256": "a07c44559b22971f7b76bc888f523fc33370c4fcc9d7b758ca4eadce221e43d5"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/12-main-handoff-timing.json",
+      "bytes": 406,
+      "sha256": "a9f48f158e3f10c7a982dd43b63087b5849a23786a63dc25f18ca1e318796b7b"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/12-normal-note-semantic-update-receipt.json",
+      "bytes": 706,
+      "sha256": "b85aad1010a22ac804935355425f2bdae5fadddbf27e3fefc822645dfb0333e2"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/12-normal-note-semantic-update-receipt.json.request-snapshot.json",
+      "bytes": 5199,
+      "sha256": "bfa9806070b08f80fcb0ab70b73f9a6ae6ce5271eb3a98db2e18311dd931b50b"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/12-normal-note-semantic-update-request.json",
+      "bytes": 5199,
+      "sha256": "bfa9806070b08f80fcb0ab70b73f9a6ae6ce5271eb3a98db2e18311dd931b50b"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/12-normal-note-semantic-update-timing.json",
+      "bytes": 418,
+      "sha256": "ea40e3d024f2c874d59e555f87137c42be18757df909dc1a89f71060004570a8"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/13-normal-note-semantic-retry-receipt.json",
+      "bytes": 794,
+      "sha256": "741d8dac99811399b48aaae6551be4f60e3e79b9524c2fc96647cc51b95c8b0d"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/13-normal-note-semantic-retry-receipt.json.request-snapshot.json",
+      "bytes": 3702,
+      "sha256": "6cce2f7efef9d000673512fe3b9e18b542ff5615da6deeccb5b8c1228acbf01e"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/13-normal-note-semantic-retry-request.json",
+      "bytes": 3702,
+      "sha256": "6cce2f7efef9d000673512fe3b9e18b542ff5615da6deeccb5b8c1228acbf01e"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/13-normal-note-semantic-retry-timing.json",
+      "bytes": 417,
+      "sha256": "956b5678a961c1a47954e9b2a35d8a177ebb958153b3c784157889a7cbb75e0a"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/14-normal-note-fixedrefs-receipt.json",
+      "bytes": 794,
+      "sha256": "45267a899df4c57894487dbcbe1e2caf6c7c6f5a01a75876856446760a40a5da"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/14-normal-note-fixedrefs-receipt.json.request-snapshot.json",
+      "bytes": 5220,
+      "sha256": "5ef7126ad0873ba7305991cc7d3912631641bbcf437f525896f310c8cf12f3a4"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/14-normal-note-fixedrefs-request.json",
+      "bytes": 5220,
+      "sha256": "5ef7126ad0873ba7305991cc7d3912631641bbcf437f525896f310c8cf12f3a4"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/14-normal-note-fixedrefs-timing.json",
+      "bytes": 412,
+      "sha256": "b04a058b5af8f62ebe7238f6b88a2a50ab5f40890320ab000ad7f01c32fa312c"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/15-normal-decide-after-fixedrefs-receipt.json",
+      "bytes": 721,
+      "sha256": "e7254915fdbfb7a46170ce5544dcb28ad30e3db4d56f0c93722604a7f6522f4d"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/15-normal-decide-after-fixedrefs-receipt.json.request-snapshot.json",
+      "bytes": 508,
+      "sha256": "4610401d30b211e208ef986e0b6100645eab5cee6ecf1f5c951d791ac0ec6a24"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/15-normal-decide-after-fixedrefs-request.json",
+      "bytes": 508,
+      "sha256": "4610401d30b211e208ef986e0b6100645eab5cee6ecf1f5c951d791ac0ec6a24"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/15-normal-decide-after-fixedrefs-timing.json",
+      "bytes": 422,
+      "sha256": "b3675b30643ec8cbb46e934551d372dcd09826dda141717ead676476de4ddf6f"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/16-final-main-handoff-receipt.json",
+      "bytes": 679,
+      "sha256": "15fec3998514d0134fe7083950b2b186959cdc6ab5861685f689e25e5557ac56"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/16-final-main-handoff-receipt.json.request-snapshot.json",
+      "bytes": 122,
+      "sha256": "1c6dc25d95d9afe700c39e5783caf107d5bbb4011dbdbc1e983d198c565cc65d"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/16-final-main-handoff-request.json",
+      "bytes": 122,
+      "sha256": "1c6dc25d95d9afe700c39e5783caf107d5bbb4011dbdbc1e983d198c565cc65d"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/16-final-main-handoff-timing.json",
+      "bytes": 408,
+      "sha256": "a170ec0dc9c931c5731be157323fea00ceabd5dffd958f7048eeb6847f826ef2"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/17-final-main-handoff-retry-receipt.json",
+      "bytes": 7172,
+      "sha256": "89d2b0dac419f07ecd374a285d96bc469574ebac5ee9b3cdece3f7c021ad0a9d"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/17-final-main-handoff-retry-receipt.json.request-snapshot.json",
+      "bytes": 79,
+      "sha256": "9cf58d3d61adcf3b5b1635534c67df04535890065e98c45e0cc7cbf34952c6d7"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/17-final-main-handoff-retry-request.json",
+      "bytes": 79,
+      "sha256": "9cf58d3d61adcf3b5b1635534c67df04535890065e98c45e0cc7cbf34952c6d7"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/17-final-main-handoff-retry-timing.json",
+      "bytes": 417,
+      "sha256": "831bf5f628e0c27eead786b8e41cdd00bfebe41c07e8a08c2ee6e3fae3b899fd"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/api_capture.py",
+      "bytes": 1607,
+      "sha256": "58acd4eb4940df61508d18da84574dee3703849fd2f86ff01336bd9e04e105d0"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/timing.json",
+      "bytes": 750,
+      "sha256": "097e65c4dce78b33c2d9490b33edf9c788f6dcf10ac81a29e1adcce864f53714"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/01-start-receipt.json",
+      "bytes": 869,
+      "sha256": "83f751abc0da4d9c4bb624b6e217d155709e14ae0467a4c46e4681e37bb7b44b"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/01-start-receipt.json.request-snapshot.json",
+      "bytes": 2417,
+      "sha256": "2512fe7485752a09d33675b137fd18dfc0048290c4a4614e158a9588a77124a3"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/01-start-request.json",
+      "bytes": 2417,
+      "sha256": "2512fe7485752a09d33675b137fd18dfc0048290c4a4614e158a9588a77124a3"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/01-start-timing.json",
+      "bytes": 408,
+      "sha256": "277271e0a95b1a0521eb12efe2c9a515eef41eb2004babe6d2363381dffca436"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/02-recall-receipt.json",
+      "bytes": 679,
+      "sha256": "15fec3998514d0134fe7083950b2b186959cdc6ab5861685f689e25e5557ac56"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/02-recall-receipt.json.request-snapshot.json",
+      "bytes": 960,
+      "sha256": "503de612f04bfb57c62d9c2f8050dabf4b44868a8187ef4198d9eb93b460fbdd"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/02-recall-request.json",
+      "bytes": 960,
+      "sha256": "503de612f04bfb57c62d9c2f8050dabf4b44868a8187ef4198d9eb93b460fbdd"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/02-recall-timing.json",
+      "bytes": 407,
+      "sha256": "e0df27e34047a723f076991b74daa743085656ce0a8cd03719e35c5ecb2fd4c4"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/03-recall-retry-receipt.json",
+      "bytes": 2323,
+      "sha256": "94d3b26d76ee43a42212e77300b4a04f499f058821665f44dd20ca22e615a777"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/03-recall-retry-receipt.json.request-snapshot.json",
+      "bytes": 1490,
+      "sha256": "a7a2be230401de9c57dd321bb96149ee8c64bd525027597cd5883713fa8dea03"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/03-recall-retry-request.json",
+      "bytes": 1490,
+      "sha256": "a7a2be230401de9c57dd321bb96149ee8c64bd525027597cd5883713fa8dea03"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke-progressive/03-recall-retry-timing.json",
+      "bytes": 417,
+      "sha256": "c0914f02469bbf3475b263d0548b0c22472722bf0f7d1a80619091ca112e29e6"
+    }
+  ]
+}

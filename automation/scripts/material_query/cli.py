@@ -12,7 +12,8 @@ def add_commands(parsers):
     parser.add_argument("action", choices=("capabilities", "definitions", "foundation-capabilities", "foundation", "search", "structure", "maintenance-plan", "maintenance-review", "maintenance-apply", "maintenance-status",
         "reading-template", "reading-start", "reading-recall", "reading-page", "reading-read", "reading-note", "reading-decide", "reading-resume",
         "reading-list", "reading-view", "reading-bind", "reading-archive", "reading-delegate", "reading-handoff",
-        "reading-configure", "reading-assess", "reading-synthesize"))
+        "reading-configure", "reading-assess", "reading-assess-owners", "reading-synthesize",
+        "reading-recall-fulltext"))
     parser.add_argument("--owner", help="reading-list按归属对象筛选；不改变读取授权")
     parser.add_argument("--session", help="reading-view/handoff读取该RS，无需手填请求JSON")
     parser.add_argument("--markdown", action="store_true", help="reading-view/handoff输出Markdown；handoff仍受交接上限约束")

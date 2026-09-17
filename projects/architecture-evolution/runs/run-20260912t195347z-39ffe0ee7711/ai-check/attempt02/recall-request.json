@@ -1,0 +1,32 @@
+{
+  "session_id": "RS-410e1467-5e05-4c3a-ba90-77001a53fe4f",
+  "expected_revision": 1,
+  "request_id": "47aaf15f-9955-437d-97f4-a4ae0fcef0be",
+  "question": "沿途",
+  "keywords": [],
+  "scope": {
+    "owner_ids": [
+      "RES-FLOATING-POINT-SUMMATION"
+    ],
+    "levels": null,
+    "kinds": null,
+    "roles": null,
+    "outcomes": null,
+    "review_states": null,
+    "validities": null,
+    "include_unknown": false,
+    "excluded_refs": [],
+    "excluded_owner_ids": [],
+    "recorded_from": null,
+    "recorded_before": null,
+    "source_ids": null,
+    "include_refs": [],
+    "exclude_ids": [],
+    "confidence_levels": null,
+    "time_window": null,
+    "applicability_conditions": [],
+    "applicability_exclusions": [],
+    "owner_types": null
+  },
+  "reason": "实际AI首次多路召回"
+}

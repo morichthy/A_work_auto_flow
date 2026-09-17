@@ -1,0 +1,26 @@
+test_expanded_workspace_still_rejects_missing_tools_and_bad_business_metadata (test_deployment_workbench.DeploymentWorkbenchTests.test_expanded_workspace_still_rejects_missing_tools_and_bad_business_metadata) ... FAIL
+
+======================================================================
+FAIL: test_expanded_workspace_still_rejects_missing_tools_and_bad_business_metadata (test_deployment_workbench.DeploymentWorkbenchTests.test_expanded_workspace_still_rejects_missing_tools_and_bad_business_metadata)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\共享桌面\A_work\A_work_auto_flow\automation\tests\test_deployment_workbench.py", line 446, in test_expanded_workspace_still_rejects_missing_tools_and_bad_business_metadata
+    protected = upgrade_fixture.populate(self.root)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\共享桌面\A_work\A_work_auto_flow\automation\tests\upgrade_fixture.py", line 383, in populate
+    assert started['status'] == 'ok', started
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'status': 'rejected', 'value': None, 'code': 'DENIED', 'warnings': ['对象不在当前可读范围'], 'issues': [{'code': 'DENIED', 'message': '对象不在当前可读范围', 'affected_refs': [], 'retry': 'after_external_change'}], 'consumed': {'wall_ms': 0, 'read_bytes': 0, 'output_chars': 0, 'candidates': 0, 'graph_nodes': 0, 'graph_edges': 0, 'graph_hops': 0, 'model_tokens': 0, 'model_calls': 0, 'model_input_tokens': 0, 'model_output_tokens': 0, 'rerank_items': 0}, 'stop_reason': 'denied', 'basis': None}
+
+----------------------------------------------------------------------
+Ran 1 test in 107.966s
+
+FAILED (failures=1)
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-wo09nl74\旧 工作区\research\升级 研究\runs\run-20260912t215234z-d00667892755
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-wo09nl74\旧 工作区\projects\升级 项目\runs\run-20260912t215245z-4705e54a3137
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-wo09nl74\旧 工作区\core-algorithms\升级 算法\runs\run-20260912t215246z-7ee63a9baf99
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-wo09nl74\旧 工作区\runs\升级 父运行\runs\run-20260912t215246z-045dcef5ee8b
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-wo09nl74\旧 工作区\knowledge\升级 经验.evidence.json.memory.runtime\runs\run-20260912t215247z-82f8a9c1b704
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-wo09nl74\旧 工作区\reports\sources\升级 报告.evidence.json.memory.runtime\runs\run-20260912t215247z-05af6ecdc3c6
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-wo09nl74\旧 工作区\data\catalog\升级 数据.dataset.json.memory.runtime\runs\run-20260912t215248z-cfb079200635
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-wo09nl74\旧 工作区\tools\runtime\TOOL-USER-SYNTHETIC-0\runs\run-20260912t215249z-db371c817cc8

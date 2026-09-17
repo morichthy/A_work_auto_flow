@@ -1,0 +1,25 @@
+{
+  "session_id": "RS-e0de6106-ce79-4e3e-9151-669025a55e40",
+  "expected_revision": 5,
+  "request_id": "cli-ai-note-3",
+  "candidate_id": "RC-b5e2ac2294526b7e6ec73f09",
+  "summary": "该合成记录匹配X200和-30°C，但明确不批准直接使用预热程序；CE语义高分不消除批准冲突。",
+  "connection": {
+    "kind": "not_useful",
+    "explanation": "作为否定条件反例保留诊断，不作为获准方案。",
+    "chain": []
+  },
+  "details": [
+    {
+      "text": "该合成记录匹配X200和-30°C，但明确不批准直接使用预热程序；CE语义高分不消除批准冲突。",
+      "reason": "保存实际条件与正文用途的核对边界",
+      "block_ids": [
+        "definitions",
+        "result"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "全部是合成软件验收材料，没有真实工程试验或批准证明。"
+  ]
+}

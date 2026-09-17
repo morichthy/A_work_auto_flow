@@ -1,0 +1,129 @@
+{
+  "session_id": "RS-ee3c8035-050d-4ac6-957d-eef5fb860c25",
+  "goal": "独立合成CLI验收：真实模型、显式条件、必要定义；不证明业务检索质量",
+  "conditions": [
+    "仅合成软件验收，不作为工程结论"
+  ],
+  "query": {
+    "definition": {
+      "key": "full",
+      "version": "1"
+    },
+    "question": "低温启动验收探针：X200在低于-20°C时，有批准的避免启动失败程序吗？",
+    "keywords": [],
+    "scope": {
+      "owner_ids": [
+        "RES-MQ-A"
+      ],
+      "levels": null,
+      "kinds": null,
+      "roles": null,
+      "outcomes": null,
+      "review_states": null,
+      "validities": null,
+      "include_unknown": false,
+      "excluded_refs": [],
+      "excluded_owner_ids": [],
+      "recorded_from": null,
+      "recorded_before": null,
+      "source_ids": null,
+      "include_refs": [],
+      "exclude_ids": [],
+      "confidence_levels": null,
+      "time_window": null,
+      "applicability_conditions": [],
+      "applicability_exclusions": [],
+      "owner_types": null
+    },
+    "scope_ceiling": {
+      "owner_ids": [
+        "RES-MQ-A"
+      ],
+      "levels": null,
+      "kinds": null,
+      "roles": null,
+      "outcomes": null,
+      "review_states": null,
+      "validities": null,
+      "include_unknown": false,
+      "excluded_refs": [],
+      "excluded_owner_ids": [],
+      "recorded_from": null,
+      "recorded_before": null,
+      "source_ids": null,
+      "include_refs": [],
+      "exclude_ids": [],
+      "confidence_levels": null,
+      "time_window": null,
+      "applicability_conditions": [],
+      "applicability_exclusions": [],
+      "owner_types": null
+    },
+    "purpose": "exploration",
+    "association": {
+      "mode": "off",
+      "strategy": "existing-relations",
+      "strategy_version": "1",
+      "max_items": 0,
+      "output_share": 0.0,
+      "supplement_scope": null
+    },
+    "budget": {
+      "wall_ms": 300000,
+      "read_bytes": 16777216,
+      "output_chars": 80000,
+      "candidates": 1000,
+      "graph_nodes": 50,
+      "graph_edges": 100,
+      "graph_hops": 2,
+      "model_tokens": 65536,
+      "model_calls": 20,
+      "model_input_tokens": 65536,
+      "model_output_tokens": 0,
+      "rerank_items": 100
+    },
+    "freshness": "current",
+    "result_limit": 6,
+    "missing_policy": "reject",
+    "fallback_definitions": [],
+    "applicability": "",
+    "channels": [
+      "identity",
+      "lexical"
+    ],
+    "dialect": "plain",
+    "ranking_strategy": "topic-evidence-v2",
+    "ranking_version": "1",
+    "allow_index_repair": false,
+    "max_staleness_seconds": null,
+    "content_source": null
+  },
+  "reranking": {
+    "mode": "required",
+    "candidate_limit": 6,
+    "conditions": [
+      {
+        "id": "device",
+        "kind": "literal",
+        "field": "型号",
+        "operator": "eq",
+        "expected": "X200"
+      },
+      {
+        "id": "temperature",
+        "kind": "numeric",
+        "field": "温度",
+        "operator": "lt",
+        "expected": -20,
+        "unit": "°C"
+      },
+      {
+        "id": "approval",
+        "kind": "literal",
+        "field": "批准",
+        "operator": "eq",
+        "expected": "是"
+      }
+    ]
+  }
+}

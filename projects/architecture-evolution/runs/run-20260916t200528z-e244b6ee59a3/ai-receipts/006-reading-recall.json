@@ -1,0 +1,110 @@
+{
+  "action": "reading-recall",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+    "expected_revision": 1,
+    "request_id": "ai-recall-standard-1",
+    "question": "phase_case相位误差的定义、单位、适用条件和可验证上游线索是什么？",
+    "keywords": [
+      "phase_case",
+      "相位误差"
+    ],
+    "scope": {
+      "owner_ids": [
+        "RES-MQ-A"
+      ],
+      "levels": null,
+      "kinds": null,
+      "roles": null,
+      "outcomes": null,
+      "review_states": null,
+      "validities": null,
+      "include_unknown": false,
+      "excluded_refs": [],
+      "excluded_owner_ids": [],
+      "recorded_from": null,
+      "recorded_before": null,
+      "source_ids": null,
+      "include_refs": [],
+      "exclude_ids": [],
+      "confidence_levels": null,
+      "time_window": null,
+      "applicability_conditions": [],
+      "applicability_exclusions": [],
+      "owner_types": null
+    },
+    "reason": "读取phase_case的直接依据",
+    "query_variants": [
+      {
+        "id": "original",
+        "language": "other",
+        "question": "phase_case相位误差的定义、单位、适用条件和可验证上游线索是什么？",
+        "lexical_terms": [
+          "phase_case",
+          "相位误差"
+        ]
+      }
+    ],
+    "protected_terms": [
+      "phase_case"
+    ],
+    "corpus_language": "unknown",
+    "language_reason": "合成材料语言未知",
+    "query_domains": []
+  },
+  "response": {
+    "status": "partial",
+    "value": {
+      "candidates": [
+        {
+          "owner_id": "RES-MQ-A",
+          "text": "这是合成教学模型，不是实际仪器实验。f 为信号频率（Hz），dt 为采样时刻误差（s），dphi 为相位误差（rad）。\n\n本材料没有解释时间抖动来自哪里。可探索过零检测阈值波动；该提示只是方向，尚未验证电源与相位之间的联系。\n\n小时间误差模型：$dphi=2\\pi f\\,dt$。取 f=1000 Hz、dt=1e-6 s，得到 dphi≈0.006283 rad。"
+        }
+      ],
+      "gaps": [
+        "召回通道 dense 不可用；保留其他通道。未配置本地向量后端"
+      ],
+      "has_more": true,
+      "pending_owner_count": 1,
+      "mode": "owner_document",
+      "strategy": "standard",
+      "association": {
+        "enabled": false,
+        "max_rounds": 3
+      },
+      "association_text": "",
+      "next_action": "read",
+      "guidance": "每Owner本页最多一份正文；相关则reading-read(owner_id)，未确定可reading-page继续。",
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+      "revision": 2
+    },
+    "code": null,
+    "warnings": [
+      "召回通道 dense 不可用；保留其他通道。未配置本地向量后端"
+    ],
+    "issues": [
+      {
+        "code": "PARTIAL",
+        "message": "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      }
+    ],
+    "consumed": {
+      "wall_ms": 530,
+      "read_bytes": 208405,
+      "output_chars": 558,
+      "candidates": 2,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

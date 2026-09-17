@@ -1,0 +1,510 @@
+{
+  "schema_version": 1,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "title": "框架架构演进与文档一致性",
+  "document_source": "independent",
+  "document": {
+    "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+    "revision": 2,
+    "title": "子Agent材料阅读与有界笔记交接完整报告",
+    "document_type": "research_process",
+    "purpose": "复现阅读上下文隔离、主侧交接及边界验证，并区分历史默认low与当前可编辑模型偏好",
+    "audience": "框架开发者和AI工作流使用者",
+    "scope": "仅2026-09-16子Agent材料阅读与有界笔记交接，不重新认可历史业务结论；含本轮能力偏好、旧设置无损兼容与宿主传递扩展。",
+    "common_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "target_kind": "record"
+      }
+    ],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "6e1724a70a537bbabb7319140b22afd9a4ed1cdeac68933a6a92a3eaaf0d87a5",
+        "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "report": {
+    "version": 1,
+    "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+    "revision": 2,
+    "title": "子Agent材料阅读与有界笔记交接完整报告",
+    "sections": [
+      {
+        "section_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "section_key": "reading-delegation-20260916",
+        "title": "子Agent阅读与主Agent交接",
+        "role": "methods",
+        "ref": {
+          "locator": "",
+          "relation": "references",
+          "revision": 2,
+          "sha256": "6e1724a70a537bbabb7319140b22afd9a4ed1cdeac68933a6a92a3eaaf0d87a5",
+          "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+          "target_kind": "record"
+        },
+        "source_issues": [],
+        "blocks": [
+          {
+            "evidence_refs": [
+              {
+                "locator": "",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+                "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+                "target_kind": "record"
+              }
+            ],
+            "markdown": "以下原委派单元r1保留当时实现、低成本reader及全部验证限制；其中固定low选择是历史行为，现行模型选择由后续能力偏好更新说明限定。",
+            "type": "prose",
+            "source_issues": []
+          },
+          {
+            "evidence_refs": [
+              {
+                "locator": "",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+                "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+                "target_kind": "record"
+              },
+              {
+                "locator": "",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f",
+                "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+                "target_kind": "record"
+              }
+            ],
+            "markdown": "本章记录独立新增的阅读委派能力；统一设置的历史报告保留其当时验证范围，作为固定基线引用。",
+            "type": "prose",
+            "source_issues": []
+          },
+          {
+            "block_ids": [
+              "reader-results"
+            ],
+            "ref": {
+              "locator": "",
+              "relation": "references",
+              "revision": 1,
+              "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+              "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+              "target_kind": "record"
+            },
+            "type": "unit",
+            "item": {
+              "id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+              "level": "L1",
+              "record": {
+                "body_markdown": "",
+                "change_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+                "content_hash": "d10c0d32fce6dbe49d6883ca0e62d22e9992caed3ac3ecf5ae5683e790e4e134",
+                "created_at": "2026-09-16T06:37:16.885911Z",
+                "created_by": {
+                  "id": "codex-reading-delegation",
+                  "kind": "ai"
+                },
+                "discovery": "workspace_summary",
+                "keywords": [
+                  "reading-note",
+                  "subagent",
+                  "上下文预算",
+                  "固定来源",
+                  "handoff"
+                ],
+                "kind": "detail",
+                "level": "L1",
+                "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+                "payload": {
+                  "blocks": [
+                    {
+                      "block_id": "reader-results",
+                      "markdown": "# 子Agent材料阅读与有界笔记交接\n\nRun：RUN-20260916T060608Z-6199BA92B86E；Owner：PRJ-ARCHITECTURE-EVOLUTION。2026-09-16，本机Windows x64开发与验证；未发布。\n\n## 目标与实现\n\n将材料搜索、查询改写、候选筛选、完整阅读和reading note写入放在独立低成本reader上下文，主Agent通过固定RS接收有界笔记后推进任务。沿用现有统一设置auto/off，无新增模型依赖、凭据或后台AI服务。\n\n新增公开CLI/HTTP动作reading-delegate与reading-handoff，capabilities的reading_workflow版本4。delegate读取程序缓存中的协作策略，结合宿主声明生成最小任务包和低成本/低推理偏好；返回dispatched=false，真实派工由宿主工具执行。Skill默认使用独立上下文、不继承整个主会话、不递归派工；关闭或宿主无工具时沿同一RS单Agent执行。\n\nhandoff只返回一份笔记Markdown与状态，包括理解、连接链、必要细节、不确定性、固定ID/revision/hash/链接。无原始packet、全候选列表、逐轮检索诊断。默认max_chars=12000，允许512–30000；按完整JSON value字符数计长，标准外层envelope另有开销。整条笔记纳入或省略，不切断公式、单位、条件；选择排除/过长/陈旧笔记明示遗漏。极小窗口若连元数据也容不下，返回预算错误，不输出破碎内容。\n\n两动作沿用RS授权、范围上限和累计Ledger；可选expected_revision冲突拒绝，读取不增加语义修订，但实际读取/输出计费。撤权拒绝旧笔记，来源新修订后不交付过期理解。最近一轮检索限制按类别去重传递，候选当前包缺口同样保留；历史失败仍存RS，后续补查解决后不会永久阻止当前交接。complete只描述本次交接，不能证明全库/历史查询或科学研究完整。主Agent检查partial/遗漏/needs_user_input，不能因阅读阶段finish就忽略覆盖限制。\n\n## 核心基线与软件验证\n\n改动前公开阅读动作没有delegate/handoff，resume/view包含笔记、候选与覆盖诊断。最早静态检查固定了缺口，初次执行命令因导入路径失败；后续集成红测发现新fixture查询词无候选导致StopIteration，未将这些错误冒充产品缺陷或功能通过。显式构造可搜索的固定合成技术单元与两条经验后复验。\n\n- 原有41项阅读测试全部通过（查询规划、完整读/笔记、授权、预算、重排与分页）。同轮48项还包含当时新增7项，其中4个fixture错误已保留；修正后仅复验受影响新增测试。\n- 最终9项委派集成测试通过，89.054秒：真实CLI.execute、带token本机HTTP、auto/off/宿主回退、只读revision、同RS跨进程预算、撤权、真实来源新修订、未知候选/严格类型、超限零泄漏。\n- 2项纯交接语义测试通过：公式/单位/不确定性/固定hash整体保留或整体省略；历史问题解决后恢复当前完整性，最新旧诊断未知与dense缺口仍partial。初次独立导入失败及修复后日志分别保留。\n- 合计52项不同阅读行为测试获得通过证据，分上述相关执行，不冒充一次完整全库回归。测试目录revision87，audit：739 discovered/741 catalog，未登记/缺失/错误均0。\n\n日志：verification/reading-regression.log、delegation-baseline.log、delegation-current.log、delegation-final.log、handoff-view.log、handoff-view-final.log、catalog-final.json。前期fixture输入role误写method也被合法校验拒绝，修正为methods后准备完成；未放宽产品校验。\n\n## 实际独立AI验收\n\n真实宿主spawn使用gpt-5.6-terra、low、fork_turns=none。准备者仅给目标、RS、授权与驱动入口，未代替reader生成笔记。隔离合成Owner RES-MQ-A，RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51；原预算16MiB读取/80,000输出字符，未重建清零。主材料正文18,843字符，另有两条干扰材料；输入与核对点在verification/ai-fixture固定保存。\n\nreader通过真实公开API完成中英查询、三份完整reading-read、三份reading-note和reading-decide，首版r7/finish；仅回RS/revision/状态给主Agent。主Agent实际只用reading-handoff读取笔记，测试请求max_chars=6000，返回3条笔记、0整条遗漏、0未记笔记候选。独立复核随后发现主方法笔记遗漏独立误差传播公式/假设、部分不确定度单位、精确温标平移关系与合成输入数值，不能由“0整条遗漏”推断语义完整。\n\n同一reader依据已交付材料补齐原note为r8，原预算未提高或重建；原始note修订、v1自查与独立失败复核均保留。主Agent再次通过handoff回读，三条笔记均交付；RS输出累计77,987/80,000字符。Skill补入逐块核对公式/误差假设、单位、条件、反例、关键输入及输出，要求在剩余预算中预留交接。独立语义复核见verification/ai-independent-review.md及ai-independent-review-v2.md，reader自身也保留v1/v2自查，均不是用户或科学认可。\n\n本例reader含修正共9次API响应累计86,788字符；主侧两次handoff完整响应分别3,899和4,181字符（合计8,080），最终value为3,652字符。相对把reader这些响应全部输入主上下文，含一次修正的材料交接响应减少约90.7%。这是序列化字符体积对比，未计初始delegate任务包、提示词、Skill、父任务上下文、独立审查成本及宿主隐藏开销，不能当token/总费用/端到端延迟测量。子Agent仍消耗自己的上下文和推理资源；首轮压缩遗漏也说明短不等于充分。\n\nhandoff返回partial、complete=false：dense不可用且technical候选窗口未完；即使reader阶段finish仍保留覆盖缺口。三份已交付材料完整阅读不等于全库覆盖；本次仅合成AI自查，既不是用户认可，也不证明现实工程适用性或真实业务准确率。\n\n## 文档、Skill与兼容\n\n维护README、ARCHITECTURE、CORE、docs索引、TESTING、AI_READING、WORKSPACE_SETTINGS、WORKFLOW_ACTIONS、MEMORY_STORAGE_EXPLAINED与DEVELOPMENT_HISTORY。DOCUMENTATION_MAINTENANCE已核对，无职责变更。8个活跃Skill与8个发现wrapper全文审查：仅work-loop/material-query修改默认阅读/交接流程及主reader职责；其他入口继续引用material-query，无需新增Skill或改发现注册。\n\nWindows x64实际CLI/HTTP与旧RS兼容路径通过；分发收集纳入新增Python模块，前端源和预构建指纹保持不变。本轮不改前端、第三方依赖、模型、安装/恢复及缓存机制，故未重复前端构建或真实setup升级套件；此前设置阶段的真实升级结果保留其原范围，不冒充本轮新执行。源码快照与文件哈希另存verification，不公开临时会话或业务数据。\n\n固定基线为设置报告MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152 r1（hash039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f）和设置概览MEM-67e69e5f-8de7-5c24-b8bc-eb41299f8eaf r1（hashd8ba36ed48af94e8dece307a8c9b51ba12dc5fcd222e0c4c1892cbe2b3b9bdd9）。已由独立复核者通过公开接口完整读回，complete=true、impact无变化；旧稿明确当时未做子Agent阅读，作为历史设置范围保留，本轮独立编排新完整报告。此前17条其他历史技术内容不属于本次范围，不宣称Project全体已同步。\n\n## 限制与后续\n\n宿主必须提供实际子Agent工具；程序的route建议不保证外部宿主执行。外部AI token不可由RS模型账本观测。输出字符上限不是模型上下文窗口，笔记压缩可能遗漏语义，需要固定出处、必要细节与独立核对；复杂推理/工程认可仍交主Agent或人。当前RS单reader顺序执行，未实现并发读写任务调度或独立模型服务。其他宿主、第二物理机和真实业务阅读质量/延迟/总成本尚待验收。\n",
+                      "requires_block_ids": [],
+                      "role": "results"
+                    }
+                  ],
+                  "evidence_refs": [
+                    {
+                      "locator": "RESULTS与固定验证产物",
+                      "relation": "input",
+                      "revision": null,
+                      "sha256": "f82d09cab54f03100f0651c1779a5c2961b57f50462562fa448aa5d25e322351",
+                      "target_id": "RUN-20260916T060608Z-6199BA92B86E",
+                      "target_kind": "owner"
+                    },
+                    {
+                      "locator": "",
+                      "relation": "references",
+                      "revision": 1,
+                      "sha256": "039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f",
+                      "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+                      "target_kind": "record"
+                    }
+                  ],
+                  "figures": [],
+                  "missing_refs": [],
+                  "retrieval_description": {
+                    "applicable": [
+                      "遵守material-query Skill且提供子Agent工具的AI宿主",
+                      "单Agent兼容阅读路径"
+                    ],
+                    "key_findings": [
+                      "宿主实际派工，主侧只回读有界reading note。",
+                      "关闭或缺宿主能力时同RS回退；不增加代理运行依赖。"
+                    ],
+                    "limitations": [
+                      "未实现任意宿主内置AI调度；宿主须实际提供工具并遵守Skill。",
+                      "字符体积不等于token/总费用/端到端延迟；独立审查成本未计。",
+                      "真实合成验收dense不可用、候选窗口未完；不证明全库覆盖或业务正确率。",
+                      "首版笔记出现语义漏项，已保留并补回；仍需按任务核对关键细节。",
+                      "第二物理机、其他宿主和人工业务验收未执行；本轮未发布。"
+                    ],
+                    "method": "现状基线、独立reader与仅笔记交接、固定预算及权限负例、真实独立上下文验收。",
+                    "not_applicable": [
+                      "声称任意宿主会自动派工",
+                      "总AI费用下降或语义准确率的统计证明"
+                    ],
+                    "question": "如何由独立低成本子Agent完成材料检索与完整阅读，让主Agent仅使用有界且可追溯的reading note？"
+                  },
+                  "run_ref": {
+                    "locator": "RESULTS与固定验证产物",
+                    "relation": "input",
+                    "revision": null,
+                    "sha256": "f82d09cab54f03100f0651c1779a5c2961b57f50462562fa448aa5d25e322351",
+                    "target_id": "RUN-20260916T060608Z-6199BA92B86E",
+                    "target_kind": "owner"
+                  },
+                  "unit_type": "analysis"
+                },
+                "previous_revision": null,
+                "provenance_gap": null,
+                "record_hash": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+                "record_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+                "record_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+                "revision": 1,
+                "schema_version": 3,
+                "sensitivity": "internal",
+                "sources": [
+                  {
+                    "locator": "RESULTS与固定验证产物",
+                    "relation": "input",
+                    "revision": null,
+                    "sha256": "f82d09cab54f03100f0651c1779a5c2961b57f50462562fa448aa5d25e322351",
+                    "target_id": "RUN-20260916T060608Z-6199BA92B86E",
+                    "target_kind": "owner"
+                  },
+                  {
+                    "locator": "",
+                    "relation": "references",
+                    "revision": 1,
+                    "sha256": "039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f",
+                    "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+                    "target_kind": "record"
+                  }
+                ],
+                "title": "独立子Agent阅读与有界笔记交接：实现及验证",
+                "updated_at": "2026-09-16T06:37:16.885911Z",
+                "updated_by": {
+                  "id": "codex-reading-delegation",
+                  "kind": "ai"
+                }
+              },
+              "source_issues": [],
+              "formal_eligibility": "not_evaluated"
+            },
+            "resolved_blocks": [
+              {
+                "block_id": "reader-results",
+                "markdown": "# 子Agent材料阅读与有界笔记交接\n\nRun：RUN-20260916T060608Z-6199BA92B86E；Owner：PRJ-ARCHITECTURE-EVOLUTION。2026-09-16，本机Windows x64开发与验证；未发布。\n\n## 目标与实现\n\n将材料搜索、查询改写、候选筛选、完整阅读和reading note写入放在独立低成本reader上下文，主Agent通过固定RS接收有界笔记后推进任务。沿用现有统一设置auto/off，无新增模型依赖、凭据或后台AI服务。\n\n新增公开CLI/HTTP动作reading-delegate与reading-handoff，capabilities的reading_workflow版本4。delegate读取程序缓存中的协作策略，结合宿主声明生成最小任务包和低成本/低推理偏好；返回dispatched=false，真实派工由宿主工具执行。Skill默认使用独立上下文、不继承整个主会话、不递归派工；关闭或宿主无工具时沿同一RS单Agent执行。\n\nhandoff只返回一份笔记Markdown与状态，包括理解、连接链、必要细节、不确定性、固定ID/revision/hash/链接。无原始packet、全候选列表、逐轮检索诊断。默认max_chars=12000，允许512–30000；按完整JSON value字符数计长，标准外层envelope另有开销。整条笔记纳入或省略，不切断公式、单位、条件；选择排除/过长/陈旧笔记明示遗漏。极小窗口若连元数据也容不下，返回预算错误，不输出破碎内容。\n\n两动作沿用RS授权、范围上限和累计Ledger；可选expected_revision冲突拒绝，读取不增加语义修订，但实际读取/输出计费。撤权拒绝旧笔记，来源新修订后不交付过期理解。最近一轮检索限制按类别去重传递，候选当前包缺口同样保留；历史失败仍存RS，后续补查解决后不会永久阻止当前交接。complete只描述本次交接，不能证明全库/历史查询或科学研究完整。主Agent检查partial/遗漏/needs_user_input，不能因阅读阶段finish就忽略覆盖限制。\n\n## 核心基线与软件验证\n\n改动前公开阅读动作没有delegate/handoff，resume/view包含笔记、候选与覆盖诊断。最早静态检查固定了缺口，初次执行命令因导入路径失败；后续集成红测发现新fixture查询词无候选导致StopIteration，未将这些错误冒充产品缺陷或功能通过。显式构造可搜索的固定合成技术单元与两条经验后复验。\n\n- 原有41项阅读测试全部通过（查询规划、完整读/笔记、授权、预算、重排与分页）。同轮48项还包含当时新增7项，其中4个fixture错误已保留；修正后仅复验受影响新增测试。\n- 最终9项委派集成测试通过，89.054秒：真实CLI.execute、带token本机HTTP、auto/off/宿主回退、只读revision、同RS跨进程预算、撤权、真实来源新修订、未知候选/严格类型、超限零泄漏。\n- 2项纯交接语义测试通过：公式/单位/不确定性/固定hash整体保留或整体省略；历史问题解决后恢复当前完整性，最新旧诊断未知与dense缺口仍partial。初次独立导入失败及修复后日志分别保留。\n- 合计52项不同阅读行为测试获得通过证据，分上述相关执行，不冒充一次完整全库回归。测试目录revision87，audit：739 discovered/741 catalog，未登记/缺失/错误均0。\n\n日志：verification/reading-regression.log、delegation-baseline.log、delegation-current.log、delegation-final.log、handoff-view.log、handoff-view-final.log、catalog-final.json。前期fixture输入role误写method也被合法校验拒绝，修正为methods后准备完成；未放宽产品校验。\n\n## 实际独立AI验收\n\n真实宿主spawn使用gpt-5.6-terra、low、fork_turns=none。准备者仅给目标、RS、授权与驱动入口，未代替reader生成笔记。隔离合成Owner RES-MQ-A，RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51；原预算16MiB读取/80,000输出字符，未重建清零。主材料正文18,843字符，另有两条干扰材料；输入与核对点在verification/ai-fixture固定保存。\n\nreader通过真实公开API完成中英查询、三份完整reading-read、三份reading-note和reading-decide，首版r7/finish；仅回RS/revision/状态给主Agent。主Agent实际只用reading-handoff读取笔记，测试请求max_chars=6000，返回3条笔记、0整条遗漏、0未记笔记候选。独立复核随后发现主方法笔记遗漏独立误差传播公式/假设、部分不确定度单位、精确温标平移关系与合成输入数值，不能由“0整条遗漏”推断语义完整。\n\n同一reader依据已交付材料补齐原note为r8，原预算未提高或重建；原始note修订、v1自查与独立失败复核均保留。主Agent再次通过handoff回读，三条笔记均交付；RS输出累计77,987/80,000字符。Skill补入逐块核对公式/误差假设、单位、条件、反例、关键输入及输出，要求在剩余预算中预留交接。独立语义复核见verification/ai-independent-review.md及ai-independent-review-v2.md，reader自身也保留v1/v2自查，均不是用户或科学认可。\n\n本例reader含修正共9次API响应累计86,788字符；主侧两次handoff完整响应分别3,899和4,181字符（合计8,080），最终value为3,652字符。相对把reader这些响应全部输入主上下文，含一次修正的材料交接响应减少约90.7%。这是序列化字符体积对比，未计初始delegate任务包、提示词、Skill、父任务上下文、独立审查成本及宿主隐藏开销，不能当token/总费用/端到端延迟测量。子Agent仍消耗自己的上下文和推理资源；首轮压缩遗漏也说明短不等于充分。\n\nhandoff返回partial、complete=false：dense不可用且technical候选窗口未完；即使reader阶段finish仍保留覆盖缺口。三份已交付材料完整阅读不等于全库覆盖；本次仅合成AI自查，既不是用户认可，也不证明现实工程适用性或真实业务准确率。\n\n## 文档、Skill与兼容\n\n维护README、ARCHITECTURE、CORE、docs索引、TESTING、AI_READING、WORKSPACE_SETTINGS、WORKFLOW_ACTIONS、MEMORY_STORAGE_EXPLAINED与DEVELOPMENT_HISTORY。DOCUMENTATION_MAINTENANCE已核对，无职责变更。8个活跃Skill与8个发现wrapper全文审查：仅work-loop/material-query修改默认阅读/交接流程及主reader职责；其他入口继续引用material-query，无需新增Skill或改发现注册。\n\nWindows x64实际CLI/HTTP与旧RS兼容路径通过；分发收集纳入新增Python模块，前端源和预构建指纹保持不变。本轮不改前端、第三方依赖、模型、安装/恢复及缓存机制，故未重复前端构建或真实setup升级套件；此前设置阶段的真实升级结果保留其原范围，不冒充本轮新执行。源码快照与文件哈希另存verification，不公开临时会话或业务数据。\n\n固定基线为设置报告MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152 r1（hash039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f）和设置概览MEM-67e69e5f-8de7-5c24-b8bc-eb41299f8eaf r1（hashd8ba36ed48af94e8dece307a8c9b51ba12dc5fcd222e0c4c1892cbe2b3b9bdd9）。已由独立复核者通过公开接口完整读回，complete=true、impact无变化；旧稿明确当时未做子Agent阅读，作为历史设置范围保留，本轮独立编排新完整报告。此前17条其他历史技术内容不属于本次范围，不宣称Project全体已同步。\n\n## 限制与后续\n\n宿主必须提供实际子Agent工具；程序的route建议不保证外部宿主执行。外部AI token不可由RS模型账本观测。输出字符上限不是模型上下文窗口，笔记压缩可能遗漏语义，需要固定出处、必要细节与独立核对；复杂推理/工程认可仍交主Agent或人。当前RS单reader顺序执行，未实现并发读写任务调度或独立模型服务。其他宿主、第二物理机和真实业务阅读质量/延迟/总成本尚待验收。\n",
+                "requires_block_ids": [],
+                "role": "results"
+              }
+            ],
+            "required_block_ids": [],
+            "source_issues": []
+          },
+          {
+            "evidence_refs": [
+              {
+                "locator": "",
+                "relation": "references",
+                "revision": 2,
+                "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+                "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+                "target_kind": "record"
+              }
+            ],
+            "markdown": "新增 collaboration.subagent_requirements 自由文本模型/能力偏好；缺省优先低成本、较低能力可用模型和低推理深度，并须完成检索、完整阅读与结构化笔记。用户自定义文本原样保留，去除首尾空白后限1–2000字符；经policy及委派包交给宿主按实际可用模型选择。off始终优先，无宿主能力仍同RS回退；偏好不授予工具或材料权限，不扩大原RS预算。\n\n旧schema-1缺新字段仅内存补默认，原字节及revision不变；完整写入禁止遗漏字段丢失偏好。软件和本机合成升级验证不证明指定模型实际可用、业务阅读质量、总费用或端到端延迟改善；原阶段实际reader、字符对比、失败和覆盖缺口均保留为历史证据。",
+            "type": "prose",
+            "source_issues": []
+          },
+          {
+            "block_ids": [
+              "requirements-results"
+            ],
+            "ref": {
+              "locator": "",
+              "relation": "references",
+              "revision": 2,
+              "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+              "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+              "target_kind": "record"
+            },
+            "type": "unit",
+            "item": {
+              "id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+              "level": "L1",
+              "record": {
+                "body_markdown": "",
+                "change_reason": "沿用既有身份补充子Agent能力偏好；保留原阶段固定块、失败及验证范围，更新现行章节、概览和文稿固定关系。",
+                "content_hash": "68d7de684434570a5d9f3d0639666a8b5ad7ac649039e7907521ab042fac5f0e",
+                "created_at": "2026-09-16T05:49:50.548516Z",
+                "created_by": {
+                  "id": "codex-workspace-settings",
+                  "kind": "ai"
+                },
+                "discovery": "workspace_summary",
+                "keywords": [
+                  "workspace-settings",
+                  "配置缓存",
+                  "检索预算",
+                  "单Agent",
+                  "CAS",
+                  "subagent_requirements",
+                  "能力偏好"
+                ],
+                "kind": "detail",
+                "level": "L1",
+                "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+                "payload": {
+                  "blocks": [
+                    {
+                      "block_id": "settings-results",
+                      "markdown": "# 工作区统一设置：实施与验证\n\nRun：`RUN-20260916T051529Z-EEC543C75781`；Owner：`PRJ-ARCHITECTURE-EVOLUTION`。2026-09-16，Windows x64本机隔离软件验证和AI一致性自查。本轮承接已经完成的[重排阶段](../run-20260916t035620z-93aca3a94bae/CLOSURE.md)，独立交付设置功能，没有改写其固定报告或测试证据。源码基线89ad307，工作树已有历史改动；本轮保存选定文件的实际快照与指纹。\n\n## 目标与交付\n\n用户要求兼容不支持子Agent的实际环境，可调整默认召回数量、上下文预算等项目配置，并在工作台提供入口，同时尽量避免配置读取拖慢检索。先列[实施清单](../../plans/workspace-settings-20260916.md)，构造缺实现的核心红测，再实现和扩充边界验证。\n\n工作台侧栏新增“工作区设置”：协作auto/off；材料查询及AI阅读各自的默认结果数、累计读取字节、输出字符、活动执行时间、候选数、模型调用/token、图预算；AI阅读还可调整重排off/auto/required及候选池。出厂材料查询20项，AI阅读10项、auto、候选池30。恢复默认只改草稿，点击保存才生效；跨导航保留草稿，并发冲突不清空用户输入。MiB与秒支持能精确换算为整数字节/毫秒的小数，避免浮点误判或修改无关字段时改变原预算。\n\n根`workspace-settings.json`是唯一用户设置源。缺文件使用内置默认且不落盘；未知字段、重复JSON键、非整数/布尔/非有限预算、超服务端上限、目录/重定向或超过64 KiB的文件明确拒绝。GET/POST settings、CLI show/set/policy共享同一模块；CAS以原始文件SHA256比较版本，线程互斥、O_EXCL进程锁和同目录fsync/原子替换保护写入，不自动抢旧锁。\n\n新材料查询页面通过capabilities消费默认结果数和预算；新reading-template由程序应用设置。完整显式请求优先，start/resume不重新覆盖已固定的请求/RS预算、范围或重排策略。已打开草稿不被后台设置变更改写，重新进入材料查询才取得新默认。旧search/CTX兼容入口保持各自参数。\n\nwork-loop在任务开始或用户调整设置后读取一次`workspace-settings policy`的精简结果。off要求主Agent独立完成，auto仅在宿主提供能力且任务适合时允许委派，否则单Agent完成同一流程。检索后端没有子Agent执行依赖；此项是遵守本工作区规则的AI协作策略，不能从项目层面禁用任意外部宿主工具，用户当前明确要求仍优先。上下文预算约束检索交付，不能改变宿主模型上下文窗口。\n\n## 配置读取开销\n\n模块保留最多64个根目录的进程内缓存，使用路径/文件stat签名失效，返回深拷贝。命中不重读文件、不重新解码JSON，也不请求AI理解设置。每次仍需路径检查、stat、锁与复制；独立CLI新进程仍有首次读取，没有新增后台配置服务。\n\n固定脚本`settings_cache_probe.py`在隔离临时工作区实测：cold 3.1212 ms；2000次warm读取p50 0.38795 ms、p95 0.7553 ms；JSON解析cold 1次、warm 0次。cold指进程缓存未命中，不清除OS文件缓存。只证明配置读取开销和缓存行为，不能推导端到端召回加速、相关性提升或第二台机器性能；模型冷启动、推理和材料回源仍是独立成本。原结果见`verification/settings-cache.json`。\n\n## 验证与失败保留\n\n| 验证 | 结果 | 固定证据 |\n|---|---|---|\n| 缺实现红测 | 预期ModuleNotFoundError | settings-red.log |\n| 设置核心、真实HTTP/CLI与旧RS边界 | 13项通过，1.178秒 | settings-integration-final.log |\n| AI阅读、查询计划及重排回归 | 41项通过，241.846秒 | reading-regression.log |\n| 全部前端组件 | 48项通过，15.17秒 | frontend-all-components.log |\n| TypeScript、最终构建和资源指纹 | 通过，生成material-query.ts与构建前hash相同 | frontend-build-settings-layout-v2.log |\n| 浏览器实际保存/刷新与冲突草稿 | 2项通过；真HTTP用例没有拦截API | settings-e2e-layout-v2.json |\n| 真实setup扩展旧工作区 | 18项通过，263.524秒，含真实Windows预览/升级/重复/回滚 | settings-upgrade-final.log |\n| 测试目录 | revision84；728发现/730登记，0未分类、0缺失、0错误 | test-catalog.json |\n\n软件负例包括非法字段/预算、损坏配置、锁占用、相同revision并发仅一个成功、替换失败保旧/清理自身临时文件、返回值不污染缓存、等大小/保留mtime外部原子替换仍失效；真实HTTP拒绝非法Origin并返回版本冲突。集成验证新模板取得更新值，显式结果数3及输出5000字符的旧RS在设置修改后恢复仍保持原值。\n\n最初浏览器截图显示字段布局挤在同行；新增局部样式修复并重新构建、重新截图检查，旧截图保留。加入真实HTTP浏览器用例后，首次升级检查捕捉到前端测试源码与资源指纹不一致；完成最终构建后重新验证，未绕过指纹检查。早期测试启动重复导致同一日志混写，该日志只作失败/过程证据，最终判定使用独立final日志。初次测试登记用了不存在的能力名material-query，改为现有retrieval并恢复登记，没有新增平行能力。\n\n新增两项低成本核心基线保护设置CAS及旧RS预算，其他配置/UI边界按影响执行；真实升级沿已有核心防线。未运行全仓库全量测试，不将既有B01问题解释为已修复。\n\n## 实际AI调用与界面回读\n\n主AI通过真实公开CLI读取正式工作区policy（auto，未创建设置文件）；在隔离工作区拟定off、阅读3项、输出6000字符、重排off/候选3的请求，保存后回读policy和reading-template。原回执显示off/single-agent，模板数量3、预算6000、重排off，主AI实际阅读并确认与拟定请求一致；传输脚本不代填科学或人工验收。该隔离流程未调用子Agent进行检索，也未让AI打开设置源文件。不把一次遵守策略的AI自查当作宿主工具强制执行的证明。\n\n实际查看最终浏览器截图：协作、材料查询和AI阅读分区清晰，预算字段分列，保存/恢复/重读操作可见。真实保存刷新通过；人工用户尚未验收。截图为合成测试工作区，页面中的12项是测试值，正式工作区默认仍20项。\n\n## 迁移、文档和成果范围\n\n不新增Python/前端依赖或模型；使用端仍以已构建资源运行，无需Node。用户设置加入扩展旧工作区保护fixture，源码/种子清单不复制开发机偏好，缺文件由程序解释默认；预览、升级、重复升级和恢复核对原文件哈希及目录存在。第二物理机与真实业务验收仍待做；本轮没有Git提交、推送或公开Release。\n\n六份现行文档按影响处置：README、ARCHITECTURE、CORE、docs索引、TESTING已修改；DOCUMENTATION_MAINTENANCE完整核对后无需修改。DEVELOPMENT_HISTORY增加选择与代价，新增WORKSPACE_SETTINGS手册；AI_READING、MATERIAL_QUERY、WORKFLOW_ACTIONS和MEMORY_STORAGE_EXPLAINED同步默认值及旧会话边界。8项活跃Skill及8个发现入口逐条审查，work-loop/material-query方法源修改，其余6项无需修改；注册/预览通过，未覆盖用户规则。见skill-audit.md。\n\n整合前通过公开接口固定Project HEAD `COM-05193f16-a923-43c1-9897-859c60658115`（generation30），读取上一重排概览r1及完整报告r1，哈希与前轮闭环一致，document-impact无变化。两者范围明确为前轮重排实验；本轮设置是独立新技术结果，保留旧稿中当时auto等默认的历史陈述，现行手册改为可配置的出厂值。此前16条其他历史技术内容仍属于旧设计/实现范围，本轮不宣称同步整个Project历史。\n\n本Run的源代码/测试、CLI请求、性能输出与失败记录将固定登记，新增完整设置技术单元、章节、报告和概览通过公共预检/提交/回读保存。最终保存身份、文稿完整性/覆盖、索引状态及结构校验另附收尾回执；此处不把单元测试通过晋升为科学复核。\n",
+                      "requires_block_ids": [],
+                      "role": "results"
+                    },
+                    {
+                      "block_id": "requirements-results",
+                      "markdown": "# 子Agent能力要求：实现与验证\n\nRun：RUN-20260916T081757Z-4C8B6EB90E82。2026-09-16，本机Windows x64；本轮尚未推送或发布。\n\n## 实际行为\n\n工作台“工作区设置→协作策略”增加“子 agent 能力要求”文本框。字段为`settings.collaboration.subagent_requirements`，默认“优先使用低成本、较低能力的可用模型，采用低推理深度；须能完成材料检索、完整阅读和结构化笔记。”可填写具体模型、推理深度或能力偏好；去首尾空白后校验1–2000个Unicode字符，保存原文。关闭协作时仍可预配文本，保存不会打开协作。\n\n程序缓存配置，policy/capabilities返回偏好，reading-delegate同时放入model_preference.requirements与worker_brief.model_requirements。宿主负责选择实际可用模型并调用派工工具；API仍返回dispatched=false，不谎称已经派工。移除固定cost/reasoning=low，避免与用户填写高能力要求矛盾。off或宿主不支持继续同RS单Agent；文本不扩大材料、工具权限或预算。\n\n旧schema1磁盘文件仅缺新字段时内存补默认，文件字节及内容hash revision不变；新set请求必须提供完整字段，防止旧客户端漏字段清空偏好。已有RS范围与预算继续固定。未引入后台服务、模型SDK、依赖或额外AI配置解析调用。\n\n## 文件与发布边界\n\n用户配置在工作区根`workspace-settings.json`；首次保存前可能不存在，正式工作区本轮仍未创建或改动该文件。内置默认位于`automation/scripts/workspace_settings.py`，它属于受控源码并随版本分发。根.gitignore忽略本地配置，git ls-files无该路径；分发收集器不包含它，升级保留接收端设置。本Run最终源码快照和manifest再次用真实framework_files收集器核验。\n\n## 实际验证\n\n| 范围 | 结果与证据 |\n| --- | --- |\n| 修改前基线 | 13项设置、9项委派、9项设置组件通过；backend-baseline-*.log、component-baseline.log |\n| 后端相关 | 15项设置/集成与10项委派通过；覆盖旧文件只读补缺、严格写入、文本边界/原文、CLI/HTTP/policy、能力传递、off、预算及权限旧防线 |\n| 前端组件 | 10项通过；保存、恢复默认、非空/Unicode限制、关闭预配、busy、导航/冲突保留草稿 |\n| 真实Edge浏览器 | 2项通过，实际HTTP保存与重载、409草稿；新增文本框截图已AI检查，无溢出 |\n| 构建 | contracts、TypeScript、Vite构建通过；保留既有大chunk警告，最终source_fingerprint为9f219223002fb16528ee025c7b6e9dce9a60a67e936daf8566ee8e097c0abdec |\n| Windows升级 | 18项不同用例获得通过证据：首次17通过/1失败，唯一失败在前端重建时命中源码/构建指纹不一致，最终冻结后单项复验通过。真实setup扩展旧工作区预览、升级、重复升级、恢复及自定义能力要求字节保护通过 |\n| 测试目录 | revision88；新登记后端3项和组件1项；旧文件无损兼容/严格写入两项加入基线，其余按影响执行。audit通过，743发现/745清单，无未分类/缺失/错误 |\n| 工作区校验 | 记录更新前refresh-index/validate通过，0错误、21既有警告；收口后回执单独补存 |\n\n首次浏览器2项因控件可访问名称定位失败，给控件添加明确aria-label后2项通过；原始失败与browser-final复验均保留。首次只读memory inspect因重定向先创建空JSON被扫描而返回INTEGRITY_ERROR；改为先取得内存结果再写文件后成功，失败回执和retry并存。没有通过改测试断言或跳过用例掩盖失败。\n\n## 文档与已有成果处理\n\nREADME、ARCHITECTURE、CORE、docs/README、TESTING已同步；DOCUMENTATION_MAINTENANCE按范围核对，职责未变，无需修改。WORKSPACE_SETTINGS、AI_READING、WORKFLOW_ACTIONS、DEVELOPMENT_HISTORY及work-loop/material-query方法源同步；两项轻量发现入口继续引用原方法路径，无需修改。其他Skill不消费新字段，未更换入口或权限契约。新增配置含义只在现行说明维护，旧Run与旧MEM固定修订不改。\n\n独立terra/low reader完整读取设置和委派报告/概览及影响列表，主侧取得baseline/READING_NOTE.md与固定回执。基线HEAD为generation38；两份document-impact无变化，组装完整；每份全Project覆盖仍各缺18个L1，包含另一份报告单元及17个其他历史单元，不能宣称全Project同步。本次演进沿用设置单元/章节/文稿/概览ID，并更新受影响委派章节/文稿/概览；原历史块和固定Run保持，追加本次能力配置及验证结果。最终版本与全文检查记在CLOSURE.md。\n\n## 适用边界\n\n宿主须实际支持子Agent并遵守策略；填写模型名称不保证宿主提供该模型，也不会自行安装。没有重新验证任意宿主或真实业务的模型质量。前阶段设置微测p95约0.7553ms及独立reader约90.7%材料响应字符减少保留为当时证据，本轮不把它们当新版本实测，更不等同于总费用/端到端速度改善。未更换依赖/模型，未重做离线依赖打包；本机合成升级通过不等于第二物理机或人工业务认可。\n",
+                      "requires_block_ids": [],
+                      "role": "results"
+                    }
+                  ],
+                  "evidence_refs": [
+                    {
+                      "locator": "RESULTS及固定验证产物",
+                      "relation": "input",
+                      "revision": null,
+                      "sha256": "934dad67f00e33e91d47e66c3255323919558a83ec2ed3076c7e5d0e8d40a6a8",
+                      "target_id": "RUN-20260916T051529Z-EEC543C75781",
+                      "target_kind": "owner"
+                    },
+                    {
+                      "locator": "RESULTS与能力偏好固定验证产物",
+                      "relation": "input",
+                      "revision": null,
+                      "sha256": "2caf3f8a7c96b3bd459e46a1b765e3cd70f63df65bc3691a6dbaaab50819108c",
+                      "target_id": "RUN-20260916T081757Z-4C8B6EB90E82",
+                      "target_kind": "owner"
+                    }
+                  ],
+                  "figures": [],
+                  "missing_refs": [],
+                  "retrieval_description": {
+                    "applicable": [
+                      "当前Windows x64框架的工作台和AI阅读新模板",
+                      "遵守工作区流程的AI协作策略"
+                    ],
+                    "key_findings": [
+                      "已接入新请求默认值，旧RS预算不变。",
+                      "2000次warm读取不再解码JSON，p95为0.7553毫秒，仅设置读取。",
+                      "新增 collaboration.subagent_requirements 自由文本模型/能力偏好；缺省优先低成本、较低能力可用模型和低推理深度，并须完成检索、完整阅读与结构化笔记。用户自定义文本原样保留，去除首尾空白后限1–2000字符；经policy及委派包交给宿主按实际可用模型选择。off始终优先，无宿主能力仍同RS回退；偏好不授予工具或材料权限，不扩大原RS预算。"
+                    ],
+                    "limitations": [
+                      "单机合成验证，非第二物理机验收",
+                      "配置缓存微测不代表端到端检索加速",
+                      "子Agent开关是工作区工作流策略，不是宿主工具硬禁用",
+                      "旧search/CTX参数保持原契约",
+                      "未全仓库回归，既有B01问题保留",
+                      "未公开发布",
+                      "旧schema-1缺新字段仅内存补默认，原字节及revision不变；完整写入禁止遗漏字段丢失偏好。软件和本机合成升级验证不证明指定模型实际可用、业务阅读质量、总费用或端到端延迟改善；原阶段实际reader、字符对比、失败和覆盖缺口均保留为历史证据。",
+                      "宿主决定实际模型；没有可用模型时配置文本不能自行安装或调用模型。",
+                      "本轮没有重跑实际材料阅读质量/费用基准，沿用前阶段固定证据的历史适用范围。",
+                      "无新增AI配置解析调用；未以此推断端到端检索延迟或总AI费用改善。",
+                      "仅本机Windows x64合成升级验收；第二物理机与用户业务验收未执行；未推送发布。"
+                    ],
+                    "method": "核心红测→独立配置契约/CAS/cache→CLI/HTTP/UI与模板→旧会话/升级验证。 本轮新增偏好文本/兼容/CAS边界、宿主选择传递、UI与真实旧工作区保护验证。",
+                    "not_applicable": [
+                      "任意宿主工具硬禁用",
+                      "端到端检索加速或业务相关性证明"
+                    ],
+                    "question": "怎样提供可配置检索默认值和无子Agent兼容，同时避免AI逐次解析设置？ 同时如何保留可编辑子Agent能力偏好与旧配置兼容？"
+                  },
+                  "run_ref": {
+                    "locator": "RESULTS与能力偏好固定验证产物",
+                    "relation": "input",
+                    "revision": null,
+                    "sha256": "2caf3f8a7c96b3bd459e46a1b765e3cd70f63df65bc3691a6dbaaab50819108c",
+                    "target_id": "RUN-20260916T081757Z-4C8B6EB90E82",
+                    "target_kind": "owner"
+                  },
+                  "unit_type": "analysis"
+                },
+                "previous_revision": 1,
+                "provenance_gap": null,
+                "record_hash": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+                "record_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+                "record_reason": "保存2026-09-16统一设置的实现、固定验证及性能/宿主边界。",
+                "revision": 2,
+                "schema_version": 3,
+                "sensitivity": "internal",
+                "sources": [
+                  {
+                    "locator": "RESULTS及固定验证产物",
+                    "relation": "input",
+                    "revision": null,
+                    "sha256": "934dad67f00e33e91d47e66c3255323919558a83ec2ed3076c7e5d0e8d40a6a8",
+                    "target_id": "RUN-20260916T051529Z-EEC543C75781",
+                    "target_kind": "owner"
+                  },
+                  {
+                    "locator": "RESULTS与能力偏好固定验证产物",
+                    "relation": "input",
+                    "revision": null,
+                    "sha256": "2caf3f8a7c96b3bd459e46a1b765e3cd70f63df65bc3691a6dbaaab50819108c",
+                    "target_id": "RUN-20260916T081757Z-4C8B6EB90E82",
+                    "target_kind": "owner"
+                  }
+                ],
+                "title": "工作区设置：协作开关、默认检索预算与缓存验证",
+                "updated_at": "2026-09-16T08:35:08.166478Z",
+                "updated_by": {
+                  "id": "codex-capability-settings",
+                  "kind": "ai"
+                }
+              },
+              "source_issues": [],
+              "formal_eligibility": "not_evaluated"
+            },
+            "resolved_blocks": [
+              {
+                "block_id": "requirements-results",
+                "markdown": "# 子Agent能力要求：实现与验证\n\nRun：RUN-20260916T081757Z-4C8B6EB90E82。2026-09-16，本机Windows x64；本轮尚未推送或发布。\n\n## 实际行为\n\n工作台“工作区设置→协作策略”增加“子 agent 能力要求”文本框。字段为`settings.collaboration.subagent_requirements`，默认“优先使用低成本、较低能力的可用模型，采用低推理深度；须能完成材料检索、完整阅读和结构化笔记。”可填写具体模型、推理深度或能力偏好；去首尾空白后校验1–2000个Unicode字符，保存原文。关闭协作时仍可预配文本，保存不会打开协作。\n\n程序缓存配置，policy/capabilities返回偏好，reading-delegate同时放入model_preference.requirements与worker_brief.model_requirements。宿主负责选择实际可用模型并调用派工工具；API仍返回dispatched=false，不谎称已经派工。移除固定cost/reasoning=low，避免与用户填写高能力要求矛盾。off或宿主不支持继续同RS单Agent；文本不扩大材料、工具权限或预算。\n\n旧schema1磁盘文件仅缺新字段时内存补默认，文件字节及内容hash revision不变；新set请求必须提供完整字段，防止旧客户端漏字段清空偏好。已有RS范围与预算继续固定。未引入后台服务、模型SDK、依赖或额外AI配置解析调用。\n\n## 文件与发布边界\n\n用户配置在工作区根`workspace-settings.json`；首次保存前可能不存在，正式工作区本轮仍未创建或改动该文件。内置默认位于`automation/scripts/workspace_settings.py`，它属于受控源码并随版本分发。根.gitignore忽略本地配置，git ls-files无该路径；分发收集器不包含它，升级保留接收端设置。本Run最终源码快照和manifest再次用真实framework_files收集器核验。\n\n## 实际验证\n\n| 范围 | 结果与证据 |\n| --- | --- |\n| 修改前基线 | 13项设置、9项委派、9项设置组件通过；backend-baseline-*.log、component-baseline.log |\n| 后端相关 | 15项设置/集成与10项委派通过；覆盖旧文件只读补缺、严格写入、文本边界/原文、CLI/HTTP/policy、能力传递、off、预算及权限旧防线 |\n| 前端组件 | 10项通过；保存、恢复默认、非空/Unicode限制、关闭预配、busy、导航/冲突保留草稿 |\n| 真实Edge浏览器 | 2项通过，实际HTTP保存与重载、409草稿；新增文本框截图已AI检查，无溢出 |\n| 构建 | contracts、TypeScript、Vite构建通过；保留既有大chunk警告，最终source_fingerprint为9f219223002fb16528ee025c7b6e9dce9a60a67e936daf8566ee8e097c0abdec |\n| Windows升级 | 18项不同用例获得通过证据：首次17通过/1失败，唯一失败在前端重建时命中源码/构建指纹不一致，最终冻结后单项复验通过。真实setup扩展旧工作区预览、升级、重复升级、恢复及自定义能力要求字节保护通过 |\n| 测试目录 | revision88；新登记后端3项和组件1项；旧文件无损兼容/严格写入两项加入基线，其余按影响执行。audit通过，743发现/745清单，无未分类/缺失/错误 |\n| 工作区校验 | 记录更新前refresh-index/validate通过，0错误、21既有警告；收口后回执单独补存 |\n\n首次浏览器2项因控件可访问名称定位失败，给控件添加明确aria-label后2项通过；原始失败与browser-final复验均保留。首次只读memory inspect因重定向先创建空JSON被扫描而返回INTEGRITY_ERROR；改为先取得内存结果再写文件后成功，失败回执和retry并存。没有通过改测试断言或跳过用例掩盖失败。\n\n## 文档与已有成果处理\n\nREADME、ARCHITECTURE、CORE、docs/README、TESTING已同步；DOCUMENTATION_MAINTENANCE按范围核对，职责未变，无需修改。WORKSPACE_SETTINGS、AI_READING、WORKFLOW_ACTIONS、DEVELOPMENT_HISTORY及work-loop/material-query方法源同步；两项轻量发现入口继续引用原方法路径，无需修改。其他Skill不消费新字段，未更换入口或权限契约。新增配置含义只在现行说明维护，旧Run与旧MEM固定修订不改。\n\n独立terra/low reader完整读取设置和委派报告/概览及影响列表，主侧取得baseline/READING_NOTE.md与固定回执。基线HEAD为generation38；两份document-impact无变化，组装完整；每份全Project覆盖仍各缺18个L1，包含另一份报告单元及17个其他历史单元，不能宣称全Project同步。本次演进沿用设置单元/章节/文稿/概览ID，并更新受影响委派章节/文稿/概览；原历史块和固定Run保持，追加本次能力配置及验证结果。最终版本与全文检查记在CLOSURE.md。\n\n## 适用边界\n\n宿主须实际支持子Agent并遵守策略；填写模型名称不保证宿主提供该模型，也不会自行安装。没有重新验证任意宿主或真实业务的模型质量。前阶段设置微测p95约0.7553ms及独立reader约90.7%材料响应字符减少保留为当时证据，本轮不把它们当新版本实测，更不等同于总费用/端到端速度改善。未更换依赖/模型，未重做离线依赖打包；本机合成升级通过不等于第二物理机或人工业务认可。\n",
+                "requires_block_ids": [],
+                "role": "results"
+              }
+            ],
+            "required_block_ids": [],
+            "source_issues": []
+          }
+        ]
+      }
+    ],
+    "complete": true
+  },
+  "items": [],
+  "missing": [],
+  "generated_at": "2026-09-16T09:38:37.468957Z",
+  "report_candidates": [
+    {
+      "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+      "revision": 2,
+      "title": "子Agent材料阅读与有界笔记交接完整报告",
+      "updated_at": "2026-09-16T08:42:16.535462Z",
+      "document_type": "research_process"
+    },
+    {
+      "record_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+      "revision": 2,
+      "title": "工作区统一设置：协作、检索预算与兼容验证完整报告",
+      "updated_at": "2026-09-16T08:42:16.535462Z",
+      "document_type": "research_process"
+    },
+    {
+      "record_id": "MEM-5c827f1d-99ff-5a60-a150-ac28ad89c877",
+      "revision": 1,
+      "title": "召回排序演进：正文、条件与Cross-encoder完整报告",
+      "updated_at": "2026-09-16T05:04:03.117159Z",
+      "document_type": "research_process"
+    },
+    {
+      "record_id": "MEM-ef137680-afa6-59b8-a263-f2bb33d256c4",
+      "revision": 7,
+      "title": "表示查询：当前实现与核心简报",
+      "updated_at": "2026-09-10T06:55:31.655678Z",
+      "document_type": "research_report"
+    },
+    {
+      "record_id": "MEM-3264fce7-c63f-504e-bdb5-3aaa1169eb7b",
+      "revision": 7,
+      "title": "表示查询：完整设计与实施过程",
+      "updated_at": "2026-09-10T06:55:31.655678Z",
+      "document_type": "research_process"
+    }
+  ],
+  "report_coverage": {
+    "included_detail_ids": [
+      "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+      "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a"
+    ],
+    "uncovered_detail_ids": [
+      "MEM-0bb96a65-0ada-5001-80cb-14904ef684d1",
+      "MEM-192a48a9-191c-5018-8c58-bae968b45ae2",
+      "MEM-2c7941ed-b272-573c-ad70-2c7739ccac99",
+      "MEM-3d6097e5-9028-5e74-b2ca-196db59ed90c",
+      "MEM-4143f480-712a-5739-8044-3535ecaf1b0a",
+      "MEM-76c2ed5f-d911-5435-9818-f5266bfc77e5",
+      "MEM-7faf0c58-7e42-59db-9613-b29e6f7c39ca",
+      "MEM-7fc816dc-2a9c-5189-82ad-1906b6a917e8",
+      "MEM-8933de07-288b-5782-ad81-67a05a133b19",
+      "MEM-8d589423-c595-5a80-898d-23d974868c7c",
+      "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+      "MEM-b0390c59-c458-5690-bc68-6dd030d32de0",
+      "MEM-b0d161c1-cb11-5c55-8d6c-58da7204cc4b",
+      "MEM-c0c9cca2-5a17-5634-86f7-3dbb3dec7902",
+      "MEM-c40996c6-fd17-59b9-84a3-9b373cdbcd64",
+      "MEM-ea9c08fd-4dc8-54f8-abf8-16c1869fb19d",
+      "MEM-ecc8c6cc-b362-5450-bffc-da7418c2c745"
+    ]
+  },
+  "report_version_hints": [
+    {
+      "record_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+      "revision": 1,
+      "current_revision": 2
+    }
+  ],
+  "basis_heads": {
+    "PRJ-ARCHITECTURE-EVOLUTION": "COM-0b448366-3b80-49a1-94b3-7a93b47296e8"
+  },
+  "metrics": {
+    "elapsed_ms": 3992.97,
+    "inventory_owners": 39,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 60,
+    "resolved_sections": 1
+  },
+  "writes": 0
+}

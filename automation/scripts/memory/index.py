@@ -88,6 +88,32 @@ def connect(root, *, create=True):
                     encoder_version TEXT, vector_collection TEXT, native_fingerprint TEXT,
                     dependency_signature TEXT, vector_signature TEXT, error TEXT,
                     updated_at TEXT NOT NULL);
+                -- Owner discovery is intentionally a separate, disposable
+                -- projection.  It must never be implemented as a level filter
+                -- over memory_entries/memory_fts: the row count, vector
+                -- collection and readiness watermarks have independent lives.
+                CREATE TABLE IF NOT EXISTS memory_discovery_entries (
+                    projection_id TEXT PRIMARY KEY, owner_id TEXT NOT NULL,
+                    source_id TEXT NOT NULL, source_kind TEXT NOT NULL,
+                    source_level TEXT, source_revision INTEGER,
+                    source_hash TEXT NOT NULL, title TEXT NOT NULL,
+                    text TEXT NOT NULL, fixed_ref TEXT NOT NULL,
+                    discovery TEXT NOT NULL, sensitivity TEXT NOT NULL,
+                    signature TEXT NOT NULL);
+                CREATE INDEX IF NOT EXISTS memory_discovery_entry_owner
+                    ON memory_discovery_entries(owner_id);
+                CREATE VIRTUAL TABLE IF NOT EXISTS memory_discovery_fts USING fts5(
+                    projection_id UNINDEXED, owner_id UNINDEXED, title, text);
+                CREATE TABLE IF NOT EXISTS memory_discovery_index_state (
+                    owner_id TEXT PRIMARY KEY, expected_head TEXT,
+                    indexed_generation INTEGER, vector_generation INTEGER,
+                    target_generation INTEGER NOT NULL,
+                    lexical_status TEXT NOT NULL, vector_status TEXT NOT NULL,
+                    projection_version TEXT NOT NULL, encoder_version TEXT,
+                    vector_collection TEXT, native_fingerprint TEXT,
+                    lexical_signature TEXT, vector_signature TEXT,
+                    lexical_error TEXT, vector_error TEXT,
+                    updated_at TEXT NOT NULL);
             """)
             versions = [row[0] for row in db.execute("SELECT version FROM memory_schema")]
             if not versions:
@@ -564,9 +590,13 @@ class MemoryVectorBackend:
     向量窗口携带 entry/canonical/owner/版本，窗口和多个表示在查询通道内
     折叠。集合身份包含模型实际清单、FastEmbed 版本及记忆编码版本。
     """
-    def __init__(self, root, cfg=None):
+    def __init__(self, root, cfg=None, *, collection_prefix="memory_v1", encoder_version=None):
         import qdrant_backend
         self.root = Path(root).resolve()
+        # Resolve the default at call time.  Rebuild tests and future migrations
+        # deliberately change the module version to require a new collection;
+        # a definition-time default would silently reuse the previous one.
+        encoder_version = ENCODER_VERSION if encoder_version is None else encoder_version
         cfg = configuration(root) if cfg is None else cfg
         if not qdrant_backend.enabled(cfg):
             raise MemoryError("CAPABILITY_UNAVAILABLE", "未配置本地向量后端")
@@ -580,11 +610,12 @@ class MemoryVectorBackend:
         owners.safe_path(self.root, setting.get("manifest", "services/qdrant/model-manifest.json"))
         owners.safe_path(self.root, cfg["vector_store"].get("path", "services/qdrant/storage"))
         try:
-            self.backend = qdrant_backend.LocalBackend(self.root, cfg, collection_prefix="memory_v1",
-                encoding_version=ENCODER_VERSION, expected_dimensions=384)
+            self.backend = qdrant_backend.LocalBackend(self.root, cfg, collection_prefix=collection_prefix,
+                encoding_version=encoder_version, expected_dimensions=384)
         except Exception as exc:
             raise vector_error(exc) from exc
         self.collection = self.backend.collection
+        self.encoder_version = encoder_version
 
     def close(self):
         self.backend.close()
@@ -637,7 +668,7 @@ class MemoryVectorBackend:
                 start, end = window[0][0], window[-1][1]
                 payload = {key: entry[key] for key in ("entry_id", "canonical_id", "owner_id", "record_id",
                     "representation_id", "revision", "content_hash", "discovery", "sensitivity", "signature")}
-                payload.update(start=start, end=end, encoder_version=ENCODER_VERSION)
+                payload.update(start=start, end=end, encoder_version=self.encoder_version)
                 identity = f"{self.collection}:{entry['entry_id']}:{entry['signature']}:{start}:{end}"
                 identities.append(str(uuid.uuid5(uuid.NAMESPACE_URL, identity)))
                 payloads.append(payload)
@@ -647,7 +678,7 @@ class MemoryVectorBackend:
             if not texts:
                 payload = {key: entry[key] for key in ("entry_id", "canonical_id", "owner_id", "record_id",
                     "representation_id", "revision", "content_hash", "discovery", "sensitivity", "signature")}
-                payload.update(start=0, end=0, encoder_version=ENCODER_VERSION)
+                payload.update(start=0, end=0, encoder_version=self.encoder_version)
                 identities = [str(uuid.uuid5(uuid.NAMESPACE_URL, self.collection + ":" + entry["entry_id"] + ":" + entry["signature"] + ":title"))]
                 payloads, texts = [payload], [prefix]
             fault("vector_encode")

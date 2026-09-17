@@ -1,0 +1,12 @@
+test_cli_failed_expansion_does_not_assemble_original_page (test_content_query.ContentQueryTests.test_cli_failed_expansion_does_not_assemble_original_page) ... ok
+test_direct_fixed_technical_block_and_process_expansion (test_content_query.ContentQueryTests.test_direct_fixed_technical_block_and_process_expansion) ... ok
+test_expand_keeps_exclusions_budget_and_query_digest (test_content_query.ContentQueryTests.test_expand_keeps_exclusions_budget_and_query_digest) ... ok
+test_source_filter_precedes_bounded_fts_window (test_content_query.ContentQueryTests.test_source_filter_precedes_bounded_fts_window) ... ok
+test_source_is_separate_from_hard_scope_and_old_kinds (test_content_query.ContentQueryTests.test_source_is_separate_from_hard_scope_and_old_kinds) ... ok
+test_v4_requires_fixed_authored_links_and_real_narrative (test_content_query.ContentQueryTests.test_v4_requires_fixed_authored_links_and_real_narrative) ... ok
+test_existing_experience_reads_native_claim_and_rechecks_revocation_and_hash (test_content_query.NativeClaimContentTests.test_existing_experience_reads_native_claim_and_rechecks_revocation_and_hash) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 67.341s
+
+OK

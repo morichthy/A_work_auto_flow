@@ -1,0 +1,6 @@
+test_memory_release_inputs_are_explicit_and_importable (test_deployment_workbench.DeploymentWorkbenchTests.test_memory_release_inputs_are_explicit_and_importable) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.376s
+
+OK

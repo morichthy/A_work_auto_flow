@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "document": {
+    "record_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+    "revision": 1,
+    "title": "工作区统一设置：协作、检索预算与兼容验证完整报告",
+    "document_type": "research_process",
+    "purpose": "复现设置功能实现、程序消费与验证，保留性能及宿主能力边界",
+    "audience": "框架开发与工作台使用者",
+    "scope": "仅2026-09-16统一设置功能，不重新评审历史重排与业务结论",
+    "common_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "1cc7a9739dc17bf618ca3d9a43539af379f6d5828078d9d2c65227ed9709d05a",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "target_kind": "record"
+      }
+    ],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "29085339b53308fe3d8ef18b5234b06b3c0707db4f5f4a951396cdd8f815114f",
+        "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "changes": [],
+  "affected_section_ids": [],
+  "uncovered_unit_ids": [],
+  "scientific_review": "not_evaluated",
+  "basis_heads": {
+    "PRJ-ARCHITECTURE-EVOLUTION": "COM-1f5353c7-d2a7-4127-8fa4-a57cfa9547e4"
+  },
+  "metrics": {
+    "elapsed_ms": 2516.67,
+    "inventory_owners": 34,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 56,
+    "resolved_sections": 6
+  },
+  "writes": 0
+}

@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "scope": "Synthetic reader first final note plus production source normalization/citation validation; no live RS or real science claim",
+  "sources": [
+    "MEM-CALIBRATION-PROBE",
+    "RUN-20260917T000000Z-ABCDEF123456",
+    "SRC-CALIBRATION-RESIDUAL",
+    "SRC-CALIBRATION-RAW"
+  ],
+  "local_validation_wall_ms": 11.131,
+  "measurement": "single local normalization+validation call; excludes imports/AI/IO/API; not a benchmark",
+  "review": "Development AI inspection: inversion, numeric example, voltage-only error bound with units/assumptions, 15-point Run/figure/raw references, outside-range counterexample and unexpanded-source caveats present; unrelated fan source excluded. No follow-up requested to rewrite note."
+}

@@ -1,0 +1,11 @@
+{
+  "type": "context_acceptance",
+  "context_received_ms": 1789551314661,
+  "context_accepted_ms": 1789551331667,
+  "session_id": "RS-47e7e8ce-9f60-4fd0-af4d-a7580a69cb04",
+  "revision": 5,
+  "notes_count": 1,
+  "coverage_complete": false,
+  "accepted_scope": "已实际阅读有固定出处的强抵消样本笔记；接受其作为此次流程测量上下文，保留图像未解读、未穷尽窗口和未复核边界，不视为普遍数学证明。",
+  "limitation": "received是宿主工具返回可观测边界；accepted是主Agent实际阅读后的标记，不是模型内部prefill/KV时间。"
+}

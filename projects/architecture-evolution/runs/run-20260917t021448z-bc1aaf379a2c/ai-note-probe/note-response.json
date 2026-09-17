@@ -1,0 +1,33 @@
+{
+  "status": "ok",
+  "value": {
+    "saved": true,
+    "owner_id": "RES-MQ-A",
+    "estimated_note_tokens": 2471,
+    "note_max_tokens": 6000,
+    "over_budget": false,
+    "token_estimation": "utf8_bytes_conservative; not_host_exact_tokens",
+    "gaps": [],
+    "session_id": "RS-2417fd8d-07bf-4f6d-b937-9cb5956d2df4",
+    "revision": 5
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 125,
+    "read_bytes": 51066,
+    "output_chars": 199,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

@@ -1,0 +1,1024 @@
+{
+  "dry_run": false,
+  "index_status": "indexed",
+  "owners": [
+    {
+      "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+      "generation": 22,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 22,
+        "changed_entries": 52,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 22,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 52,
+        "removed_entries": 0,
+        "points": 217
+      },
+      "state": {
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "indexed_generation": 22,
+        "vector_generation": 22,
+        "target_generation": 22,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "0315d84276ab8841f508e4a80e8e9c83009bc3f2ea23c9d9a44aa964a4f95bce",
+        "dependency_signature": "5eee96d2513b115f38284dea07939a8f4f4c0c3bb5dbb3a738ad6744388f4065",
+        "vector_signature": "1e19a6c79ccc5107c1ca7ce391d5f2e661bc61b93ca746722d05aef3633954ac",
+        "error": null,
+        "updated_at": "2026-09-12T02:42:22.991270Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 48.66916589997709
+    },
+    {
+      "owner_id": "RES-AGENT-WORKSPACE-REVIEW",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 0,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 0,
+        "removed_entries": 0,
+        "points": 0
+      },
+      "state": {
+        "owner_id": "RES-AGENT-WORKSPACE-REVIEW",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "e3c3096292e311d1ba7ccbae3b2064c6f2a143e02bebf94cd27b2e3616cd7f1a",
+        "dependency_signature": "cabe0aa7fe86d9d1e024da12216886324bc48bc2fb687910769ed18e40e9d6e3",
+        "vector_signature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "error": null,
+        "updated_at": "2026-09-12T02:42:24.530609Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.5368301999988034
+    },
+    {
+      "owner_id": "RES-AI-EXPERIENCE-CONTEXT",
+      "generation": 8,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 8,
+        "changed_entries": 25,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 8,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 25,
+        "removed_entries": 0,
+        "points": 34
+      },
+      "state": {
+        "owner_id": "RES-AI-EXPERIENCE-CONTEXT",
+        "indexed_generation": 8,
+        "vector_generation": 8,
+        "target_generation": 8,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "35a45ecc449379e977500e12ad0816de0da37e8c659290bb79bbe9ae360fab97",
+        "dependency_signature": "34ea91d56806e730f9bda68af1a21a4c47714915c2b6d19826b27cf1eebe722f",
+        "vector_signature": "2611952dad67cb10b75ac52d2e17142e93c3b21a1e317b3889c7a9e54eb91e06",
+        "error": null,
+        "updated_at": "2026-09-12T02:42:35.649997Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 9.676883900014218
+    },
+    {
+      "owner_id": "RES-FLOATING-POINT-SUMMATION",
+      "generation": 14,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 14,
+        "changed_entries": 29,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 14,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 29,
+        "removed_entries": 0,
+        "points": 37
+      },
+      "state": {
+        "owner_id": "RES-FLOATING-POINT-SUMMATION",
+        "indexed_generation": 14,
+        "vector_generation": 14,
+        "target_generation": 14,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "239ab0fcd73db65fe6b72b3cd756cc876a83e0fd264ad5f00f4fced71664aea7",
+        "dependency_signature": "d98594e13f21d623fd1667781f052f31f16d019d1f2af96be3efca2610a2a23d",
+        "vector_signature": "8dafc645333a2a47e437b8c1a41f89fd98808176b66273dce4933c357215647f",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:07.423645Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 9.870229199994355
+    },
+    {
+      "owner_id": "RES-MATERIAL-RELATIONSHIP-VIEW",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 0,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 0,
+        "removed_entries": 0,
+        "points": 0
+      },
+      "state": {
+        "owner_id": "RES-MATERIAL-RELATIONSHIP-VIEW",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "fc4dd9923fdc404b75e2e13d5bbc26b25ae4b72866e882b45117fbe12eebce49",
+        "dependency_signature": "088475dc42a3fd706bea3cb996173cda81d612d0f183d00ad88832f5085578f5",
+        "vector_signature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:08.918474Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.4839512000326067
+    },
+    {
+      "owner_id": "RUN-20260908T201214Z-D0AB308F66AD",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260908T201214Z-D0AB308F66AD",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "4ff223d25cd5ea92ee3b6d90546944ce94b4af7578cd1811f8325da1303ae858",
+        "dependency_signature": "e0ce9ee74a9f4942c66c31c8f39a64f5931781df81518cae2a28291469ee708d",
+        "vector_signature": "f5c13896f8d7a0f400fccd8809d677ee391ed0814cd876bc0501f6f5d0bf5e7a",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:10.842628Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.7263090999913402
+    },
+    {
+      "owner_id": "RUN-20260908T201228Z-A0980824DC18",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260908T201228Z-A0980824DC18",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "ae3855924c5cb40057fec3ce21717c675477a3bc6738a997ffde7233c199de09",
+        "dependency_signature": "c2f95060c6749e9100184ea70afeef498d20dadcd6fe37ade6cf2a4a62190a7a",
+        "vector_signature": "b3a125fcd233946d00df807eab4c09f17f527ef8a84e5dd766f73da3c017969b",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:12.632832Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.6339868000359274
+    },
+    {
+      "owner_id": "RUN-20260908T201240Z-90107A617CF8",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260908T201240Z-90107A617CF8",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "64f82aaba34def6261c05a0c3e84e5b47ff3d99b2a6c6000897f622249429a47",
+        "dependency_signature": "dcb5c9b4d0de05c1d0a4153deb8e8c31b5583120bf2f92a6a8e9247683b5664a",
+        "vector_signature": "3611d852355a707c0d283ffcd6b321110ebee5a57ab396c32c20fbcecd909903",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:14.461385Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.7002726000500843
+    },
+    {
+      "owner_id": "RUN-20260908T214955Z-2273015D2CEF",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260908T214955Z-2273015D2CEF",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "ef1ff995612c1af17c3523f3baea1b8459a802b14649de230eb087c941c84bc3",
+        "dependency_signature": "0b546fafd171dcb5450bcc2f9daabd0517f3557a9d2b8dc314c10a74534b21c6",
+        "vector_signature": "7dba9477daa1b95464b0c1fda6b920f935746f25fce14b4d7c49bb68a4e60c3b",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:16.427093Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.676584200002253
+    },
+    {
+      "owner_id": "RUN-20260908T215458Z-04C7D84D40D8",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260908T215458Z-04C7D84D40D8",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "4a29b30d5ac1a90d110f585fcdc982845a780a7163381981463b76ebbc4f6ef7",
+        "dependency_signature": "4fe7354342b4b2d5b0f1f8038cb028eb564f2198bd52edeaa575069fc4dce4cb",
+        "vector_signature": "eed7ea9781e0f87f31d1b299c9cdd154748297ba7fb1b710096cebb6ae10bb50",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:18.736181Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.9067066000425257
+    },
+    {
+      "owner_id": "RUN-20260909T151004Z-A68FBA9F176D",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 2
+      },
+      "state": {
+        "owner_id": "RUN-20260909T151004Z-A68FBA9F176D",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "14fd49061a4f8ca42f4be0a55cb5e811796097a57619ddaabc1ce8fd1e722e61",
+        "dependency_signature": "1497dcec4ebbeaccb037f5b1e774a24aaba8ae36fcf35496d62fbff8a59d02ba",
+        "vector_signature": "4fa90bdb81bb8142eedcba5807055c5c39d2384a2c7fafa403887b1cffa90650",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:21.454712Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 2.0057946000015363
+    },
+    {
+      "owner_id": "RUN-20260909T155125Z-2961BDF175A8",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260909T155125Z-2961BDF175A8",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "4dafb8073d4d7d76ded4cd95acf208dad29b70fcb4e6a6497fe1d636315184b8",
+        "dependency_signature": "9b25883deb73c2d9ef327fa07a0b927164a95ee99bf2e845ca77a41cd40c4e90",
+        "vector_signature": "ebaac0418e33af25a339cec78ba5ad7158f9c3ff33d5907acfe4bf06e52f4b37",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:23.576143Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.6754380999482237
+    },
+    {
+      "owner_id": "RUN-20260909T164914Z-D20A9406384A",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260909T164914Z-D20A9406384A",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "c5e0a8db7a9d615cd946914c67d27f37cfd7d1cbba3f6a689cf9341d05f38626",
+        "dependency_signature": "181f55b226f50e1df4f9c29b5b0c3284db04e951240dff8bac6b524ec9510131",
+        "vector_signature": "a2860620dac99080046667e0b2b474341e06412dda7525708fcabc0f37993107",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:27.933706Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.6998963000369258
+    },
+    {
+      "owner_id": "RUN-20260909T175530Z-40721B975BDB",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260909T175530Z-40721B975BDB",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "b1c100cc6bc87cdb09cfbd131f20273553c65f629265df9e4fee48e0e0ca3190",
+        "dependency_signature": "72183d978737f11e7fe6e030b8d45548b4652532fe3f31a8fe49ab9d429e1f51",
+        "vector_signature": "1d3b3c467538e9fd3ac202ae808d7c671d6a52ec5f6b163e5502de5d5259e32d",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:30.086359Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.7218774000066333
+    },
+    {
+      "owner_id": "RUN-20260909T184202Z-6E13D341B986",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260909T184202Z-6E13D341B986",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "1c5661fb986c661e5721071b6bf0d687ae225f2a2fd45d5b2adafbd54e8be884",
+        "dependency_signature": "cb3f5739707822e057ec5f75d5de73f8471661fd832bf42413d9552f28de4b43",
+        "vector_signature": "9dedfa8fae1ec180b875e05f0ea921ed1d6d4209eab95e4d1811b65ec813221c",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:32.237677Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.6383473000023514
+    },
+    {
+      "owner_id": "RUN-20260909T190818Z-8ADA1DF3337B",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260909T190818Z-8ADA1DF3337B",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "34a5f39310cbc4de4613314377bf15d60f5f0eb13eead474566db3f7e0dd3160",
+        "dependency_signature": "cb2cde4546a68b1fc99372b3c325c552fac1cd898900258dabcd3cda6d6e05dc",
+        "vector_signature": "2e997d0f42ee2ddd9f6aa0edfc27037d66e14a6ee1700b783786ea72aedadf2e",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:34.362061Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.681215799995698
+    },
+    {
+      "owner_id": "RUN-20260909T193424Z-94CB7B841F02",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260909T193424Z-94CB7B841F02",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "f9e3863298d85882da463cc3e50668a82382206bebd9d79734e0c6f137b5324f",
+        "dependency_signature": "aeb43f2c3efeb2a25545cd641c7aaef1b67878fe717422a0ce05d4ef2bdaecb4",
+        "vector_signature": "71fb3788beec6524689f086edefb88188a2dffb8e2c7dcbfed7e079e1677d99e",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:36.317087Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.7362479000003077
+    },
+    {
+      "owner_id": "RUN-20260909T194710Z-3CF36B2FDD60",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260909T194710Z-3CF36B2FDD60",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "388ba6c57df7f30114f05964f578dbdd15714fbf1a7358a1440799ebec8f0691",
+        "dependency_signature": "2fc84494305b043f7567bb70500d9a783ea499ffe64f8f65ec8a9116ab7e4c72",
+        "vector_signature": "1b28d43654985184eb14e354dae81cafe1c1680bcdb4418b96878dd6239555dc",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:38.257175Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.6520251000183634
+    },
+    {
+      "owner_id": "RUN-20260910T050158Z-028371C48C3A",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260910T050158Z-028371C48C3A",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "3cd705fc4c9d89f90d3f66c174e7edb0cf3391d42e23c7f862ebe1b7c965160e",
+        "dependency_signature": "21cc0e8b1f3bcfd84d79c81ad5f5e4c7ad7386c0463bab8b010de33020ededf0",
+        "vector_signature": "e152327a62a74bc0f20ac94577f402c47e9f14c3c39890780267e29859654be6",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:40.085437Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.7031853999942541
+    },
+    {
+      "owner_id": "RUN-20260910T063103Z-902DA8123205",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260910T063103Z-902DA8123205",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "8f10f1c3e9ef73d0a7fb669297989c453e0826caad0f46da0f796bd60b2da691",
+        "dependency_signature": "ba0b90bdeb05c9e2582159dab8a54d1dcfbcc5df0cf80a58e38eafb964a8633d",
+        "vector_signature": "aa46fbb4e8a9fefa12139bc71d919b97dd8d603a4e939108bfff5d654cdec6e4",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:41.915642Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.6694001000141725
+    },
+    {
+      "owner_id": "RUN-20260910T125056Z-8D1E5D9047B1",
+      "generation": 8,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 8,
+        "changed_entries": 6,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 8,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 6,
+        "removed_entries": 0,
+        "points": 8
+      },
+      "state": {
+        "owner_id": "RUN-20260910T125056Z-8D1E5D9047B1",
+        "indexed_generation": 8,
+        "vector_generation": 8,
+        "target_generation": 8,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "0b86e1b97c8c8571eebc5553a6e1eece9ae1e743fcf2e00d415a5957dd526b17",
+        "dependency_signature": "aa8d5bc4124ec1854acdccb4968367bc01b526d50b7d8b48926cd27e03ca09f4",
+        "vector_signature": "807f38f83cccb881e076b7399974a57bb643a4245abe7820d0af128d3d40961c",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:45.806950Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 3.1943088000407442
+    },
+    {
+      "owner_id": "RUN-20260910T183626Z-429304F92E99",
+      "generation": 8,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 8,
+        "changed_entries": 6,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 8,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 6,
+        "removed_entries": 0,
+        "points": 9
+      },
+      "state": {
+        "owner_id": "RUN-20260910T183626Z-429304F92E99",
+        "indexed_generation": 8,
+        "vector_generation": 8,
+        "target_generation": 8,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "7c92745a1b8a218a894e00675f3d99710081c732028df0aaa8e16ed55dcb6c59",
+        "dependency_signature": "a154666d1acd147d69b523cfb31e047f9b3247239cdb050f39a4a75c7edc2957",
+        "vector_signature": "0ec496e09a58e94eaf951af4fd5236d28b16ecfec701e3f26710d84a66d3d45d",
+        "error": null,
+        "updated_at": "2026-09-12T02:43:53.471332Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 3.4013795999926515
+    },
+    {
+      "owner_id": "RUN-20260910T210558Z-ABA265055ED3",
+      "generation": 8,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 8,
+        "changed_entries": 6,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 8,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 6,
+        "removed_entries": 0,
+        "points": 11
+      },
+      "state": {
+        "owner_id": "RUN-20260910T210558Z-ABA265055ED3",
+        "indexed_generation": 8,
+        "vector_generation": 8,
+        "target_generation": 8,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "5ab53af4bc31a82907b56d66349635a823bda0d0bb7a60f6483c6db38630bffc",
+        "dependency_signature": "a4b539b6b06b0eeb2996496ed6602768029802625f1369799bc3a87f156f3bd3",
+        "vector_signature": "49e95356edab715fa10bf597658d25bbf5ab5fec9d22e9aa9a48edb17acf0f55",
+        "error": null,
+        "updated_at": "2026-09-12T02:44:05.199306Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 3.7296362000051886
+    },
+    {
+      "owner_id": "RUN-20260911T220732Z-537995938D50",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260911T220732Z-537995938D50",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "893adc0876cfd87b4ab47af89afbb4d84ef79bee92e2644fa9e8b7dbf1a1dae8",
+        "dependency_signature": "4ad00c9ba6b3019eec2a898066b7f2f8ac94c7a5a879cc61aff279c6a641423a",
+        "vector_signature": "c82e588024daadb3c3f817d202fd701478f74ea2fb95eaf5d1642691009d17d1",
+        "error": null,
+        "updated_at": "2026-09-12T02:44:06.914625Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.6247709000017494
+    },
+    {
+      "owner_id": "RUN-20260912T021858Z-B6E2DA1386D3",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 1,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 1,
+        "removed_entries": 0,
+        "points": 1
+      },
+      "state": {
+        "owner_id": "RUN-20260912T021858Z-B6E2DA1386D3",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "6a2a6ae08bb10fd022d86231bc263235bcc34eacffa661cda86143754ce1255f",
+        "dependency_signature": "9bbebd7c5ffe0b7877da60eef7201051889b0fdc82328c91539946903bd89710",
+        "vector_signature": "01a0a09f639f6be0dac8899b75d60beab0fc58769aec97037264dfa5ee8de66a",
+        "error": null,
+        "updated_at": "2026-09-12T02:44:08.414054Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.490076299989596
+    },
+    {
+      "owner_id": "TOOL-WORKSPACE-001",
+      "generation": 0,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "changed_entries": 0,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 0,
+        "collection": "memory_v1_a82dc3c961a4",
+        "updated_entries": 0,
+        "removed_entries": 0,
+        "points": 0
+      },
+      "state": {
+        "owner_id": "TOOL-WORKSPACE-001",
+        "indexed_generation": 0,
+        "vector_generation": 0,
+        "target_generation": 0,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v4-technical-blocks",
+        "vector_collection": "memory_v1_a82dc3c961a4",
+        "native_fingerprint": "6956446d2d081116bfedd2d23fcde07ad1b064c93a2008fcc9215d6ae5232061",
+        "dependency_signature": "6af92fe83aabb25c0955e58132db4bfccfe6f1fbc80218f85c0155bbd0a7442f",
+        "vector_signature": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "error": null,
+        "updated_at": "2026-09-12T02:44:09.787112Z",
+        "projection_version": "memory-v4-technical-blocks"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 1.3710911000380293
+    }
+  ],
+  "removed_owners": [],
+  "pending_removals": [],
+  "canonical_writes": 0
+}
+

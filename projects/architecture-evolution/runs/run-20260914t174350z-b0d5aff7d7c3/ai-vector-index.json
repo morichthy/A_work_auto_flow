@@ -1,0 +1,39 @@
+{
+  "owner_id": "RES-MQ-A",
+  "generation": 21,
+  "index_status": "indexed",
+  "fts": {
+    "status": "indexed",
+    "indexed_generation": 21,
+    "changed_entries": 0,
+    "removed_entries": 0,
+    "unchanged": true
+  },
+  "vector": {
+    "status": "indexed",
+    "indexed_generation": 21,
+    "collection": "memory_v1_a82dc3c961a4",
+    "updated_entries": 22,
+    "removed_entries": 0,
+    "points": 22
+  },
+  "state": {
+    "owner_id": "RES-MQ-A",
+    "indexed_generation": 21,
+    "vector_generation": 21,
+    "target_generation": 21,
+    "fts_status": "indexed",
+    "vector_status": "indexed",
+    "encoder_version": "memory-record-representation-v4-technical-blocks",
+    "vector_collection": "memory_v1_a82dc3c961a4",
+    "native_fingerprint": "d5c03f36491fbb2d78254655c38414670dc425ece2b98e010d0cfa620edf37dc",
+    "dependency_signature": "5b66815d924e3cd2bd71326db9826be3d18d07c13d08146cebd02652cd8c11ab",
+    "vector_signature": "48ff8a817513a8def80520176a7c0793778153ade711453e14b6e9a9c86b4d73",
+    "error": null,
+    "updated_at": "2026-09-14T18:01:46.101778Z",
+    "projection_version": "memory-v4-technical-blocks"
+  },
+  "missing": [],
+  "error": null,
+  "elapsed_seconds": 5.754784299999301
+}

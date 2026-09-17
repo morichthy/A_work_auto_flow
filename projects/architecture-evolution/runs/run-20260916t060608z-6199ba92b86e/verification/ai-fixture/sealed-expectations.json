@@ -1,0 +1,37 @@
+{
+  "not_reader_brief": true,
+  "checks": [
+    "合成NS4探头的x为原始摄氏显示值，b为以°C表示的零点偏差，g为无量纲比例系数；修正温度记θ，绝对温度记T。温度差1°C与1K大小相同，但绝对零点不同。",
+    "先消除仪器偏差再做温标平移：$$\\theta=(x-b)/g,\\qquad T=\\theta+273.15\\;\\mathrm{K}.$$合成输入x=20.0°C、b=0.6°C、g=1.02。不得写成T=(x+273.15-b)/g；后者将温标零点也缩放。",
+    "仅在x、b、g独立且一阶线性近似成立时：$$u_\\theta^2=(u_x/g)^2+(u_b/g)^2+((x-b)u_g/g^2)^2.$$u_x和u_b单位°C，u_g无量纲，u_θ单位°C。273.15为温标定义的精确平移常数，不额外贡献该模型中的标准不确定度；u_T与u_θ数值相同，单位K。",
+    "仅适用于NS4、干燥空气、热平衡状态以及修正温度θ在[-10,60]°C内。边界针对修正后的θ，不是未经校准的x。g和b来自同一校准版本；缺版本、热瞬态、液体浸入或换NS7均不能直接复用。",
+    "若b和g由同一次拟合估计且具有非零协方差，独立性平方和不是完整不确定度。必须按梯度与完整协方差矩阵计算u²=JΣJᵀ并保留交叉项；不能因为误差条很小而忽略相关性。热瞬态下即便θ仍在区间内也不满足平衡假设。缺协方差时应明确缺口，不能编造为零。"
+  ],
+  "main_body_chars": 18843,
+  "refs": {
+    "ai.main": {
+      "target_kind": "record",
+      "target_id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+      "revision": 1,
+      "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+      "locator": "",
+      "relation": "references"
+    },
+    "ai.near": {
+      "target_kind": "record",
+      "target_id": "MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397",
+      "revision": 1,
+      "sha256": "0d2cecd7effbb4b11b727c9ab702d40e7fa539e9983cb54c113ff46faaa846fb",
+      "locator": "",
+      "relation": "references"
+    },
+    "ai.far": {
+      "target_kind": "record",
+      "target_id": "MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818",
+      "revision": 1,
+      "sha256": "8345469a58fe20c51f0f12dd6ad464ccebd0112a9f75df2403d8674dbb009f3a",
+      "locator": "",
+      "relation": "references"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"captured_files": 38, "manifest": "D:\\共享桌面\\A_work\\A_work_auto_flow\\projects\\architecture-evolution\\runs\\run-20260914t174350z-b0d5aff7d7c3\\.run-captures\\bea60ae0c6f94e4c8237ad7edaa1dcb7\\outputs\\source-and-evidence.json"}

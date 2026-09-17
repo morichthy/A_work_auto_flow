@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-16T05:58:51.696894+00:00",
+  "registered_files_verified": 45,
+  "run_fingerprint_unchanged": "934dad67f00e33e91d47e66c3255323919558a83ec2ed3076c7e5d0e8d40a6a8",
+  "head": {
+    "commit_id": "COM-1f5353c7-d2a7-4127-8fa4-a57cfa9547e4",
+    "generation": 34,
+    "manifest_hash": "11e7dca0aad00c90eeac747c02eb04f0cadbdea61732e24dd36fb796c3320202"
+  },
+  "files": {
+    "CLOSURE.md": "d6df59e7810d54758a728be6a794434b12c35728065c1d8e9cf1d8942b647076",
+    "capture-receipt.json": "bc398e2b7a0f074dce87400f3cd399f7f5e304a708ef354b97c2c9bcba8705dd",
+    "scripts/save_memory_v2.py": "e16d08ee44cc2e7100c4432e86891c7286db7813bddbefc575fc9973c9e59465",
+    "memory-save/assembled-document-impact.json": "198cb8ba9d183117d4f4ae9640a85ebdeaf15eb531bbb6495b908ea0d745f6a8",
+    "memory-save/assembled-document.json": "05c6077d4cddaa3cfaa92031666dc52ec6d0577d54909ed453c240dfe47068ca",
+    "memory-save/assembled-outline.json": "74c00f96e8abd1ac2fcafb53bde5d7b98ea7ed470df4f50da8f7beb335f8808c",
+    "memory-save/identities.json": "8f20aeb2efdeaf298009ac0fce8be64c596a6a0b22c8343b1b7068db9eb0efdd",
+    "memory-save/settings-document-commit.json": "56c1b6063c931fbd56a5a992e4c407be0297154fe64552025d9e99562d58ed1c",
+    "memory-save/settings-document-readback.json": "2bf5400457654fc28449d29730c55e1b43042bb1c357b10d40732e6e3a9ce9cb",
+    "memory-save/settings-document-request.json": "56f79a60afe0d3bcf1efae06902ffbf7bdf527ed87a51e6b60000053d401b7e5",
+    "memory-save/settings-document-validation.json": "17146cab291fb6165ab5c04a311aad3c2187480742d660545d4ce2a05d41c853",
+    "memory-save/settings-overview-commit.json": "e01a058a0693c6b731afed8f47eca94c2aee4daf778d480beb48b1a22904cbf4",
+    "memory-save/settings-overview-readback.json": "beeb1ea4eb16aa2ae53e1874ac1893b2aae59c018ae25418f6fab42d71ecbc71",
+    "memory-save/settings-overview-request.json": "727f0f2208b704ba15cbabf6595c4b44bfa1e5f2ae618d0186b74ba630ff707b",
+    "memory-save/settings-overview-validation.json": "61cc8bffe2d9f785c3bf5df1ee34fa871681ca45928e229829606767800d26df",
+    "memory-save/settings-section-commit.json": "76df7a7d813a00eae047829e183c8582c85aca0a263b44e701d590788ac7e9ec",
+    "memory-save/settings-section-readback.json": "7c4751b502542d266db3c4b04be2457b8bcb10a3022513c4fade7ffd4e731adb",
+    "memory-save/settings-section-request.json": "b3fc07e13ce90cc7f6e4c3a7e827c5a3db4cd10eb112137778c45bc826e69156",
+    "memory-save/settings-section-validation.json": "81bda54f395f2040bd965fbcca317ffb2d558d366b6672903722aa7f7ee7a01a",
+    "memory-save/settings-unit-commit.json": "ba5cfff0aa3b76056b73bb1ee519094638d0a39975fbe0d1b9c581f4bdce6888",
+    "memory-save/settings-unit-readback.json": "935fc7d09c411e96e023b9e1b9612971cbbe852deb3fbd6317e7e9587dddb0c4",
+    "memory-save/settings-unit-request.json": "232284d2b80e3611a38c6d557caba1eae7ecda44d156fc07f4457611e5f549d4",
+    "memory-save/settings-unit-validation.json": "718b8f7adb66865bbf1b437548000f86f8b21c92aa5ea93dc23331cc9f4122e9",
+    "final-refresh-index.log": "ccedcad3856aa364194ef6a0716e8294caaa2b41fa62d158b7e5500a122100ed",
+    "final-validate-after-closure.log": "cc539932abb92461084290a5d30a183602c2f1faef64a132db72f9ef4adb7716",
+    "final-validate.log": "cc539932abb92461084290a5d30a183602c2f1faef64a132db72f9ef4adb7716",
+    "memory-save-execution-v2.log": "19ee3efbf089f49d5c84790df5b3b9d90d1ed46ba6e72bbfdee2baf18c5a7273",
+    "memory-save-execution.log": "dab9e6ed7378c283ac57f8057707c6e093a0848e287a5c9122ee2b7b8a4707ff"
+  }
+}

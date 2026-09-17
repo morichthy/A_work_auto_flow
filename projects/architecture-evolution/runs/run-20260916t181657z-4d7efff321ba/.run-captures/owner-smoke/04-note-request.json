@@ -1,0 +1,21 @@
+{
+  "session_id": "RS-12cfd61c-790d-41f7-bb86-e1d4242c2744",
+  "expected_revision": 3,
+  "request_id": "owner-smoke-note-01",
+  "owner_id": "RES-FLOATING-POINT-SUMMATION",
+  "research_note": {
+    "question": "对于已表示的有限 binary64 输入，naive、pairwise 与 Kahan summation 的精度假设和误差边界如何比较？",
+    "conditions": ["结论只覆盖已交付的浮点研究记录及其固定来源。", "基准是实际 binary64 值转为精确有理数后的和，不包含十进制文本到 binary64 的转换误差。", "本次完整阅读实际回退到一份 L1 complete record；Owner 缺少 research_process/research_report。"],
+    "understanding": "该研究把误差定义为被测返回值相对精确有理数参考和的绝对误差。naive 的保存实现严格按给定顺序执行逐项浮点加法，因此小量一旦在大累加量处舍入丢失，后续抵消不能保证恢复。Kahan 用补偿变量把部分舍入损失带入下一步，但补偿变量并不保证最终零误差；固定三项抵消轨迹已显示补偿后的小量仍可能继续舍入。已交付文稿没有给出 pairwise 的独立递推、实测结果或误差界，因此不能从本研究材料断言其相对 naive 或 Kahan 的一般精度排序。",
+    "logic": ["先固定输入语义和 reference sum，再把每种方法的断言限定到保存实现与有限构造输入。", "将 naive 的顺序敏感性和 Kahan 的补偿机制分别解释，避免把 Kahan 与 Neumaier 的补偿变量或递推式互换。", "把未交付的 pairwise 细节、非整数/极端指数/跨平台/性能、NaN/无穷/溢出列为边界，而不是以相邻方法或运行成功补全。"],
+    "details": ["参考量为 $S_{\\mathrm{ref}}=\\sum_i\\operatorname{Fraction}(x_i)$，绝对误差为 $e_{\\mathrm{abs}}=|\\operatorname{Fraction}(\\widehat S)-S_{\\mathrm{ref}}|$；零和时仍可使用该绝对误差。", "naive 保存实现：$s_i=\\operatorname{fl}(s_{i-1}+x_i)$，结果依赖给定项序。", "Kahan 保存实现以 $y_i=\\operatorname{fl}(x_i-c_{i-1})$、$t_i=\\operatorname{fl}(s_{i-1}+y_i)$ 更新，并把补偿用于下一步；这只说明机制和具体反例，不构成对所有输入无效的证明。", "math.fsum 仅是实际输出对照；材料未观察其内部部分和，不能伪造其过程解释。"],
+    "sources": [
+      {"kind":"record","id":"MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d","revision":1,"sha256":"ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51","locator":null},
+      {"kind":"file","id":"SRC-SUMMATION-REPORT-V2-METHODS","revision":null,"sha256":"bf89c9889ac3795214b21b6a3d19557750da1304fc60fb58d63d119784e7ceed","locator":"全文"},
+      {"kind":"file","id":"SRC-SUMMATION-REPORT-V2-ROUND-02","revision":null,"sha256":"70b04d20e8973083af0f7a99a27c8715d97791bf051fbbd1a5f8d3b3c410df0a","locator":"全文"},
+      {"kind":"file","id":"SRC-SUMMATION-TRACE-VERIFY","revision":null,"sha256":"739d2ce2c6922dc7ce74dfea9ac22d987dd6b8d353484e70c615fc96d2f22074","locator":"全文"}
+    ],
+    "limitations": ["该 note 是调用者基于一次实际完整阅读撰写的未复核理解，不是科学复核。", "Owner 读取报告两个缺口：部分记录因当前授权/固定来源不可用未交付，且不存在独立完整过程或简版报告。", "pairwise 没有在本次已交付正文中获得可引用的独立方法或结果；不可给出其一般误差界或优劣排序。", "研究未检验非整数、极端指数、跨平台、运行时间、NaN、无穷或溢出。"],
+    "next_steps": ["如需比较 pairwise，应在获准范围内补读包含其算法、输入与固定结果的明确材料。", "若要形成正式数值结论，需对固定输入、实现版本和适用范围走独立复核，而不是复用本次阅读 note。"]
+  }
+}

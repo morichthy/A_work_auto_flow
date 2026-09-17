@@ -1,0 +1,19 @@
+{
+  "commit_id": "COM-620058f3-4a6b-44b1-98cd-e9fd7f8dd967",
+  "unit": {
+    "target_kind": "record",
+    "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+    "revision": 1,
+    "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+    "locator": "",
+    "relation": "references"
+  },
+  "section": {
+    "target_kind": "record",
+    "target_id": "MEM-a042188a-244a-5d15-843e-359b7d7f87f6",
+    "revision": 1,
+    "sha256": "05247c81db6408eac446df9d4e4d8f153b0dfb8d60e86ec1edcb4d586333760c",
+    "locator": "",
+    "relation": "references"
+  }
+}

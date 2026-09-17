@@ -1,0 +1,63 @@
+{
+  "status": "partial",
+  "value": {
+    "candidates": [
+      {
+        "owner_id": "RES-MQ-A",
+        "text": "# 合成温度校准材料\n\nreadingfixture。摄氏温度 $t$ 单位为 °C，热力学温度 $T$ 单位为 K；合成电压 $V$ 单位为 V。模型 $V=a t+b$，$a=0.01$ V/°C、$b=0.50$ V，材料只覆盖 $0\\le t\\le80$ °C，不是现实传感器验证。\n\n材料将95 °C作为超出校准区间的反例，没有验证其线性外推。材料建议如需扩展温区，应先加入独立边界校准样本；这只是材料中的建议，并无已完成实验。温标平移保留温差与不确定度数值，可作为跨温标比较的线索；没有给出后续检索词。\n\n原先直接把电压读数当温度会混淆单位，因此材料先固定线性校准和温标。反算 $t=(V-b)/a$，$T=t+273.15$。合成输入 $V=0.75$ V 对应 $t=25$ °C、$T=298.15$ K。假定 $a,b$ 无误差且电压标准不确定度 $u_V=0.002$ V，则 $u_t=u_V/|a|=0.2$ °C，$u_T=0.2$ K；若校准参数也不确定，该误差式不完整。"
+      }
+    ],
+    "gaps": [
+      "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+      "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+    ],
+    "has_more": false,
+    "pending_owner_count": 0,
+    "mode": "owner_document",
+    "strategy": "associative",
+    "association": {
+      "enabled": true,
+      "max_rounds": 3
+    },
+    "association_text": "",
+    "next_action": "read",
+    "guidance": "每Owner本页最多一份正文；相关则reading-read(owner_id)，未确定可reading-page继续。",
+    "session_id": "RS-2417fd8d-07bf-4f6d-b937-9cb5956d2df4",
+    "revision": 2
+  },
+  "code": null,
+  "warnings": [
+    "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+    "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+  ],
+  "issues": [
+    {
+      "code": "PARTIAL",
+      "message": "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    },
+    {
+      "code": "PARTIAL",
+      "message": "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    }
+  ],
+  "consumed": {
+    "wall_ms": 328,
+    "read_bytes": 153104,
+    "output_chars": 877,
+    "candidates": 1,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

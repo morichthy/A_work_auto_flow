@@ -1,0 +1,174 @@
+{
+  "schema_version": 3,
+  "request_id": "f1183212-c911-4626-b481-d7fd45ded09a",
+  "actor": {
+    "kind": "ai",
+    "id": "codex-capability-settings"
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": "COM-3d17cf87-605d-4a0a-9f8e-f372ae2a9cef",
+  "operations": [
+    {
+      "op": "put_record",
+      "record_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+      "expected_revision": 1,
+      "draft": {
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "document",
+        "level": null,
+        "title": "工作区统一设置：协作、检索预算与兼容验证完整报告",
+        "keywords": [
+          "workspace-settings",
+          "配置缓存",
+          "检索预算",
+          "单Agent",
+          "CAS",
+          "subagent_requirements",
+          "能力偏好"
+        ],
+        "body_markdown": "",
+        "payload": {
+          "audience": "框架开发与工作台使用者",
+          "common_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+              "revision": 2,
+              "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "document_type": "research_process",
+          "missing_refs": [],
+          "purpose": "复现设置功能实现、程序消费与验证，保留性能及宿主能力边界，并区分历史默认low与当前可编辑模型偏好",
+          "scope": "仅2026-09-16统一设置功能，不重新评审历史重排与业务结论；含本轮能力偏好、旧设置无损兼容与宿主传递扩展。",
+          "section_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+              "revision": 2,
+              "sha256": "c560c4436ab6a9d905e63ac3c7afe853f5b63c3d451e1716343b1e641ff7108f",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "watch_refs": []
+        },
+        "sources": [
+          {
+            "target_kind": "record",
+            "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+            "revision": 2,
+            "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+            "locator": "",
+            "relation": "references"
+          },
+          {
+            "target_kind": "record",
+            "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+            "revision": 2,
+            "sha256": "c560c4436ab6a9d905e63ac3c7afe853f5b63c3d451e1716343b1e641ff7108f",
+            "locator": "",
+            "relation": "references"
+          }
+        ],
+        "provenance_gap": null,
+        "discovery": "workspace_summary",
+        "sensitivity": "internal",
+        "schema_version": 3,
+        "record_reason": "保存2026-09-16统一设置的实现、固定验证及性能/宿主边界。",
+        "change_reason": "沿用既有身份补充子Agent能力偏好；保留原阶段固定块、失败及验证范围，更新现行章节、概览和文稿固定关系。"
+      }
+    },
+    {
+      "op": "put_record",
+      "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+      "expected_revision": 1,
+      "draft": {
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "document",
+        "level": null,
+        "title": "子Agent材料阅读与有界笔记交接完整报告",
+        "keywords": [
+          "reading-note",
+          "subagent",
+          "上下文预算",
+          "固定来源",
+          "handoff",
+          "subagent_requirements",
+          "能力偏好"
+        ],
+        "body_markdown": "",
+        "payload": {
+          "audience": "框架开发者和AI工作流使用者",
+          "common_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+              "revision": 1,
+              "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+              "locator": "",
+              "relation": "references"
+            },
+            {
+              "target_kind": "record",
+              "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+              "revision": 2,
+              "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "document_type": "research_process",
+          "missing_refs": [],
+          "purpose": "复现阅读上下文隔离、主侧交接及边界验证，并区分历史默认low与当前可编辑模型偏好",
+          "scope": "仅2026-09-16子Agent材料阅读与有界笔记交接，不重新认可历史业务结论；含本轮能力偏好、旧设置无损兼容与宿主传递扩展。",
+          "section_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+              "revision": 2,
+              "sha256": "6e1724a70a537bbabb7319140b22afd9a4ed1cdeac68933a6a92a3eaaf0d87a5",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "watch_refs": []
+        },
+        "sources": [
+          {
+            "target_kind": "record",
+            "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+            "revision": 1,
+            "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+            "locator": "",
+            "relation": "references"
+          },
+          {
+            "target_kind": "record",
+            "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+            "revision": 2,
+            "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+            "locator": "",
+            "relation": "references"
+          },
+          {
+            "target_kind": "record",
+            "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+            "revision": 2,
+            "sha256": "6e1724a70a537bbabb7319140b22afd9a4ed1cdeac68933a6a92a3eaaf0d87a5",
+            "locator": "",
+            "relation": "references"
+          }
+        ],
+        "provenance_gap": null,
+        "discovery": "workspace_summary",
+        "sensitivity": "internal",
+        "schema_version": 3,
+        "record_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+        "change_reason": "沿用既有身份补充子Agent能力偏好；保留原阶段固定块、失败及验证范围，更新现行章节、概览和文稿固定关系。"
+      }
+    }
+  ]
+}

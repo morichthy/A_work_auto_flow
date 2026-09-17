@@ -1,0 +1,60 @@
+{
+  "body_markdown": "合成摄氏转开尔文换算。输入边界待整理。",
+  "change_reason": "合成完整成果同步验证",
+  "content_hash": "b0418e8e7f23f90675ef628f47a14fee5ef0f7909e041d6d592580fa4994a3dc",
+  "created_at": "2026-09-15T20:47:10.230933Z",
+  "created_by": {
+    "id": "consolidate-results-synthetic-check",
+    "kind": "ai"
+  },
+  "discovery": "owner_only",
+  "keywords": [],
+  "kind": "overview",
+  "level": "L4",
+  "owner_id": "RES-R",
+  "payload": {
+    "claims": [],
+    "current_stage": "只定义合成换算",
+    "experience_refs": [],
+    "limitations": [
+      "未验证传感器误差"
+    ],
+    "methods": [
+      "线性平移"
+    ],
+    "missing_refs": [],
+    "open_questions": [
+      "输入边界待整理"
+    ],
+    "process_refs": [],
+    "question": "摄氏温度如何转为开尔文",
+    "results": [
+      "T=t+273.15"
+    ],
+    "technical_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "cc7cc7feabee4aeb8f5fcd8922fb11a30d1b190da19f703e07cfe34fa0870222",
+        "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "previous_revision": null,
+  "provenance_gap": "合成接口验证，无现实实验",
+  "record_hash": "f9cb5a6c1e1357f1296fcc81288700d1f20a981389f36f00d49ba11833058df4",
+  "record_id": "MEM-88937726-da61-5152-ba68-7f076fcb860d",
+  "record_reason": "合成完整成果同步验证",
+  "revision": 1,
+  "schema_version": 4,
+  "sensitivity": "internal",
+  "sources": [],
+  "title": "合成 overview",
+  "updated_at": "2026-09-15T20:47:10.230933Z",
+  "updated_by": {
+    "id": "consolidate-results-synthetic-check",
+    "kind": "ai"
+  }
+}

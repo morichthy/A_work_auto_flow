@@ -1,0 +1,95 @@
+{
+    "body_markdown": "",
+    "change_reason": "按用户授权实现多路阅读工作流，更新实际阶段与边界，保留旧固定版本。",
+    "content_hash": "f6254f70a6293a902ab4656ab716e02236f81623608e09af3395d1902b062a88",
+    "created_at": "2026-09-11T22:23:40.315908Z",
+    "created_by": {
+        "id": "Codex",
+        "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [
+        "经验检索",
+        "上下文组织",
+        "方案比较",
+        "召回"
+    ],
+    "kind": "document",
+    "level": null,
+    "owner_id": "RES-AI-EXPERIENCE-CONTEXT",
+    "payload": {
+        "audience": "用户与后续研究/实现者",
+        "common_refs": [],
+        "document_type": "research_report",
+        "missing_refs": [],
+        "purpose": "回顾讨论方案、业界依据与当前选择原因",
+        "scope": "包含v0.1比较、v0.2基础实现与v0.3阅读工作流验证；业务质量研究继续",
+        "section_refs": [
+            {
+                "locator": "正文",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "bce37ebeee783b797f4c3ed5f68b0647be1b6df8418f841c91c3d579cdc80b16",
+                "target_id": "MEM-1eaf6b61-a627-5266-a4e1-5099610ca3e6",
+                "target_kind": "record"
+            },
+            {
+                "locator": "正文",
+                "relation": "references",
+                "revision": 2,
+                "sha256": "aadcf0ee52ba7654f4e3993c87d9b5e356dc46f207f2c700caab675f3fe04bf9",
+                "target_id": "MEM-753db91f-ddc3-5d34-b2e3-5dd0411b9b35",
+                "target_kind": "record"
+            },
+            {
+                "locator": "正文",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "0e06a6d84811913ebaecd1b4eafef6430b19399d703c127500a5357ee9002db0",
+                "target_id": "MEM-edff9af9-0cc0-5e5f-8b85-ba839fb6bd38",
+                "target_kind": "record"
+            }
+        ],
+        "watch_refs": []
+    },
+    "previous_revision": 3,
+    "provenance_gap": null,
+    "record_hash": "586a63b0280bbb7493bcd13a887b02eca9898e171c1dbf4eed63dc1e0b4f8683",
+    "record_id": "MEM-e9796061-7849-55de-b013-369b5029ee70",
+    "record_reason": "保存本轮讨论依据、候选比较与选择理由，支持后续研究回顾。",
+    "revision": 4,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [
+        {
+            "locator": "正文",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "bce37ebeee783b797f4c3ed5f68b0647be1b6df8418f841c91c3d579cdc80b16",
+            "target_id": "MEM-1eaf6b61-a627-5266-a4e1-5099610ca3e6",
+            "target_kind": "record"
+        },
+        {
+            "locator": "正文",
+            "relation": "references",
+            "revision": 2,
+            "sha256": "aadcf0ee52ba7654f4e3993c87d9b5e356dc46f207f2c700caab675f3fe04bf9",
+            "target_id": "MEM-753db91f-ddc3-5d34-b2e3-5dd0411b9b35",
+            "target_kind": "record"
+        },
+        {
+            "locator": "正文",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "0e06a6d84811913ebaecd1b4eafef6430b19399d703c127500a5357ee9002db0",
+            "target_id": "MEM-edff9af9-0cc0-5e5f-8b85-ba839fb6bd38",
+            "target_kind": "record"
+        }
+    ],
+    "title": "AI 经验检索与上下文组织研究：精简报告 v0.3",
+    "updated_at": "2026-09-12T20:17:00.254174Z",
+    "updated_by": {
+        "id": "Codex",
+        "kind": "ai"
+    }
+}

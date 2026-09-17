@@ -1,0 +1,12 @@
+{
+  "code": "INVALID_SCHEMA",
+  "message": "记忆草案验证失败",
+  "details": {},
+  "errors": [
+    {
+      "code": "INVALID_SCHEMA",
+      "path": "/payload/role",
+      "message": "Value is outside enum"
+    }
+  ]
+}

@@ -1,0 +1,746 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T092432Z-6976E1302DE8",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "浮点阅读完整链路放宽预算诊断",
+    "keywords": [
+      "reading-latency",
+      "diagnostic-budget",
+      "real-materials",
+      "budget-failure",
+      "bounded-candidates"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-16T09:24:32Z",
+    "started_at": "2026-09-16T09:27:50.044523Z",
+    "ended_at": "2026-09-16T09:49:06.477544Z",
+    "owner": null,
+    "question": "浮点求和真实主题查询→AI交互→reading note→主Agent上下文的分阶段计时及瓶颈。",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {
+      "reader_model": "gpt-5.6-terra",
+      "reader_reasoning": "low",
+      "reader_fork_turns": null,
+      "reader_context": "warm followup from bounded experiment",
+      "source_owner_id": "RES-FLOATING-POINT-SUMMATION",
+      "reading_defaults": {
+        "result_limit": 10,
+        "reranking": {
+          "mode": "auto",
+          "candidate_limit": 30
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 16777216,
+          "output_chars": 80000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        }
+      },
+      "variant": {
+        "type": "variant",
+        "utc_ns": 1789550870998379800,
+        "result_limit": 1,
+        "reranking": {
+          "mode": "auto",
+          "candidate_limit": 1,
+          "conditions": []
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 33554432,
+          "output_chars": 100000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        },
+        "explicit_overrides": {
+          "result_limit": 1,
+          "rerank_candidate_limit": 1,
+          "output_chars": 100000,
+          "read_bytes": 33554432
+        }
+      },
+      "relationship": {
+        "baseline_run_id": "RUN-20260916T085438Z-3E40D5ED8471",
+        "bounded_candidate_run_id": "RUN-20260916T091635Z-EFFBEF761124",
+        "expanded_budget_diagnostic_run_id": "RUN-20260916T092432Z-6976E1302DE8",
+        "kind": "默认配置、独立候选限流失败对照、显式扩大预算诊断；非重复随机性能试验或优化完成",
+        "instrument_failure": "基线verification/latency-attempt-01保留初始DENIED；未创建RS，不纳入正常查询baseline。",
+        "comparison_boundary": "对照复用已规划query；第三Run收紧结果与CE为1/1、减少英文变体、提高预算至服务器上限，属多变量最小闭环诊断；不能据E2E差推速度提升归因。",
+        "diagnostic_prepare_failure": "第三Run .run-captures/latency-attempt-01保留超SERVER_LIMITS的VALIDATION拒绝，未创建RS。"
+      }
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "actual_reading_workflow",
+        "status": "passed",
+        "scope": "真实RS工作流，以最终metrics.workflow_completed及固定回执为据；不是业务结论复核。"
+      }
+    ],
+    "metrics": {
+      "schema_version": 1,
+      "workflow_completed": true,
+      "coverage_complete": false,
+      "conclusion": "真实浮点阅读默认10/30及限流2/2两次预算失败；最小1/1双语诊断在100k字符/32MiB预算内完成note→handoff→主侧接受，覆盖partial。完整可观察墙钟470.011秒，API内71.932秒；召回39.947秒中分路29.113秒、正文准备8.443秒、CE推理0.089秒。原read回执332692字符含327792图像data_url并触发工具截断，主侧note1901字符。独立profile显示handoff主要成本在来源复核；尚未实施性能优化。",
+      "end_to_end_host_s": 470.011,
+      "prepare_entry_to_context_accepted_s": 461.622,
+      "followup_sent_to_context_accepted_s": 450.311,
+      "backend_dispatch_s": 71.9321266,
+      "recall_dispatch_s": 39.9472141,
+      "read_dispatch_s": 8.8295212,
+      "note_dispatch_s": 7.3676522,
+      "decide_dispatch_s": 6.0302663,
+      "handoff_dispatch_s": 5.9501496,
+      "note_generation_marker_to_request_ready_s": 166.927,
+      "read_return_to_valid_note_tool_s": 184.27,
+      "context_received_to_accepted_s": 17.006,
+      "route_count": 15,
+      "routes_s": 29.1132169,
+      "rerank_input_s": 8.442644,
+      "ce_model_load_s": 1.0038896,
+      "ce_inference_s": 0.0888347,
+      "profile_handoff_s": 11.6020569,
+      "profile_reauthorize_s": 11.5606865,
+      "profile_read_record_calls": 926,
+      "profile_safe_path_calls": 7972,
+      "result_limit": 1,
+      "rerank_candidate_limit": 1,
+      "query_count": 2,
+      "output_budget": 100000,
+      "read_budget": 33554432,
+      "wall_budget_ms": 300000,
+      "notes_generated": 1,
+      "unnoted_candidates": 2,
+      "main_context_received": true,
+      "main_context_accepted": true,
+      "main_handoff_context_chars": 1901,
+      "main_handoff_response_chars": 2753,
+      "read_response_chars": 332692,
+      "recall_response_chars": 355186,
+      "figures_data_url_chars_per_response": 327792,
+      "tool_display_truncated": true,
+      "figures_viewed": false,
+      "reader_context": "warm followup from bounded experiment",
+      "status": "partial",
+      "counts_at_first_handoff": {
+        "wall_ms": 70357,
+        "read_bytes": 7394076,
+        "output_chars": 33686,
+        "model_calls": 8,
+        "rerank_items": 2
+      },
+      "limitations": [
+        "多变量最小诊断不是性能优化对照；默认路径仍失败。",
+        "宿主模型推理、prefill、token/费用不可观测；非dispatch墙钟包含工具、调度、仪表与阅读。",
+        "图像未解码，笔记以已提取正文为依据，未穷尽候选。",
+        "独立profile改变耗时，不能将其绝对时长当正常服务耗时。"
+      ]
+    },
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "真实浮点阅读默认10/30及限流2/2两次预算失败；最小1/1双语诊断在100k字符/32MiB预算内完成note→handoff→主侧接受，覆盖partial。完整可观察墙钟470.011秒，API内71.932秒；召回39.947秒中分路29.113秒、正文准备8.443秒、CE推理0.089秒。原read回执332692字符含327792图像data_url并触发工具截断，主侧note1901字符。独立profile显示handoff主要成本在来源复核；尚未实施性能优化。",
+    "limitations": [
+      "单主题单次运行，不能推断p95或全库性能。",
+      "AI调用间隔含调度、排队、工具交互，不是纯模型推理。",
+      "profile单列诊断，不混入baseline；初始仪表DENIED保留。",
+      "第三Run扩大预算只用于观测后半段，不证明优化完成或默认配置可用。",
+      "Windows本机测量，未做第二物理机/业务人工验收。"
+    ],
+    "parent_run_ids": [
+      "RUN-20260916T085438Z-3E40D5ED8471",
+      "RUN-20260916T091635Z-EFFBEF761124"
+    ],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxNlQwOTI0MzJaLTY5NzZFMTMwMkRFOCIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIua1rueCuemYheivu+WujOaVtOmTvui3r+aUvuWuvemihOeul+iviuaWrSIsDQogICJrZXl3b3JkcyI6IFsNCiAgICAicmVhZGluZy1sYXRlbmN5IiwNCiAgICAiZGlhZ25vc3RpYy1idWRnZXQiLA0KICAgICJyZWFsLW1hdGVyaWFscyIsDQogICAgImJ1ZGdldC1mYWlsdXJlIiwNCiAgICAiYm91bmRlZC1jYW5kaWRhdGVzIg0KICBdLA0KICAicmV2aWV3X2hpc3RvcnkiOiBbXSwNCiAgImNsYWltcyI6IFtdLA0KICAiZGVwZW5kZW5jaWVzIjogW10sDQogICJydW5fdHlwZSI6ICJhbmFseXNpcyIsDQogICJzdGF0dXMiOiAic3VjY2VlZGVkIiwNCiAgImNyZWF0ZWRfYXQiOiAiMjAyNi0wOS0xNlQwOToyNDozMloiLA0KICAic3RhcnRlZF9hdCI6ICIyMDI2LTA5LTE2VDA5OjI3OjUwLjA0NDUyM1oiLA0KICAiZW5kZWRfYXQiOiAiMjAyNi0wOS0xNlQwOTo0OTowNi40Nzc1NDRaIiwNCiAgIm93bmVyIjogbnVsbCwNCiAgInF1ZXN0aW9uIjogIua1rueCueaxguWSjOecn+WunuS4u+mimOafpeivouKGkkFJ5Lqk5LqS4oaScmVhZGluZyBub3Rl4oaS5Li7QWdlbnTkuIrkuIvmlofnmoTliIbpmLbmrrXorqHml7blj4rnk7bpoojjgIIiLA0KICAiaHlwb3RoZXNlcyI6IFtdLA0KICAiaW5wdXRzIjogW10sDQogICJwYXJhbWV0ZXJzIjogew0KICAgICJyZWFkZXJfbW9kZWwiOiAiZ3B0LTUuNi10ZXJyYSIsDQogICAgInJlYWRlcl9yZWFzb25pbmciOiAibG93IiwNCiAgICAicmVhZGVyX2ZvcmtfdHVybnMiOiBudWxsLA0KICAgICJyZWFkZXJfY29udGV4dCI6ICJ3YXJtIGZvbGxvd3VwIGZyb20gYm91bmRlZCBleHBlcmltZW50IiwNCiAgICAic291cmNlX293bmVyX2lkIjogIlJFUy1GTE9BVElORy1QT0lOVC1TVU1NQVRJT04iLA0KICAgICJyZWFkaW5nX2RlZmF1bHRzIjogew0KICAgICAgInJlc3VsdF9saW1pdCI6IDEwLA0KICAgICAgInJlcmFua2luZyI6IHsNCiAgICAgICAgIm1vZGUiOiAiYXV0byIsDQogICAgICAgICJjYW5kaWRhdGVfbGltaXQiOiAzMA0KICAgICAgfSwNCiAgICAgICJidWRnZXQiOiB7DQogICAgICAgICJ3YWxsX21zIjogMzAwMDAwLA0KICAgICAgICAicmVhZF9ieXRlcyI6IDE2Nzc3MjE2LA0KICAgICAgICAib3V0cHV0X2NoYXJzIjogODAwMDAsDQogICAgICAgICJjYW5kaWRhdGVzIjogMTAwMCwNCiAgICAgICAgImdyYXBoX25vZGVzIjogNTAsDQogICAgICAgICJncmFwaF9lZGdlcyI6IDEwMCwNCiAgICAgICAgImdyYXBoX2hvcHMiOiAyLA0KICAgICAgICAibW9kZWxfdG9rZW5zIjogNjU1MzYsDQogICAgICAgICJtb2RlbF9jYWxscyI6IDIwLA0KICAgICAgICAibW9kZWxfaW5wdXRfdG9rZW5zIjogNjU1MzYsDQogICAgICAgICJtb2RlbF9vdXRwdXRfdG9rZW5zIjogMCwNCiAgICAgICAgInJlcmFua19pdGVtcyI6IDEwMA0KICAgICAgfQ0KICAgIH0sDQogICAgInZhcmlhbnQiOiB7DQogICAgICAidHlwZSI6ICJ2YXJpYW50IiwNCiAgICAgICJ1dGNfbnMiOiAxNzg5NTUwODcwOTk4Mzc5ODAwLA0KICAgICAgInJlc3VsdF9saW1pdCI6IDEsDQogICAgICAicmVyYW5raW5nIjogew0KICAgICAgICAibW9kZSI6ICJhdXRvIiwNCiAgICAgICAgImNhbmRpZGF0ZV9saW1pdCI6IDEsDQogICAgICAgICJjb25kaXRpb25zIjogW10NCiAgICAgIH0sDQogICAgICAiYnVkZ2V0Ijogew0KICAgICAgICAid2FsbF9tcyI6IDMwMDAwMCwNCiAgICAgICAgInJlYWRfYnl0ZXMiOiAzMzU1NDQzMiwNCiAgICAgICAgIm91dHB1dF9jaGFycyI6IDEwMDAwMCwNCiAgICAgICAgImNhbmRpZGF0ZXMiOiAxMDAwLA0KICAgICAgICAiZ3JhcGhfbm9kZXMiOiA1MCwNCiAgICAgICAgImdyYXBoX2VkZ2VzIjogMTAwLA0KICAgICAgICAiZ3JhcGhfaG9wcyI6IDIsDQogICAgICAgICJtb2RlbF90b2tlbnMiOiA2NTUzNiwNCiAgICAgICAgIm1vZGVsX2NhbGxzIjogMjAsDQogICAgICAgICJtb2RlbF9pbnB1dF90b2tlbnMiOiA2NTUzNiwNCiAgICAgICAgIm1vZGVsX291dHB1dF90b2tlbnMiOiAwLA0KICAgICAgICAicmVyYW5rX2l0ZW1zIjogMTAwDQogICAgICB9LA0KICAgICAgImV4cGxpY2l0X292ZXJyaWRlcyI6IHsNCiAgICAgICAgInJlc3VsdF9saW1pdCI6IDEsDQogICAgICAgICJyZXJhbmtfY2FuZGlkYXRlX2xpbWl0IjogMSwNCiAgICAgICAgIm91dHB1dF9jaGFycyI6IDEwMDAwMCwNCiAgICAgICAgInJlYWRfYnl0ZXMiOiAzMzU1NDQzMg0KICAgICAgfQ0KICAgIH0sDQogICAgInJlbGF0aW9uc2hpcCI6IHsNCiAgICAgICJiYXNlbGluZV9ydW5faWQiOiAiUlVOLTIwMjYwOTE2VDA4NTQzOFotM0U0MEQ1RUQ4NDcxIiwNCiAgICAgICJib3VuZGVkX2NhbmRpZGF0ZV9ydW5faWQiOiAiUlVOLTIwMjYwOTE2VDA5MTYzNVotRUZGQkVGNzYxMTI0IiwNCiAgICAgICJleHBhbmRlZF9idWRnZXRfZGlhZ25vc3RpY19ydW5faWQiOiAiUlVOLTIwMjYwOTE2VDA5MjQzMlotNjk3NkUxMzAyREU4IiwNCiAgICAgICJraW5kIjogIum7mOiupOmFjee9ruOAgeeLrOeri+WAmemAiemZkOa1geWksei0peWvueeFp+OAgeaYvuW8j+aJqeWkp+mihOeul+iviuaWre+8m+mdnumHjeWkjemaj+acuuaAp+iDveivlemqjOaIluS8mOWMluWujOaIkCIsDQogICAgICAiaW5zdHJ1bWVudF9mYWlsdXJlIjogIuWfuue6v3ZlcmlmaWNhdGlvbi9sYXRlbmN5LWF0dGVtcHQtMDHkv53nlZnliJ3lp4tERU5JRUTvvJvmnKrliJvlu7pSU++8jOS4jee6s+WFpeato+W4uOafpeivomJhc2VsaW5l44CCIiwNCiAgICAgICJjb21wYXJpc29uX2JvdW5kYXJ5IjogIuWvueeFp+WkjeeUqOW3suinhOWIknF1ZXJ577yb56ys5LiJUnVu5pS257Sn57uT5p6c5LiOQ0XkuLoxLzHjgIHlh4/lsJHoi7Hmloflj5jkvZPjgIHmj5Dpq5jpooTnrpfoh7PmnI3liqHlmajkuIrpmZDvvIzlsZ7lpJrlj5jph4/mnIDlsI/pl63njq/or4rmlq3vvJvkuI3og73mja5FMkXlt67mjqjpgJ/luqbmj5DljYflvZLlm6DjgIIiLA0KICAgICAgImRpYWdub3N0aWNfcHJlcGFyZV9mYWlsdXJlIjogIuesrOS4iVJ1biAucnVuLWNhcHR1cmVzL2xhdGVuY3ktYXR0ZW1wdC0wMeS/neeVmei2hVNFUlZFUl9MSU1JVFPnmoRWQUxJREFUSU9O5ouS57ud77yM5pyq5Yib5bu6UlPjgIIiDQogICAgfQ0KICB9LA0KICAiY29kZSI6IHsNCiAgICAiY29tbWl0IjogIjg5YWQzMDc1MzU4OWZiN2I5MTliM2RiNzVjZGY5MWQ0NzQ0OWY0Y2EiLA0KICAgICJkaXJ0eSI6IHRydWUNCiAgfSwNCiAgImVudmlyb25tZW50Ijogew0KICAgICJweXRob24iOiAiMy4xMi4xMCIsDQogICAgInBsYXRmb3JtIjogIldpbmRvd3MtMTEtMTAuMC4yMjYzMS1TUDAiLA0KICAgICJsb2NrX29yX2ltYWdlX2RpZ2VzdCI6IG51bGwNCiAgfSwNCiAgInJhbmRvbV9zZWVkcyI6IFtdLA0KICAicXVhbGl0eV9yZXN1bHRzIjogWw0KICAgIHsNCiAgICAgICJuYW1lIjogImFjdHVhbF9yZWFkaW5nX3dvcmtmbG93IiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJzY29wZSI6ICLnnJ/lrp5SU+W3peS9nOa1ge+8jOS7peacgOe7iG1ldHJpY3Mud29ya2Zsb3dfY29tcGxldGVk5Y+K5Zu65a6a5Zue5omn5Li65o2u77yb5LiN5piv5Lia5Yqh57uT6K665aSN5qC444CCIg0KICAgIH0NCiAgXSwNCiAgIm1ldHJpY3MiOiB7DQogICAgInNjaGVtYV92ZXJzaW9uIjogMSwNCiAgICAid29ya2Zsb3dfY29tcGxldGVkIjogdHJ1ZSwNCiAgICAiY292ZXJhZ2VfY29tcGxldGUiOiBmYWxzZSwNCiAgICAiY29uY2x1c2lvbiI6ICLnnJ/lrp7mta7ngrnpmIXor7vpu5jorqQxMC8zMOWPiumZkOa1gTIvMuS4pOasoemihOeul+Wksei0pe+8m+acgOWwjzEvMeWPjOivreiviuaWreWcqDEwMGvlrZfnrKYvMzJNaULpooTnrpflhoXlrozmiJBub3Rl4oaSaGFuZG9mZuKGkuS4u+S+p+aOpeWPl++8jOimhueblnBhcnRpYWzjgILlrozmlbTlj6/op4Llr5/lopnpkp80NzAuMDEx56eS77yMQVBJ5YaFNzEuOTMy56eS77yb5Y+s5ZueMzkuOTQ356eS5Lit5YiG6LevMjkuMTEz56eS44CB5q2j5paH5YeG5aSHOC40NDPnp5LjgIFDReaOqOeQhjAuMDg556eS44CC5Y6fcmVhZOWbnuaJpzMzMjY5MuWtl+espuWQqzMyNzc5MuWbvuWDj2RhdGFfdXJs5bm26Kem5Y+R5bel5YW35oiq5pat77yM5Li75L6nbm90ZTE5MDHlrZfnrKbjgILni6znq4twcm9maWxl5pi+56S6aGFuZG9mZuS4u+imgeaIkOacrOWcqOadpea6kOWkjeaguO+8m+WwmuacquWunuaWveaAp+iDveS8mOWMluOAgiIsDQogICAgImVuZF90b19lbmRfaG9zdF9zIjogNDcwLjAxMSwNCiAgICAicHJlcGFyZV9lbnRyeV90b19jb250ZXh0X2FjY2VwdGVkX3MiOiA0NjEuNjIyLA0KICAgICJmb2xsb3d1cF9zZW50X3RvX2NvbnRleHRfYWNjZXB0ZWRfcyI6IDQ1MC4zMTEsDQogICAgImJhY2tlbmRfZGlzcGF0Y2hfcyI6IDcxLjkzMjEyNjYsDQogICAgInJlY2FsbF9kaXNwYXRjaF9zIjogMzkuOTQ3MjE0MSwNCiAgICAicmVhZF9kaXNwYXRjaF9zIjogOC44Mjk1MjEyLA0KICAgICJub3RlX2Rpc3BhdGNoX3MiOiA3LjM2NzY1MjIsDQogICAgImRlY2lkZV9kaXNwYXRjaF9zIjogNi4wMzAyNjYzLA0KICAgICJoYW5kb2ZmX2Rpc3BhdGNoX3MiOiA1Ljk1MDE0OTYsDQogICAgIm5vdGVfZ2VuZXJhdGlvbl9tYXJrZXJfdG9fcmVxdWVzdF9yZWFkeV9zIjogMTY2LjkyNywNCiAgICAicmVhZF9yZXR1cm5fdG9fdmFsaWRfbm90ZV90b29sX3MiOiAxODQuMjcsDQogICAgImNvbnRleHRfcmVjZWl2ZWRfdG9fYWNjZXB0ZWRfcyI6IDE3LjAwNiwNCiAgICAicm91dGVfY291bnQiOiAxNSwNCiAgICAicm91dGVzX3MiOiAyOS4xMTMyMTY5LA0KICAgICJyZXJhbmtfaW5wdXRfcyI6IDguNDQyNjQ0LA0KICAgICJjZV9tb2RlbF9sb2FkX3MiOiAxLjAwMzg4OTYsDQogICAgImNlX2luZmVyZW5jZV9zIjogMC4wODg4MzQ3LA0KICAgICJwcm9maWxlX2hhbmRvZmZfcyI6IDExLjYwMjA1NjksDQogICAgInByb2ZpbGVfcmVhdXRob3JpemVfcyI6IDExLjU2MDY4NjUsDQogICAgInByb2ZpbGVfcmVhZF9yZWNvcmRfY2FsbHMiOiA5MjYsDQogICAgInByb2ZpbGVfc2FmZV9wYXRoX2NhbGxzIjogNzk3MiwNCiAgICAicmVzdWx0X2xpbWl0IjogMSwNCiAgICAicmVyYW5rX2NhbmRpZGF0ZV9saW1pdCI6IDEsDQogICAgInF1ZXJ5X2NvdW50IjogMiwNCiAgICAib3V0cHV0X2J1ZGdldCI6IDEwMDAwMCwNCiAgICAicmVhZF9idWRnZXQiOiAzMzU1NDQzMiwNCiAgICAid2FsbF9idWRnZXRfbXMiOiAzMDAwMDAsDQogICAgIm5vdGVzX2dlbmVyYXRlZCI6IDEsDQogICAgInVubm90ZWRfY2FuZGlkYXRlcyI6IDIsDQogICAgIm1haW5fY29udGV4dF9yZWNlaXZlZCI6IHRydWUsDQogICAgIm1haW5fY29udGV4dF9hY2NlcHRlZCI6IHRydWUsDQogICAgIm1haW5faGFuZG9mZl9jb250ZXh0X2NoYXJzIjogMTkwMSwNCiAgICAibWFpbl9oYW5kb2ZmX3Jlc3BvbnNlX2NoYXJzIjogMjc1MywNCiAgICAicmVhZF9yZXNwb25zZV9jaGFycyI6IDMzMjY5MiwNCiAgICAicmVjYWxsX3Jlc3BvbnNlX2NoYXJzIjogMzU1MTg2LA0KICAgICJmaWd1cmVzX2RhdGFfdXJsX2NoYXJzX3Blcl9yZXNwb25zZSI6IDMyNzc5MiwNCiAgICAidG9vbF9kaXNwbGF5X3RydW5jYXRlZCI6IHRydWUsDQogICAgImZpZ3VyZXNfdmlld2VkIjogZmFsc2UsDQogICAgInJlYWRlcl9jb250ZXh0IjogIndhcm0gZm9sbG93dXAgZnJvbSBib3VuZGVkIGV4cGVyaW1lbnQiLA0KICAgICJzdGF0dXMiOiAicGFydGlhbCIsDQogICAgImNvdW50c19hdF9maXJzdF9oYW5kb2ZmIjogew0KICAgICAgIndhbGxfbXMiOiA3MDM1NywNCiAgICAgICJyZWFkX2J5dGVzIjogNzM5NDA3NiwNCiAgICAgICJvdXRwdXRfY2hhcnMiOiAzMzY4NiwNCiAgICAgICJtb2RlbF9jYWxscyI6IDgsDQogICAgICAicmVyYW5rX2l0ZW1zIjogMg0KICAgIH0sDQogICAgImxpbWl0YXRpb25zIjogWw0KICAgICAgIuWkmuWPmOmHj+acgOWwj+iviuaWreS4jeaYr+aAp+iDveS8mOWMluWvueeFp++8m+m7mOiupOi3r+W+hOS7jeWksei0peOAgiIsDQogICAgICAi5a6/5Li75qih5Z6L5o6o55CG44CBcHJlZmlsbOOAgXRva2VuL+i0ueeUqOS4jeWPr+ingua1i++8m+mdnmRpc3BhdGNo5aKZ6ZKf5YyF5ZCr5bel5YW344CB6LCD5bqm44CB5Luq6KGo5LiO6ZiF6K+744CCIiwNCiAgICAgICLlm77lg4/mnKrop6PnoIHvvIznrJTorrDku6Xlt7Lmj5Dlj5bmraPmlofkuLrkvp3mja7vvIzmnKrnqbflsL3lgJnpgInjgIIiLA0KICAgICAgIueLrOeri3Byb2ZpbGXmlLnlj5jogJfml7bvvIzkuI3og73lsIblhbbnu53lr7nml7bplb/lvZPmraPluLjmnI3liqHogJfml7bjgIIiDQogICAgXQ0KICB9LA0KICAiYXJ0aWZhY3RzIjogW10sDQogICJsaW5lYWdlX2V2ZW50cyI6ICJsaW5lYWdlLmpzb25sIiwNCiAgImNvbmNsdXNpb24iOiAi55yf5a6e5rWu54K56ZiF6K+76buY6K6kMTAvMzDlj4rpmZDmtYEyLzLkuKTmrKHpooTnrpflpLHotKXvvJvmnIDlsI8xLzHlj4zor63or4rmlq3lnKgxMDBr5a2X56ymLzMyTWlC6aKE566X5YaF5a6M5oiQbm90ZeKGkmhhbmRvZmbihpLkuLvkvqfmjqXlj5fvvIzopobnm5ZwYXJ0aWFs44CC5a6M5pW05Y+v6KeC5a+f5aKZ6ZKfNDcwLjAxMeenku+8jEFQSeWGhTcxLjkzMuenku+8m+WPrOWbnjM5Ljk0N+enkuS4reWIhui3rzI5LjExM+enkuOAgeato+aWh+WHhuWkhzguNDQz56eS44CBQ0XmjqjnkIYwLjA4OeenkuOAguWOn3JlYWTlm57miaczMzI2OTLlrZfnrKblkKszMjc3OTLlm77lg49kYXRhX3VybOW5tuinpuWPkeW3peWFt+aIquaWre+8jOS4u+S+p25vdGUxOTAx5a2X56ym44CC54us56uLcHJvZmlsZeaYvuekumhhbmRvZmbkuLvopoHmiJDmnKzlnKjmnaXmupDlpI3moLjvvJvlsJrmnKrlrp7mlr3mgKfog73kvJjljJbjgIIiLA0KICAibGltaXRhdGlvbnMiOiBbDQogICAgIuWNleS4u+mimOWNleasoei/kOihjO+8jOS4jeiDveaOqOaWrXA5NeaIluWFqOW6k+aAp+iDveOAgiIsDQogICAgIkFJ6LCD55So6Ze06ZqU5ZCr6LCD5bqm44CB5o6S6Zif44CB5bel5YW35Lqk5LqS77yM5LiN5piv57qv5qih5Z6L5o6o55CG44CCIiwNCiAgICAicHJvZmlsZeWNleWIl+iviuaWre+8jOS4jea3t+WFpWJhc2VsaW5l77yb5Yid5aeL5Luq6KGoREVOSUVE5L+d55WZ44CCIiwNCiAgICAi56ys5LiJUnVu5omp5aSn6aKE566X5Y+q55So5LqO6KeC5rWL5ZCO5Y2K5q6177yM5LiN6K+B5piO5LyY5YyW5a6M5oiQ5oiW6buY6K6k6YWN572u5Y+v55So44CCIiwNCiAgICAiV2luZG93c+acrOacuua1i+mHj++8jOacquWBmuesrOS6jOeJqeeQhuacui/kuJrliqHkurrlt6XpqozmlLbjgIIiDQogIF0sDQogICJwYXJlbnRfcnVuX2lkcyI6IFsNCiAgICAiUlVOLTIwMjYwOTE2VDA4NTQzOFotM0U0MEQ1RUQ4NDcxIiwNCiAgICAiUlVOLTIwMjYwOTE2VDA5MTYzNVotRUZGQkVGNzYxMTI0Ig0KICBdLA0KICAicmVsYXRlZF9tb2R1bGVfaWRzIjogW10sDQogICJyZWxhdGVkX3Jlc2VhcmNoX2lkcyI6IFtdLA0KICAicmVsYXRlZF9kYXRhc2V0X2lkcyI6IFtdLA0KICAicmV2aWV3Ijogew0KICAgICJzdGF0dXMiOiAibm90LXJldmlld2VkIiwNCiAgICAicmV2aWV3ZXIiOiBudWxsLA0KICAgICJkYXRlIjogbnVsbA0KICB9LA0KICAic2Vuc2l0aXZpdHkiOiAiaW50ZXJuYWwiDQp9DQo=",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T092432Z-6976E1302DE8",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "浮点阅读完整链路放宽预算诊断",
+    "keywords": [
+      "reading-latency",
+      "diagnostic-budget",
+      "real-materials",
+      "budget-failure",
+      "bounded-candidates"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-16T09:24:32Z",
+    "started_at": "2026-09-16T09:27:50.044523Z",
+    "ended_at": "2026-09-16T09:49:06.477544Z",
+    "owner": null,
+    "question": "浮点求和真实主题查询→AI交互→reading note→主Agent上下文的分阶段计时及瓶颈。",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t085438z-3e40d5ed8471/verification/framework-source-snapshot.zip",
+        "sha256": "4b00e374303f1cad5b4d832164bfa8513fd2ba0e06bed13a06da8c51f76c2095",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:12.192577Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t085438z-3e40d5ed8471/verification/source-manifest.json",
+        "sha256": "694f39061c8e658033424b443c5b624774e92cc60506247869e7da96b9acfade",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:12.205577Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/scripts/analyze_latency.py",
+        "sha256": "facd36dd9216af59013410a40107b6749cca9d7c650faa687391b4a7f4986140",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:12.216577Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/scripts/latency_driver.py",
+        "sha256": "30757a58d558544af724f127dee14a1f9dda6ee48be43e31a54cf2e1e9490dbc",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:12.229309Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/scripts/latency_driver_v1.py",
+        "sha256": "b09a72964dfaf86d1c293f675e9698b625af884ee5a13912b121e46624710486",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:12.241250Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/scripts/summarize_latency.py",
+        "sha256": "1027ec456a8a7e4711ced9af126dd245c84fa9865cbb503eee97fdfece5bebda",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:12.254632Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/scripts/update_latency_memory.py",
+        "sha256": "9cd960043ac1754802b51a683bd8f70c1e82c754e830d926f9f1101d687b4341",
+        "role": "input",
+        "registered_at": "2026-09-16T09:49:12.268605Z"
+      }
+    ],
+    "parameters": {
+      "reader_model": "gpt-5.6-terra",
+      "reader_reasoning": "low",
+      "reader_fork_turns": null,
+      "reader_context": "warm followup from bounded experiment",
+      "source_owner_id": "RES-FLOATING-POINT-SUMMATION",
+      "reading_defaults": {
+        "result_limit": 10,
+        "reranking": {
+          "mode": "auto",
+          "candidate_limit": 30
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 16777216,
+          "output_chars": 80000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        }
+      },
+      "variant": {
+        "type": "variant",
+        "utc_ns": 1789550870998379800,
+        "result_limit": 1,
+        "reranking": {
+          "mode": "auto",
+          "candidate_limit": 1,
+          "conditions": []
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 33554432,
+          "output_chars": 100000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        },
+        "explicit_overrides": {
+          "result_limit": 1,
+          "rerank_candidate_limit": 1,
+          "output_chars": 100000,
+          "read_bytes": 33554432
+        }
+      },
+      "relationship": {
+        "baseline_run_id": "RUN-20260916T085438Z-3E40D5ED8471",
+        "bounded_candidate_run_id": "RUN-20260916T091635Z-EFFBEF761124",
+        "expanded_budget_diagnostic_run_id": "RUN-20260916T092432Z-6976E1302DE8",
+        "kind": "默认配置、独立候选限流失败对照、显式扩大预算诊断；非重复随机性能试验或优化完成",
+        "instrument_failure": "基线verification/latency-attempt-01保留初始DENIED；未创建RS，不纳入正常查询baseline。",
+        "comparison_boundary": "对照复用已规划query；第三Run收紧结果与CE为1/1、减少英文变体、提高预算至服务器上限，属多变量最小闭环诊断；不能据E2E差推速度提升归因。",
+        "diagnostic_prepare_failure": "第三Run .run-captures/latency-attempt-01保留超SERVER_LIMITS的VALIDATION拒绝，未创建RS。"
+      }
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "actual_reading_workflow",
+        "status": "passed",
+        "scope": "真实RS工作流，以最终metrics.workflow_completed及固定回执为据；不是业务结论复核。"
+      }
+    ],
+    "metrics": {
+      "schema_version": 1,
+      "workflow_completed": true,
+      "coverage_complete": false,
+      "conclusion": "真实浮点阅读默认10/30及限流2/2两次预算失败；最小1/1双语诊断在100k字符/32MiB预算内完成note→handoff→主侧接受，覆盖partial。完整可观察墙钟470.011秒，API内71.932秒；召回39.947秒中分路29.113秒、正文准备8.443秒、CE推理0.089秒。原read回执332692字符含327792图像data_url并触发工具截断，主侧note1901字符。独立profile显示handoff主要成本在来源复核；尚未实施性能优化。",
+      "end_to_end_host_s": 470.011,
+      "prepare_entry_to_context_accepted_s": 461.622,
+      "followup_sent_to_context_accepted_s": 450.311,
+      "backend_dispatch_s": 71.9321266,
+      "recall_dispatch_s": 39.9472141,
+      "read_dispatch_s": 8.8295212,
+      "note_dispatch_s": 7.3676522,
+      "decide_dispatch_s": 6.0302663,
+      "handoff_dispatch_s": 5.9501496,
+      "note_generation_marker_to_request_ready_s": 166.927,
+      "read_return_to_valid_note_tool_s": 184.27,
+      "context_received_to_accepted_s": 17.006,
+      "route_count": 15,
+      "routes_s": 29.1132169,
+      "rerank_input_s": 8.442644,
+      "ce_model_load_s": 1.0038896,
+      "ce_inference_s": 0.0888347,
+      "profile_handoff_s": 11.6020569,
+      "profile_reauthorize_s": 11.5606865,
+      "profile_read_record_calls": 926,
+      "profile_safe_path_calls": 7972,
+      "result_limit": 1,
+      "rerank_candidate_limit": 1,
+      "query_count": 2,
+      "output_budget": 100000,
+      "read_budget": 33554432,
+      "wall_budget_ms": 300000,
+      "notes_generated": 1,
+      "unnoted_candidates": 2,
+      "main_context_received": true,
+      "main_context_accepted": true,
+      "main_handoff_context_chars": 1901,
+      "main_handoff_response_chars": 2753,
+      "read_response_chars": 332692,
+      "recall_response_chars": 355186,
+      "figures_data_url_chars_per_response": 327792,
+      "tool_display_truncated": true,
+      "figures_viewed": false,
+      "reader_context": "warm followup from bounded experiment",
+      "status": "partial",
+      "counts_at_first_handoff": {
+        "wall_ms": 70357,
+        "read_bytes": 7394076,
+        "output_chars": 33686,
+        "model_calls": 8,
+        "rerank_items": 2
+      },
+      "limitations": [
+        "多变量最小诊断不是性能优化对照；默认路径仍失败。",
+        "宿主模型推理、prefill、token/费用不可观测；非dispatch墙钟包含工具、调度、仪表与阅读。",
+        "图像未解码，笔记以已提取正文为依据，未穷尽候选。",
+        "独立profile改变耗时，不能将其绝对时长当正常服务耗时。"
+      ]
+    },
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency-attempt-01/1789550760250806700-main-reading-template-request.json",
+        "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.281608Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency-attempt-01/1789550760250806700-main-reading-template-response.json",
+        "sha256": "cb2625a7563a9adf9bf64f2b2efbb80148eed55fa0a627ca35872412035a85cb",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.295611Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency-attempt-01/1789550760284440200-main-reading-start-request.json",
+        "sha256": "855d40c1d95cf4020a6ad1a2feda5a020cabe4a18159ae1986fca036e8e99d27",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.308610Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency-attempt-01/1789550760284440200-main-reading-start-response.json",
+        "sha256": "eaae5ee2365fd5e888376a7fca604ff95a20ac3dbcc24b17978c64fe69c580be",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.322609Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency-attempt-01/events.jsonl",
+        "sha256": "75c0615bd82179c950ad694c1522565b46f543556ea883013c1bbb9a81b256f9",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.335609Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency-attempt-01/requests/recall.json",
+        "sha256": "8ff0a4277abd4d9bd78f8c3e008676cae6553cce45b2f4a85d5dca986d5d98be",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.349609Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency-attempt-01/state.json",
+        "sha256": "225d50913697cc6f1d25893946e0b802c66ba66c1f9c742e21263bc97055855c",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.361609Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550870966815000-main-reading-template-request.json",
+        "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.374610Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550870966815000-main-reading-template-response.json",
+        "sha256": "09b3696bc08646d77138e51fedf8b47183665ab5baebcc8bb7836242613c0ed2",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.388609Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550870998379800-main-reading-start-request.json",
+        "sha256": "4cf9db55aff0012488bb59207c7694cd86e278eef7a0d17cc74c7e71610d92f2",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.402608Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550870998379800-main-reading-start-response.json",
+        "sha256": "e4b55e9da18a8e99791b838e199b47117bbdb59328ede9d83a70cb56a0859c78",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.417610Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550872293841400-main-reading-delegate-request.json",
+        "sha256": "cb18cb37cd490a8326b0691237cc9104a5403f9738989d04d0d01567aee09db9",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.430609Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550872293841400-main-reading-delegate-response.json",
+        "sha256": "dc6678871ed4c8a9d90b2c9b462b69636a05b816de98f7ef80622c1bf3f43066",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.445608Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550925857585200-reader-reading-view-request.json",
+        "sha256": "40bfd5f1781751240754ca61e0ff74381de31d207ed3e4908f0a8c9b70d4ff55",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.458212Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550925857585200-reader-reading-view-response.json",
+        "sha256": "c541190d841b4d483e9b21f4bfc8a503b00d96d611be28123079889b1949da25",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.473211Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550938305884500-reader-reading-recall-request.json",
+        "sha256": "ebf9fe0504bf1229b57647a4857f3dbc917b648e3f2f0172d75d947aaecb6fe8",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.486212Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789550938305884500-reader-reading-recall-response.json",
+        "sha256": "37d27574a4b240b93cc88daf7de51b54b1ff68026af477e692a8dec72abdf9db",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.499212Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551008659587900-reader-reading-read-request.json",
+        "sha256": "3b804f87af39095cfa24849900cc8bca90e39a3d0a9cac0616ada65acf766eee",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.513212Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551008659587900-reader-reading-read-response.json",
+        "sha256": "24f090a9b500e65ed139e8201841cd12538b8b6b5a008b775d08230bf5464fd3",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.526416Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551208433055400-reader-reading-note-request.json",
+        "sha256": "249c3301b11725a208d5e0fec21b0ca52ab04b378d231dd855a5ca51fc480895",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.542418Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551208433055400-reader-reading-note-response.json",
+        "sha256": "fe3097ae5b8dcc3089bc6d86e6c9017a5f9b87696df2d8f18c4a7b6b6e9f1a68",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.555431Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551240877494600-reader-reading-decide-request.json",
+        "sha256": "d8cd6efe37677a8d44508faed529d1c60864388416d7069aa49297eef7a01e00",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.568266Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551240877494600-reader-reading-decide-response.json",
+        "sha256": "b7c81adb1709a408c94cdb0b49a93e7b6784e26b2dc6ee02807a616e44de77d9",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.581262Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551308548746200-main-reading-handoff-request.json",
+        "sha256": "02ec0bdbe6b5fc527c3faabb37c3f67a18c8c061892b2433fbe1900d10277d84",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.593262Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551308548746200-main-reading-handoff-response.json",
+        "sha256": "5e7aa1dd1b28b4c6c098b220837535596f57c5acc08b5d692a6627a46cae8162",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.606264Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551374731749600-main-reading-handoff-profile.json",
+        "sha256": "b8b6f1342aa5081736fa3f02357b77015870df488306c13698ee953b0f137e4f",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.620725Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551374731749600-main-reading-handoff-request.json",
+        "sha256": "02ec0bdbe6b5fc527c3faabb37c3f67a18c8c061892b2433fbe1900d10277d84",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.634727Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551374731749600-main-reading-handoff-response.json",
+        "sha256": "975434464e41d9f9a7678767862cb28d563ac11475d4805d7570be5519d5fe93",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.647725Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/1789551374731749600-main-reading-handoff.prof",
+        "sha256": "b8cdec8cf953a36a329a348e4fff213789808f0087ba11d239f274b4483c46ed",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.662029Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/context-acceptance.json",
+        "sha256": "d7898a706f3c817cf515c1429e59bdad0c150cb3f3a6a44d17a744cf5f534389",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.675562Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/empty.json",
+        "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.690758Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/events.jsonl",
+        "sha256": "0e20aa733967670da60042ba5cbad40277fd1c832443b072cfa28e37b71cd4ee",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.704748Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/profile-stdout.txt",
+        "sha256": "6d889976174515b74ec291626e46763b5b1b9bd5f1361c5a258871500f167632",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.717755Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/reader-outer-events.json",
+        "sha256": "f7162266e716700119cae82fd875db1e4ba0df88ecf70edf5534fbf041652d16",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.728756Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/requests/decide.json",
+        "sha256": "29c467d28d54548142b6f88c8f2c1fb42e208385e62bc497084bc9399c746dd1",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.742749Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/requests/handoff.json",
+        "sha256": "b8ab164a16ebf69af758cec1b25a95b4676dbff03f6c41a1240bd3f71e679e2c",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.756749Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/requests/note-valid.json",
+        "sha256": "de6080d38b11f6cc7afcf2efae5339818f7e3d8e41ec881030f0493ee058baaa",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.769384Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/requests/note.json",
+        "sha256": "7a02574cd2bd98bf5755c1ab3617ee2c2d03f7fe992ecb65221c198b3b499e33",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.781385Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/requests/read.json",
+        "sha256": "3c37bace892ca275635bfc11d085bc86fb041d70f254adb7d09658234c6f75e8",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.795385Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/requests/recall.json",
+        "sha256": "216b5e78d95cd8fb611192df7749c04475a09eebad309d5ef24cde95b88343c2",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.808384Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/root-outer-events.json",
+        "sha256": "47144be612ed06c7cefba087144ee3c7fa39348f47e73dd41144da8ca97ac229",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.821391Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/state.json",
+        "sha256": "b640c4266f936232ed415392888bf38ac563d75b301b6872dac58393f60c0afe",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.837990Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/summary.json",
+        "sha256": "574f6c0976d133a6d64dc4116b2e8d1b980d1624ffdf426511ba58f87b8190fc",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.851996Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/.run-captures/latency/timeline.csv",
+        "sha256": "6a59bb50e7e00d0d52d83910d461154de3f6d2a33d9800e64a57843f884f7fe4",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.865686Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/RESULTS.md",
+        "sha256": "d4b56158a3188645dd99803a8bb1426861006a418848c98c0aadc6c200a9a753",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.879602Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/verification/analysis.json",
+        "sha256": "7c3b227d636910d7a866c8ab96635adca03352e793fe5d1f61f426e0f2829ef0",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.891389Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/verification/call-timeline.csv",
+        "sha256": "a84a394667cd6d46c06f404314e88caba017754fe918a4fdb2151a7a60bcb085",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.903678Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/verification/metrics.json",
+        "sha256": "72d3849b0117bde2852914955198e4094debdd5fc906393a4ca7be4bf5bf6555",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.915686Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/verification/plan-at-freeze.md",
+        "sha256": "9a5a1e5da7bc9119d7caa9ddcd9bf1be7162fee9c07b431595b518f3ed121e8e",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.926686Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/verification/run-relationship.json",
+        "sha256": "7d78d3a21035a7fbc818af65fac23b004f552e6a34bf2ae0dbaaebad26ae5bdd",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.937686Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/verification/stage-timeline.csv",
+        "sha256": "e949a3d2b7aba1fd80f3432b1d48ac6224a3f0488cec8fc2ffebc04736c32d83",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.949686Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t092432z-6976e1302de8/verification/freeze-evidence-manifest.json",
+        "sha256": "df9fe461f2ac830ee6f5f220d8607d25788f08167e701a0ef74d7fa5149547cb",
+        "role": "artifact",
+        "registered_at": "2026-09-16T09:49:12.960337Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "真实浮点阅读默认10/30及限流2/2两次预算失败；最小1/1双语诊断在100k字符/32MiB预算内完成note→handoff→主侧接受，覆盖partial。完整可观察墙钟470.011秒，API内71.932秒；召回39.947秒中分路29.113秒、正文准备8.443秒、CE推理0.089秒。原read回执332692字符含327792图像data_url并触发工具截断，主侧note1901字符。独立profile显示handoff主要成本在来源复核；尚未实施性能优化。",
+    "limitations": [
+      "单主题单次运行，不能推断p95或全库性能。",
+      "AI调用间隔含调度、排队、工具交互，不是纯模型推理。",
+      "profile单列诊断，不混入baseline；初始仪表DENIED保留。",
+      "第三Run扩大预算只用于观测后半段，不证明优化完成或默认配置可用。",
+      "Windows本机测量，未做第二物理机/业务人工验收。"
+    ],
+    "parent_run_ids": [
+      "RUN-20260916T085438Z-3E40D5ED8471",
+      "RUN-20260916T091635Z-EFFBEF761124"
+    ],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-16T09:49:13.575810Z"
+}

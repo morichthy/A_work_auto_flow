@@ -1,0 +1,269 @@
+{
+  "status": "partial",
+  "value": {
+    "candidates": [
+      {
+        "candidate_id": "RC-b42b7865a70d92f2d06762ad",
+        "title": "浮点求和方法：精确基准、递推与适用条件",
+        "ref": {
+          "kind": "record",
+          "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+          "revision": 1,
+          "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+          "locator": null
+        },
+        "link": "D:/共享桌面/A_work/A_work_auto_flow/research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json",
+        "source": "technical",
+        "reading_form": "section",
+        "packet": {
+          "packet_id": "PKT-bd1d306e-5e72-47c0-9653-8da929a95668",
+          "query_id": "MQ-f79c294c-039b-4665-b94d-fcfb21f93797",
+          "definition": {
+            "key": "full",
+            "version": "1"
+          },
+          "parts": [
+            {
+              "group": "required_context",
+              "heading": "definitions",
+              "markdown": "## 定义与范围\n\n本技术单元说明既有浮点求和研究采用的计算方法。它是对已保存实现与结果的整理，不是一次新的实验。输入为程序实际收到的有限binary64数列 $x_1,\\ldots,x_n$，所有数值无量纲。$n$表示项数，$s_i$表示处理第$i$项后的累加值，$\\operatorname{fl}$表示脚本实际执行一次浮点运算后的舍入。原复核环境为CPython 3.12.10、Windows 11 x64，有效位53位；本研究未切换舍入模式或验证其他平台。",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:definitions"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.definitions"
+              ],
+              "omitted": []
+            },
+            {
+              "group": "direct",
+              "heading": "scope",
+              "markdown": "## 对照方法与可迁移边界\n\nmath.fsum仅作为实际输出对照，本研究没有观测它的内部部分和，不能为其编写伪造的逐步轨迹。各方法的具体观察必须回到对应实验的固定输入与结果。\n\n精确基准、记录排列和比较误差的方法可为类似有限浮点求和任务提供验证思路；已测命中率只属于三轮构造输入，不是实际业务误差概率。本研究未检验非整数输入、极端指数、跨平台表现或运行时间，也未覆盖NaN、无穷值或溢出行为。研究仍为not-reviewed。",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:scope"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.scope"
+              ],
+              "omitted": []
+            },
+            {
+              "group": "required_context",
+              "heading": "definitions",
+              "markdown": "## 定义与范围\n\n本技术单元说明既有浮点求和研究采用的计算方法。它是对已保存实现与结果的整理，不是一次新的实验。输入为程序实际收到的有限binary64数列 $x_1,\\ldots,x_n$，所有数值无量纲。$n$表示项数，$s_i$表示处理第$i$项后的累加值，$\\operatorname{fl}$表示脚本实际执行一次浮点运算后的舍入。原复核环境为CPython 3.12.10、Windows 11 x64，有效位53位；本研究未切换舍入模式或验证其他平台。",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:definitions"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.definitions"
+              ],
+              "omitted": []
+            },
+            {
+              "group": "direct",
+              "heading": "neumaier",
+              "markdown": "## Neumaier校正\n\n同样以$s_0=c_0=0$开始，先计算$t_i=\\operatorname{fl}(s_{i-1}+x_i)$，再按幅值选择本步校正量$\\delta_i$：\n\n$$\n\\delta_i=\\begin{cases}\n\\operatorname{fl}\\!\\left(\\operatorname{fl}(s_{i-1}-t_i)+x_i\\right),&|s_{i-1}|\\ge|x_i|,\\\\\n\\operatorname{fl}\\!\\left(\\operatorname{fl}(x_i-t_i)+s_{i-1}\\right),&|s_{i-1}|<|x_i|,\n\\end{cases}\n\\quad c_i=\\operatorname{fl}(c_{i-1}+\\delta_i),\\quad s_i=t_i.\n$$\n\n分支右侧的加减严格按保存脚本的浮点操作顺序计算；最终返回$\\widehat S=\\operatorname{fl}(s_n+c_n)$。这里$c_i$累积校正，和Kahan中下一步减去的补偿含义不同，不能互换符号或递推式。第二轮三项抵消输入的固定轨迹解释了该实现如何在最后保留小量，但不构成任意序列精确性的证明。",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:neumaier"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.neumaier"
+              ],
+              "omitted": []
+            },
+            {
+              "group": "direct",
+              "heading": "definitions",
+              "markdown": "## 定义与范围\n\n本技术单元说明既有浮点求和研究采用的计算方法。它是对已保存实现与结果的整理，不是一次新的实验。输入为程序实际收到的有限binary64数列 $x_1,\\ldots,x_n$，所有数值无量纲。$n$表示项数，$s_i$表示处理第$i$项后的累加值，$\\operatorname{fl}$表示脚本实际执行一次浮点运算后的舍入。原复核环境为CPython 3.12.10、Windows 11 x64，有效位53位；本研究未切换舍入模式或验证其他平台。",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:definitions"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.definitions"
+              ],
+              "omitted": []
+            },
+            {
+              "group": "required_context",
+              "heading": "definitions",
+              "markdown": "## 定义与范围\n\n本技术单元说明既有浮点求和研究采用的计算方法。它是对已保存实现与结果的整理，不是一次新的实验。输入为程序实际收到的有限binary64数列 $x_1,\\ldots,x_n$，所有数值无量纲。$n$表示项数，$s_i$表示处理第$i$项后的累加值，$\\operatorname{fl}$表示脚本实际执行一次浮点运算后的舍入。原复核环境为CPython 3.12.10、Windows 11 x64，有效位53位；本研究未切换舍入模式或验证其他平台。",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:definitions"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.definitions"
+              ],
+              "omitted": []
+            },
+            {
+              "group": "direct",
+              "heading": "reference",
+              "markdown": "## 精确基准与误差\n\n对实际浮点值逐项转换为精确有理数，再求参考和：\n\n$$\nS_{\\mathrm{ref}}=\\sum_{i=1}^{n}\\operatorname{Fraction}(x_i),\\qquad\ne_{\\mathrm{abs}}=\\left|\\operatorname{Fraction}(\\widehat S)-S_{\\mathrm{ref}}\\right|.\n$$\n\n$\\widehat S$为被测方法的实际返回值。精确命中指$e_{\\mathrm{abs}}=0$，不使用容差；绝对误差不需要除以参考和，因此也适用于零和。这个基准衡量求和运算相对已表示输入的误差，不衡量十进制原始文本转换为binary64时的误差。三轮构造整数和另用于交叉核对。",
+              "refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+                  "revision": 1,
+                  "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+                  "locator": "block:reference"
+                }
+              ],
+              "selectors": [
+                "detail.blocks.reference"
+              ],
+              "omitted": []
+            }
+          ],
+          "contributors": [
+            {
+              "kind": "record",
+              "id": "MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d",
+              "revision": 1,
+              "sha256": "ba12342c6ca8afa0a1760dc517fd7bff2d1b60c7f082ee9113e419572834df51",
+              "locator": "block:reference"
+            }
+          ],
+          "complete": false,
+          "canonical": false
+        },
+        "channels": [
+          "dense"
+        ]
+      }
+    ],
+    "coverage": {
+      "question": "沿途",
+      "keywords": [],
+      "reason": "实际AI首次多路召回",
+      "scope": {
+        "owner_ids": [
+          "RES-FLOATING-POINT-SUMMATION"
+        ],
+        "levels": null,
+        "kinds": null,
+        "roles": null,
+        "outcomes": null,
+        "review_states": null,
+        "validities": null,
+        "include_unknown": false,
+        "excluded_refs": [],
+        "excluded_owner_ids": [],
+        "recorded_from": null,
+        "recorded_before": null,
+        "source_ids": null,
+        "include_refs": [],
+        "exclude_ids": [],
+        "confidence_levels": null,
+        "time_window": null,
+        "applicability_conditions": [],
+        "applicability_exclusions": [],
+        "owner_types": null
+      },
+      "lanes": [
+        {
+          "source": "overview_experience",
+          "status": "partial",
+          "warnings": [
+            "部分候选因范围、来源或版本不满足而省略"
+          ],
+          "has_more": false
+        },
+        {
+          "source": "process",
+          "status": "partial",
+          "warnings": [
+            "部分候选因范围、来源或版本不满足而省略"
+          ],
+          "has_more": false
+        },
+        {
+          "source": "technical",
+          "status": "partial",
+          "warnings": [
+            "部分候选因范围、来源或版本不满足而省略"
+          ],
+          "has_more": false
+        }
+      ]
+    },
+    "gaps": [
+      "部分候选因范围、来源或版本不满足而省略",
+      "RC-b42b7865a70d92f2d06762ad正文未完整交付，请检查packet缺口"
+    ],
+    "guidance": "先读返回的正文；可保留直接用途或有具体连接理由的间接启发。长链连接逐步注明依据和假设。保留候选后 reading-read 读完整记录，再 reading-note 保存理解、连接和必要细节。有可检验下一步先执行，失败后定向扩查。",
+    "session_id": "RS-4e813aa9-7695-4e58-82a7-af920d54672a",
+    "revision": 2
+  },
+  "code": null,
+  "warnings": [
+    "部分候选因范围、来源或版本不满足而省略",
+    "RC-b42b7865a70d92f2d06762ad正文未完整交付，请检查packet缺口"
+  ],
+  "issues": [
+    {
+      "code": "PARTIAL",
+      "message": "部分候选因范围、来源或版本不满足而省略",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    },
+    {
+      "code": "PARTIAL",
+      "message": "RC-b42b7865a70d92f2d06762ad正文未完整交付，请检查packet缺口",
+      "affected_refs": [],
+      "retry": "after_external_change"
+    }
+  ],
+  "consumed": {
+    "wall_ms": 12423,
+    "read_bytes": 343149,
+    "output_chars": 3028,
+    "candidates": 11,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 15,
+    "model_calls": 3,
+    "model_input_tokens": 15,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}
+

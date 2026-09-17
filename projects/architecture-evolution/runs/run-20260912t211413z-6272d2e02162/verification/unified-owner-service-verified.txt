@@ -1,0 +1,7 @@
+test_O01_O05_eight_native_types_public_inspect_and_default_v2_kinds (test_memory_owner_service.OwnerServiceTests.test_O01_O05_eight_native_types_public_inspect_and_default_v2_kinds) ... ok
+test_O02_flat_adoption_repeat_and_mapped_import_keep_obj_and_fixed_ref (test_memory_owner_service.OwnerServiceTests.test_O02_flat_adoption_repeat_and_mapped_import_keep_obj_and_fixed_ref) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 7.975s
+
+OK

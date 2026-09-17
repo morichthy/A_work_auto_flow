@@ -1,0 +1,46 @@
+{
+  "expected_revision": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "settings": {
+    "collaboration": {
+      "subagents": "off"
+    },
+    "materials": {
+      "result_limit": 20,
+      "budget": {
+        "wall_ms": 300000,
+        "read_bytes": 16777216,
+        "output_chars": 80000,
+        "candidates": 100,
+        "graph_nodes": 50,
+        "graph_edges": 100,
+        "graph_hops": 2,
+        "model_tokens": 512,
+        "model_calls": 1,
+        "model_input_tokens": 512,
+        "model_output_tokens": 0,
+        "rerank_items": 0
+      }
+    },
+    "reading": {
+      "result_limit": 3,
+      "reranking": {
+        "mode": "off",
+        "candidate_limit": 3
+      },
+      "budget": {
+        "wall_ms": 300000,
+        "read_bytes": 16777216,
+        "output_chars": 6000,
+        "candidates": 1000,
+        "graph_nodes": 50,
+        "graph_edges": 100,
+        "graph_hops": 2,
+        "model_tokens": 65536,
+        "model_calls": 20,
+        "model_input_tokens": 65536,
+        "model_output_tokens": 0,
+        "rerank_items": 100
+      }
+    }
+  }
+}

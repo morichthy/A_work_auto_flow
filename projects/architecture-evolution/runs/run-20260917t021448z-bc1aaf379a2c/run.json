@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260917T021448Z-BC1AAF379A2C",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "阅读内容纯化与分类型证据详情修复",
+  "keywords": [
+    "reading note",
+    "evidence detail",
+    "inline citations",
+    "registered image"
+  ],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "completed",
+  "created_at": "2026-09-17T02:14:48Z",
+  "started_at": "2026-09-17T02:14:48Z",
+  "ended_at": "2026-09-17T02:46:37.720584+00:00",
+  "owner": null,
+  "question": "阅读知识正文、分类型证据及图片是否正确展示，旧工作区升级后数据是否保留？",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/.run-captures/final-evidence/source.zip",
+      "sha256": "302e26affed798936c7add658194dd24d4e30dc9067d548f88eadc19ad715fac",
+      "role": "input",
+      "registered_at": "2026-09-17T02:48:00.093425Z"
+    }
+  ],
+  "parameters": {},
+  "code": {
+    "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [],
+  "metrics": {},
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/.run-captures/final-evidence/receipts.zip",
+      "sha256": "10b1d214c89e7abe8594f8bc9081fae4b44145013c2b4007cb06d4e898052c74",
+      "role": "artifact",
+      "registered_at": "2026-09-17T02:48:00.106246Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t021448z-bc1aaf379a2c/.run-captures/final-evidence/manifest.json",
+      "sha256": "9ffc952fac99078301a15dd68748caed68e8e4b9d2285bdb2a20f3513c2c76a6",
+      "role": "artifact",
+      "registered_at": "2026-09-17T02:48:00.116293Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "本轮六项修复及相关回归通过；实际浮点r9 HEAD不变，完整文稿与4图可读。详见RESULTS.md。",
+  "limitations": [
+    "科学结论和业务检索收益未复核；软件、合成AI及图片字节核验分别记录。",
+    "未做第二物理机验收；未发布。",
+    "历史无定位引用未臆造；旧规范报告r7差异已盘点，未整体同步。"
+  ],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

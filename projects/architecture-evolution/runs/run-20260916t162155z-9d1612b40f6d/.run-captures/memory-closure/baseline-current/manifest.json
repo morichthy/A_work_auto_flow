@@ -1,0 +1,42 @@
+{
+  "head": {
+    "commit_id": "COM-620058f3-4a6b-44b1-98cd-e9fd7f8dd967",
+    "generation": 47,
+    "manifest_hash": "3a8fb1ff56731a01e0cf73e0b9e3ace42930d3e68c4b7397686752de8157d68c"
+  },
+  "records": {
+    "unit": {
+      "revision": 2,
+      "record_hash": "1df804130728e6619ebfb2c63920cb51e4875769265ad7b00fac3d7add52efe9",
+      "record_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b"
+    },
+    "section": {
+      "revision": 3,
+      "record_hash": "d526670cbb8f2e4ec5b5cc6e23db19089184addd16199f7b58873be4da037d89",
+      "record_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab"
+    },
+    "document": {
+      "revision": 4,
+      "record_hash": "d8682cb6eb6f9fc2c8efd59056c2ab0f462e9a875cd93d632300c9693ba5683f",
+      "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63"
+    },
+    "overview": {
+      "revision": 4,
+      "record_hash": "b4cdd8ae59dc9f4e1c28d10552669dcca3f4ba9d8ec43e0b101315e31826b953",
+      "record_id": "MEM-b8db41b4-3a97-5f26-ba21-87f6cce7d155"
+    }
+  },
+  "files": {
+    "document-assembled.json": "776bb0b48d1e74a22bba4581d7414b46fbd906c609700c2907be3b7a037b0535",
+    "document-impact.json": "255dcfed1f4a3ed970c14ffa04127d61f15a72f26300e47c3bef7e2ccb26ffce",
+    "document-request.json": "87954f069ae7efd3e4ff05a8360e2cbc393e6d48f82ef9346eb7785ae38999c6",
+    "document.json": "78a5206c77254fb52e784bfc89888d4e3cb4ba03a366706bf6f48444f3efacec",
+    "outline.json": "54a558e7e2f428b49c6e90dc5b574c4a532a8abcf36019ed5cdf9c9fd067e752",
+    "overview.json": "7f56ca1b55ad1d3a72361de06d2d2f062841edcc18244e1c524219a7dd24a176",
+    "owner-end.json": "456d3fb7709318ea83e60df4dddcc77ba24d4d71ffdc1eafee489c772ee53cf5",
+    "owner-start.json": "456d3fb7709318ea83e60df4dddcc77ba24d4d71ffdc1eafee489c772ee53cf5",
+    "section.json": "e5248de4e9fddeb63806ecaa3555b36a02dd16fd9a4d8571b361037074a29514",
+    "unit.json": "1abedb8bdc0fd566908f8b85b64e138f1688061fe56b3b28f5bfef8ff46c05bc"
+  },
+  "recovery": "record and assembled report use distinct names; original fixed receipts untouched"
+}

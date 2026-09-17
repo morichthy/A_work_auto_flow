@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260916T200528Z-E244B6EE59A3",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "三种阅读模式与联想note开发验证",
+  "keywords": [
+    "reading modes",
+    "联想检索"
+  ],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "completed",
+  "created_at": "2026-09-16T20:05:28Z",
+  "started_at": "2026-09-16T20:05:28Z",
+  "ended_at": "2026-09-16T20:47:52.752246+00:00",
+  "owner": null,
+  "question": "三种阅读策略能否保持固定证据、累计范围和note质量边界，并由工作台控制？",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/.run-captures/final-evidence/source.zip",
+      "sha256": "b9cb9891e473c7eee0f9eac843e5727d070c533f0713fd1efc8f265a5e20a822",
+      "role": "input",
+      "registered_at": "2026-09-16T20:47:54.063755Z"
+    }
+  ],
+  "parameters": {},
+  "code": {
+    "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [],
+  "metrics": {},
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/.run-captures/final-evidence/receipts.zip",
+      "sha256": "d0fe0dcc58c38ef4ee0c852214b3090d1cb6c777dfccc4c4177fdb2fece0aba1",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:47:54.077915Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/.run-captures/final-evidence/manifest.json",
+      "sha256": "887b63faf946bc0cc3c86522ff5453fc69595e80e82d1266e92cb70932cf27a6",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:47:54.091690Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/RESULTS.md",
+      "sha256": "51f8ee681b267fd55f873437287da8da6e613447c89d6eec466bd2a41f69bbb2",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:47:54.102908Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/freeze_evidence.py",
+      "sha256": "021afc31cd500d6de281bc1eaf23733a9bfa77788c045033748440447de68c05",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:47:54.115696Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/RECHECK-20260917.md",
+      "sha256": "5fc1d39481099b277ba16f96e6c7869555b18f386f5232bbb84fe0dc39dc41fc",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:52:24.120123Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/recheck-20260917-modes.log",
+      "sha256": "5ac877fdd81358bae67a78d27bd5d176a51790295926e30f1add3bf62efed512",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:52:24.132124Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/recheck-20260917-settings.log",
+      "sha256": "34720e77ecfc594b9381c0255a19bc34d5da8d77e3b6766d24e82d38a0f1bfa7",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:52:24.143056Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t200528z-e244b6ee59a3/recheck-20260917-ui.log",
+      "sha256": "4cf3f954f44a032b6745cbd2713c84f198f8e417804d27d8aa0fbc5019d0de41",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:52:24.154054Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "三模式、可保存默认配置、联想线索与综合note已实现；最终软件及合成AI验证见RESULTS.md。",
+  "limitations": [
+    "AI自查不等于科学复核或用户认可。",
+    "合成场景不能证明真实业务召回率、错误关联率或提速。",
+    "仅本机Windows隔离升级验证；未发布，第二物理机未验收。"
+  ],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

@@ -1,0 +1,1 @@
+{"session_id":"RS-12cfd61c-790d-41f7-bb86-e1d4242c2744","expected_revision":4,"request_id":"owner-smoke-finish-01","direction":"finish","reason":"已完成一个Owner的全文回退阅读与研究式note；pairwise材料缺口已明确保留。","next_step":"主Agent通过reading-handoff接收有界note并决定是否补查pairwise固定材料。","outcome":"一个Owner note在6000字节保守窗口内保存；独立文稿缺失和部分来源/授权缺口保留。","human_decision":""}

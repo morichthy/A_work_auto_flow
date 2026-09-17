@@ -1,0 +1,11 @@
+{
+  "candidate_id": "RC-4985555bd5d4a11e419c1262",
+  "summary": "不作为NS4方法的直接复用依据。旧材料对应NS7、液体浸入且未达到热平衡。",
+  "connection": {
+    "kind": "not_useful",
+    "explanation": "该材料提供反向边界：同名字段不能跨型号和工况迁移。",
+    "chain": ["对象是NS7而非NS4。", "液体浸入且未热平衡与方法边界冲突。", "因此不能直接套用NS4换算。"]
+  },
+  "details": [{"text": "对象NS7、液体浸入且未达到热平衡。", "reason": "与NS4、干燥空气和热平衡的适用条件直接冲突。", "block_ids": []}],
+  "uncertainties": ["未提供可将NS7或液体瞬态转换为NS4条件的校准证据。"]
+}

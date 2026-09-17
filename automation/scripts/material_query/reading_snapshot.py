@@ -12,7 +12,7 @@ from .reading_delegation import handoff_value, serialized_size
 def notes_value(session, max_chars=30000, *, titles=None):
     """与AI交接共用整条note装包，剔除陈旧内容且保留遗漏与固定出处。"""
     if session.get('mode') == 'owner_document':
-        from .reading_owner import handoff_value as owner_handoff, source_candidates
+        from .reading_owner import handoff_value as owner_handoff, screening_state, source_candidates
         # Human display has its own character cap. A small AI-note allowance
         # must not make an already-saved near-limit note disappear after links
         # are decorated for the UI. The strong AI handoff keeps its own budget.
@@ -24,6 +24,39 @@ def notes_value(session, max_chars=30000, *, titles=None):
         value['display_max_chars'] = max_chars
         value.update(goal=session.get('goal', ''), owner_id=session.get('owner_id'), archived=session.get('archived', False),
                      candidates=source_candidates(session, value['included_owner_ids']), round_count=len(session.get('rounds', [])))
+        # The workbench reads this lightweight snapshot instead of the strong
+        # reading-view endpoint.  Keep every screening packet atomic: a packet
+        # either fits with all of its windows and fixed refs, or it is omitted
+        # and counted.  This preserves the display cap without silently
+        # truncating the exact evidence an Owner assessment was based on.
+        state = screening_state(session)
+        packets = state.pop('owner_packets')
+        value.update(state)
+        value['owner_packets'] = []
+        for packet in packets:
+            proposed = deepcopy(value)
+            proposed['owner_packets'].append(packet)
+            proposed['screening_omitted_owner_count'] = len(packets) - len(proposed['owner_packets'])
+            if serialized_size(proposed) <= max_chars:
+                value['owner_packets'].append(packet)
+        omitted = len(packets) - len(value['owner_packets'])
+        value['screening_omitted_owner_count'] = omitted
+        if omitted:
+            value['gaps'] = list(value.get('gaps', [])) + [
+                f'{omitted}个Owner筛选包因工作台展示上限未显示；包仍完整保存在RS，可通过reading-view读取'
+            ]
+        if serialized_size(value) > max_chars:
+            # Extremely long readiness diagnostics must not evict or truncate
+            # the saved reading note.  The canonical RS and strong view retain
+            # the complete diagnostics for deliberate inspection.
+            value['owner_packets'] = []
+            value['screening_omitted_owner_count'] = len(packets)
+            value['discovery'] = {'status': value.get('discovery', {}).get('status', 'unavailable'),
+                                  'reasons': ['工作台展示上限内未展开完整发现诊断']}
+            value['fulltext_compensation_reason'] = ''
+        if serialized_size(value) > max_chars:
+            from .validation import QueryError
+            raise QueryError('BUDGET', 'Owner发现状态与笔记展示元数据超出字符上限，未输出截断内容')
         return value
     window = max_chars
     while True:

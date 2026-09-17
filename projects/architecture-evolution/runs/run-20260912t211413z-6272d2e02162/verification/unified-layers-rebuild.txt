@@ -1,0 +1,48 @@
+{
+  "dry_run": false,
+  "index_status": "indexed",
+  "owners": [
+    {
+      "owner_id": "RES-FLOATING-POINT-SUMMATION",
+      "generation": 14,
+      "index_status": "indexed",
+      "fts": {
+        "status": "indexed",
+        "indexed_generation": 14,
+        "changed_entries": 13,
+        "removed_entries": 0,
+        "unchanged": false
+      },
+      "vector": {
+        "status": "indexed",
+        "indexed_generation": 14,
+        "collection": "memory_v1_662ca1e31184",
+        "updated_entries": 0,
+        "removed_entries": 0,
+        "points": 15
+      },
+      "state": {
+        "owner_id": "RES-FLOATING-POINT-SUMMATION",
+        "indexed_generation": 14,
+        "vector_generation": 14,
+        "target_generation": 14,
+        "fts_status": "indexed",
+        "vector_status": "indexed",
+        "encoder_version": "memory-record-representation-v3-technical-description",
+        "vector_collection": "memory_v1_662ca1e31184",
+        "native_fingerprint": "239ab0fcd73db65fe6b72b3cd756cc876a83e0fd264ad5f00f4fced71664aea7",
+        "dependency_signature": "31414eb06250555ddf2d1c8ee63f362c6049030669cd25bcd7cea25a9dc97c14",
+        "vector_signature": "d037e6cca1ac0af72599b0601302093d0568a0200d926be1ea4c949550c1d9b9",
+        "error": null,
+        "updated_at": "2026-09-10T19:00:06.454647Z",
+        "projection_version": "memory-v3-technical-description-documents"
+      },
+      "missing": [],
+      "error": null,
+      "elapsed_seconds": 5.236645800003316
+    }
+  ],
+  "removed_owners": [],
+  "pending_removals": [],
+  "canonical_writes": 0
+}

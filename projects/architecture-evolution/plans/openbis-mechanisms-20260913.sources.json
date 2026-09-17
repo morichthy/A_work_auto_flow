@@ -1,0 +1,52 @@
+{
+  "date": "2026-09-13",
+  "local_files": [
+    {
+      "path": "automation/scripts/memory/store.py",
+      "sha256": "f7ee3c21023aee5169cd75eaf749888248388e2820aa0c515923caf6b2b4ff71"
+    },
+    {
+      "path": "automation/scripts/memory/service.py",
+      "sha256": "6b34358a769d4e418a12564011b6b1c80fed6e57f4a90e5b993e7c8b6b8d935b"
+    },
+    {
+      "path": "automation/scripts/run_capture.py",
+      "sha256": "3abc181c0b744fea2e49ef9b9e44bf6110d07e5003d681f3c3b8c4f0bed29aef"
+    },
+    {
+      "path": "docs/AI_READING.md",
+      "sha256": "7dc1065ead8e84e0804ba4601aecb196e3148c58f860933cc746276f046eec7e"
+    },
+    {
+      "path": "docs/CORE.md",
+      "sha256": "f43d7a80f467f82a9743e5061b3807b75bdb3dad9fafbb8c11892364fbd2eaf5"
+    },
+    {
+      "path": "docs/MEMORY_STORAGE_EXPLAINED.md",
+      "sha256": "e9ea41ad6b363e9239695c705eb55a0d84305418f0e91e0757966c8c659625da"
+    },
+    {
+      "path": "context/MEMORY.md",
+      "sha256": "2f3f6dab2dd282edcad72d5c16eed6b3d26f6db912831289351f672861e8967a"
+    }
+  ],
+  "web_sources": [
+    "https://openbis.readthedocs.io/en/7.x/user-documentation/general-users/data-upload.html",
+    "https://openbis.readthedocs.io/en/7.x/user-documentation/general-admin-users/admins-documentation/new-entity-type-registration.html",
+    "https://openbis.readthedocs.io/en/7.x/software-developer-documentation/apis/java-javascript-v3-api.html",
+    "https://openbis.readthedocs.io/en/7.x/user-documentation/general-users/additional-functionalities.html",
+    "https://openbis.readthedocs.io/en/20.10.12-plus/user-documentation/advance-features/command-line-tool.html",
+    "https://openbis.readthedocs.io/en/7.x/software-developer-documentation/apis/python-v3-api.html",
+    "https://scientificit.empa.ch/documentation/openbis/empa-specific/data_upload/dropbox/"
+  ],
+  "web_bytes_archived": false,
+  "reviewer": "ai:codex",
+  "previous_record": {
+    "target_kind": "record",
+    "target_id": "MEM-c0c9cca2-5a17-5634-86f7-3dbb3dec7902",
+    "revision": 1,
+    "sha256": "1b65ca6a6781de9d53e808308ee766735be793b49b2b194f8047ac3c104454d5",
+    "locator": "block:replacement-shortlist",
+    "relation": "references"
+  }
+}

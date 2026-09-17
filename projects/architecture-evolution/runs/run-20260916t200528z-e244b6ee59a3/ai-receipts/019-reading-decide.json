@@ -1,0 +1,43 @@
+{
+  "action": "reading-decide",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+    "expected_revision": 10,
+    "request_id": "ai-assoc-finish",
+    "direction": "finish",
+    "reason": "已从A下游换算的具体缺口找到B阈值到时间模型，并保存条件化的跨Owner综合；进一步供电归因需要未交付的实际测量。",
+    "next_step": "将有界综合稿交回主Agent；保留供电到阈值测量作为待验证方向。",
+    "outcome": "一轮联想形成可检验dv→dt→dphi链条，无实际实验，不认定电源根因。",
+    "human_decision": ""
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "direction": "finish",
+      "next_step": "将有界综合稿交回主Agent；保留供电到阈值测量作为待验证方向。",
+      "needs_user_input": false,
+      "expansion_count": 1,
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+      "revision": 11
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 406,
+      "read_bytes": 133829,
+      "output_chars": 0,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

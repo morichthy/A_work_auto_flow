@@ -1,0 +1,23 @@
+
+> rd-workbench@1.0.0 test
+> vitest run --fileParallelism=false
+
+
+ RUN  v3.2.7 D:/共享桌面/A_work/A_work_auto_flow/automation/frontend
+
+ ✓ src/memory-contract.test.ts (3 tests) 6751ms
+   ✓ C08 Python / frontend structural memory contract parity > 校验新增研究经过、经验分类、概览的完整正文与必需字段  923ms
+   ✓ C08 Python / frontend structural memory contract parity > executes every registered kind and positive/negative variant in both runtimes  5825ms
+ ✓ src/MaterialQuery.test.tsx (6 tests) 1378ms
+   ✓ 材料查询固定范围与回执 > 默认查概览与经验，展开沿用固定查询；取消树选择不扩大范围  414ms
+ ✓ src/MaterialMaintenance.test.tsx (9 tests) 687ms
+ ✓ src/ResearchDocument.test.tsx (6 tests) 335ms
+ ✓ src/Memory.test.tsx (1 test) 199ms
+ ✓ src/graph-model.test.ts (7 tests) 116ms
+ ✓ src/components.test.tsx (1 test) 28ms
+
+ Test Files  7 passed (7)
+      Tests  33 passed (33)
+   Start at  03:07:53
+   Duration  18.41s (transform 485ms, setup 917ms, collect 2.30s, tests 9.49s, environment 4.06s, prepare 602ms)
+

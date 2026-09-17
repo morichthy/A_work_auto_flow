@@ -1,0 +1,81 @@
+{
+  "action": "reading-handoff",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174000"
+  },
+  "response": {
+    "status": "partial",
+    "value": {
+      "strategy": "standard",
+      "association": {
+        "enabled": false,
+        "max_rounds": 3
+      },
+      "association_text": "",
+      "synthesis_included": false,
+      "context_markdown": "# 当前问题\n\n解释合成phase_case中的相位误差，找出可验证的上游线索。\n\n合成材料；无现实实验\n\n上游来源仅限获准 ceiling\n\n## RES-MQ-A\n\n### 问题\n\nphase_case相位误差的定义、单位、适用条件和可验证上游线索是什么？\n\n### 理解\n\n相位误差由采样时刻误差在信号频率处换算而来：时间误差越大或频率越高，相位误差线性增大。该材料给出的是局部小误差模型，未证明真实系统中的抖动来源。\n\n### 条件\n\n合成教学模型，不是实际仪器实验\n\n小时间误差近似\n\n本次读取的是该Owner最新research_process，不覆盖其全部材料\n\n### 逻辑与假设\n\n固定正文定义了f、dt和dphi及其单位。\n\n代入小时间误差关系可将时间误差转换为相位误差。\n\n正文仅提出过零检测阈值波动作为待探索方向，未给出其到dt的实测链条，因此只能作为下一步线索。\n\n### 细节、参数、单位与边界\n\n公式：$d\\phi=2\\pi f\\,dt$，其中$f$为信号频率（Hz），$dt$为采样时刻误差（s），$d\\phi$为相位误差（rad）。\n\n示例：$f=1000\\,\\mathrm{Hz}$、$dt=1\\times10^{-6}\\,\\mathrm{s}$时，$d\\phi\\approx0.006283\\,\\mathrm{rad}$。\n\n该结果描述小时间误差下的换算，不足以区分时钟、阈值、噪声或电源等上游原因。\n\n### 限制、反例与待验证\n\n同类文稿有多个，本次只读到最新一份。\n\ndense召回不可用。\n\n没有读取到能验证时间抖动来源的上游材料；不能据此断言电源或阈值导致相位误差。\n\n### 下一步\n\n以“过零检测阈值波动如何造成采样时刻误差”为新问题，在获准范围内查找上游材料；若无直接依据，保留未知。\n\n### 固定出处\n\n### 待验证联想线索\n\n过零检测阈值波动可能影响采样时刻，从而经$d\\phi=2\\pi fdt$传递为相位误差。\n\n理由：A正文仅明确提出该方向，且给出了时间误差到相位误差的换算。\n\n下一查询：过零检测 阈值波动 采样时刻误差 phase_case\n\n限制：尚无阈值波动到dt的测量或机制证据；未验证电源与相位误差的联系\n\n线索依据：MEM-c8416f3d-0493-5965-89bb-7935cddc845d\n\n[1] record:MEM-dd64109e-8cac-589c-8710-b58677a92aa3@1 sha256:8cb13a792a9479c68cb02205ab2c58de89286627edbe8066d8227f5ee39ea126\n\n[2] record:MEM-c9deeddf-4732-57ec-b745-1656291533ff@1 sha256:c784a97174670668da51bb6b47aa91a1cae84951f3213f1b7b0061e63000c9a5\n\n[3] record:MEM-c8416f3d-0493-5965-89bb-7935cddc845d@1 sha256:b04c02ac33e9bd00f4293c51a74ad60f6613bd1f3b452c6e854e2320a26e0e30\n\n[4] file:SRC-MQ-A@None sha256:3b61870b28f5cd291e45c94dcc6fab78c0f6f4e584098772a2a6035b8ecf537c locator:完整合成输入",
+      "mode": "owner_document",
+      "phase": "review",
+      "included_owner_ids": [
+        "RES-MQ-A"
+      ],
+      "notes_count": 1,
+      "omitted_note_count": 0,
+      "unnoted_candidate_count": 0,
+      "estimated_note_tokens": 2719,
+      "note_max_tokens": 16000,
+      "token_estimation": "utf8_bytes_conservative; not_host_exact_tokens",
+      "complete": false,
+      "gaps": [
+        "同类文稿有多个；本次仅交付最新文稿，不代表Owner全部材料已读",
+        "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+        "阅读尚未完成"
+      ],
+      "needs_user_input": false,
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+      "revision": 4
+    },
+    "code": null,
+    "warnings": [
+      "同类文稿有多个；本次仅交付最新文稿，不代表Owner全部材料已读",
+      "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+      "阅读尚未完成"
+    ],
+    "issues": [
+      {
+        "code": "PARTIAL",
+        "message": "同类文稿有多个；本次仅交付最新文稿，不代表Owner全部材料已读",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      },
+      {
+        "code": "PARTIAL",
+        "message": "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      },
+      {
+        "code": "PARTIAL",
+        "message": "阅读尚未完成",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      }
+    ],
+    "consumed": {
+      "wall_ms": 280,
+      "read_bytes": 70227,
+      "output_chars": 2141,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

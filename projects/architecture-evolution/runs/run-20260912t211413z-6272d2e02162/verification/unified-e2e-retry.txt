@@ -1,0 +1,44 @@
+
+> rd-workbench@1.0.0 e2e
+> playwright test e2e/memory.spec.ts e2e/workbench.spec.ts --grep-invert 一万
+
+
+Running 11 tests using 1 worker
+
+  ok  1 e2e\memory.spec.ts:10:1 › L0统一材料、无来源条目的Run、固定原件预览与清单导出 (4.0s)
+  ok  2 e2e\memory.spec.ts:154:1 › 四层记录、真实编辑冲突、索引待补偿与安全导出 (19.4s)
+  ok  3 e2e\memory.spec.ts:283:1 › 连续研究报告、固定图示、目录路由和窄屏阅读 (10.2s)
+  ok  4 e2e\memory.spec.ts:577:1 › 研究、Run、知识与报告真实记录及辅助对象可区分 (11.8s)
+  ok  5 e2e\memory.spec.ts:669:1 › 缺范围复核被拒绝并保留逐结论状态 (26.0s)
+  x   6 e2e\memory.spec.ts:730:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联 (14.6s)
+  -   7 e2e\memory.spec.ts:813:1 › 逐层读取固定原件、返回已读版本，并识别原件变化
+  -   8 e2e\memory.spec.ts:871:1 › 独立双文稿、必要定义、章节上下文与固定修订影响
+  ok  9 e2e\workbench.spec.ts:47:1 › 完整导航、关系、证据、候选和摘要 (7.3s)
+  ok 10 e2e\workbench.spec.ts:143:1 › 勾选联动图与导出，分类结合搜索且保留跨分类勾选 (2.7s)
+  ok 11 e2e\workbench.spec.ts:295:1 › 对象阅读清单、完整原文和版本导出真实接口 (3.8s)
+
+
+  1) e2e\memory.spec.ts:730:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联 ───────────────────────────────────────────
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "committed"
+    Received: "not_committed"
+
+      775 |     );
+      776 |     await page.getByRole("button", { name: "保存记忆", exact: true }).click();
+    > 777 |     expect((await (await saved).json()).save_status).toBe("committed");
+          |                                                      ^
+      778 |     await expect(page.getByRole("status")).toContainText("记录已保存", {
+      779 |       timeout: 60000,
+      780 |     });
+        at D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\memory.spec.ts:777:54
+
+    Error Context: test-results\memory-跨研究材料回填L3与L4，并采纳有边界的导航关联\error-context.md
+
+    Error Context: test-results\memory-跨研究材料回填L3与L4，并采纳有边界的导航关联\error-context.md
+
+  1 failed
+    e2e\memory.spec.ts:730:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联 ────────────────────────────────────────────
+  2 did not run
+  8 passed (1.9m)

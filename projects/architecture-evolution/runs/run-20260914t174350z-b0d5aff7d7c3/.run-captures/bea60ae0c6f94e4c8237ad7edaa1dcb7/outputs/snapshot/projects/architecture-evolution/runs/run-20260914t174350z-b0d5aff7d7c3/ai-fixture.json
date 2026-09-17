@@ -1,0 +1,22 @@
+{
+  "scope_owner": "RES-MQ-A",
+  "root": "D:\\共享桌面\\A_work\\A_work_auto_flow\\.local\\bilingual-query-run-20260914t174350z-b0d5aff7d7c3\\synthetic-workspace",
+  "expected_refs": {
+    "bilingual.good": {
+      "target_kind": "record",
+      "target_id": "MEM-fc743df4-90fe-5a67-9018-04f0c5d914d8",
+      "revision": 1,
+      "sha256": "44022fd7f6b0ef63b437ae0a7fea778b8340277d67fea650d4ec13ac13e5f287",
+      "locator": "",
+      "relation": "references"
+    },
+    "bilingual.wrong-version": {
+      "target_kind": "record",
+      "target_id": "MEM-346bfffe-7963-54dc-a796-6f65ff3d2d80",
+      "revision": 1,
+      "sha256": "9d53fbb4edc34f5e013da1272bf15d2ada31af05f3d98442bcdbd607faadaa9e",
+      "locator": "",
+      "relation": "references"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "action": "reading-decide",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+    "expected_revision": 4,
+    "request_id": "ai-assoc-expand",
+    "direction": "expand",
+    "reason": "A正文已给出时间误差到相位误差的关系，但尚未解释时间误差来源；使用其明确提出的过零阈值方向补查。",
+    "next_step": "在原获准范围内检索过零检测阈值波动到采样时刻误差的机制。",
+    "outcome": "仅有下游换算公式与待验证阈值线索，缺上游机制和适用边界。",
+    "human_decision": ""
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "direction": "expand",
+      "next_step": "在原获准范围内检索过零检测阈值波动到采样时刻误差的机制。",
+      "needs_user_input": false,
+      "expansion_count": 0,
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+      "revision": 5
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 235,
+      "read_bytes": 70227,
+      "output_chars": 0,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

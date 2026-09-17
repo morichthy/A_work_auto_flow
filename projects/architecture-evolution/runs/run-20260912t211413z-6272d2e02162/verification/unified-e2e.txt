@@ -1,0 +1,32 @@
+
+> rd-workbench@1.0.0 e2e
+> playwright test --grep 对象阅读清单
+
+
+Running 1 test using 1 worker
+
+  x  1 e2e\workbench.spec.ts:295:1 › 对象阅读清单、完整原文和版本导出真实接口 (1.0m)
+
+
+  1) e2e\workbench.spec.ts:295:1 › 对象阅读清单、完整原文和版本导出真实接口 ────────────────────────────────────────────
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '阅读记录', exact: true })
+
+
+      299 |   try {
+      300 |     await page.goto(app.url + "#memory");
+    > 301 |     await page.getByRole("button", { name: "阅读记录", exact: true }).click();
+          |                                                                   ^
+      302 |     await page
+      303 |       .getByRole("button", { name: "合成阅读会话", exact: true })
+      304 |       .click();
+        at D:\共享桌面\A_work\A_work_auto_flow\automation\frontend\e2e\workbench.spec.ts:301:67
+
+    Error Context: test-results\workbench-对象阅读清单、完整原文和版本导出真实接口\error-context.md
+
+  1 failed
+    e2e\workbench.spec.ts:295:1 › 对象阅读清单、完整原文和版本导出真实接口 ─────────────────────────────────────────────

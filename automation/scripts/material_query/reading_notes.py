@@ -66,6 +66,7 @@ def authorized(catalog, session):
     # All saved candidate dependencies participate just as in strong handoff;
     # this checks current sensitivity/registry, never original file hashes.
     catalog.authorize({'sources': list(session_refs({'candidates':session.get('candidates', {}),
+        'owner_packets': session.get('owner_packets', {}),
         'owner_notes':session.get('owner_notes', {}), 'synthesis_note':session.get('synthesis_note')}))})
 
 

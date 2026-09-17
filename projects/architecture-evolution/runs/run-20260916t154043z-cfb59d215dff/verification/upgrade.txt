@@ -1,0 +1,50 @@
+test_controller_start_stop_idempotence_and_errors_are_visible (test_deployment_workbench.DeploymentWorkbenchTests.test_controller_start_stop_idempotence_and_errors_are_visible) ... ok
+test_corrupt_backup_blocks_restore (test_deployment_workbench.DeploymentWorkbenchTests.test_corrupt_backup_blocks_restore) ... ok
+test_environment_missing_or_wrong_versions_is_not_reused (test_deployment_workbench.DeploymentWorkbenchTests.test_environment_missing_or_wrong_versions_is_not_reused) ... ok
+test_expanded_workspace_still_rejects_missing_tools_and_bad_business_metadata (test_deployment_workbench.DeploymentWorkbenchTests.test_expanded_workspace_still_rejects_missing_tools_and_bad_business_metadata) ... ok
+test_fixture_covers_modules_and_never_marks_claims_accepted (test_deployment_workbench.DeploymentWorkbenchTests.test_fixture_covers_modules_and_never_marks_claims_accepted) ... ok
+test_generate_preview_idempotence_and_isolation (test_deployment_workbench.DeploymentWorkbenchTests.test_generate_preview_idempotence_and_isolation) ... ok
+test_http_action_origin_whitelist_and_existing_evidence_preview (test_deployment_workbench.DeploymentWorkbenchTests.test_http_action_origin_whitelist_and_existing_evidence_preview) ... ok
+test_keyword_index_and_full_algorithm_context (test_deployment_workbench.DeploymentWorkbenchTests.test_keyword_index_and_full_algorithm_context) ... ok
+test_memory_release_inputs_are_explicit_and_importable (test_deployment_workbench.DeploymentWorkbenchTests.test_memory_release_inputs_are_explicit_and_importable) ... ERROR
+test_module_inventory_is_limited_and_rejects_arbitrary_paths (test_deployment_workbench.DeploymentWorkbenchTests.test_module_inventory_is_limited_and_rejects_arbitrary_paths) ... ok
+test_path_registration_is_idempotent_and_preserves_other_entries (test_deployment_workbench.DeploymentWorkbenchTests.test_path_registration_is_idempotent_and_preserves_other_entries) ... ok
+test_portable_omits_generated_data_and_upgrade_backups (test_deployment_workbench.DeploymentWorkbenchTests.test_portable_omits_generated_data_and_upgrade_backups) ... ok
+test_registration_preview_repeat_and_uninstall_with_isolated_registry (test_deployment_workbench.DeploymentWorkbenchTests.test_registration_preview_repeat_and_uninstall_with_isolated_registry) ... ok
+test_restore_checks_all_conflicts_before_changing_any_file (test_deployment_workbench.DeploymentWorkbenchTests.test_restore_checks_all_conflicts_before_changing_any_file) ... ok
+test_source_change_reaches_report_and_experiment_completion (test_deployment_workbench.DeploymentWorkbenchTests.test_source_change_reaches_report_and_experiment_completion) ... ok
+test_upgrade_preserves_business_config_rules_and_runtime (test_deployment_workbench.DeploymentWorkbenchTests.test_upgrade_preserves_business_config_rules_and_runtime) ... ok
+test_upgrade_rejects_nested_target_and_changed_source (test_deployment_workbench.DeploymentWorkbenchTests.test_upgrade_rejects_nested_target_and_changed_source) ... ok
+test_windows_zip_upgrade_entry_and_rollback_preserve_data (test_deployment_workbench.DeploymentWorkbenchTests.test_windows_zip_upgrade_entry_and_rollback_preserve_data) ... ok
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-lavenmo5\旧 工作区\research\升级 研究\runs\run-20260916t155142z-62fd926dbe55
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-lavenmo5\旧 工作区\projects\升级 项目\runs\run-20260916t155152z-3ccaa4fb4558
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-lavenmo5\旧 工作区\core-algorithms\升级 算法\runs\run-20260916t155153z-6dabc46c3ea0
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-lavenmo5\旧 工作区\runs\升级 父运行\runs\run-20260916t155154z-14b8875b8658
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-lavenmo5\旧 工作区\knowledge\升级 经验.evidence.json.memory.runtime\runs\run-20260916t155155z-67704c57193f
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-lavenmo5\旧 工作区\reports\sources\升级 报告.evidence.json.memory.runtime\runs\run-20260916t155156z-0b6a84f7168d
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-lavenmo5\旧 工作区\data\catalog\升级 数据.dataset.json.memory.runtime\runs\run-20260916t155156z-cdc2dbfd8503
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-lavenmo5\旧 工作区\tools\runtime\TOOL-USER-SYNTHETIC-0\runs\run-20260916t155158z-4d473635ead3
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-_e4ytfyy\旧 工作区\research\升级 研究\runs\run-20260916t155410z-8713ba82c5d0
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-_e4ytfyy\旧 工作区\projects\升级 项目\runs\run-20260916t155418z-feed61dea73d
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-_e4ytfyy\旧 工作区\core-algorithms\升级 算法\runs\run-20260916t155418z-1298d193d9ac
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-_e4ytfyy\旧 工作区\runs\升级 父运行\runs\run-20260916t155418z-e090805ed679
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-_e4ytfyy\旧 工作区\knowledge\升级 经验.evidence.json.memory.runtime\runs\run-20260916t155419z-a13b79693954
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-_e4ytfyy\旧 工作区\reports\sources\升级 报告.evidence.json.memory.runtime\runs\run-20260916t155419z-2c0f30061926
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-_e4ytfyy\旧 工作区\data\catalog\升级 数据.dataset.json.memory.runtime\runs\run-20260916t155420z-c5055eaa3fe1
+已创建 Run：C:\Users\livky\AppData\Local\Temp\研发 集成-_e4ytfyy\旧 工作区\tools\runtime\TOOL-USER-SYNTHETIC-0\runs\run-20260916t155420z-37d6cbe7caa0
+
+======================================================================
+ERROR: test_memory_release_inputs_are_explicit_and_importable (test_deployment_workbench.DeploymentWorkbenchTests.test_memory_release_inputs_are_explicit_and_importable)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\共享桌面\A_work\A_work_auto_flow\automation\tests\test_deployment_workbench.py", line 252, in test_memory_release_inputs_are_explicit_and_importable
+    names = set(deploy.framework_files(ROOT))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\共享桌面\A_work\A_work_auto_flow\automation\scripts\deployment.py", line 101, in framework_files
+    raise ValueError('前端源码与构建产物不匹配，请重新构建：' + name)
+ValueError: 前端源码与构建产物不匹配，请重新构建：e2e/memory.spec.ts
+
+----------------------------------------------------------------------
+Ran 18 tests in 294.354s
+
+FAILED (errors=1)

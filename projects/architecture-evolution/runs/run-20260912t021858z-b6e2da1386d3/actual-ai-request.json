@@ -1,0 +1,95 @@
+{
+  "definition": {
+    "key": "full",
+    "version": "1"
+  },
+  "question": "检索前补背景与命中后扩大阅读有什么区别？",
+  "keywords": [],
+  "scope": {
+    "owner_ids": [
+      "RES-AI-EXPERIENCE-CONTEXT"
+    ],
+    "levels": null,
+    "kinds": null,
+    "roles": null,
+    "outcomes": null,
+    "review_states": null,
+    "validities": null,
+    "include_unknown": false,
+    "excluded_refs": [],
+    "excluded_owner_ids": [],
+    "recorded_from": null,
+    "recorded_before": null,
+    "source_ids": null,
+    "include_refs": [],
+    "exclude_ids": [],
+    "confidence_levels": null,
+    "time_window": null,
+    "applicability_conditions": [],
+    "applicability_exclusions": [],
+    "owner_types": null
+  },
+  "scope_ceiling": {
+    "owner_ids": [
+      "RES-AI-EXPERIENCE-CONTEXT"
+    ],
+    "levels": null,
+    "kinds": null,
+    "roles": null,
+    "outcomes": null,
+    "review_states": null,
+    "validities": null,
+    "include_unknown": false,
+    "excluded_refs": [],
+    "excluded_owner_ids": [],
+    "recorded_from": null,
+    "recorded_before": null,
+    "source_ids": null,
+    "include_refs": [],
+    "exclude_ids": [],
+    "confidence_levels": null,
+    "time_window": null,
+    "applicability_conditions": [],
+    "applicability_exclusions": [],
+    "owner_types": null
+  },
+  "purpose": "exploration",
+  "association": {
+    "mode": "off",
+    "strategy": "existing-relations",
+    "strategy_version": "1",
+    "max_items": 2,
+    "output_share": 0.15,
+    "supplement_scope": null
+  },
+  "budget": {
+    "wall_ms": 300000,
+    "read_bytes": 16777216,
+    "output_chars": 80000,
+    "candidates": 100,
+    "graph_nodes": 50,
+    "graph_edges": 100,
+    "graph_hops": 2,
+    "model_tokens": 512,
+    "model_calls": 1,
+    "model_input_tokens": 512,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "freshness": "current",
+  "result_limit": 2,
+  "missing_policy": "reject",
+  "fallback_definitions": [],
+  "applicability": "",
+  "channels": [
+    "identity",
+    "lexical",
+    "dense"
+  ],
+  "dialect": "plain",
+  "ranking_strategy": "rrf",
+  "ranking_version": "1",
+  "allow_index_repair": false,
+  "max_staleness_seconds": null,
+  "content_source": "technical"
+}

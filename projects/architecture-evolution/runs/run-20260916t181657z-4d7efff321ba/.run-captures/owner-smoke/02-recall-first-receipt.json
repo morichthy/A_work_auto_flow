@@ -1,0 +1,9 @@
+{
+  "status": "rejected",
+  "code": "VALIDATION",
+  "warnings": ["保护项必须来自原查询"],
+  "consumed": {"wall_ms": 1313, "read_bytes": 4175, "output_chars": 0, "candidates": 0, "model_tokens": 0, "model_calls": 0, "model_input_tokens": 0, "model_output_tokens": 0, "rerank_items": 0},
+  "stop_reason": "validation",
+  "wall_ms": 1969,
+  "measurement": "CLI调用Stopwatch；请求被参数校验拒绝，未产生候选或AI笔记。第二次移除cancellation后仍被同一校验拒绝（wall_ms=2149，ledger wall_ms=1390）；保留两次失败以便修复保护词解析。"
+}

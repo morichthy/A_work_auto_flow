@@ -1,0 +1,5 @@
+{
+  "action": "reading-decide",
+  "wall_ms": 12281.537,
+  "measurement": "API dispatch wall time; no host-model internal timing"
+}

@@ -1,0 +1,13 @@
+{
+  "reader_response_serialized_chars": 86788,
+  "reader_calls": 9,
+  "handoff_response_chars": [
+    3899,
+    4181
+  ],
+  "handoff_value_chars": [
+    3370,
+    3652
+  ],
+  "limitation": "字符体积不是宿主模型token或费用；主侧不加载原始材料。"
+}

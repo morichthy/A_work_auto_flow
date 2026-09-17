@@ -1,0 +1,8 @@
+
+Running 3 tests using 1 worker
+
+  ok 1 e2e\memory.spec.ts:799:1 › 跨研究材料回填L3与L4，并采纳有边界的导航关联 (19.3s)
+  ok 2 e2e\memory.spec.ts:891:1 › 逐层读取固定原件、返回已读版本，并识别原件变化 (5.9s)
+  ok 3 e2e\memory.spec.ts:949:1 › 独立双文稿、必要定义、章节上下文与固定修订影响 (14.4s)
+
+  3 passed (49.9s)

@@ -1,0 +1,8 @@
+overview_experience ok None []
+[('overview', '浮点求和数值稳定性：整体概览'), ('experience', '大数抵消场景的求和方法局部比较')]
+expand process rejected ['执行时间预算已用完']
+Traceback (most recent call last):
+  File "D:\共享桌面\A_work\A_work_auto_flow\projects\architecture-evolution\runs\run-20260910t183626z-429304f92e99\check_floating_content.py", line 55, in <module>
+    assert expanded.get("value") and expanded["value"]["candidates"], expanded
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'status': 'rejected', 'value': None, 'code': 'BUDGET', 'warnings': ['执行时间预算已用完'], 'issues': [{'code': 'BUDGET', 'message': '执行时间预算已用完', 'affected_refs': [], 'retry': 'replan'}], 'consumed': {'wall_ms': 10000, 'read_bytes': 930988, 'output_chars': 1200, 'candidates': 2, 'graph_nodes': 0, 'graph_edges': 0, 'graph_hops': 0, 'model_tokens': 0, 'model_calls': 0, 'model_input_tokens': 0, 'model_output_tokens': 0, 'rerank_items': 0}, 'stop_reason': 'budget', 'basis': None}

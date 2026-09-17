@@ -246,6 +246,89 @@ class Candidate:
 
 
 @dataclass(frozen=True)
+class DiscoveryReadiness:
+    status: Literal["ready", "unavailable", "incomplete", "insufficient"]
+    reasons: tuple[str, ...]
+    projection_version: str | None = None
+
+
+@dataclass(frozen=True)
+class OwnerScreeningWindow:
+    text: str
+    refs: tuple[FixedRef, ...]
+    projection_id: str | None = None
+    source_level: str | None = None
+    source_kind: str | None = None
+    channels: tuple[str, ...] = ()
+    locator: str | None = None
+    matched_protected_terms: tuple[str, ...] = ()
+
+
+@dataclass(frozen=True)
+class OwnerScreeningCoverage:
+    complete: bool
+    gaps: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class OwnerAssessment:
+    owner_id: str
+    status: Literal["relevant", "uncertain", "irrelevant"]
+    reason: str
+    packet_digest: str
+
+
+@dataclass(frozen=True)
+class OwnerAssessmentBatchRequest:
+    """CAS mutation over the exact screening packets already delivered by one RS."""
+    session_id: str
+    expected_revision: int
+    request_id: str
+    assessments: tuple[OwnerAssessment, ...]
+
+
+@dataclass(frozen=True)
+class OwnerFulltextRecallRequest:
+    """Explicit user-selected compensation; query/scope remain frozen in the RS."""
+    session_id: str
+    expected_revision: int
+    request_id: str
+
+
+@dataclass(frozen=True)
+class OwnerScreeningPacket:
+    owner_id: str
+    windows: tuple[OwnerScreeningWindow, ...]
+    coverage: OwnerScreeningCoverage
+    packet_digest: str
+    retrieval_source: Literal["discovery", "fulltext_compensation"]
+    title: str | None = None
+    overview: str | None = None
+    assessment: OwnerAssessment | None = None
+
+
+@dataclass(frozen=True)
+class OwnerRecallReceipt:
+    owner_packets: tuple[OwnerScreeningPacket, ...]
+    discovery: DiscoveryReadiness
+    fulltext_compensation_available: bool
+    fulltext_compensation_reason: str
+    next_action: str
+
+
+@dataclass(frozen=True)
+class OwnerAssessmentReceipt:
+    session_id: str
+    revision: int
+    assessments: tuple[OwnerAssessment, ...]
+    relevant_owner_ids: tuple[str, ...]
+    next_action: Literal["synthesize", "read", "page"]
+    fulltext_compensation_available: bool
+    fulltext_compensation_reason: str
+    gaps: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class SearchReceipt:
     query_id: str
     request_digest: str

@@ -1,0 +1,10 @@
+{
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": {
+    "commit_id": "COM-da8d90c8-8bcb-471c-9f41-2056961f949c",
+    "generation": 60,
+    "manifest_hash": "b7fa802ece85ba70cd50415bd48659ec8813fddff84473ee94ceaeaebfadbed8"
+  },
+  "projection_version": "owner-discovery-v1",
+  "vector": "auto"
+}

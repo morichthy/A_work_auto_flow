@@ -1,0 +1,125 @@
+{
+    "body_markdown": "建议按失败环节选择机制：先确认正文可发现，再展开必要内容判断，按缺口扩展查询，并验证跨轮恢复。此建议由机制分析形成，尚无本地对照，不是可推广的已验证结论。",
+    "change_reason": "保存本轮讨论依据、候选比较与选择理由，支持后续研究回顾。",
+    "content_hash": "ef40d878083199db7c1cbfeba5719fe36a23261d8ad168e1253685445ebfddd3",
+    "created_at": "2026-09-11T22:20:04.515592Z",
+    "created_by": {
+        "id": "Codex",
+        "kind": "ai"
+    },
+    "discovery": "owner_only",
+    "keywords": [
+        "经验检索",
+        "上下文组织",
+        "方案比较",
+        "召回"
+    ],
+    "kind": "experience",
+    "level": "L3",
+    "owner_id": "RES-AI-EXPERIENCE-CONTEXT",
+    "payload": {
+        "applicable": [
+            "经验检索的方案设计及分阶段评价"
+        ],
+        "claim_refs": [],
+        "claims": [],
+        "failure_modes": [
+            "候选从未命中却继续只增加阅读深度",
+            "更大上下文掩盖未读与错误关联"
+        ],
+        "knowledge_type": "recommendation",
+        "missing_refs": [],
+        "problem_structure": "摘要误排除与正文未召回被混为同一个问题",
+        "process_refs": [
+            {
+                "locator": "正文",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "e74a05fcfd10b6f0605a1d07a662ce9211a52f6567a9b09895a4beb5d8ef705a",
+                "target_id": "MEM-61dd21f0-f1a3-5d7e-8110-2e322e4e77ab",
+                "target_kind": "record"
+            }
+        ],
+        "prohibited": [
+            "据此宣称某检索架构已经最优"
+        ],
+        "recommendation": "建议按失败环节选择机制：先确认正文可发现，再展开必要内容判断，按缺口扩展查询，并验证跨轮恢复。此建议由机制分析形成，尚无本地对照，不是可推广的已验证结论。",
+        "retry_conditions": [
+            "固定题集及真实正文索引对照可用"
+        ],
+        "technical_refs": [
+            {
+                "locator": "正文",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+                "target_id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+                "target_kind": "record"
+            },
+            {
+                "locator": "正文",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "2aa021df8d038142cc5cd5a285bfd700ce0fafa0f43b1464b706680035f65b3f",
+                "target_id": "MEM-8a459c83-cdeb-51e4-8fc1-f23e551f4f1a",
+                "target_kind": "record"
+            },
+            {
+                "locator": "正文",
+                "relation": "references",
+                "revision": 1,
+                "sha256": "bcc1dee9665d7faebe7be31ffb06534bf0f5bc531320ab730454864e06d27199",
+                "target_id": "MEM-d6d0985a-0ac4-5686-a839-569cb47bcbd5",
+                "target_kind": "record"
+            }
+        ]
+    },
+    "previous_revision": null,
+    "provenance_gap": null,
+    "record_hash": "7f560b89394737ee9a8dd5cbc43d88764db54703e45a7bc5cc839ee2418e85a6",
+    "record_id": "MEM-a0de9f15-4eae-500c-b419-4da97c195356",
+    "record_reason": "保存本轮讨论依据、候选比较与选择理由，支持后续研究回顾。",
+    "revision": 1,
+    "schema_version": 4,
+    "sensitivity": "internal",
+    "sources": [
+        {
+            "locator": "正文",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "e74a05fcfd10b6f0605a1d07a662ce9211a52f6567a9b09895a4beb5d8ef705a",
+            "target_id": "MEM-61dd21f0-f1a3-5d7e-8110-2e322e4e77ab",
+            "target_kind": "record"
+        },
+        {
+            "locator": "正文",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "492e4352fbabbe56ca1302e0c802d19eb287ef2da97ea21dee8e5ec7097fdcde",
+            "target_id": "MEM-c72f2043-42b5-5c09-b6cf-8831a99a884d",
+            "target_kind": "record"
+        },
+        {
+            "locator": "正文",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "2aa021df8d038142cc5cd5a285bfd700ce0fafa0f43b1464b706680035f65b3f",
+            "target_id": "MEM-8a459c83-cdeb-51e4-8fc1-f23e551f4f1a",
+            "target_kind": "record"
+        },
+        {
+            "locator": "正文",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "bcc1dee9665d7faebe7be31ffb06534bf0f5bc531320ab730454864e06d27199",
+            "target_id": "MEM-d6d0985a-0ac4-5686-a839-569cb47bcbd5",
+            "target_kind": "record"
+        }
+    ],
+    "title": "候选发现与展开阅读应分别验证（暂定建议）",
+    "updated_at": "2026-09-11T22:20:04.515592Z",
+    "updated_by": {
+        "id": "Codex",
+        "kind": "ai"
+    }
+}

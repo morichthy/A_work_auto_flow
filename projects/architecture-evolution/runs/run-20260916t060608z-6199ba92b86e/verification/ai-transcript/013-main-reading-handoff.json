@@ -1,0 +1,56 @@
+{
+  "actor": "main",
+  "action": "reading-handoff",
+  "request": {
+    "expected_revision": 8,
+    "max_chars": 6000,
+    "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51"
+  },
+  "response": {
+    "status": "partial",
+    "value": {
+      "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+      "revision": 8,
+      "context_markdown": "phase=finish complete=false notes=3 omitted=0 unnoted=0 needs_user_input=false\n\n缺口：最近一轮覆盖限制：交付存在缺口；向量缺口；层召回不全；窗口未完；通道缺口\n\n决定理由：已完整阅读本轮交付的三份固定材料并保存笔记：NS4完整方法可在其明确合成条件下复用；刻度说明与NS7旧型号材料不适用。方法、变量单位、公式、误差传播及反例均已记录。\n\n结果/缺口：本轮仅完成合成验收，未认可任何现实工程结论。technical通道仍提示存在未交付候选，且dense通道不可用；因此不能据本轮窗口声称已覆盖全库。\n\n## RC-afe5616bf2c6abba6cfd4e04 · Northstar温度换算完整方法\n\n[固定来源](<C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-21abaedd-8c12-5355-b57c-c200442da479/records/MEM-b77bc86f-d704-5819-bb50-577953b915ee.json>)\n\n固定引用：{\"id\": \"MEM-b77bc86f-d704-5819-bb50-577953b915ee\", \"kind\": \"record\", \"locator\": null, \"revision\": 1, \"sha256\": \"223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832\"}\n\n理解：可作为合成验收中的直接方法依据：先校正NS4摄氏显示值，再将修正温度平移到绝对温标。方法与一阶独立不确定度公式仅在已固定的NS4、干燥空气、热平衡、相同校准版本、修正温度范围及其统计假设下复用；这不是现实工程结论。\n\n连接（direct）：材料直接给出Northstar NS4的换算顺序、变量单位、边界、不确定度处理和反例。\n\n连接步骤/假设：以同一校准版本的b和g校正原始摄氏显示x，得到theta。\n\n连接步骤/假设：仅在theta满足材料规定范围且工况满足NS4、干燥空气与热平衡时，才将theta加273.15 K得到T。\n\n连接步骤/假设：仅在x、b、g独立且一阶线性近似成立时使用独立不确定度公式；相关参数改用完整协方差矩阵。\n\n必要细节：x为原始摄氏显示值，b为°C零点偏差，g为无量纲比例系数；theta为修正温度，T为绝对温度。温差1°C与1K数值相同，但绝对零点不同。合成输入为x=20.0°C、b=0.6°C、g=1.02。\n\n保留原因：变量、量纲、温标零点和原文合成输入是避免错误换算的必要定义。\n\n块定位：definitions, method\n\n必要细节：换算顺序为 theta=(x-b)/g，T=theta+273.15 K；不能将273.15与x一起除以g。\n\n保留原因：保留公式与明确反公式，避免缩放绝对零点。\n\n块定位：method\n\n必要细节：适用范围：NS4、干燥空气、热平衡、theta在[-10,60]°C，且b、g来自同一校准版本；边界针对theta而非x。\n\n保留原因：方法复用必须同时满足对象、介质、平衡状态、范围和版本条件。\n\n块定位：conditions\n\n必要细节：仅在x、b、g独立且一阶线性近似成立时，u_theta^2=(u_x/g)^2+(u_b/g)^2+((x-b)u_g/g^2)^2；u_x、u_b和u_theta单位为°C，u_g无量纲。273.15是精确平移常数，不额外贡献标准不确定度；u_T与u_theta数值相同，单位K。\n\n保留原因：保存独立不确定度公式、假设、单位和跨温标不确定度关系。\n\n块定位：uncertainty\n\n必要细节：b和g有非零协方差时，按梯度和完整协方差矩阵计算u^2=JΣJ^T并保留交叉项。\n\n保留原因：独立平方和会遗漏相关性导致的误差贡献。\n\n块定位：counterexample\n\n不确定性：缺协方差时不得假定为零，不能给出完整不确定度。\n\n不确定性：热瞬态、液体浸入、NS7或缺校准版本时均不能直接复用。\n\n不确定性：材料明确仅用于合成验收，不支持现实测量或工程有效性认可。\n\n## RC-0e6a223d41628adb9af24cc0 · Northstar刻度说明\n\n[固定来源](<C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-c85bff29-b019-5989-92a6-3c48644778de/records/MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818.json>)\n\n固定引用：{\"id\": \"MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818\", \"kind\": \"record\", \"locator\": null, \"revision\": 1, \"sha256\": \"8345469a58fe20c51f0f12dd6ad464ccebd0112a9f75df2403d8674dbb009f3a\"}\n\n理解：不作为NS4校准方法依据。该材料只比较摄氏与华氏刻度，未定义NS4的增益或零点。\n\n连接（not_useful）：主题相近但缺少仪器偏差模型与校准参数，不能替代Northstar NS4方法。\n\n连接步骤/假设：仅有刻度比较。\n\n连接步骤/假设：没有b、g或校准版本，故不可用于NS4校正。\n\n必要细节：只比较摄氏华氏刻度，未定义NS4仪器增益或零点。\n\n保留原因：说明其不满足校准方法的关键输入要求。\n\n块定位：\n\n不确定性：无仪器校准信息，不能用于误差传播或适用性判断。\n\n## RC-4985555bd5d4a11e419c1262 · Northstar旧型号摘记\n\n[固定来源](<C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-96b757cc-4b6b-5e2b-9e7f-e83c59a5d3be/records/MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397.json>)\n\n固定引用：{\"id\": \"MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397\", \"kind\": \"record\", \"locator\": null, \"revision\": 1, \"sha256\": \"0d2cecd7effbb4b11b727c9ab702d40e7fa539e9983cb54c113ff46faaa846fb\"}\n\n理解：不作为NS4方法的直接复用依据。旧材料对应NS7、液体浸入且未达到热平衡。\n\n连接（not_useful）：该材料提供反向边界：同名字段不能跨型号和工况迁移。\n\n连接步骤/假设：对象是NS7而非NS4。\n\n连接步骤/假设：液体浸入且未热平衡与方法边界冲突。\n\n连接步骤/假设：因此不能直接套用NS4换算。\n\n必要细节：对象NS7、液体浸入且未达到热平衡。\n\n保留原因：与NS4、干燥空气和热平衡的适用条件直接冲突。\n\n块定位：\n\n不确定性：未提供可将NS7或液体瞬态转换为NS4条件的校准证据。",
+      "phase": "finish",
+      "complete": false,
+      "notes_count": 3,
+      "omitted_note_count": 0,
+      "unnoted_candidate_count": 0,
+      "gaps": [
+        "最近一轮覆盖限制：交付存在缺口；向量缺口；层召回不全；窗口未完；通道缺口"
+      ],
+      "needs_user_input": false
+    },
+    "code": null,
+    "warnings": [
+      "最近一轮覆盖限制：交付存在缺口；向量缺口；层召回不全；窗口未完；通道缺口"
+    ],
+    "issues": [
+      {
+        "code": "PARTIAL",
+        "message": "最近一轮覆盖限制：交付存在缺口；向量缺口；层召回不全；窗口未完；通道缺口",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      }
+    ],
+    "consumed": {
+      "wall_ms": 3571,
+      "read_bytes": 1769648,
+      "output_chars": 77987,
+      "candidates": 6,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  },
+  "response_serialized_chars": 4181,
+  "value_serialized_chars": 3652
+}

@@ -1,0 +1,43 @@
+{
+  "action": "reading-decide",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+    "expected_revision": 9,
+    "request_id": "ai-quick-finish",
+    "direction": "finish",
+    "reason": "已逐条判断recall及page交付的四个候选，两条phase相关片段接受并保存同质量研究note，两条通用控制定义无明确连接而拒绝；未读任何完整文稿。",
+    "next_step": "交付两份片段限定note；现实测量与未读全文继续作为缺口，不据此认定电源根因。",
+    "outcome": "当前候选窗口has_more=false，已交付片段判断完毕；dense不可用和全文未读仍保留，不能称全库已读。",
+    "human_decision": ""
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "direction": "finish",
+      "next_step": "交付两份片段限定note；现实测量与未读全文继续作为缺口，不据此认定电源根因。",
+      "needs_user_input": false,
+      "expansion_count": 0,
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+      "revision": 10
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 186,
+      "read_bytes": 94791,
+      "output_chars": 0,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

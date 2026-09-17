@@ -1,0 +1,26 @@
+{
+  "status": "failed",
+  "discovered_count": 653,
+  "catalog_count": 644,
+  "unclassified": [
+    "browser:e2e/workbench.spec.ts::对象阅读清单、完整原文和版本导出真实接口",
+    "component:src/ReadingSessions.test.tsx::按对象读最新记录，打开原文后导出仍使用实际笔记快照版本",
+    "component:src/ReadingSessions.test.tsx::换对象或来源撤权时清除之前显示的笔记",
+    "component:src/ReadingSessions.test.tsx::筛选后的空目录窗口仍能翻页，不报告全库无会话",
+    "python:test_install_workspace_skills.WorkspaceSkillInstallerTests.test_managed_migration_is_fingerprinted_backed_up_and_reversible",
+    "python:test_reading_workflow.ReadingWorkflowTests.test_archive_preserves_files_blocks_work_and_can_restore",
+    "python:test_reading_workflow.ReadingWorkflowTests.test_binding_requires_real_owner_and_correct_checkpoint",
+    "python:test_reading_workflow.ReadingWorkflowTests.test_expansion_is_judgment_based_and_explicit_question_is_preserved",
+    "python:test_reading_workflow.ReadingWorkflowTests.test_fixed_checkpoint_binding_and_view_budget_do_not_rewrite_history",
+    "python:test_reading_workflow.ReadingWorkflowTests.test_listing_and_view_hide_revoked_sources",
+    "python:test_reading_workflow.ReadingWorkflowTests.test_owner_binding_listing_and_latest_view_survive_restart",
+    "python:test_unified_workflow.UnifiedOwnerWorkflowTests.test_eight_owner_types_find_body_and_return_direct_source_without_empty_layers"
+  ],
+  "missing": [
+    "python:test_reading_workflow.ReadingWorkflowTests.test_second_expansion_requests_human_and_proceed_stops_recall"
+  ],
+  "errors": [],
+  "discovery_fingerprint": "411dd7250b1dd54168f46ea22ae5820a1ca5dd4a9667cafc17f57c824e1cc4af",
+  "catalog_fingerprint": "b4682dea7d3f3045f09ea7f4fdd77daa9660cfb5faa22d8eb57a1da08aa2eeb4"
+}
+

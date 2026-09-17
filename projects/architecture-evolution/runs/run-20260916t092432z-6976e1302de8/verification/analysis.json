@@ -1,0 +1,3451 @@
+{
+  "runs": [
+    {
+      "run": "run-20260916t085438z-3e40d5ed8471",
+      "calls": [
+        {
+          "action": "reading-template",
+          "actor": "main",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789549676925470000,
+          "end_utc_ns": 1789549676960377600,
+          "response_chars": 2296,
+          "response_utf8_bytes": 2320,
+          "consumed": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 22.4126,
+            "backend_import_ms": 22.7878,
+            "coordinator_ms": 0.2387,
+            "dispatch_ms": 10.1254,
+            "close_ms": 0.0118,
+            "serialize_ms": 0.0442,
+            "persist_ms": 1.6551
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 1948,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 227,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 1948,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "goal": 8,
+            "conditions": 2,
+            "query": 1772,
+            "reranking": 57
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {
+            "/query/budget/wall_ms": 300000
+          },
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-start",
+          "actor": "main",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789549676960911300,
+          "end_utc_ns": 1789549678258533500,
+          "response_chars": 576,
+          "response_utf8_bytes": 750,
+          "consumed": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 22.4126,
+            "backend_import_ms": 0.0038,
+            "coordinator_ms": 0.2072,
+            "dispatch_ms": 1295.1076,
+            "close_ms": 0.0094,
+            "serialize_ms": 0.0242,
+            "persist_ms": 2.2058
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 228,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 227,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 228,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "revision": 1,
+            "next_action": 8,
+            "guidance": 117
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-delegate",
+          "actor": "main",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789549678259053100,
+          "end_utc_ns": 1789549679592691100,
+          "response_chars": 2995,
+          "response_utf8_bytes": 3871,
+          "consumed": {
+            "wall_ms": 1328,
+            "read_bytes": 4228,
+            "output_chars": 2638,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 1328,
+            "read_bytes": 4228,
+            "output_chars": 2638,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 22.4126,
+            "backend_import_ms": 0.0035,
+            "coordinator_ms": 0.1809,
+            "dispatch_ms": 1330.9444,
+            "close_ms": 0.0102,
+            "serialize_ms": 0.0817,
+            "persist_ms": 2.4821
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 2638,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 236,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 2638,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "revision": 1,
+            "route": 10,
+            "dispatched": 5,
+            "reason": 22,
+            "worker_brief": 2322,
+            "model_preference": 128
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {
+            "/worker_brief/query/budget/wall_ms": 300000
+          },
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-view",
+          "actor": "reader",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789549771392932500,
+          "end_utc_ns": 1789549772866020100,
+          "response_chars": 997,
+          "response_utf8_bytes": 1372,
+          "consumed": {
+            "wall_ms": 2686,
+            "read_bytes": 8465,
+            "output_chars": 2922,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 1358,
+            "read_bytes": 4237,
+            "output_chars": 284,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 22.3284,
+            "backend_import_ms": 84.2079,
+            "coordinator_ms": 0.2237,
+            "dispatch_ms": 1383.7171,
+            "close_ms": 0.0191,
+            "serialize_ms": 0.0592,
+            "persist_ms": 4.6419
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 640,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 236,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 640,
+          "value_component_json_chars": {
+            "context_markdown": 219,
+            "phase": 7,
+            "round_count": 1,
+            "owner_id": 28,
+            "checkpoint_ref": 4,
+            "archived": 5,
+            "candidates": 2,
+            "unnoted_candidate_ids": 2,
+            "coverage": 2,
+            "guidance": 117,
+            "gaps": 2,
+            "session_id": 41,
+            "revision": 1
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 199,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 1,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 199,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-recall",
+          "actor": "reader",
+          "profile": false,
+          "status": "rejected",
+          "code": "VALIDATION",
+          "start_utc_ns": 1789549846659801700,
+          "end_utc_ns": 1789549848166770200,
+          "response_chars": 492,
+          "response_utf8_bytes": 552,
+          "consumed": {
+            "wall_ms": 4061,
+            "read_bytes": 12702,
+            "output_chars": 2922,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 1375,
+            "read_bytes": 4237,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 25.661,
+            "backend_import_ms": 78.8394,
+            "coordinator_ms": 0.2485,
+            "dispatch_ms": 1425.1391,
+            "close_ms": 0.0246,
+            "serialize_ms": 0.0411,
+            "persist_ms": 2.8693
+          },
+          "top_level_json_chars": {
+            "status": 10,
+            "value": 4,
+            "code": 12,
+            "warnings": 19,
+            "issues": 93,
+            "consumed": 237,
+            "stop_reason": 12,
+            "basis": 4
+          },
+          "value_json_chars": 2,
+          "value_component_json_chars": {},
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-recall",
+          "actor": "reader",
+          "profile": false,
+          "status": "rejected",
+          "code": "BUDGET",
+          "start_utc_ns": 1789549992460223400,
+          "end_utc_ns": 1789550072248338800,
+          "response_chars": 505,
+          "response_utf8_bytes": 589,
+          "consumed": {
+            "wall_ms": 83608,
+            "read_bytes": 7023917,
+            "output_chars": 79972,
+            "candidates": 60,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 2440,
+            "model_calls": 11,
+            "model_input_tokens": 2440,
+            "model_output_tokens": 0,
+            "rerank_items": 7
+          },
+          "consumed_delta": {
+            "wall_ms": 79547,
+            "read_bytes": 7011215,
+            "output_chars": 77050,
+            "candidates": 60,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 2440,
+            "model_calls": 11,
+            "model_input_tokens": 2440,
+            "model_output_tokens": 0,
+            "rerank_items": 7
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.4419,
+            "backend_import_ms": 79.2251,
+            "coordinator_ms": 0.2541,
+            "dispatch_ms": 79706.2783,
+            "close_ms": 0.0143,
+            "serialize_ms": 0.0308,
+            "persist_ms": 2.8553
+          },
+          "top_level_json_chars": {
+            "status": 10,
+            "value": 4,
+            "code": 8,
+            "warnings": 25,
+            "issues": 96,
+            "consumed": 249,
+            "stop_reason": 8,
+            "basis": 4
+          },
+          "value_json_chars": 2,
+          "value_component_json_chars": {},
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        }
+      ],
+      "profile_details": [],
+      "outer_envelopes": [
+        {
+          "source": "reader",
+          "session_key": "single-0",
+          "labels": [
+            "host_first_timestamp"
+          ],
+          "start_ms": 1789549720893,
+          "end_ms": 1789549720893,
+          "operation_envelope_ms": 0,
+          "last_exit_code": null,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-1",
+          "labels": [
+            "mark_reader_started"
+          ],
+          "start_ms": 1789549720893,
+          "end_ms": 1789549722209,
+          "operation_envelope_ms": 1316,
+          "last_exit_code": 1,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-2",
+          "labels": [
+            "locate_and_context"
+          ],
+          "start_ms": 1789549730655,
+          "end_ms": 1789549732131,
+          "operation_envelope_ms": 1476,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-3",
+          "labels": [
+            "read_context"
+          ],
+          "start_ms": 1789549730655,
+          "end_ms": 1789549732131,
+          "operation_envelope_ms": 1476,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-4",
+          "labels": [
+            "read_skill"
+          ],
+          "start_ms": 1789549730655,
+          "end_ms": 1789549732131,
+          "operation_envelope_ms": 1476,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-5",
+          "labels": [
+            "read_query_terms"
+          ],
+          "start_ms": 1789549740069,
+          "end_ms": 1789549741557,
+          "operation_envelope_ms": 1488,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-6",
+          "labels": [
+            "read_ai_reading"
+          ],
+          "start_ms": 1789549740069,
+          "end_ms": 1789549741557,
+          "operation_envelope_ms": 1488,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-7",
+          "labels": [
+            "read_driver"
+          ],
+          "start_ms": 1789549740069,
+          "end_ms": 1789549741557,
+          "operation_envelope_ms": 1488,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-8",
+          "labels": [
+            "mark_reader_started_correct_path"
+          ],
+          "start_ms": 1789549747490,
+          "end_ms": 1789549748839,
+          "operation_envelope_ms": 1349,
+          "last_exit_code": 1,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-9",
+          "labels": [
+            "mark_reader_started_escalated"
+          ],
+          "start_ms": 1789549754275,
+          "end_ms": 1789549759485,
+          "operation_envelope_ms": 5210,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-10",
+          "labels": [
+            "reading_view_initial"
+          ],
+          "start_ms": 1789549766285,
+          "end_ms": 1789549772955,
+          "operation_envelope_ms": 6670,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-view"
+          ],
+          "backend_dispatch_ms": 1383.7171,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-11",
+          "labels": [
+            "read_latency_state"
+          ],
+          "start_ms": 1789549781261,
+          "end_ms": 1789549782625,
+          "operation_envelope_ms": 1364,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-12",
+          "labels": [
+            "create_requests_directory"
+          ],
+          "start_ms": 1789549809084,
+          "end_ms": 1789549813014,
+          "operation_envelope_ms": 3930,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-13",
+          "labels": [
+            "construct_recall_request"
+          ],
+          "start_ms": 1789549828680,
+          "end_ms": 1789549834227,
+          "operation_envelope_ms": 5547,
+          "last_exit_code": null,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-14",
+          "labels": [
+            "reading_recall"
+          ],
+          "start_ms": 1789549840807,
+          "end_ms": 1789549848268,
+          "operation_envelope_ms": 7461,
+          "last_exit_code": 1,
+          "matched_actions": [
+            "reading-recall"
+          ],
+          "backend_dispatch_ms": 1425.1391,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-15",
+          "labels": [
+            "repair_recall_request"
+          ],
+          "start_ms": 1789549854899,
+          "end_ms": 1789549861591,
+          "operation_envelope_ms": 6692,
+          "last_exit_code": null,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "14304",
+          "labels": [
+            "reading_recall_retry",
+            "reading_recall_retry_poll_1",
+            "reading_recall_retry_poll_2"
+          ],
+          "start_ms": 1789549972667,
+          "end_ms": 1789550072960,
+          "operation_envelope_ms": 100293,
+          "last_exit_code": 1,
+          "matched_actions": [
+            "reading-recall"
+          ],
+          "backend_dispatch_ms": 79706.2783,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-19",
+          "labels": [
+            "mark_reader_finished"
+          ],
+          "start_ms": 1789550084672,
+          "end_ms": 1789550089603,
+          "operation_envelope_ms": 4931,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-20",
+          "labels": [
+            "create_raw_directory"
+          ],
+          "start_ms": 1789550108558,
+          "end_ms": 1789550115024,
+          "operation_envelope_ms": 6466,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "main",
+          "session_key": "single-0",
+          "labels": [
+            "prepare"
+          ],
+          "start_ms": 1789549232557,
+          "end_ms": 1789549241553,
+          "operation_envelope_ms": 8996,
+          "last_exit_code": 1,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "main",
+          "session_key": "single-1",
+          "labels": [
+            "prepare_formal"
+          ],
+          "start_ms": 1789549670209,
+          "end_ms": 1789549679689,
+          "operation_envelope_ms": 9480,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-template",
+            "reading-start",
+            "reading-delegate"
+          ],
+          "backend_dispatch_ms": 2636.1774,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        }
+      ],
+      "imports_ms": {
+        "stdlib_unique_pid_ms": 90.8439,
+        "backend_call_import_ms": 265.0675,
+        "settings_import_ms": 51.5635
+      },
+      "missing_successful_stages": [
+        "reading-recall",
+        "reading-read",
+        "reading-note",
+        "reading-decide",
+        "reading-handoff"
+      ],
+      "context_accepted": false,
+      "context_coverage_complete": null,
+      "prepare_entry_to_context_accepted_ms": null,
+      "warm_followup_sent_to_context_accepted_ms": null,
+      "reader_followup_received_to_context_accepted_ms": null,
+      "context_received_to_accepted_ms": null,
+      "note_stage": {
+        "explicit_start_ms": null,
+        "failed_tool_start_ms": null,
+        "success_api_start_ms": null,
+        "start_to_success_api_ms": null,
+        "first_failed_tool_to_success_api_ms": null,
+        "meaning": "包含理解、草拟、工具错误修复和调度，不是纯推理耗时。"
+      }
+    },
+    {
+      "run": "run-20260916t091635z-effbef761124",
+      "calls": [
+        {
+          "action": "reading-template",
+          "actor": "main",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789550344406749000,
+          "end_utc_ns": 1789550344436679000,
+          "response_chars": 2296,
+          "response_utf8_bytes": 2320,
+          "consumed": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.2196,
+            "backend_import_ms": 18.8519,
+            "coordinator_ms": 0.2276,
+            "dispatch_ms": 9.2394,
+            "close_ms": 0.0083,
+            "serialize_ms": 0.0319,
+            "persist_ms": 1.3654
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 1948,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 227,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 1948,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "goal": 8,
+            "conditions": 2,
+            "query": 1772,
+            "reranking": 57
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {
+            "/query/budget/wall_ms": 300000
+          },
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-start",
+          "actor": "main",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789550344438678400,
+          "end_utc_ns": 1789550345770985500,
+          "response_chars": 576,
+          "response_utf8_bytes": 750,
+          "consumed": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.2196,
+            "backend_import_ms": 0.0035,
+            "coordinator_ms": 0.3321,
+            "dispatch_ms": 1328.9026,
+            "close_ms": 0.0112,
+            "serialize_ms": 0.0352,
+            "persist_ms": 2.6498
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 228,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 227,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 228,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "revision": 1,
+            "next_action": 8,
+            "guidance": 117
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-delegate",
+          "actor": "main",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789550345771491900,
+          "end_utc_ns": 1789550347077071200,
+          "response_chars": 2995,
+          "response_utf8_bytes": 3871,
+          "consumed": {
+            "wall_ms": 1297,
+            "read_bytes": 4226,
+            "output_chars": 2638,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 1297,
+            "read_bytes": 4226,
+            "output_chars": 2638,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.2196,
+            "backend_import_ms": 0.0084,
+            "coordinator_ms": 0.4693,
+            "dispatch_ms": 1302.9664,
+            "close_ms": 0.0081,
+            "serialize_ms": 0.0549,
+            "persist_ms": 2.5422
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 2638,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 236,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 2638,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "revision": 1,
+            "route": 10,
+            "dispatched": 5,
+            "reason": 22,
+            "worker_brief": 2322,
+            "model_preference": 128
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {
+            "/worker_brief/query/budget/wall_ms": 300000
+          },
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-view",
+          "actor": "reader",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789550462247670000,
+          "end_utc_ns": 1789550463606948200,
+          "response_chars": 997,
+          "response_utf8_bytes": 1372,
+          "consumed": {
+            "wall_ms": 2561,
+            "read_bytes": 8461,
+            "output_chars": 2922,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 1264,
+            "read_bytes": 4235,
+            "output_chars": 284,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.9191,
+            "backend_import_ms": 75.7467,
+            "coordinator_ms": 0.2069,
+            "dispatch_ms": 1280.8304,
+            "close_ms": 0.011,
+            "serialize_ms": 0.0327,
+            "persist_ms": 2.2488
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 640,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 236,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 640,
+          "value_component_json_chars": {
+            "context_markdown": 219,
+            "phase": 7,
+            "round_count": 1,
+            "owner_id": 28,
+            "checkpoint_ref": 4,
+            "archived": 5,
+            "candidates": 2,
+            "unnoted_candidate_ids": 2,
+            "coverage": 2,
+            "guidance": 117,
+            "gaps": 2,
+            "session_id": 41,
+            "revision": 1
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 199,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 1,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 199,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-recall",
+          "actor": "reader",
+          "profile": false,
+          "status": "rejected",
+          "code": "BUDGET",
+          "start_utc_ns": 1789550490343853000,
+          "end_utc_ns": 1789550557855712300,
+          "response_chars": 505,
+          "response_utf8_bytes": 589,
+          "consumed": {
+            "wall_ms": 69841,
+            "read_bytes": 6235277,
+            "output_chars": 79954,
+            "candidates": 36,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 1655,
+            "model_calls": 11,
+            "model_input_tokens": 1655,
+            "model_output_tokens": 0,
+            "rerank_items": 4
+          },
+          "consumed_delta": {
+            "wall_ms": 67280,
+            "read_bytes": 6226816,
+            "output_chars": 77032,
+            "candidates": 36,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 1655,
+            "model_calls": 11,
+            "model_input_tokens": 1655,
+            "model_output_tokens": 0,
+            "rerank_items": 4
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.5163,
+            "backend_import_ms": 81.3895,
+            "coordinator_ms": 0.2319,
+            "dispatch_ms": 67427.8877,
+            "close_ms": 0.0148,
+            "serialize_ms": 0.0306,
+            "persist_ms": 2.2273
+          },
+          "top_level_json_chars": {
+            "status": 10,
+            "value": 4,
+            "code": 8,
+            "warnings": 25,
+            "issues": 96,
+            "consumed": 249,
+            "stop_reason": 8,
+            "basis": 4
+          },
+          "value_json_chars": 2,
+          "value_component_json_chars": {},
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        }
+      ],
+      "profile_details": [],
+      "outer_envelopes": [
+        {
+          "source": "reader",
+          "session_key": "single-0",
+          "labels": [
+            "host_first_timestamp"
+          ],
+          "start_ms": 1789550405701,
+          "end_ms": 1789550405701,
+          "operation_envelope_ms": 0,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-1",
+          "labels": [
+            "read_required_contracts"
+          ],
+          "start_ms": 1789550411727,
+          "end_ms": 1789550413030,
+          "operation_envelope_ms": 1303,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-2",
+          "labels": [
+            "read_latency_driver_contract"
+          ],
+          "start_ms": 1789550421094,
+          "end_ms": 1789550422633,
+          "operation_envelope_ms": 1539,
+          "last_exit_code": 1,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-3",
+          "labels": [
+            "locate_latency_artifacts"
+          ],
+          "start_ms": 1789550428568,
+          "end_ms": 1789550429687,
+          "operation_envelope_ms": 1119,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-4",
+          "labels": [
+            "read_latency_driver_contract_corrected_path"
+          ],
+          "start_ms": 1789550434681,
+          "end_ms": 1789550435981,
+          "operation_envelope_ms": 1300,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-5",
+          "labels": [
+            "driver_mark_reader_started"
+          ],
+          "start_ms": 1789550443281,
+          "end_ms": 1789550450611,
+          "operation_envelope_ms": 7330,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-6",
+          "labels": [
+            "reading_view"
+          ],
+          "start_ms": 1789550456868,
+          "end_ms": 1789550463691,
+          "operation_envelope_ms": 6823,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-view"
+          ],
+          "backend_dispatch_ms": 1280.8304,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-7",
+          "labels": [
+            "locate_prepared_recall_request"
+          ],
+          "start_ms": 1789550469253,
+          "end_ms": 1789550470620,
+          "operation_envelope_ms": 1367,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-8",
+          "labels": [
+            "read_prepared_recall_request"
+          ],
+          "start_ms": 1789550476174,
+          "end_ms": 1789550477481,
+          "operation_envelope_ms": 1307,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "16033",
+          "labels": [
+            "reading_recall",
+            "poll_reading_recall_session_16033",
+            "poll_reading_recall_session_16033_2",
+            "poll_reading_recall_session_16033_3",
+            "poll_reading_recall_session_16033_4_attempt",
+            "poll_reading_recall_session_16033_5"
+          ],
+          "start_ms": 1789550484520,
+          "end_ms": 1789550558590,
+          "operation_envelope_ms": 74070,
+          "last_exit_code": 1,
+          "matched_actions": [
+            "reading-recall"
+          ],
+          "backend_dispatch_ms": 67427.8877,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-15",
+          "labels": [
+            "driver_mark_reader_finished"
+          ],
+          "start_ms": 1789550568495,
+          "end_ms": 1789550572481,
+          "operation_envelope_ms": 3986,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-16",
+          "labels": [
+            "prepare_reader_outer_events_json"
+          ],
+          "start_ms": 1789550582047,
+          "end_ms": 1789550582047,
+          "operation_envelope_ms": 0,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "main",
+          "session_key": "single-0",
+          "labels": [
+            "control_prepare"
+          ],
+          "start_ms": 1789550334328,
+          "end_ms": 1789550347170,
+          "operation_envelope_ms": 12842,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-template",
+            "reading-start",
+            "reading-delegate"
+          ],
+          "backend_dispatch_ms": 2641.1084,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        }
+      ],
+      "imports_ms": {
+        "stdlib_unique_pid_ms": 61.655,
+        "backend_call_import_ms": 176.0,
+        "settings_import_ms": 55.487
+      },
+      "missing_successful_stages": [
+        "reading-recall",
+        "reading-read",
+        "reading-note",
+        "reading-decide",
+        "reading-handoff"
+      ],
+      "context_accepted": false,
+      "context_coverage_complete": null,
+      "prepare_entry_to_context_accepted_ms": null,
+      "warm_followup_sent_to_context_accepted_ms": null,
+      "reader_followup_received_to_context_accepted_ms": null,
+      "context_received_to_accepted_ms": null,
+      "note_stage": {
+        "explicit_start_ms": null,
+        "failed_tool_start_ms": null,
+        "success_api_start_ms": null,
+        "start_to_success_api_ms": null,
+        "first_failed_tool_to_success_api_ms": null,
+        "meaning": "包含理解、草拟、工具错误修复和调度，不是纯推理耗时。"
+      }
+    },
+    {
+      "run": "run-20260916t092432z-6976e1302de8",
+      "calls": [
+        {
+          "action": "reading-template",
+          "actor": "main",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789550870966815000,
+          "end_utc_ns": 1789550870996206300,
+          "response_chars": 2296,
+          "response_utf8_bytes": 2320,
+          "consumed": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 21.4134,
+            "backend_import_ms": 18.8855,
+            "coordinator_ms": 0.2252,
+            "dispatch_ms": 8.7205,
+            "close_ms": 0.0082,
+            "serialize_ms": 0.0325,
+            "persist_ms": 1.6924
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 1948,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 227,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 1948,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "goal": 8,
+            "conditions": 2,
+            "query": 1772,
+            "reranking": 57
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {
+            "/query/budget/wall_ms": 300000
+          },
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-start",
+          "actor": "main",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789550870998379800,
+          "end_utc_ns": 1789550872293841400,
+          "response_chars": 576,
+          "response_utf8_bytes": 750,
+          "consumed": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 0,
+            "read_bytes": 0,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 21.4134,
+            "backend_import_ms": 0.0028,
+            "coordinator_ms": 0.2189,
+            "dispatch_ms": 1292.1428,
+            "close_ms": 0.0112,
+            "serialize_ms": 0.0278,
+            "persist_ms": 2.5931
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 228,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 227,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 228,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "revision": 1,
+            "next_action": 8,
+            "guidance": 117
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-delegate",
+          "actor": "main",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789550872293841400,
+          "end_utc_ns": 1789550873572593600,
+          "response_chars": 2996,
+          "response_utf8_bytes": 3872,
+          "consumed": {
+            "wall_ms": 1250,
+            "read_bytes": 4227,
+            "output_chars": 2639,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 1250,
+            "read_bytes": 4227,
+            "output_chars": 2639,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 21.4134,
+            "backend_import_ms": 0.0039,
+            "coordinator_ms": 0.187,
+            "dispatch_ms": 1275.1487,
+            "close_ms": 0.0098,
+            "serialize_ms": 0.0559,
+            "persist_ms": 2.5786
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 2639,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 236,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 2639,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "revision": 1,
+            "route": 10,
+            "dispatched": 5,
+            "reason": 22,
+            "worker_brief": 2323,
+            "model_preference": 128
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {
+            "/worker_brief/query/budget/wall_ms": 300000
+          },
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-view",
+          "actor": "reader",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789550925857585200,
+          "end_utc_ns": 1789550927164972600,
+          "response_chars": 997,
+          "response_utf8_bytes": 1372,
+          "consumed": {
+            "wall_ms": 2468,
+            "read_bytes": 8463,
+            "output_chars": 2923,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "consumed_delta": {
+            "wall_ms": 1218,
+            "read_bytes": 4236,
+            "output_chars": 284,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.5463,
+            "backend_import_ms": 73.4942,
+            "coordinator_ms": 0.2961,
+            "dispatch_ms": 1231.3112,
+            "close_ms": 0.0124,
+            "serialize_ms": 0.0348,
+            "persist_ms": 1.9915
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 640,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 236,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 640,
+          "value_component_json_chars": {
+            "context_markdown": 219,
+            "phase": 7,
+            "round_count": 1,
+            "owner_id": 28,
+            "checkpoint_ref": 4,
+            "archived": 5,
+            "candidates": 2,
+            "unnoted_candidate_ids": 2,
+            "coverage": 2,
+            "guidance": 117,
+            "gaps": 2,
+            "session_id": 41,
+            "revision": 1
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 199,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 1,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 199,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-recall",
+          "actor": "reader",
+          "profile": false,
+          "status": "partial",
+          "code": null,
+          "start_utc_ns": 1789550938305884500,
+          "end_utc_ns": 1789550978337721200,
+          "response_chars": 355186,
+          "response_utf8_bytes": 362764,
+          "consumed": {
+            "wall_ms": 42296,
+            "read_bytes": 3592396,
+            "output_chars": 29783,
+            "candidates": 12,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 974,
+            "model_calls": 8,
+            "model_input_tokens": 974,
+            "model_output_tokens": 0,
+            "rerank_items": 2
+          },
+          "consumed_delta": {
+            "wall_ms": 39828,
+            "read_bytes": 3583933,
+            "output_chars": 26860,
+            "candidates": 12,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 974,
+            "model_calls": 8,
+            "model_input_tokens": 974,
+            "model_output_tokens": 0,
+            "rerank_items": 2
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.5246,
+            "backend_import_ms": 78.2125,
+            "coordinator_ms": 0.2273,
+            "dispatch_ms": 39947.2141,
+            "close_ms": 0.0152,
+            "serialize_ms": 1.5638,
+            "persist_ms": 4.1801
+          },
+          "top_level_json_chars": {
+            "status": 9,
+            "value": 354026,
+            "code": 4,
+            "warnings": 222,
+            "issues": 570,
+            "consumed": 246,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 354026,
+          "value_component_json_chars": {
+            "candidates": 347400,
+            "coverage": 6161,
+            "gaps": 222,
+            "guidance": 117,
+            "session_id": 41,
+            "revision": 1
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 2264,
+            "figure_data_url_chars": 327792,
+            "markdown_fields": 5,
+            "figure_data_url_fields": 2
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {
+            "/coverage/lanes/0/routes/0/elapsed_ms": 1299.947899999097,
+            "/coverage/lanes/0/routes/1/elapsed_ms": 3436.5872999915155,
+            "/coverage/lanes/0/routes/2/elapsed_ms": 4769.250399986049,
+            "/coverage/lanes/0/routes/3/elapsed_ms": 3328.682100007427,
+            "/coverage/lanes/0/routes/4/elapsed_ms": 2203.186900005676,
+            "/coverage/lanes/0/ranking/condition_ms": 0.006800008122809231,
+            "/coverage/lanes/0/ranking/model_load_ms": 1000.3329000028316,
+            "/coverage/lanes/0/ranking/inference_ms": 57.142499994370155,
+            "/coverage/lanes/0/ranking/total_ms": 1058.5266999987653,
+            "/coverage/lanes/0/ranking/input_ms": 5420.249999995576,
+            "/coverage/lanes/1/routes/0/elapsed_ms": 1363.4190000011586,
+            "/coverage/lanes/1/routes/1/elapsed_ms": 1401.6791000030935,
+            "/coverage/lanes/1/routes/2/elapsed_ms": 1543.83229999803,
+            "/coverage/lanes/1/routes/3/elapsed_ms": 1404.6333000005689,
+            "/coverage/lanes/1/routes/4/elapsed_ms": 1590.3895999945235,
+            "/coverage/lanes/1/ranking/condition_ms": 0.005699999746866524,
+            "/coverage/lanes/1/ranking/model_load_ms": 1.9594000041252002,
+            "/coverage/lanes/1/ranking/inference_ms": 31.692199991084635,
+            "/coverage/lanes/1/ranking/total_ms": 34.50169999268837,
+            "/coverage/lanes/1/ranking/input_ms": 1566.7893000063486,
+            "/coverage/lanes/2/routes/0/elapsed_ms": 1313.888800010318,
+            "/coverage/lanes/2/routes/1/elapsed_ms": 1316.3403999933507,
+            "/coverage/lanes/2/routes/2/elapsed_ms": 1434.8617999930866,
+            "/coverage/lanes/2/routes/3/elapsed_ms": 1267.7586000063457,
+            "/coverage/lanes/2/routes/4/elapsed_ms": 1438.7583999923663,
+            "/coverage/lanes/2/ranking/condition_ms": 0.0048000074457377195,
+            "/coverage/lanes/2/ranking/model_load_ms": 1.597299997229129,
+            "/coverage/lanes/2/ranking/inference_ms": 0.0,
+            "/coverage/lanes/2/ranking/total_ms": 2.9678999999305233,
+            "/coverage/lanes/2/ranking/input_ms": 1455.6046999932732
+          },
+          "route_elapsed_sum_ms": 29113.215899982606,
+          "ce_timings_ms": {
+            "condition_ms": 0.017300015315413475,
+            "model_load_ms": 1003.8896000041859,
+            "inference_ms": 88.83469998545479,
+            "total_ms": 1095.9962999913841,
+            "input_ms": 8442.643999995198
+          }
+        },
+        {
+          "action": "reading-read",
+          "actor": "reader",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789551008659587900,
+          "end_utc_ns": 1789551017575669400,
+          "response_chars": 332692,
+          "response_utf8_bytes": 334552,
+          "consumed": {
+            "wall_ms": 51093,
+            "read_bytes": 4895959,
+            "output_chars": 31446,
+            "candidates": 12,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 974,
+            "model_calls": 8,
+            "model_input_tokens": 974,
+            "model_output_tokens": 0,
+            "rerank_items": 2
+          },
+          "consumed_delta": {
+            "wall_ms": 8797,
+            "read_bytes": 1303563,
+            "output_chars": 1663,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.3674,
+            "backend_import_ms": 80.3871,
+            "coordinator_ms": 0.2268,
+            "dispatch_ms": 8829.5212,
+            "close_ms": 0.0128,
+            "serialize_ms": 1.4054,
+            "persist_ms": 4.2353
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 332325,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 246,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 332325,
+          "value_component_json_chars": {
+            "readings": 332227,
+            "gaps": 2,
+            "session_id": 41,
+            "revision": 1
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 1618,
+            "figure_data_url_chars": 327792,
+            "markdown_fields": 2,
+            "figure_data_url_fields": 2
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-note",
+          "actor": "reader",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789551208433055400,
+          "end_utc_ns": 1789551215967221000,
+          "response_chars": 688,
+          "response_utf8_bytes": 696,
+          "consumed": {
+            "wall_ms": 58420,
+            "read_bytes": 5752977,
+            "output_chars": 31446,
+            "candidates": 12,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 974,
+            "model_calls": 8,
+            "model_input_tokens": 974,
+            "model_output_tokens": 0,
+            "rerank_items": 2
+          },
+          "consumed_delta": {
+            "wall_ms": 7327,
+            "read_bytes": 857018,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 21.4531,
+            "backend_import_ms": 163.4977,
+            "coordinator_ms": 0.2369,
+            "dispatch_ms": 7367.6522,
+            "close_ms": 0.0106,
+            "serialize_ms": 0.0247,
+            "persist_ms": 2.9142
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 321,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 246,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 321,
+          "value_component_json_chars": {
+            "saved": 4,
+            "candidate_id": 29,
+            "link": 177,
+            "session_id": 41,
+            "revision": 1
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-decide",
+          "actor": "reader",
+          "profile": false,
+          "status": "ok",
+          "code": null,
+          "start_utc_ns": 1789551240877494600,
+          "end_utc_ns": 1789551246989843600,
+          "response_chars": 603,
+          "response_utf8_bytes": 693,
+          "consumed": {
+            "wall_ms": 64420,
+            "read_bytes": 6573169,
+            "output_chars": 31446,
+            "candidates": 12,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 974,
+            "model_calls": 8,
+            "model_input_tokens": 974,
+            "model_output_tokens": 0,
+            "rerank_items": 2
+          },
+          "consumed_delta": {
+            "wall_ms": 6000,
+            "read_bytes": 820192,
+            "output_chars": 0,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 23.7883,
+            "backend_import_ms": 77.9961,
+            "coordinator_ms": 0.267,
+            "dispatch_ms": 6030.2663,
+            "close_ms": 0.0154,
+            "serialize_ms": 0.0429,
+            "persist_ms": 3.1429
+          },
+          "top_level_json_chars": {
+            "status": 4,
+            "value": 236,
+            "code": 4,
+            "warnings": 2,
+            "issues": 2,
+            "consumed": 246,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 236,
+          "value_component_json_chars": {
+            "direction": 8,
+            "next_step": 77,
+            "needs_user_input": 5,
+            "expansion_count": 1,
+            "session_id": 41,
+            "revision": 1
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 0,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 0,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 0,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-handoff",
+          "actor": "main",
+          "profile": false,
+          "status": "partial",
+          "code": null,
+          "start_utc_ns": 1789551308548746200,
+          "end_utc_ns": 1789551314575736000,
+          "response_chars": 2753,
+          "response_utf8_bytes": 4798,
+          "consumed": {
+            "wall_ms": 70357,
+            "read_bytes": 7394076,
+            "output_chars": 33686,
+            "candidates": 12,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 974,
+            "model_calls": 8,
+            "model_input_tokens": 974,
+            "model_output_tokens": 0,
+            "rerank_items": 2
+          },
+          "consumed_delta": {
+            "wall_ms": 5937,
+            "read_bytes": 820907,
+            "output_chars": 2240,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 24.5423,
+            "backend_import_ms": 73.5038,
+            "coordinator_ms": 0.289,
+            "dispatch_ms": 5950.1496,
+            "close_ms": 0.0121,
+            "serialize_ms": 0.0443,
+            "persist_ms": 3.0948
+          },
+          "top_level_json_chars": {
+            "status": 9,
+            "value": 2240,
+            "code": 4,
+            "warnings": 29,
+            "issues": 116,
+            "consumed": 246,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 2240,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "revision": 1,
+            "context_markdown": 1969,
+            "phase": 8,
+            "complete": 5,
+            "notes_count": 1,
+            "omitted_note_count": 1,
+            "unnoted_candidate_count": 1,
+            "gaps": 29,
+            "needs_user_input": 5
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 1901,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 1,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 1901,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        },
+        {
+          "action": "reading-handoff",
+          "actor": "main",
+          "profile": true,
+          "status": "partial",
+          "code": null,
+          "start_utc_ns": 1789551374731749600,
+          "end_utc_ns": 1789551386426328700,
+          "response_chars": 2753,
+          "response_utf8_bytes": 4798,
+          "consumed": {
+            "wall_ms": 81918,
+            "read_bytes": 8214983,
+            "output_chars": 35926,
+            "candidates": 12,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 974,
+            "model_calls": 8,
+            "model_input_tokens": 974,
+            "model_output_tokens": 0,
+            "rerank_items": 2
+          },
+          "consumed_delta": {
+            "wall_ms": 11561,
+            "read_bytes": 820907,
+            "output_chars": 2240,
+            "candidates": 0,
+            "graph_nodes": 0,
+            "graph_edges": 0,
+            "graph_hops": 0,
+            "model_tokens": 0,
+            "model_calls": 0,
+            "model_input_tokens": 0,
+            "model_output_tokens": 0,
+            "rerank_items": 0
+          },
+          "phase_ms": {
+            "stdlib_import_ms": 20.6989,
+            "backend_import_ms": 75.9005,
+            "coordinator_ms": 0.3553,
+            "dispatch_ms": 11602.0569,
+            "close_ms": 0.0213,
+            "serialize_ms": 0.0394,
+            "persist_ms": 1.918
+          },
+          "top_level_json_chars": {
+            "status": 9,
+            "value": 2240,
+            "code": 4,
+            "warnings": 29,
+            "issues": 116,
+            "consumed": 246,
+            "stop_reason": 4,
+            "basis": 4
+          },
+          "value_json_chars": 2240,
+          "value_component_json_chars": {
+            "session_id": 41,
+            "revision": 1,
+            "context_markdown": 1969,
+            "phase": 8,
+            "complete": 5,
+            "notes_count": 1,
+            "omitted_note_count": 1,
+            "unnoted_candidate_count": 1,
+            "gaps": 29,
+            "needs_user_input": 5
+          },
+          "raw_string_sizes": {
+            "markdown_chars": 1901,
+            "figure_data_url_chars": 0,
+            "markdown_fields": 1,
+            "figure_data_url_fields": 0
+          },
+          "handoff_context_markdown_chars": 1901,
+          "coverage_timings_ms": {},
+          "route_elapsed_sum_ms": 0,
+          "ce_timings_ms": {
+            "condition_ms": 0,
+            "model_load_ms": 0,
+            "inference_ms": 0,
+            "total_ms": 0,
+            "input_ms": 0
+          }
+        }
+      ],
+      "profile_details": [
+        {
+          "action": "reading-handoff",
+          "top": {
+            "cumulative": [
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\api.py",
+                "line": 19,
+                "function": "dispatch",
+                "calls": 1,
+                "exclusive_s": 1.69e-05,
+                "cumulative_s": 11.602050700000001
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\reading.py",
+                "line": 635,
+                "function": "dispatch",
+                "calls": 1,
+                "exclusive_s": 5.8800000000000006e-05,
+                "cumulative_s": 11.5922278
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\reading.py",
+                "line": 110,
+                "function": "dispatch",
+                "calls": 1,
+                "exclusive_s": 0.0006124,
+                "cumulative_s": 11.5921667
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\reading.py",
+                "line": 235,
+                "function": "reauthorize",
+                "calls": 1,
+                "exclusive_s": 0.0001376,
+                "cumulative_s": 11.560686500000001
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\reader.py",
+                "line": 161,
+                "function": "record",
+                "calls": 7,
+                "exclusive_s": 0.0001072,
+                "cumulative_s": 8.703241700000001
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\reader.py",
+                "line": 195,
+                "function": "authorize_sources",
+                "calls": 7,
+                "exclusive_s": 0.0099441,
+                "cumulative_s": 8.579017
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\owners.py",
+                "line": 72,
+                "function": "safe_path",
+                "calls": 7972,
+                "exclusive_s": 0.5932969,
+                "cumulative_s": 7.4837104000000005
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\reader.py",
+                "line": 67,
+                "function": "read_record",
+                "calls": 926,
+                "exclusive_s": 0.006741700000000001,
+                "cumulative_s": 6.8362176
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\store.py",
+                "line": 76,
+                "function": "path",
+                "calls": 3478,
+                "exclusive_s": 0.011824000000000001,
+                "cumulative_s": 5.1002834
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\store.py",
+                "line": 126,
+                "function": "_manifest",
+                "calls": 1612,
+                "exclusive_s": 0.013622200000000001,
+                "cumulative_s": 3.4661468
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\reader.py",
+                "line": 55,
+                "function": "head_manifest",
+                "calls": 940,
+                "exclusive_s": 0.008227400000000001,
+                "cumulative_s": 3.4026644000000004
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\coordinator.py",
+                "line": 221,
+                "function": "reader",
+                "calls": 1,
+                "exclusive_s": 1.15e-05,
+                "cumulative_s": 2.8222300000000002
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\reader.py",
+                "line": 85,
+                "function": "__init__",
+                "calls": 1,
+                "exclusive_s": 0.0007025,
+                "cumulative_s": 2.8222144
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\owners.py",
+                "line": 208,
+                "function": "list_owners",
+                "calls": 1,
+                "exclusive_s": 0.037977500000000004,
+                "cumulative_s": 2.8210925000000002
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\store.py",
+                "line": 140,
+                "function": "_record",
+                "calls": 926,
+                "exclusive_s": 0.0221054,
+                "cumulative_s": 2.1034832000000003
+              },
+              {
+                "file": "pathlib.py",
+                "line": 835,
+                "function": "stat",
+                "calls": 67676,
+                "exclusive_s": 0.0217579,
+                "cumulative_s": 2.0056792000000003
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method nt.stat>",
+                "calls": 67751,
+                "exclusive_s": 1.4045697000000001,
+                "cumulative_s": 1.9857083000000002
+              },
+              {
+                "file": "pathlib.py",
+                "line": 1050,
+                "function": "iterdir",
+                "calls": 331485,
+                "exclusive_s": 0.09489550000000001,
+                "cumulative_s": 1.9266296
+              },
+              {
+                "file": "pathlib.py",
+                "line": 842,
+                "function": "lstat",
+                "calls": 54055,
+                "exclusive_s": 0.019791800000000002,
+                "cumulative_s": 1.6401336000000002
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\owners.py",
+                "line": 220,
+                "function": "_safe",
+                "calls": 3545,
+                "exclusive_s": 0.0048843,
+                "cumulative_s": 1.5341122
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\contracts.py",
+                "line": 50,
+                "function": "canonical_hash",
+                "calls": 3546,
+                "exclusive_s": 0.0143686,
+                "cumulative_s": 1.4459466
+              },
+              {
+                "file": "pathlib.py",
+                "line": 380,
+                "function": "with_segments",
+                "calls": 515607,
+                "exclusive_s": 0.3171838,
+                "cumulative_s": 1.4356911
+              },
+              {
+                "file": "pathlib.py",
+                "line": 437,
+                "function": "__str__",
+                "calls": 547766,
+                "exclusive_s": 0.1851703,
+                "cumulative_s": 1.4196991
+              },
+              {
+                "file": "pathlib.py",
+                "line": 1228,
+                "function": "resolve",
+                "calls": 9770,
+                "exclusive_s": 0.0210948,
+                "cumulative_s": 1.3999671
+              },
+              {
+                "file": "pathlib.py",
+                "line": 551,
+                "function": "drive",
+                "calls": 439381,
+                "exclusive_s": 0.12331840000000001,
+                "cumulative_s": 1.2764137
+              },
+              {
+                "file": "pathlib.py",
+                "line": 1065,
+                "function": "_make_child_relpath",
+                "calls": 308106,
+                "exclusive_s": 0.3803588,
+                "cumulative_s": 1.2646807
+              },
+              {
+                "file": "pathlib.py",
+                "line": 407,
+                "function": "_load_parts",
+                "calls": 99875,
+                "exclusive_s": 0.12297910000000001,
+                "cumulative_s": 1.1530953000000002
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\contracts.py",
+                "line": 52,
+                "function": "check",
+                "calls": 943504,
+                "exclusive_s": 0.5890259,
+                "cumulative_s": 1.0476339000000001
+              },
+              {
+                "file": "<frozen ntpath>",
+                "line": 705,
+                "function": "realpath",
+                "calls": 9770,
+                "exclusive_s": 0.043635900000000005,
+                "cumulative_s": 1.0195848
+              },
+              {
+                "file": "pathlib.py",
+                "line": 690,
+                "function": "is_relative_to",
+                "calls": 11541,
+                "exclusive_s": 0.0256328,
+                "cumulative_s": 0.9787072000000001
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\service.py",
+                "line": 88,
+                "function": "_file",
+                "calls": 446,
+                "exclusive_s": 0.0259674,
+                "cumulative_s": 0.9431095
+              },
+              {
+                "file": "pathlib.py",
+                "line": 1157,
+                "function": "__init__",
+                "calls": 528063,
+                "exclusive_s": 0.24936850000000002,
+                "cumulative_s": 0.9421732
+              },
+              {
+                "file": "pathlib.py",
+                "line": 484,
+                "function": "_str_normcase",
+                "calls": 315764,
+                "exclusive_s": 0.16456890000000002,
+                "cumulative_s": 0.9234872000000001
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\material_query\\reader.py",
+                "line": 134,
+                "function": "locate",
+                "calls": 463,
+                "exclusive_s": 0.0036554,
+                "cumulative_s": 0.8840165000000001
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method nt._getfinalpathname>",
+                "calls": 19607,
+                "exclusive_s": 0.8069373000000001,
+                "cumulative_s": 0.8069373000000001
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method builtins.any>",
+                "calls": 211903,
+                "exclusive_s": 0.14683490000000002,
+                "cumulative_s": 0.7331789000000001
+              },
+              {
+                "file": "pathlib.py",
+                "line": 358,
+                "function": "__init__",
+                "calls": 536035,
+                "exclusive_s": 0.44262860000000004,
+                "cumulative_s": 0.7051692
+              },
+              {
+                "file": "<frozen _collections_abc>",
+                "line": 1032,
+                "function": "__contains__",
+                "calls": 11541,
+                "exclusive_s": 0.0519835,
+                "cumulative_s": 0.6995788000000001
+              },
+              {
+                "file": "pathlib.py",
+                "line": 447,
+                "function": "__fspath__",
+                "calls": 108512,
+                "exclusive_s": 0.0428803,
+                "cumulative_s": 0.6695634
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'get' of 'dict' objects>",
+                "calls": 156084,
+                "exclusive_s": 0.0500545,
+                "cumulative_s": 0.6016038
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\index.py",
+                "line": 39,
+                "function": "connect",
+                "calls": 463,
+                "exclusive_s": 0.0018151,
+                "cumulative_s": 0.5784579000000001
+              },
+              {
+                "file": "pathlib.py",
+                "line": 524,
+                "function": "__hash__",
+                "calls": 63078,
+                "exclusive_s": 0.0338579,
+                "cumulative_s": 0.5684312
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method nt.listdir>",
+                "calls": 23379,
+                "exclusive_s": 0.5566039,
+                "cumulative_s": 0.5670534
+              },
+              {
+                "file": "<frozen _collections_abc>",
+                "line": 1022,
+                "function": "__iter__",
+                "calls": 103014,
+                "exclusive_s": 0.0449671,
+                "cumulative_s": 0.566891
+              },
+              {
+                "file": "pathlib.py",
+                "line": 387,
+                "function": "_parse_path",
+                "calls": 99875,
+                "exclusive_s": 0.2671143,
+                "cumulative_s": 0.5628158000000001
+              },
+              {
+                "file": "pathlib.py",
+                "line": 277,
+                "function": "__getitem__",
+                "calls": 91473,
+                "exclusive_s": 0.085483,
+                "cumulative_s": 0.5219239
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\index.py",
+                "line": 34,
+                "function": "database_path",
+                "calls": 463,
+                "exclusive_s": 0.0027275000000000003,
+                "cumulative_s": 0.521749
+              },
+              {
+                "file": "pathlib.py",
+                "line": 663,
+                "function": "relative_to",
+                "calls": 3569,
+                "exclusive_s": 0.0219763,
+                "cumulative_s": 0.5144235
+              },
+              {
+                "file": "pathlib.py",
+                "line": 519,
+                "function": "__eq__",
+                "calls": 142237,
+                "exclusive_s": 0.0745252,
+                "cumulative_s": 0.4850014
+              },
+              {
+                "file": "<frozen ntpath>",
+                "line": 107,
+                "function": "join",
+                "calls": 59065,
+                "exclusive_s": 0.16599060000000002,
+                "cumulative_s": 0.45002810000000004
+              }
+            ],
+            "exclusive": [
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method nt.stat>",
+                "calls": 67751,
+                "exclusive_s": 1.4045697000000001,
+                "cumulative_s": 1.9857083000000002
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method nt._getfinalpathname>",
+                "calls": 19607,
+                "exclusive_s": 0.8069373000000001,
+                "cumulative_s": 0.8069373000000001
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\owners.py",
+                "line": 72,
+                "function": "safe_path",
+                "calls": 7972,
+                "exclusive_s": 0.5932969,
+                "cumulative_s": 7.4837104000000005
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\contracts.py",
+                "line": 52,
+                "function": "check",
+                "calls": 943504,
+                "exclusive_s": 0.5890259,
+                "cumulative_s": 1.0476339000000001
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method nt.listdir>",
+                "calls": 23379,
+                "exclusive_s": 0.5566039,
+                "cumulative_s": 0.5670534
+              },
+              {
+                "file": "pathlib.py",
+                "line": 358,
+                "function": "__init__",
+                "calls": 536035,
+                "exclusive_s": 0.44262860000000004,
+                "cumulative_s": 0.7051692
+              },
+              {
+                "file": "pathlib.py",
+                "line": 1065,
+                "function": "_make_child_relpath",
+                "calls": 308106,
+                "exclusive_s": 0.3803588,
+                "cumulative_s": 1.2646807
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method builtins.isinstance>",
+                "calls": 4579552,
+                "exclusive_s": 0.37557450000000003,
+                "cumulative_s": 0.37557450000000003
+              },
+              {
+                "file": "pathlib.py",
+                "line": 380,
+                "function": "with_segments",
+                "calls": 515607,
+                "exclusive_s": 0.3171838,
+                "cumulative_s": 1.4356911
+              },
+              {
+                "file": "json\\encoder.py",
+                "line": 205,
+                "function": "iterencode",
+                "calls": 3487,
+                "exclusive_s": 0.29065640000000004,
+                "cumulative_s": 0.2906592
+              },
+              {
+                "file": "<frozen ntpath>",
+                "line": 179,
+                "function": "splitroot",
+                "calls": 376452,
+                "exclusive_s": 0.2720706,
+                "cumulative_s": 0.39731560000000005
+              },
+              {
+                "file": "pathlib.py",
+                "line": 387,
+                "function": "_parse_path",
+                "calls": 99875,
+                "exclusive_s": 0.2671143,
+                "cumulative_s": 0.5628158000000001
+              },
+              {
+                "file": "pathlib.py",
+                "line": 1157,
+                "function": "__init__",
+                "calls": 528063,
+                "exclusive_s": 0.24936850000000002,
+                "cumulative_s": 0.9421732
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'execute' of 'sqlite3.Connection' objects>",
+                "calls": 463,
+                "exclusive_s": 0.22964630000000003,
+                "cumulative_s": 0.22964630000000003
+              },
+              {
+                "file": "pathlib.py",
+                "line": 437,
+                "function": "__str__",
+                "calls": 547766,
+                "exclusive_s": 0.1851703,
+                "cumulative_s": 1.4196991
+              },
+              {
+                "file": "json\\decoder.py",
+                "line": 344,
+                "function": "raw_decode",
+                "calls": 2913,
+                "exclusive_s": 0.1706096,
+                "cumulative_s": 0.1706096
+              },
+              {
+                "file": "<frozen ntpath>",
+                "line": 107,
+                "function": "join",
+                "calls": 59065,
+                "exclusive_s": 0.16599060000000002,
+                "cumulative_s": 0.45002810000000004
+              },
+              {
+                "file": "pathlib.py",
+                "line": 484,
+                "function": "_str_normcase",
+                "calls": 315764,
+                "exclusive_s": 0.16456890000000002,
+                "cumulative_s": 0.9234872000000001
+              },
+              {
+                "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\scripts\\memory\\contracts.py",
+                "line": 56,
+                "function": "<genexpr>",
+                "calls": 1038087,
+                "exclusive_s": 0.15546100000000002,
+                "cumulative_s": 0.2055633
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method builtins.any>",
+                "calls": 211903,
+                "exclusive_s": 0.14683490000000002,
+                "cumulative_s": 0.7331789000000001
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'read' of '_io.TextIOWrapper' objects>",
+                "calls": 1923,
+                "exclusive_s": 0.1438936,
+                "cumulative_s": 0.1857264
+              },
+              {
+                "file": "pathlib.py",
+                "line": 1164,
+                "function": "__new__",
+                "calls": 528063,
+                "exclusive_s": 0.1294931,
+                "cumulative_s": 0.21215050000000002
+              },
+              {
+                "file": "pathlib.py",
+                "line": 583,
+                "function": "name",
+                "calls": 619240,
+                "exclusive_s": 0.126054,
+                "cumulative_s": 0.16838350000000002
+              },
+              {
+                "file": "pathlib.py",
+                "line": 551,
+                "function": "drive",
+                "calls": 439381,
+                "exclusive_s": 0.12331840000000001,
+                "cumulative_s": 1.2764137
+              },
+              {
+                "file": "pathlib.py",
+                "line": 407,
+                "function": "_load_parts",
+                "calls": 99875,
+                "exclusive_s": 0.12297910000000001,
+                "cumulative_s": 1.1530953000000002
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'append' of 'list' objects>",
+                "calls": 848833,
+                "exclusive_s": 0.1079896,
+                "cumulative_s": 0.1079896
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method sys.intern>",
+                "calls": 582997,
+                "exclusive_s": 0.1024213,
+                "cumulative_s": 0.1024213
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method _io.open>",
+                "calls": 2956,
+                "exclusive_s": 0.09868260000000001,
+                "cumulative_s": 0.10357630000000001
+              },
+              {
+                "file": "pathlib.py",
+                "line": 1050,
+                "function": "iterdir",
+                "calls": 331485,
+                "exclusive_s": 0.09489550000000001,
+                "cumulative_s": 1.9266296
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method nt.fspath>",
+                "calls": 998791,
+                "exclusive_s": 0.0938022,
+                "cumulative_s": 0.0938061
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'replace' of 'str' objects>",
+                "calls": 517515,
+                "exclusive_s": 0.08844930000000001,
+                "cumulative_s": 0.08844930000000001
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method builtins.len>",
+                "calls": 639177,
+                "exclusive_s": 0.08614780000000001,
+                "cumulative_s": 0.11693590000000001
+              },
+              {
+                "file": "pathlib.py",
+                "line": 277,
+                "function": "__getitem__",
+                "calls": 91473,
+                "exclusive_s": 0.085483,
+                "cumulative_s": 0.5219239
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method __new__ of type object at 0x00007FF9862298F0>",
+                "calls": 536179,
+                "exclusive_s": 0.0848111,
+                "cumulative_s": 0.08506620000000001
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'lower' of 'str' objects>",
+                "calls": 130583,
+                "exclusive_s": 0.08364310000000001,
+                "cumulative_s": 0.08364310000000001
+              },
+              {
+                "file": "pathlib.py",
+                "line": 519,
+                "function": "__eq__",
+                "calls": 142237,
+                "exclusive_s": 0.0745252,
+                "cumulative_s": 0.4850014
+              },
+              {
+                "file": "pathlib.py",
+                "line": 429,
+                "function": "_format_parsed_parts",
+                "calls": 175355,
+                "exclusive_s": 0.0743216,
+                "cumulative_s": 0.1357778
+              },
+              {
+                "file": "pathlib.py",
+                "line": 569,
+                "function": "_tail",
+                "calls": 1041914,
+                "exclusive_s": 0.0736692,
+                "cumulative_s": 0.0736692
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<built-in method nt.lstat>",
+                "calls": 4256,
+                "exclusive_s": 0.06848900000000001,
+                "cumulative_s": 0.07017090000000001
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'setdefault' of 'dict' objects>",
+                "calls": 315217,
+                "exclusive_s": 0.06770920000000001,
+                "cumulative_s": 0.06770920000000001
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'casefold' of 'str' objects>",
+                "calls": 359913,
+                "exclusive_s": 0.0609519,
+                "cumulative_s": 0.0609519
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'join' of 'str' objects>",
+                "calls": 179036,
+                "exclusive_s": 0.0569264,
+                "cumulative_s": 0.0569283
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'split' of 'str' objects>",
+                "calls": 107848,
+                "exclusive_s": 0.0522127,
+                "cumulative_s": 0.0522127
+              },
+              {
+                "file": "<frozen _collections_abc>",
+                "line": 1032,
+                "function": "__contains__",
+                "calls": 11541,
+                "exclusive_s": 0.0519835,
+                "cumulative_s": 0.6995788000000001
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'get' of 'dict' objects>",
+                "calls": 156084,
+                "exclusive_s": 0.0500545,
+                "cumulative_s": 0.6016038
+              },
+              {
+                "file": "~",
+                "line": 0,
+                "function": "<method 'fetchall' of 'sqlite3.Cursor' objects>",
+                "calls": 463,
+                "exclusive_s": 0.048622200000000004,
+                "cumulative_s": 0.048622200000000004
+              },
+              {
+                "file": "pathlib.py",
+                "line": 420,
+                "function": "_from_parsed_parts",
+                "calls": 87511,
+                "exclusive_s": 0.0485002,
+                "cumulative_s": 0.3410897
+              },
+              {
+                "file": "pathlib.py",
+                "line": 711,
+                "function": "joinpath",
+                "calls": 91541,
+                "exclusive_s": 0.047497000000000004,
+                "cumulative_s": 0.34964480000000003
+              },
+              {
+                "file": "<frozen _collections_abc>",
+                "line": 1022,
+                "function": "__iter__",
+                "calls": 103014,
+                "exclusive_s": 0.0449671,
+                "cumulative_s": 0.566891
+              },
+              {
+                "file": "<frozen ntpath>",
+                "line": 705,
+                "function": "realpath",
+                "calls": 9770,
+                "exclusive_s": 0.043635900000000005,
+                "cumulative_s": 1.0195848
+              }
+            ]
+          }
+        }
+      ],
+      "outer_envelopes": [
+        {
+          "source": "reader",
+          "session_key": "single-0",
+          "labels": [
+            "followup_received_and_host_start"
+          ],
+          "start_ms": 1789550904193,
+          "end_ms": 1789550904193,
+          "operation_envelope_ms": 0,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-1",
+          "labels": [
+            "driver_mark_reader_started"
+          ],
+          "start_ms": 1789550910482,
+          "end_ms": 1789550914668,
+          "operation_envelope_ms": 4186,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-2",
+          "labels": [
+            "reading_view"
+          ],
+          "start_ms": 1789550920671,
+          "end_ms": 1789550927244,
+          "operation_envelope_ms": 6573,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-view"
+          ],
+          "backend_dispatch_ms": 1231.3112,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "94751",
+          "labels": [
+            "reading_recall",
+            "poll_reading_recall_94751",
+            "poll_reading_recall_94751_2"
+          ],
+          "start_ms": 1789550934019,
+          "end_ms": 1789550978414,
+          "operation_envelope_ms": 44395,
+          "last_exit_code": null,
+          "matched_actions": [
+            "reading-recall"
+          ],
+          "backend_dispatch_ms": 39947.2141,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-6",
+          "labels": [
+            "prepare_read_request"
+          ],
+          "start_ms": 1789550986273,
+          "end_ms": 1789550986273,
+          "operation_envelope_ms": 0,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-7",
+          "labels": [
+            "reading_read"
+          ],
+          "start_ms": 1789551004002,
+          "end_ms": 1789551017671,
+          "operation_envelope_ms": 13669,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-read"
+          ],
+          "backend_dispatch_ms": 8829.5212,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-8",
+          "labels": [
+            "note_generation_start"
+          ],
+          "start_ms": 1789551028543,
+          "end_ms": 1789551028543,
+          "operation_envelope_ms": 0,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-9",
+          "labels": [
+            "extract_fixed_read_packet_markdown"
+          ],
+          "start_ms": 1789551089630,
+          "end_ms": 1789551091017,
+          "operation_envelope_ms": 1387,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-10",
+          "labels": [
+            "reading_note"
+          ],
+          "start_ms": 1789551152305,
+          "end_ms": 1789551157983,
+          "operation_envelope_ms": 5678,
+          "last_exit_code": 1,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-11",
+          "labels": [
+            "reading_note_valid"
+          ],
+          "start_ms": 1789551201941,
+          "end_ms": 1789551216057,
+          "operation_envelope_ms": 14116,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-note"
+          ],
+          "backend_dispatch_ms": 7367.6522,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-12",
+          "labels": [
+            "reading_decide_finish"
+          ],
+          "start_ms": 1789551236613,
+          "end_ms": 1789551247071,
+          "operation_envelope_ms": 10458,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-decide"
+          ],
+          "backend_dispatch_ms": 6030.2663,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "reader",
+          "session_key": "single-13",
+          "labels": [
+            "driver_mark_reader_finished"
+          ],
+          "start_ms": 1789551253388,
+          "end_ms": 1789551257020,
+          "operation_envelope_ms": 3632,
+          "last_exit_code": 0,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "main",
+          "session_key": "single-0",
+          "labels": [
+            "diagnostic_prepare"
+          ],
+          "start_ms": 1789550752151,
+          "end_ms": 1789550760367,
+          "operation_envelope_ms": 8216,
+          "last_exit_code": 1,
+          "matched_actions": [],
+          "backend_dispatch_ms": 0,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "main",
+          "session_key": "single-1",
+          "labels": [
+            "diagnostic_prepare_valid_limits"
+          ],
+          "start_ms": 1789550861656,
+          "end_ms": 1789550873694,
+          "operation_envelope_ms": 12038,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-template",
+            "reading-start",
+            "reading-delegate"
+          ],
+          "backend_dispatch_ms": 2576.012,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "main",
+          "session_key": "single-2",
+          "labels": [
+            "main_reading_handoff"
+          ],
+          "start_ms": 1789551300949,
+          "end_ms": 1789551314661,
+          "operation_envelope_ms": 13712,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-handoff"
+          ],
+          "backend_dispatch_ms": 5950.1496,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        },
+        {
+          "source": "main",
+          "session_key": "59148",
+          "labels": [
+            "profile_handoff",
+            "profile_handoff_poll"
+          ],
+          "start_ms": 1789551366353,
+          "end_ms": 1789551395958,
+          "operation_envelope_ms": 29605,
+          "last_exit_code": 0,
+          "matched_actions": [
+            "reading-handoff"
+          ],
+          "backend_dispatch_ms": 11602.0569,
+          "note": "完整包络含poll间隙/稍晚poll；last_exit_code=null可能缺最终poll，不以wall总和替代。"
+        }
+      ],
+      "imports_ms": {
+        "stdlib_unique_pid_ms": 173.3343,
+        "backend_call_import_ms": 565.9836,
+        "settings_import_ms": 53.4325
+      },
+      "missing_successful_stages": [],
+      "context_accepted": true,
+      "context_coverage_complete": false,
+      "prepare_entry_to_context_accepted_ms": 461622.4765625,
+      "warm_followup_sent_to_context_accepted_ms": 450311,
+      "reader_followup_received_to_context_accepted_ms": 427474,
+      "context_received_to_accepted_ms": 17006,
+      "note_stage": {
+        "explicit_start_ms": 1789551028543,
+        "failed_tool_start_ms": 1789551152305,
+        "success_api_start_ms": 1789551208433.0554,
+        "start_to_success_api_ms": 179890.05541992188,
+        "first_failed_tool_to_success_api_ms": 56128.055419921875,
+        "meaning": "包含理解、草拟、工具错误修复和调度，不是纯推理耗时。"
+      }
+    }
+  ],
+  "units": "所有*_ms为毫秒，*_ns为纳秒，chars为Python Unicode字符串长度，bytes为UTF8字节数。",
+  "limitations": [
+    "figure data_url与markdown计原字符串长度，不是JSON编码长度。",
+    "JSON分量大小不含父字段名/标点，不能简单求和为顶层体积。",
+    "packet统计递归覆盖value各packet，重复交付按实际重复计数。",
+    "coverage内部阶段可能重叠；不能把CE/input/routes直接相加为总耗时。",
+    "partial不表示完整覆盖；完整覆盖仅另列context_coverage_complete。",
+    "profile独立，不纳入baseline推断。",
+    "前两失败未进入完整阅读/笔记/主上下文；第三多变量诊断不能归因为优化。"
+  ]
+}

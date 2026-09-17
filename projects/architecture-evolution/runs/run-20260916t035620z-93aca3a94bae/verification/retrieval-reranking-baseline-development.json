@@ -1,0 +1,207 @@
+{
+  "fixture_version": 1,
+  "fixture_sha256": "edae100882c05f23f91ffe4b92de7a46a596f7a11f02c3c65aeff65a5b3888d5",
+  "split": "development",
+  "k": 6,
+  "method": "current query_plan.fuse weighted RRF over frozen candidate routes",
+  "limitation": "Synthetic fixed candidates assess ranking headroom only; this is not business retrieval validation.",
+  "rows": [
+    {
+      "query_id": "DEV-LOWTEMP-X200",
+      "split": "development",
+      "conditions": {
+        "model": "X200",
+        "temperature": "< -20 °C",
+        "intent": "avoid start failure"
+      },
+      "rrf_ranking": [
+        "NEG-X200-5C",
+        "NEG-Y200-M30",
+        "DOC-X200-LOWTEMP",
+        "NEG-X200-NOSTART",
+        "NEG-X200-20C",
+        "NEG-X200-MANUAL",
+        "DOC-X200-HEATER"
+      ],
+      "candidate_coverage": {
+        "recall": 1.0,
+        "ndcg": 0.5060279590656247,
+        "matched": 2,
+        "relevant_count": 2,
+        "dcg": 4.5,
+        "ideal_dcg": 8.892789260714373,
+        "duplicates": 0,
+        "returned_count": 7,
+        "canonical_ids": [
+          "NEG-X200-5C",
+          "NEG-Y200-M30",
+          "DOC-X200-LOWTEMP",
+          "NEG-X200-NOSTART",
+          "NEG-X200-20C",
+          "NEG-X200-MANUAL",
+          "DOC-X200-HEATER"
+        ]
+      },
+      "rrf_at_k": {
+        "recall": 0.5,
+        "ndcg": 0.3935773014954859,
+        "matched": 1,
+        "relevant_count": 2,
+        "dcg": 3.5,
+        "ideal_dcg": 8.892789260714373,
+        "duplicates": 0,
+        "returned_count": 7,
+        "canonical_ids": [
+          "NEG-X200-5C",
+          "NEG-Y200-M30",
+          "DOC-X200-LOWTEMP",
+          "NEG-X200-NOSTART",
+          "NEG-X200-20C",
+          "NEG-X200-MANUAL"
+        ]
+      },
+      "oracle_at_k": {
+        "recall": 1.0,
+        "ndcg": 1.0,
+        "matched": 2,
+        "relevant_count": 2,
+        "dcg": 8.892789260714373,
+        "ideal_dcg": 8.892789260714373,
+        "duplicates": 0,
+        "returned_count": 7,
+        "canonical_ids": [
+          "DOC-X200-LOWTEMP",
+          "DOC-X200-HEATER",
+          "NEG-X200-20C",
+          "NEG-X200-5C",
+          "NEG-X200-MANUAL",
+          "NEG-X200-NOSTART"
+        ]
+      },
+      "oracle_gain_recall": 0.5,
+      "oracle_gain_ndcg": 0.606422698504514
+    },
+    {
+      "query_id": "DEV-BILINGUAL-DEDUP",
+      "split": "development",
+      "conditions": {
+        "process": "plasma-assisted coating",
+        "nozzle_gap": "3.0 mm",
+        "outcome": "lower porosity"
+      },
+      "rrf_ranking": [
+        "NEG-COATING-30MM",
+        "NEG-COATING-3MM-HIGH",
+        "DOC-COATING-3MM",
+        "NEG-COATING-UNKNOWN",
+        "DOC-COATING-3MM-BLOCK"
+      ],
+      "candidate_coverage": {
+        "recall": 1.0,
+        "ndcg": 0.5240828591646209,
+        "matched": 2,
+        "relevant_count": 2,
+        "dcg": 4.660558421703625,
+        "ideal_dcg": 8.892789260714373,
+        "duplicates": 0,
+        "returned_count": 5,
+        "canonical_ids": [
+          "NEG-COATING-30MM",
+          "NEG-COATING-3MM-HIGH",
+          "DOC-COATING-3MM",
+          "NEG-COATING-UNKNOWN",
+          "DOC-COATING-3MM-BLOCK"
+        ]
+      },
+      "rrf_at_k": {
+        "recall": 1.0,
+        "ndcg": 0.5240828591646209,
+        "matched": 2,
+        "relevant_count": 2,
+        "dcg": 4.660558421703625,
+        "ideal_dcg": 8.892789260714373,
+        "duplicates": 0,
+        "returned_count": 5,
+        "canonical_ids": [
+          "NEG-COATING-30MM",
+          "NEG-COATING-3MM-HIGH",
+          "DOC-COATING-3MM",
+          "NEG-COATING-UNKNOWN",
+          "DOC-COATING-3MM-BLOCK"
+        ]
+      },
+      "oracle_at_k": {
+        "recall": 1.0,
+        "ndcg": 1.0,
+        "matched": 2,
+        "relevant_count": 2,
+        "dcg": 8.892789260714373,
+        "ideal_dcg": 8.892789260714373,
+        "duplicates": 0,
+        "returned_count": 5,
+        "canonical_ids": [
+          "DOC-COATING-3MM",
+          "DOC-COATING-3MM-BLOCK",
+          "NEG-COATING-30MM",
+          "NEG-COATING-3MM-HIGH",
+          "NEG-COATING-UNKNOWN"
+        ]
+      },
+      "oracle_gain_recall": 0.0,
+      "oracle_gain_ndcg": 0.47591714083537906
+    },
+    {
+      "query_id": "DEV-NOANSWER",
+      "split": "development",
+      "conditions": {
+        "model": "Z900",
+        "temperature": "< -50 °C",
+        "intent": "approved operation"
+      },
+      "rrf_ranking": [],
+      "candidate_coverage": {
+        "recall": null,
+        "ndcg": null,
+        "matched": 0,
+        "relevant_count": 0,
+        "dcg": 0,
+        "ideal_dcg": 0,
+        "duplicates": 0,
+        "returned_count": 0,
+        "canonical_ids": []
+      },
+      "rrf_at_k": {
+        "recall": null,
+        "ndcg": null,
+        "matched": 0,
+        "relevant_count": 0,
+        "dcg": 0,
+        "ideal_dcg": 0,
+        "duplicates": 0,
+        "returned_count": 0,
+        "canonical_ids": []
+      },
+      "oracle_at_k": {
+        "recall": null,
+        "ndcg": null,
+        "matched": 0,
+        "relevant_count": 0,
+        "dcg": 0,
+        "ideal_dcg": 0,
+        "duplicates": 0,
+        "returned_count": 0,
+        "canonical_ids": []
+      },
+      "oracle_gain_recall": null,
+      "oracle_gain_ndcg": null
+    }
+  ],
+  "aggregate": {
+    "scored_queries": 2,
+    "candidate_coverage_recall": 1.0,
+    "rrf_recall_at_k": 0.75,
+    "rrf_ndcg_at_k": 0.45883008033005346,
+    "oracle_recall_at_k": 1.0,
+    "oracle_ndcg_at_k": 1.0
+  }
+}

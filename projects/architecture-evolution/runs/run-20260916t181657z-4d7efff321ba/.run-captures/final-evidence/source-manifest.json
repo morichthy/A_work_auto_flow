@@ -1,0 +1,912 @@
+{
+  "captured_at": "2026-09-16T19:06:58.674423+00:00",
+  "scope": "Selected runtime, reading/settings/upgrade tests, frontend source, skills and docs; not a complete release.",
+  "files": [
+    {
+      "path": "ARCHITECTURE.md",
+      "bytes": 25123,
+      "sha256": "1c92f058d307d505cfb9f06bcc0798fdbf594c5b7f6292d2fa435c8139c0ad7d"
+    },
+    {
+      "path": "automation/frontend/e2e/settings.spec.ts",
+      "bytes": 7681,
+      "sha256": "80edb36f20a9f39c19cd7b6bf98bcff41e11dbc98470b2d093d35e4312a4e829"
+    },
+    {
+      "path": "automation/frontend/package-lock.json",
+      "bytes": 183112,
+      "sha256": "3d0ae5ed12b1e54bc636f95616cbfdba6e7ce8f9abc5d7e2c92d03f76994982c"
+    },
+    {
+      "path": "automation/frontend/src/api.ts",
+      "bytes": 2789,
+      "sha256": "1cab6363574bfc0d7ee3da66a7c37cf9dc1ae5540ff670d61543e751dcfe6057"
+    },
+    {
+      "path": "automation/frontend/src/App.tsx",
+      "bytes": 10888,
+      "sha256": "c2dbba935ac8c36b912b6748353c19646a373c143411a823d4303fed2ffa9209"
+    },
+    {
+      "path": "automation/frontend/src/cluster.ts",
+      "bytes": 4061,
+      "sha256": "a9ae5e5f334341d168fb075ad906e8938fd28de58805ccb5075886bc0f56a8eb"
+    },
+    {
+      "path": "automation/frontend/src/cluster.worker.ts",
+      "bytes": 243,
+      "sha256": "e1fba201ef03d8b66e629c5dd3f6e56d8ecac9fafc80aa3ac4e7ce10038cf9c0"
+    },
+    {
+      "path": "automation/frontend/src/components.test.tsx",
+      "bytes": 652,
+      "sha256": "a5f670bd2fe0a0d24c962e5967d88d0dfaa0255c11d350b068e01ea8a383ca39"
+    },
+    {
+      "path": "automation/frontend/src/components.tsx",
+      "bytes": 8111,
+      "sha256": "50a5335160b86e47facd083911c431dee36c461bc76f3b32168d66fcc86798c3"
+    },
+    {
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "bytes": 5634,
+      "sha256": "623f606f06d695d3c360fe817e050e23b56faea8ff227cccfc92b9006b35d3a5"
+    },
+    {
+      "path": "automation/frontend/src/CurrentReading.tsx",
+      "bytes": 6022,
+      "sha256": "aa6030ae7a112e920cb9fea088d3b042529d174f0652d58317d23ca55d01216b"
+    },
+    {
+      "path": "automation/frontend/src/Evidence.tsx",
+      "bytes": 10328,
+      "sha256": "b7803014f217425c1c7ad1bb66fef3e153f3a2088c4d4ad920ba486ec174b9d0"
+    },
+    {
+      "path": "automation/frontend/src/generated/contracts.ts",
+      "bytes": 1457,
+      "sha256": "66042490afd1ecc97ff079ceebbe31236ea121d379f2ea97884603e504bf7e0a"
+    },
+    {
+      "path": "automation/frontend/src/generated/material-query.ts",
+      "bytes": 12318,
+      "sha256": "56f99c8f4773ce7ffda9fde5c12d55a018fa33cb9888d8546abef6d3a55e8a69"
+    },
+    {
+      "path": "automation/frontend/src/generated/memory-schema.ts",
+      "bytes": 254287,
+      "sha256": "70cd61becafdd31edec602d96a4dd3f071f82e3c1eef0943c44b7c6c70f65556"
+    },
+    {
+      "path": "automation/frontend/src/graph-model.test.ts",
+      "bytes": 4949,
+      "sha256": "c1861099d72a8cf907c208051e3591213a70d25b9c2cac615dbf6497841f03f3"
+    },
+    {
+      "path": "automation/frontend/src/graph-model.ts",
+      "bytes": 4933,
+      "sha256": "d6b20d333c4d1141139eb4f6c7695e26c596aa516dcd9c90fbe9f4cb3ab53627"
+    },
+    {
+      "path": "automation/frontend/src/group-view.ts",
+      "bytes": 2736,
+      "sha256": "4edd915d37d951715cc1fc60bffbc76aaa369d38945dd9f5a8b6b5d6552a8dbc"
+    },
+    {
+      "path": "automation/frontend/src/main.tsx",
+      "bytes": 233,
+      "sha256": "575c9833bc5993d6a7b8db0587b8ecc202809448fd71842c5a4331bec6ee7977"
+    },
+    {
+      "path": "automation/frontend/src/material-query.css",
+      "bytes": 5553,
+      "sha256": "851eaf6f5b071bf0424884af21221ec83eec9158d40f33c8dea2d017ff206388"
+    },
+    {
+      "path": "automation/frontend/src/MaterialMaintenance.test.tsx",
+      "bytes": 11825,
+      "sha256": "97d1e43de08cf161d876f70686c4b99258abd2e23cbb2529322e26c855d89bc6"
+    },
+    {
+      "path": "automation/frontend/src/MaterialMaintenance.tsx",
+      "bytes": 16064,
+      "sha256": "7f34c7ebaa92e6e720b6b1983fee6d4d00debc8939c3ad3d6785dfe19915f940"
+    },
+    {
+      "path": "automation/frontend/src/MaterialNavigation.test.tsx",
+      "bytes": 2225,
+      "sha256": "927e573b2281447236b1a292c6e0df43d421d461eb90eff9d6fe5b2b516940de"
+    },
+    {
+      "path": "automation/frontend/src/MaterialNavigation.tsx",
+      "bytes": 4602,
+      "sha256": "131fb45a1ecbf2a08637364840352c2c388956eb0998b587dc86e941f116ccfa"
+    },
+    {
+      "path": "automation/frontend/src/MaterialPacket.tsx",
+      "bytes": 7121,
+      "sha256": "b7f9a653e96ff583d062b3d76796c61495da5f60a73c12a4e8611051ee858c7d"
+    },
+    {
+      "path": "automation/frontend/src/MaterialQuery.test.tsx",
+      "bytes": 17526,
+      "sha256": "d2e5a6d9a1d699392626007549f581394f0772e0387f9a0825185a76d110adeb"
+    },
+    {
+      "path": "automation/frontend/src/MaterialQuery.tsx",
+      "bytes": 47173,
+      "sha256": "a82ccf096e194dd230fd70770b2f906d75f35872dff61ed677b0dff7f175df15"
+    },
+    {
+      "path": "automation/frontend/src/MaterialStructure.tsx",
+      "bytes": 9983,
+      "sha256": "6d285e17281b2c54d7b78c77afb5aef2f696ca83d6b8075a0290951695b8f951"
+    },
+    {
+      "path": "automation/frontend/src/memory-contract.test.ts",
+      "bytes": 3122,
+      "sha256": "b9bdc54a80f9ac6b3dd1f57f155bb3c2c7fabba6cc9cf328e348e16fec4dbfc6"
+    },
+    {
+      "path": "automation/frontend/src/memory-contract.ts",
+      "bytes": 4728,
+      "sha256": "2e459104b1a43aec8dc916681ee99bcbfabb9beeaf8d54f54caa4790ab237331"
+    },
+    {
+      "path": "automation/frontend/src/Memory.test.tsx",
+      "bytes": 6210,
+      "sha256": "4b1db2593c561f4809af8d6feee229de201fddaaf5b06dc75332e44f6e29c467"
+    },
+    {
+      "path": "automation/frontend/src/Memory.tsx",
+      "bytes": 52385,
+      "sha256": "65689cc0e961eb93d0abfe61fe4391f734bd00b08bde1f6e0e55560e40be073f"
+    },
+    {
+      "path": "automation/frontend/src/MemoryNavigation.test.tsx",
+      "bytes": 2852,
+      "sha256": "438f9ce7cb4e50a5921611a80ef039e31ce82f79b88ac8af0f68f6b190039809"
+    },
+    {
+      "path": "automation/frontend/src/MemorySearch.tsx",
+      "bytes": 7908,
+      "sha256": "42d428387e041a2ac3cd50b3de4ccab93cbfcd62ac83826d584876b3a0a86fb3"
+    },
+    {
+      "path": "automation/frontend/src/RawMaterials.tsx",
+      "bytes": 5366,
+      "sha256": "c994ce006fab3b6d344aaccc44ebe6f12bdfe00bc5e19db62aa045477b67c594"
+    },
+    {
+      "path": "automation/frontend/src/ReadingEvidence.test.tsx",
+      "bytes": 4144,
+      "sha256": "16ea3c4cd7e4f998c665177576a3509840d60769dceab8c8043cb2db9aca161f"
+    },
+    {
+      "path": "automation/frontend/src/ReadingEvidence.tsx",
+      "bytes": 11094,
+      "sha256": "3bb26ca4f3b512c04e72d53fdb6efbfe067274b0856cd0aad247ebbad52eaee2"
+    },
+    {
+      "path": "automation/frontend/src/ReadingSessions.test.tsx",
+      "bytes": 6253,
+      "sha256": "9c2f0febbd80fc6d1d5bbc74b9b8ac9ad20222e6b2d671e9907d1a32c2d0cca8"
+    },
+    {
+      "path": "automation/frontend/src/ReadingSessions.tsx",
+      "bytes": 9085,
+      "sha256": "8c3f21c7a1ebe9d8c7e3bde09f44847047bdf2f5e494ac24d7aa8dc6e39ee064"
+    },
+    {
+      "path": "automation/frontend/src/Relations.tsx",
+      "bytes": 35809,
+      "sha256": "2190e8cfae68b37842ed09d4ee77532b10885576387fff72f9048b2adf2ffda0"
+    },
+    {
+      "path": "automation/frontend/src/research-document.css",
+      "bytes": 5094,
+      "sha256": "93f8a7e277fa36ff4d26f6dcb6f83f800a2aa62fb2e31bedd2a69e64c7d72778"
+    },
+    {
+      "path": "automation/frontend/src/ResearchDocument.test.tsx",
+      "bytes": 11859,
+      "sha256": "b23bded5d9824db7937a286a4e2af7a5ce989ab4ef6f2fde9c6f3f6bdd0abcd3"
+    },
+    {
+      "path": "automation/frontend/src/ResearchDocument.tsx",
+      "bytes": 31781,
+      "sha256": "8ec1436fd04411e1979cebc45d0bcca3507fe126a49a6c13538315c6c5a7d8d8"
+    },
+    {
+      "path": "automation/frontend/src/RetainedPanel.test.tsx",
+      "bytes": 2152,
+      "sha256": "b90209f46fe5f1ccf606f2828843c829b24289fe75eac92ee28807bfe936e88e"
+    },
+    {
+      "path": "automation/frontend/src/RetainedPanel.tsx",
+      "bytes": 780,
+      "sha256": "61c7e76eb7914b80e9ca7e55fb30140107d0b90782013d49f46040dbb81a1e88"
+    },
+    {
+      "path": "automation/frontend/src/style.css",
+      "bytes": 11840,
+      "sha256": "0cd84914a2441394b2beea28f42d3e9dca8958bdfc8a603a0b78e68f5c6ecfae"
+    },
+    {
+      "path": "automation/frontend/src/test-setup.ts",
+      "bytes": 43,
+      "sha256": "9b328c4843431fa76d8de00008fc159e95f99a840211085ff3b8f25e53d14409"
+    },
+    {
+      "path": "automation/frontend/src/workspace-settings.css",
+      "bytes": 946,
+      "sha256": "8d9a31e16e53a18a3e83dbb7e70b6158c3cc6e55c2c5717aa7307485e00f6708"
+    },
+    {
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "bytes": 10857,
+      "sha256": "3bd85d259c91ad84cfd474a7a41ecebf344d99925feb169a40957db5d0823ed1"
+    },
+    {
+      "path": "automation/frontend/src/WorkspaceSettings.tsx",
+      "bytes": 16120,
+      "sha256": "4319ffc63d6cab3875aaca61ea28ec16927c370ef5b2efafcce573020659a4ce"
+    },
+    {
+      "path": "automation/scripts/command_registration.py",
+      "bytes": 6121,
+      "sha256": "7beb06270bed67cc9808757a40e2f565dbd866a998b88e7130f0d31a4a188c9a"
+    },
+    {
+      "path": "automation/scripts/context_engine.py",
+      "bytes": 18470,
+      "sha256": "b5acbfcec9ca22e5ba4b4681e571b893af3ed035a27c6f46088b5f7560c4a829"
+    },
+    {
+      "path": "automation/scripts/dependency_bundle.py",
+      "bytes": 27612,
+      "sha256": "abebccb1fe33f445daf09458971a335bb85f941da7f13080c2cb4153822067b2"
+    },
+    {
+      "path": "automation/scripts/deployment.py",
+      "bytes": 23885,
+      "sha256": "87e67f59ed73304d893669a04a1fe798e339ebddc05b4c6a2a07391a247ffe50"
+    },
+    {
+      "path": "automation/scripts/evidence.py",
+      "bytes": 31461,
+      "sha256": "35192a63800c619158fd72f4457a5f198a4713adb628922781fa5a936639f78c"
+    },
+    {
+      "path": "automation/scripts/evidence_observer.py",
+      "bytes": 18338,
+      "sha256": "67e541572481bb3d45de1083428af116635307d18978ea4f5fe358139d6a5671"
+    },
+    {
+      "path": "automation/scripts/evidence_view.py",
+      "bytes": 15110,
+      "sha256": "ccccb332ca448b59699ca59c4a4b1aa2df0c4f11b516a1791e7a4276a26c566e"
+    },
+    {
+      "path": "automation/scripts/health.py",
+      "bytes": 8721,
+      "sha256": "23320a93633e26e700d689e306a6a67db85a3def767b6b4b1bc26489431ca0ee"
+    },
+    {
+      "path": "automation/scripts/install_workspace_skills.py",
+      "bytes": 6088,
+      "sha256": "b179d2208a0809b0aa13522d83062d80de5fac280d332853d2986036e76e7d1c"
+    },
+    {
+      "path": "automation/scripts/local_test_data.py",
+      "bytes": 7497,
+      "sha256": "59f9322008bf1a9607d7681df098bda13b6b85e2fa20fc96d407fa914a1bfa3a"
+    },
+    {
+      "path": "automation/scripts/manifest_discovery.py",
+      "bytes": 3595,
+      "sha256": "d8afd9f334270176e505bc963ddf309023c8d08a36da291b72786acb5690aea6"
+    },
+    {
+      "path": "automation/scripts/material_extract.py",
+      "bytes": 10186,
+      "sha256": "de8cd46f0f2314dc1bc52452c9c43c2554c2ff630498712670ea191ec7019b91"
+    },
+    {
+      "path": "automation/scripts/material_query/__init__.py",
+      "bytes": 104,
+      "sha256": "6e083c786c8d6914bff9cd380f793a943f7f1255f62cc8ca01c90e0bef84a01c"
+    },
+    {
+      "path": "automation/scripts/material_query/api.py",
+      "bytes": 3108,
+      "sha256": "eea68e02c18d6bd701513bb356464838989e2082da2c804ea832960f0026daf6"
+    },
+    {
+      "path": "automation/scripts/material_query/assembly.py",
+      "bytes": 17605,
+      "sha256": "b78b43c035123a57002b221a2b5b157dfec8f83dd751c62d80391eb299fa7693"
+    },
+    {
+      "path": "automation/scripts/material_query/associations.py",
+      "bytes": 25684,
+      "sha256": "e856b5449a87115d5ceae9d0aa8ac552eac36d1ab76d547b7bd1b5266d85e569"
+    },
+    {
+      "path": "automation/scripts/material_query/budget.py",
+      "bytes": 10513,
+      "sha256": "d16e79ef32e38421a3fa58599289e567feb2d59a00ee3bb685a5238b777360a2"
+    },
+    {
+      "path": "automation/scripts/material_query/catalog_search.py",
+      "bytes": 5426,
+      "sha256": "8b86643c90b7630896eaba836caca121e81de557739c4cfa6ca3b16947bf38e3"
+    },
+    {
+      "path": "automation/scripts/material_query/cli.py",
+      "bytes": 8025,
+      "sha256": "422b14f673017ef55297f6a9eb2dc472885159b4a83bcbfe4cb7a66b8c987652"
+    },
+    {
+      "path": "automation/scripts/material_query/conditions.py",
+      "bytes": 7010,
+      "sha256": "945652e27505ecd2034c04a4069bcc39be70a8cf50e1506d34f2e93324faec05"
+    },
+    {
+      "path": "automation/scripts/material_query/content.py",
+      "bytes": 9158,
+      "sha256": "356807a6a2dc0c13e35b17dad03b68759e9f0726703d85f6b182338f7e6b928f"
+    },
+    {
+      "path": "automation/scripts/material_query/contracts.py",
+      "bytes": 18504,
+      "sha256": "50366bd524bbf1b2001dbc14fc419fd77d189269f3faddf8c5517bff7977cf39"
+    },
+    {
+      "path": "automation/scripts/material_query/coordinator.py",
+      "bytes": 61738,
+      "sha256": "a0fc1602caa767aa5093f2ed4976c9fa5c654b624551565cc997892c9967cbfa"
+    },
+    {
+      "path": "automation/scripts/material_query/cross_encoder.py",
+      "bytes": 7451,
+      "sha256": "911e5b1e745753b91b8a9907d0e8bfe635d9d03659962060f686a93e0145cb86"
+    },
+    {
+      "path": "automation/scripts/material_query/deepening.py",
+      "bytes": 18298,
+      "sha256": "aa4673b9ab6bf09ca7137897eec3f9c2ffd6871b2e4649012e618001a4fa7203"
+    },
+    {
+      "path": "automation/scripts/material_query/definitions.py",
+      "bytes": 3693,
+      "sha256": "afda997c48a2f47e600fc195cfff56ee43e499598138b0f076317ccd65576796"
+    },
+    {
+      "path": "automation/scripts/material_query/documents.py",
+      "bytes": 8474,
+      "sha256": "4f52bd091154023c49b30e1fe6e7ebd55622affe8864d4a6cbb8877bf83e3894"
+    },
+    {
+      "path": "automation/scripts/material_query/evidence.py",
+      "bytes": 16396,
+      "sha256": "002acbcfb3b91d668952b53664ebfaf6d4b907634f27973862eaae3064528129"
+    },
+    {
+      "path": "automation/scripts/material_query/facets.py",
+      "bytes": 6451,
+      "sha256": "77939af80f20bbbe26f191be6303b8b98b0f2d46b2804c3274b346743354919b"
+    },
+    {
+      "path": "automation/scripts/material_query/foundation.py",
+      "bytes": 69339,
+      "sha256": "17628df6eaa3f4454aa8216f63da80e260233d9e7fece3aaad5703d9eb6c5616"
+    },
+    {
+      "path": "automation/scripts/material_query/generate_types.py",
+      "bytes": 5154,
+      "sha256": "f2f81619bdb89b3761aa430c5856279a77374147eeece579db7b800ec94739f7"
+    },
+    {
+      "path": "automation/scripts/material_query/history_search.py",
+      "bytes": 5605,
+      "sha256": "21c727b737fc9dc51fd9f9483ae4d073a8e2fa0a87e532d07bd633173f018ba6"
+    },
+    {
+      "path": "automation/scripts/material_query/legacy_adapter.py",
+      "bytes": 2371,
+      "sha256": "32f4682d27ca40d16bbb5204fa8470e06becb20d489720b46fc1237d38eba74a"
+    },
+    {
+      "path": "automation/scripts/material_query/maintenance.py",
+      "bytes": 49855,
+      "sha256": "4f3c9f4e1ba5fa5319d1bc05ff864343860f6e705787d21c0309cd881b5bf9b3"
+    },
+    {
+      "path": "automation/scripts/material_query/native_sources.py",
+      "bytes": 3653,
+      "sha256": "cec00d15ace627e65158353c50725fcdd5ac78ee5bc0493ed14308bd9fc29d89"
+    },
+    {
+      "path": "automation/scripts/material_query/query_plan.py",
+      "bytes": 11299,
+      "sha256": "006759b01a205ba348b1308cdd91a650a8cb80eb1d112fa824cc2b3c27d2cc41"
+    },
+    {
+      "path": "automation/scripts/material_query/reader.py",
+      "bytes": 16485,
+      "sha256": "16222af71389f9f7cf73f21eda89ded2885a615dbd2c4e1683ce819a9b75e8c2"
+    },
+    {
+      "path": "automation/scripts/material_query/reading.py",
+      "bytes": 45528,
+      "sha256": "9d2b76935fb84375d77797a0a2f1993d0d653b1e91fe1f340fcaba8c743bb09c"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_catalog.py",
+      "bytes": 4437,
+      "sha256": "e5c3c2868aa08cca623e2b65604b00399e8fc0c5e39d806d9c92032410fdc5ef"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_delegation.py",
+      "bytes": 14154,
+      "sha256": "f18fab170bcd7ccbab1dcfab58673b476b8650b83d64f72760f15a8dee978146"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_owner.py",
+      "bytes": 32497,
+      "sha256": "af8f2de16569e7863b592c93e1483a9a54c28727d665c827e1fadac9d818281f"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_snapshot.py",
+      "bytes": 3860,
+      "sha256": "7d594983d5250cf048e09ed968d270736c87636a1761ad90846fa1e26f3c9732"
+    },
+    {
+      "path": "automation/scripts/material_query/recall.py",
+      "bytes": 3831,
+      "sha256": "646d777cd1f27eb52136a6da48d6f8bb36e32239ee5569b768da1706c2b2e032"
+    },
+    {
+      "path": "automation/scripts/material_query/representations.py",
+      "bytes": 5221,
+      "sha256": "01902beeec4737bfaaa5ed1dedde01bbc1e4908d3307915ea847f726b2bea86b"
+    },
+    {
+      "path": "automation/scripts/material_query/reranking.py",
+      "bytes": 8769,
+      "sha256": "4aecd53168eaa53f71cfded038cd4209848ba1aa6b7718e2b8ece5682dce2be1"
+    },
+    {
+      "path": "automation/scripts/material_query/state.py",
+      "bytes": 2776,
+      "sha256": "a3a8ec2f1cd285916ad8fd06bd8ddfe41a6462da7607983736a2455fbae418e0"
+    },
+    {
+      "path": "automation/scripts/material_query/structure.py",
+      "bytes": 8777,
+      "sha256": "604473206bcb217dbf40fa905f2dc9826d135837ea95bc0778321dfa1179f3e8"
+    },
+    {
+      "path": "automation/scripts/material_query/validation.py",
+      "bytes": 8412,
+      "sha256": "fb55287634efaaf72ef0b431e0950c1e3d003fa0bc886f2fb1566da150f3ab51"
+    },
+    {
+      "path": "automation/scripts/material_query/wire.py",
+      "bytes": 1122,
+      "sha256": "69d7e89ead5abdc496d00b329dc6426093fdf12556b312f912f80e285de4804b"
+    },
+    {
+      "path": "automation/scripts/material_query/writer.py",
+      "bytes": 11614,
+      "sha256": "89f5405306c63e563f709e39d69f1cb2b02700bb0eedf57ef2a9aa11730716c9"
+    },
+    {
+      "path": "automation/scripts/memory/__init__.py",
+      "bytes": 92,
+      "sha256": "61907042291bd9d20903f7626238fe5267a8d590431a716ccb7b2ba1d7409978"
+    },
+    {
+      "path": "automation/scripts/memory/api.py",
+      "bytes": 8452,
+      "sha256": "0fdffeb172a17c2e03d449822d56a8f211f00d6a4effd13699462411aeea5ac2"
+    },
+    {
+      "path": "automation/scripts/memory/associations.py",
+      "bytes": 14175,
+      "sha256": "5bfdc5e2c7ee0fd3e82128d7fc129f3628ee511f798cc3242553dea7b49ec9b2"
+    },
+    {
+      "path": "automation/scripts/memory/benchmark.py",
+      "bytes": 18082,
+      "sha256": "e34f3a7f82444dd4dcdb8507f49be98a3ec83170f9481e05109e6233cebda388"
+    },
+    {
+      "path": "automation/scripts/memory/cli.py",
+      "bytes": 4256,
+      "sha256": "dda16bd47bb5296b08944376b20fc405ed1cd39484463e8e17bf28d938d9dae0"
+    },
+    {
+      "path": "automation/scripts/memory/consolidation.py",
+      "bytes": 17146,
+      "sha256": "1ebc20cf805098c0fcff8a1d8225bb53b75a84bbb3513be34fe6df508735732c"
+    },
+    {
+      "path": "automation/scripts/memory/contracts.py",
+      "bytes": 29432,
+      "sha256": "e34727c79518893fb7a0e58ad0a1ad76c96bf91a64c8f662c660d08788e66588"
+    },
+    {
+      "path": "automation/scripts/memory/document.py",
+      "bytes": 18952,
+      "sha256": "626d2f7975e06f4119537ade9be0ebb1bcfe2c00324f389a050027a5a4ec4b10"
+    },
+    {
+      "path": "automation/scripts/memory/documents.py",
+      "bytes": 31542,
+      "sha256": "4642b398c416a9515b7864cdea7f7287fd76cc9e9e146814f038bca63ed690bd"
+    },
+    {
+      "path": "automation/scripts/memory/errors.py",
+      "bytes": 1065,
+      "sha256": "76e6fcc4b4b56d594e3aa3ccb08b7a05d16af3c7ef774944b4457d1d62513f43"
+    },
+    {
+      "path": "automation/scripts/memory/evaluation.py",
+      "bytes": 12808,
+      "sha256": "26af265a5a61dece7c8ef2429941a70b961d8efc5f5c3a91f447da7c1a423b03"
+    },
+    {
+      "path": "automation/scripts/memory/evidence_adapter.py",
+      "bytes": 37872,
+      "sha256": "b787082cb5ad5ac05e9a797d875be374e765ffc387a09063982f482d3f2fb45a"
+    },
+    {
+      "path": "automation/scripts/memory/facets.py",
+      "bytes": 4976,
+      "sha256": "c4524341179769ba5f2a340a8824862a54d73cd924437ae60169f856d3c94df7"
+    },
+    {
+      "path": "automation/scripts/memory/feedback.py",
+      "bytes": 3017,
+      "sha256": "f6f6d537efcaa6be42ba6e334fd01df813cc05e3d9d1a0f049cc07cb4c0a3819"
+    },
+    {
+      "path": "automation/scripts/memory/generate_types.py",
+      "bytes": 2595,
+      "sha256": "69db69d22eb6fac535e1d0e8c2cec6284c3b04233f14b888600926244678d391"
+    },
+    {
+      "path": "automation/scripts/memory/history.py",
+      "bytes": 8977,
+      "sha256": "cb8bd8156247edb01b20cb6c4fda5eddee0351d437f1d50cd3e5fb5e2619dec0"
+    },
+    {
+      "path": "automation/scripts/memory/impact.py",
+      "bytes": 6221,
+      "sha256": "b90c99e373985c1a36ea11ce12aad06c208aea486402971f8359f4b76079df0a"
+    },
+    {
+      "path": "automation/scripts/memory/index.py",
+      "bytes": 56868,
+      "sha256": "bc739da93a8596ad515b4592a41ecf3443422fb4628d3403d65b2e8b18382364"
+    },
+    {
+      "path": "automation/scripts/memory/lineage.py",
+      "bytes": 5450,
+      "sha256": "b92fd219ab990cd5e2d2ed4c27520f6556676a046f02c886213d1b8de9ab3357"
+    },
+    {
+      "path": "automation/scripts/memory/migration.py",
+      "bytes": 34984,
+      "sha256": "457d0efc065c6f0609bfd17be9e5c5987e10d885de76c2f9d830c540be99e99d"
+    },
+    {
+      "path": "automation/scripts/memory/owners.py",
+      "bytes": 27420,
+      "sha256": "a54bb703b1fd2101099dcdda74832882f443a7e64b76fff6593eed50f8bd10fe"
+    },
+    {
+      "path": "automation/scripts/memory/packets.py",
+      "bytes": 46056,
+      "sha256": "a790ae3b5a10252e511f47644e11eaf9f53c86b7879e120b2f6a376e55f0bc45"
+    },
+    {
+      "path": "automation/scripts/memory/policy.py",
+      "bytes": 3425,
+      "sha256": "8d400bfe1be33d952b469db980029ae9d4d36bc6c3f28608f8e32f06fbdd748a"
+    },
+    {
+      "path": "automation/scripts/memory/raw_materials.py",
+      "bytes": 10752,
+      "sha256": "4f735783552288890caa21e9b1d5a02a46cfc438f37446ec1cb56d81fef876b5"
+    },
+    {
+      "path": "automation/scripts/memory/recovery.py",
+      "bytes": 5367,
+      "sha256": "71b662607ed9881c6a7d2fb9bba60fe43959476261b511585757d9d57ca029dd"
+    },
+    {
+      "path": "automation/scripts/memory/render.py",
+      "bytes": 3283,
+      "sha256": "35e6b31b123d10a10753e584e50e5a79b41ff9ac2923933f4621b938e9af13cf"
+    },
+    {
+      "path": "automation/scripts/memory/research.py",
+      "bytes": 18037,
+      "sha256": "abc71414b01d3d5a88bff69e92c1f42466bf5dff77a218430ec6208ec88314ea"
+    },
+    {
+      "path": "automation/scripts/memory/search.py",
+      "bytes": 43867,
+      "sha256": "afe3d950b0df29c49022360f5e567746559eaf4c176b7a594cb8074744fd476a"
+    },
+    {
+      "path": "automation/scripts/memory/service.py",
+      "bytes": 31159,
+      "sha256": "6b34358a769d4e418a12564011b6b1c80fed6e57f4a90e5b993e7c8b6b8d935b"
+    },
+    {
+      "path": "automation/scripts/memory/store.py",
+      "bytes": 20885,
+      "sha256": "f7ee3c21023aee5169cd75eaf749888248388e2820aa0c515923caf6b2b4ff71"
+    },
+    {
+      "path": "automation/scripts/memory/summaries.py",
+      "bytes": 6141,
+      "sha256": "946e0104aa21d6d9fe19e15389caf3660a0aa5ee6f142d68191c83a99f3a2e3f"
+    },
+    {
+      "path": "automation/scripts/memory/technical_units.py",
+      "bytes": 11859,
+      "sha256": "fe707cba7c75e6272b90f37734396d680960b5133d287c82abb3ef5cd75da287"
+    },
+    {
+      "path": "automation/scripts/portable.py",
+      "bytes": 5723,
+      "sha256": "3eb7ce3b08f75de5382647ac6cd1a6e0cff5170e131e2ea0d15393072d15cb6c"
+    },
+    {
+      "path": "automation/scripts/qdrant_backend.py",
+      "bytes": 10270,
+      "sha256": "08c26b1dfb12099b9afd66f2b0e00bebe079143ef2ba7be01e41489570ee612d"
+    },
+    {
+      "path": "automation/scripts/retrieval.py",
+      "bytes": 54748,
+      "sha256": "f4194cf0324ff276358de88b9743fc7771c81f461e89b79d411f72dd3545d258"
+    },
+    {
+      "path": "automation/scripts/retrieval_interfaces.py",
+      "bytes": 1552,
+      "sha256": "6d09f25f1d188a918a136f95e2ffb4fcf2a592e6a1f861c967b2412fb75e532e"
+    },
+    {
+      "path": "automation/scripts/run_capture.py",
+      "bytes": 13653,
+      "sha256": "3abc181c0b744fea2e49ef9b9e44bf6110d07e5003d681f3c3b8c4f0bed29aef"
+    },
+    {
+      "path": "automation/scripts/workbench.py",
+      "bytes": 5998,
+      "sha256": "95207b0b42742a429a7b2916d91cebf1929cc6d0e6faa34bf82c3af74a62d84c"
+    },
+    {
+      "path": "automation/scripts/workbench_app/__init__.py",
+      "bytes": 107,
+      "sha256": "0aec33de8a981c0ddc555da7a233b8a97ee21601a6469baca6a2a31761d5f88e"
+    },
+    {
+      "path": "automation/scripts/workbench_app/analysis.py",
+      "bytes": 9241,
+      "sha256": "82e57b36c8c88526634c862044daeb38f48d8eafc7ff3b9515fb18db6469e929"
+    },
+    {
+      "path": "automation/scripts/workbench_app/cli.py",
+      "bytes": 3586,
+      "sha256": "f43549c5cf00a87cf1c49ffd575aee5cb1952b7c5d47b499a31e684f2af51667"
+    },
+    {
+      "path": "automation/scripts/workbench_app/contracts.py",
+      "bytes": 1977,
+      "sha256": "72669467747fd0e7d77226ea263745d99a1731955147028b277edf3de9290b1b"
+    },
+    {
+      "path": "automation/scripts/workbench_app/jobs.py",
+      "bytes": 3285,
+      "sha256": "fb6b8f8502bcccd5e836008e584eda65b51819b8f074794e5977c026f925872c"
+    },
+    {
+      "path": "automation/scripts/workbench_app/projection.py",
+      "bytes": 17544,
+      "sha256": "92eb280ca9d82acfa154c8fdcac0f990eb7c90e2707757f507ae71c195418184"
+    },
+    {
+      "path": "automation/scripts/workbench_app/service.py",
+      "bytes": 13362,
+      "sha256": "260c416cb4913ad330785db4df41d9913fdca4042db87830264eeaaf08fa1372"
+    },
+    {
+      "path": "automation/scripts/workbench_app/storage.py",
+      "bytes": 2254,
+      "sha256": "d67f460f240c00ed1c3637b1e76ff0f570b6a6bc965749a07a285f0f404a1eb0"
+    },
+    {
+      "path": "automation/scripts/workbench_app/web.py",
+      "bytes": 7269,
+      "sha256": "458dcd26a919c22a7a27cafc80fca92ae2741939bf4f0638267eea4641726a3c"
+    },
+    {
+      "path": "automation/scripts/workspace_cli.py",
+      "bytes": 63586,
+      "sha256": "13b20fb41cd4a3a297676cf04392c52ee589b7cb564c259b4b02a39686153240"
+    },
+    {
+      "path": "automation/scripts/workspace_settings.py",
+      "bytes": 13302,
+      "sha256": "169dc6d7460999c67673e287921d4138dc918377a339bd156e14a79cda4a8bc1"
+    },
+    {
+      "path": "automation/scripts/workspace_settings_cli.py",
+      "bytes": 1797,
+      "sha256": "b2c92d7adf7b925bc53ef57e314af9c19422f965dd49f75fa684e51a3bbf866a"
+    },
+    {
+      "path": "automation/testing/catalog.json",
+      "bytes": 575051,
+      "sha256": "a6aa258ded1eab12fba9531ef54b33e0b2027274a196ae4f03956d81b99e406b"
+    },
+    {
+      "path": "automation/tests/material_query_fixture.py",
+      "bytes": 27893,
+      "sha256": "2ed937ea30a332a34cb6ae9a80350543aef208b6a4f2e59c4a87cc87e63f5d40"
+    },
+    {
+      "path": "automation/tests/test_deployment_workbench.py",
+      "bytes": 35479,
+      "sha256": "acfa4fc06cee3eebf174271f8bd5dcafb0f75b7be2ecae834182e89ef4e91fea"
+    },
+    {
+      "path": "automation/tests/test_material_query_fixture.py",
+      "bytes": 9368,
+      "sha256": "854d2e9a58a09fb0a9dde399d8aad33350633b4c02ef5f088915d74efa74098f"
+    },
+    {
+      "path": "automation/tests/test_material_query_options.py",
+      "bytes": 10678,
+      "sha256": "92b7a5e0eb1eb1acae9c11f19055e237f68612069193f985a9d8f52abbd3c404"
+    },
+    {
+      "path": "automation/tests/test_memory_documents_v3.py",
+      "bytes": 20515,
+      "sha256": "fc640f7d69739fdc6c549a61fe9f94e890c41c6e703986a9e657da449fee223a"
+    },
+    {
+      "path": "automation/tests/test_reading_delegation.py",
+      "bytes": 17503,
+      "sha256": "b39591a0a7bdc68913f7c406297556144e684e9e069eda849454a56af93c468e"
+    },
+    {
+      "path": "automation/tests/test_reading_handoff_view.py",
+      "bytes": 4321,
+      "sha256": "025d66ce690218c9927f6e8d1624645a2a1a0573c364f636f8eb81a6a8c494f5"
+    },
+    {
+      "path": "automation/tests/test_reading_owner_document.py",
+      "bytes": 20128,
+      "sha256": "bcb8266b79b12f97d3cba608dadbb3f676de00daf76ca6b09e8f7c529e78b5f3"
+    },
+    {
+      "path": "automation/tests/test_reading_query_plan.py",
+      "bytes": 10995,
+      "sha256": "92d188c77252f8916e31b872c8ca746069f7b8bf9ec674dca5e93f2bb6806503"
+    },
+    {
+      "path": "automation/tests/test_reading_reranking.py",
+      "bytes": 8549,
+      "sha256": "ffd86b06a8cb7d398a388c5ace940b7e2f849c2d3d5003df97bb86b3c7f1a2a6"
+    },
+    {
+      "path": "automation/tests/test_reading_reranking_integration.py",
+      "bytes": 12104,
+      "sha256": "710ffb0786b7d95ac6fb551a9f00dfada46117ceb898a51516ab4a6e28316307"
+    },
+    {
+      "path": "automation/tests/test_reading_workflow.py",
+      "bytes": 22700,
+      "sha256": "cdcc6064d124663d253a5afca496308a09a5e336536c9f1a234cc3ff3de3fa9f"
+    },
+    {
+      "path": "automation/tests/test_workspace_settings.py",
+      "bytes": 15020,
+      "sha256": "fff3bfad42dafdda3a812cc285a96b276880a7fea8866cbbd739b3546a9e73ba"
+    },
+    {
+      "path": "automation/tests/test_workspace_settings_integration.py",
+      "bytes": 7788,
+      "sha256": "70b4d94fda4b9f00b70ff061829ae1e0cd4f92d375b582c3a01f42f357f90890"
+    },
+    {
+      "path": "automation/tests/upgrade_fixture.py",
+      "bytes": 33454,
+      "sha256": "ca467160550bd78fb146fac1f4ad678397f97c6431936454079367ff75f53e29"
+    },
+    {
+      "path": "automation/ui/workbench-assets/asset-manifest.json",
+      "bytes": 13511,
+      "sha256": "bc05908ee3469b873c82ee52d6fb26c425caaf38b6b2df0a2178fa94b566f290"
+    },
+    {
+      "path": "automation/workflows/association-exploration/SKILL.md",
+      "bytes": 1289,
+      "sha256": "073e1471bab39890df421c795d3d671c51aca4e842e2215a2b23c8fdd41125cf"
+    },
+    {
+      "path": "automation/workflows/consolidate-results/SKILL.md",
+      "bytes": 7686,
+      "sha256": "07bc13e12a7262b88e3f0165f502bcc747a909d2b36bf1ca569c630d2baf1cf9"
+    },
+    {
+      "path": "automation/workflows/context-maintenance/SKILL.md",
+      "bytes": 1599,
+      "sha256": "669aa3e0d5afdf29b6df3427e82c5fd88b333cf632e448245b1d6bc3b7907c36"
+    },
+    {
+      "path": "automation/workflows/development-checks/SKILL.md",
+      "bytes": 2565,
+      "sha256": "3573e882abe498f4afed886c1de46148b00245d7eb3cb74180d063aba0dbd35c"
+    },
+    {
+      "path": "automation/workflows/evidence-inspection/SKILL.md",
+      "bytes": 7187,
+      "sha256": "03450413002bb6f8ef3574d960cf0e7ef66f21d2521b2a0a922dcd5cf769bf71"
+    },
+    {
+      "path": "automation/workflows/material-query/SKILL.md",
+      "bytes": 6761,
+      "sha256": "5c12aadf6e3284f2a5246d1f868b069b802edb16be1adf82bdce0d88d3563b58"
+    },
+    {
+      "path": "automation/workflows/semantic-maintenance/SKILL.md",
+      "bytes": 2393,
+      "sha256": "f6475ec3601e7f84d8fdb47f10188490235365f2168dbd283035660f02caabf9"
+    },
+    {
+      "path": "automation/workflows/work-loop/SKILL.md",
+      "bytes": 5571,
+      "sha256": "dab3b75419cc9e11576dad8d2fe49dedeb6ffc99872bad7676fc853d867fc79a"
+    },
+    {
+      "path": "docs/AI_READING.md",
+      "bytes": 13161,
+      "sha256": "6cc0ee9c3f02fc39021d13959ac1ea3a3d67dbf689e6df9f37f3b0657581d62e"
+    },
+    {
+      "path": "docs/CORE.md",
+      "bytes": 28580,
+      "sha256": "efd29598960ac40bd0219973dbffc9e6f548e01e9be62e9584e97a1e636b533e"
+    },
+    {
+      "path": "docs/DEVELOPMENT_HISTORY.md",
+      "bytes": 32138,
+      "sha256": "7806e022a180c6684bfa6b59dcde37a9df769c0b1e9dce79856e6215ee426d07"
+    },
+    {
+      "path": "docs/TESTING.md",
+      "bytes": 10951,
+      "sha256": "b0f4153a9b2b47978571703fd3b3d9755fcb7a8a45cb9d09e4c4a5f35adde1b3"
+    },
+    {
+      "path": "docs/WORKSPACE_SETTINGS.md",
+      "bytes": 6256,
+      "sha256": "3a35ddfe1169d739f3eeb1f6191c74a80b604261bb7b0ab66bab3a6d5e4f3753"
+    },
+    {
+      "path": "README.md",
+      "bytes": 15311,
+      "sha256": "8b368986ed9d12ebe1ab4b00c1d89edf324a021148e179e69a24361180aeee03"
+    }
+  ],
+  "source_zip_sha256": "714c3c4362270605d5c9ae3af5b169d8463af422e4b807be1c254439edbdda2f"
+}

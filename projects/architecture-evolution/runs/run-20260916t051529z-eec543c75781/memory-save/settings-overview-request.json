@@ -1,0 +1,83 @@
+{
+  "schema_version": 3,
+  "request_id": "16d40db2-bb1b-4731-b6df-4c856799f756",
+  "actor": {
+    "kind": "ai",
+    "id": "codex-workspace-settings"
+  },
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "expected_head": "COM-4f54a872-3bad-4718-b525-75239ad50420",
+  "operations": [
+    {
+      "op": "put_record",
+      "client_key": "settings-overview",
+      "draft": {
+        "schema_version": 4,
+        "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+        "kind": "overview",
+        "title": "2026-09-16工作区设置实施概览",
+        "level": "L4",
+        "body_markdown": "工作台新增统一设置，支持协作auto/off、默认结果数、上下文/模型预算与阅读重排。程序缓存解析，新请求使用默认，旧RS保留已授权预算。必要软件与Windows升级检查通过；0.7553毫秒是配置读取p95，不是检索总延迟。开关约束工作区工作流，不能强制任意宿主工具。完整证据和失败见固定技术单元与报告。",
+        "payload": {
+          "question": "怎样提供可配置检索默认值和无子Agent兼容，同时避免AI逐次解析设置？",
+          "methods": [
+            "严格设置/CAS与进程缓存",
+            "新模板默认与旧RS固定预算",
+            "真实HTTP/浏览器与旧工作区升级"
+          ],
+          "results": [
+            "工作台专页、CLI与HTTP共用配置，单Agent兼容策略明确",
+            "设置13、阅读41、组件48、浏览器2、升级18项通过；配置warm p95约0.7553毫秒"
+          ],
+          "current_stage": "功能及必要本机验证完成，未发布；人工/第二物理机另行验收",
+          "limitations": [
+            "单机合成验证，非第二物理机验收",
+            "配置缓存微测不代表端到端检索加速",
+            "子Agent开关是工作区工作流策略，不是宿主工具硬禁用",
+            "旧search/CTX参数保持原契约",
+            "未全仓库回归，既有B01问题保留",
+            "未公开发布"
+          ],
+          "open_questions": [
+            "第二物理机与用户实际环境体验",
+            "端到端检索冷暖性能仍需单独评估"
+          ],
+          "technical_refs": [
+            {
+              "target_kind": "record",
+              "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+              "revision": 1,
+              "sha256": "1cc7a9739dc17bf618ca3d9a43539af379f6d5828078d9d2c65227ed9709d05a",
+              "locator": "",
+              "relation": "references"
+            }
+          ],
+          "process_refs": [],
+          "experience_refs": [],
+          "claims": []
+        },
+        "sources": [
+          {
+            "target_kind": "record",
+            "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+            "revision": 1,
+            "sha256": "1cc7a9739dc17bf618ca3d9a43539af379f6d5828078d9d2c65227ed9709d05a",
+            "locator": "",
+            "relation": "references"
+          }
+        ],
+        "provenance_gap": null,
+        "record_reason": "保存2026-09-16统一设置的实现、固定验证及性能/宿主边界。",
+        "discovery": "workspace_summary",
+        "sensitivity": "internal",
+        "keywords": [
+          "workspace-settings",
+          "配置缓存",
+          "检索预算",
+          "单Agent",
+          "CAS"
+        ]
+      }
+    }
+  ]
+}

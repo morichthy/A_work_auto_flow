@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "owner_id": "RES-R",
+  "title": "SYNTHETIC ONLY",
+  "document_source": "independent",
+  "document": {
+    "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+    "revision": 1,
+    "title": "合成 document",
+    "document_type": "research_process",
+    "purpose": "验证合成研究文档",
+    "audience": "研究人员",
+    "scope": "仅合成软件验收",
+    "common_refs": [],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "bb48f3ad37fb89199175d6cbbf43665b60d39ddd18df0ac7fa01117cf7c59d6b",
+        "target_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "report": {
+    "version": 1,
+    "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+    "revision": 1,
+    "title": "合成 document",
+    "sections": [
+      {
+        "section_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+        "section_key": "method",
+        "title": "合成章节 method",
+        "role": "methods",
+        "ref": {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "bb48f3ad37fb89199175d6cbbf43665b60d39ddd18df0ac7fa01117cf7c59d6b",
+          "target_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+          "target_kind": "record"
+        },
+        "source_issues": [],
+        "blocks": [
+          {
+            "evidence_refs": [],
+            "markdown": "本章固定说明。",
+            "type": "prose",
+            "source_issues": []
+          },
+          {
+            "ref": {
+              "locator": "",
+              "relation": "references",
+              "revision": 1,
+              "sha256": "cc7cc7feabee4aeb8f5fcd8922fb11a30d1b190da19f703e07cfe34fa0870222",
+              "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+              "target_kind": "record"
+            },
+            "type": "unit",
+            "item": {
+              "id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+              "level": "L1",
+              "record": {
+                "body_markdown": "",
+                "change_reason": "合成完整成果同步验证",
+                "content_hash": "12f7712424eb7f64e331ea7efdded61fff7ac4360ea3c321a4459d1ada052c97",
+                "created_at": "2026-09-15T20:47:09.532982Z",
+                "created_by": {
+                  "id": "consolidate-results-synthetic-check",
+                  "kind": "ai"
+                },
+                "discovery": "owner_only",
+                "keywords": [],
+                "kind": "detail",
+                "level": "L1",
+                "owner_id": "RES-R",
+                "payload": {
+                  "blocks": [
+                    {
+                      "block_id": "definitions",
+                      "markdown": "必要定义 ONLY_DEFINITION；$T$ 的单位为 K。",
+                      "requires_block_ids": [],
+                      "role": "definitions"
+                    },
+                    {
+                      "block_id": "result",
+                      "markdown": "完整过程 ONLY_FULL_RESULT：$T=t+273.15$。",
+                      "requires_block_ids": [
+                        "definitions"
+                      ],
+                      "role": "results"
+                    },
+                    {
+                      "block_id": "optional",
+                      "markdown": "未选择的 OPTIONAL_BLOCK。",
+                      "requires_block_ids": [],
+                      "role": "appendix"
+                    }
+                  ],
+                  "evidence_refs": [],
+                  "figures": [],
+                  "missing_refs": [],
+                  "retrieval_description": {
+                    "applicable": [
+                      "摄氏温标的合成输入"
+                    ],
+                    "key_findings": [
+                      "只证明合成流程可读"
+                    ],
+                    "limitations": [
+                      "未验证传感器误差"
+                    ],
+                    "method": "按温度基准和单位换算",
+                    "not_applicable": [
+                      "不得直接用于华氏温标或现实测量"
+                    ],
+                    "question": "合成温标换算的定义"
+                  },
+                  "run_ref": null,
+                  "unit_type": "method"
+                },
+                "previous_revision": null,
+                "provenance_gap": "合成接口验证，无现实实验",
+                "record_hash": "cc7cc7feabee4aeb8f5fcd8922fb11a30d1b190da19f703e07cfe34fa0870222",
+                "record_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+                "record_reason": "合成完整成果同步验证",
+                "revision": 1,
+                "schema_version": 3,
+                "sensitivity": "internal",
+                "sources": [],
+                "title": "合成 detail",
+                "updated_at": "2026-09-15T20:47:09.532982Z",
+                "updated_by": {
+                  "id": "consolidate-results-synthetic-check",
+                  "kind": "ai"
+                }
+              },
+              "source_issues": [],
+              "formal_eligibility": "not_evaluated"
+            },
+            "resolved_blocks": [
+              {
+                "block_id": "definitions",
+                "markdown": "必要定义 ONLY_DEFINITION；$T$ 的单位为 K。",
+                "requires_block_ids": [],
+                "role": "definitions"
+              },
+              {
+                "block_id": "result",
+                "markdown": "完整过程 ONLY_FULL_RESULT：$T=t+273.15$。",
+                "requires_block_ids": [
+                  "definitions"
+                ],
+                "role": "results"
+              },
+              {
+                "block_id": "optional",
+                "markdown": "未选择的 OPTIONAL_BLOCK。",
+                "requires_block_ids": [],
+                "role": "appendix"
+              }
+            ],
+            "required_block_ids": [],
+            "source_issues": []
+          }
+        ]
+      }
+    ],
+    "complete": true
+  },
+  "items": [],
+  "missing": [],
+  "generated_at": "2026-09-15T20:47:10.388100Z",
+  "report_candidates": [
+    {
+      "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+      "revision": 1,
+      "title": "合成 document",
+      "updated_at": "2026-09-15T20:47:10.008036Z",
+      "document_type": "research_process"
+    }
+  ],
+  "report_coverage": {
+    "included_detail_ids": [
+      "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54"
+    ],
+    "uncovered_detail_ids": []
+  },
+  "report_version_hints": [],
+  "basis_heads": {
+    "RES-R": "COM-22e85f1a-398b-440a-b7d4-92d75faab331"
+  },
+  "metrics": {
+    "elapsed_ms": 11.56,
+    "inventory_owners": 1,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 4,
+    "resolved_sections": 1
+  },
+  "writes": 0
+}

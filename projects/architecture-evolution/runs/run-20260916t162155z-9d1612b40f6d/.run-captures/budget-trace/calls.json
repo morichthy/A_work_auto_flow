@@ -1,0 +1,65 @@
+[
+  {
+    "action": "reading-template",
+    "elapsed_s": 0.0016160999994099257,
+    "status": "ok",
+    "code": null,
+    "consumed": {
+      "wall_ms": 0,
+      "read_bytes": 0,
+      "output_chars": 0,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "session_id": "RS-3e0fc7ab-54ac-4595-81be-467343778d0e"
+  },
+  {
+    "action": "reading-start",
+    "elapsed_s": 1.44067670000004,
+    "status": "ok",
+    "code": null,
+    "consumed": {
+      "wall_ms": 0,
+      "read_bytes": 0,
+      "output_chars": 0,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "session_id": "RS-3e0fc7ab-54ac-4595-81be-467343778d0e"
+  },
+  {
+    "action": "reading-recall",
+    "elapsed_s": 111.12118009999995,
+    "status": "rejected",
+    "code": "BUDGET",
+    "consumed": {
+      "wall_ms": 110904,
+      "read_bytes": 7188765,
+      "output_chars": 99986,
+      "candidates": 60,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 2440,
+      "model_calls": 11,
+      "model_input_tokens": 2440,
+      "model_output_tokens": 0,
+      "rerank_items": 7
+    },
+    "session_id": "RS-3e0fc7ab-54ac-4595-81be-467343778d0e"
+  }
+]

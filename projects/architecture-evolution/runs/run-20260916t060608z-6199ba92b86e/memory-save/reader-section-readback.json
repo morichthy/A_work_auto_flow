@@ -1,0 +1,90 @@
+{
+  "body_markdown": "",
+  "change_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+  "content_hash": "889c81bda8aed02d5d826d95a15ee3cf2bba2d153fae826278888d1d4dd7df50",
+  "created_at": "2026-09-16T06:39:16.610691Z",
+  "created_by": {
+    "id": "codex-reading-delegation",
+    "kind": "ai"
+  },
+  "discovery": "workspace_summary",
+  "keywords": [
+    "reading-note",
+    "subagent",
+    "上下文预算",
+    "固定来源",
+    "handoff"
+  ],
+  "kind": "document_section",
+  "level": null,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "payload": {
+    "blocks": [
+      {
+        "evidence_refs": [
+          {
+            "locator": "",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+            "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+            "target_kind": "record"
+          },
+          {
+            "locator": "",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f",
+            "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+            "target_kind": "record"
+          }
+        ],
+        "markdown": "本章记录独立新增的阅读委派能力；统一设置的历史报告保留其当时验证范围，作为固定基线引用。",
+        "type": "prose"
+      },
+      {
+        "block_ids": [
+          "reader-results"
+        ],
+        "ref": {
+          "locator": "",
+          "relation": "references",
+          "revision": 1,
+          "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+          "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+          "target_kind": "record"
+        },
+        "type": "unit"
+      }
+    ],
+    "missing_refs": [],
+    "role": "methods",
+    "section_key": "reading-delegation-20260916",
+    "title": "子Agent阅读与主Agent交接",
+    "watch_refs": []
+  },
+  "previous_revision": null,
+  "provenance_gap": null,
+  "record_hash": "f93fccaab7b186e5adefd49f47888b552c45d8fca7b7c60bc9721b410589d74c",
+  "record_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+  "record_reason": "保存子Agent阅读与有界笔记交接的实现、实际独立AI和软件验证边界。",
+  "revision": 1,
+  "schema_version": 3,
+  "sensitivity": "internal",
+  "sources": [
+    {
+      "locator": "",
+      "relation": "references",
+      "revision": 1,
+      "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+      "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+      "target_kind": "record"
+    }
+  ],
+  "title": "子Agent阅读与主Agent交接",
+  "updated_at": "2026-09-16T06:39:16.610691Z",
+  "updated_by": {
+    "id": "codex-reading-delegation",
+    "kind": "ai"
+  }
+}

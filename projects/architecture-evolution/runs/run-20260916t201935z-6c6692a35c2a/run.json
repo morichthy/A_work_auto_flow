@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260916T201935Z-6C6692A35C2A",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "阅读笔记叙事深度与存储职责澄清",
+  "keywords": [
+    "reading-note",
+    "research-narrative"
+  ],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "completed",
+  "created_at": "2026-09-16T20:19:35Z",
+  "started_at": null,
+  "ended_at": "2026-09-16T20:35:09.255782Z",
+  "owner": null,
+  "question": "解释JSON会话与Markdown文稿职责，并让note成为可读、细节充分、能续接研究的简化完整文稿。",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/.run-captures/final-evidence/source.zip",
+      "sha256": "539cd4f9b95a45d21e2aa23b29eb507c9565e7aadb30d967af80459feacbb705",
+      "role": "input",
+      "registered_at": "2026-09-16T20:36:49.549704Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/.run-captures/final-evidence/source-manifest.json",
+      "sha256": "2b9403acae526904032b0377fdd4cee8e16b40d61f9b31604055cb1005e8db04",
+      "role": "input",
+      "registered_at": "2026-09-16T20:36:49.562457Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t181657z-4d7efff321ba/.run-captures/owner-smoke/08-normal-read-receipt.json",
+      "sha256": "e5473fb240126238dc8309ff6798fdd31b8d8fef5dfbcba82b7b05800b9fab42",
+      "role": "input",
+      "registered_at": "2026-09-16T20:36:49.575842Z"
+    }
+  ],
+  "parameters": {
+    "storage_migration": false,
+    "extra_main_agent_review": false,
+    "sample_note_limit": 14000,
+    "global_default_changed": false,
+    "sample_reranking": "off; not a ranking benchmark"
+  },
+  "code": {
+    "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [],
+  "metrics": {
+    "delegation_tests_passed": 10,
+    "owner_related_tests_passed": 7,
+    "narrative_characters": 1961,
+    "rendered_note_characters": 4876,
+    "estimated_note_utf8_bytes": 8538,
+    "live_recall_succeeded": false,
+    "validation_errors": 0,
+    "existing_validation_warnings": 21
+  },
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/RESULTS.md",
+      "sha256": "f8cb439527647301e4b3b31a977778b8e7e85593b31a324919f8066334f35a36",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.588706Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/README.md",
+      "sha256": "4a6d4343906bb7ac6c47e403b4c3de75e6c079f2a0741dcc4745677e208f3069",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.603264Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/NARRATIVE_NOTE.md",
+      "sha256": "66cd3bf0246dc35194c6edf168bdd3cc113ee2f1701ae2e9338ea3d7f7b7afa4",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.615133Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/verification/diagnose_narrative_integrity.py",
+      "sha256": "9654968a0ccc674692debbd2d3c41794537285f95f36172b7bbfde16861d1983",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.628185Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/verification/narrative-integrity-diagnostic.log",
+      "sha256": "dd1d14efa4e230a12080f14fb996ca139b97e052dda1c05da49a70b25dd8d66c",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.640164Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/verification/reader-narrative-delegation.log",
+      "sha256": "5338c2c51f1d61768c2aa82c23d991f1f11afcbadb2d127e3fe200b7af78c4b0",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.654774Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/verification/reader-narrative-owner.log",
+      "sha256": "425a09f77e74dca4441afe75b964ab9db46f50ce28663b89d0b0e1e071195753",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.669891Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/01-start-receipt.json",
+      "sha256": "9f3de6ac89ed9e40427bdb900d4fcb60304f4674c00d9e0a5d29b33d8fa7682d",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.682999Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/01-start-request.json",
+      "sha256": "9de864710e2913c5b04d38575b8c9985367db9cbb56ae8aa1c745dbf42592053",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.694443Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/01-start-time.json",
+      "sha256": "c2f4bb5670bb6abbbb752f80f9c51d9e752abb2ee783622b6fca1876a4304c5a",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.706032Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/02-recall-receipt.json",
+      "sha256": "8dd1c0ca4e06bb70273d7d2b9cd8262096284bdbc9eb70688068abbf4888dbbd",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.717347Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/02-recall-request.json",
+      "sha256": "0cb88ee04eae37b31babc9588c1e032dc2683352dc16f9bf93b443ea3c17c770",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.729289Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/02-recall-time.json",
+      "sha256": "4aa1c645280f27e97fa7362b58d2ba92403d8f664f4ccfc3295290cc6eac000d",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.741662Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/04-archive-receipt.json",
+      "sha256": "1dfe370234b7e4c5b0bb0dd9adf003a427772d324fc6477f0ea0a7296a715610",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.752544Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/04-archive-request.json",
+      "sha256": "8b236a446ed0a545f01e11d0c565024623268d204c9ea56108bad3f186e26515",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.763972Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/narrative-note-v2.json",
+      "sha256": "3c8c5968bc1ca4232032ce36daf0838029916e8b2b5b124a02b5233d079fe682",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.776062Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/narrative-note.json",
+      "sha256": "4846498fc48458f7b647881167a6bee740e072dd11a532104a0b74b1188eb323",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.786153Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t201935z-6c6692a35c2a/example/render-validation.json",
+      "sha256": "418d3627c0001920669bfc8fd4d03aec82d5315327f41f9eb4d99f1c836efb8b",
+      "role": "artifact",
+      "registered_at": "2026-09-16T20:36:49.797821Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "已明确.local/JSON是会话状态的工程选择，不是笔记正文的格式要求；强化reader连续研究叙事、方法/证据/认识修正和必要细节要求。已生成固定历史浮点文稿的可读Markdown样例，未迁移存储或覆盖旧笔记。实时新RS召回失败，不能声称已完成实际RS替换。",
+  "limitations": [
+    "10+7项仅局部软件检查，不代表并行三策略功能全验收。",
+    "样例基于固定历史完整文稿，图/原始数据/Run未展开或复算；v2修正了首稿初值/推断标示/标题层级，不是首稿完美保证。",
+    "实时召回报材料完整性INTERNAL，当前27条记录/闭包/局部组装检查通过，具体原因未定位；失败测试RS已归档。",
+    "8538是UTF-8字节保守代理，不是精确token；6000默认不足以交付本样例，未静默改全局配置。"
+  ],
+  "parent_run_ids": [
+    "RUN-20260916T195725Z-16CDCD28570D"
+  ],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

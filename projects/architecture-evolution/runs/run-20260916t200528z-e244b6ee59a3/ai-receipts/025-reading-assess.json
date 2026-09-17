@@ -1,0 +1,44 @@
+{
+  "action": "reading-assess",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+    "expected_revision": 3,
+    "request_id": "ai-quick-assess-b",
+    "candidate_id": "RC-30d2e258833d9126ad3cdc6e",
+    "useful": true,
+    "reason": "实际片段给出dv/S到dt的局部线性机制、量纲、数值示例和斜率近零/非线性边界，为A时间误差提供条件性上游线索且明确不可直接归因电源。"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "candidate_id": "RC-30d2e258833d9126ad3cdc6e",
+      "assessment": {
+        "useful": true,
+        "reason": "实际片段给出dv/S到dt的局部线性机制、量纲、数值示例和斜率近零/非线性边界，为A时间误差提供条件性上游线索且明确不可直接归因电源。",
+        "sources_digest": "f47ea127e271c4dbda33eea7d35896690472a7c1bd89711fd92b1e8fc61091a9"
+      },
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174001",
+      "revision": 4
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 202,
+      "read_bytes": 80506,
+      "output_chars": 261,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "unique_passed": 24,
+  "scope": "24 regular browser scenarios, deduplicated across initial run and final targeted reruns",
+  "initial": {
+    "passed": 12,
+    "failed": 2,
+    "not_run": 10
+  },
+  "final_memory": {
+    "passed": 9,
+    "log": "frontend-e2e-memory-retry-4.log"
+  },
+  "final_material_query": {
+    "passed": 5,
+    "log": "frontend-e2e-material-query-retry.log"
+  },
+  "excluded": "one existing deferred 10000-node/100000-edge scale case",
+  "first_failures_retained": true,
+  "cases": {
+    "L0统一材料、无来源条目的Run、固定原件预览与清单导出": "frontend-e2e-memory-retry-4.log",
+    "系统记忆默认研究经过，按需生成对象记忆且保持子页结果": "frontend-e2e-memory-retry-4.log",
+    "真实HTTP保存配置并在页面重新载入后保持": "frontend-e2e.log",
+    "设置草稿跨导航保留，冲突不清空，显式重读后保存": "frontend-e2e.log",
+    "记忆摘要进入完整文稿与来源图片证据": "frontend-e2e.log",
+    "最近问题重开选择、公式与编号引用双向证据导航真实接口": "frontend-e2e.log",
+    "三模式会话显式保存方向、重新载入与快速覆盖提示真实接口": "frontend-e2e.log",
+    "首页自动阅读笔记、定向证据与主题导航真实接口": "frontend-e2e.log",
+    "完整导航、关系、证据、候选和摘要": "frontend-e2e.log",
+    "证据页首次进入加载，顶层切换复用已加载状态": "frontend-e2e.log",
+    "勾选联动图与导出，分类结合搜索且保留跨分类勾选": "frontend-e2e.log",
+    "对象阅读清单、完整原文和版本导出真实接口": "frontend-e2e.log",
+    "四层记录、真实编辑冲突、索引待补偿与安全导出": "frontend-e2e-memory-retry-4.log",
+    "连续研究报告、固定图示、目录路由和窄屏阅读": "frontend-e2e-memory-retry-4.log",
+    "研究、Run、知识与报告真实记录及辅助对象可区分": "frontend-e2e-memory-retry-4.log",
+    "缺范围复核被拒绝并保留逐结论状态": "frontend-e2e-memory-retry-4.log",
+    "跨研究材料回填L3与L4，并采纳有边界的导航关联": "frontend-e2e-memory-retry-4.log",
+    "逐层读取固定原件、返回已读版本，并识别原件变化": "frontend-e2e-memory-retry-4.log",
+    "独立双文稿、必要定义、章节上下文与固定修订影响": "frontend-e2e-memory-retry-4.log",
+    "材料查询真实HTTP组装四区、固定依据与来源映射": "frontend-e2e-material-query-retry.log",
+    "维护任务包导出保留未审状态，改变条件使旧候选失效": "frontend-e2e-material-query-retry.log",
+    "真实预算耗尽显示停止原因并保留查询范围": "frontend-e2e-material-query-retry.log",
+    "有效 partial 审查与真实提交保留索引待办，关闭已完成提交": "frontend-e2e-material-query-retry.log",
+    "概览正文通过固定引用展开经过与技术内容，来源切换和取消选择明确": "frontend-e2e-material-query-retry.log"
+  }
+}

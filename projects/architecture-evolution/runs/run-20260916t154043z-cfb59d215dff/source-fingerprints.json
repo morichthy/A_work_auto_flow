@@ -1,0 +1,62 @@
+[
+  {
+    "path": "automation/scripts/evidence.py",
+    "sha256": "35192a63800c619158fd72f4457a5f198a4713adb628922781fa5a936639f78c"
+  },
+  {
+    "path": "automation/scripts/evidence_observer.py",
+    "sha256": "67e541572481bb3d45de1083428af116635307d18978ea4f5fe358139d6a5671"
+  },
+  {
+    "path": "automation/tests/test_evidence_observer.py",
+    "sha256": "639a6d9d915efb415a714d85ce1a40a04ae260e8cc84aa61c9fc08de51061dd9"
+  },
+  {
+    "path": "automation/frontend/src/App.tsx",
+    "sha256": "035086562bca4813333184be0e3f3c7e613465cc3f40c172997f2581b38da72d"
+  },
+  {
+    "path": "automation/frontend/src/Evidence.tsx",
+    "sha256": "14017fb5d24fbdbbea487be85c2e37df45f8e19797d3d89bf9a999ba1b2f3105"
+  },
+  {
+    "path": "automation/frontend/src/Memory.tsx",
+    "sha256": "2538527f2edbd27e85fdb2f378ed8c57baa1f3cd0c7f3d6341af4688042687a1"
+  },
+  {
+    "path": "automation/frontend/src/Relations.tsx",
+    "sha256": "2190e8cfae68b37842ed09d4ee77532b10885576387fff72f9048b2adf2ffda0"
+  },
+  {
+    "path": "automation/frontend/src/ResearchDocument.tsx",
+    "sha256": "8ec1436fd04411e1979cebc45d0bcca3507fe126a49a6c13538315c6c5a7d8d8"
+  },
+  {
+    "path": "automation/frontend/src/RetainedPanel.tsx",
+    "sha256": "61c7e76eb7914b80e9ca7e55fb30140107d0b90782013d49f46040dbb81a1e88"
+  },
+  {
+    "path": "automation/frontend/src/RetainedPanel.test.tsx",
+    "sha256": "b90209f46fe5f1ccf606f2828843c829b24289fe75eac92ee28807bfe936e88e"
+  },
+  {
+    "path": "automation/frontend/src/Memory.test.tsx",
+    "sha256": "4b1db2593c561f4809af8d6feee229de201fddaaf5b06dc75332e44f6e29c467"
+  },
+  {
+    "path": "automation/frontend/src/ResearchDocument.test.tsx",
+    "sha256": "b23bded5d9824db7937a286a4e2af7a5ce989ab4ef6f2fde9c6f3f6bdd0abcd3"
+  },
+  {
+    "path": "automation/frontend/e2e/memory.spec.ts",
+    "sha256": "45ed42c04291b1d588bdfa2156fd71411a762c96d6a5394f806a76ce330a43e1"
+  },
+  {
+    "path": "automation/frontend/e2e/workbench.spec.ts",
+    "sha256": "bf428c1e3460972131977f6e6d6ac19b17604eaf4c4f1a398943e7dd60886bb9"
+  },
+  {
+    "path": "automation/ui/workbench-assets/asset-manifest.json",
+    "sha256": "f410f69b09a7d0b9d5594372e25aaffc823c23fe54bfdd16824cb3e5071e9270"
+  }
+]

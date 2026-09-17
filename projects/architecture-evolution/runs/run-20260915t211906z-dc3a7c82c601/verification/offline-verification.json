@@ -1,0 +1,39 @@
+{
+  "bundle_sha256": "7810752e15ff40b88e04bae0eedae57f20355ca2da51febba7505a787361d3a4",
+  "platform": "win32",
+  "scope": "same physical Windows machine; isolated source and target directories; no system Python/Node lookup",
+  "checks": [
+    {
+      "name": "fresh-offline-install",
+      "returncode": 0,
+      "seconds": 158.625
+    },
+    {
+      "name": "offline-upgrade",
+      "returncode": 0,
+      "seconds": 108.875
+    },
+    {
+      "name": "receiver-repack",
+      "returncode": 0,
+      "seconds": 43.672
+    },
+    {
+      "name": "dependency-rollback",
+      "returncode": 0,
+      "seconds": 44.547
+    }
+  ],
+  "preserved": [
+    "knowledge/private-note.md",
+    "retrieval/config.json",
+    "retrieval/sources.json",
+    "AGENTS.md"
+  ],
+  "expanded_workspace": {
+    "protected_files": 220,
+    "protected_directories": 222,
+    "all_fingerprints_preserved": true
+  },
+  "status": "passed"
+}

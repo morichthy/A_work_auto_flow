@@ -42,6 +42,13 @@ class ReadingWorkflowTests(unittest.TestCase):
         cls.fx.commit_draft('reading.experience', draft)
         draft['title'] = 'readingfixture 另一条经验'
         cls.fx.commit_draft('reading.experience.second', draft)
+        # The three commits correctly marked Owner A's discovery projection
+        # pending.  Finish the explicit maintenance step before copying this
+        # prepared workspace into reading tests.
+        from memory import discovery, index
+        head = index.Catalog(cls.fx.root).snapshot(cls.fx.owner_ids['A'])['head']
+        discovery.rebuild_owner(cls.fx.root, cls.fx.owner_ids['A'], head,
+            projection_version=discovery.PROJECTION_VERSION, vector='off')
 
     @classmethod
     def tearDownClass(cls):

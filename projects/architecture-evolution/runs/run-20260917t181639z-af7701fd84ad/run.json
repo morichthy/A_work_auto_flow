@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260917T181639Z-AF7701FD84AD",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "实现Owner压缩发现索引与互补筛选包",
+  "keywords": [
+    "owner-discovery",
+    "retrieval",
+    "screening"
+  ],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "succeeded",
+  "created_at": "2026-09-17T18:16:39Z",
+  "started_at": "2026-09-17T18:16:39Z",
+  "ended_at": "2026-09-17T19:50:05Z",
+  "owner": null,
+  "question": "如何按既定计划实现独立Owner发现索引、Owner级融合、互补筛选包、显式全文补偿及其产品入口，并保持现有安全与兼容边界？",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "projects/architecture-evolution/plans/owner-discovery-retrieval-20260918.md",
+      "sha256": "2bad0d9510bfc6e12de3687d3cee34d0dd5d462e17bcdf99e3432a2041e823ad",
+      "role": "input",
+      "registered_at": "2026-09-17T19:58:51Z"
+    }
+  ],
+  "parameters": {
+    "effect_evaluation": false,
+    "baseline_test_count": 104,
+    "discovery_projection_version": "owner-discovery-v1"
+  },
+  "code": {
+    "commit": "ffbad496c7b902c667b4d7fa031b29a68e05d28b",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [
+    {
+      "check": "Owner discovery and reading targeted regression",
+      "status": "passed",
+      "evidence": "RESULTS.md",
+      "details": "104-item pre-change baseline; 202 final Python tests; actual HTTP/socket chain"
+    },
+    {
+      "check": "Workbench contracts, components and production build",
+      "status": "passed",
+      "evidence": "RESULTS.md",
+      "details": "TypeScript passed; 15 component files / 87 tests; Vite 336 modules; 2 actual browser cases"
+    },
+    {
+      "check": "Windows expanded-workspace setup upgrade and rollback",
+      "status": "passed",
+      "evidence": "RESULTS.md",
+      "details": "19 tests; local Windows x64 isolated fixture, not a second physical machine"
+    },
+    {
+      "check": "Skills, test catalog and workspace structure",
+      "status": "passed",
+      "evidence": "RESULTS.md",
+      "details": "8 active Skills valid; catalog revision 125 has no unclassified/missing/error; workspace validate has 0 errors"
+    }
+  ],
+  "metrics": {
+    "baseline_python_tests_passed": 104,
+    "final_python_tests_passed": 202,
+    "frontend_tests_passed": 87,
+    "setup_tests_passed": 19,
+    "browser_tests_passed": 2,
+    "active_skills_validated": 8,
+    "existing_owners_rebuilt": 3
+  },
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t181639z-af7701fd84ad/RESULTS.md",
+      "sha256": "fde4a38143859cc7b19ac018ed778445b637ac9eb751118b8fa738c763e6eede",
+      "role": "artifact",
+      "registered_at": "2026-09-17T19:50:05Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t181639z-af7701fd84ad/DISCOVERY_REBUILD.md",
+      "sha256": "445dc6e86dcec5d9251eabd8f4cb2fe9dd2c861ee8eb1ee07db72e7cba958ffb",
+      "role": "artifact",
+      "registered_at": "2026-09-17T19:50:05Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "独立Owner发现索引、Owner级融合、互补筛选包、CE单窗口处理、三态判断、相关Owner完整分页、quick边界、显式全文补偿、工作台入口和三个既有Owner重建均已完成并通过目标验证。",
+  "limitations": [
+    "按用户约定未评价Owner召回率、延迟、候选数量、CE成本、上下文占用或错误联想率，不能据功能回归宣称质量或性能改善",
+    "现有长期Owner没有非空L1检索说明语义不足的自然样本，本轮未制造内容修订作为实际模型修复证据",
+    "升级验证限本机Windows x64隔离合成旧工作区，不是第二台物理机或真实业务验收",
+    "未发布或推送，当前工作树还包含本Run之外的既有修改"
+  ],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

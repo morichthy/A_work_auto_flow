@@ -1,0 +1,21 @@
+usage: workspace_cli.py material-query [-h] [--owner OWNER]
+                                       [--session SESSION] [--markdown]
+                                       [--request REQUEST] [--assemble]
+                                       [--expand {process,technical}]
+                                       [--documents {research_process,research_report}]
+                                       {capabilities,definitions,foundation-capabilities,foundation,search,structure,maintenance-plan,maintenance-review,maintenance-apply,maintenance-status,reading-template,reading-start,reading-recall,reading-page,reading-read,reading-note,reading-decide,reading-resume,reading-list,reading-view,reading-bind,reading-archive}
+
+positional arguments:
+  {capabilities,definitions,foundation-capabilities,foundation,search,structure,maintenance-plan,maintenance-review,maintenance-apply,maintenance-status,reading-template,reading-start,reading-recall,reading-page,reading-read,reading-note,reading-decide,reading-resume,reading-list,reading-view,reading-bind,reading-archive}
+
+options:
+  -h, --help            show this help message and exit
+  --owner OWNER         reading-list按归属对象筛选；不改变读取授权
+  --session SESSION     reading-view读取该RS最新状态，无需手填请求JSON
+  --markdown            reading-view输出易读Markdown快照
+  --request REQUEST     UTF-8 JSON请求文件，最多500KB
+  --assemble            search后显式组装当前页全部候选；不会继续翻页
+  --expand {process,technical}
+                        search后沿当前页候选的固定关联展开正文；沿用同一预算
+  --documents {research_process,research_report}
+                        search后返回命中所属对象的已有文稿，按固定文稿去重

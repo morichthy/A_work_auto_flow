@@ -6,7 +6,7 @@
 
 2026-09-16子Agent阅读补充：主Agent默认只取reading-handoff的有界笔记/必要细节/出处，检索与完整阅读由宿主独立reader执行；设置关闭或宿主不支持时回退单Agent。delegate仅产生任务包，实际派工由宿主完成。所有笔记仍在原RS，交接不创建规范知识或索引副本，授权和固定版本仍逐次检查；新Owner模式区分最终note上限与单次资源保护，旧RS累计预算保留，外部AI费用另计。接口及遗漏/陈旧/覆盖缺口见[AI阅读](AI_READING.md)。
 
-核对日期：2026-09-16（记录版本、文稿与成果整理流程），依据当前工作树。本页是 [CORE](CORE.md) 的按需补充，汇总持续工作记录机制的问答、真实提交例子，以及由此次讨论形成的维护要求；不替代完整运行契约。**记录保存内容与依据，Run 保存一次运行，索引帮助找到内容，文稿组织可连贯阅读的成果。**
+核对日期：2026-09-18（补充 Owner 压缩发现投影及验证缺口），依据当前工作树。本页是 [CORE](CORE.md) 的按需补充，汇总持续工作记录机制的问答、真实提交例子，以及由此次讨论形成的维护要求；不替代完整运行契约。**记录保存内容与依据，Run 保存一次运行，索引帮助找到内容，文稿组织可连贯阅读的成果。**
 
 问题从“持续工作后材料如何累积、如何找到最新知识”，逐步深入到“record与commit如何迭代、概览和完整文稿如何关联、AI何时检查并同步成果”。最终决定保留独立技术记录和文稿编排，通过成果整理Skill加强阶段一致性，而不将所有内容合并成一篇大文件。本文先解释实体与检索，再串起版本演进、文稿读取和实际工作流程。
 
@@ -88,6 +88,12 @@ manifest 能定位某一提交时的全部当前记录，但不保证这些记�
 `memory_records` 不是原 JSON 的完整备份，也不保存所有历史版本。普通记录的 title/keywords 通常沿用原字段；body 可追加适合检索的结构内容。新 L1 的 body 使用检索说明，完整 blocks/figures 不复制到该行 payload，块正文另进 entries。L0 正文不进入普通召回；文稿、章节和检索表示另有处理。`source_ref` 是带身份、版本和定位的结构化引用，不只是文件路径。
 
 关系、摘要表示和索引进度另由辅助表保存。语义向量存于 [Qdrant storage](../services/qdrant/storage/) 下的集合 `storage.sqlite`：每个文本窗口有向量及记录ID、版本、指纹、`start/end` 位置。当前模型生成384维向量；实际路径和模型见 [config.json](../retrieval/config.json)，集合随编码/模型版本隔离，不把某个集合名写成永久路径。实现见 [index.py](../automation/scripts/memory/index.py)。
+
+### 独立发现投影
+
+默认 Owner 发现不复用上述全文三表再加 `level` 过滤。实现另建 `memory_discovery_entries`、`memory_discovery_fts`、每 Owner 的 `memory_discovery_index_state` 和独立向量 collection，只保存 Owner 元数据、L4/L3、L2 紧凑内容和 L1 `retrieval_description`。这样隔离进入默认召回的条目/向量和后续候选，不只是返回时隐藏全文命中。
+
+发现条目仍固定到规范记录 revision/hash；候选返回前回源核验。它是可重建投影，不是新的规范 `representation` record，也不能承载正文、证据、review 或 AI 生成结论。每 Owner 分别保存 lexical/vector 的 `indexed|pending|unavailable|stale|failed` 水位、HEAD、投影版本、模型指纹和错误；HEAD 或来源变化会使旧投影不可读，重建只更新派生数据。旧 Owner 缺 L4 或检索说明时，低等级模型须实际阅读获准材料并通过 MEM 提交新修订，回读成功后以该次 expected HEAD 重建该 Owner 的发现投影；不能只向索引写一个无法追溯的摘要。旧 Owner 修复、真实升级恢复和端到端验证仍在进行，不能据此宣称召回或性能收益。完整设计见[Owner发现设计](design/OWNER_DISCOVERY_RETRIEVAL.md)。
 
 ## 4. 一次查询怎样用这三张表
 

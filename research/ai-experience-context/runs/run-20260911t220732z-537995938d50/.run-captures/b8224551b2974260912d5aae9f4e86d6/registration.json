@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "run_path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260911T220732Z-537995938D50",
+    "owner_id": "RES-AI-EXPERIENCE-CONTEXT",
+    "project_id": null,
+    "title": "检索方案讨论与一手文献证据整理 v0.1",
+    "keywords": [
+      "经验检索",
+      "上下文组织",
+      "RAG",
+      "方案比较",
+      "召回"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "planned",
+    "created_at": "2026-09-11T22:07:32Z",
+    "started_at": null,
+    "ended_at": null,
+    "owner": "Codex",
+    "question": "选择能高召回复用历史经验并维持同问题上下文的检索、阅读及编排方案；解释候选取舍和业界依据。",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {
+      "activity": "文献阅读、讨论整理与静态代码核对",
+      "discussion_date_local": "2026-09-12",
+      "timezone": "Asia/Shanghai"
+    },
+    "code": {
+      "commit": null,
+      "dirty": null
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "",
+    "limitations": [
+      "本 Run 登记受控证据和分析文稿，不是检索性能实验。",
+      "外部来源保存链接和阅读笔记，不是完整网页离线副本。",
+      "用户认可查询扩展原则，不表示已选定最终架构。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxMVQyMjA3MzJaLTUzNzk5NTkzOEQ1MCIsDQogICJvd25lcl9pZCI6ICJSRVMtQUktRVhQRVJJRU5DRS1DT05URVhUIiwNCiAgInByb2plY3RfaWQiOiBudWxsLA0KICAidGl0bGUiOiAi5qOA57Si5pa55qGI6K6o6K665LiO5LiA5omL5paH54yu6K+B5o2u5pW055CGIHYwLjEiLA0KICAia2V5d29yZHMiOiBbDQogICAgIue7j+mqjOajgOe0oiIsDQogICAgIuS4iuS4i+aWh+e7hOe7hyIsDQogICAgIlJBRyIsDQogICAgIuaWueahiOavlOi+gyIsDQogICAgIuWPrOWbniINCiAgXSwNCiAgInJldmlld19oaXN0b3J5IjogW10sDQogICJjbGFpbXMiOiBbXSwNCiAgImRlcGVuZGVuY2llcyI6IFtdLA0KICAicnVuX3R5cGUiOiAiYW5hbHlzaXMiLA0KICAic3RhdHVzIjogInBsYW5uZWQiLA0KICAiY3JlYXRlZF9hdCI6ICIyMDI2LTA5LTExVDIyOjA3OjMyWiIsDQogICJzdGFydGVkX2F0IjogbnVsbCwNCiAgImVuZGVkX2F0IjogbnVsbCwNCiAgIm93bmVyIjogIkNvZGV4IiwNCiAgInF1ZXN0aW9uIjogIumAieaLqeiDvemrmOWPrOWbnuWkjeeUqOWOhuWPsue7j+mqjOW5tue7tOaMgeWQjOmXrumimOS4iuS4i+aWh+eahOajgOe0ouOAgemYheivu+WPiue8luaOkuaWueahiO+8m+ino+mHiuWAmemAieWPluiIjeWSjOS4mueVjOS+neaNruOAgiIsDQogICJoeXBvdGhlc2VzIjogW10sDQogICJpbnB1dHMiOiBbXSwNCiAgInBhcmFtZXRlcnMiOiB7DQogICAgImFjdGl2aXR5IjogIuaWh+eMrumYheivu+OAgeiuqOiuuuaVtOeQhuS4jumdmeaAgeS7o+eggeaguOWvuSIsDQogICAgImRpc2N1c3Npb25fZGF0ZV9sb2NhbCI6ICIyMDI2LTA5LTEyIiwNCiAgICAidGltZXpvbmUiOiAiQXNpYS9TaGFuZ2hhaSINCiAgfSwNCiAgImNvZGUiOiB7DQogICAgImNvbW1pdCI6IG51bGwsDQogICAgImRpcnR5IjogbnVsbA0KICB9LA0KICAiZW52aXJvbm1lbnQiOiB7DQogICAgInB5dGhvbiI6ICIzLjEyLjEwIiwNCiAgICAicGxhdGZvcm0iOiAiV2luZG93cy0xMS0xMC4wLjIyNjMxLVNQMCIsDQogICAgImxvY2tfb3JfaW1hZ2VfZGlnZXN0IjogbnVsbA0KICB9LA0KICAicmFuZG9tX3NlZWRzIjogW10sDQogICJxdWFsaXR5X3Jlc3VsdHMiOiBbXSwNCiAgIm1ldHJpY3MiOiB7fSwNCiAgImFydGlmYWN0cyI6IFtdLA0KICAibGluZWFnZV9ldmVudHMiOiAibGluZWFnZS5qc29ubCIsDQogICJjb25jbHVzaW9uIjogIiIsDQogICJsaW1pdGF0aW9ucyI6IFsNCiAgICAi5pysIFJ1biDnmbvorrDlj5fmjqfor4Hmja7lkozliIbmnpDmlofnqL/vvIzkuI3mmK/mo4DntKLmgKfog73lrp7pqozjgIIiLA0KICAgICLlpJbpg6jmnaXmupDkv53lrZjpk77mjqXlkozpmIXor7vnrJTorrDvvIzkuI3mmK/lrozmlbTnvZHpobXnprvnur/lia/mnKzjgIIiLA0KICAgICLnlKjmiLforqTlj6/mn6Xor6LmianlsZXljp/liJnvvIzkuI3ooajnpLrlt7LpgInlrprmnIDnu4jmnrbmnoTjgIIiDQogIF0sDQogICJwYXJlbnRfcnVuX2lkcyI6IFtdLA0KICAicmVsYXRlZF9tb2R1bGVfaWRzIjogW10sDQogICJyZWxhdGVkX3Jlc2VhcmNoX2lkcyI6IFtdLA0KICAicmVsYXRlZF9kYXRhc2V0X2lkcyI6IFtdLA0KICAicmV2aWV3Ijogew0KICAgICJzdGF0dXMiOiAibm90LXJldmlld2VkIiwNCiAgICAicmV2aWV3ZXIiOiBudWxsLA0KICAgICJkYXRlIjogbnVsbA0KICB9LA0KICAic2Vuc2l0aXZpdHkiOiAiaW50ZXJuYWwiDQp9DQo=",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260911T220732Z-537995938D50",
+    "owner_id": "RES-AI-EXPERIENCE-CONTEXT",
+    "project_id": null,
+    "title": "检索方案讨论与一手文献证据整理 v0.1",
+    "keywords": [
+      "经验检索",
+      "上下文组织",
+      "RAG",
+      "方案比较",
+      "召回"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "planned",
+    "created_at": "2026-09-11T22:07:32Z",
+    "started_at": null,
+    "ended_at": null,
+    "owner": "Codex",
+    "question": "选择能高召回复用历史经验并维持同问题上下文的检索、阅读及编排方案；解释候选取舍和业界依据。",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/user-proposal.txt",
+        "sha256": "98a08fa2646d5fdd93f4e11aa6912c0bc94f9365f0d7cf3a460b258cacb5e8b1",
+        "role": "input",
+        "registered_at": "2026-09-11T22:12:25.609542Z"
+      },
+      {
+        "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/discussion-before-research.md",
+        "sha256": "4377e7a8a6a071604cb5cd36fc561c3c6c64bd20d813811fe612889a2da1983a",
+        "role": "input",
+        "registered_at": "2026-09-11T22:12:25.619952Z"
+      },
+      {
+        "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/memory-index.py",
+        "sha256": "fd224c67290a08e6e5b7a55c0991e5035075a7ec56efb67a1e63bf104a67263a",
+        "role": "input",
+        "registered_at": "2026-09-11T22:12:25.630298Z"
+      },
+      {
+        "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/technical-units.py",
+        "sha256": "fe707cba7c75e6272b90f37734396d680960b5133d287c82abb3ef5cd75da287",
+        "role": "input",
+        "registered_at": "2026-09-11T22:12:25.641394Z"
+      },
+      {
+        "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/material-query-coordinator.py",
+        "sha256": "4231476d8c3251fb4c9f9077d817222063440b384ff40d777b8ac61723e209f4",
+        "role": "input",
+        "registered_at": "2026-09-11T22:12:25.650798Z"
+      }
+    ],
+    "parameters": {
+      "activity": "文献阅读、讨论整理与静态代码核对",
+      "discussion_date_local": "2026-09-12",
+      "timezone": "Asia/Shanghai"
+    },
+    "code": {
+      "commit": null,
+      "dirty": null
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [
+      {
+        "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/primary-source-notes.md",
+        "sha256": "8a813a1bc554c3ba757dbcadf08a3c851284bf96aa46796932b4903859148dd2",
+        "role": "artifact",
+        "registered_at": "2026-09-11T22:12:25.662109Z"
+      },
+      {
+        "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/discussion-decisions.md",
+        "sha256": "daf7a21ba20c7a8a3516a57a215cb6cd09713024d7990565bb895642db2b0e3d",
+        "role": "artifact",
+        "registered_at": "2026-09-11T22:12:25.676865Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "",
+    "limitations": [
+      "本 Run 登记受控证据和分析文稿，不是检索性能实验。",
+      "外部来源保存链接和阅读笔记，不是完整网页离线副本。",
+      "用户认可查询扩展原则，不表示已选定最终架构。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-11T22:12:25.743324Z"
+}

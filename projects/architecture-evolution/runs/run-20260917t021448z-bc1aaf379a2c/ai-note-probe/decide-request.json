@@ -1,0 +1,10 @@
+{
+  "session_id": "RS-2417fd8d-07bf-4f6d-b937-9cb5956d2df4",
+  "expected_revision": 5,
+  "request_id": "77ce4b2b-d8f2-4a96-9228-dfd44132ea23",
+  "direction": "finish",
+  "reason": "合成文稿阅读和材料笔记已完成，覆盖缺口保留",
+  "next_step": "交回主Agent",
+  "outcome": "",
+  "human_decision": ""
+}

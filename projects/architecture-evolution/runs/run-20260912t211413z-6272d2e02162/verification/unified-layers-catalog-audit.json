@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "discovered_count": 616,
+  "catalog_count": 618,
+  "unclassified": [],
+  "missing": [],
+  "errors": [],
+  "discovery_fingerprint": "3ca44e69a2e01ecd6a0b03dd880f5cc21c318394ef667de2e4df504292308835",
+  "catalog_fingerprint": "0dfefe4123452220c02e31b0e6bad14910269e19c592ea6ad6770b908a5fd396"
+}
+

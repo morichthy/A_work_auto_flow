@@ -1,0 +1,145 @@
+{
+  "owner": {
+    "schema_version": 1,
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "owner_type": "project",
+    "native_ref": {
+      "id_field": "project_id",
+      "id_value": "PRJ-ARCHITECTURE-EVOLUTION",
+      "path": "projects/architecture-evolution/project.json"
+    },
+    "memory_home": "projects/architecture-evolution/memory",
+    "adapter_version": 1,
+    "temporary": false,
+    "persisted": true,
+    "title": "框架架构演进与文档一致性",
+    "fingerprint": "6b7eb7daf36d4e7b0c1d93f848e8977d4bba9cafdc2a632e2dd8baa35ec7bca7",
+    "native_data": {
+      "schema_version": 1,
+      "project_id": "PRJ-ARCHITECTURE-EVOLUTION",
+      "slug": "architecture-evolution",
+      "title": "框架架构演进与文档一致性",
+      "status": "active",
+      "lifecycle_stage": "develop",
+      "created_at": "2026-09-09",
+      "updated_at": "2026-09-16",
+      "owners": [],
+      "domain_tags": [
+        "framework-architecture",
+        "documentation-consistency",
+        "memory",
+        "retrieval"
+      ],
+      "sensitivity": "internal",
+      "objectives": [
+        "按实际代码和明确时间核对现行文档",
+        "维护模块职责及变更影响图",
+        "按有用内容保存项目L0-L4，文稿按需，并维护可见工作上下文",
+        "定义并实现表示查询、存储适配与语义维护的可替换接口"
+      ],
+      "non_goals": [
+        "不替换384维召回编码器与存储引擎；正文重排使用独立可选模型",
+        "不直接改写历史Run、规范记忆和合成fixture；新增内容走公共提交",
+        "不把框架软件模块登记成公司核心算法",
+        "不启动后台同步、规模测试或对外发布"
+      ],
+      "module_ids": [],
+      "dataset_ids": [],
+      "active_research_ids": [
+        "RES-AI-EXPERIENCE-CONTEXT"
+      ],
+      "active_plan": "plans/workspace-settings-20260916.md",
+      "open_questions": [
+        "怎样以小步适配落实本轮契约，并保持已有固定引用和用户入口？",
+        "如何以固定问题集验证候选召回、误联想、延迟和上下文成本？"
+      ]
+    },
+    "created_at": "2026-09-09T17:16:28.592511Z",
+    "created_by": {
+      "id": "assistant",
+      "kind": "ai"
+    }
+  },
+  "record": {
+    "body_markdown": "",
+    "change_reason": "将本次UI/storage独立结果编排入既有完整报告，保留旧章节原修订。",
+    "content_hash": "d17abf93c76e7611e3a8679f529bd377a8bf901e7f7e943807b972ccfb68541d",
+    "created_at": "2026-09-16T16:36:22.692057Z",
+    "created_by": {
+      "id": "codex-reading-note-closure",
+      "kind": "ai"
+    },
+    "discovery": "workspace_summary",
+    "keywords": [
+      "reading-note",
+      "Markdown派生快照",
+      "当前笔记",
+      "固定版本证据",
+      "Windows升级"
+    ],
+    "kind": "document_section",
+    "level": null,
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "payload": {
+      "blocks": [
+        {
+          "evidence_refs": [
+            {
+              "locator": "",
+              "relation": "references",
+              "revision": 1,
+              "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+              "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+              "target_kind": "record"
+            }
+          ],
+          "markdown": "本章新增阅读笔记的可读派生副本、合法会话发现和工作台入口。前章保留委派、能力配置及真实计时的历史固定依据；本章修复不重新验证浮点科学内容，也不将可见性修复解释为性能优化。",
+          "type": "prose"
+        },
+        {
+          "block_ids": [
+            "reading-ui-storage-results"
+          ],
+          "ref": {
+            "locator": "",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+            "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+            "target_kind": "record"
+          },
+          "type": "unit"
+        }
+      ],
+      "missing_refs": [],
+      "role": "methods",
+      "section_key": "reading-ui-storage-20260916",
+      "title": "阅读笔记可读副本与工作台入口",
+      "watch_refs": []
+    },
+    "previous_revision": null,
+    "provenance_gap": null,
+    "record_hash": "05247c81db6408eac446df9d4e4d8f153b0dfb8d60e86ec1edcb4d586333760c",
+    "record_id": "MEM-a042188a-244a-5d15-843e-359b7d7f87f6",
+    "record_reason": "将本次UI/storage独立结果编排入既有完整报告，保留旧章节原修订。",
+    "revision": 1,
+    "schema_version": 3,
+    "sensitivity": "internal",
+    "sources": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+        "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+        "target_kind": "record"
+      }
+    ],
+    "title": "阅读笔记可读副本与工作台入口",
+    "updated_at": "2026-09-16T16:36:22.692057Z",
+    "updated_by": {
+      "id": "codex-reading-note-closure",
+      "kind": "ai"
+    }
+  }
+}

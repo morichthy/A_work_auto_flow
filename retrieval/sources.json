@@ -624,6 +624,102 @@
       "sensitivity": "internal",
       "context_role": "project",
       "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-CONTEXT-V01-USER-PROPOSAL",
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/user-proposal.txt",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-CONTEXT-V01-DISCUSSION-BEFORE-RESEARCH",
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/discussion-before-research.md",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-CONTEXT-V01-MEMORY-INDEX",
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/memory-index.py",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-CONTEXT-V01-TECHNICAL-UNITS",
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/technical-units.py",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-CONTEXT-V01-MATERIAL-QUERY-COORDINATOR",
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/material-query-coordinator.py",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-CONTEXT-V01-PRIMARY-SOURCE-NOTES",
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/primary-source-notes.md",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-CONTEXT-V01-DISCUSSION-DECISIONS",
+      "path": "research/ai-experience-context/runs/run-20260911t220732z-537995938d50/discussion-decisions.md",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-CONTEXT-EFFICIENCY-20260912",
+      "path": "research/ai-experience-context/discussions/20260912-cross-layer-efficiency.md",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-RETRIEVAL-FOUNDATION-20260912-RESULTS",
+      "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/RESULTS.md",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-RETRIEVAL-FOUNDATION-20260912-CODE-MANIFEST",
+      "path": "projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/final-code-manifest.json",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-CONTEXT-MULTIROUTE-20260913",
+      "path": "research/ai-experience-context/discussions/20260913-multiroute-reading.md",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
+    },
+    {
+      "source_id": "SRC-AI-READING-20260913-RESULTS",
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/RESULTS.md",
+      "enabled": true,
+      "sensitivity": "internal",
+      "context_role": "research",
+      "discovery": "trace_only"
     }
   ]
 }

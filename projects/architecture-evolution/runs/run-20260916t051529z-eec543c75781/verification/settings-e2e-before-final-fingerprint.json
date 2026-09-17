@@ -1,0 +1,189 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "e2e/settings.spec.ts"
+    ],
+    "configFile": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\playwright.config.ts",
+    "rootDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tmp/workbench-e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "settings.spec.ts",
+      "file": "settings.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "真实HTTP保存配置并在页面重新载入后保持",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: 设置沙盒退出1：Traceback (most recent call last):\r\n  File \"D:\\��������\\A_work\\A_work_auto_flow\\automation\\tests\\serve_workbench_test.py\", line 40, in <module>\r\n    main()\r\n  File \"D:\\��������\\A_work\\A_work_auto_flow\\automation\\tests\\serve_workbench_test.py\", line 36, in main\r\n    workbench.serve(root, open_browser=False)\r\n  File \"D:\\��������\\A_work\\A_work_auto_flow\\automation\\scripts\\workbench.py\", line 124, in serve\r\n    raise ValueError('ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��' + name)\r\nValueError: ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��e2e/settings.spec.ts\r\n",
+                    "stack": "Error: 设置沙盒退出1：Traceback (most recent call last):\r\n  File \"D:\\��������\\A_work\\A_work_auto_flow\\automation\\tests\\serve_workbench_test.py\", line 40, in <module>\r\n    main()\r\n  File \"D:\\��������\\A_work\\A_work_auto_flow\\automation\\tests\\serve_workbench_test.py\", line 36, in main\r\n    workbench.serve(root, open_browser=False)\r\n  File \"D:\\��������\\A_work\\A_work_auto_flow\\automation\\scripts\\workbench.py\", line 124, in serve\r\n    raise ValueError('ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��' + name)\r\nValueError: ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��e2e/settings.spec.ts\r\n\n    at ChildProcess.<anonymous> (D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\settings.spec.ts:43:12)",
+                    "location": {
+                      "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\settings.spec.ts",
+                      "column": 12,
+                      "line": 43
+                    },
+                    "snippet": "  41 |     server.on(\"exit\", (code) => {\n  42 |       clearTimeout(timer);\n> 43 |       fail(Error(`设置沙盒退出${code}：${output}`));\n     |            ^\n  44 |     });\n  45 |   });\n  46 | });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\settings.spec.ts",
+                        "column": 12,
+                        "line": 43
+                      },
+                      "message": "Error: 设置沙盒退出1：Traceback (most recent call last):\r\n  File \"D:\\��������\\A_work\\A_work_auto_flow\\automation\\tests\\serve_workbench_test.py\", line 40, in <module>\r\n    main()\r\n  File \"D:\\��������\\A_work\\A_work_auto_flow\\automation\\tests\\serve_workbench_test.py\", line 36, in main\r\n    workbench.serve(root, open_browser=False)\r\n  File \"D:\\��������\\A_work\\A_work_auto_flow\\automation\\scripts\\workbench.py\", line 124, in serve\r\n    raise ValueError('ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��' + name)\r\nValueError: ǰ��Դ�����Դ��ƥ�䣬�����¹�����װ�����汾��e2e/settings.spec.ts\r\n\n\n  41 |     server.on(\"exit\", (code) => {\n  42 |       clearTimeout(timer);\n> 43 |       fail(Error(`设置沙盒退出${code}：${output}`));\n     |            ^\n  44 |     });\n  45 |   });\n  46 | });\n    at ChildProcess.<anonymous> (D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\settings.spec.ts:43:12)"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T05:30:27.652Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\test-results\\settings-真实HTTP保存配置并在页面重新载入后保持\\error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\test-results\\settings-真实HTTP保存配置并在页面重新载入后保持\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\e2e\\settings.spec.ts",
+                    "column": 12,
+                    "line": 43
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-dafb3b6f5e105c775247",
+          "file": "settings.spec.ts",
+          "line": 51,
+          "column": 1
+        },
+        {
+          "title": "设置草稿跨导航保留，冲突不清空，显式重读后保存",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-16T05:30:28.528Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "d877ffdf71ec720167ae-86b75302883d2c7725e2",
+          "file": "settings.spec.ts",
+          "line": 86,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-16T05:30:26.222Z",
+    "duration": 2340.149,
+    "expected": 0,
+    "skipped": 1,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

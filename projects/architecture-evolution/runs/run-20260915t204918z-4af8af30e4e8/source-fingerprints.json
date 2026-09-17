@@ -1,0 +1,42 @@
+[
+  {
+    "path": "automation/workflows/consolidate-results/SKILL.md",
+    "sha256": "07bc13e12a7262b88e3f0165f502bcc747a909d2b36bf1ca569c630d2baf1cf9",
+    "snapshot": "source-snapshot/automation__workflows__consolidate-results__SKILL.md"
+  },
+  {
+    "path": "automation/workflows/work-loop/SKILL.md",
+    "sha256": "c0fd27e44a349220dde9c2a5dc1a2f13f7f307e83e2c452ce383ce8f55eb1555",
+    "snapshot": "source-snapshot/automation__workflows__work-loop__SKILL.md"
+  },
+  {
+    "path": "automation/workflows/semantic-maintenance/SKILL.md",
+    "sha256": "f6475ec3601e7f84d8fdb47f10188490235365f2168dbd283035660f02caabf9",
+    "snapshot": "source-snapshot/automation__workflows__semantic-maintenance__SKILL.md"
+  },
+  {
+    "path": "automation/scripts/install_workspace_skills.py",
+    "sha256": "b179d2208a0809b0aa13522d83062d80de5fac280d332853d2986036e76e7d1c",
+    "snapshot": "source-snapshot/automation__scripts__install_workspace_skills.py"
+  },
+  {
+    "path": "automation/tests/test_install_workspace_skills.py",
+    "sha256": "5299650df40e8ec5723164fdad678457447d8a1abd8c06a7d6263424b6f3cc7f",
+    "snapshot": "source-snapshot/automation__tests__test_install_workspace_skills.py"
+  },
+  {
+    "path": "automation/tests/test_deployment_workbench.py",
+    "sha256": "458aff626378eec0b7ae5ad1efb346956a3da19d4b91022bc623b9c07c18b353",
+    "snapshot": "source-snapshot/automation__tests__test_deployment_workbench.py"
+  },
+  {
+    "path": "automation/tests/upgrade_fixture.py",
+    "sha256": "b04a210ba2adedf00d3175674246438c552f7a1c71cc0f22b034b4a586b5e93c",
+    "snapshot": "source-snapshot/automation__tests__upgrade_fixture.py"
+  },
+  {
+    "path": "automation/scripts/deployment.py",
+    "sha256": "500d82dab63777ffab0b573ddec3cd50d69f9e29b96c1cf5a82cb556e784cf0e",
+    "snapshot": "source-snapshot/automation__scripts__deployment.py"
+  }
+]

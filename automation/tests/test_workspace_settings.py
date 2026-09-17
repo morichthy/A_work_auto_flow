@@ -74,7 +74,11 @@ class WorkspaceSettingsTests(unittest.TestCase):
         self.assertEqual(value["settings"]["collaboration"]["subagents"], "auto")
         self.assertEqual(value["settings"]["materials"]["result_limit"], 20)
         self.assertEqual(value["settings"]["reading"]["result_limit"], 10)
-        self.assertEqual(value["settings"]["reading"]["reranking"], {"mode": "auto", "candidate_limit": 30})
+        self.assertEqual(value["settings"]["reading"]["screening"],
+                         {"regular_windows": 3, "max_windows": 4, "batch_owners": 10})
+        self.assertEqual(value["settings"]["reading"]["reranking"], {
+            "mode": "auto", "candidate_limit": 30, "window_tokens": 512,
+            "overflow_policy": "hit_centered_per_window"})
         self.assertFalse((self.root / "workspace-settings.json").exists())
         self.assertFalse((self.root / "workspace-settings.json.lock").exists())
 
@@ -128,6 +132,41 @@ class WorkspaceSettingsTests(unittest.TestCase):
             saved = self.update(saved, changed)
             self.assertEqual(self.read()['settings'], changed)
 
+    def test_discovery_screening_and_ce_window_settings_are_strict_and_legacy_read_is_byte_preserving(self):
+        current = self.read()
+        legacy = deepcopy(current['settings'])
+        del legacy['reading']['screening']
+        del legacy['reading']['reranking']['window_tokens']
+        del legacy['reading']['reranking']['overflow_policy']
+        raw = json.dumps({'schema_version': 1, 'settings': legacy}).encode('utf-8')
+        path = self.root / 'workspace-settings.json'
+        path.write_bytes(raw)
+        shown = self.read()
+        self.assertEqual(shown['settings'], current['settings'])
+        self.assertEqual(shown['revision'], hashlib.sha256(raw).hexdigest())
+        self.assertEqual(path.read_bytes(), raw)
+        # 写入继续要求完整新快照，旧客户端不能把新增策略悄悄抹掉。
+        self.assert_error('INVALID_ARGUMENT', lambda: self.update(shown, legacy))
+
+        valid = shown
+        for screening in (
+            {'regular_windows': 0, 'max_windows': 4, 'batch_owners': 10},
+            {'regular_windows': 5, 'max_windows': 4, 'batch_owners': 10},
+            {'regular_windows': 3, 'max_windows': 5, 'batch_owners': 10},
+            {'regular_windows': 3, 'max_windows': 4, 'batch_owners': 0},
+            {'regular_windows': 3, 'max_windows': 4, 'batch_owners': 101},
+        ):
+            changed = deepcopy(valid['settings'])
+            changed['reading']['screening'] = screening
+            self.assert_error('INVALID_ARGUMENT', lambda: self.update(valid, changed))
+        for tokens in (63, 513, True, 512.0, '512'):
+            changed = deepcopy(valid['settings'])
+            changed['reading']['reranking']['window_tokens'] = tokens
+            self.assert_error('INVALID_ARGUMENT', lambda: self.update(valid, changed))
+        changed = deepcopy(valid['settings'])
+        changed['reading']['reranking']['overflow_policy'] = 'whole_batch_fallback'
+        self.assert_error('INVALID_ARGUMENT', lambda: self.update(valid, changed))
+
     def test_invalid_shape_numbers_limits_and_corrupt_file_are_rejected(self):
         base = self.read()
         cases = []
@@ -141,7 +180,7 @@ class WorkspaceSettingsTests(unittest.TestCase):
         for settings in cases:
             self.assert_error("INVALID_ARGUMENT", lambda settings=settings: self.update(base, settings))
         off = deepcopy(base["settings"])
-        off["reading"]["reranking"] = {"mode": "off", "candidate_limit": 1}
+        off["reading"]["reranking"].update(mode="off", candidate_limit=1)
         self.assertEqual(self.update(base, off)["settings"]["reading"]["reranking"], off["reading"]["reranking"])
         (self.root / "workspace-settings.json").write_text("{not-json", encoding="utf-8")
         self.assert_error("INVALID_ARGUMENT", self.read)

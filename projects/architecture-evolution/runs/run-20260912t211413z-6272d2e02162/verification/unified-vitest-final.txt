@@ -1,0 +1,31 @@
+
+> rd-workbench@1.0.0 test
+> vitest run --run
+
+
+ RUN  v3.2.7 D:/共享桌面/A_work/A_work_auto_flow/automation/frontend
+
+ ✓ src/components.test.tsx (1 test) 60ms
+ ✓ src/graph-model.test.ts (7 tests) 229ms
+ ✓ src/ReadingSessions.test.tsx (3 tests) 427ms
+ ✓ src/Memory.test.tsx (1 test) 491ms
+   ✓ 统一记忆层级入口 > 每层只有一个筛选和新建入口，其他对象未迁移的内容仍可找到  490ms
+ ✓ src/ResearchDocument.test.tsx (6 tests) 685ms
+ ✓ src/MaterialMaintenance.test.tsx (9 tests) 990ms
+   ✓ 维护任务包审查与提交 > 人工审查仅在实际填写并勾选后引用服务器交付材料  301ms
+ ✓ src/MaterialQuery.test.tsx (8 tests) 2573ms
+   ✓ 材料查询固定范围与回执 > 标准类型可单选多选，所有来源与旧版显式选择，默认预算五分钟  657ms
+   ✓ 材料查询固定范围与回执 > 完整文稿按钮位于候选上方，后续失败清除旧正文并在右侧说明  416ms
+   ✓ 材料查询固定范围与回执 > 默认查概览与经验，展开沿用固定查询；取消树选择不扩大范围  328ms
+   ✓ 材料查询固定范围与回执 > 显式区分空范围、全局范围和树中所选归属，不隐式扩大查询  304ms
+   ✓ 材料查询固定范围与回执 > 候选选择传递查询摘要，材料包四区独立保留部分结果与缺口  323ms
+   ✓ 材料查询固定范围与回执 > 取消组装会取消同一固定查询并使迟到材料包失效  339ms
+ ✓ src/memory-contract.test.ts (3 tests) 8397ms
+   ✓ C08 Python / frontend structural memory contract parity > 校验新增研究经过、经验分类、概览的完整正文与必需字段  1740ms
+   ✓ C08 Python / frontend structural memory contract parity > executes every registered kind and positive/negative variant in both runtimes  6653ms
+
+ Test Files  8 passed (8)
+      Tests  38 passed (38)
+   Start at  05:57:46
+   Duration  11.41s (transform 1.85s, setup 2.71s, collect 7.30s, tests 13.85s, environment 11.04s, prepare 1.96s)
+

@@ -1,0 +1,862 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260915T211906Z-DC3A7C82C601",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "v0.3.0 正式发布与隔离交付验证",
+    "keywords": [
+      "release",
+      "升级验证"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "failed",
+    "created_at": "2026-09-15T21:19:06Z",
+    "started_at": null,
+    "ended_at": "2026-09-15T22:08:04.668494+00:00",
+    "owner": null,
+    "question": "核对当前框架版本的源码、依赖、旧工作区保护及正式发布结果。",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "dist/release-v0.3.0/framework-source-v0.3.0.zip",
+        "sha256": "e5081b4d76dbdd18a1908f27550acf6bd920ac8761f8015ad4cf7ed61b90ebdc",
+        "role": "input",
+        "registered_at": "2026-09-15T22:08:07.777130Z"
+      },
+      {
+        "path": "dist/release-v0.3.0/dependencies-windows-x64.zip",
+        "sha256": "7810752e15ff40b88e04bae0eedae57f20355ca2da51febba7505a787361d3a4",
+        "role": "input",
+        "registered_at": "2026-09-15T22:08:08.309240Z"
+      }
+    ],
+    "parameters": {
+      "release": "v0.3.0",
+      "scope": "framework-only; local synthetic Windows x64 verification"
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "check": "full-backend-coverage",
+        "status": "passed",
+        "required": true
+      },
+      {
+        "check": "full-backend-tests",
+        "status": "failed",
+        "required": true
+      },
+      {
+        "check": "frontend-38-typecheck-and-16-normal-browser",
+        "status": "passed",
+        "required": true
+      },
+      {
+        "check": "actual-archive-offline-install-upgrade-repack-rollback",
+        "status": "passed",
+        "required": true
+      },
+      {
+        "check": "source-dependency-and-remote-asset-hashes",
+        "status": "passed",
+        "required": true
+      }
+    ],
+    "metrics": {
+      "backend_tests": 610,
+      "backend_passed": 609,
+      "backend_failed": 1,
+      "frontend_passed": 38,
+      "browser_passed": 16
+    },
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/ai-evidence-version-check.json",
+        "sha256": "97b3570235f463f1cf8039d06a6a72a96433c32c417ba982a4533625521326b0",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.331266Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/archive-offline-validation.log",
+        "sha256": "fab5e5946cfa233814c78b072cad9477384534e312d1c8b4ad1bc27339c72a8e",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.348718Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/b01-recheck-events.jsonl",
+        "sha256": "584a82130ff2ae194080308960836d2cdcde7e8a9ab5b36da8ea113ef7474c2a",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.370518Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-release-summary.json",
+        "sha256": "d8df9327384d5f794ba75f1915d14cd711a81f8c37712865f01b03567033ad2c",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.391255Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-b01-recheck.log",
+        "sha256": "4201fd7a6af2fd38b8653a27e5ab1bbd5e0092f00fea2bd28ee30cddc5bda61c",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.413704Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-coverage-ledger.json",
+        "sha256": "7bd7395eaf514508c42df0dc2dbb80395ea52bea83cb1e9a45579bf7b7dbaca3",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.430478Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-remaining-model.log",
+        "sha256": "0d044e85f217ef3a7e0af630ad94d4891db0ccc92d1e6937d3e7042be3963808",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.453015Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-remaining-synthetic.log",
+        "sha256": "f6fff6ee39cf5b6c23d4e8e17b3c08dfe224c95cf91c77a832a0ca5439ea5766",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.472581Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-synthetic-tier.log",
+        "sha256": "fee958288222a5830925f94fea33e41cc8b2fe80e688374bf922998e38732207",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.493954Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-workbench-authorization-diagnostic.log",
+        "sha256": "bf7460f8e546efcd24bc1ba8b50b52b4c6d76e22753ce40ef9f43b48688a630d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.513997Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-workbench-relations-elevated.log",
+        "sha256": "0886b128f3a9b8e65db8b86d5fcdaa223c0494f688394f771f36c9e98cc40c4d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.530770Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-workbench-relations.log",
+        "sha256": "bf7460f8e546efcd24bc1ba8b50b52b4c6d76e22753ce40ef9f43b48688a630d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.550301Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-workspace-cli.log",
+        "sha256": "4aacc547584f799eaca115bb579f1affd69b72ab366d092fad09b7eb96e2ee1c",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.569232Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest.log",
+        "sha256": "3d2c86c66837b00359a1082a660103a59886bedb2bc1bd6ff3017087daf1afb7",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.589756Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/build_coverage_ledger.py",
+        "sha256": "d8f471757fcd14922856741e5de2f2ead2854d83254dd82ba504fe4e62240897",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.607795Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/check_release.py",
+        "sha256": "cf4a7cfa8eda7e4808b845e066da2ab5979d6693c4c35ec0325f9ee79e097e41",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.625932Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/dependency-verification.json",
+        "sha256": "7eb8344a396875e27e600b0625cd4d3cbfb5e1cd209873f98f0b75a807ebd13d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.643846Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/discovered-test-ids.json",
+        "sha256": "06266eaf264c7d9b83a063543dfcdbca12e366322eb2662c520d22120c0308e7",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.662798Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/draft.json",
+        "sha256": "f6cb1f6ac59a440198f11344667b61ff4978c96c7c81140bb99e4894865daf7b",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.679581Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/e2e-deferred-10k-failure-artifact/error-context.md",
+        "sha256": "448c9d0fc2e02cf451f4af8b8969d1788cc42506f84564bbcf9c98a1fd93a341",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.699967Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/finalize_record.py",
+        "sha256": "0416c712e39fdb4d710f930049bb86a954c3a89ebacfe5ff9065cb84360f7faf",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.718967Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/frontend-e2e-excluding-deferred-10k.log",
+        "sha256": "7d15ce9761facb32c1c8118b254ae8c8f60c3c0f60cc88414e78c245ad55fceb",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.736278Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/frontend-e2e.log",
+        "sha256": "889b284c5d4be12ac86a37feafcd721206fec897f1b47729b426749c50e5ca99",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.755791Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/frontend-typecheck.log",
+        "sha256": "9e80feee4686e486ccb76c25dd3ecad41b1d659eddf3b666b977f7530ec21e9d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.772592Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/frontend-vitest.log",
+        "sha256": "45bcc3302b8e06ab97867c72a4a3b992bc212c2c0bd7d2fd03fdd31b9324ce97",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.791455Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-dependency-rollback.log",
+        "sha256": "f68958c3cd4693ec3e6edfff040684022bab697a9ae9e6936b5986b65cdbebe9",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.809499Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-fresh-offline-install.log",
+        "sha256": "faaae6d3134b02e177ace7815a486917cd8a517287ed93d40e32aaf9010d2c6c",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.826865Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-offline-upgrade.log",
+        "sha256": "2638b0eef086a30efc304843ed90d5c49491eefc793490cfae30cc75284fb4fe",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.845878Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-receiver-repack.log",
+        "sha256": "74724a7e6ef1ca674fffbfd0f0ce8118aa527b5f3789f734de0260d13614561f",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.872628Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-verification.json",
+        "sha256": "c40afc7239409d6a7d3ae9b0b6b0058a436a160bcabae5bb9a00b7bdc3f981fe",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.892236Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/publication.json",
+        "sha256": "30faf6cf8cebb92d47dec0236fd3f61578d9303875dd8d2d4c13511fd7d649df",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.912620Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/publish.py",
+        "sha256": "aa04c4b5a1497e3d6c6c922928c27fbcd6e909da24480fd3ac0c4c63b0971593",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.930240Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/push.json",
+        "sha256": "a8cd6b0432cce7b55f3e7f555d6224df7a0c344139f58ef883f9faa7ade39642",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.948186Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/release-notes.md",
+        "sha256": "da0e26587e71b8036f85f6b8f36fb828707cb0dc49ee86caf14695b52c3dafa7",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.967101Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/release-verification.json",
+        "sha256": "e06cabfd14c511180b46e006c448a35b94fb6636803b14a3373b432a2f05b48e",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.988751Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/remaining-model-result.json",
+        "sha256": "4faaf71d27c96fba524947f19c92afb4ec3f35499bcab287e9b2d95b312d150d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.010789Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/remaining-test-plan.json",
+        "sha256": "2da71ad013330258da9cf3469269040d3e20bcb65301838d1501b9c09c36d7c0",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.028404Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/remote-before.json",
+        "sha256": "0f8d733fe234e999c02fc944b6c25a9c507e12fd338185c98bf8c5cdec6c1083",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.050628Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/run_faulthandler_case.py",
+        "sha256": "26806c3fa4b4721e054308895fd27a0ecd5e56d164b3ea532a071c0ac8c7f6f6",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.071562Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/run_remaining_group.py",
+        "sha256": "b1d2c8a5e94e1b64d7c77da03cfef023188fa472c9a6024fd42610bd98ea94be",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.092385Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/run_traced_ids.py",
+        "sha256": "b9ee4333fd55f7dd7d4f728577da9b67a24aa0169b6d15b81724d9255aa90a17",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.109344Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/source-inventory-preview.json",
+        "sha256": "17fb343bb0418460fce1ead2bd072f11684b0297f58f6baf2c97c554343b8428",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.127387Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/source-inventory-v0.3.0.json",
+        "sha256": "50e2689832da302fd0f7f24f5bec6a1cda24f16d1fe96a7cf342d47988f3ecdf",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.145248Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/source_archive.py",
+        "sha256": "223908d298ee93087a7314207824add6240fd7e4ef0f64c34aa44e919b6d0637",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.164173Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/testing-audit.log",
+        "sha256": "b8298c1254e5f7ed85cb10f2ed05d5457e8a4d6aee2cf25b3c35d0b7174ba223",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.184799Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/tmp-single-mkdir-probe.log",
+        "sha256": "b5cb4d94203fbb45d0727fd4370c930b7ab01101e3df4615c6c420275520d952",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.204377Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/workbench-authorization-faulthandler.txt",
+        "sha256": "e712f5391ad4267a05e5c8d850872d426b97615ae1836ef482a20305621a0dd7",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.221859Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/workbench-relations-elevated-events.jsonl",
+        "sha256": "0ce0d5f1616730091c48f3152b4fa5d4307d4fa3117c4570b87f62daa49e4f52",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.238502Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/workbench-relations-events.jsonl",
+        "sha256": "3134cf73ee7dbd5faa8b0edbc77f3a99ac4ac0b503b966799704266e3204fbe1",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.255535Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/workbench-relations-first-invocation-error.log",
+        "sha256": "345a39e70486bae4d5cfeb2d771d0bec23b9364a82c7d1fda1f0fd238e18d8a0",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.278863Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/RESULTS.md",
+        "sha256": "d80c39879d2c3d3d99c6e053556489e3d22697d0e8c9d21108ecfc1c9bafacf8",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.301608Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/FINAL_REVIEW.md",
+        "sha256": "16788a9d603a93072102a774e8555129b3d4a1260b4680e2f73f649494918dd6",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:09:51.976280Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/final-workspace-validation.log",
+        "sha256": "320df923b2015a00396b27c3858e8fb205f43410c68a6749a9773b0d8d140102",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:09:51.991535Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "v0.3.0已正式发布；源码、依赖及远端附件核验通过。后端既有B01失败和误触发的暂缓规模超时分别保留。",
+    "limitations": [
+      "同机Windows x64隔离合成验证，不代表第二物理机、真实业务或科学复核。",
+      "Run在部分验证已开始后建立，未补造开始时间。初始工作树源码与最终发行文件一致，业务数据未提交。",
+      "完整后端分段执行并按唯一ID核对；中断、调用错误与环境权限诊断保留，不能当作软件通过。",
+      "历史B01冻结夹具清单失败未改写为通过；暂缓规模场景误执行超时，普通浏览器重复复验中止。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxNVQyMTE5MDZaLURDM0E3QzgyQzYwMSIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogInYwLjMuMCDmraPlvI/lj5HluIPkuI7pmpTnprvkuqTku5jpqozor4EiLA0KICAia2V5d29yZHMiOiBbDQogICAgInJlbGVhc2UiLA0KICAgICLljYfnuqfpqozor4EiDQogIF0sDQogICJyZXZpZXdfaGlzdG9yeSI6IFtdLA0KICAiY2xhaW1zIjogW10sDQogICJkZXBlbmRlbmNpZXMiOiBbXSwNCiAgInJ1bl90eXBlIjogImFuYWx5c2lzIiwNCiAgInN0YXR1cyI6ICJmYWlsZWQiLA0KICAiY3JlYXRlZF9hdCI6ICIyMDI2LTA5LTE1VDIxOjE5OjA2WiIsDQogICJzdGFydGVkX2F0IjogbnVsbCwNCiAgImVuZGVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDQuNjY4NDk0KzAwOjAwIiwNCiAgIm93bmVyIjogbnVsbCwNCiAgInF1ZXN0aW9uIjogIuaguOWvueW9k+WJjeahhuaetueJiOacrOeahOa6kOeggeOAgeS+nei1luOAgeaXp+W3peS9nOWMuuS/neaKpOWPiuato+W8j+WPkeW4g+e7k+aenOOAgiIsDQogICJoeXBvdGhlc2VzIjogW10sDQogICJpbnB1dHMiOiBbDQogICAgew0KICAgICAgInBhdGgiOiAiZGlzdC9yZWxlYXNlLXYwLjMuMC9mcmFtZXdvcmstc291cmNlLXYwLjMuMC56aXAiLA0KICAgICAgInNoYTI1NiI6ICJlNTA4MWI0ZDc2ZGJkZDE4YTE5MDhmMjc1NTBhY2Y2YmQ5MjBhYzg3NjFmODAxNWFkNGNmN2VkNjFiOTBlYmRjIiwNCiAgICAgICJyb2xlIjogImlucHV0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDcuNzc3MTMwWiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImRpc3QvcmVsZWFzZS12MC4zLjAvZGVwZW5kZW5jaWVzLXdpbmRvd3MteDY0LnppcCIsDQogICAgICAic2hhMjU2IjogIjc4MTA3NTJlMTVmZjQwYjg4ZTA0YmFlMGVlZGFlNTdmMjAzNTVjYTJkYTUxZmViYmE3NTA1YTc4NzM2MWQzYTQiLA0KICAgICAgInJvbGUiOiAiaW5wdXQiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC4zMDkyNDBaIg0KICAgIH0NCiAgXSwNCiAgInBhcmFtZXRlcnMiOiB7DQogICAgInJlbGVhc2UiOiAidjAuMy4wIiwNCiAgICAic2NvcGUiOiAiZnJhbWV3b3JrLW9ubHk7IGxvY2FsIHN5bnRoZXRpYyBXaW5kb3dzIHg2NCB2ZXJpZmljYXRpb24iDQogIH0sDQogICJjb2RlIjogew0KICAgICJjb21taXQiOiAiODlhZDMwNzUzNTg5ZmI3YjkxOWIzZGI3NWNkZjkxZDQ3NDQ5ZjRjYSIsDQogICAgImRpcnR5IjogdHJ1ZQ0KICB9LA0KICAiZW52aXJvbm1lbnQiOiB7DQogICAgInB5dGhvbiI6ICIzLjEyLjEwIiwNCiAgICAicGxhdGZvcm0iOiAiV2luZG93cy0xMS0xMC4wLjIyNjMxLVNQMCIsDQogICAgImxvY2tfb3JfaW1hZ2VfZGlnZXN0IjogbnVsbA0KICB9LA0KICAicmFuZG9tX3NlZWRzIjogW10sDQogICJxdWFsaXR5X3Jlc3VsdHMiOiBbDQogICAgew0KICAgICAgImNoZWNrIjogImZ1bGwtYmFja2VuZC1jb3ZlcmFnZSIsDQogICAgICAic3RhdHVzIjogInBhc3NlZCIsDQogICAgICAicmVxdWlyZWQiOiB0cnVlDQogICAgfSwNCiAgICB7DQogICAgICAiY2hlY2siOiAiZnVsbC1iYWNrZW5kLXRlc3RzIiwNCiAgICAgICJzdGF0dXMiOiAiZmFpbGVkIiwNCiAgICAgICJyZXF1aXJlZCI6IHRydWUNCiAgICB9LA0KICAgIHsNCiAgICAgICJjaGVjayI6ICJmcm9udGVuZC0zOC10eXBlY2hlY2stYW5kLTE2LW5vcm1hbC1icm93c2VyIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJyZXF1aXJlZCI6IHRydWUNCiAgICB9LA0KICAgIHsNCiAgICAgICJjaGVjayI6ICJhY3R1YWwtYXJjaGl2ZS1vZmZsaW5lLWluc3RhbGwtdXBncmFkZS1yZXBhY2stcm9sbGJhY2siLA0KICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLA0KICAgICAgInJlcXVpcmVkIjogdHJ1ZQ0KICAgIH0sDQogICAgew0KICAgICAgImNoZWNrIjogInNvdXJjZS1kZXBlbmRlbmN5LWFuZC1yZW1vdGUtYXNzZXQtaGFzaGVzIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJyZXF1aXJlZCI6IHRydWUNCiAgICB9DQogIF0sDQogICJtZXRyaWNzIjogew0KICAgICJiYWNrZW5kX3Rlc3RzIjogNjEwLA0KICAgICJiYWNrZW5kX3Bhc3NlZCI6IDYwOSwNCiAgICAiYmFja2VuZF9mYWlsZWQiOiAxLA0KICAgICJmcm9udGVuZF9wYXNzZWQiOiAzOCwNCiAgICAiYnJvd3Nlcl9wYXNzZWQiOiAxNg0KICB9LA0KICAiYXJ0aWZhY3RzIjogWw0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL2FpLWV2aWRlbmNlLXZlcnNpb24tY2hlY2suanNvbiIsDQogICAgICAic2hhMjU2IjogIjk3YjM1NzAyMzVmNDYzZjFjZjgwMzlkMDZhNmE3MmE5NjQzM2MzMmM0MTdiYTk4MmE0NTMzNjI1NTIxMzI2YjAiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC4zMzEyNjZaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vYXJjaGl2ZS1vZmZsaW5lLXZhbGlkYXRpb24ubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiZmFiNWU1OTQ2Y2ZhMjMzODE0Yzc4YjA3MmNhZDk0NzczODQ1MzRlMzEyZDFjOGI0YWQxYmMyNzMzOWM3MmE4ZSIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjM0ODcxOFoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9iMDEtcmVjaGVjay1ldmVudHMuanNvbmwiLA0KICAgICAgInNoYTI1NiI6ICI1ODRhODIxMzBmZjJhZTE5NDA4MDMwODk2MDgzNmQyY2RjZGU3ZThhOWFiNWIzNmRhOGVhMTEzZWY3NDc0YzJhIiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDguMzcwNTE4WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL2JhY2tlbmQtcmVsZWFzZS1zdW1tYXJ5Lmpzb24iLA0KICAgICAgInNoYTI1NiI6ICJkOGRmOTMyNzM4NGQ1Zjc5NGJhNzVmMTkxNWQxNGNkNzExYTgxZjhjMzc3MTI4NjVmMDFiMDM1NjcwMzNhZDJjIiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDguMzkxMjU1WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL2JhY2tlbmQtdW5pdHRlc3QtYjAxLXJlY2hlY2subG9nIiwNCiAgICAgICJzaGEyNTYiOiAiNDIwMWZkN2E2YWYyZmQzOGI4NjUzYTI3ZTVhYjFiYmQ1ZTAwOTJmMDBmZWEyYmQyOGVlMzBjZGRjNWJkYTYxYyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjQxMzcwNFoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9iYWNrZW5kLXVuaXR0ZXN0LWNvdmVyYWdlLWxlZGdlci5qc29uIiwNCiAgICAgICJzaGEyNTYiOiAiN2JkNzM5NWVhZjUxNDUwOGM0MmRmMGRjMmRiYjgwMzk1ZWE1MmJlYTgzY2IxZTlhNDU1NzliZjdiN2RiYWNhMyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjQzMDQ3OFoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9iYWNrZW5kLXVuaXR0ZXN0LXJlbWFpbmluZy1tb2RlbC5sb2ciLA0KICAgICAgInNoYTI1NiI6ICIwZDA0NGU4NWYyMTdlZjNhN2UwYWY2MzBhZDk0ZDQ4OTFkYjBjY2M5MmQxZTY5MzdkM2U3MDQyYmUzOTYzODA4IiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDguNDUzMDE1WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL2JhY2tlbmQtdW5pdHRlc3QtcmVtYWluaW5nLXN5bnRoZXRpYy5sb2ciLA0KICAgICAgInNoYTI1NiI6ICJmNmZmZjZlZTM5Y2Y1YjZjMjNkNGU4ZTE3YjNjMDhkZmUyMjRjOTVjZjkxYzc3YTgzMmEwY2E1NDM5ZWE1NzY2IiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDguNDcyNTgxWiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL2JhY2tlbmQtdW5pdHRlc3Qtc3ludGhldGljLXRpZXIubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiZmVlOTU4Mjg4MjIyYTU4MzA5MjVmOTRmZWEzM2U0MWNjOGIyZmU4MGU2ODgzNzRiZjkyMjk5OGUzODczMjIwNyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjQ5Mzk1NFoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9iYWNrZW5kLXVuaXR0ZXN0LXdvcmtiZW5jaC1hdXRob3JpemF0aW9uLWRpYWdub3N0aWMubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiYmY3NDYwZjhlNTQ2ZWZjZDI0YmMxYmE4YjUwYjUyYjRjNmQ3NmUyMjc1M2NlNDBlZjlmNDNiNDg2ODhhNjMwZCIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjUxMzk5N1oiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9iYWNrZW5kLXVuaXR0ZXN0LXdvcmtiZW5jaC1yZWxhdGlvbnMtZWxldmF0ZWQubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiMDg4NmIxMjhmM2E5YjhlNjVkYjhiODZkNWZjZGFhMjIzYzA0OTRmNjg4Mzk0Zjc3MWYzNmM5ZTk4Y2M0MGM0ZCIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjUzMDc3MFoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9iYWNrZW5kLXVuaXR0ZXN0LXdvcmtiZW5jaC1yZWxhdGlvbnMubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiYmY3NDYwZjhlNTQ2ZWZjZDI0YmMxYmE4YjUwYjUyYjRjNmQ3NmUyMjc1M2NlNDBlZjlmNDNiNDg2ODhhNjMwZCIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjU1MDMwMVoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9iYWNrZW5kLXVuaXR0ZXN0LXdvcmtzcGFjZS1jbGkubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiNGFhY2M1NDc1ODRmNzk5ZWFjYTExNWJiNTc5ZjFhZmZkNjliNzJhYjM2NmQwOTJmYWQwOWI3ZWI5NmUyZWUxYyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjU2OTIzMloiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9iYWNrZW5kLXVuaXR0ZXN0LmxvZyIsDQogICAgICAic2hhMjU2IjogIjNkMmM4NmM2NjgzN2IwMDM1OWExMDgyYTY2MDEwM2E1OTg4NmJlZGIyYmMxYmQ2ZmYzMDE3MDg3ZGFmMWFmYjciLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC41ODk3NTZaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vYnVpbGRfY292ZXJhZ2VfbGVkZ2VyLnB5IiwNCiAgICAgICJzaGEyNTYiOiAiZDhmNDcxNzU3ZmNkMTQ5MjI4NTY3NDFlNWRlMmYyZWFkMjg1NGQ4MzI1NGRkODJiYTUwNGZlNGU2MjI0MDg5NyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjYwNzc5NVoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9jaGVja19yZWxlYXNlLnB5IiwNCiAgICAgICJzaGEyNTYiOiAiY2Y0YTdjZmE4ZWRhN2U0ODA4Yjg0NWUwNjZkYTJhYjU5NzlkNjY5M2M0YzM1ZWMwMzI1ZjllZTc5ZTA5N2U0MSIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjYyNTkzMloiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9kZXBlbmRlbmN5LXZlcmlmaWNhdGlvbi5qc29uIiwNCiAgICAgICJzaGEyNTYiOiAiN2ViODM0NGEzOTY4NzVlMjdlNjAwYjA2MjVjZDRkM2NiZmI1ZTFjZDIwOTg3M2Y5OGYwYjc1YTgwN2ViZDEzZCIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjY0Mzg0NloiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9kaXNjb3ZlcmVkLXRlc3QtaWRzLmpzb24iLA0KICAgICAgInNoYTI1NiI6ICIwNjI2NmVhZjI2NGM3ZDliODNhMDYzNTQzZGZjZGJjYTEyZTM2NjMyMmViMjY2MmM1MjBkMjIxMjBjMDMwOGU3IiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDguNjYyNzk4WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL2RyYWZ0Lmpzb24iLA0KICAgICAgInNoYTI1NiI6ICJmNmNiMWY2YWM1OWE0NDAxOThmMTEzNDQ2NjdiNjFmZjQ5NzhjOTZjN2M4MTE0MGJiOTllNDg5NDg2NWRhZjdiIiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDguNjc5NTgxWiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL2UyZS1kZWZlcnJlZC0xMGstZmFpbHVyZS1hcnRpZmFjdC9lcnJvci1jb250ZXh0Lm1kIiwNCiAgICAgICJzaGEyNTYiOiAiNDQ4YzlkMGZjMmUwMmNmNDUxZjRhZjhiODk2OWQxNzg4Y2M0MjUwNmY4NDU2NGJiY2Y5Yzk4YTFmZDkzYTM0MSIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjY5OTk2N1oiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9maW5hbGl6ZV9yZWNvcmQucHkiLA0KICAgICAgInNoYTI1NiI6ICIwNDE2YzcxMmUzOWZkYjRkNzEwZjkzMDA0OWJiODZhOTU0YzNhODllYmFjZmU1ZmY5MDY1Y2I4NDM2MGY3ZmFmIiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDguNzE4OTY3WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL2Zyb250ZW5kLWUyZS1leGNsdWRpbmctZGVmZXJyZWQtMTBrLmxvZyIsDQogICAgICAic2hhMjU2IjogIjdkMTVjZTk3NjFmYWNiMzJjMWM4MTE4YjI1NGFlOGM4ZjYwYzNjMGY2MGNjODg0MTRlNzhjMjQ1YWQ1NWZjZWIiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC43MzYyNzhaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vZnJvbnRlbmQtZTJlLmxvZyIsDQogICAgICAic2hhMjU2IjogIjg4OWIyODRjNWQ0YmUxMmFjODZhMzdmZWFmY2Q3MjEyMDZmZWM4OTdmMWI0NzcyOWI0MjY3NDljNTBlNWNhOTkiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC43NTU3OTFaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vZnJvbnRlbmQtdHlwZWNoZWNrLmxvZyIsDQogICAgICAic2hhMjU2IjogIjllODBmZWVlNDY4NmU0ODZjY2I3NmMyNWRkM2VjYWQ0MWIxZDY1OWVkZGYzYjY2NmI5NzdmNzUzMGVjMjFlOWQiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC43NzI1OTJaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vZnJvbnRlbmQtdml0ZXN0LmxvZyIsDQogICAgICAic2hhMjU2IjogIjQ1YmNjMzMwMmI4ZTA2YWI5Nzg2N2M3MmE0YTNiOTkyYmMyMTJjMmMwYmQ3ZDJmZDAzZmRkMzFiOTMyNGNlOTciLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC43OTE0NTVaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vb2ZmbGluZS1kZXBlbmRlbmN5LXJvbGxiYWNrLmxvZyIsDQogICAgICAic2hhMjU2IjogImY2ODk1OGMzY2Q0NjkzZWMzZTZlZGZmZjA0MDY4NDAyMmJhYjY5N2E5YWU5ZTY5MzZiNTk4NmI2NWNkYmViZTkiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC44MDk0OTlaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vb2ZmbGluZS1mcmVzaC1vZmZsaW5lLWluc3RhbGwubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiZmFhYWU2ZDMxMzRiMDJlMTc3YWNlNzgxNWE0ODY5MTdjZDhhNTE3Mjg3ZWQ5M2Q0MGUzMmFhZjkwMTBkMmM2YyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4LjgyNjg2NVoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9vZmZsaW5lLW9mZmxpbmUtdXBncmFkZS5sb2ciLA0KICAgICAgInNoYTI1NiI6ICIyNjM4YjBlZWYwODZhMzBlZmMzMDQ4NDNlZDkwZDVjNDk0OTFlZWZjNzkzNDkwY2ZhZTMwY2M3NTI4NGZiNGZlIiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDguODQ1ODc4WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL29mZmxpbmUtcmVjZWl2ZXItcmVwYWNrLmxvZyIsDQogICAgICAic2hhMjU2IjogIjc0NzI0YTdlNmVmMWNhNjc0ZmZmYmZkMGYwY2U4MTE4YWE1MjdiNWYzNzg5ZjczNGRlMDI2MGQxMzYxNDU2MWYiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC44NzI2MjhaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vb2ZmbGluZS12ZXJpZmljYXRpb24uanNvbiIsDQogICAgICAic2hhMjU2IjogImM0MGFmYzcyMzk0MDlkNmE3ZDNhZTliMGI2YjAwNThhNDM2YTE2MGJjYWJhZTViYjlhMDBiN2JkYzNmOTgxZmUiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC44OTIyMzZaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vcHVibGljYXRpb24uanNvbiIsDQogICAgICAic2hhMjU2IjogIjMwZmFmNmNmOGNlYmI5MmQ0N2RlYzAyMzZmZDNmNjE1NzhkOTMwMzg3NWRkOGQyZDRjMTM1MTFmZDdkNjQ5ZGYiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC45MTI2MjBaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vcHVibGlzaC5weSIsDQogICAgICAic2hhMjU2IjogImFhMDRjNGI1YTE0OTdlM2Q2YzZjOTIyOTI4YzI3ZmJjZDZlOTA5ZGEyNDQ4MGZkM2FjMGM0YzYzYjA5NzE1OTMiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOC45MzAyNDBaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vcHVzaC5qc29uIiwNCiAgICAgICJzaGEyNTYiOiAiYThjZDZiMDQzMmNjZTdiNTVmM2U3ZjU1NWQ2MjI0ZGY3YTBjMzQ0MTM5ZjU4ZWY4ODNmOWZhYTdhZGUzOTY0MiIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4Ljk0ODE4NloiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9yZWxlYXNlLW5vdGVzLm1kIiwNCiAgICAgICJzaGEyNTYiOiAiZGEwZTI2NTg3ZTcxYjgwMzZmODVmNmI4ZjM2ZmI4Mjg3MDdjYjBkYzQ5ZWU4NmNhZjE0Njk1YjUyYzNkYWZhNyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4Ljk2NzEwMVoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9yZWxlYXNlLXZlcmlmaWNhdGlvbi5qc29uIiwNCiAgICAgICJzaGEyNTYiOiAiZTA2Y2FiZmQxNGM1MTExODBiNDZlMDA2YzQ0OGEzNWI5NGZiNjYzNjgwM2IxNGEzMzczYjQzMmEyZjA1YjQ4ZSIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA4Ljk4ODc1MVoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9yZW1haW5pbmctbW9kZWwtcmVzdWx0Lmpzb24iLA0KICAgICAgInNoYTI1NiI6ICI0ZmFhZjcxZDI3Yzk2ZmJhNTI0OTQ3ZjE5YzkyYWZiNGVjM2YzNTQ5OWJjYWIyODdlOWIyZDk1YjMxMmQxNTBkIiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDkuMDEwNzg5WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL3JlbWFpbmluZy10ZXN0LXBsYW4uanNvbiIsDQogICAgICAic2hhMjU2IjogIjJkYTcxYWQwMTMzMzAyNThkYTljZjM0NjkyNjkwNDBkM2UyMGJjYjY1MzAxODM4ZDE1MDFiOWMwOWMzNmQ3YzAiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOS4wMjg0MDRaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vcmVtb3RlLWJlZm9yZS5qc29uIiwNCiAgICAgICJzaGEyNTYiOiAiMGY4ZDczM2ZlMjM0ZTk5OWMwMmZjOTQ0YjZjMjVhOWM1MDdlMTJmZDMzODE4NWM5OGJmOGM1Y2RlYzZjMTA4MyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA5LjA1MDYyOFoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9ydW5fZmF1bHRoYW5kbGVyX2Nhc2UucHkiLA0KICAgICAgInNoYTI1NiI6ICIyNjgwNmMzZmE0YjQ3MjFlMDU0MzA4ODk1ZmQyN2EwZWNkNWU1NmQxNjRiM2VhNTMyYTA3MWMwYWM4YzdmNmY2IiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDkuMDcxNTYyWiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL3J1bl9yZW1haW5pbmdfZ3JvdXAucHkiLA0KICAgICAgInNoYTI1NiI6ICJiMWQyYzhhNWU5NGUxYjY0ZDdjNzdkYTAzY2ZlZjAyMzE4OGZhNDcyYzlhNjAyNGZkNDI2MTBiZDk4ZWE5NGJlIiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDkuMDkyMzg1WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL3J1bl90cmFjZWRfaWRzLnB5IiwNCiAgICAgICJzaGEyNTYiOiAiYjllZTQzMzNmZDU1ZjdkZDdkNGY3Mjg1NzdkYTliNjdhMjRhYTAxNjliNmQxNWI4MTcyNGQ5MjU1YWE5MGExNyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA5LjEwOTM0NFoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi9zb3VyY2UtaW52ZW50b3J5LXByZXZpZXcuanNvbiIsDQogICAgICAic2hhMjU2IjogIjE3ZmIzNDNiYjA0MTg0NjBmY2UxZWFkMmJkMDcyZjExNjg0YjAyOTdmNThmNmJhZjJjOTdjNTU0MzQzYjg0MjgiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOS4xMjczODdaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vc291cmNlLWludmVudG9yeS12MC4zLjAuanNvbiIsDQogICAgICAic2hhMjU2IjogIjUwZTI2ODk4MzJkYTMwMmZkMGY3ZjI0ZjViZWM2YTFjZGEyNGYxNmQxZmU5NmE3Y2YzNDJkNDc5ODhmM2VjZGYiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOS4xNDUyNDhaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vc291cmNlX2FyY2hpdmUucHkiLA0KICAgICAgInNoYTI1NiI6ICIyMjM5MDhkMjk4ZWU5MzA4N2E3MzE0MjA3ODI0YWRkNjI0MGZkN2U0ZWYwZjY0YzM0YWE0NGU5MTliNmQwNjM3IiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDkuMTY0MTczWiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL3Rlc3RpbmctYXVkaXQubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiYjgyOThjMTI1NGU1ZjdlZDg1Y2IxMGYyZWQwNWQ1NDU3ZThhNGQ2YWVlMmNmMjViM2MzNWQwYjcxNzRiYTIyMyIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA5LjE4NDc5OVoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi90bXAtc2luZ2xlLW1rZGlyLXByb2JlLmxvZyIsDQogICAgICAic2hhMjU2IjogImI1Y2I0ZDk0MjAzZmJiNDVkMDcyN2ZkNDM3MGM5MzBiN2FiMDExMDFlM2RmNDYxNWM2YzQyMDI3NTUyMGQ5NTIiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOS4yMDQzNzdaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vd29ya2JlbmNoLWF1dGhvcml6YXRpb24tZmF1bHRoYW5kbGVyLnR4dCIsDQogICAgICAic2hhMjU2IjogImU3MTJmNTM5MWFkNDI2N2EwNWU1YzhkODUwODcyZDQyNmI5NzYxNWFlMTgzNmVmNDgyYTIwMzA1NjIxYTBkZDciLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowODowOS4yMjE4NTlaIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxNXQyMTE5MDZ6LWRjM2E3YzgyYzYwMS92ZXJpZmljYXRpb24vd29ya2JlbmNoLXJlbGF0aW9ucy1lbGV2YXRlZC1ldmVudHMuanNvbmwiLA0KICAgICAgInNoYTI1NiI6ICIwY2UwZDVmMTYxNjczMDA5MWM0OGYzMTUyYjRmYTVkNDMwN2Q0ZmEzMTE3YzQ1NzBiODdmNjJkYWE0OWU0ZjUyIiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDkuMjM4NTAyWiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvdmVyaWZpY2F0aW9uL3dvcmtiZW5jaC1yZWxhdGlvbnMtZXZlbnRzLmpzb25sIiwNCiAgICAgICJzaGEyNTYiOiAiMzEzNGNmNzNlZTdkYmQ1ZmFhOGIwZWRiYzc3ZjNhOTlhYzRhYzBiNTAzYjk2Njc5OTcwNDI2NmUzMjA0ZmJlMSIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA5LjI1NTUzNVoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL3ZlcmlmaWNhdGlvbi93b3JrYmVuY2gtcmVsYXRpb25zLWZpcnN0LWludm9jYXRpb24tZXJyb3IubG9nIiwNCiAgICAgICJzaGEyNTYiOiAiMzQ1YTM5ZTcwNDg2YmFlNGQ1Y2ZlYjJkNzcxZDBiZWMyM2I5MzY0YTgyYzdkMWZkYTFmMGZkMjM4ZTE4ZDhhMCIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA4OjA5LjI3ODg2M1oiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL1JFU1VMVFMubWQiLA0KICAgICAgInNoYTI1NiI6ICJkODBjMzk4NzlkMmMzZDNkOTljNmUwNTM1NTY0ODllM2QyMjY5N2QwZThjOWQyMTEwOGVjZmMxYzliYWZhY2Y4IiwNCiAgICAgICJyb2xlIjogImFydGlmYWN0IiwNCiAgICAgICJyZWdpc3RlcmVkX2F0IjogIjIwMjYtMDktMTVUMjI6MDg6MDkuMzAxNjA4WiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInByb2plY3RzL2FyY2hpdGVjdHVyZS1ldm9sdXRpb24vcnVucy9ydW4tMjAyNjA5MTV0MjExOTA2ei1kYzNhN2M4MmM2MDEvRklOQUxfUkVWSUVXLm1kIiwNCiAgICAgICJzaGEyNTYiOiAiMTY3ODhhOWQ2MDNhOTMwNzIxMDJhNzc0ZTg1NTUxMjliM2Q0YTEyNjBiNDY4MGUyZjczZjY0OTQ5NDkxOGRkNiIsDQogICAgICAicm9sZSI6ICJhcnRpZmFjdCIsDQogICAgICAicmVnaXN0ZXJlZF9hdCI6ICIyMDI2LTA5LTE1VDIyOjA5OjUxLjk3NjI4MFoiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJwcm9qZWN0cy9hcmNoaXRlY3R1cmUtZXZvbHV0aW9uL3J1bnMvcnVuLTIwMjYwOTE1dDIxMTkwNnotZGMzYTdjODJjNjAxL2ZpbmFsLXdvcmtzcGFjZS12YWxpZGF0aW9uLmxvZyIsDQogICAgICAic2hhMjU2IjogIjMyMGRmOTIzYjIwMTVhMDAzOTZiMjdjMzg1OGU4ZmIyMDVmNDM0MTBjNjhhNjc0OWE5NzczYjBkOGQxNDAxMDIiLA0KICAgICAgInJvbGUiOiAiYXJ0aWZhY3QiLA0KICAgICAgInJlZ2lzdGVyZWRfYXQiOiAiMjAyNi0wOS0xNVQyMjowOTo1MS45OTE1MzVaIg0KICAgIH0NCiAgXSwNCiAgImxpbmVhZ2VfZXZlbnRzIjogImxpbmVhZ2UuanNvbmwiLA0KICAiY29uY2x1c2lvbiI6ICJ2MC4zLjDlt7LmraPlvI/lj5HluIPvvJvmupDnoIHjgIHkvp3otZblj4rov5znq6/pmYTku7bmoLjpqozpgJrov4fjgILlkI7nq6/ml6LmnIlCMDHlpLHotKXlkozor6/op6blj5HnmoTmmoLnvJPop4TmqKHotoXml7bliIbliKvkv53nlZnjgIIiLA0KICAibGltaXRhdGlvbnMiOiBbDQogICAgIuWQjOaculdpbmRvd3MgeDY06ZqU56a75ZCI5oiQ6aqM6K+B77yM5LiN5Luj6KGo56ys5LqM54mp55CG5py644CB55yf5a6e5Lia5Yqh5oiW56eR5a2m5aSN5qC444CCIiwNCiAgICAiUnVu5Zyo6YOo5YiG6aqM6K+B5bey5byA5aeL5ZCO5bu656uL77yM5pyq6KGl6YCg5byA5aeL5pe26Ze044CC5Yid5aeL5bel5L2c5qCR5rqQ56CB5LiO5pyA57uI5Y+R6KGM5paH5Lu25LiA6Ie077yM5Lia5Yqh5pWw5o2u5pyq5o+Q5Lqk44CCIiwNCiAgICAi5a6M5pW05ZCO56uv5YiG5q615omn6KGM5bm25oyJ5ZSv5LiASUTmoLjlr7nvvJvkuK3mlq3jgIHosIPnlKjplJnor6/kuI7njq/looPmnYPpmZDor4rmlq3kv53nlZnvvIzkuI3og73lvZPkvZzova/ku7bpgJrov4fjgIIiLA0KICAgICLljoblj7JCMDHlhrvnu5PlpLnlhbfmuIXljZXlpLHotKXmnKrmlLnlhpnkuLrpgJrov4fvvJvmmoLnvJPop4TmqKHlnLrmma/or6/miafooYzotoXml7bvvIzmma7pgJrmtY/op4jlmajph43lpI3lpI3pqozkuK3mraLjgIIiDQogIF0sDQogICJwYXJlbnRfcnVuX2lkcyI6IFtdLA0KICAicmVsYXRlZF9tb2R1bGVfaWRzIjogW10sDQogICJyZWxhdGVkX3Jlc2VhcmNoX2lkcyI6IFtdLA0KICAicmVsYXRlZF9kYXRhc2V0X2lkcyI6IFtdLA0KICAicmV2aWV3Ijogew0KICAgICJzdGF0dXMiOiAibm90LXJldmlld2VkIiwNCiAgICAicmV2aWV3ZXIiOiBudWxsLA0KICAgICJkYXRlIjogbnVsbA0KICB9LA0KICAic2Vuc2l0aXZpdHkiOiAiaW50ZXJuYWwiDQp9DQo=",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260915T211906Z-DC3A7C82C601",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "v0.3.0 正式发布与隔离交付验证",
+    "keywords": [
+      "release",
+      "升级验证"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "failed",
+    "created_at": "2026-09-15T21:19:06Z",
+    "started_at": null,
+    "ended_at": "2026-09-15T22:08:04.668494+00:00",
+    "owner": null,
+    "question": "核对当前框架版本的源码、依赖、旧工作区保护及正式发布结果。",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "dist/release-v0.3.0/framework-source-v0.3.0.zip",
+        "sha256": "e5081b4d76dbdd18a1908f27550acf6bd920ac8761f8015ad4cf7ed61b90ebdc",
+        "role": "input",
+        "registered_at": "2026-09-15T22:08:07.777130Z"
+      },
+      {
+        "path": "dist/release-v0.3.0/dependencies-windows-x64.zip",
+        "sha256": "7810752e15ff40b88e04bae0eedae57f20355ca2da51febba7505a787361d3a4",
+        "role": "input",
+        "registered_at": "2026-09-15T22:08:08.309240Z"
+      }
+    ],
+    "parameters": {
+      "release": "v0.3.0",
+      "scope": "framework-only; local synthetic Windows x64 verification"
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "check": "full-backend-coverage",
+        "status": "passed",
+        "required": true
+      },
+      {
+        "check": "full-backend-tests",
+        "status": "failed",
+        "required": true
+      },
+      {
+        "check": "frontend-38-typecheck-and-16-normal-browser",
+        "status": "passed",
+        "required": true
+      },
+      {
+        "check": "actual-archive-offline-install-upgrade-repack-rollback",
+        "status": "passed",
+        "required": true
+      },
+      {
+        "check": "source-dependency-and-remote-asset-hashes",
+        "status": "passed",
+        "required": true
+      }
+    ],
+    "metrics": {
+      "backend_tests": 610,
+      "backend_passed": 609,
+      "backend_failed": 1,
+      "frontend_passed": 38,
+      "browser_passed": 16
+    },
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/ai-evidence-version-check.json",
+        "sha256": "97b3570235f463f1cf8039d06a6a72a96433c32c417ba982a4533625521326b0",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.331266Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/archive-offline-validation.log",
+        "sha256": "fab5e5946cfa233814c78b072cad9477384534e312d1c8b4ad1bc27339c72a8e",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.348718Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/b01-recheck-events.jsonl",
+        "sha256": "584a82130ff2ae194080308960836d2cdcde7e8a9ab5b36da8ea113ef7474c2a",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.370518Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-release-summary.json",
+        "sha256": "d8df9327384d5f794ba75f1915d14cd711a81f8c37712865f01b03567033ad2c",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.391255Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-b01-recheck.log",
+        "sha256": "4201fd7a6af2fd38b8653a27e5ab1bbd5e0092f00fea2bd28ee30cddc5bda61c",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.413704Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-coverage-ledger.json",
+        "sha256": "7bd7395eaf514508c42df0dc2dbb80395ea52bea83cb1e9a45579bf7b7dbaca3",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.430478Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-remaining-model.log",
+        "sha256": "0d044e85f217ef3a7e0af630ad94d4891db0ccc92d1e6937d3e7042be3963808",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.453015Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-remaining-synthetic.log",
+        "sha256": "f6fff6ee39cf5b6c23d4e8e17b3c08dfe224c95cf91c77a832a0ca5439ea5766",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.472581Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-synthetic-tier.log",
+        "sha256": "fee958288222a5830925f94fea33e41cc8b2fe80e688374bf922998e38732207",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.493954Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-workbench-authorization-diagnostic.log",
+        "sha256": "bf7460f8e546efcd24bc1ba8b50b52b4c6d76e22753ce40ef9f43b48688a630d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.513997Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-workbench-relations-elevated.log",
+        "sha256": "0886b128f3a9b8e65db8b86d5fcdaa223c0494f688394f771f36c9e98cc40c4d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.530770Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-workbench-relations.log",
+        "sha256": "bf7460f8e546efcd24bc1ba8b50b52b4c6d76e22753ce40ef9f43b48688a630d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.550301Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest-workspace-cli.log",
+        "sha256": "4aacc547584f799eaca115bb579f1affd69b72ab366d092fad09b7eb96e2ee1c",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.569232Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/backend-unittest.log",
+        "sha256": "3d2c86c66837b00359a1082a660103a59886bedb2bc1bd6ff3017087daf1afb7",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.589756Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/build_coverage_ledger.py",
+        "sha256": "d8f471757fcd14922856741e5de2f2ead2854d83254dd82ba504fe4e62240897",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.607795Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/check_release.py",
+        "sha256": "cf4a7cfa8eda7e4808b845e066da2ab5979d6693c4c35ec0325f9ee79e097e41",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.625932Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/dependency-verification.json",
+        "sha256": "7eb8344a396875e27e600b0625cd4d3cbfb5e1cd209873f98f0b75a807ebd13d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.643846Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/discovered-test-ids.json",
+        "sha256": "06266eaf264c7d9b83a063543dfcdbca12e366322eb2662c520d22120c0308e7",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.662798Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/draft.json",
+        "sha256": "f6cb1f6ac59a440198f11344667b61ff4978c96c7c81140bb99e4894865daf7b",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.679581Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/e2e-deferred-10k-failure-artifact/error-context.md",
+        "sha256": "448c9d0fc2e02cf451f4af8b8969d1788cc42506f84564bbcf9c98a1fd93a341",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.699967Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/finalize_record.py",
+        "sha256": "0416c712e39fdb4d710f930049bb86a954c3a89ebacfe5ff9065cb84360f7faf",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.718967Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/frontend-e2e-excluding-deferred-10k.log",
+        "sha256": "7d15ce9761facb32c1c8118b254ae8c8f60c3c0f60cc88414e78c245ad55fceb",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.736278Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/frontend-e2e.log",
+        "sha256": "889b284c5d4be12ac86a37feafcd721206fec897f1b47729b426749c50e5ca99",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.755791Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/frontend-typecheck.log",
+        "sha256": "9e80feee4686e486ccb76c25dd3ecad41b1d659eddf3b666b977f7530ec21e9d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.772592Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/frontend-vitest.log",
+        "sha256": "45bcc3302b8e06ab97867c72a4a3b992bc212c2c0bd7d2fd03fdd31b9324ce97",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.791455Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-dependency-rollback.log",
+        "sha256": "f68958c3cd4693ec3e6edfff040684022bab697a9ae9e6936b5986b65cdbebe9",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.809499Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-fresh-offline-install.log",
+        "sha256": "faaae6d3134b02e177ace7815a486917cd8a517287ed93d40e32aaf9010d2c6c",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.826865Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-offline-upgrade.log",
+        "sha256": "2638b0eef086a30efc304843ed90d5c49491eefc793490cfae30cc75284fb4fe",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.845878Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-receiver-repack.log",
+        "sha256": "74724a7e6ef1ca674fffbfd0f0ce8118aa527b5f3789f734de0260d13614561f",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.872628Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/offline-verification.json",
+        "sha256": "c40afc7239409d6a7d3ae9b0b6b0058a436a160bcabae5bb9a00b7bdc3f981fe",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.892236Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/publication.json",
+        "sha256": "30faf6cf8cebb92d47dec0236fd3f61578d9303875dd8d2d4c13511fd7d649df",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.912620Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/publish.py",
+        "sha256": "aa04c4b5a1497e3d6c6c922928c27fbcd6e909da24480fd3ac0c4c63b0971593",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.930240Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/push.json",
+        "sha256": "a8cd6b0432cce7b55f3e7f555d6224df7a0c344139f58ef883f9faa7ade39642",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.948186Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/release-notes.md",
+        "sha256": "da0e26587e71b8036f85f6b8f36fb828707cb0dc49ee86caf14695b52c3dafa7",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.967101Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/release-verification.json",
+        "sha256": "e06cabfd14c511180b46e006c448a35b94fb6636803b14a3373b432a2f05b48e",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:08.988751Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/remaining-model-result.json",
+        "sha256": "4faaf71d27c96fba524947f19c92afb4ec3f35499bcab287e9b2d95b312d150d",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.010789Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/remaining-test-plan.json",
+        "sha256": "2da71ad013330258da9cf3469269040d3e20bcb65301838d1501b9c09c36d7c0",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.028404Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/remote-before.json",
+        "sha256": "0f8d733fe234e999c02fc944b6c25a9c507e12fd338185c98bf8c5cdec6c1083",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.050628Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/run_faulthandler_case.py",
+        "sha256": "26806c3fa4b4721e054308895fd27a0ecd5e56d164b3ea532a071c0ac8c7f6f6",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.071562Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/run_remaining_group.py",
+        "sha256": "b1d2c8a5e94e1b64d7c77da03cfef023188fa472c9a6024fd42610bd98ea94be",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.092385Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/run_traced_ids.py",
+        "sha256": "b9ee4333fd55f7dd7d4f728577da9b67a24aa0169b6d15b81724d9255aa90a17",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.109344Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/source-inventory-preview.json",
+        "sha256": "17fb343bb0418460fce1ead2bd072f11684b0297f58f6baf2c97c554343b8428",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.127387Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/source-inventory-v0.3.0.json",
+        "sha256": "50e2689832da302fd0f7f24f5bec6a1cda24f16d1fe96a7cf342d47988f3ecdf",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.145248Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/source_archive.py",
+        "sha256": "223908d298ee93087a7314207824add6240fd7e4ef0f64c34aa44e919b6d0637",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.164173Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/testing-audit.log",
+        "sha256": "b8298c1254e5f7ed85cb10f2ed05d5457e8a4d6aee2cf25b3c35d0b7174ba223",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.184799Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/tmp-single-mkdir-probe.log",
+        "sha256": "b5cb4d94203fbb45d0727fd4370c930b7ab01101e3df4615c6c420275520d952",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.204377Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/workbench-authorization-faulthandler.txt",
+        "sha256": "e712f5391ad4267a05e5c8d850872d426b97615ae1836ef482a20305621a0dd7",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.221859Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/workbench-relations-elevated-events.jsonl",
+        "sha256": "0ce0d5f1616730091c48f3152b4fa5d4307d4fa3117c4570b87f62daa49e4f52",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.238502Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/workbench-relations-events.jsonl",
+        "sha256": "3134cf73ee7dbd5faa8b0edbc77f3a99ac4ac0b503b966799704266e3204fbe1",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.255535Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/verification/workbench-relations-first-invocation-error.log",
+        "sha256": "345a39e70486bae4d5cfeb2d771d0bec23b9364a82c7d1fda1f0fd238e18d8a0",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.278863Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/RESULTS.md",
+        "sha256": "d80c39879d2c3d3d99c6e053556489e3d22697d0e8c9d21108ecfc1c9bafacf8",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:08:09.301608Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/FINAL_REVIEW.md",
+        "sha256": "16788a9d603a93072102a774e8555129b3d4a1260b4680e2f73f649494918dd6",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:09:51.976280Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/final-workspace-validation.log",
+        "sha256": "320df923b2015a00396b27c3858e8fb205f43410c68a6749a9773b0d8d140102",
+        "role": "artifact",
+        "registered_at": "2026-09-15T22:09:51.991535Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/MORICHTHY_PUBLICATION.json",
+        "sha256": "a95f487e0e2d7805a4d077328f1c681e36b75428aacb9d6ec1d4bd9a04cf762d",
+        "role": "artifact",
+        "registered_at": "2026-09-16T02:18:44.465071Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260915t211906z-dc3a7c82c601/MIRROR_RESULTS.md",
+        "sha256": "d1f7dd56744663f4faae35421d5abe6b2e8e4262457e5970971862bc943dee9e",
+        "role": "artifact",
+        "registered_at": "2026-09-16T02:18:44.490415Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "v0.3.0已正式发布；源码、依赖及远端附件核验通过。后端既有B01失败和误触发的暂缓规模超时分别保留。",
+    "limitations": [
+      "同机Windows x64隔离合成验证，不代表第二物理机、真实业务或科学复核。",
+      "Run在部分验证已开始后建立，未补造开始时间。初始工作树源码与最终发行文件一致，业务数据未提交。",
+      "完整后端分段执行并按唯一ID核对；中断、调用错误与环境权限诊断保留，不能当作软件通过。",
+      "历史B01冻结夹具清单失败未改写为通过；暂缓规模场景误执行超时，普通浏览器重复复验中止。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-16T02:18:44.537928Z"
+}

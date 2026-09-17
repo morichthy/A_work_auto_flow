@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "documentImage": {
+    "width": 64,
+    "height": 64,
+    "alt": "合成受控图片"
+  },
+  "sourceImage": {
+    "width": 64,
+    "height": 64,
+    "alt": "synthetic-panel.png"
+  }
+}

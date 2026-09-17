@@ -1,0 +1,13 @@
+{
+  "error": {
+    "code": "INTEGRITY_ERROR",
+    "message": "无法读取业务元数据",
+    "details": {
+      "path": "D:\\共享桌面\\A_work\\A_work_auto_flow\\projects\\architecture-evolution\\runs\\run-20260916t081757z-4c8b6eb90e82\\baseline\\inspect-owner-head.json",
+      "reason": "Expecting value: line 1 column 1 (char 0)"
+    },
+    "errors": []
+  },
+  "save_status": "not_committed"
+}
+

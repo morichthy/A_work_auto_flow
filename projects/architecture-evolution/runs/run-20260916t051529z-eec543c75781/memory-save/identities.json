@@ -1,0 +1,65 @@
+{
+  "unit": {
+    "target_kind": "record",
+    "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+    "revision": 1,
+    "sha256": "1cc7a9739dc17bf618ca3d9a43539af379f6d5828078d9d2c65227ed9709d05a",
+    "locator": "",
+    "relation": "references"
+  },
+  "section": {
+    "target_kind": "record",
+    "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+    "revision": 1,
+    "sha256": "29085339b53308fe3d8ef18b5234b06b3c0707db4f5f4a951396cdd8f815114f",
+    "locator": "",
+    "relation": "references"
+  },
+  "document": {
+    "target_kind": "record",
+    "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+    "revision": 1,
+    "sha256": "039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f",
+    "locator": "",
+    "relation": "references"
+  },
+  "overview": {
+    "target_kind": "record",
+    "target_id": "MEM-67e69e5f-8de7-5c24-b8bc-eb41299f8eaf",
+    "revision": 1,
+    "sha256": "d8ba36ed48af94e8dece307a8c9b51ba12dc5fcd222e0c4c1892cbe2b3b9bdd9",
+    "locator": "",
+    "relation": "references"
+  },
+  "document_complete": true,
+  "coverage": {
+    "included_detail_ids": [
+      "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a"
+    ],
+    "uncovered_detail_ids": [
+      "MEM-0bb96a65-0ada-5001-80cb-14904ef684d1",
+      "MEM-192a48a9-191c-5018-8c58-bae968b45ae2",
+      "MEM-2c7941ed-b272-573c-ad70-2c7739ccac99",
+      "MEM-3d6097e5-9028-5e74-b2ca-196db59ed90c",
+      "MEM-4143f480-712a-5739-8044-3535ecaf1b0a",
+      "MEM-76c2ed5f-d911-5435-9818-f5266bfc77e5",
+      "MEM-7faf0c58-7e42-59db-9613-b29e6f7c39ca",
+      "MEM-7fc816dc-2a9c-5189-82ad-1906b6a917e8",
+      "MEM-8933de07-288b-5782-ad81-67a05a133b19",
+      "MEM-8d589423-c595-5a80-898d-23d974868c7c",
+      "MEM-a3c10076-e900-5ff5-adfb-f3949a3fa285",
+      "MEM-b0390c59-c458-5690-bc68-6dd030d32de0",
+      "MEM-b0d161c1-cb11-5c55-8d6c-58da7204cc4b",
+      "MEM-c0c9cca2-5a17-5634-86f7-3dbb3dec7902",
+      "MEM-c40996c6-fd17-59b9-84a3-9b373cdbcd64",
+      "MEM-ea9c08fd-4dc8-54f8-abf8-16c1869fb19d",
+      "MEM-ecc8c6cc-b362-5450-bffc-da7418c2c745"
+    ]
+  },
+  "version_hints": [],
+  "head": {
+    "commit_id": "COM-1f5353c7-d2a7-4127-8fa4-a57cfa9547e4",
+    "generation": 34,
+    "manifest_hash": "11e7dca0aad00c90eeac747c02eb04f0cadbdea61732e24dd36fb796c3320202"
+  }
+}

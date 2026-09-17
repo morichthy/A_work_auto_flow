@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260912T195347Z-39FFE0EE7711",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "AI多路检索与阅读会话实现验证",
+  "keywords": [
+    "阅读会话",
+    "多路召回"
+  ],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "succeeded",
+  "created_at": "2026-09-12T19:53:47Z",
+  "started_at": null,
+  "ended_at": "2026-09-12T20:08:37.793113Z",
+  "owner": "Codex",
+  "question": "验证多路分层发现、完整阅读、必要细节和持久续接是否实际可用",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source-fingerprints.json",
+      "sha256": "9d8c05a0e06ca581d40f6fc89106f9018ad37416e259659dd187b51d713161d0",
+      "role": "input",
+      "registered_at": "2026-09-12T20:18:17.046312Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source/automation/tests/test_reading_workflow.py",
+      "sha256": "dfe235f5861ed69103ec574c749407c0d2a8656241743e21b6b8cb6bfe84f2c8",
+      "role": "input",
+      "registered_at": "2026-09-12T20:18:17.065101Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source/automation/tests/upgrade_fixture.py",
+      "sha256": "8f1f0a63372638ea7e336b4da32f89dbb3e4c039468fc3596ddaf89b66d1bf79",
+      "role": "input",
+      "registered_at": "2026-09-12T20:18:17.083622Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/ai-check/attempt02/note-request.json",
+      "sha256": "a29656de30bb36ffc1e6631424d19d7ec7bc5a4d2e3e341bea20690b05c3b4c1",
+      "role": "input",
+      "registered_at": "2026-09-12T20:18:17.100932Z"
+    }
+  ],
+  "parameters": {},
+  "code": {
+    "commit": "fa9de29c0fa4cd8fbc20c599ee7fd3397a919865",
+    "dirty": true,
+    "snapshot_manifest": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source-fingerprints.json"
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [
+    {
+      "check": "related_behavior",
+      "status": "passed",
+      "details": "55项相关执行，最终阅读模块10项通过；合并为56项不同用例"
+    },
+    {
+      "check": "windows_upgrade",
+      "status": "passed",
+      "details": "18项真实升级测试，阅读会话加入旧数据保护"
+    },
+    {
+      "check": "actual_ai",
+      "status": "passed",
+      "details": "浮点实例真实CLI全文阅读、AI笔记及新进程恢复；非人工或科学复核"
+    },
+    {
+      "check": "catalog",
+      "status": "passed",
+      "details": "revision69，644项登记，审计无错误；不是全运行"
+    }
+  ],
+  "metrics": {},
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/RESULTS.md",
+      "sha256": "3dd4c64f44161f0b1fd7626413280a5f789d97ab0f9142d746f1d163449ef3cd",
+      "role": "artifact",
+      "registered_at": "2026-09-12T20:08:39.529750Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/READING_NOTE.md",
+      "sha256": "d8a29426802661fac04a05a0c32940ff88f301a2ce8207333a8b8c6c9baee513",
+      "role": "artifact",
+      "registered_at": "2026-09-12T20:08:39.546784Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/behavior-tests.log",
+      "sha256": "e746155614b85147d78ffa195f1a7fda8ab4012f973f5ea28131fdf5dadfc32b",
+      "role": "artifact",
+      "registered_at": "2026-09-12T20:08:39.563591Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/behavior-tests.json",
+      "sha256": "59c750d533f2ab7efbe5a91f9507f0a372af161be62e99b9ba4ffcf993a36579",
+      "role": "artifact",
+      "registered_at": "2026-09-12T20:08:39.582108Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/source-fingerprints.json",
+      "sha256": "9d8c05a0e06ca581d40f6fc89106f9018ad37416e259659dd187b51d713161d0",
+      "role": "artifact",
+      "registered_at": "2026-09-12T20:08:39.601189Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "当前授权方案的CLI/HTTP+Skill实现可用；保存、索引、交付、AI理解和科学复核分别表达。",
+  "limitations": [
+    "未做业务题集/规模对照、全库回归、人工及第二物理机验收",
+    "没有后台AI或独立阅读面板",
+    "升级执行后仅补阅读新修订标记和包表示元数据，最终10项定向验证；未重复无关升级测试"
+  ],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [
+    "RES-AI-EXPERIENCE-CONTEXT"
+  ],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

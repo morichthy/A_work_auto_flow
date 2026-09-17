@@ -1,0 +1,734 @@
+{
+  "actor": "reader",
+  "action": "reading-view",
+  "request": {
+    "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "context_markdown": "# 当前问题\n\n阅读Northstar温度换算材料，判断方法能否复用；保留公式、变量单位、适用条件、误差处理与反例，区分相似但不适用材料。仅合成验收，不认可现实工程结论。\n\n阅读记录 RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51 · 读取版本 r7（本次视图）\n\n\n## 条件\n\n- 只读本RS获准固定合成材料，不递归委派，不伪造缺失工况。\n\n\n## 已读理解与必要细节\n\n\n### Northstar温度换算完整方法\n\n[固定原记录](<C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-21abaedd-8c12-5355-b57c-c200442da479/records/MEM-b77bc86f-d704-5819-bb50-577953b915ee.json>) · r1\n\n可作为合成验收中的直接方法依据：先校正NS4摄氏显示值，再将修正温度平移到绝对温标。方法仅在已固定的NS4、干燥空气、热平衡、相同校准版本及修正温度范围内复用；这不是现实工程结论。\n\n\n连接（direct）：材料直接给出Northstar NS4的换算顺序、变量单位、边界和不确定度处理。\n\n- 连接步骤/假设：以同一校准版本的b和g校正原始摄氏显示x，得到theta。\n\n- 连接步骤/假设：仅在theta满足材料规定范围且工况满足NS4、干燥空气与热平衡时，才将theta加273.15 K得到T。\n\n- 连接步骤/假设：b与g若相关，按完整协方差矩阵传播不确定度；协方差缺失时保留缺口。\n\n\n必要细节：x为原始摄氏显示值，b为°C零点偏差，g为无量纲比例系数；theta为修正温度，T为绝对温度。温差1°C与1K数值相同，但绝对零点不同。\n\n保留原因：变量、量纲与温标零点是避免错误换算的必要定义。\n\n块定位：definitions\n\n\n必要细节：换算顺序为 theta=(x-b)/g，T=theta+273.15 K；不能将273.15与x一起除以g。\n\n保留原因：保留公式与明确反公式，避免缩放绝对零点。\n\n块定位：method\n\n\n必要细节：适用范围：NS4、干燥空气、热平衡、theta在[-10,60]°C，且b、g来自同一校准版本；边界针对theta而非x。\n\n保留原因：方法复用必须同时满足对象、介质、平衡状态、范围和版本条件。\n\n块定位：conditions\n\n\n必要细节：b和g有非零协方差时，按梯度和完整协方差矩阵计算u²=JΣJᵀ并保留交叉项。\n\n保留原因：独立平方和会遗漏相关性导致的误差贡献。\n\n块定位：counterexample\n\n- 待验证：缺协方差时不得假定为零，不能给出完整不确定度。\n\n- 待验证：热瞬态、液体浸入、NS7或缺校准版本时均不能直接复用。\n\n- 待验证：材料明确仅用于合成验收，不支持现实测量或工程有效性认可。\n\n\n### Northstar刻度说明\n\n[固定原记录](<C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-c85bff29-b019-5989-92a6-3c48644778de/records/MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818.json>) · r1\n\n不作为NS4校准方法依据。该材料只比较摄氏与华氏刻度，未定义NS4的增益或零点。\n\n\n连接（not_useful）：主题相近但缺少仪器偏差模型与校准参数，不能替代Northstar NS4方法。\n\n- 连接步骤/假设：仅有刻度比较。\n\n- 连接步骤/假设：没有b、g或校准版本，故不可用于NS4校正。\n\n\n必要细节：只比较摄氏华氏刻度，未定义NS4仪器增益或零点。\n\n保留原因：说明其不满足校准方法的关键输入要求。\n\n块定位：\n\n- 待验证：无仪器校准信息，不能用于误差传播或适用性判断。\n\n\n### Northstar旧型号摘记\n\n[固定原记录](<C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-96b757cc-4b6b-5e2b-9e7f-e83c59a5d3be/records/MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397.json>) · r1\n\n不作为NS4方法的直接复用依据。旧材料对应NS7、液体浸入且未达到热平衡。\n\n\n连接（not_useful）：该材料提供反向边界：同名字段不能跨型号和工况迁移。\n\n- 连接步骤/假设：对象是NS7而非NS4。\n\n- 连接步骤/假设：液体浸入且未热平衡与方法边界冲突。\n\n- 连接步骤/假设：因此不能直接套用NS4换算。\n\n\n必要细节：对象NS7、液体浸入且未达到热平衡。\n\n保留原因：与NS4、干燥空气和热平衡的适用条件直接冲突。\n\n块定位：\n\n- 待验证：未提供可将NS7或液体瞬态转换为NS4条件的校准证据。\n\n\n## 尝试与下一步\n\n- finish：主Agent可用固定revision读取交接笔记；如需扩大覆盖，必须沿同一RS按冻结查询继续分页并实际阅读新增候选。；理由：已完整阅读本轮交付的三份固定材料并保存笔记：NS4完整方法可在其明确合成条件下复用；刻度说明与NS7旧型号材料不适用。方法、变量单位、公式、误差传播及反例均已记录。；结果/缺口：本轮仅完成合成验收，未认可任何现实工程结论。technical通道仍提示存在未交付候选，且dense通道不可用；因此不能据本轮窗口声称已覆盖全库。\n\n\n## 阅读清单\n\n- [Northstar刻度说明](<C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-c85bff29-b019-5989-92a6-3c48644778de/records/MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818.json>) · 已记录理解\n\n- [Northstar温度换算完整方法](<C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-21abaedd-8c12-5355-b57c-c200442da479/records/MEM-b77bc86f-d704-5819-bb50-577953b915ee.json>) · 已记录理解\n\n- [Northstar旧型号摘记](<C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-96b757cc-4b6b-5e2b-9e7f-e83c59a5d3be/records/MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397.json>) · 已记录理解",
+      "phase": "finish",
+      "round_count": 1,
+      "owner_id": null,
+      "checkpoint_ref": null,
+      "archived": false,
+      "candidates": [
+        {
+          "candidate_id": "RC-0e6a223d41628adb9af24cc0",
+          "title": "Northstar刻度说明",
+          "link": "C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-c85bff29-b019-5989-92a6-3c48644778de/records/MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818.json",
+          "ref": {
+            "kind": "record",
+            "id": "MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818",
+            "revision": 1,
+            "sha256": "8345469a58fe20c51f0f12dd6ad464ccebd0112a9f75df2403d8674dbb009f3a",
+            "locator": null
+          },
+          "status": "已记录理解",
+          "stale": false,
+          "hits": [
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 5,
+              "raw_score": -11.917761584510341,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818",
+                  "revision": 1,
+                  "sha256": "8345469a58fe20c51f0f12dd6ad464ccebd0112a9f75df2403d8674dbb009f3a",
+                  "locator": null
+                }
+              ],
+              "matched_text": "Northstar刻度说明\n问题：\nNorthstar温度换算阅读验收\n\n方法：\n固定方法与适用边界阅读\n\n主要发现：\n- 需阅读全文核对变量、条件和反例\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 仅合成验收\nNorthstar阅读验收",
+              "query_source": "original:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 6,
+              "raw_score": -1.9807588941018779,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818",
+                  "revision": 1,
+                  "sha256": "8345469a58fe20c51f0f12dd6ad464ccebd0112a9f75df2403d8674dbb009f3a",
+                  "locator": "block:context"
+                }
+              ],
+              "matched_text": null,
+              "query_source": "original:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 1,
+              "raw_score": -2.176666366385229,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818",
+                  "revision": 1,
+                  "sha256": "8345469a58fe20c51f0f12dd6ad464ccebd0112a9f75df2403d8674dbb009f3a",
+                  "locator": null
+                }
+              ],
+              "matched_text": "Northstar刻度说明\n问题：\nNorthstar温度换算阅读验收\n\n方法：\n固定方法与适用边界阅读\n\n主要发现：\n- 需阅读全文核对变量、条件和反例\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 仅合成验收\nNorthstar阅读验收",
+              "query_source": "english:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 2,
+              "raw_score": -1.9807588941018779,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-049a3d7b-8a90-5e90-b29e-e0979e6d7818",
+                  "revision": 1,
+                  "sha256": "8345469a58fe20c51f0f12dd6ad464ccebd0112a9f75df2403d8674dbb009f3a",
+                  "locator": "block:context"
+                }
+              ],
+              "matched_text": null,
+              "query_source": "english:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            }
+          ],
+          "query_sources": [
+            {
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6",
+              "id": "original:lexical",
+              "variant_id": "original",
+              "language": "zh",
+              "kind": "equivalent",
+              "channel": "lexical",
+              "weight": 1.0,
+              "rank": 2
+            },
+            {
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6",
+              "id": "english:lexical",
+              "variant_id": "english",
+              "language": "en",
+              "kind": "equivalent",
+              "channel": "lexical",
+              "weight": 1.0,
+              "rank": 1
+            }
+          ],
+          "condition_check": "pending",
+          "protected_terms": [
+            "Northstar"
+          ]
+        },
+        {
+          "candidate_id": "RC-afe5616bf2c6abba6cfd4e04",
+          "title": "Northstar温度换算完整方法",
+          "link": "C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-21abaedd-8c12-5355-b57c-c200442da479/records/MEM-b77bc86f-d704-5819-bb50-577953b915ee.json",
+          "ref": {
+            "kind": "record",
+            "id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+            "revision": 1,
+            "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+            "locator": null
+          },
+          "status": "已记录理解",
+          "stale": false,
+          "hits": [
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 1,
+              "raw_score": -12.944573633427142,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+                  "revision": 1,
+                  "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+                  "locator": null
+                }
+              ],
+              "matched_text": "Northstar温度换算完整方法\n问题：\nNorthstar温度换算阅读验收\n\n方法：\n固定方法与适用边界阅读\n\n主要发现：\n- 需阅读全文核对变量、条件和反例\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 仅合成验收\nNorthstar阅读验收",
+              "query_source": "original:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 2,
+              "raw_score": -6.208267438211518,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+                  "revision": 1,
+                  "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+                  "locator": "block:method"
+                }
+              ],
+              "matched_text": "处理顺序\n\n先消除仪器偏差再做温标平移：$$\\theta=(x-b)/g,\\qquad T=\\theta+273.15\\;\\mathrm{K}.$$合成输入x=20.0°C、b=0.6°C、g=1.02。不得写成T=(x+273.15-b)/g；后者将温标零点也缩放。\n\n过程检查条目01：本条为合成台账。记录员先登记输入通道、仪器型号、环境介质和稳定时间，再抄录原始显示数值；显示数值与修正后数值分栏保存。条件未知时不得从相邻批次借用条件，不把已经计算出一个数字视为已经验证模型",
+              "query_source": "original:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 3,
+              "raw_score": -5.931717325362689,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+                  "revision": 1,
+                  "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+                  "locator": "block:counterexample"
+                }
+              ],
+              "matched_text": "合估计且具有非零协方差，独立性平方和不是完整不确定度。必须按梯度与完整协方差矩阵计算u²=JΣJᵀ并保留交叉项；不能因为误差条很小而忽略相关性。热瞬态下即便θ仍在区间内也不满足平衡假设。缺协方差时应明确缺口，不能编造为零。\n\n过程检查条目01：本条为合成台账。记录员先登记输入通道、仪器型号、环境介质和稳定时间，再抄录原始显示数值；显示数值与修正后数值分栏保存。条件未知时不得从相邻批次借用条件，不把已经计算出一个数字视为已经验证模型。每份抄录保留量纲、方向、采样时点以及是否达到",
+              "query_source": "original:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 4,
+              "raw_score": -5.858469458747034,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+                  "revision": 1,
+                  "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+                  "locator": "block:definitions"
+                }
+              ],
+              "matched_text": "变量与单位\n\n合成NS4探头的x为原始摄氏显示值，b为以°C表示的零点偏差，g为无量纲比例系数；修正温度记θ，绝对温度记T。温度差1°C与1K大小相同，但绝对零点不同。\n\n过程检查条目01：本条为合成台账。记录员先登记输入通道、仪器型号、环境介质和稳定时间，再抄录原始显示数值；显示数值与修正后数值分栏保存。条件未知时不得从相邻批次借用条件，不把已经计算出一个数字视为已经验证模型。每份抄录保留量纲、方向、采样时点以及是否达到平衡。重复记录用于检查程序完整交付长文，不增加统计样本",
+              "query_source": "original:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 5,
+              "raw_score": -2.1738645206855716,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+                  "revision": 1,
+                  "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+                  "locator": null
+                }
+              ],
+              "matched_text": "Northstar温度换算完整方法\n问题：\nNorthstar温度换算阅读验收\n\n方法：\n固定方法与适用边界阅读\n\n主要发现：\n- 需阅读全文核对变量、条件和反例\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 仅合成验收\nNorthstar阅读验收",
+              "query_source": "english:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 6,
+              "raw_score": -0.543268357919035,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+                  "revision": 1,
+                  "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+                  "locator": "block:definitions"
+                }
+              ],
+              "matched_text": null,
+              "query_source": "english:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 7,
+              "raw_score": -0.5423524007745539,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+                  "revision": 1,
+                  "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+                  "locator": "block:conditions"
+                }
+              ],
+              "matched_text": null,
+              "query_source": "english:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 8,
+              "raw_score": -0.5409192633512552,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-b77bc86f-d704-5819-bb50-577953b915ee",
+                  "revision": 1,
+                  "sha256": "223dc704fa419133fbcd881284a39d6efbe82a623ef0469e582e06a0823a9832",
+                  "locator": "block:method"
+                }
+              ],
+              "matched_text": null,
+              "query_source": "english:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            }
+          ],
+          "query_sources": [
+            {
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6",
+              "id": "original:lexical",
+              "variant_id": "original",
+              "language": "zh",
+              "kind": "equivalent",
+              "channel": "lexical",
+              "weight": 1.0,
+              "rank": 1
+            },
+            {
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6",
+              "id": "english:lexical",
+              "variant_id": "english",
+              "language": "en",
+              "kind": "equivalent",
+              "channel": "lexical",
+              "weight": 1.0,
+              "rank": 3
+            }
+          ],
+          "condition_check": "pending",
+          "protected_terms": [
+            "Northstar"
+          ]
+        },
+        {
+          "candidate_id": "RC-4985555bd5d4a11e419c1262",
+          "title": "Northstar旧型号摘记",
+          "link": "C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-96b757cc-4b6b-5e2b-9e7f-e83c59a5d3be/records/MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397.json",
+          "ref": {
+            "kind": "record",
+            "id": "MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397",
+            "revision": 1,
+            "sha256": "0d2cecd7effbb4b11b727c9ab702d40e7fa539e9983cb54c113ff46faaa846fb",
+            "locator": null
+          },
+          "status": "已记录理解",
+          "stale": false,
+          "hits": [
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 7,
+              "raw_score": -11.906146824957673,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397",
+                  "revision": 1,
+                  "sha256": "0d2cecd7effbb4b11b727c9ab702d40e7fa539e9983cb54c113ff46faaa846fb",
+                  "locator": null
+                }
+              ],
+              "matched_text": "Northstar旧型号摘记\n问题：\nNorthstar温度换算阅读验收\n\n方法：\n固定方法与适用边界阅读\n\n主要发现：\n- 需阅读全文核对变量、条件和反例\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 仅合成验收\nNorthstar阅读验收",
+              "query_source": "original:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 8,
+              "raw_score": -1.9790180394815755,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397",
+                  "revision": 1,
+                  "sha256": "0d2cecd7effbb4b11b727c9ab702d40e7fa539e9983cb54c113ff46faaa846fb",
+                  "locator": "block:context"
+                }
+              ],
+              "matched_text": null,
+              "query_source": "original:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 3,
+              "raw_score": -2.175965228071541,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397",
+                  "revision": 1,
+                  "sha256": "0d2cecd7effbb4b11b727c9ab702d40e7fa539e9983cb54c113ff46faaa846fb",
+                  "locator": null
+                }
+              ],
+              "matched_text": "Northstar旧型号摘记\n问题：\nNorthstar温度换算阅读验收\n\n方法：\n固定方法与适用边界阅读\n\n主要发现：\n- 需阅读全文核对变量、条件和反例\n\n适用条件：\n- 摄氏温标的合成输入\n\n不适用条件：\n- 不得直接用于华氏温标或现实测量\n\n限制：\n- 仅合成验收\nNorthstar阅读验收",
+              "query_source": "english:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            },
+            {
+              "channel": "lexical",
+              "provider": "memory-fts",
+              "provider_version": "memory-v4-technical-blocks",
+              "rank": 4,
+              "raw_score": -1.9790180394815755,
+              "score_meaning": "FTS bm25（越低越相关）",
+              "representation_refs": [
+                {
+                  "kind": "record",
+                  "id": "MEM-4b65362d-0c5f-524e-aed9-3bc2a962d397",
+                  "revision": 1,
+                  "sha256": "0d2cecd7effbb4b11b727c9ab702d40e7fa539e9983cb54c113ff46faaa846fb",
+                  "locator": "block:context"
+                }
+              ],
+              "matched_text": null,
+              "query_source": "english:lexical",
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6"
+            }
+          ],
+          "query_sources": [
+            {
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6",
+              "id": "original:lexical",
+              "variant_id": "original",
+              "language": "zh",
+              "kind": "equivalent",
+              "channel": "lexical",
+              "weight": 1.0,
+              "rank": 3
+            },
+            {
+              "query_plan_id": "0912d4cf80dd62bbf903635f9e67bdb7b8ee900e2a03688c58c943a4c64244a6",
+              "id": "english:lexical",
+              "variant_id": "english",
+              "language": "en",
+              "kind": "equivalent",
+              "channel": "lexical",
+              "weight": 1.0,
+              "rank": 2
+            }
+          ],
+          "condition_check": "pending",
+          "protected_terms": [
+            "Northstar"
+          ]
+        }
+      ],
+      "unnoted_candidate_ids": [],
+      "coverage": [
+        {
+          "question": "阅读 Northstar 温度换算方法：核对换算公式、变量及单位、适用条件、误差处理和反例，并区分名称或温度主题相似但不适用的材料。",
+          "keywords": [
+            "Northstar",
+            "温度换算",
+            "换算公式",
+            "误差处理",
+            "适用条件"
+          ],
+          "reason": "实际完整阅读固定方法与干扰材料；技术问题且语料语言未知，保留中文原查询并补充英文检索。",
+          "scope": {
+            "owner_ids": [
+              "RES-MQ-A"
+            ],
+            "levels": null,
+            "kinds": null,
+            "roles": null,
+            "outcomes": null,
+            "review_states": null,
+            "validities": null,
+            "include_unknown": false,
+            "excluded_refs": [],
+            "excluded_owner_ids": [],
+            "recorded_from": null,
+            "recorded_before": null,
+            "source_ids": null,
+            "include_refs": [],
+            "exclude_ids": [],
+            "confidence_levels": null,
+            "time_window": null,
+            "applicability_conditions": [],
+            "applicability_exclusions": [],
+            "owner_types": null
+          },
+          "lanes": [
+            {
+              "source": "overview_experience",
+              "status": "partial",
+              "warnings": [
+                "召回通道 dense 不可用；保留其他通道。未配置本地向量后端"
+              ],
+              "has_more": false,
+              "routes": [
+                {
+                  "query_source": "original:identity",
+                  "status": "ok",
+                  "warnings": [],
+                  "elapsed_ms": 42.75410000263946,
+                  "has_more": false
+                },
+                {
+                  "query_source": "original:lexical",
+                  "status": "ok",
+                  "warnings": [],
+                  "elapsed_ms": 44.33229999995092,
+                  "has_more": false
+                },
+                {
+                  "query_source": "original:dense",
+                  "status": "partial",
+                  "warnings": [
+                    "召回通道 dense 不可用；保留其他通道。未配置本地向量后端"
+                  ],
+                  "elapsed_ms": 50.61769999883836,
+                  "has_more": false
+                },
+                {
+                  "query_source": "english:lexical",
+                  "status": "ok",
+                  "warnings": [],
+                  "elapsed_ms": 39.381099995807745,
+                  "has_more": false
+                },
+                {
+                  "query_source": "english:dense",
+                  "status": "partial",
+                  "warnings": [
+                    "召回通道 dense 不可用；保留其他通道。未配置本地向量后端"
+                  ],
+                  "elapsed_ms": 33.25770000083139,
+                  "has_more": false
+                }
+              ]
+            },
+            {
+              "source": "process",
+              "status": "ok",
+              "warnings": [],
+              "has_more": false,
+              "routes": [
+                {
+                  "query_source": "original:identity",
+                  "status": "ok",
+                  "warnings": [],
+                  "elapsed_ms": 36.62829999666428,
+                  "has_more": false
+                },
+                {
+                  "query_source": "original:lexical",
+                  "status": "ok",
+                  "warnings": [],
+                  "elapsed_ms": 39.88209999806713,
+                  "has_more": false
+                },
+                {
+                  "query_source": "original:dense",
+                  "status": "ok",
+                  "warnings": [],
+                  "elapsed_ms": 37.58910000033211,
+                  "has_more": false
+                },
+                {
+                  "query_source": "english:lexical",
+                  "status": "ok",
+                  "warnings": [],
+                  "elapsed_ms": 35.7819000055315,
+                  "has_more": false
+                },
+                {
+                  "query_source": "english:dense",
+                  "status": "ok",
+                  "warnings": [],
+                  "elapsed_ms": 34.9181999990833,
+                  "has_more": false
+                }
+              ]
+            },
+            {
+              "source": "technical",
+              "status": "partial",
+              "warnings": [
+                "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null",
+                "召回通道 dense 不可用；保留其他通道。未配置本地向量后端"
+              ],
+              "has_more": true,
+              "routes": [
+                {
+                  "query_source": "original:identity",
+                  "status": "ok",
+                  "warnings": [],
+                  "elapsed_ms": 43.52349999680882,
+                  "has_more": false
+                },
+                {
+                  "query_source": "original:lexical",
+                  "status": "partial",
+                  "warnings": [
+                    "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+                  ],
+                  "elapsed_ms": 111.3991000020178,
+                  "has_more": true
+                },
+                {
+                  "query_source": "original:dense",
+                  "status": "partial",
+                  "warnings": [
+                    "召回通道 dense 不可用；保留其他通道。未配置本地向量后端"
+                  ],
+                  "elapsed_ms": 36.680899997008964,
+                  "has_more": false
+                },
+                {
+                  "query_source": "english:lexical",
+                  "status": "partial",
+                  "warnings": [
+                    "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null"
+                  ],
+                  "elapsed_ms": 125.14089999604039,
+                  "has_more": false
+                },
+                {
+                  "query_source": "english:dense",
+                  "status": "partial",
+                  "warnings": [
+                    "召回通道 dense 不可用；保留其他通道。未配置本地向量后端"
+                  ],
+                  "elapsed_ms": 40.726100000028964,
+                  "has_more": false
+                }
+              ]
+            }
+          ],
+          "query_plan": {
+            "variants": [
+              {
+                "id": "original",
+                "language": "zh",
+                "question": "阅读 Northstar 温度换算方法：核对换算公式、变量及单位、适用条件、误差处理和反例，并区分名称或温度主题相似但不适用的材料。",
+                "lexical_terms": [
+                  "Northstar",
+                  "温度换算",
+                  "换算公式",
+                  "误差处理",
+                  "适用条件"
+                ]
+              },
+              {
+                "id": "english",
+                "language": "en",
+                "question": "Read the Northstar temperature-conversion method and verify its conversion formula, variables and units, applicability conditions, uncertainty treatment, and counterexamples; distinguish similarly named or temperature-related but inapplicable material.",
+                "lexical_terms": [
+                  "Northstar",
+                  "temperature conversion",
+                  "conversion formula",
+                  "uncertainty",
+                  "applicability"
+                ]
+              }
+            ],
+            "protected_terms": [
+              "Northstar"
+            ],
+            "corpus_language": "unknown",
+            "language_reason": "尚未阅读获准材料，不能假定语料语言；该任务是技术方法核验，按流程保留中文原查询并补充完整英文技术查询。",
+            "query_domains": [
+              "general"
+            ],
+            "dictionary": {
+              "status": "missing",
+              "path": "retrieval/query-terms.json",
+              "sha256": null
+            },
+            "matched_entries": [],
+            "related_terms": [],
+            "condition_check": "pending",
+            "english_query_present": true,
+            "language_decision_by": "caller",
+            "translation_validation": "literal_protection_only"
+          },
+          "reranking": {
+            "mode": "off",
+            "candidate_limit": 3,
+            "conditions": []
+          },
+          "gaps": [
+            "召回通道 dense 不可用；保留其他通道。未配置本地向量后端",
+            "部分词法命中没有可按当前用途展示的固定原文片段；matched_text 为 null",
+            "technical候选窗口仍有未交付材料；使用reading-page继续，预算累计，不代表全库已读"
+          ]
+        }
+      ],
+      "guidance": "先读返回的正文；可保留直接用途或有具体连接理由的间接启发。长链连接逐步注明依据和假设。保留候选后 reading-read 读完整记录，再 reading-note 保存理解、连接和必要细节。有可检验下一步先执行，失败后定向扩查。",
+      "gaps": [],
+      "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+      "revision": 7
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 2824,
+      "read_bytes": 1334078,
+      "output_chars": 70965,
+      "candidates": 6,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  },
+  "response_serialized_chars": 21972,
+  "value_serialized_chars": 21611
+}

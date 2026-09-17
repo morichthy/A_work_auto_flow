@@ -35,9 +35,15 @@ const receipt: SettingsReceipt = {
       strategy: "standard",
       association: { enabled: true, max_rounds: 3 },
       context: { max_owners: 10, note_max_tokens: 6000 },
+      screening: { regular_windows: 3, max_windows: 4, batch_owners: 10 },
       result_limit: 10,
       budget,
-      reranking: { mode: "auto", candidate_limit: 30 },
+      reranking: {
+        mode: "auto",
+        candidate_limit: 30,
+        window_tokens: 512,
+        overflow_policy: "hit_centered_per_window",
+      },
     },
   },
   defaults: {
@@ -47,9 +53,15 @@ const receipt: SettingsReceipt = {
       strategy: "standard",
       association: { enabled: true, max_rounds: 3 },
       context: { max_owners: 10, note_max_tokens: 6000 },
+      screening: { regular_windows: 3, max_windows: 4, batch_owners: 10 },
       result_limit: 6,
       budget,
-      reranking: { mode: "auto", candidate_limit: 30 },
+      reranking: {
+        mode: "auto",
+        candidate_limit: 30,
+        window_tokens: 512,
+        overflow_policy: "hit_centered_per_window",
+      },
     },
   },
   limits: {
@@ -291,6 +303,38 @@ describe("workspace settings", () => {
     fireEvent.click(screen.getByText("保存设置"));
     expect(screen.getByRole("alert")).toHaveTextContent("不能小于");
     expect(mockApi).toHaveBeenCalledTimes(1);
+  });
+  it("saves bounded Owner packets and per-window CE policy", async () => {
+    await ready();
+    fireEvent.change(screen.getByLabelText("每个Owner常规窗口数"), {
+      target: { value: "2" },
+    });
+    fireEvent.change(screen.getByLabelText("每个Owner窗口硬上限"), {
+      target: { value: "4" },
+    });
+    fireEvent.change(screen.getByLabelText("每批Owner数"), {
+      target: { value: "12" },
+    });
+    fireEvent.change(screen.getByLabelText("CE单窗token上限"), {
+      target: { value: "384" },
+    });
+    fireEvent.click(screen.getByText("保存设置"));
+    await waitFor(() => expect(mockApi).toHaveBeenCalledTimes(2));
+    expect(mockApi.mock.calls[1][1]).toMatchObject({
+      settings: {
+        reading: {
+          screening: {
+            regular_windows: 2,
+            max_windows: 4,
+            batch_owners: 12,
+          },
+          reranking: {
+            window_tokens: 384,
+            overflow_policy: "hit_centered_per_window",
+          },
+        },
+      },
+    });
   });
   it("preserves exact integer bytes and milliseconds through fractional display units", async () => {
     await ready();

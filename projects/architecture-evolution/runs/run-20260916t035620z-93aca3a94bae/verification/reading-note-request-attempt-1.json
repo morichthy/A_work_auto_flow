@@ -1,0 +1,25 @@
+{
+  "session_id": "RS-e0de6106-ce79-4e3e-9151-669025a55e40",
+  "expected_revision": 3,
+  "request_id": "cli-ai-note-1",
+  "candidate_id": "RC-c6a6cd6a1b5ca7fef1497937",
+  "summary": "该合成正例明确给出X200、环境温度-30°C、批准为是；正文主张先预热电池再启动，符合本题三个显式条件。",
+  "connection": {
+    "kind": "direct",
+    "explanation": "用于核对重排能同时读取definitions与result；只证明合成流程，不能据此建议实际设备操作。",
+    "chain": []
+  },
+  "details": [
+    {
+      "text": "该合成正例明确给出X200、环境温度-30°C、批准为是；正文主张先预热电池再启动，符合本题三个显式条件。",
+      "reason": "保存实际条件与正文用途的核对边界",
+      "block_ids": [
+        "definitions",
+        "result"
+      ]
+    }
+  ],
+  "uncertainties": [
+    "全部是合成软件验收材料，没有真实工程试验或批准证明。"
+  ]
+}

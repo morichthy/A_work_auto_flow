@@ -1,0 +1,103 @@
+{
+  "context_text": "### 阅读笔记可读上下文与工作台入口修复\r\n\r\n身份：RUN-20260916T155857Z-A3D7B61BDD32\r\n\r\n原生记录：\r\n```json\r\n{\r\n  \"artifacts\": [\r\n    {\r\n      \"path\": \"projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/RESULTS.md\",\r\n      \"registered_at\": \"2026-09-16T16:32:25.156700Z\",\r\n      \"role\": \"artifact\",\r\n      \"sha256\": \"cb753e99166050f6a7766e6456e1db81c586f95bfc728867c5e4b62d2c0b6661\"\r\n    },\r\n    {\r\n      \"path\": \"projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/verification/test-evidence.zip\",\r\n      \"registered_at\": \"2026-09-16T16:32:25.177702Z\",\r\n      \"role\": \"artifact\",\r\n      \"sha256\": \"da9592dd5c3fae6367042e9f624fc8e511bbb97de54de8bd2f9f286d31a1c538\"\r\n    },\r\n    {\r\n      \"path\": \"projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/verification/reading-note-r5.md\",\r\n      \"registered_at\": \"2026-09-16T16:32:25.198329Z\",\r\n      \"role\": \"artifact\",\r\n      \"sha256\": \"17431e7ae3d21ecaccb30bc97b3c597bfa6513a31c93a5cb11ab66c0730575fc\"\r\n    }\r\n  ],\r\n  \"claims\": [],\r\n  \"code\": {\r\n    \"commit\": \"89ad30753589fb7b919b3db75cdf91d47449f4ca\",\r\n    \"dirty\": true\r\n  },\r\n  \"conclusion\": \"阅读上下文、首页与主题导航修复已验证；完整浏览器选择仍含既有失败。\",\r\n  \"created_at\": \"2026-09-16T15:58:57Z\",\r\n  \"dependencies\": [],\r\n  \"ended_at\": \"2026-09-16T16:32:23.121820+00:00\",\r\n  \"environment\": {\r\n    \"lock_or_image_digest\": null,\r\n    \"platform\": \"Windows-11-10.0.22631-SP0\",\r\n    \"python\": \"3.12.10\"\r\n  },\r\n  \"hypotheses\": [],\r\n  \"inputs\": [\r\n    {\r\n      \"path\": \"projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/verification/source-snapshot.zip\",\r\n      \"registered_at\": \"2026-09-16T16:32:25.122700Z\",\r\n      \"role\": \"input\",\r\n      \"sha256\": \"c99b225c352e9c9865d50265cfacc469ea4f952f307eb6ecb090b97a39b8eaf5\"\r\n    },\r\n    {\r\n      \"path\": \"projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/verification/source-manifest.json\",\r\n      \"registered_at\": \"2026-09-16T16:32:25.139694Z\",\r\n      \"role\": \"input\",\r\n      \"sha256\": \"fe72d775a8a4111080f257cfcc948b6ec955e3776055dccbb83f45c357ae2dc0\"\r\n    }\r\n  ],\r\n  \"keywords\": [\r\n    \"reading note\",\r\n    \"工作台\"\r\n  ],\r\n  \"limitations\": [\r\n    \"列表逐会话核验来源仍较慢\",\r\n    \"既有规模N0超时未修复\",\r\n    \"未验证第二台物理机\",\r\n    \"AI一致性自查不等于科学复核\"\r\n  ],\r\n  \"lineage_events\": \"lineage.jsonl\",\r\n  \"metrics\": {\r\n    \"backend_passed\": 31,\r\n    \"browser_failed\": 1,\r\n    \"browser_passed\": 5,\r\n    \"component_passed\": 17,\r\n    \"deployment_unique_passed\": 19,\r\n    \"real_list_seconds\": 20.266\r\n  },\r\n  \"owner\": null,\r\n  \"owner_id\": \"PRJ-ARCHITECTURE-EVOLUTION\",\r\n  \"parameters\": {},\r\n  \"parent_run_ids\": [],\r\n  \"project_id\": null,\r\n  \"quality_results\": [\r\n    {\r\n      \"name\": \"targeted_reading_and_upgrade_checks\",\r\n      \"status\": \"passed\"\r\n    },\r\n    {\r\n      \"detail\": \"既有规模场景60秒定位超时；其余5项通过\",\r\n      \"name\": \"browser_scale_N0\",\r\n      \"status\": \"failed\"\r\n    }\r\n  ],\r\n  \"question\": \"如何使当前阅读笔记可发现、可读并关联定向证据，同时保护私人数据及旧工作区？\",\r\n  \"random_seeds\": [],\r\n  \"related_dataset_ids\": [],\r\n  \"related_module_ids\": [],\r\n  \"related_research_ids\": [],\r\n  \"review\": {\r\n    \"date\": null,\r\n    \"reviewer\": null,\r\n    \"status\": \"not-reviewed\"\r\n  },\r\n  \"review_history\": [],\r\n  \"run_id\": \"RUN-20260916T155857Z-A3D7B61BDD32\",\r\n  \"run_type\": \"analysis\",\r\n  \"schema_version\": 1,\r\n  \"sensitivity\": \"internal\",\r\n  \"started_at\": null,\r\n  \"status\": \"failed\",\r\n  \"title\": \"阅读笔记可读上下文与工作台入口修复\"\r\n}\r\n```",
+  "manifest": {
+    "schema_version": 1,
+    "packet_id": "PKT-0074ea04-a7f0-4b25-9726-eb74f4591225",
+    "generated_at": "2026-09-16T16:35:48.894061Z",
+    "query": "",
+    "purpose": "exploration",
+    "scope": null,
+    "stage": "focus",
+    "expansion_count": 0,
+    "selection": {
+      "owner_id": null,
+      "owner_ids": [],
+      "owner_types": [],
+      "include_ids": [],
+      "full_ids": [],
+      "exclude_ids": []
+    },
+    "budget": {
+      "requested": 16000,
+      "hard_limit": 60000,
+      "effective": 16000,
+      "used": 3323
+    },
+    "items": [
+      {
+        "canonical_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+        "owner_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+        "role": "run_attempt",
+        "ref": {
+          "target_kind": "owner",
+          "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+          "revision": null,
+          "sha256": "7a0e22f7bfa7e3560609d51b7b751dcb0c83d1d60bc77872f080838aace0f5a7",
+          "relation": "references",
+          "locator": ""
+        },
+        "mode": "full",
+        "codepoints": 3323
+      }
+    ],
+    "omitted": [],
+    "missing": [
+      {
+        "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+        "code": "UNRESOLVED_REFERENCE",
+        "affected_ids": [
+          "RUN-20260916T155857Z-A3D7B61BDD32"
+        ]
+      },
+      {
+        "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+        "code": "UNRESOLVED_REFERENCE",
+        "affected_ids": [
+          "RUN-20260916T155857Z-A3D7B61BDD32"
+        ]
+      },
+      {
+        "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+        "code": "UNRESOLVED_REFERENCE",
+        "affected_ids": [
+          "RUN-20260916T155857Z-A3D7B61BDD32"
+        ]
+      },
+      {
+        "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+        "code": "UNRESOLVED_REFERENCE",
+        "affected_ids": [
+          "RUN-20260916T155857Z-A3D7B61BDD32"
+        ]
+      },
+      {
+        "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+        "code": "UNRESOLVED_REFERENCE",
+        "affected_ids": [
+          "RUN-20260916T155857Z-A3D7B61BDD32"
+        ]
+      }
+    ],
+    "navigation_refs": [],
+    "required_not_full": [],
+    "basis_heads": {
+      "RUN-20260916T155857Z-A3D7B61BDD32": "none"
+    },
+    "status": "partial",
+    "snapshot_kind": "per_owner_verified_heads",
+    "execution_started": false,
+    "requested_refs": [
+      "RUN-20260916T155857Z-A3D7B61BDD32"
+    ],
+    "source_refs": [
+      {
+        "target_kind": "owner",
+        "target_id": "RUN-20260916T155857Z-A3D7B61BDD32",
+        "revision": null,
+        "sha256": "7a0e22f7bfa7e3560609d51b7b751dcb0c83d1d60bc77872f080838aace0f5a7",
+        "relation": "references",
+        "locator": ""
+      }
+    ]
+  }
+}

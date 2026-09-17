@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260914T174350Z-B0D5AFF7D7C3",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "中英查询计划与术语扩展实施验证",
+  "keywords": ["中英查询", "query expansion", "术语库", "RRF", "条件保真", "Windows升级"],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "succeeded",
+  "created_at": "2026-09-14T17:43:50Z",
+  "started_at": "2026-09-14T18:15:06.654004Z",
+  "ended_at": "2026-09-14T18:15:06.768139Z",
+  "owner": null,
+  "question": "如何按语料语言生成保真等义查询、使用中英及关联术语库，并在固定范围与累计预算内分路召回和核对条件？",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/capture_evidence.py",
+      "sha256": "1dc1a4ffb8e9e9a2c916914521527365a17c6121dc57408983bb9b2f1c973b6c",
+      "role": "script",
+      "registered_at": "2026-09-14T18:15:05.516134Z"
+    },
+    {
+      "path": "automation/scripts/material_query/query_plan.py",
+      "sha256": "006759b01a205ba348b1308cdd91a650a8cb80eb1d112fa824cc2b3c27d2cc41",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.527349Z"
+    },
+    {
+      "path": "automation/scripts/material_query/reading.py",
+      "sha256": "11e6778b6c12257178a381f3f8b4553e4cb85adab63eb653790f756db918bf4f",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.539613Z"
+    },
+    {
+      "path": "automation/scripts/workspace_cli.py",
+      "sha256": "3df0ff09b8dec5003ddb5f6c220418448d4d560697005f3568b24fa6d50b2897",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.550867Z"
+    },
+    {
+      "path": "automation/scripts/deployment.py",
+      "sha256": "500d82dab63777ffab0b573ddec3cd50d69f9e29b96c1cf5a82cb556e784cf0e",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.561534Z"
+    },
+    {
+      "path": "automation/tests/test_reading_query_plan.py",
+      "sha256": "92d188c77252f8916e31b872c8ca746069f7b8bf9ec674dca5e93f2bb6806503",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.571658Z"
+    },
+    {
+      "path": "automation/tests/test_reading_workflow.py",
+      "sha256": "efea730c209733dd619261ca02179577f0c23d72958978740fa0f123757d16d2",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.582564Z"
+    },
+    {
+      "path": "automation/tests/test_material_recall.py",
+      "sha256": "20071417ff5370b6d12133eeb2aae05475e280890c778f5208265a0bdf025cb7",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.593810Z"
+    },
+    {
+      "path": "automation/tests/test_deployment_workbench.py",
+      "sha256": "458aff626378eec0b7ae5ad1efb346956a3da19d4b91022bc623b9c07c18b353",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.605258Z"
+    },
+    {
+      "path": "automation/tests/upgrade_fixture.py",
+      "sha256": "b04a210ba2adedf00d3175674246438c552f7a1c71cc0f22b034b4a586b5e93c",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.616365Z"
+    },
+    {
+      "path": "automation/workflows/material-query/SKILL.md",
+      "sha256": "fa19c9c0e173c40e2728ed95d045b80f25341ab3de845d72362ec909736e9091",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.627557Z"
+    },
+    {
+      "path": "automation/templates/query-terms.default.json",
+      "sha256": "ba88d84e3e4362f02a74868b1bb4dc9b8221f754c4d828312ab961de181d183f",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.638942Z"
+    },
+    {
+      "path": "retrieval/query-terms.json",
+      "sha256": "ba88d84e3e4362f02a74868b1bb4dc9b8221f754c4d828312ab961de181d183f",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.649408Z"
+    },
+    {
+      "path": "automation/testing/catalog.json",
+      "sha256": "65986a3d427d637724d78060295e12f7778a9b28eda3e13ffbfa7fdad46e9f63",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.660862Z"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "a4de55b6343d244f506c490def01d14ee6dbfb4d7def8eef7629c23156362026",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.671179Z"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5d8db090beeee9d2f835f5de5de78a066c5aceec723f03f1b701c03772270462",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.682941Z"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "edd247e61854f5f99b6fa37d0e4b388d7f1d45075dee9935b09d5d9fa220ab1c",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.692701Z"
+    },
+    {
+      "path": "docs/AI_READING.md",
+      "sha256": "7ce64c92ccb238cd33dde9332957fcf7a09441c6fa351b6116a9d3c4915a68e5",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.702637Z"
+    },
+    {
+      "path": "docs/QUERY_TERMS.md",
+      "sha256": "f54f31e9cdb2ea2fb1ebe681736cdf2b2513fd2175a5cbf11c33f44abb10a8ef",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.713411Z"
+    },
+    {
+      "path": "docs/CORE.md",
+      "sha256": "9353431588dd37fdcd050d4371ab544ec676932dd628840ec12660dacaa9dae4",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.724538Z"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "9d1a9d3cf6309eccf8ada6766e871ca73523de2db0e65e98d80c0883f0b95829",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.734453Z"
+    },
+    {
+      "path": "docs/MATERIAL_QUERY.md",
+      "sha256": "c6c1dd07174927bdda02b682b6d0ce858b5c3bbe601e19e597a7c0b791b93443",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.744287Z"
+    },
+    {
+      "path": "docs/MEMORY_STORAGE_EXPLAINED.md",
+      "sha256": "dae76180aae5f4e5a3fa7183f1816be109ef8a228b36cf9087760acaa63794e0",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.753325Z"
+    },
+    {
+      "path": "docs/UPGRADE_TESTING.md",
+      "sha256": "ce1c2575ff1c1d8bf951f283c5b3c54a50bf30c384964e7be457d1f3ddf1aea0",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.763480Z"
+    },
+    {
+      "path": "docs/DEVELOPMENT_HISTORY.md",
+      "sha256": "0ed830a638d300a4de9e96dc52e0f0244b89787be1323636f3ff2d4fec2d0245",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.772352Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/RESULTS.md",
+      "sha256": "1da00fb339e336d7600d869144826ced46b5ce7566c7bcb55757f0940fbe5d52",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.785768Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-fixture.json",
+      "sha256": "9fd2f03933d91b96a3a97e0d0960aedb279e90334bc02fdca450c84fd7e61a18",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.798404Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-start.json",
+      "sha256": "e7a6a4a255bd3fcaeacde9d9239efb7f68dcf11dc36872dfc25b529319ea97cf",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.809009Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-recall.json",
+      "sha256": "154c25a20b68e6803fdf211bb860763e325ab78b2a23015ec7db3db3fe83c616",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.820701Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-recall-result.json",
+      "sha256": "ca060542443e29bdca66711ca59b9fdfd71237aff8047dbc6b511523ce889929",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.831519Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-read-result.json",
+      "sha256": "4ae84a8867e53f9a3cdab88013917a802b0f240a20186536d7d6edf72dd52196",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.843203Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-note-good.json",
+      "sha256": "eed6884c553572e558f08ba6b03b7cbb051eb99a902bb4f73867c1c73d6c20f8",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.854449Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-note-wrong.json",
+      "sha256": "9ddcf00a5880670ce44fff6736f853e41258f7d76439416057c4964c971afec9",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.865807Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-recall-vector.json",
+      "sha256": "48832a16c8d6b8878dc246868f8b32a29a08bdeded839f7fefca608577272a6b",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.876339Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-recall-vector-result.json",
+      "sha256": "0b3617b2dc66f8bf96a82b81d49f9b7fcf7124b10f29090fb9820396e82db129",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.889204Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-vector-index.json",
+      "sha256": "e27c22d20b0c21f69354cdb75b27b5af6e856a29c22c309f4d3de0a837acc45e",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.902173Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-view-budget-result.json",
+      "sha256": "4a19010e0cdd30eb6f8945318cfd50bec7b997129c17f52e19fd9f43c9955a52",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.913330Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-finish.json",
+      "sha256": "a2150c97e4af4ec02281550c7a997040d22930a0195490b66a8a604c74ae0f01",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.924553Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/test_deployment_workbench-query-terms.stderr.log",
+      "sha256": "de994f31bc9bb203e2483867a8336a32329d698923e5ec290b81073070c6b4b5",
+      "role": "input",
+      "registered_at": "2026-09-14T18:15:05.934930Z"
+    }
+  ],
+  "parameters": {},
+  "code": {
+    "commit": "28f05ad8408991e8ec21fcd50dc5fbf59218093b",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [
+    {"check": "reading_and_query_plan", "status": "passed", "details": "23项通过；最后CLI预算错误回执修正另1项通过，见RESULTS.md"},
+    {"check": "material_recall", "status": "passed", "details": "16项基础召回回归通过"},
+    {"check": "windows_setup_upgrade", "status": "passed", "details": "18项通过；真实setup、扩展旧工作区、用户词库保留/补种/rollback，见stderr日志"},
+    {"check": "actual_ai_synthetic_reading", "status": "partial", "details": "实际AI完成固定全文阅读及v2.1/v2.0条件判断；真实向量4次编码。保留过滤和不相关候选，最终导出预算不足；不是业务质量验收"},
+    {"check": "cli_budget_failure_boundary", "status": "passed", "details": "修复后同一真实会话返回BUDGET JSON和非零退出，不产生traceback，不抬高预算"}
+  ],
+  "metrics": {"software_tests_passed": 58, "actual_dense_model_calls": 4, "actual_dense_input_tokens": 128, "seed_term_entries": 8},
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/source-and-evidence.json",
+      "sha256": "5425a1b2416a3a69ca6054c4ecb91201c3832578450d596229c6b124795dce7f",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:06.797600Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/.gitattributes",
+      "sha256": "a4de55b6343d244f506c490def01d14ee6dbfb4d7def8eef7629c23156362026",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:06.880713Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/ARCHITECTURE.md",
+      "sha256": "edd247e61854f5f99b6fa37d0e4b388d7f1d45075dee9935b09d5d9fa220ab1c",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:06.894560Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/README.md",
+      "sha256": "5d8db090beeee9d2f835f5de5de78a066c5aceec723f03f1b701c03772270462",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:06.906388Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/scripts/deployment.py",
+      "sha256": "500d82dab63777ffab0b573ddec3cd50d69f9e29b96c1cf5a82cb556e784cf0e",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.003320Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/scripts/workspace_cli.py",
+      "sha256": "3df0ff09b8dec5003ddb5f6c220418448d4d560697005f3568b24fa6d50b2897",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.017014Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/scripts/material_query/query_plan.py",
+      "sha256": "006759b01a205ba348b1308cdd91a650a8cb80eb1d112fa824cc2b3c27d2cc41",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.048242Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/scripts/material_query/reading.py",
+      "sha256": "11e6778b6c12257178a381f3f8b4553e4cb85adab63eb653790f756db918bf4f",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.061353Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/templates/query-terms.default.json",
+      "sha256": "ba88d84e3e4362f02a74868b1bb4dc9b8221f754c4d828312ab961de181d183f",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.082153Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/testing/catalog.json",
+      "sha256": "65986a3d427d637724d78060295e12f7778a9b28eda3e13ffbfa7fdad46e9f63",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.104094Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/tests/test_deployment_workbench.py",
+      "sha256": "458aff626378eec0b7ae5ad1efb346956a3da19d4b91022bc623b9c07c18b353",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.165710Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/tests/test_material_recall.py",
+      "sha256": "20071417ff5370b6d12133eeb2aae05475e280890c778f5208265a0bdf025cb7",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.176555Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/tests/test_reading_query_plan.py",
+      "sha256": "92d188c77252f8916e31b872c8ca746069f7b8bf9ec674dca5e93f2bb6806503",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.188197Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/tests/test_reading_workflow.py",
+      "sha256": "efea730c209733dd619261ca02179577f0c23d72958978740fa0f123757d16d2",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.200111Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/tests/upgrade_fixture.py",
+      "sha256": "b04a210ba2adedf00d3175674246438c552f7a1c71cc0f22b034b4a586b5e93c",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.213678Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/automation/workflows/material-query/SKILL.md",
+      "sha256": "fa19c9c0e173c40e2728ed95d045b80f25341ab3de845d72362ec909736e9091",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.244858Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/docs/AI_READING.md",
+      "sha256": "7ce64c92ccb238cd33dde9332957fcf7a09441c6fa351b6116a9d3c4915a68e5",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.334687Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/docs/CORE.md",
+      "sha256": "9353431588dd37fdcd050d4371ab544ec676932dd628840ec12660dacaa9dae4",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.349304Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/docs/DEVELOPMENT_HISTORY.md",
+      "sha256": "0ed830a638d300a4de9e96dc52e0f0244b89787be1323636f3ff2d4fec2d0245",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.362418Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/docs/MATERIAL_QUERY.md",
+      "sha256": "c6c1dd07174927bdda02b682b6d0ce858b5c3bbe601e19e597a7c0b791b93443",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.375685Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/docs/MEMORY_STORAGE_EXPLAINED.md",
+      "sha256": "dae76180aae5f4e5a3fa7183f1816be109ef8a228b36cf9087760acaa63794e0",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.387471Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/docs/QUERY_TERMS.md",
+      "sha256": "f54f31e9cdb2ea2fb1ebe681736cdf2b2513fd2175a5cbf11c33f44abb10a8ef",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.399902Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/docs/README.md",
+      "sha256": "9d1a9d3cf6309eccf8ada6766e871ca73523de2db0e65e98d80c0883f0b95829",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.411716Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/docs/UPGRADE_TESTING.md",
+      "sha256": "ce1c2575ff1c1d8bf951f283c5b3c54a50bf30c384964e7be457d1f3ddf1aea0",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.425211Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-finish.json",
+      "sha256": "a2150c97e4af4ec02281550c7a997040d22930a0195490b66a8a604c74ae0f01",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.607545Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-fixture.json",
+      "sha256": "9fd2f03933d91b96a3a97e0d0960aedb279e90334bc02fdca450c84fd7e61a18",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.619096Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-note-good.json",
+      "sha256": "eed6884c553572e558f08ba6b03b7cbb051eb99a902bb4f73867c1c73d6c20f8",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.630782Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-note-wrong.json",
+      "sha256": "9ddcf00a5880670ce44fff6736f853e41258f7d76439416057c4964c971afec9",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.643885Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-read-result.json",
+      "sha256": "4ae84a8867e53f9a3cdab88013917a802b0f240a20186536d7d6edf72dd52196",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.657002Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-recall-result.json",
+      "sha256": "ca060542443e29bdca66711ca59b9fdfd71237aff8047dbc6b511523ce889929",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.669463Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-recall-vector-result.json",
+      "sha256": "0b3617b2dc66f8bf96a82b81d49f9b7fcf7124b10f29090fb9820396e82db129",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.682005Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-recall-vector.json",
+      "sha256": "48832a16c8d6b8878dc246868f8b32a29a08bdeded839f7fefca608577272a6b",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.695181Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-recall.json",
+      "sha256": "154c25a20b68e6803fdf211bb860763e325ab78b2a23015ec7db3db3fe83c616",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.707050Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-start.json",
+      "sha256": "e7a6a4a255bd3fcaeacde9d9239efb7f68dcf11dc36872dfc25b529319ea97cf",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.720512Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-vector-index.json",
+      "sha256": "e27c22d20b0c21f69354cdb75b27b5af6e856a29c22c309f4d3de0a837acc45e",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.733323Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/ai-view-budget-result.json",
+      "sha256": "4a19010e0cdd30eb6f8945318cfd50bec7b997129c17f52e19fd9f43c9955a52",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.746332Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/RESULTS.md",
+      "sha256": "1da00fb339e336d7600d869144826ced46b5ce7566c7bcb55757f0940fbe5d52",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.758059Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/test_deployment_workbench-query-terms.stderr.log",
+      "sha256": "de994f31bc9bb203e2483867a8336a32329d698923e5ec290b81073070c6b4b5",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.769727Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/outputs/snapshot/retrieval/query-terms.json",
+      "sha256": "ba88d84e3e4362f02a74868b1bb4dc9b8221f754c4d828312ab961de181d183f",
+      "role": "output",
+      "registered_at": "2026-09-14T18:15:07.790500Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/stdout.txt",
+      "sha256": "361b361b551dbb8a0f9566da3fd202e84169a4b893550950be465171bf5f2d1c",
+      "role": "execution_log",
+      "registered_at": "2026-09-14T18:15:08.253334Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "role": "execution_log",
+      "registered_at": "2026-09-14T18:15:08.264020Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260914t174350z-b0d5aff7d7c3/.run-captures/bea60ae0c6f94e4c8237ad7edaa1dcb7/execution.json",
+      "sha256": "6eb055894012c71debdf4d90a38f07c115d4bd6040df6b63a02e2602ae2668ba",
+      "role": "execution_log",
+      "registered_at": "2026-09-14T18:15:08.275026Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "AI阅读查询计划、中英及关联术语库与升级保护已实现；58项软件测试通过。实际AI合成流程验证成立，真实业务检索收益仍待固定问题集评估。",
+  "limitations": ["词库种子仅覆盖信息检索领域，其他专业术语需根据实际材料维护", "程序仅检查字面保护，等义性和候选条件由AI实际阅读核对", "多轮来源诊断和导出共享原输出预算，真实导出曾达到上限", "未执行第二物理机或真实业务验收；既有B01等历史限制未改写"],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

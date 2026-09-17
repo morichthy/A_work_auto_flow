@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260916T154043Z-CFB59D215DFF",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "工作台监测范围与页面状态修复",
+  "keywords": [
+    "工作台",
+    "状态保留",
+    "文件监测"
+  ],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "succeeded",
+  "created_at": "2026-09-16T15:40:43Z",
+  "started_at": "2026-09-16T15:40:43Z",
+  "ended_at": "2026-09-16T16:02:55.4697443Z",
+  "owner": null,
+  "question": "修复工作台Owner监测范围、证据首载与状态保留、对象记忆手动生成及功能排序",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/source-fingerprints.json",
+      "sha256": "99981855e7782ee995aefdaa41143ffeeb67008a2ee3a690d8fce3a01105f77a",
+      "role": "input",
+      "registered_at": "2026-09-16T16:02:58.535013Z"
+    }
+  ],
+  "parameters": {},
+  "code": {
+    "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [
+    {
+      "name": "targeted_software",
+      "status": "passed",
+      "scope": "40项后端、52个不同组件、18个不同浏览器、18个不同升级用例均有通过证据；失败与复验保留，见RESULTS.md"
+    }
+  ],
+  "metrics": {
+    "backend_tests": 40,
+    "component_cases": 52,
+    "browser_cases": 18,
+    "upgrade_cases": 18
+  },
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/RESULTS.md",
+      "sha256": "b7919aad63c9b9cdacda914eb44484fc62a45f469963a27156b0c404e9b9aef0",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.548512Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/assets-final.txt",
+      "sha256": "29fb9f2127fee368be853fe30d7c0a3fd4bf9351110d2d2c321795fb48bf0743",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.562823Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/browser-final.txt",
+      "sha256": "19ebb604a8e0bf3040ca57e38aa598a7fe755d832666cad700f027d8bf40573b",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.577981Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/browser-recheck.txt",
+      "sha256": "889c8e5266e6651089f2371301d078d4551e65c98c136b24cae63c3a5e4d8c18",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.591754Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/browser-summary-final.txt",
+      "sha256": "a59a7e5e5c52bc5cff0a096a38c9d3b9cbe03925ecaced6f6ab2e0c1632967a8",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.605491Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/browser-summary-recheck.txt",
+      "sha256": "509efbdbba8544c324511efde4dc7c9cb2f2524107cbbf8534dcdb2619a998e5",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.617377Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/browser.txt",
+      "sha256": "f6b9844b3013070eb04dd197dbaa3b38f301f6b68fa2af32417debb488dfe54e",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.632586Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/catalog-audit-final.txt",
+      "sha256": "2d0e6266bad55ff59bf787c173445cc41c4021b0b6d7428ad0ea36fafd964a5f",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.648095Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/catalog-audit.txt",
+      "sha256": "b517ea8544d880bbb77f3f3ae67fc263f13d4a7f3f3a85ad831ca71982b2d469",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.660818Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/evidence-collect.txt",
+      "sha256": "d8e21f3c21b0a9d2a0e3db5d2007e255b839bd721140aec384554b5d59c21c80",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.674254Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/evidence-tests.txt",
+      "sha256": "4223a0a2cc5c737ec07f585be48415a6cf2ed1b1cb4b514f7c23149048b19773",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.686624Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/frontend-build-final.txt",
+      "sha256": "5bdacf8a753daaa6f98c4981a90fcc06e34987f20d17dc44407c56de3990e731",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.702363Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/frontend-build-summary-race.txt",
+      "sha256": "aa358029cbd4d05824ef2439b1c92b07397c3f5e40dde82c68a3ffb7c4d4456e",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.716998Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/frontend-build.txt",
+      "sha256": "9aa3b76c760a62793577b4aa44413bc4dd0ef2aa8f0783b0865eb2780f0864c9",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.730729Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/frontend-components.log",
+      "sha256": "0293bd1b8f9171e8f4aa78707696420d1356ea7994c3499298b597b769759f5a",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.743515Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/frontend-exit-codes.txt",
+      "sha256": "ba0da4d70685b1f10ef2b92b58cb6f5c84cfa694b25a943a142c6492cd6bf28e",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.757161Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/frontend-summary-race.log",
+      "sha256": "40d01dd89b8a6cd2eb63bf187e82d8d04755de665ccf2c55595e6506973dc1f2",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.770029Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/frontend-typecheck-summary-race.log",
+      "sha256": "9e80feee4686e486ccb76c25dd3ecad41b1d659eddf3b666b977f7530ec21e9d",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.78544Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/frontend-typecheck.log",
+      "sha256": "9e80feee4686e486ccb76c25dd3ecad41b1d659eddf3b666b977f7530ec21e9d",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.799129Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/refresh-index.txt",
+      "sha256": "ccedcad3856aa364194ef6a0716e8294caaa2b41fa62d158b7e5500a122100ed",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.810879Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/upgrade-final.txt",
+      "sha256": "7a03bca9b76067b6b6f8b13bc37079ba2b9baaba605956e0d5b537a61e8cc713",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.825159Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/upgrade-recheck.txt",
+      "sha256": "fe8811656f601f8fbabefe39f3aceafd3b385106859d99ee859b3266c346abd6",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.838762Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/upgrade.txt",
+      "sha256": "e15254fba93a05556a3208069d40a9d48ee5316dd5f91b886e0f6209dbb5483a",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.853181Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/validate.txt",
+      "sha256": "cc539932abb92461084290a5d30a183602c2f1faef64a132db72f9ef4adb7716",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:02:58.867135Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/refresh-index-final.txt",
+      "sha256": "ccedcad3856aa364194ef6a0716e8294caaa2b41fa62d158b7e5500a122100ed",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:04:02.662924Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260916t154043z-cfb59d215dff/verification/validate-final.txt",
+      "sha256": "cc539932abb92461084290a5d30a183602c2f1faef64a132db72f9ef4adb7716",
+      "role": "artifact",
+      "registered_at": "2026-09-16T16:04:02.676302Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "五项修复已实施，相关回归及真实升级场景通过；首次失败与复验见RESULTS.md，尚未发布。",
+  "limitations": [
+    "当前浏览标签页保留，刷新浏览器不恢复",
+    "实际首载32.61秒为单次观测非性能基准",
+    "第二物理机及用户业务验收未执行"
+  ],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

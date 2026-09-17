@@ -39,46 +39,58 @@ class OwnerDocumentTests(legacy.ReadingWorkflowTests):
         self.assertEqual(result['consumed']['output_chars'], len(serialized))
         self.assertLessEqual(sum(row['text'].count('ONLY_DEFINITION') for row in result['value']['candidates']), 1)
 
-    def test_owner_candidates_progress_one_per_page_then_skip_selected(self):
-        first = self.recall()
-        self.assertEqual(len(first['value']['candidates']), 1, first)
+    def test_owner_candidates_page_by_owner_without_projection_crowding(self):
+        self.sid = 'RS-' + str(uuid.uuid4())
+        self.scope = replace(self.scope, owner_ids=(self.fx.owner_ids['A'], self.fx.owner_ids['B']))
+        query = replace(self.query, scope=self.scope, scope_ceiling=self.scope)
+        started = dispatch(self.app, 'reading-start', {'session_id': self.sid, 'goal': 'Owner级分页',
+            'conditions': [], 'query': json_value(query), 'mode': 'owner_document',
+            'screening': {'regular_windows': 3, 'max_windows': 4, 'batch_owners': 1}})
+        self.assertEqual(started['status'], 'ok', started)
+        self.revision = 1
+        first = self.call('recall', question='反馈', keywords=[], scope=json_value(self.scope), reason='合成多Owner')
+        self.assertEqual(len(first['value']['owner_packets']), 1, first)
         self.assertTrue(first['value']['has_more'])
-        self.assertEqual(first['value']['pending_owner_count'], 1)
+        first_owner = first['value']['owner_packets'][0]['owner_id']
+        # Multiple projection hits from one Owner remain inside one packet and
+        # cannot consume the next Owner's page slot.
+        self.assertGreaterEqual(len(first['value']['owner_packets'][0]['windows']), 1)
         resumed = self.call('resume')
         self.assertTrue(resumed['value']['has_more'])
-        self.assertEqual(resumed['value']['pending_owner_count'], 1)
         second = self.call('page')
-        self.assertEqual(len(second['value']['candidates']), 1, second)
-        self.assertNotEqual(second['value']['candidates'][0]['text'], first['value']['candidates'][0]['text'])
+        self.assertEqual(len(second['value']['owner_packets']), 1, second)
+        self.assertNotEqual(second['value']['owner_packets'][0]['owner_id'], first_owner)
         head = read_json(self.root / '.local' / 'reading-sessions' / self.sid / 'HEAD.json')
-        # Existing hits may retain bounded matched_text diagnostics. The new
-        # pending state must not introduce packet/text/body copies of its own.
+        # Candidate rows store fixed identities only; screening prose remains
+        # in the bounded Owner packet state.
         for row in head['candidates'].values():
             self.assertTrue(set(row.get('preview', {})) <= {'form', 'refs'})
             self.assertFalse(set(row) & {'packet', 'text', 'body_markdown'})
-        read = self.call('read', owner_id=self.fx.owner_ids['A'])
+        packet = next(item for item in (first['value']['owner_packets'] + second['value']['owner_packets'])
+                      if item['owner_id'] == self.fx.owner_ids['A'])
+        self.call('assess-owners', assessments=[{'owner_id': packet['owner_id'], 'status': 'relevant',
+            'reason': '固定合成相关', 'packet_digest': packet['packet_digest']}])
+        read = self.call('read', owner_id=packet['owner_id'])
         self.assertIn(read['status'], {'ok', 'partial'}, read)
-        third = self.call('page')
-        self.assertEqual(third['value']['candidates'], [], third)
-        self.assertEqual(third['value']['pending_owner_count'], 0)
 
-    def test_partial_pending_packet_remains_resumable_without_repeating_text(self):
+    def test_partial_owner_body_packet_retries_the_same_stable_page(self):
         self.recall()
-        original = Reading.packet
+        from material_query import reading_owner
+        original = reading_owner.owner_packet
         def partial_packet(reader, *args, **kwargs):
-            packet, links = original(reader, *args, **kwargs)
-            if 'ONLY_FULL_RESULT' in json.dumps(packet):
-                packet['complete'] = False
-            return packet, links
-        with patch.object(Reading, 'packet', partial_packet):
-            partial = self.call('page')
-        self.assertEqual(len(partial['value']['candidates']), 1, partial)
+            packet, sources, links = original(reader, *args, **kwargs)
+            packet['complete'] = False
+            return packet, sources, links
+        with patch.object(reading_owner, 'owner_packet', partial_packet):
+            partial = self.call('read', owner_id=self.fx.owner_ids['A'])
+        self.assertTrue(partial['value']['text'], partial)
+        self.assertFalse(partial['value']['complete'])
         self.assertTrue(partial['value']['has_more'])
-        complete = self.call('page')
-        self.assertEqual(complete['value']['candidates'], [])
-        self.assertEqual(complete['value']['pending_owner_count'], 0)
+        complete = self.call('read', owner_id=self.fx.owner_ids['A'])
+        self.assertTrue(complete['value']['complete'], complete)
+        self.assertFalse(complete['value']['has_more'])
 
-    def test_owner_sessions_without_delivery_fields_do_not_replay_old_candidates(self):
+    def test_new_discovery_session_and_frozen_legacy_session_keep_distinct_semantics(self):
         self.recall()
         file = self.root / '.local' / 'reading-sessions' / self.sid / 'HEAD.json'
         session = read_json(file)
@@ -86,10 +98,21 @@ class OwnerDocumentTests(legacy.ReadingWorkflowTests):
             for key in ('delivery', 'preview', 'preview_round_index'):
                 row.pop(key, None)
         save(file, session)
-        for _ in range(2):
-            self.call('decide', direction='expand', reason='旧RS兼容检查', next_step='补查', outcome='仍需确认边界', human_decision='')
-            result = self.recall()
-            self.assertEqual(result['value']['candidates'], [], result)
+        self.call('decide', direction='expand', reason='新discovery会话检查', next_step='补查', outcome='仍需确认边界', human_decision='')
+        result = self.recall()
+        self.assertTrue(result['value']['owner_packets'], result)
+        self.assertEqual(result['value']['retrieval_source'] if 'retrieval_source' in result['value'] else
+                         result['value']['owner_packets'][0]['retrieval_source'], 'discovery')
+
+        legacy_sid = 'RS-' + str(uuid.uuid4())
+        started = dispatch(self.app, 'reading-start', {'session_id': legacy_sid, 'goal': '冻结旧RS',
+            'conditions': [], 'query': json_value(self.query)})
+        self.assertEqual(started['status'], 'ok', started)
+        legacy = dispatch(self.app, 'reading-recall', {'session_id': legacy_sid,
+            'expected_revision': 1, 'request_id': str(uuid.uuid4()), 'question': '温标',
+            'keywords': [], 'scope': json_value(self.scope), 'reason': '旧RS兼容'})
+        self.assertIn(legacy['status'], {'ok', 'partial'}, legacy)
+        self.assertNotIn('owner_packets', legacy['value'])
 
     def test_owner_read_complete_fallback_and_repeat_progress(self):
         self.recall()
@@ -105,6 +128,13 @@ class OwnerDocumentTests(legacy.ReadingWorkflowTests):
         self.assertEqual(result['value']['mode'], 'owner_document')
 
     def owner_read(self):
+        # Tests that commit additional canonical content intentionally leave the
+        # derived discovery watermark pending.  Complete the explicit index
+        # maintenance step before exercising Owner reading itself.
+        from memory import discovery, index
+        head = index.Catalog(self.root).snapshot(self.fx.owner_ids['A'])['head']
+        discovery.rebuild_owner(self.root, self.fx.owner_ids['A'], head,
+            projection_version=discovery.PROJECTION_VERSION, vector='off')
         self.recall()
         result = self.call('read', owner_id=self.fx.owner_ids['A'])
         self.assertIn(result['status'], {'ok', 'partial'}, result)
@@ -188,7 +218,7 @@ class OwnerDocumentTests(legacy.ReadingWorkflowTests):
         found = self.recall()
         self.assertEqual(found['value']['candidates'], [])
 
-    def test_process_preferred_and_document_scope_not_retrieval_level(self):
+    def test_all_current_owner_content_pages_to_completion_and_deduplicates_exact_body(self):
         fx = copy(self.fx)
         fx.root, fx.service = self.root, MemoryService(self.root)
         fx.records, fx.record_ids, fx.refs = deepcopy(fx.records), deepcopy(fx.record_ids), deepcopy(fx.refs)
@@ -197,13 +227,36 @@ class OwnerDocumentTests(legacy.ReadingWorkflowTests):
         draft.update(kind='document_section', level=None, title='研究正文', body_markdown='',
                      payload=section_payload(documents.fixed_ref(source)), schema_version=3)
         section = fx.commit_draft('owner.section', draft)
+        document_ids = []
         for name, dtype in [('owner.report', 'research_report'), ('owner.process', 'research_process')]:
             draft.update(kind='document', title=dtype, payload=document_payload([documents.fixed_ref(section)], document_type=dtype))
-            fx.commit_draft(name, draft)
-        result = self.owner_read()
-        self.assertEqual(result['reading_form'], 'research_process', result)
-        self.assertEqual(len(result['document_refs']), 1)
-        self.assertIn('OPTIONAL_BLOCK', result['text'])
+            document_ids.append(fx.commit_draft(name, draft)['record_id'])
+        from memory import discovery, index
+        head = index.Catalog(self.root).snapshot(self.fx.owner_ids['A'])['head']
+        discovery.rebuild_owner(self.root, self.fx.owner_ids['A'], head,
+            projection_version=discovery.PROJECTION_VERSION, vector='off')
+        self.sid = 'RS-' + str(uuid.uuid4())
+        paged_query = replace(self.query, budget=replace(self.query.budget, candidates=2))
+        started = dispatch(self.app, 'reading-start', {'session_id': self.sid, 'goal': '全部当前正文分页',
+            'conditions': [], 'query': json_value(paged_query), 'mode': 'owner_document'})
+        self.assertEqual(started['status'], 'ok', started)
+        self.revision = 1
+        self.recall()
+        pages = []
+        while True:
+            result = self.call('read', owner_id=self.fx.owner_ids['A'])
+            self.assertIn(result['status'], {'ok', 'partial'}, result)
+            pages.append(result['value'])
+            if not result['value']['has_more']:
+                break
+            self.assertLess(len(pages), 20, pages)
+        refs = [ref for page in pages for ref in page['document_refs']]
+        self.assertTrue(set(document_ids).issubset({ref['id'] for ref in refs}))
+        self.assertEqual(len({(ref['id'], ref['revision'], ref['sha256']) for ref in refs}), len(refs))
+        body = '\n\n'.join(page['text'] for page in pages)
+        self.assertIn('OPTIONAL_BLOCK', body)
+        self.assertEqual(body.count('未选择的 OPTIONAL_BLOCK。'), 1)
+        self.assertTrue(pages[-1]['complete'])
 
     def test_source_revision_and_revocation_block_saved_note(self):
         result = self.owner_read()

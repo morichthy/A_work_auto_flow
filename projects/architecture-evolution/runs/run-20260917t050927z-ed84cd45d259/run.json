@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "run_id": "RUN-20260917T050927Z-ED84CD45D259",
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "project_id": null,
+  "title": "v0.4.0发布与实际发行包验收",
+  "keywords": [
+    "Release",
+    "离线升级"
+  ],
+  "review_history": [],
+  "claims": [],
+  "dependencies": [],
+  "run_type": "analysis",
+  "status": "failed",
+  "created_at": "2026-09-17T05:09:27Z",
+  "started_at": null,
+  "ended_at": "2026-09-17T05:52:18Z",
+  "owner": null,
+  "question": "实际受控源码和配套离线依赖是否可升级已有Windows工作区，并保留数据、明确失败和验证边界？",
+  "hypotheses": [],
+  "inputs": [
+    {
+      "path": "dist/release-v0.4.0/framework-source-v0.4.0.zip",
+      "sha256": "dd94ad1a829990e0463d2bd38ea026f72c8bf4463a6700feaa441b60f6115c8e",
+      "role": "input",
+      "registered_at": "2026-09-17T05:52:43.301815Z"
+    },
+    {
+      "path": "dist/release-v0.4.0/dependencies-windows-x64.zip",
+      "sha256": "90216697586c48921d3f729c983ed74cfae4b1f60d310a0af0e6dc804819fc82",
+      "role": "input",
+      "registered_at": "2026-09-17T05:52:43.717665Z"
+    }
+  ],
+  "parameters": {
+    "local_commit": "ffbad496c7b902c667b4d7fa031b29a68e05d28b",
+    "target_repository": "morichthy/A_work_auto_flow",
+    "source_branch": "codex/release-v0.4.0",
+    "release_status": "awaiting_destination_authorization"
+  },
+  "code": {
+    "commit": "4c20ea22d2c15c66615395879f9714f4572de295",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "lock_or_image_digest": null
+  },
+  "random_seeds": [],
+  "quality_results": [
+    {
+      "evidence": "backend-coverage-ledger.json",
+      "status": "failed",
+      "check": "backend"
+    },
+    {
+      "evidence": "browser-summary.json",
+      "status": "passed",
+      "check": "browser"
+    },
+    {
+      "evidence": "offline-verification.json",
+      "status": "passed",
+      "check": "offline delivery"
+    },
+    {
+      "evidence": "final-source-comparison.json",
+      "status": "passed",
+      "check": "final source bytes"
+    }
+  ],
+  "metrics": {
+    "frontend_components_passed": 85,
+    "protected_files": 226,
+    "backend_passed": 744,
+    "backend_total": 745,
+    "browser_unique_passed": 24,
+    "backend_failed": 1,
+    "protected_directories": 227
+  },
+  "artifacts": [
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/RESULTS.md",
+      "sha256": "545ada28b19bfcdb1367469285b83247cfe7a02b16e479a2826617ef00b64596",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.729485Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/source-verification.json",
+      "sha256": "6b6e2bad4731c91294f4862c44acf64916c9faf9bc146b44b96450be05dd24e0",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.740285Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/dependency-verification.json",
+      "sha256": "1c32a6d0d545ea37851145fff7c19c2a5eac22d1b6b58da54ba58cf7e9e37e2a",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.751702Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/offline-verification.json",
+      "sha256": "64f06f33ac2a168ec7405f3f5ad79a4110c065f611edb5d9d46d03ed4cab8fa7",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.765430Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/backend-coverage-ledger.json",
+      "sha256": "76e02054afc4e770d519facefa90c8ee2a600ab063d0dc98428cf8a1fe2b7006",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.778625Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/b01-v030-comparison.json",
+      "sha256": "9fc1a9c667acc4a3147d80f833257502349745ed8b582f8a6d47fb27b9095892",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.790385Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/browser-summary.json",
+      "sha256": "b23d6078e7016a6fd6db876cd167d89add1eadcc43e8bf92a197526a1c4d7761",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.802856Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/docs-skills-audit.md",
+      "sha256": "b490a7e25b1db637aac06086c9977132f09301cf50e5d5fbe2ad76bbe1a864c3",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.814994Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/final-source-comparison.json",
+      "sha256": "b1452240a6192c669f65324d18bcb5de9290ea813c169f1f129516ec7b792baa",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.827878Z"
+    },
+    {
+      "path": "projects/architecture-evolution/runs/run-20260917t050927z-ed84cd45d259/release-notes.md",
+      "sha256": "fe79d5417222c14f4754712895cfd59fbb634fee7482aaa54f209633885d5e0b",
+      "role": "artifact",
+      "registered_at": "2026-09-17T05:52:43.840659Z"
+    }
+  ],
+  "lineage_events": "lineage.jsonl",
+  "conclusion": "本地v0.4.0发布准备完成：后端745项去重覆盖744通过、1既有B01失败；85组件、24常规浏览器及实际离线全链通过。尚待公开仓库具体目的地授权，未推送或发布。",
+  "limitations": [
+    "同一台Windows机器隔离验收，不代表第二物理机或真实业务",
+    "本次软件测试不构成科学结论确认",
+    "公开目标仓库推送等待具体目的地授权"
+  ],
+  "parent_run_ids": [],
+  "related_module_ids": [],
+  "related_research_ids": [],
+  "related_dataset_ids": [],
+  "review": {
+    "status": "not-reviewed",
+    "reviewer": null,
+    "date": null
+  },
+  "sensitivity": "internal"
+}

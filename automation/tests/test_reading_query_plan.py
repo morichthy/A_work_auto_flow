@@ -178,6 +178,28 @@ class ReadingQueryPlanTests(unittest.TestCase):
         self.assertEqual(len(fused), 2, 'fixed revisions must not collapse into bare ID')
         self.assertEqual(len(fused[0]['query_sources']), 2, 'duplicate route entries must not earn extra votes')
 
+    def test_owner_fusion_votes_once_per_signal_family_and_keeps_unique_hits(self):
+        """Many projections from one Owner cannot crowd out another Owner before RRF."""
+        plan = query_plan.build(self.root, Ledger(DEFAULT_BUDGET), self.request(query_variants=[
+            dict(id='en', language='en', question='readingfixture', lexical_terms=['readingfixture'])]))
+        routes = list(query_plan.routes(plan))
+        lexical_routes = [route for route in routes if route['channel'] == 'lexical' and route['kind'] == 'equivalent']
+        owner_a = dict(owner_id='RES-A', refs=[dict(kind='record', id='MEM-A', revision=1,
+            sha256='a' * 64, locator=None)], channels=['lexical'], hits=[{'projection_id': 'P-A'}], title='A')
+        owner_a_second = deepcopy(owner_a)
+        owner_a_second['refs'][0].update(id='MEM-A2', sha256='b' * 64)
+        owner_a_second['hits'] = [{'projection_id': 'P-A2'}]
+        owner_b = dict(owner_id='RES-B', refs=[dict(kind='record', id='MEM-B', revision=1,
+            sha256='c' * 64, locator=None)], channels=['lexical'], hits=[{'projection_id': 'P-B'}], title='B')
+        fused = query_plan.fuse_owners([
+            (lexical_routes[0], [owner_a, owner_a_second, owner_b]),
+            (lexical_routes[-1], [owner_a, owner_a_second]),
+        ])
+        self.assertEqual([row['owner_id'] for row in fused], ['RES-A', 'RES-B'])
+        self.assertEqual(len(fused[0]['family_votes']), 1)
+        self.assertEqual({hit['projection_id'] for hit in fused[0]['hits']}, {'P-A', 'P-A2'})
+        self.assertEqual(len(fused[0]['refs']), 2, 'fixed refs are deduplicated without collapsing distinct records')
+
 
 if __name__ == '__main__':
     unittest.main()

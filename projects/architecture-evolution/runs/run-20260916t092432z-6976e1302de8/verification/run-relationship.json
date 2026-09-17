@@ -1,0 +1,9 @@
+{
+  "baseline_run_id": "RUN-20260916T085438Z-3E40D5ED8471",
+  "bounded_candidate_run_id": "RUN-20260916T091635Z-EFFBEF761124",
+  "expanded_budget_diagnostic_run_id": "RUN-20260916T092432Z-6976E1302DE8",
+  "kind": "默认配置、独立候选限流失败对照、显式扩大预算诊断；非重复随机性能试验或优化完成",
+  "instrument_failure": "基线verification/latency-attempt-01保留初始DENIED；未创建RS，不纳入正常查询baseline。",
+  "comparison_boundary": "对照复用已规划query；第三Run收紧结果与CE为1/1、减少英文变体、提高预算至服务器上限，属多变量最小闭环诊断；不能据E2E差推速度提升归因。",
+  "diagnostic_prepare_failure": "第三Run .run-captures/latency-attempt-01保留超SERVER_LIMITS的VALIDATION拒绝，未创建RS。"
+}

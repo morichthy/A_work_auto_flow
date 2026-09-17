@@ -1,0 +1,214 @@
+{
+  "scope": "selected reading source/tests/docs; concurrent strategy work preserved, not a full release",
+  "files": [
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "f5504599271e1ee3885a96dbeed58ff94fd90a74f585b4bc013337e5a1ced5d4"
+    },
+    {
+      "path": "automation/scripts/material_query/__init__.py",
+      "sha256": "6e083c786c8d6914bff9cd380f793a943f7f1255f62cc8ca01c90e0bef84a01c"
+    },
+    {
+      "path": "automation/scripts/material_query/api.py",
+      "sha256": "eea68e02c18d6bd701513bb356464838989e2082da2c804ea832960f0026daf6"
+    },
+    {
+      "path": "automation/scripts/material_query/assembly.py",
+      "sha256": "b78b43c035123a57002b221a2b5b157dfec8f83dd751c62d80391eb299fa7693"
+    },
+    {
+      "path": "automation/scripts/material_query/associations.py",
+      "sha256": "e856b5449a87115d5ceae9d0aa8ac552eac36d1ab76d547b7bd1b5266d85e569"
+    },
+    {
+      "path": "automation/scripts/material_query/budget.py",
+      "sha256": "d16e79ef32e38421a3fa58599289e567feb2d59a00ee3bb685a5238b777360a2"
+    },
+    {
+      "path": "automation/scripts/material_query/catalog_search.py",
+      "sha256": "8b86643c90b7630896eaba836caca121e81de557739c4cfa6ca3b16947bf38e3"
+    },
+    {
+      "path": "automation/scripts/material_query/cli.py",
+      "sha256": "e36898c49d1bc3c29f84bac22e9b73c85ae531343775bb730616e3d929495d54"
+    },
+    {
+      "path": "automation/scripts/material_query/conditions.py",
+      "sha256": "945652e27505ecd2034c04a4069bcc39be70a8cf50e1506d34f2e93324faec05"
+    },
+    {
+      "path": "automation/scripts/material_query/content.py",
+      "sha256": "356807a6a2dc0c13e35b17dad03b68759e9f0726703d85f6b182338f7e6b928f"
+    },
+    {
+      "path": "automation/scripts/material_query/contracts.py",
+      "sha256": "50366bd524bbf1b2001dbc14fc419fd77d189269f3faddf8c5517bff7977cf39"
+    },
+    {
+      "path": "automation/scripts/material_query/coordinator.py",
+      "sha256": "a0fc1602caa767aa5093f2ed4976c9fa5c654b624551565cc997892c9967cbfa"
+    },
+    {
+      "path": "automation/scripts/material_query/cross_encoder.py",
+      "sha256": "911e5b1e745753b91b8a9907d0e8bfe635d9d03659962060f686a93e0145cb86"
+    },
+    {
+      "path": "automation/scripts/material_query/deepening.py",
+      "sha256": "aa4673b9ab6bf09ca7137897eec3f9c2ffd6871b2e4649012e618001a4fa7203"
+    },
+    {
+      "path": "automation/scripts/material_query/definitions.py",
+      "sha256": "afda997c48a2f47e600fc195cfff56ee43e499598138b0f076317ccd65576796"
+    },
+    {
+      "path": "automation/scripts/material_query/documents.py",
+      "sha256": "4f52bd091154023c49b30e1fe6e7ebd55622affe8864d4a6cbb8877bf83e3894"
+    },
+    {
+      "path": "automation/scripts/material_query/evidence.py",
+      "sha256": "002acbcfb3b91d668952b53664ebfaf6d4b907634f27973862eaae3064528129"
+    },
+    {
+      "path": "automation/scripts/material_query/facets.py",
+      "sha256": "77939af80f20bbbe26f191be6303b8b98b0f2d46b2804c3274b346743354919b"
+    },
+    {
+      "path": "automation/scripts/material_query/foundation.py",
+      "sha256": "17628df6eaa3f4454aa8216f63da80e260233d9e7fece3aaad5703d9eb6c5616"
+    },
+    {
+      "path": "automation/scripts/material_query/generate_types.py",
+      "sha256": "f2f81619bdb89b3761aa430c5856279a77374147eeece579db7b800ec94739f7"
+    },
+    {
+      "path": "automation/scripts/material_query/history_search.py",
+      "sha256": "21c727b737fc9dc51fd9f9483ae4d073a8e2fa0a87e532d07bd633173f018ba6"
+    },
+    {
+      "path": "automation/scripts/material_query/legacy_adapter.py",
+      "sha256": "32f4682d27ca40d16bbb5204fa8470e06becb20d489720b46fc1237d38eba74a"
+    },
+    {
+      "path": "automation/scripts/material_query/maintenance.py",
+      "sha256": "4f3c9f4e1ba5fa5319d1bc05ff864343860f6e705787d21c0309cd881b5bf9b3"
+    },
+    {
+      "path": "automation/scripts/material_query/native_sources.py",
+      "sha256": "cec00d15ace627e65158353c50725fcdd5ac78ee5bc0493ed14308bd9fc29d89"
+    },
+    {
+      "path": "automation/scripts/material_query/query_plan.py",
+      "sha256": "006759b01a205ba348b1308cdd91a650a8cb80eb1d112fa824cc2b3c27d2cc41"
+    },
+    {
+      "path": "automation/scripts/material_query/reader.py",
+      "sha256": "16222af71389f9f7cf73f21eda89ded2885a615dbd2c4e1683ce819a9b75e8c2"
+    },
+    {
+      "path": "automation/scripts/material_query/reading.py",
+      "sha256": "5266d6e81a0e839f8b30f5e8b2dbf3aa45d429874c82b2691d44804b4d834705"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_catalog.py",
+      "sha256": "e45d9d3060c748f90c016fba23e211ac5483bfc8db19ecd333256da23c12c6c5"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_delegation.py",
+      "sha256": "f57e11527f62369f36a29ecd6a98418f7985406b5ea256267f371b947e5cb12e"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_owner.py",
+      "sha256": "210d3ee13269581887bbffbe032759a79602df151f95601b4f92a57adb83b8b5"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_snapshot.py",
+      "sha256": "7d594983d5250cf048e09ed968d270736c87636a1761ad90846fa1e26f3c9732"
+    },
+    {
+      "path": "automation/scripts/material_query/reading_strategy.py",
+      "sha256": "ccb46feb15b90ab7339ba62810aee6ff651cccba18a17e0b1035528114bc31bb"
+    },
+    {
+      "path": "automation/scripts/material_query/recall.py",
+      "sha256": "646d777cd1f27eb52136a6da48d6f8bb36e32239ee5569b768da1706c2b2e032"
+    },
+    {
+      "path": "automation/scripts/material_query/representations.py",
+      "sha256": "01902beeec4737bfaaa5ed1dedde01bbc1e4908d3307915ea847f726b2bea86b"
+    },
+    {
+      "path": "automation/scripts/material_query/reranking.py",
+      "sha256": "4aecd53168eaa53f71cfded038cd4209848ba1aa6b7718e2b8ece5682dce2be1"
+    },
+    {
+      "path": "automation/scripts/material_query/state.py",
+      "sha256": "a3a8ec2f1cd285916ad8fd06bd8ddfe41a6462da7607983736a2455fbae418e0"
+    },
+    {
+      "path": "automation/scripts/material_query/structure.py",
+      "sha256": "604473206bcb217dbf40fa905f2dc9826d135837ea95bc0778321dfa1179f3e8"
+    },
+    {
+      "path": "automation/scripts/material_query/validation.py",
+      "sha256": "fb55287634efaaf72ef0b431e0950c1e3d003fa0bc886f2fb1566da150f3ab51"
+    },
+    {
+      "path": "automation/scripts/material_query/wire.py",
+      "sha256": "69d7e89ead5abdc496d00b329dc6426093fdf12556b312f912f80e285de4804b"
+    },
+    {
+      "path": "automation/scripts/material_query/writer.py",
+      "sha256": "89f5405306c63e563f709e39d69f1cb2b02700bb0eedf57ef2a9aa11730716c9"
+    },
+    {
+      "path": "automation/tests/test_reading_delegation.py",
+      "sha256": "b39591a0a7bdc68913f7c406297556144e684e9e069eda849454a56af93c468e"
+    },
+    {
+      "path": "automation/tests/test_reading_handoff_view.py",
+      "sha256": "025d66ce690218c9927f6e8d1624645a2a1a0573c364f636f8eb81a6a8c494f5"
+    },
+    {
+      "path": "automation/tests/test_reading_owner_document.py",
+      "sha256": "7485654a7d33ae327405f9c6a98d4f99145576a50483cda09ba8cd198dad2ca4"
+    },
+    {
+      "path": "automation/tests/test_reading_query_plan.py",
+      "sha256": "92d188c77252f8916e31b872c8ca746069f7b8bf9ec674dca5e93f2bb6806503"
+    },
+    {
+      "path": "automation/tests/test_reading_reranking.py",
+      "sha256": "ffd86b06a8cb7d398a388c5ace940b7e2f849c2d3d5003df97bb86b3c7f1a2a6"
+    },
+    {
+      "path": "automation/tests/test_reading_reranking_integration.py",
+      "sha256": "710ffb0786b7d95ac6fb551a9f00dfada46117ceb898a51516ab4a6e28316307"
+    },
+    {
+      "path": "automation/tests/test_reading_three_modes.py",
+      "sha256": "0333e35797635f977cc751b21fe950a746edb4a4349ed8ea4c9bd856543b269b"
+    },
+    {
+      "path": "automation/tests/test_reading_workflow.py",
+      "sha256": "cdcc6064d124663d253a5afca496308a09a5e336536c9f1a234cc3ff3de3fa9f"
+    },
+    {
+      "path": "automation/workflows/material-query/SKILL.md",
+      "sha256": "490ab104ae339d2fe66f1af0c6b43bb19405047d32ef16ad40f03684520722a0"
+    },
+    {
+      "path": "docs/AI_READING.md",
+      "sha256": "f3cfa4ddf4931ce89e009fa3049205ee4eb577c6c3360531f03d00fc1cdcdd99"
+    },
+    {
+      "path": "docs/CORE.md",
+      "sha256": "177b0ac61e2b66db0a75dc94a70fc2e39e1e09ac536ecb04ab0b97670d0cdb36"
+    },
+    {
+      "path": "docs/DEVELOPMENT_HISTORY.md",
+      "sha256": "0bc35798ca476864a70f03435b14ee293c234572e53d531ffa58e864df43c8c9"
+    }
+  ],
+  "archive_sha256": "539cd4f9b95a45d21e2aa23b29eb507c9565e7aadb30d967af80459feacbb705"
+}

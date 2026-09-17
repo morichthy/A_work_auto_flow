@@ -1,0 +1,7 @@
+{
+  "action": "reading-start",
+  "wall_ms": 1311.882,
+  "measurement": "API dispatch wall time; no host-model internal timing",
+  "request_snapshot": "projects\\architecture-evolution\\runs\\run-20260916t181657z-4d7efff321ba\\.run-captures\\owner-smoke-progressive\\01-start-receipt.json.request-snapshot.json",
+  "request_sha256": "2512fe7485752a09d33675b137fd18dfc0048290c4a4614e158a9588a77124a3"
+}

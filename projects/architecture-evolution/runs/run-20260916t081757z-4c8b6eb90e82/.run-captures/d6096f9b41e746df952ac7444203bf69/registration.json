@@ -1,0 +1,472 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T081757Z-4C8B6EB90E82",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "子Agent能力偏好配置与发布边界验证",
+    "keywords": [
+      "workspace-settings",
+      "subagent",
+      "能力偏好",
+      "升级保护"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-16T08:17:57Z",
+    "started_at": "2026-09-16T08:17:57Z",
+    "ended_at": "2026-09-16T08:31:42.572607Z",
+    "owner": null,
+    "question": "如何配置子Agent能力偏好，保留低能力默认、旧配置及源码/私人设置的发布边界？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {
+      "field": "collaboration.subagent_requirements",
+      "trimmed_length_range": [
+        1,
+        2000
+      ],
+      "schema_version": 1,
+      "default_requirements": "优先使用低成本、较低能力的可用模型，采用低推理深度；须能完成材料检索、完整阅读和结构化笔记。"
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "targeted_software",
+        "status": "passed",
+        "scope": "后端、设置组件、真实浏览器与Windows扩展旧工作区setup；首次失败与修复复验回执保留。"
+      }
+    ],
+    "metrics": {
+      "backend_related_tests": 25,
+      "settings_component_tests": 10,
+      "settings_browser_tests": 2,
+      "windows_setup_tests": 18
+    },
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "设置页与后端已支持自由文本能力要求，默认较低能力/低成本/低推理；旧文件只读兼容，自定义偏好在委派和升级中保留。",
+    "limitations": [
+      "宿主决定实际模型；没有可用模型时配置文本不能自行安装或调用模型。",
+      "本轮没有重跑实际材料阅读质量/费用基准，沿用前阶段固定证据的历史适用范围。",
+      "无新增AI配置解析调用；未以此推断端到端检索延迟或总AI费用改善。",
+      "仅本机Windows x64合成升级验收；第二物理机与用户业务验收未执行；未推送发布。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxNlQwODE3NTdaLTRDOEI2RUI5MEU4MiIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIuWtkEFnZW506IO95Yqb5YGP5aW96YWN572u5LiO5Y+R5biD6L6555WM6aqM6K+BIiwNCiAgImtleXdvcmRzIjogWw0KICAgICJ3b3Jrc3BhY2Utc2V0dGluZ3MiLA0KICAgICJzdWJhZ2VudCIsDQogICAgIuiDveWKm+WBj+WlvSIsDQogICAgIuWNh+e6p+S/neaKpCINCiAgXSwNCiAgInJldmlld19oaXN0b3J5IjogW10sDQogICJjbGFpbXMiOiBbXSwNCiAgImRlcGVuZGVuY2llcyI6IFtdLA0KICAicnVuX3R5cGUiOiAiYW5hbHlzaXMiLA0KICAic3RhdHVzIjogInN1Y2NlZWRlZCIsDQogICJjcmVhdGVkX2F0IjogIjIwMjYtMDktMTZUMDg6MTc6NTdaIiwNCiAgInN0YXJ0ZWRfYXQiOiAiMjAyNi0wOS0xNlQwODoxNzo1N1oiLA0KICAiZW5kZWRfYXQiOiAiMjAyNi0wOS0xNlQwODozMTo0Mi41NzI2MDdaIiwNCiAgIm93bmVyIjogbnVsbCwNCiAgInF1ZXN0aW9uIjogIuWmguS9lemFjee9ruWtkEFnZW506IO95Yqb5YGP5aW977yM5L+d55WZ5L2O6IO95Yqb6buY6K6k44CB5pen6YWN572u5Y+K5rqQ56CBL+engeS6uuiuvue9rueahOWPkeW4g+i+ueeVjO+8nyIsDQogICJoeXBvdGhlc2VzIjogW10sDQogICJpbnB1dHMiOiBbXSwNCiAgInBhcmFtZXRlcnMiOiB7DQogICAgImZpZWxkIjogImNvbGxhYm9yYXRpb24uc3ViYWdlbnRfcmVxdWlyZW1lbnRzIiwNCiAgICAidHJpbW1lZF9sZW5ndGhfcmFuZ2UiOiBbDQogICAgICAxLA0KICAgICAgMjAwMA0KICAgIF0sDQogICAgInNjaGVtYV92ZXJzaW9uIjogMSwNCiAgICAiZGVmYXVsdF9yZXF1aXJlbWVudHMiOiAi5LyY5YWI5L2/55So5L2O5oiQ5pys44CB6L6D5L2O6IO95Yqb55qE5Y+v55So5qih5Z6L77yM6YeH55So5L2O5o6o55CG5rex5bqm77yb6aG76IO95a6M5oiQ5p2Q5paZ5qOA57Si44CB5a6M5pW06ZiF6K+75ZKM57uT5p6E5YyW56yU6K6w44CCIg0KICB9LA0KICAiY29kZSI6IHsNCiAgICAiY29tbWl0IjogIjg5YWQzMDc1MzU4OWZiN2I5MTliM2RiNzVjZGY5MWQ0NzQ0OWY0Y2EiLA0KICAgICJkaXJ0eSI6IHRydWUNCiAgfSwNCiAgImVudmlyb25tZW50Ijogew0KICAgICJweXRob24iOiAiMy4xMi4xMCIsDQogICAgInBsYXRmb3JtIjogIldpbmRvd3MtMTEtMTAuMC4yMjYzMS1TUDAiLA0KICAgICJsb2NrX29yX2ltYWdlX2RpZ2VzdCI6IG51bGwNCiAgfSwNCiAgInJhbmRvbV9zZWVkcyI6IFtdLA0KICAicXVhbGl0eV9yZXN1bHRzIjogWw0KICAgIHsNCiAgICAgICJuYW1lIjogInRhcmdldGVkX3NvZnR3YXJlIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJzY29wZSI6ICLlkI7nq6/jgIHorr7nva7nu4Tku7bjgIHnnJ/lrp7mtY/op4jlmajkuI5XaW5kb3dz5omp5bGV5pen5bel5L2c5Yy6c2V0dXDvvJvpppbmrKHlpLHotKXkuI7kv67lpI3lpI3pqozlm57miafkv53nlZnjgIIiDQogICAgfQ0KICBdLA0KICAibWV0cmljcyI6IHsNCiAgICAiYmFja2VuZF9yZWxhdGVkX3Rlc3RzIjogMjUsDQogICAgInNldHRpbmdzX2NvbXBvbmVudF90ZXN0cyI6IDEwLA0KICAgICJzZXR0aW5nc19icm93c2VyX3Rlc3RzIjogMiwNCiAgICAid2luZG93c19zZXR1cF90ZXN0cyI6IDE4DQogIH0sDQogICJhcnRpZmFjdHMiOiBbXSwNCiAgImxpbmVhZ2VfZXZlbnRzIjogImxpbmVhZ2UuanNvbmwiLA0KICAiY29uY2x1c2lvbiI6ICLorr7nva7pobXkuI7lkI7nq6/lt7LmlK/mjIHoh6rnlLHmlofmnKzog73lipvopoHmsYLvvIzpu5jorqTovoPkvY7og73lipsv5L2O5oiQ5pysL+S9juaOqOeQhu+8m+aXp+aWh+S7tuWPquivu+WFvOWuue+8jOiHquWumuS5ieWBj+WlveWcqOWnlOa0vuWSjOWNh+e6p+S4reS/neeVmeOAgiIsDQogICJsaW1pdGF0aW9ucyI6IFsNCiAgICAi5a6/5Li75Yaz5a6a5a6e6ZmF5qih5Z6L77yb5rKh5pyJ5Y+v55So5qih5Z6L5pe26YWN572u5paH5pys5LiN6IO96Ieq6KGM5a6J6KOF5oiW6LCD55So5qih5Z6L44CCIiwNCiAgICAi5pys6L2u5rKh5pyJ6YeN6LeR5a6e6ZmF5p2Q5paZ6ZiF6K+76LSo6YePL+i0ueeUqOWfuuWHhu+8jOayv+eUqOWJjemYtuauteWbuuWumuivgeaNrueahOWOhuWPsumAgueUqOiMg+WbtOOAgiIsDQogICAgIuaXoOaWsOWinkFJ6YWN572u6Kej5p6Q6LCD55So77yb5pyq5Lul5q2k5o6o5pat56uv5Yiw56uv5qOA57Si5bu26L+f5oiW5oC7QUnotLnnlKjmlLnlloTjgIIiLA0KICAgICLku4XmnKzmnLpXaW5kb3dzIHg2NOWQiOaIkOWNh+e6p+mqjOaUtu+8m+esrOS6jOeJqeeQhuacuuS4jueUqOaIt+S4muWKoemqjOaUtuacquaJp+ihjO+8m+acquaOqOmAgeWPkeW4g+OAgiINCiAgXSwNCiAgInBhcmVudF9ydW5faWRzIjogW10sDQogICJyZWxhdGVkX21vZHVsZV9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfcmVzZWFyY2hfaWRzIjogW10sDQogICJyZWxhdGVkX2RhdGFzZXRfaWRzIjogW10sDQogICJyZXZpZXciOiB7DQogICAgInN0YXR1cyI6ICJub3QtcmV2aWV3ZWQiLA0KICAgICJyZXZpZXdlciI6IG51bGwsDQogICAgImRhdGUiOiBudWxsDQogIH0sDQogICJzZW5zaXRpdml0eSI6ICJpbnRlcm5hbCINCn0NCg==",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260916T081757Z-4C8B6EB90E82",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "子Agent能力偏好配置与发布边界验证",
+    "keywords": [
+      "workspace-settings",
+      "subagent",
+      "能力偏好",
+      "升级保护"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-16T08:17:57Z",
+    "started_at": "2026-09-16T08:17:57Z",
+    "ended_at": "2026-09-16T08:31:42.572607Z",
+    "owner": null,
+    "question": "如何配置子Agent能力偏好，保留低能力默认、旧配置及源码/私人设置的发布边界？",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/scripts/freeze_run.py",
+        "sha256": "b377bd234443ae7eb9d5e18fc6fc8232b0fbf0bcb5aebd490116a880fc9c3fbc",
+        "role": "input",
+        "registered_at": "2026-09-16T08:31:43.862171Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/scripts/update_memory.py",
+        "sha256": "9cdd1404eac5b62ef79f657fb22667e8b3c21e8a123c6a0b1b5f10d594ad5daf",
+        "role": "input",
+        "registered_at": "2026-09-16T08:31:43.873401Z"
+      }
+    ],
+    "parameters": {
+      "field": "collaboration.subagent_requirements",
+      "trimmed_length_range": [
+        1,
+        2000
+      ],
+      "schema_version": 1,
+      "default_requirements": "优先使用低成本、较低能力的可用模型，采用低推理深度；须能完成材料检索、完整阅读和结构化笔记。"
+    },
+    "code": {
+      "commit": "89ad30753589fb7b919b3db75cdf91d47449f4ca",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "name": "targeted_software",
+        "status": "passed",
+        "scope": "后端、设置组件、真实浏览器与Windows扩展旧工作区setup；首次失败与修复复验回执保留。"
+      }
+    ],
+    "metrics": {
+      "backend_related_tests": 25,
+      "settings_component_tests": 10,
+      "settings_browser_tests": 2,
+      "windows_setup_tests": 18
+    },
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/formal-settings-readonly.json",
+        "sha256": "88cedee5b42f9f2ab9ef4d21256654aea8f7293b434da9c76ee7354b1d55b80e",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.885402Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/framework-source-snapshot.zip",
+        "sha256": "4b00e374303f1cad5b4d832164bfa8513fd2ba0e06bed13a06da8c51f76c2095",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.899400Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/plan-at-freeze.md",
+        "sha256": "8ecd8ad38bca66a0a0c0e743a4c546381298e102ffcf1bb01c5ff25f39ae55d2",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.911900Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/source-manifest.json",
+        "sha256": "7ac49ef0eaeab47189447e1aa7dabfb79f0d287e124021daa3f7b7e74e33d0eb",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.924203Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/backend-baseline-delegation.log",
+        "sha256": "33c1dcda6649d7c08ccef9939f97784ef6246aa37f57384e171fa5be3bc8aab3",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.936466Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/backend-baseline-settings.log",
+        "sha256": "6a63257554a1e3cac5c7d9cc04865f5a9b3906f57a4b8af6ef8a31f434e8e9f2",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.949925Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/backend-delegation.log",
+        "sha256": "7b160715b3481057db8b748704d2fcf01d453b18f9aaa3c72d2cab870f85613e",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.962196Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/backend-settings.log",
+        "sha256": "4ce04323899a95e752378cc824362c485c3df268b6b058f4d211709cebb39c39",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.974144Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/browser-final.log",
+        "sha256": "cff1a87552b0f8cf8d6ae9402e479a51297c802edf9ab77a08ae572bb86c934e",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.986115Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/browser.log",
+        "sha256": "b309f3fc23d933c4703e9ed0ee9c4e2a87512f311d281ccf3dcb75c9208b030a",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:43.997785Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/build.log",
+        "sha256": "cbeb547be23a5f3c7070bfeaea7529f8da55ff55f0cd6052968e721f10677b02",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.009520Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/catalog-before.json",
+        "sha256": "eb95eb6cb7c72a1b5479041a2a325422fda38be693def69f4c627a61e8214ca3",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.020855Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/catalog-register-component.log",
+        "sha256": "371b33406e5b20fe9f35b59d39da3eceadf8e98c7de697beab5011e02aed8b99",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.033697Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/catalog-register-delegation.log",
+        "sha256": "39854986141e3fc21d82be05d1065b0d386000f91e883ee6d9f5e8e54483ba8d",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.046193Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/catalog-register-settings.log",
+        "sha256": "f0a062513ea3c751d070ce52b27edb2998d3f9e66503c4d013cf35ef8c1d4049",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.058922Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/catalog-update.log",
+        "sha256": "794cdc0884696102600f3199ddd63d7af3b0f3925f17e699abab1188259fddc7",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.070575Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/component-baseline.log",
+        "sha256": "8171d8c13ea8328924314b67f93f28035781b143393a8af0a245ea70feee6c7f",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.082038Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/component.log",
+        "sha256": "33157c4a9b9d5ce408d8f2cef2833a1bb3495ddfb8292fab911591099fcb10a9",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.093544Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/refresh-before-record.log",
+        "sha256": "ccedcad3856aa364194ef6a0716e8294caaa2b41fa62d158b7e5500a122100ed",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.105831Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/testing-audit-after.log",
+        "sha256": "fef6a477fe199753d760854238599f6811fa17b37b539e3dd9ad5f67a1f933bf",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.116834Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/testing-audit-before.log",
+        "sha256": "b937285948f70c6a99487d135e92a411ec24762d6c48744f1b4e96edf9d361ff",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.128924Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/update_catalog.py",
+        "sha256": "e9f5f55b08d3112f97d406da1c1265992d7a2813e78190070bc36de7428b0ccd",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.141172Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/validate-before-record.log",
+        "sha256": "cc539932abb92461084290a5d30a183602c2f1faef64a132db72f9ef4adb7716",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.152906Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/windows-setup-retry.log",
+        "sha256": "ca4848de957d1e7e74ad4d9638b7bd129e247fb9a575d593dbf5f9c86cc140a5",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.165136Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/windows-setup.log",
+        "sha256": "8e641bca2028960c29f9526b59b1edae07027087da51e59bbd932675bf58923c",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.178699Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/browser/.last-run.json",
+        "sha256": "399a5d78589570eefb96a24ef19a09ac126afed801dad1fd3887f848f5289565",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.191828Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/browser-final/.last-run.json",
+        "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.207442Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/browser/settings-真实HTTP保存配置并在页面重新载入后保持/error-context.md",
+        "sha256": "68e9f47aebc0a8be3e24da75e250d6aa503272ecf7c0c507ad0473aa7da4927c",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.220704Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/browser/settings-设置草稿跨导航保留，冲突不清空，显式重读后保存/error-context.md",
+        "sha256": "59749eda1b558908acd6201f0fade943d406d457476a9a9de79de98ae417e946",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.234746Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/verification/tests/browser-final/settings-真实HTTP保存配置并在页面重新载入后保持/settings-real-http.png",
+        "sha256": "5f27437b6dd2decc5858c3713ad1fc14541cee3843b30dc4136a218a277dd1ee",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.246875Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/document-impact-reading-delegation.receipt.json",
+        "sha256": "930968f39777b4f21e58d057e0c557e25c83e310e87bc7f2df4f1517b5358bca",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.258085Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/document-impact-reading-delegation.request.json",
+        "sha256": "ba68ef57502695185d4ffda494016c84a06ad77a86624d84b9fc993532555b37",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.269086Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/document-impact-workspace-settings.receipt.json",
+        "sha256": "77d81996f24e6938e7539e46272cc4ff5c826f69e3560b7817225d35aa1114ac",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.281363Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/document-impact-workspace-settings.request.json",
+        "sha256": "ee5d0ace4d489cf113008dafc18e781fd9e6b4eae8f57c989f26661106fdaa04",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.294558Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/document-reading-delegation.receipt.json",
+        "sha256": "6c2a10c3a6fd26f6e36296686829df19309f565c808298df3ad551a0fb7c73a1",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.305524Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/document-reading-delegation.request.json",
+        "sha256": "ba68ef57502695185d4ffda494016c84a06ad77a86624d84b9fc993532555b37",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.316477Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/document-workspace-settings.receipt.json",
+        "sha256": "d172c480339ab051eed919084b44e68a3fe3deb1cd26ce63d6821f34add30e52",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.329256Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/document-workspace-settings.request.json",
+        "sha256": "ee5d0ace4d489cf113008dafc18e781fd9e6b4eae8f57c989f26661106fdaa04",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.341657Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-owner-head-retry.json",
+        "sha256": "c7ec82f078cd5a818dd7e7504b47255b314fcb7b6059083f58b7b8f7bf04868f",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.353375Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-owner-head.json",
+        "sha256": "b14f0fa7492f8b0862638708cff7590987fb5816ca4b6e8f058c534996cca467",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.364999Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-reading-delegation-document-retry.json",
+        "sha256": "609a25b281a61b835770ed8a38fe8fdf3af863ec427a18c7adfe9f17436f14d0",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.375554Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-reading-delegation-document.json",
+        "sha256": "4e179e5d52e2f0d9d30a264c8c704c120073148310e396535d11a65815197a25",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.387665Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-reading-delegation-overview-retry.json",
+        "sha256": "4dcc23ff9e964b72964b4f370e132f0493b333ab41cdc41cbb3fc7155f2ae555",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.399742Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-reading-delegation-overview.json",
+        "sha256": "c1c242042f883859474d742de77473cd1ddad5b22bb6e02deb3dd1644e517287",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.412773Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-workspace-settings-document-retry.json",
+        "sha256": "ed7ba1edd24c1bcb99feeb48f9ed4889f562d0d10c05fa46f763fbb959fdfa6d",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.424902Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-workspace-settings-document.json",
+        "sha256": "1c47f8d455ca1bf0c3a69728704101b641a37cc2bf883f17313284b6f77065cb",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.438320Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-workspace-settings-overview-retry.json",
+        "sha256": "bf26c6e22bf14de342ea2c5c98c2ae07931f9507343d40c5e15e85674ee3ad84",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.451074Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/inspect-workspace-settings-overview.json",
+        "sha256": "fa4878d165adc2a568c911f35e54390b6cab71343faf6a4fc455e9e57a50a242",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.462496Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/baseline/READING_NOTE.md",
+        "sha256": "46a28529bb80269966b4b8a08e9573e7127d2f7b20946b993d765a7b87a2765b",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.475541Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260916t081757z-4c8b6eb90e82/RESULTS.md",
+        "sha256": "af16f0ba8de2aca6891177da5de899262e4d4dd0d5298f88f6fed7d591ee8364",
+        "role": "artifact",
+        "registered_at": "2026-09-16T08:31:44.486948Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "设置页与后端已支持自由文本能力要求，默认较低能力/低成本/低推理；旧文件只读兼容，自定义偏好在委派和升级中保留。",
+    "limitations": [
+      "宿主决定实际模型；没有可用模型时配置文本不能自行安装或调用模型。",
+      "本轮没有重跑实际材料阅读质量/费用基准，沿用前阶段固定证据的历史适用范围。",
+      "无新增AI配置解析调用；未以此推断端到端检索延迟或总AI费用改善。",
+      "仅本机Windows x64合成升级验收；第二物理机与用户业务验收未执行；未推送发布。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-16T08:31:45.030376Z"
+}

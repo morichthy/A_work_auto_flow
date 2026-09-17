@@ -1,0 +1,91 @@
+{
+  "action": "reading-read",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+    "expected_revision": 2,
+    "request_id": "ai-read-a-1",
+    "owner_id": "RES-MQ-A"
+  },
+  "response": {
+    "status": "partial",
+    "value": {
+      "owner_id": "RES-MQ-A",
+      "text": "本章固定说明。\n\n这是合成教学模型，不是实际仪器实验。f 为信号频率（Hz），dt 为采样时刻误差（s），dphi 为相位误差（rad）。\n\n小时间误差模型：$dphi=2\\pi f\\,dt$。取 f=1000 Hz、dt=1e-6 s，得到 dphi≈0.006283 rad。\n\n本材料没有解释时间抖动来自哪里。可探索过零检测阈值波动；该提示只是方向，尚未验证电源与相位之间的联系。",
+      "sources": [
+        {
+          "kind": "record",
+          "id": "MEM-dd64109e-8cac-589c-8710-b58677a92aa3",
+          "revision": 1,
+          "sha256": "8cb13a792a9479c68cb02205ab2c58de89286627edbe8066d8227f5ee39ea126",
+          "locator": ""
+        },
+        {
+          "kind": "record",
+          "id": "MEM-c9deeddf-4732-57ec-b745-1656291533ff",
+          "revision": 1,
+          "sha256": "c784a97174670668da51bb6b47aa91a1cae84951f3213f1b7b0061e63000c9a5",
+          "locator": ""
+        },
+        {
+          "kind": "record",
+          "id": "MEM-c8416f3d-0493-5965-89bb-7935cddc845d",
+          "revision": 1,
+          "sha256": "b04c02ac33e9bd00f4293c51a74ad60f6613bd1f3b452c6e854e2320a26e0e30",
+          "locator": null
+        },
+        {
+          "kind": "file",
+          "id": "SRC-MQ-A",
+          "revision": null,
+          "sha256": "3b61870b28f5cd291e45c94dcc6fab78c0f6f4e584098772a2a6035b8ecf537c",
+          "locator": "完整合成输入"
+        }
+      ],
+      "document_refs": [
+        {
+          "kind": "record",
+          "id": "MEM-c8416f3d-0493-5965-89bb-7935cddc845d",
+          "revision": 1,
+          "sha256": "b04c02ac33e9bd00f4293c51a74ad60f6613bd1f3b452c6e854e2320a26e0e30",
+          "locator": null
+        }
+      ],
+      "references": [],
+      "reading_form": "research_process",
+      "complete": true,
+      "gaps": [
+        "同类文稿有多个；本次仅交付最新文稿，不代表Owner全部材料已读"
+      ],
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+      "revision": 3
+    },
+    "code": null,
+    "warnings": [
+      "同类文稿有多个；本次仅交付最新文稿，不代表Owner全部材料已读"
+    ],
+    "issues": [
+      {
+        "code": "PARTIAL",
+        "message": "同类文稿有多个；本次仅交付最新文稿，不代表Owner全部材料已读",
+        "affected_refs": [],
+        "retry": "after_external_change"
+      }
+    ],
+    "consumed": {
+      "wall_ms": 656,
+      "read_bytes": 186609,
+      "output_chars": 1256,
+      "candidates": 3,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

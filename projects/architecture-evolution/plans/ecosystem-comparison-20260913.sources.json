@@ -1,0 +1,288 @@
+{
+  "schema_version": 1,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "task": "17个相关项目的官方资料比较",
+  "recorded_at": "2026-09-12T21:35:42.8574551+00:00",
+  "local_inputs": [
+    {
+      "path": "README.md",
+      "sha256": "8a2a372f8a5769262251cd5ec20d1fddfaca6019ee6f946a6d70d3b506a82899"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "69739de1448011dd010309343b8e9e461d87aca98a5a138872a229582d6f3259"
+    },
+    {
+      "path": "docs/CORE.md",
+      "sha256": "392f05499747fe24a9b6c294f35f953904f0c7e2cd45b6d78b64fdfabee08b23"
+    },
+    {
+      "path": "context/NOW.md",
+      "sha256": "5d87807a9f99bd6bad7abfa8f44ba50539d3cee4567b2aa39f9a9d7955ba03f6"
+    },
+    {
+      "path": "docs/AI_READING.md",
+      "sha256": "f9b20d7da4fb5f6f431cd763249090f196dd145cb8d38c6be9a1656d486d9f88"
+    },
+    {
+      "path": "context/MEMORY.md",
+      "sha256": "2f3f6dab2dd282edcad72d5c16eed6b3d26f6db912831289351f672861e8967a"
+    }
+  ],
+  "web_sources": [
+    {
+      "url": "https://aiida.readthedocs.io/projects/aiida-core/en/stable/intro/index.html",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://aiida.readthedocs.io/projects/aiida-core/en/stable/topics/provenance/concepts.html",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://app.khoj.dev/",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://arize.com/docs/phoenix",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://doc.dvc.org/start",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://doc.elabftw.net/docs/usage/fair/",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://doc.elabftw.net/docs/usage/user-guide/experiments/",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.dify.ai/en/develop-plugin/getting-started/choose-plugin-type",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.dify.ai/en/guides/application-orchestrate/creating-an-application",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.haystack.deepset.ai/docs/intro",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.khoj.dev/features/all-features/",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.langchain.com/langsmith/observability",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.langchain.com/langsmith/self-hosted",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.letta.com/v1-sdk/concepts/stateful-agents",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.letta.com/v1-sdk/docker",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.onyx.app/admins/billing/overview",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.onyx.app/admins/connectors/overview",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.onyx.app/deployment/overview",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://docs.onyx.app/welcome",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://github.com/Arize-ai/phoenix",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://github.com/infiniflow/ragflow/blob/main/docs/quickstart.mdx",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://github.com/langgenius/dify",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://github.com/langgenius/dify/blob/main/LICENSE",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://help.getzep.com/graphiti/getting-started/overview",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://langfuse.com/docs",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://langfuse.com/docs/evaluation/overview",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://langfuse.com/docs/observability/overview",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://langfuse.com/self-hosting",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://mlflow.org/docs/latest/genai/",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://openbis.ch/",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://www.braintrust.dev/docs/admin/self-hosting/architecture",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://www.braintrust.dev/docs/evaluate",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://www.braintrust.dev/docs/evaluate/compare-experiments",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://www.comet.com/docs/opik/",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    },
+    {
+      "url": "https://www.elabftw.net/",
+      "accessed_date": "2026-09-13",
+      "source_type": "official_documentation_or_repository_or_announcement",
+      "content_sha256": null,
+      "full_page_archived": false
+    }
+  ],
+  "limitations": [
+    "本地指纹为本次登记时版本，不代表Git提交或完整代码验收。",
+    "网页完整字节未归档，网页哈希和统一发布版本未知。",
+    "未安装外部候选或进行横向性能实测；适配建议为未复核的AI分析。"
+  ],
+  "report": {
+    "path": "projects/architecture-evolution/plans/ecosystem-comparison-20260913.md",
+    "sha256": "af09e6b100c3e2e23ede674a07354701bcbdfbcacb9c0ed55f6093687f96fc5e"
+  }
+}

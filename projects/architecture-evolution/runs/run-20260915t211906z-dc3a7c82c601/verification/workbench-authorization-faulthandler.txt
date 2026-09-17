@@ -1,0 +1,13 @@
+Timeout (0:00:30)!
+Thread 0x0000ee4c (most recent call first):
+  File "tempfile.py", line 384 in mkdtemp
+  File "tempfile.py", line 886 in __init__
+  File "D:\\u5171\u4eab\u684c\u9762\A_work\A_work_auto_flow\automation\tests\test_workbench_relations.py", line 27 in setUp
+  File "unittest\case.py", line 586 in _callSetUp
+  File "unittest\case.py", line 630 in run
+  File "unittest\case.py", line 690 in __call__
+  File "unittest\suite.py", line 122 in run
+  File "unittest\suite.py", line 84 in __call__
+  File "unittest\runner.py", line 240 in run
+  File "D:\\u5171\u4eab\u684c\u9762\A_work\A_work_auto_flow\.local\release-20260916\run_faulthandler_case.py", line 21 in main
+  File "D:\\u5171\u4eab\u684c\u9762\A_work\A_work_auto_flow\.local\release-20260916\run_faulthandler_case.py", line 30 in <module>

@@ -1,0 +1,146 @@
+{
+  "status": "ok",
+  "value": {
+    "session_id": "RS-2417fd8d-07bf-4f6d-b937-9cb5956d2df4",
+    "revision": 4,
+    "route": "subagent",
+    "dispatched": false,
+    "reason": "工作区auto且宿主支持；需宿主实际委派",
+    "worker_brief": {
+      "session_id": "RS-2417fd8d-07bf-4f6d-b937-9cb5956d2df4",
+      "revision": 4,
+      "phase": "review",
+      "goal": "校准材料知识笔记验收",
+      "conditions": [
+        "仅合成材料"
+      ],
+      "owner_id": "RES-MQ-A",
+      "model_requirements": "优先使用低成本、较低能力的可用模型，采用低推理深度；须能完成材料检索、完整阅读和结构化笔记。",
+      "query": {
+        "question": "readingfixture",
+        "scope": {
+          "owner_ids": [
+            "RES-MQ-A"
+          ],
+          "levels": null,
+          "kinds": null,
+          "roles": null,
+          "outcomes": null,
+          "review_states": null,
+          "validities": null,
+          "include_unknown": false,
+          "excluded_refs": [],
+          "excluded_owner_ids": [],
+          "recorded_from": null,
+          "recorded_before": null,
+          "source_ids": null,
+          "include_refs": [],
+          "exclude_ids": [],
+          "confidence_levels": null,
+          "time_window": null,
+          "applicability_conditions": [],
+          "applicability_exclusions": [],
+          "owner_types": null
+        },
+        "scope_ceiling": {
+          "owner_ids": [
+            "RES-MQ-A"
+          ],
+          "levels": null,
+          "kinds": null,
+          "roles": null,
+          "outcomes": null,
+          "review_states": null,
+          "validities": null,
+          "include_unknown": false,
+          "excluded_refs": [],
+          "excluded_owner_ids": [],
+          "recorded_from": null,
+          "recorded_before": null,
+          "source_ids": null,
+          "include_refs": [],
+          "exclude_ids": [],
+          "confidence_levels": null,
+          "time_window": null,
+          "applicability_conditions": [],
+          "applicability_exclusions": [],
+          "owner_types": null
+        },
+        "budget": {
+          "wall_ms": 300000,
+          "read_bytes": 16777216,
+          "output_chars": 80000,
+          "candidates": 1000,
+          "graph_nodes": 50,
+          "graph_edges": 100,
+          "graph_hops": 2,
+          "model_tokens": 65536,
+          "model_calls": 20,
+          "model_input_tokens": 65536,
+          "model_output_tokens": 0,
+          "rerank_items": 100
+        }
+      },
+      "next_step": "按本RS既有阶段继续材料阅读",
+      "instructions": [
+        "先读material-query Skill；使用独立低成本reader继续同一RS，不递归委派。",
+        "从reading-template或已有RS复制完整query，只改必要字段；scope选择直接Owner，scope_ceiling是获准必要依赖上限。",
+        "不要机械将scope复制给scope_ceiling，否则Run/文稿必要来源可能不可读；也不得扩大任务授权范围。",
+        "protected_terms只能选原question中实际出现的术语；不要填原问题没有的数字或术语。",
+        "standard/associative召回后，对相关Owner用reading-read(owner_id)逐一读取完整文稿；quick仅逐条评判已交付片段，不自动读取完整文稿。",
+        "图片/L0/Run按固定来源引用需要时展开，引用存在不等于已读。",
+        "阅读时必须围绕当前问题提取相关核心公式及变量、单位、成立条件、假设、边界和反例；递推保留初值与更新顺序，误差式说明成立假设，并记录实验输入/方法/结果与图、Run、原始来源的对应关系；材料未提供的内容明确记为缺口，不补造。",
+        "数学表达式使用 LaTeX：行内公式用 $...$，独立公式用 $$...$$ 包围，避免仅写未加数学分隔符的公式文本。",
+        "写note前由同一reader核对提取内容与已交付原文/固定出处；写完后再次自查相关公式、实验细节、图及来源对应是否遗漏，补齐后保存，无法补齐则写明材料或阅读缺口。此自查在当前reader工作内完成，不新增AI调用、审核agent或主Agent复检任务。",
+        "note正文实际使用的来源ID必须列入sources，可用已交付ID简写由程序补齐固定版本；只列实际需要的出处。图片/L0/Run未展开只能说明文稿声明的引用，不得写成已独立读过或复算。程序引用检查不证明语义正确或完整，自查清单不另塞入handoff。",
+        "每Owner提交research_note：question、conditions、understanding、logic、details、sources、limitations、next_steps。",
+        "research_note应是一份可读、细节充分、能承接后续研究的简化完整文稿。字段和标题是要素覆盖要求，不是每栏一句的短摘要模板；understanding可用多段Markdown承载主叙事，logic/details等数组的每项也可包含完整多段论述。",
+        "按实际材料连贯说明相关问题的起点、假设与方法选择、实验或推导经过、失败与反例如何促成认识修正、当前结论及适用范围、尚待解决的问题与下一步。材料确有逐轮演进才交代各轮输入、结果、调整及原因；没有多轮历史不强行编造，quick也不得超出实际片段假装掌握完整过程。",
+        "把相关核心公式、变量单位、关键参数、实验和图/Run/原始来源对应嵌入叙事，使后续研究者知道为什么这样做、证据如何支持或限制结论；需要并列比较才用列表或表格，不把研究逻辑拆成互不相连的短条目。",
+        "note预算是交接容量上限，不是越短越好；在保留相关完整要素与研究逻辑的前提下删重复和无关内容。仍超限时明确容量缺口及未能交付的范围，保留可续接的完整note，不为凑预算删掉关键推导、实验演进或失败边界，也不静默提高预算。",
+        "工程限制每operation重置；context.max_owners限制选中Owner，note_max_tokens是UTF8字节保守估计，不是宿主exact tokens。",
+        "结束仅返回session_id、revision和状态；主Agent调用reading-handoff获得最终笔记，不回传候选/正文。",
+        "等待用户意见时不得自行越过；使用原授权范围，模型要求不扩大读取权限。",
+        "按strategy执行：standard完整Owner阅读；quick逐条reading-assess(candidate_id,useful,reason)，仅用已接受片段写同质量research_note，不自动读取全文；associative使用实际联想子问题沿同RS召回。",
+        "reading-configure显式修改策略与association_text，不清空历史；联想受association.enabled/max_rounds约束。跨Owner综合用reading-synthesize(research_note)，仅引用实际交付依据。",
+        "主Agent负责联想子问题、检索关键词与扩搜范围；reader按已给计划读取和提炼材料，不自定联想问题或扩大搜索。发现线索时保存材料依据并交回主Agent决策。",
+        "note.question仅为绑定搜索问题的内部元数据，不要求在知识正文重述问题；正文不包含派工决定或执行状态。next_steps只填材料支持的可选建议，无建议用空数组。"
+      ],
+      "mode": "owner_document",
+      "context": {
+        "max_owners": 10,
+        "note_max_tokens": 6000
+      },
+      "strategy": "associative",
+      "association": {
+        "enabled": true,
+        "max_rounds": 3
+      },
+      "association_text": ""
+    },
+    "model_preference": {
+      "requirements": "优先使用低成本、较低能力的可用模型，采用低推理深度；须能完成材料检索、完整阅读和结构化笔记。",
+      "selection": "host_decides",
+      "note": "由宿主按任务和可用模型裁定，不绑定具体模型"
+    }
+  },
+  "code": null,
+  "warnings": [],
+  "issues": [],
+  "consumed": {
+    "wall_ms": 125,
+    "read_bytes": 51066,
+    "output_chars": 4084,
+    "candidates": 0,
+    "graph_nodes": 0,
+    "graph_edges": 0,
+    "graph_hops": 0,
+    "model_tokens": 0,
+    "model_calls": 0,
+    "model_input_tokens": 0,
+    "model_output_tokens": 0,
+    "rerank_items": 0
+  },
+  "stop_reason": null,
+  "basis": null
+}

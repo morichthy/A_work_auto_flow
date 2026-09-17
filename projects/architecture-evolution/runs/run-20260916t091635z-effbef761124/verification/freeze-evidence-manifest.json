@@ -1,0 +1,36 @@
+{
+  "run_id": "RUN-20260916T091635Z-EFFBEF761124",
+  "inputs": {
+    "projects/architecture-evolution/runs/run-20260916t085438z-3e40d5ed8471/verification/framework-source-snapshot.zip": "4b00e374303f1cad5b4d832164bfa8513fd2ba0e06bed13a06da8c51f76c2095",
+    "projects/architecture-evolution/runs/run-20260916t085438z-3e40d5ed8471/verification/source-manifest.json": "694f39061c8e658033424b443c5b624774e92cc60506247869e7da96b9acfade",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/scripts/freeze_latency_runs.py": "b4171469e124283da3ce20e5cf5d6ec2bcf6b0bb4464ceb8d9bbbc80ba89be47",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/scripts/latency_driver.py": "38af32c66e1aaa633478108aeb06fdc2b052fbe6353ec3131c39c0b67d4c4203",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/scripts/summarize_latency.py": "1027ec456a8a7e4711ced9af126dd245c84fa9865cbb503eee97fdfece5bebda"
+  },
+  "artifacts": {
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550344406749000-main-reading-template-request.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550344406749000-main-reading-template-response.json": "b9d7bb1d495b36b82d544e016230c47c79a2150b1dae748ad789c53962cbe584",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550344438678400-main-reading-start-request.json": "f259468d8a66796766fff5b13d89456dafb9fd36f44d59e771e121bac988ef92",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550344438678400-main-reading-start-response.json": "97faa5935ca482251518f8a50daf2a5619881acf95a7e0f0ae3d68543b9dee85",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550345771491900-main-reading-delegate-request.json": "0076a72e6f695bc010484d49ea9234299faa65274f857665cc2495230545075d",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550345771491900-main-reading-delegate-response.json": "7c1d6e872697e5c6d6783c3ffd7c49b8923ad342ce46b6ec88570a2eb7409deb",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550462247670000-reader-reading-view-request.json": "38e7cb20a381823e7f4249a2f21dcdb1489d7daa6b9fd910b9e0726cf20d9bab",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550462247670000-reader-reading-view-response.json": "a8992141af71544e1cb516240af6df61bfe9f0a0f0d541ebf120971952f857a2",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550490343853000-reader-reading-recall-request.json": "b70141da0fdadc23eb8f55e74274b0c7097615a43272f7d00c19b651f1b48108",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/1789550490343853000-reader-reading-recall-response.json": "6ee2cc850f0393a43ce129e26e5b2b5bd256a91b63ca7733d844f4ca6e73870c",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/empty.json": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/events.jsonl": "cffb700f45b8cd0df669dcdc1a502bd0faed0341a7d83561e00b5b002c2d14dc",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/reader-outer-events.json": "ec5e3091ef7462a54d106f7fd3ada86fbd4538fbfa930d27978effb8bd69e5e8",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/requests/recall.json": "8ff0a4277abd4d9bd78f8c3e008676cae6553cce45b2f4a85d5dca986d5d98be",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/root-outer-events.json": "262dc846043fab0406edb2a5a46b7c8b83aca1ec5720070475073385f3446ff1",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/state.json": "0beb7d7d7f2872b0aa3d11ca87e0c29c26df26977a3ad298375ea45a34544011",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/summary.json": "2b24af3ddd8787963455ab98d4e4875a44355fb7e8a44214643e17adca55d2d9",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/.run-captures/latency/timeline.csv": "640a3dd3fa34b75aaabe3c539ae63ce09890aa9bee7efed6056f508288f95548",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/RESULTS.md": "22906e28aa5a1c29b613b9eb9063d8ec95aae01a8c5ff9c825988bf9d87ddc0a",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/verification/metrics.json": "8c1b2e6d4b405e176db395bcccd9bd68b3418da911546c8c5dfc78ca1ba14d1b",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/verification/plan-at-freeze.md": "9a5a1e5da7bc9119d7caa9ddcd9bf1be7162fee9c07b431595b518f3ed121e8e",
+    "projects/architecture-evolution/runs/run-20260916t091635z-effbef761124/verification/run-relationship.json": "7d78d3a21035a7fbc818af65fac23b004f552e6a34bf2ae0dbaaebad26ae5bdd"
+  },
+  "status": "failed",
+  "note": "清单不自哈希；run.json由公开登记入口管理，不作为自身固定artifact。"
+}

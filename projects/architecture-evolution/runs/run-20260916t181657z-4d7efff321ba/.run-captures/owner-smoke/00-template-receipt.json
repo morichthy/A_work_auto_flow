@@ -1,0 +1,10 @@
+{
+  "captured_at": "2026-09-17T00:00:00+08:00",
+  "method": "workbench.cmd material-query reading-template",
+  "wall_ms": 3100,
+  "session_id": "RS-12cfd61c-790d-41f7-bb86-e1d4242c2744",
+  "mode": "owner_document",
+  "context": {"max_owners": 10, "note_max_tokens": 6000},
+  "reranking": {"mode": "auto", "candidate_limit": 30, "conditions": []},
+  "note": "完整CLI回执已在本次工具审计中观察；本捕获保留会话身份、模式、设置与墙钟，避免复制未获准材料正文。"
+}

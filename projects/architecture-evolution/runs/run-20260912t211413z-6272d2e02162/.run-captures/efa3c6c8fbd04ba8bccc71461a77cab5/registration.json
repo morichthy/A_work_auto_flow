@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260912T211413Z-6272D2E02162",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "统一工作流与跨对象阅读入口实施及一致性验证",
+    "keywords": [
+      "统一工作流",
+      "work-loop",
+      "阅读记录",
+      "跨对象经验",
+      "Skill一致性",
+      "旧数据保护"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-12T21:14:13Z",
+    "started_at": "2026-09-12T21:14:13Z",
+    "ended_at": "2026-09-12T22:22:12.550512+00:00",
+    "owner": "Codex",
+    "question": "统一所有Owner的工作与记录入口，并审查Skill、代码接口、工作流、文档和旧数据升级保护是否连贯。",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {},
+    "code": {
+      "commit": "fa9de29c0fa4cd8fbc20c599ee7fd3397a919865",
+      "dirty": true,
+      "snapshot_manifest": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/source-fingerprints.json"
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": "5bc0ebab661be8031755b4852953ae9dc054f451ab18def291f5eed078d3d1e4"
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "check": "backend_full_first_execution",
+        "status": "failed",
+        "details": "598项，5处失败；原日志保留，3个受影响方法的4处失败已定向复验，既有B01仍失败。"
+      },
+      {
+        "check": "changed_behavior_and_compatibility",
+        "status": "passed",
+        "details": "阅读15项、八Owner参数化1项、Owner接口2项及全量相关案例；实际读取/权限/预算/只读边界保留。"
+      },
+      {
+        "check": "windows_setup_upgrade_restore",
+        "status": "passed",
+        "details": "18项不同检查获通过证据：17项回归通过，真实setup完整链路修正换行预期后1项通过。"
+      },
+      {
+        "check": "frontend",
+        "status": "passed",
+        "details": "38组件、16个不同普通浏览器场景、类型检查/构建通过；原失败与修正复验分别保存。"
+      },
+      {
+        "check": "actual_ai",
+        "status": "passed",
+        "details": "独立AI合成场景自查通过，包含公开保存/完整读取/Run失败/检查点/跨进程；非人工认可或真实业务检索质量。"
+      },
+      {
+        "check": "catalog_and_docs",
+        "status": "passed",
+        "details": "r71共655登记、40基线；六文档与9方法逐项审查，工作区0错误/8既有警告。"
+      }
+    ],
+    "metrics": {},
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "统一工作流与阅读可见入口已实现，本次相关软件失败修正后复验通过。Run succeeded表示本次实现/审查执行结束，不代表全量首次通过或科学结论已复核；历史B01仍失败。",
+    "limitations": [
+      "既有B01冻结计划自检失败未改写；全量首轮与定向复验分别保留，未重新执行整轮全绿。",
+      "源码工作树含之前多轮未提交修改，以本次快照定位；未提交Git或发布。",
+      "无旧流程同题实际AI耗时/质量对照，不能宣称总体检索质量或性能提升。",
+      "万条规模暂缓，人工真实业务及第二物理机未验收；本次无模型或依赖变更。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxMlQyMTE0MTNaLTYyNzJEMkUwMjE2MiIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIue7n+S4gOW3peS9nOa1geS4jui3qOWvueixoemYheivu+WFpeWPo+WunuaWveWPiuS4gOiHtOaAp+mqjOivgSIsDQogICJrZXl3b3JkcyI6IFsNCiAgICAi57uf5LiA5bel5L2c5rWBIiwNCiAgICAid29yay1sb29wIiwNCiAgICAi6ZiF6K+76K6w5b2VIiwNCiAgICAi6Leo5a+56LGh57uP6aqMIiwNCiAgICAiU2tpbGzkuIDoh7TmgKciLA0KICAgICLml6fmlbDmja7kv53miqQiDQogIF0sDQogICJyZXZpZXdfaGlzdG9yeSI6IFtdLA0KICAiY2xhaW1zIjogW10sDQogICJkZXBlbmRlbmNpZXMiOiBbXSwNCiAgInJ1bl90eXBlIjogImFuYWx5c2lzIiwNCiAgInN0YXR1cyI6ICJzdWNjZWVkZWQiLA0KICAiY3JlYXRlZF9hdCI6ICIyMDI2LTA5LTEyVDIxOjE0OjEzWiIsDQogICJzdGFydGVkX2F0IjogIjIwMjYtMDktMTJUMjE6MTQ6MTNaIiwNCiAgImVuZGVkX2F0IjogIjIwMjYtMDktMTJUMjI6MjI6MTIuNTUwNTEyKzAwOjAwIiwNCiAgIm93bmVyIjogIkNvZGV4IiwNCiAgInF1ZXN0aW9uIjogIue7n+S4gOaJgOaciU93bmVy55qE5bel5L2c5LiO6K6w5b2V5YWl5Y+j77yM5bm25a6h5p+lU2tpbGzjgIHku6PnoIHmjqXlj6PjgIHlt6XkvZzmtYHjgIHmlofmoaPlkozml6fmlbDmja7ljYfnuqfkv53miqTmmK/lkKbov57otK/jgIIiLA0KICAiaHlwb3RoZXNlcyI6IFtdLA0KICAiaW5wdXRzIjogW10sDQogICJwYXJhbWV0ZXJzIjoge30sDQogICJjb2RlIjogew0KICAgICJjb21taXQiOiAiZmE5ZGUyOWMwZmE0Y2Q4ZmJjMjBjNTk5ZWU3ZmQzMzk3YTkxOTg2NSIsDQogICAgImRpcnR5IjogdHJ1ZSwNCiAgICAic25hcHNob3RfbWFuaWZlc3QiOiAicHJvamVjdHMvYXJjaGl0ZWN0dXJlLWV2b2x1dGlvbi9ydW5zL3J1bi0yMDI2MDkxMnQyMTE0MTN6LTYyNzJkMmUwMjE2Mi9zb3VyY2UtZmluZ2VycHJpbnRzLmpzb24iDQogIH0sDQogICJlbnZpcm9ubWVudCI6IHsNCiAgICAicHl0aG9uIjogIjMuMTIuMTAiLA0KICAgICJwbGF0Zm9ybSI6ICJXaW5kb3dzLTExLTEwLjAuMjI2MzEtU1AwIiwNCiAgICAibG9ja19vcl9pbWFnZV9kaWdlc3QiOiAiNWJjMGViYWI2NjFiZTgwMzE3NTViNDg1Mjk1M2FlOWRjMDU0ZjQ1MWFiMThkZWYyOTFmNWVlZDA3OGQzZDFlNCINCiAgfSwNCiAgInJhbmRvbV9zZWVkcyI6IFtdLA0KICAicXVhbGl0eV9yZXN1bHRzIjogWw0KICAgIHsNCiAgICAgICJjaGVjayI6ICJiYWNrZW5kX2Z1bGxfZmlyc3RfZXhlY3V0aW9uIiwNCiAgICAgICJzdGF0dXMiOiAiZmFpbGVkIiwNCiAgICAgICJkZXRhaWxzIjogIjU5OOmhue+8jDXlpITlpLHotKXvvJvljp/ml6Xlv5fkv53nlZnvvIwz5Liq5Y+X5b2x5ZON5pa55rOV55qENOWkhOWksei0peW3suWumuWQkeWkjemqjO+8jOaXouaciUIwMeS7jeWksei0peOAgiINCiAgICB9LA0KICAgIHsNCiAgICAgICJjaGVjayI6ICJjaGFuZ2VkX2JlaGF2aW9yX2FuZF9jb21wYXRpYmlsaXR5IiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJkZXRhaWxzIjogIumYheivuzE16aG544CB5YWrT3duZXLlj4LmlbDljJYx6aG544CBT3duZXLmjqXlj6My6aG55Y+K5YWo6YeP55u45YWz5qGI5L6L77yb5a6e6ZmF6K+75Y+WL+adg+mZkC/pooTnrpcv5Y+q6K+76L6555WM5L+d55WZ44CCIg0KICAgIH0sDQogICAgew0KICAgICAgImNoZWNrIjogIndpbmRvd3Nfc2V0dXBfdXBncmFkZV9yZXN0b3JlIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJkZXRhaWxzIjogIjE46aG55LiN5ZCM5qOA5p+l6I636YCa6L+H6K+B5o2u77yaMTfpobnlm57lvZLpgJrov4fvvIznnJ/lrp5zZXR1cOWujOaVtOmTvui3r+S/ruato+aNouihjOmihOacn+WQjjHpobnpgJrov4fjgIIiDQogICAgfSwNCiAgICB7DQogICAgICAiY2hlY2siOiAiZnJvbnRlbmQiLA0KICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLA0KICAgICAgImRldGFpbHMiOiAiMzjnu4Tku7bjgIExNuS4quS4jeWQjOaZrumAmua1j+iniOWZqOWcuuaZr+OAgeexu+Wei+ajgOafpS/mnoTlu7rpgJrov4fvvJvljp/lpLHotKXkuI7kv67mraPlpI3pqozliIbliKvkv53lrZjjgIIiDQogICAgfSwNCiAgICB7DQogICAgICAiY2hlY2siOiAiYWN0dWFsX2FpIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJkZXRhaWxzIjogIueLrOeri0FJ5ZCI5oiQ5Zy65pmv6Ieq5p+l6YCa6L+H77yM5YyF5ZCr5YWs5byA5L+d5a2YL+WujOaVtOivu+WPli9SdW7lpLHotKUv5qOA5p+l54K5L+i3qOi/m+eoi++8m+mdnuS6uuW3peiupOWPr+aIluecn+WunuS4muWKoeajgOe0oui0qOmHj+OAgiINCiAgICB9LA0KICAgIHsNCiAgICAgICJjaGVjayI6ICJjYXRhbG9nX2FuZF9kb2NzIiwNCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwNCiAgICAgICJkZXRhaWxzIjogInI3MeWFsTY1NeeZu+iusOOAgTQw5Z+657q/77yb5YWt5paH5qGj5LiOOeaWueazlemAkOmhueWuoeafpe+8jOW3peS9nOWMujDplJnor68vOOaXouacieitpuWRiuOAgiINCiAgICB9DQogIF0sDQogICJtZXRyaWNzIjoge30sDQogICJhcnRpZmFjdHMiOiBbXSwNCiAgImxpbmVhZ2VfZXZlbnRzIjogImxpbmVhZ2UuanNvbmwiLA0KICAiY29uY2x1c2lvbiI6ICLnu5/kuIDlt6XkvZzmtYHkuI7pmIXor7vlj6/op4HlhaXlj6Plt7Llrp7njrDvvIzmnKzmrKHnm7jlhbPova/ku7blpLHotKXkv67mraPlkI7lpI3pqozpgJrov4fjgIJSdW4gc3VjY2VlZGVk6KGo56S65pys5qyh5a6e546wL+WuoeafpeaJp+ihjOe7k+adn++8jOS4jeS7o+ihqOWFqOmHj+mmluasoemAmui/h+aIluenkeWtpue7k+iuuuW3suWkjeaguO+8m+WOhuWPskIwMeS7jeWksei0peOAgiIsDQogICJsaW1pdGF0aW9ucyI6IFsNCiAgICAi5pei5pyJQjAx5Ya757uT6K6h5YiS6Ieq5qOA5aSx6LSl5pyq5pS55YaZ77yb5YWo6YeP6aaW6L2u5LiO5a6a5ZCR5aSN6aqM5YiG5Yir5L+d55WZ77yM5pyq6YeN5paw5omn6KGM5pW06L2u5YWo57u/44CCIiwNCiAgICAi5rqQ56CB5bel5L2c5qCR5ZCr5LmL5YmN5aSa6L2u5pyq5o+Q5Lqk5L+u5pS577yM5Lul5pys5qyh5b+r54Wn5a6a5L2N77yb5pyq5o+Q5LqkR2l05oiW5Y+R5biD44CCIiwNCiAgICAi5peg5pen5rWB56iL5ZCM6aKY5a6e6ZmFQUnogJfml7Yv6LSo6YeP5a+554Wn77yM5LiN6IO95a6j56ew5oC75L2T5qOA57Si6LSo6YeP5oiW5oCn6IO95o+Q5Y2H44CCIiwNCiAgICAi5LiH5p2h6KeE5qih5pqC57yT77yM5Lq65bel55yf5a6e5Lia5Yqh5Y+K56ys5LqM54mp55CG5py65pyq6aqM5pS277yb5pys5qyh5peg5qih5Z6L5oiW5L6d6LWW5Y+Y5pu044CCIg0KICBdLA0KICAicGFyZW50X3J1bl9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfbW9kdWxlX2lkcyI6IFtdLA0KICAicmVsYXRlZF9yZXNlYXJjaF9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfZGF0YXNldF9pZHMiOiBbXSwNCiAgInJldmlldyI6IHsNCiAgICAic3RhdHVzIjogIm5vdC1yZXZpZXdlZCIsDQogICAgInJldmlld2VyIjogbnVsbCwNCiAgICAiZGF0ZSI6IG51bGwNCiAgfSwNCiAgInNlbnNpdGl2aXR5IjogImludGVybmFsIg0KfQ0K",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260912T211413Z-6272D2E02162",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "统一工作流与跨对象阅读入口实施及一致性验证",
+    "keywords": [
+      "统一工作流",
+      "work-loop",
+      "阅读记录",
+      "跨对象经验",
+      "Skill一致性",
+      "旧数据保护"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-12T21:14:13Z",
+    "started_at": "2026-09-12T21:14:13Z",
+    "ended_at": "2026-09-12T22:22:12.550512+00:00",
+    "owner": "Codex",
+    "question": "统一所有Owner的工作与记录入口，并审查Skill、代码接口、工作流、文档和旧数据升级保护是否连贯。",
+    "hypotheses": [],
+    "inputs": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/source.zip",
+        "sha256": "18a9a81715c3959b89be181c1e324d0bcd57be09e00ca96bdd24fc4cfc4ade3b",
+        "role": "input",
+        "registered_at": "2026-09-12T22:22:14.150000Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/source-fingerprints.json",
+        "sha256": "5dbabdeec3346186c009bfba8b24e9f207e8752a16f5450ff1db4827309f7354",
+        "role": "input",
+        "registered_at": "2026-09-12T22:22:14.162002Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/before.zip",
+        "sha256": "c6845e17337266534fbb6a8895d2a98c31b26d4d8879196d6fcea6c2ee7c2536",
+        "role": "input",
+        "registered_at": "2026-09-12T22:22:14.172507Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/before-manifest.json",
+        "sha256": "df22630db65f3981ea2a8ce544f3ed17cdd6ea006feed2c970362d5661c794a3",
+        "role": "input",
+        "registered_at": "2026-09-12T22:22:14.184652Z"
+      }
+    ],
+    "parameters": {},
+    "code": {
+      "commit": "fa9de29c0fa4cd8fbc20c599ee7fd3397a919865",
+      "dirty": true,
+      "snapshot_manifest": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/source-fingerprints.json"
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": "5bc0ebab661be8031755b4852953ae9dc054f451ab18def291f5eed078d3d1e4"
+    },
+    "random_seeds": [],
+    "quality_results": [
+      {
+        "check": "backend_full_first_execution",
+        "status": "failed",
+        "details": "598项，5处失败；原日志保留，3个受影响方法的4处失败已定向复验，既有B01仍失败。"
+      },
+      {
+        "check": "changed_behavior_and_compatibility",
+        "status": "passed",
+        "details": "阅读15项、八Owner参数化1项、Owner接口2项及全量相关案例；实际读取/权限/预算/只读边界保留。"
+      },
+      {
+        "check": "windows_setup_upgrade_restore",
+        "status": "passed",
+        "details": "18项不同检查获通过证据：17项回归通过，真实setup完整链路修正换行预期后1项通过。"
+      },
+      {
+        "check": "frontend",
+        "status": "passed",
+        "details": "38组件、16个不同普通浏览器场景、类型检查/构建通过；原失败与修正复验分别保存。"
+      },
+      {
+        "check": "actual_ai",
+        "status": "passed",
+        "details": "独立AI合成场景自查通过，包含公开保存/完整读取/Run失败/检查点/跨进程；非人工认可或真实业务检索质量。"
+      },
+      {
+        "check": "catalog_and_docs",
+        "status": "passed",
+        "details": "r71共655登记、40基线；六文档与9方法逐项审查，工作区0错误/8既有警告。"
+      }
+    ],
+    "metrics": {},
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/RESULTS.md",
+        "sha256": "fae8e6f8cffd11d1af23cbbbb81feec0217b5739dc0c373fe0114d57622c576e",
+        "role": "artifact",
+        "registered_at": "2026-09-12T22:22:14.195654Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/verification.zip",
+        "sha256": "c538795248c05e732be08922ba0a1c2ecbf82164da6019e4807770db3cef0071",
+        "role": "artifact",
+        "registered_at": "2026-09-12T22:22:14.206156Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/ai-forward.zip",
+        "sha256": "d2293042ef7d7205a4823fe771115031ad3dd422b3c46ccd056152665dd8d4c1",
+        "role": "artifact",
+        "registered_at": "2026-09-12T22:22:14.217358Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/skill-size.json",
+        "sha256": "7fce0b11300ec571e951e52db322f47dcf1475437171e48e823aa5920b257bc3",
+        "role": "artifact",
+        "registered_at": "2026-09-12T22:22:14.229356Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "统一工作流与阅读可见入口已实现，本次相关软件失败修正后复验通过。Run succeeded表示本次实现/审查执行结束，不代表全量首次通过或科学结论已复核；历史B01仍失败。",
+    "limitations": [
+      "既有B01冻结计划自检失败未改写；全量首轮与定向复验分别保留，未重新执行整轮全绿。",
+      "源码工作树含之前多轮未提交修改，以本次快照定位；未提交Git或发布。",
+      "无旧流程同题实际AI耗时/质量对照，不能宣称总体检索质量或性能提升。",
+      "万条规模暂缓，人工真实业务及第二物理机未验收；本次无模型或依赖变更。"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-12T22:22:14.306571Z"
+}

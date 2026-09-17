@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+  "document": {
+    "record_id": "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+    "revision": 5,
+    "title": "子Agent材料阅读与有界笔记交接完整报告",
+    "document_type": "research_process",
+    "purpose": "复现阅读上下文隔离、主侧交接及边界验证，并区分历史默认low与当前可编辑模型偏好",
+    "audience": "框架开发者和AI工作流使用者",
+    "scope": "仅2026-09-16子Agent材料阅读与有界笔记交接，不重新认可历史业务结论；含本轮能力偏好、旧设置无损兼容与宿主传递扩展。；追加真实浮点材料阅读的默认预算失败和放宽预算计时诊断，不含性能优化实施。；新增2026-09-16至17阅读笔记Markdown派生副本、合法会话发现、当前笔记与定向证据/导航修复及验证；不宣称性能优化完成。；追加每路10/重排30逐笔预算trace及旧总账推断校正，不含产品修复。",
+    "common_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 2,
+        "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "850077171bea9e4d4b5c585ce9354058830b93a7c87f7bedeeab705043425183",
+        "target_id": "MEM-39924234-1937-5c36-bbf2-cf8d9600b0c9",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 3,
+        "sha256": "09d72b77690d58ddd07ad5c86b84f970de0d8b2e7ee6e0a178aee1614f8c1472",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "target_kind": "record"
+      }
+    ],
+    "section_refs": [
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 4,
+        "sha256": "62ce88c050451a7a031bff6b9d9a59efc72fa4215f7a683df5fc78dabcfb2b1e",
+        "target_id": "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "target_kind": "record"
+      },
+      {
+        "locator": "",
+        "relation": "references",
+        "revision": 1,
+        "sha256": "05247c81db6408eac446df9d4e4d8f153b0dfb8d60e86ec1edcb4d586333760c",
+        "target_id": "MEM-a042188a-244a-5d15-843e-359b7d7f87f6",
+        "target_kind": "record"
+      }
+    ]
+  },
+  "changes": [
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-a042188a-244a-5d15-843e-359b7d7f87f6"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "revision": 1,
+        "sha256": "039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "revision": 2,
+        "sha256": "72e03d5cec22fe9581650625d2043750cd44e4a0763bd07423150cf64eba9904",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-a042188a-244a-5d15-843e-359b7d7f87f6"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "revision": 1,
+        "sha256": "1cc7a9739dc17bf618ca3d9a43539af379f6d5828078d9d2c65227ed9709d05a",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "revision": 2,
+        "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-a042188a-244a-5d15-843e-359b7d7f87f6"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "MEM-7df3c088-504b-532d-ad74-b459bed75ba4"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+        "revision": 1,
+        "sha256": "29085339b53308fe3d8ef18b5234b06b3c0707db4f5f4a951396cdd8f815114f",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+        "revision": 2,
+        "sha256": "c560c4436ab6a9d905e63ac3c7afe853f5b63c3d451e1716343b1e641ff7108f",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-a042188a-244a-5d15-843e-359b7d7f87f6"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "revision": 1,
+        "sha256": "039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "revision": 2,
+        "sha256": "72e03d5cec22fe9581650625d2043750cd44e4a0763bd07423150cf64eba9904",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-a042188a-244a-5d15-843e-359b7d7f87f6"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "revision": 1,
+        "sha256": "1cc7a9739dc17bf618ca3d9a43539af379f6d5828078d9d2c65227ed9709d05a",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "revision": 2,
+        "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-a042188a-244a-5d15-843e-359b7d7f87f6"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "MEM-7df3c088-504b-532d-ad74-b459bed75ba4"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+        "revision": 1,
+        "sha256": "29085339b53308fe3d8ef18b5234b06b3c0707db4f5f4a951396cdd8f815114f",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+        "revision": 2,
+        "sha256": "c560c4436ab6a9d905e63ac3c7afe853f5b63c3d451e1716343b1e641ff7108f",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-a042188a-244a-5d15-843e-359b7d7f87f6"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "revision": 2,
+        "sha256": "1df804130728e6619ebfb2c63920cb51e4875769265ad7b00fac3d7add52efe9",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "revision": 3,
+        "sha256": "09d72b77690d58ddd07ad5c86b84f970de0d8b2e7ee6e0a178aee1614f8c1472",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-a042188a-244a-5d15-843e-359b7d7f87f6"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "revision": 1,
+        "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "revision": 3,
+        "sha256": "09d72b77690d58ddd07ad5c86b84f970de0d8b2e7ee6e0a178aee1614f8c1472",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "revision": 1,
+        "sha256": "039bf59d7e92f80067b2c299f0c696719ae418c7adce5b3213f5557bd57c648f",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "revision": 2,
+        "sha256": "72e03d5cec22fe9581650625d2043750cd44e4a0763bd07423150cf64eba9904",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "revision": 1,
+        "sha256": "1cc7a9739dc17bf618ca3d9a43539af379f6d5828078d9d2c65227ed9709d05a",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-472e4d18-f18d-5d13-84e3-28d3d5ae211a",
+        "revision": 2,
+        "sha256": "e421bec016052de61a0a00987c55a1de43af44f4a5b96939ba0b258f0ddf115f",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "MEM-afa98edf-0a9e-57cd-aba6-56d9c3681152",
+        "MEM-7df3c088-504b-532d-ad74-b459bed75ba4"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+        "revision": 1,
+        "sha256": "29085339b53308fe3d8ef18b5234b06b3c0707db4f5f4a951396cdd8f815114f",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-7df3c088-504b-532d-ad74-b459bed75ba4",
+        "revision": 2,
+        "sha256": "c560c4436ab6a9d905e63ac3c7afe853f5b63c3d451e1716343b1e641ff7108f",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "revision": 2,
+        "sha256": "1df804130728e6619ebfb2c63920cb51e4875769265ad7b00fac3d7add52efe9",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "revision": 3,
+        "sha256": "09d72b77690d58ddd07ad5c86b84f970de0d8b2e7ee6e0a178aee1614f8c1472",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    },
+    {
+      "code": "NEW_REVISION",
+      "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+      "section_ids": [
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab"
+      ],
+      "path": [
+        "MEM-bd121869-a0b9-59e3-af23-8e8675374a63",
+        "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+        "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b"
+      ],
+      "before_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "revision": 1,
+        "sha256": "cfdba83777306e1e25f23da38cccfea95bfddfa04cf47c3911bf63779f3f6c50",
+        "relation": "references"
+      },
+      "after_ref": {
+        "target_kind": "record",
+        "target_id": "MEM-1b419e02-3f69-5690-a1d5-1d5f0bdd588b",
+        "revision": 3,
+        "sha256": "09d72b77690d58ddd07ad5c86b84f970de0d8b2e7ee6e0a178aee1614f8c1472",
+        "relation": "references"
+      },
+      "relation_type": "evidence",
+      "requires_review": true,
+      "message": "固定依据已有新修订，原稿未自动替换"
+    }
+  ],
+  "affected_section_ids": [
+    "MEM-50f66b7c-7953-5715-8b70-5ae7705176ab",
+    "MEM-a042188a-244a-5d15-843e-359b7d7f87f6"
+  ],
+  "uncovered_unit_ids": [],
+  "scientific_review": "not_evaluated",
+  "basis_heads": {
+    "PRJ-ARCHITECTURE-EVOLUTION": "COM-d6b78fdc-f63e-4517-96e5-9f73dbe3a888"
+  },
+  "metrics": {
+    "elapsed_ms": 10272.95,
+    "inventory_owners": 43,
+    "read_memory_owners": 1,
+    "parsed_owner_records": 62,
+    "resolved_sections": 7
+  },
+  "writes": 0
+}

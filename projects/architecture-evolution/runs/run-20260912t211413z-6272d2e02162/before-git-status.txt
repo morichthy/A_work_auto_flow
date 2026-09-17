@@ -1,0 +1,51 @@
+ M "AI\346\243\200\347\264\242\346\200\235\350\267\257"
+ M ARCHITECTURE.md
+ M README.md
+ M automation/scripts/material_query/api.py
+ M automation/scripts/material_query/assembly.py
+ M automation/scripts/material_query/budget.py
+ M automation/scripts/material_query/cli.py
+ M automation/scripts/material_query/coordinator.py
+ M automation/scripts/material_query/history_search.py
+ M automation/scripts/memory/index.py
+ M automation/scripts/memory/search.py
+ M automation/testing/catalog.json
+ M automation/tests/test_material_recall.py
+ M automation/tests/test_memory_documents_v3.py
+ M automation/tests/upgrade_fixture.py
+ M automation/workflows/material-query/SKILL.md
+ M automation/workflows/research-loop/SKILL.md
+ M automation/workflows/workspace-context/SKILL.md
+ M context/NOW.md
+ M context/generated/run-index.json
+ M context/generated/workspace-index.md
+ M docs/CORE.md
+ M docs/DEVELOPMENT_HISTORY.md
+ M docs/DOCUMENTATION_MAINTENANCE.md
+ M docs/MATERIAL_QUERY.md
+ M docs/MEMORY_USAGE.md
+ M docs/README.md
+ M docs/UPGRADE_TESTING.md
+ M docs/design/representation-query-v0.2/RUNTIME_STATUS.md
+ M projects/architecture-evolution/README.md
+ M projects/architecture-evolution/project.json
+ M research/floating-point-summation/memory/commits/COM-3a8bbf38-bea9-4cea-90c9-e363107365fe/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json
+ M research/floating-point-summation/memory/commits/COM-9aac6b89-542c-4e2f-9a8d-01a6a0cfee63/records/MEM-4acc73bb-59c7-560d-9415-fd42e9dcaa2d.json
+ M research/floating-point-summation/memory/commits/COM-ec5e1280-6b13-41de-a4f6-435a2dd3990d/records/MEM-58fd845a-05a5-516c-8bbe-c88d887cbb91.json
+ M retrieval/sources.json
+?? automation/scripts/material_query/reading.py
+?? automation/scripts/material_query/recall.py
+?? automation/tests/test_material_dense_real.py
+?? automation/tests/test_reading_workflow.py
+?? automation/ui/workbench-assets/assets/index-lnp_ARap.js
+?? docs/AI_READING.md
+?? docs/MEMORY_STORAGE_EXPLAINED.md
+?? projects/architecture-evolution/plans/ai-experience-context-skill-design-20260911.md
+?? projects/architecture-evolution/plans/ai-reading-workflow-20260913.md
+?? projects/architecture-evolution/plans/memory-storage-explained-20260913.md
+?? projects/architecture-evolution/plans/retrieval-foundation-20260912.md
+?? projects/architecture-evolution/plans/unified-workflow-skills-20260913.md
+?? projects/architecture-evolution/runs/run-20260912t021858z-b6e2da1386d3/
+?? projects/architecture-evolution/runs/run-20260912t195347z-39ffe0ee7711/
+?? projects/architecture-evolution/runs/run-20260912t211413z-6272d2e02162/
+?? research/ai-experience-context/

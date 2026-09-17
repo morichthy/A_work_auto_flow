@@ -1,0 +1,57 @@
+# 文档索引
+
+[统一工作公共动作](WORKFLOW_ACTIONS.md)：Owner选择、用户可见工作上下文清单的存放/维护，以及执行、保存、续接的真实命令；主入口work-loop。
+
+现行说明由六份短文档组成：[用户入口](../README.md)、[架构](../ARCHITECTURE.md)、[核心功能](CORE.md)、本索引、[维护约定](DOCUMENTATION_MAINTENANCE.md)、[测试选择](TESTING.md)。按影响读取维护，全局整合、发布或用户要求全面审查时前后完整阅读；另有 [开发决策与演进记录](DEVELOPMENT_HISTORY.md)，全局方案前完整读取、局部方案定位相关决定，开发后维护，解释为什么采用当前方案及历史错误。下列细节按本次影响打开。
+
+本页位于 `docs/README.md`，链接相对该目录书写：例如 `MEMORY_USAGE.md` 实际是工作区的 `docs/MEMORY_USAGE.md`，`../README.md` 才是根 README。下表是已有功能手册的按需导航，不是全部必读文件。`context/NOW.md` 给当前任务入口，计划和 Run 保存详细进度与证据。
+
+## 现行细节：按问题查
+
+| 需要知道什么 | 维护位置 |
+|---|---|
+| 开发方案须守住哪些架构边界 | [ARCHITECTURE](../ARCHITECTURE.md#稳定设计约束)：依赖、状态、性能、身份、权威与语义分工；同页维护实际模块影响及未完成项 |
+| 快速理解查询、关联、上下文、AI 记录与本地保存 | [CORE](CORE.md) 用伪代码和必要解释说明核心流程，提供实现文件索引；细节按需读取 |
+| 记录定义、技术块、章节和双文稿 | [RESEARCH_RECORDING](RESEARCH_RECORDING.md)；[MEMORY_USAGE](MEMORY_USAGE.md)、[MEMORY_REQUESTS](MEMORY_REQUESTS.md) 给操作/请求 |
+| 用实体文件理解记录、Run、索引与AI填写可靠性 | [MEMORY_STORAGE_EXPLAINED](MEMORY_STORAGE_EXPLAINED.md)：关键字段、三表查询示例与维护触发；作为CORE按需补充 |
+| 对象、Run 归属和原始材料登记 | [OBJECT_RUN_STORAGE](OBJECT_RUN_STORAGE.md)、[RUN_CAPTURE](RUN_CAPTURE.md) |
+| 导入已有资料、来源变化与历史位置 | [EXISTING_MATERIALS](EXISTING_MATERIALS.md) |
+| 材料内容来源、正文块/混合召回、固定展开、兼容表示、联想与维护 | [MATERIAL_QUERY](MATERIAL_QUERY.md)；[KNOWLEDGE_FACETS](KNOWLEDGE_FACETS.md) 定义可选知识分类 |
+| AI多路检索、阅读理解、必要细节与问题续接 | [AI_READING](AI_READING.md)：reading CLI/HTTP、工作记录存储、范围预算与补查控制 |
+| 中英等义查询、领域术语/关联扩展和词库维护 | [QUERY_TERMS](QUERY_TERMS.md)：用户词库、公共种子、出处、单跳扩展与升级补缺；请求字段见AI_READING |
+| 旧材料检索与规范记忆检索 | [RETRIEVAL](RETRIEVAL.md)、[MEMORY_USAGE](MEMORY_USAGE.md) |
+| 材料图、正式证据与观察 | [MATERIAL_RELATIONS](MATERIAL_RELATIONS.md)、[EVIDENCE_CONTROLS](EVIDENCE_CONTROLS.md)、[EVIDENCE_VIEW_MONITOR](EVIDENCE_VIEW_MONITOR.md) |
+| 工作台技术栈、扩展、生成类型和资源 | [WORKBENCH_DEVELOPMENT](WORKBENCH_DEVELOPMENT.md) |
+| 测试点与基线维护、执行及实际 AI 场景 | [TESTING](TESTING.md) 定义准入/复审/退出；[catalog](../automation/testing/catalog.json) 保存逐项依据；[TESTING_REFERENCE](TESTING_REFERENCE.md)、[AI 模板目录](../automation/testing/templates/) 给执行入口 |
+| Windows 安装、升级、恢复和离线发布 | [SETUP_WORKBENCH](SETUP_WORKBENCH.md)、[UPGRADE_TESTING](UPGRADE_TESTING.md)、[WINDOWS_PORTABILITY](WINDOWS_PORTABILITY.md)、[DEPENDENCY_RELEASE](DEPENDENCY_RELEASE.md) |
+| 访问范围、外部系统与原件边界 | [SECURITY_AND_DATA_BOUNDARIES](../governance/SECURITY_AND_DATA_BOUNDARIES.md) |
+
+## 精确契约与运行代码
+
+| 内容 | 权威入口 |
+|---|---|
+| 规范记忆字段 | [memory-v4.schema.json](../automation/schemas/memory-v4.schema.json)、[memory/contracts.py](../automation/scripts/memory/contracts.py)；同目录 v1–v3 保留原契约并兼容读取 |
+| 材料查询字段、实际动作 | [material_query/contracts.py](../automation/scripts/material_query/contracts.py)、[api.py](../automation/scripts/material_query/api.py)、[foundation.py](../automation/scripts/material_query/foundation.py) |
+| 生成产物 | `automation/schemas/` 与 `automation/frontend/src/generated/`；从真源生成，不分别改定义 |
+| 材料查询旧接口继承与适配限制 | [RUNTIME_STATUS](design/representation-query-v0.2/RUNTIME_STATUS.md) 是持续核对的映射；旧设计的“应当”不等于当前完整实现 |
+| 图 API 契约 | [graph.schema.json](../automation/frontend/contracts/graph.schema.json)；图版本与记忆记录版本、查询 v0.2 各自独立 |
+| Skill | [automation/workflows](../automation/workflows/README.md) 的7个活跃方法源；默认发现7项，旧名已退休；开发用 [development-checks](../automation/workflows/development-checks/SKILL.md)，按影响核对适用性、命令和登记；全局整合/发布全面审查，处置规则见 [文档维护](DOCUMENTATION_MAINTENANCE.md) |
+
+## 历史与固定资料：按类原地保留
+
+下表覆盖 `docs` 的历史目录和零散旧稿；它们不进入开发必读链。保留路径可避免破坏固定引用、发行清单和 fixture 指纹。新任务不再往 `docs` 增加“本轮计划”或平行的现行版本。
+
+| 位置/文件族 | 定位及替代入口 |
+|---|---|
+| [representation-query-v0.2](design/representation-query-v0.2/README.md) | README 作历史导航，RUNTIME_STATUS 维护实际适配；CONTRACTS、contracts.py、IMPLEMENTATION、WORKBENCH、TEST_DESIGN、DEVELOPMENT_READINESS、INHERITANCE 及 JSON/检查脚本保留设计/继承时点。现行总定义见 CORE，执行字段见运行代码 |
+| [baseline-v0.1](design/representation-query-v0.2/baseline-v0.1/README.md)（含 CORE/FUNCTIONS/DATATYPES/SPEC 等） | 冻结公共基线及指纹清单；不修改其正文来追赶实现。现行核心功能见 [CORE](CORE.md) |
+| [system-memory](design/system-memory/STATUS.md) | 01–05、IMPLEMENTATION、L0-L4-REFACTOR、RESEARCH-REPORT-COMPOSITION 为阶段设计/验收；STATUS 为历史执行台账；fixtures 与 human-acceptance 是固定合成材料/模板。现行定义见 RESEARCH_RECORDING/运行 schema |
+| [MEMORY_DEVELOPMENT](MEMORY_DEVELOPMENT.md) | 首批 v1 开发历史，当前开发从架构和 MEMORY_USAGE 进入 |
+| `系统记忆模块技术目标讨论稿.md`、`系统记忆模块技术实现计划.md`、`系统记忆模块开发计划.md` | 早期目标/设计/计划；不提供当前字段或下一步任务 |
+| `design/*-2026-09-06.md` | adaptive-context、local-retrieval、materials、workflow 等当日审查，现行规则见对应手册 |
+| `design/*-plan.md` | 算法命名、依赖分发、证据准入/监测、部署、Windows 迁移、工作台关系图的原阶段计划；现行使用见上方手册 |
+| `design/L0_MATERIALS.md`、`design/RESEARCH_DOCUMENTS.md` | L0 与技术文稿的演进设计；现行职责见 RESEARCH_RECORDING、RUN_CAPTURE |
+| `design/ai-assisted-rd-workspace-practices.md`、`design/workspace-rules-reference.md` | 方法讨论与可选工程参考，不新增每次开发必做项 |
+| [templates/](templates/) | 通用文档与证据模板；不是运行事实或测试结果 |
+
+今后的当前说明仍放稳定路径，历史理由和阶段计划放所属 Project/Run。新增文档时明确属于哪一行并更新入口；原地历史分类不等于删除历史，也不声称自动归档程序已经实现。维护规则见 [DOCUMENTATION_MAINTENANCE](DOCUMENTATION_MAINTENANCE.md)。

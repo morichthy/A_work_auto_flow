@@ -1,0 +1,194 @@
++{
+  "metadata": {
+    "model": "gpt-5.6-terra",
+    "reasoning_effort": "low",
+    "actor": "reader",
+    "run": "run-20260916t085438z-3e40d5ed8471",
+    "session_id": "RS-427b0ea5-0b73-4ba7-9417-bede5b623fc5",
+    "latest_revision": 1,
+    "status": "budget_exhausted_before_candidate_delivery",
+    "limitations": "外层间隔含宿主编排、排队与工具传输，不能解释为纯模型推理；首次错误路径、首次请求验证拒绝与所有poll保留。"
+  },
+  "outer_events": [
+    {
+      "label": "host_first_timestamp",
+      "action": "Date.now",
+      "start_ms": 1789549720893,
+      "end_ms": 1789549720893
+    },
+    {
+      "label": "mark_reader_started",
+      "action": "driver mark reader_started --actor reader",
+      "start_ms": 1789549720893,
+      "end_ms": 1789549722209,
+      "process_wall_seconds": 0.3761543,
+      "session_id": null,
+      "exit_code": 1
+    },
+    {
+      "label": "locate_and_context",
+      "action": "read-only shell",
+      "start_ms": 1789549730655,
+      "end_ms": 1789549732131,
+      "process_wall_seconds": 0.2192399,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "read_context",
+      "action": "read-only shell",
+      "start_ms": 1789549730655,
+      "end_ms": 1789549732131,
+      "process_wall_seconds": 0.23311,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "read_skill",
+      "action": "read-only shell",
+      "start_ms": 1789549730655,
+      "end_ms": 1789549732131,
+      "process_wall_seconds": 0.2485669,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "read_query_terms",
+      "action": "read-only shell",
+      "start_ms": 1789549740069,
+      "end_ms": 1789549741557,
+      "process_wall_seconds": 0.2113565,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "read_ai_reading",
+      "action": "read-only shell",
+      "start_ms": 1789549740069,
+      "end_ms": 1789549741557,
+      "process_wall_seconds": 0.262541,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "read_driver",
+      "action": "read-only shell",
+      "start_ms": 1789549740069,
+      "end_ms": 1789549741557,
+      "process_wall_seconds": 0.240027,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "mark_reader_started_correct_path",
+      "action": "driver mark reader_started --actor reader",
+      "start_ms": 1789549747490,
+      "end_ms": 1789549748839,
+      "process_wall_seconds": 0,
+      "session_id": null,
+      "exit_code": 1
+    },
+    {
+      "label": "mark_reader_started_escalated",
+      "action": "driver mark reader_started --actor reader",
+      "start_ms": 1789549754275,
+      "end_ms": 1789549759485,
+      "process_wall_seconds": 0.4083631,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "reading_view_initial",
+      "action": "driver call reading-view empty.json --actor reader",
+      "start_ms": 1789549766285,
+      "end_ms": 1789549772955,
+      "process_wall_seconds": 1.9528263,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "read_latency_state",
+      "action": "read-only shell",
+      "start_ms": 1789549781261,
+      "end_ms": 1789549782625,
+      "process_wall_seconds": 0.1861059,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "create_requests_directory",
+      "action": "New-Item Run latency requests",
+      "start_ms": 1789549809084,
+      "end_ms": 1789549813014,
+      "process_wall_seconds": 0.2762325,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "construct_recall_request",
+      "action": "apply_patch request JSON",
+      "start_ms": 1789549828680,
+      "end_ms": 1789549834227
+    },
+    {
+      "label": "reading_recall",
+      "action": "driver call reading-recall recall.json --actor reader",
+      "start_ms": 1789549840807,
+      "end_ms": 1789549848268,
+      "process_wall_seconds": 2.0538041,
+      "session_id": null,
+      "exit_code": 1
+    },
+    {
+      "label": "repair_recall_request",
+      "action": "apply_patch remove untranslated protected term",
+      "start_ms": 1789549854899,
+      "end_ms": 1789549861591
+    },
+    {
+      "label": "reading_recall_retry",
+      "action": "driver call reading-recall recall.json --actor reader",
+      "start_ms": 1789549972667,
+      "end_ms": 1789550022164,
+      "process_wall_seconds": 30.0103007,
+      "session_id": 14304,
+      "exit_code": null
+    },
+    {
+      "label": "reading_recall_retry_poll_1",
+      "action": "poll exec session 14304",
+      "start_ms": 1789550032296,
+      "end_ms": 1789550062308,
+      "process_wall_seconds": 30.0114102,
+      "session_id": 14304,
+      "exit_code": null
+    },
+    {
+      "label": "reading_recall_retry_poll_2",
+      "action": "poll exec session 14304",
+      "start_ms": 1789550068729,
+      "end_ms": 1789550072960,
+      "process_wall_seconds": 4.217241,
+      "session_id": 14304,
+      "exit_code": 1
+    },
+    {
+      "label": "mark_reader_finished",
+      "action": "driver mark reader_finished --actor reader",
+      "start_ms": 1789550084672,
+      "end_ms": 1789550089603,
+      "process_wall_seconds": 0.3792974,
+      "session_id": null,
+      "exit_code": 0
+    },
+    {
+      "label": "create_raw_directory",
+      "action": "New-Item Run latency raw",
+      "start_ms": 1789550108558,
+      "end_ms": 1789550115024,
+      "process_wall_seconds": 0.2234373,
+      "session_id": null,
+      "exit_code": 0
+    }
+  ]
+}

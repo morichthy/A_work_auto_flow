@@ -1,0 +1,23 @@
+{
+  "spawn_sent_ms": 1789549683828,
+  "events": [
+    {
+      "label": "prepare",
+      "sent_ms": 1789549232557,
+      "returned_ms": 1789549241553,
+      "chunk_id": "00c84e",
+      "wall_time_seconds": 1.8043913,
+      "exit_code": 1,
+      "original_token_count": 497
+    },
+    {
+      "label": "prepare_formal",
+      "sent_ms": 1789549670209,
+      "returned_ms": 1789549679689,
+      "chunk_id": "f703df",
+      "wall_time_seconds": 4.0714845,
+      "exit_code": 0,
+      "original_token_count": 1575
+    }
+  ]
+}

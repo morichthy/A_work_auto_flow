@@ -1,0 +1,47 @@
+{
+  "action": "reading-configure",
+  "request": {
+    "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+    "expected_revision": 5,
+    "request_id": "ai-assoc-configure",
+    "strategy": "associative",
+    "association": {
+      "enabled": true,
+      "max_rounds": 3
+    },
+    "association_text": "过零检测 阈值波动 采样时刻误差 phase_case"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "strategy": "associative",
+      "association": {
+        "enabled": true,
+        "max_rounds": 3
+      },
+      "association_text": "过零检测 阈值波动 采样时刻误差 phase_case",
+      "session_id": "RS-123e4567-e89b-42d3-a456-426614174000",
+      "revision": 6
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 234,
+      "read_bytes": 70769,
+      "output_chars": 144,
+      "candidates": 0,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  }
+}

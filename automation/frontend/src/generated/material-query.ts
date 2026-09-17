@@ -191,6 +191,78 @@ export interface Candidate {
   owner_type?: string | null;
 }
 
+export interface DiscoveryReadiness {
+  status: "ready" | "unavailable" | "incomplete" | "insufficient";
+  reasons: Array<string>;
+  projection_version?: string | null;
+}
+
+export interface OwnerScreeningWindow {
+  text: string;
+  refs: Array<FixedRef>;
+  projection_id?: string | null;
+  source_level?: string | null;
+  source_kind?: string | null;
+  channels?: Array<string>;
+  locator?: string | null;
+  matched_protected_terms?: Array<string>;
+}
+
+export interface OwnerScreeningCoverage {
+  complete: boolean;
+  gaps: Array<string>;
+}
+
+export interface OwnerAssessment {
+  owner_id: string;
+  status: "relevant" | "uncertain" | "irrelevant";
+  reason: string;
+  packet_digest: string;
+}
+
+export interface OwnerAssessmentBatchRequest {
+  session_id: string;
+  expected_revision: number;
+  request_id: string;
+  assessments: Array<OwnerAssessment>;
+}
+
+export interface OwnerFulltextRecallRequest {
+  session_id: string;
+  expected_revision: number;
+  request_id: string;
+}
+
+export interface OwnerScreeningPacket {
+  owner_id: string;
+  windows: Array<OwnerScreeningWindow>;
+  coverage: OwnerScreeningCoverage;
+  packet_digest: string;
+  retrieval_source: "discovery" | "fulltext_compensation";
+  title?: string | null;
+  overview?: string | null;
+  assessment?: OwnerAssessment | null;
+}
+
+export interface OwnerRecallReceipt {
+  owner_packets: Array<OwnerScreeningPacket>;
+  discovery: DiscoveryReadiness;
+  fulltext_compensation_available: boolean;
+  fulltext_compensation_reason: string;
+  next_action: string;
+}
+
+export interface OwnerAssessmentReceipt {
+  session_id: string;
+  revision: number;
+  assessments: Array<OwnerAssessment>;
+  relevant_owner_ids: Array<string>;
+  next_action: "synthesize" | "read" | "page";
+  fulltext_compensation_available: boolean;
+  fulltext_compensation_reason: string;
+  gaps: Array<string>;
+}
+
 export interface SearchReceipt {
   query_id: string;
   request_digest: string;

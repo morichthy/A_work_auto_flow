@@ -1,0 +1,86 @@
+{
+  "actor": "reader",
+  "action": "reading-note",
+  "request": {
+    "candidate_id": "RC-afe5616bf2c6abba6cfd4e04",
+    "summary": "可作为合成验收中的直接方法依据：先校正NS4摄氏显示值，再将修正温度平移到绝对温标。方法仅在已固定的NS4、干燥空气、热平衡、相同校准版本及修正温度范围内复用；这不是现实工程结论。",
+    "connection": {
+      "kind": "direct",
+      "explanation": "材料直接给出Northstar NS4的换算顺序、变量单位、边界和不确定度处理。",
+      "chain": [
+        "以同一校准版本的b和g校正原始摄氏显示x，得到theta。",
+        "仅在theta满足材料规定范围且工况满足NS4、干燥空气与热平衡时，才将theta加273.15 K得到T。",
+        "b与g若相关，按完整协方差矩阵传播不确定度；协方差缺失时保留缺口。"
+      ]
+    },
+    "details": [
+      {
+        "text": "x为原始摄氏显示值，b为°C零点偏差，g为无量纲比例系数；theta为修正温度，T为绝对温度。温差1°C与1K数值相同，但绝对零点不同。",
+        "reason": "变量、量纲与温标零点是避免错误换算的必要定义。",
+        "block_ids": [
+          "definitions"
+        ]
+      },
+      {
+        "text": "换算顺序为 theta=(x-b)/g，T=theta+273.15 K；不能将273.15与x一起除以g。",
+        "reason": "保留公式与明确反公式，避免缩放绝对零点。",
+        "block_ids": [
+          "method"
+        ]
+      },
+      {
+        "text": "适用范围：NS4、干燥空气、热平衡、theta在[-10,60]°C，且b、g来自同一校准版本；边界针对theta而非x。",
+        "reason": "方法复用必须同时满足对象、介质、平衡状态、范围和版本条件。",
+        "block_ids": [
+          "conditions"
+        ]
+      },
+      {
+        "text": "b和g有非零协方差时，按梯度和完整协方差矩阵计算u²=JΣJᵀ并保留交叉项。",
+        "reason": "独立平方和会遗漏相关性导致的误差贡献。",
+        "block_ids": [
+          "counterexample"
+        ]
+      }
+    ],
+    "uncertainties": [
+      "缺协方差时不得假定为零，不能给出完整不确定度。",
+      "热瞬态、液体浸入、NS7或缺校准版本时均不能直接复用。",
+      "材料明确仅用于合成验收，不支持现实测量或工程有效性认可。"
+    ],
+    "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+    "expected_revision": 3,
+    "request_id": "9552b7c4-b22c-444b-84f1-1e2f451d30d4"
+  },
+  "response": {
+    "status": "ok",
+    "value": {
+      "saved": true,
+      "candidate_id": "RC-afe5616bf2c6abba6cfd4e04",
+      "link": "C:/Users/livky/AppData/Local/Temp/delegated-reading-ai-ksdtl2fg/workspace/research/mq-a/memory/commits/COM-21abaedd-8c12-5355-b57c-c200442da479/records/MEM-b77bc86f-d704-5819-bb50-577953b915ee.json",
+      "session_id": "RS-63e9e661-d62e-42b2-a3d7-a7ffd76f0e51",
+      "revision": 4
+    },
+    "code": null,
+    "warnings": [],
+    "issues": [],
+    "consumed": {
+      "wall_ms": 1826,
+      "read_bytes": 824954,
+      "output_chars": 53326,
+      "candidates": 6,
+      "graph_nodes": 0,
+      "graph_edges": 0,
+      "graph_hops": 0,
+      "model_tokens": 0,
+      "model_calls": 0,
+      "model_input_tokens": 0,
+      "model_output_tokens": 0,
+      "rerank_items": 0
+    },
+    "stop_reason": null,
+    "basis": null
+  },
+  "response_serialized_chars": 703,
+  "value_serialized_chars": 343
+}

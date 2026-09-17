@@ -1,0 +1,520 @@
+{
+  "owner": {
+    "schema_version": 1,
+    "owner_id": "RES-R",
+    "owner_type": "research",
+    "native_ref": {
+      "id_field": "research_id",
+      "id_value": "RES-R",
+      "path": "research/topic/research.json"
+    },
+    "memory_home": "research/topic/memory",
+    "adapter_version": 1,
+    "temporary": false,
+    "persisted": true,
+    "title": "SYNTHETIC ONLY",
+    "fingerprint": "9062724f53998a2f88f466c8f0ac50ce66d33e12d439c73494ff8f84001a5a49",
+    "native_data": {
+      "research_id": "RES-R",
+      "title": "SYNTHETIC ONLY",
+      "status": "active",
+      "claims": [],
+      "dependencies": []
+    },
+    "created_at": "2026-09-15T20:47:09.505948Z",
+    "created_by": {
+      "id": "consolidate-results-synthetic-check",
+      "kind": "ai"
+    }
+  },
+  "head": {
+    "commit_id": "COM-c0a2a7d0-b753-4e08-b53a-d795bff84389",
+    "generation": 9,
+    "manifest_hash": "e4a2a0bdbeced2747d0d285f28484e660f0680321706586143487c39a7860af6"
+  },
+  "manifest": {
+    "changed_ids": [
+      "MEM-b1974ffc-172d-5f9a-87f5-019587f49511"
+    ],
+    "commit_id": "COM-c0a2a7d0-b753-4e08-b53a-d795bff84389",
+    "generation": 9,
+    "index_pending": {
+      "fts": true,
+      "generation": 9,
+      "vector": true
+    },
+    "owner_id": "RES-R",
+    "parent_commit_id": "COM-5d289f3c-94b2-48e6-a975-ecfde314c05e",
+    "parent_manifest_hash": "17fadf9cc746f067fd19924a5920b4055d57b0de8616d12d3c3a1a47d551e95b",
+    "pointers": {
+      "checkpoint": null,
+      "goal": null,
+      "policy": null
+    },
+    "record_heads": {
+      "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96": {
+        "commit_id": "COM-4b95af43-e818-40e0-a6fc-2e46cb36dfab",
+        "path": "commits/COM-4b95af43-e818-40e0-a6fc-2e46cb36dfab/records/MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96.json",
+        "record_hash": "887a27b3dffffeffd44f7f5c6cd8ff44702c3ca77fa19f82092b6a99f404538a",
+        "revision": 2
+      },
+      "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54": {
+        "commit_id": "COM-60ad8a6b-9c00-485b-91dc-220864a0713e",
+        "path": "commits/COM-60ad8a6b-9c00-485b-91dc-220864a0713e/records/MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54.json",
+        "record_hash": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+        "revision": 2
+      },
+      "MEM-88937726-da61-5152-ba68-7f076fcb860d": {
+        "commit_id": "COM-5d289f3c-94b2-48e6-a975-ecfde314c05e",
+        "path": "commits/COM-5d289f3c-94b2-48e6-a975-ecfde314c05e/records/MEM-88937726-da61-5152-ba68-7f076fcb860d.json",
+        "record_hash": "a1ad35d3c15cfb6a3c8eebc61f7d93639408a35f9734bcd78bde3725ed41f610",
+        "revision": 2
+      },
+      "MEM-b1974ffc-172d-5f9a-87f5-019587f49511": {
+        "commit_id": "COM-c0a2a7d0-b753-4e08-b53a-d795bff84389",
+        "path": "commits/COM-c0a2a7d0-b753-4e08-b53a-d795bff84389/records/MEM-b1974ffc-172d-5f9a-87f5-019587f49511.json",
+        "record_hash": "e92860797e51c9821180bf9d9e379839000e086072d051e1730e77fd51343aa1",
+        "revision": 2
+      },
+      "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab": {
+        "commit_id": "COM-9d5b3972-bae8-4681-8700-13e1dd64f9e9",
+        "path": "commits/COM-9d5b3972-bae8-4681-8700-13e1dd64f9e9/records/MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab.json",
+        "record_hash": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+        "revision": 1
+      }
+    },
+    "request_ledger": {
+      "03272a95-180a-4524-9201-66e633e89e6c": {
+        "commit_id": "COM-5d289f3c-94b2-48e6-a975-ecfde314c05e",
+        "receipt_hash": "613db258c3fcaf2df0613a3bb5162d4cb6769f24a79c0cfbb8ad74db8af6e3db",
+        "request_hash": "35e3aa3df4f5a41e67967bbe3fd52815960fd8657f60691e189eeb400403003e"
+      },
+      "0c9e47f6-b0dd-489f-a573-cd77f8726f58": {
+        "commit_id": "COM-c0a2a7d0-b753-4e08-b53a-d795bff84389",
+        "receipt_hash": "f92deb34063b8c782893675bb2ba6b201f941834ca8d5cee7f7647ba7aa29b55",
+        "request_hash": "ae7e108d9f37929533e98d68de8b2df5e7011308a6132dadff27c511896da32b"
+      },
+      "36c022e0-2ba3-44b3-891e-d81d138a26be": {
+        "commit_id": "COM-60ad8a6b-9c00-485b-91dc-220864a0713e",
+        "receipt_hash": "08cfc1cbd910701d03c7bf01ab84b02c1b947bc9fe505a2a21971406a775803f",
+        "request_hash": "80542891a0e1db6e8527ec94d94b114b72e8b25a84c82edd76d5abf102ebfc62"
+      },
+      "68bb6397-68cf-493f-bae1-31b481cf2e55": {
+        "commit_id": "COM-94552bf3-9c18-4140-9c24-d33496d324a2",
+        "receipt_hash": "687b4c44f4f862f0a8a9472ca833cd3baba874a34df4e9e1ac9ef981bc463004",
+        "request_hash": "1a30045ecee1db47bd8e51c8d17330ffdb00490a7735edbe981393ac5356bed8"
+      },
+      "7196bed9-bd56-4f42-9915-ba2d84e5edb2": {
+        "commit_id": "COM-9d5b3972-bae8-4681-8700-13e1dd64f9e9",
+        "receipt_hash": "a486517f5a75138f8e32fb7534285b7bf426c93f4c567c47f668695ca9cef566",
+        "request_hash": "a02a73d4e9e1397e5a5cc3d74dec960f8242756ab0f3b15edddb57e560639fbc"
+      },
+      "a256580b-4b9e-4d66-8147-f79950ceadb7": {
+        "commit_id": "COM-51145016-182b-4804-9321-9d4e1189c9bd",
+        "receipt_hash": "2da3ae6bed5d00837707fb6db6fc5d0467a62eeb823f1f556dff37ef91a91267",
+        "request_hash": "dfcc2cd035c6df0f18b74851a63a0a8c931ca82d029a814dbb6471928030d4d6"
+      },
+      "a5285641-32f7-4133-94e7-e144a6930753": {
+        "commit_id": "COM-1be043c7-9f47-45d5-bfa9-9602e44daa9e",
+        "receipt_hash": "ab11c8a6c661c123018cfe7f95a65848ed0b97ee8e88093029f1936e0abe457f",
+        "request_hash": "1c682ecf3bd92072166e6b9db705963b4c276ca494ae041e205b814d7fdf0b87"
+      },
+      "aac92ab6-353a-4a8f-8518-f7203b1e2bd2": {
+        "commit_id": "COM-22e85f1a-398b-440a-b7d4-92d75faab331",
+        "receipt_hash": "cceceb0ba7d7382374d6f6ac672addc4f829bcaa7ddb88b477f9efa4533da9e0",
+        "request_hash": "9e0707bfe022a0c7096789c3215663e1284d29fd0ec98f448eafaf7ad6c3b568"
+      },
+      "b7200ced-c37a-4bed-b1ed-d78615959bcc": {
+        "commit_id": "COM-4b95af43-e818-40e0-a6fc-2e46cb36dfab",
+        "receipt_hash": "d0907776b3b7f60eb3e68b0a726b5aaa1c909ec8a99688a92fd53ceddc5aa5e1",
+        "request_hash": "51edca7e982ad7c90d3f117d9fe6a40ad4d75e0c2b29fdc343541c3abeec686c"
+      }
+    },
+    "schema_version": 1,
+    "source_checks": [
+      {
+        "kind": "owner_access",
+        "owner_id": "RES-R"
+      },
+      {
+        "head": {
+          "commit_id": "COM-5d289f3c-94b2-48e6-a975-ecfde314c05e",
+          "generation": 8,
+          "manifest_hash": "17fadf9cc746f067fd19924a5920b4055d57b0de8616d12d3c3a1a47d551e95b"
+        },
+        "kind": "head",
+        "owner_id": "RES-R"
+      }
+    ]
+  },
+  "records": {
+    "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96": {
+      "body_markdown": "",
+      "change_reason": "更新定义并纳入之前未编排的边界反例",
+      "content_hash": "c3479f7a935bb935c96f571ecf61ac904407ff8dfc892deed06e9a327827d2d0",
+      "created_at": "2026-09-15T20:47:09.813959Z",
+      "created_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      },
+      "discovery": "owner_only",
+      "keywords": [],
+      "kind": "document_section",
+      "level": null,
+      "owner_id": "RES-R",
+      "payload": {
+        "blocks": [
+          {
+            "evidence_refs": [],
+            "markdown": "本章将摄氏温度转换为开尔文，仅在 t >= -273.15 °C 的合成适用域内使用；后附反例说明拒绝域外输入的原因。",
+            "type": "prose"
+          },
+          {
+            "ref": {
+              "locator": "",
+              "relation": "references",
+              "revision": 2,
+              "sha256": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+              "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+              "target_kind": "record"
+            },
+            "type": "unit"
+          },
+          {
+            "ref": {
+              "locator": "",
+              "relation": "references",
+              "revision": 1,
+              "sha256": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+              "target_id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+              "target_kind": "record"
+            },
+            "type": "unit"
+          }
+        ],
+        "missing_refs": [],
+        "role": "methods",
+        "section_key": "method",
+        "title": "合成章节 method",
+        "watch_refs": []
+      },
+      "previous_revision": 1,
+      "provenance_gap": "合成接口验证，无现实实验",
+      "record_hash": "887a27b3dffffeffd44f7f5c6cd8ff44702c3ca77fa19f82092b6a99f404538a",
+      "record_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+      "record_reason": "合成完整成果同步验证",
+      "revision": 2,
+      "schema_version": 3,
+      "sensitivity": "internal",
+      "sources": [],
+      "title": "合成 document_section",
+      "updated_at": "2026-09-15T20:47:31.742347Z",
+      "updated_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      }
+    },
+    "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54": {
+      "body_markdown": "",
+      "change_reason": "补齐变量单位和绝对零度边界",
+      "content_hash": "73cce818a9de44f50358361c9984fec53cfde92906e51ec631f48f555d64c69b",
+      "created_at": "2026-09-15T20:47:09.532982Z",
+      "created_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      },
+      "discovery": "owner_only",
+      "keywords": [],
+      "kind": "detail",
+      "level": "L1",
+      "owner_id": "RES-R",
+      "payload": {
+        "blocks": [
+          {
+            "block_id": "definitions",
+            "markdown": "定义：t 为摄氏温度（°C），T 为热力学温度（K）；合成输入限定 t >= -273.15 °C。",
+            "requires_block_ids": [],
+            "role": "definitions"
+          },
+          {
+            "block_id": "result",
+            "markdown": "完整过程 ONLY_FULL_RESULT：$T=t+273.15$。",
+            "requires_block_ids": [
+              "definitions"
+            ],
+            "role": "results"
+          },
+          {
+            "block_id": "optional",
+            "markdown": "未选择的 OPTIONAL_BLOCK。",
+            "requires_block_ids": [],
+            "role": "appendix"
+          }
+        ],
+        "evidence_refs": [],
+        "figures": [],
+        "missing_refs": [],
+        "retrieval_description": {
+          "applicable": [
+            "摄氏温标的合成输入"
+          ],
+          "key_findings": [
+            "只证明合成流程可读"
+          ],
+          "limitations": [
+            "未验证传感器误差"
+          ],
+          "method": "按温度基准和单位换算",
+          "not_applicable": [
+            "不得直接用于华氏温标或现实测量"
+          ],
+          "question": "合成温标换算的定义"
+        },
+        "run_ref": null,
+        "unit_type": "method"
+      },
+      "previous_revision": 1,
+      "provenance_gap": "合成接口验证，无现实实验",
+      "record_hash": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+      "record_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+      "record_reason": "合成完整成果同步验证",
+      "revision": 2,
+      "schema_version": 3,
+      "sensitivity": "internal",
+      "sources": [],
+      "title": "合成 detail",
+      "updated_at": "2026-09-15T20:47:10.470129Z",
+      "updated_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      }
+    },
+    "MEM-88937726-da61-5152-ba68-7f076fcb860d": {
+      "body_markdown": "摄氏转开尔文公式 T=t+273.15；仅适用于 t >= -273.15 °C。域外反例已纳入全文，现实传感器误差仍待验证。",
+      "change_reason": "同步适用域、反例和未决问题",
+      "content_hash": "5455ca2487580326f7c2371ce81fafa77bfee4bc51a668ac806810742c51da4a",
+      "created_at": "2026-09-15T20:47:10.230933Z",
+      "created_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      },
+      "discovery": "owner_only",
+      "keywords": [],
+      "kind": "overview",
+      "level": "L4",
+      "owner_id": "RES-R",
+      "payload": {
+        "claims": [],
+        "current_stage": "合成定义与反例已编排，现实测量待验证",
+        "experience_refs": [],
+        "limitations": [
+          "只验证合成软件流程",
+          "未验证传感器误差",
+          "t < -273.15 °C 必须拒绝"
+        ],
+        "methods": [
+          "线性平移"
+        ],
+        "missing_refs": [],
+        "open_questions": [
+          "现实传感器误差尚未验证"
+        ],
+        "process_refs": [],
+        "question": "摄氏温度如何转为开尔文",
+        "results": [
+          "T=t+273.15"
+        ],
+        "technical_refs": [
+          {
+            "locator": "",
+            "relation": "references",
+            "revision": 2,
+            "sha256": "7c76c7fe0793b9584e297c1dfd25a20eca84bdac2ed4f2e36f83e633faff7b73",
+            "target_id": "MEM-7d6d7b76-0f30-5051-8f60-aea367a31e54",
+            "target_kind": "record"
+          },
+          {
+            "locator": "",
+            "relation": "references",
+            "revision": 1,
+            "sha256": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+            "target_id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+            "target_kind": "record"
+          }
+        ]
+      },
+      "previous_revision": 1,
+      "provenance_gap": "合成接口验证，无现实实验",
+      "record_hash": "a1ad35d3c15cfb6a3c8eebc61f7d93639408a35f9734bcd78bde3725ed41f610",
+      "record_id": "MEM-88937726-da61-5152-ba68-7f076fcb860d",
+      "record_reason": "合成完整成果同步验证",
+      "revision": 2,
+      "schema_version": 4,
+      "sensitivity": "internal",
+      "sources": [],
+      "title": "合成 overview",
+      "updated_at": "2026-09-15T20:47:32.080920Z",
+      "updated_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      }
+    },
+    "MEM-b1974ffc-172d-5f9a-87f5-019587f49511": {
+      "body_markdown": "",
+      "change_reason": "固定已同步章节",
+      "content_hash": "31f4b70ebdfa51e05304cad4ffb149aae3c69d93be105b57edd4e5cef196cfc5",
+      "created_at": "2026-09-15T20:47:10.008036Z",
+      "created_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      },
+      "discovery": "owner_only",
+      "keywords": [],
+      "kind": "document",
+      "level": null,
+      "owner_id": "RES-R",
+      "payload": {
+        "audience": "研究人员",
+        "common_refs": [],
+        "document_type": "research_process",
+        "missing_refs": [],
+        "purpose": "验证合成研究文档",
+        "scope": "仅合成软件验收",
+        "section_refs": [
+          {
+            "locator": "",
+            "relation": "references",
+            "revision": 2,
+            "sha256": "887a27b3dffffeffd44f7f5c6cd8ff44702c3ca77fa19f82092b6a99f404538a",
+            "target_id": "MEM-16d2cb05-6a19-5b24-b82e-60a97fcc1b96",
+            "target_kind": "record"
+          }
+        ],
+        "watch_refs": []
+      },
+      "previous_revision": 1,
+      "provenance_gap": "合成接口验证，无现实实验",
+      "record_hash": "e92860797e51c9821180bf9d9e379839000e086072d051e1730e77fd51343aa1",
+      "record_id": "MEM-b1974ffc-172d-5f9a-87f5-019587f49511",
+      "record_reason": "合成完整成果同步验证",
+      "revision": 2,
+      "schema_version": 3,
+      "sensitivity": "internal",
+      "sources": [],
+      "title": "合成 document",
+      "updated_at": "2026-09-15T20:47:32.380536Z",
+      "updated_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      }
+    },
+    "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab": {
+      "body_markdown": "",
+      "change_reason": "合成完整成果同步验证",
+      "content_hash": "9f0044f1bcd3833181e3edaa76441c319e4f24ad04cceb247ace547c0bab8d25",
+      "created_at": "2026-09-15T20:47:10.648308Z",
+      "created_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      },
+      "discovery": "owner_only",
+      "keywords": [],
+      "kind": "detail",
+      "level": "L1",
+      "owner_id": "RES-R",
+      "payload": {
+        "blocks": [
+          {
+            "block_id": "counterexample",
+            "markdown": "边界反例：t=-300 °C 代入得到 T=-26.85 K。该输入超出既定适用域，必须拒绝；这不代表现实传感器已验证。",
+            "requires_block_ids": [],
+            "role": "results"
+          }
+        ],
+        "evidence_refs": [],
+        "figures": [],
+        "missing_refs": [],
+        "retrieval_description": {
+          "applicable": [
+            "摄氏温标的合成输入"
+          ],
+          "key_findings": [
+            "只证明合成流程可读"
+          ],
+          "limitations": [
+            "未验证传感器误差"
+          ],
+          "method": "按温度基准和单位换算",
+          "not_applicable": [
+            "不得直接用于华氏温标或现实测量"
+          ],
+          "question": "换算后负开尔文的反例"
+        },
+        "run_ref": null,
+        "unit_type": "method"
+      },
+      "previous_revision": null,
+      "provenance_gap": "合成接口验证，无现实实验",
+      "record_hash": "e42ba6b4b5e2f1e21c033b587a612d3b82bbb8e15739afb1ff36f593c4fd22fc",
+      "record_id": "MEM-bc46ff77-9cd1-5312-aa45-7e94598203ab",
+      "record_reason": "合成完整成果同步验证",
+      "revision": 1,
+      "schema_version": 3,
+      "sensitivity": "internal",
+      "sources": [],
+      "title": "合成边界反例",
+      "updated_at": "2026-09-15T20:47:10.648308Z",
+      "updated_by": {
+        "id": "consolidate-results-synthetic-check",
+        "kind": "ai"
+      }
+    }
+  },
+  "policy": {
+    "values": {
+      "mode": "explore",
+      "retain": [
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "granularity": "normal",
+      "auto_summary": false,
+      "discovery": "owner_only",
+      "auto_deepen": false,
+      "checkpoint": true
+    },
+    "sources": {
+      "mode": "type",
+      "retain": "type",
+      "granularity": "type",
+      "auto_summary": "type",
+      "discovery": "workspace",
+      "auto_deepen": "workspace",
+      "checkpoint": "workspace"
+    }
+  },
+  "owner_id": "RES-R",
+  "generation": 9,
+  "index_status": "pending",
+  "index_details": {
+    "fts": "indexed",
+    "vector": "pending",
+    "indexed_generation": 9,
+    "vector_generation": null,
+    "target_generation": 9,
+    "encoder_version": null,
+    "collection": null,
+    "error": {
+      "code": "CAPABILITY_UNAVAILABLE",
+      "details": {},
+      "errors": [],
+      "message": "未配置本地向量后端"
+    }
+  },
+  "claim_states": {},
+  "omitted": [],
+  "warnings": []
+}
