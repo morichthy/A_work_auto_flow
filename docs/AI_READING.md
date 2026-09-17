@@ -2,9 +2,24 @@
 
 本页是 `material-query` 的按需接口说明；日常方法见 [material-query Skill](../automation/workflows/material-query/SKILL.md)。程序检索、固定读取、验证并保存，AI 负责相关性、理解和写作。笔记不自动成为规范结论。
 
+## 术语与两个独立维度
+
+| 术语 | 定义 |
+|---|---|
+| Owner | Research、Project、核心算法、知识等可独立归属规范记录的对象；完整定义见[术语表](../context/GLOSSARY.md#检索与组织术语) |
+| RS（Reading Session） | 围绕一个问题保存范围、预算、进度、判断、笔记和固定来源的阅读会话；它是工作状态，不是规范知识或文稿 |
+| `owner_document` | 阅读会话的处理模式：候选按 Owner 组织，相关 Owner 进入其当前可读完整正文；它不是文稿类型，也不是阅读策略 |
+| `legacy` | 缺少新模式字段的兼容处理模式：围绕候选记录保存读取和笔记，并沿用跨操作累计预算；不会自动迁移为 `owner_document` |
+| `strategy` | `owner_document` 内部的阅读策略，取 `standard`、`associative` 或 `quick`；策略决定是否完整阅读、是否受限补查，不改变会话的处理模式 |
+| reading note | RS 内保存的材料理解、关键细节、限制和固定出处；它支持续接，但不会自动成为 Owner 的规范记录或已复核结论 |
+| 互补筛选包（screening packet） | 为判断一个 Owner 是否相关而交付的少量互补命中窗口；包含通道、固定引用、位置和缺口，但不是完整正文 |
+| handoff / snapshot | handoff 是重新核验授权和固定来源后给 AI 的受控笔记交接；snapshot 是供界面快速展示的快照，不能代替 handoff 的核验 |
+
+因此，`mode` 回答“候选和进度按什么阅读模型组织”，`strategy` 回答“本次怎样阅读”。两者不能互换；`research_process`、`research_report` 等则是被读取的文稿类型。
+
 ## 使用顺序
 
-新 `reading-template` 固定采用 `mode="owner_document"`，并保存阅读策略 `strategy`：`standard`、`associative` 或 `quick`；模式不是存储类型。程序从[工作区设置](WORKSPACE_SETTINGS.md)提供默认策略、联想开关/轮次、召回、重排、最多阅读 Owner 数及最终 note 上限。AI 不逐次读取配置。旧 RS 保持记录模式与原预算；旧 Owner RS 读取为 standard、关闭联想，不自动迁移。
+新 `reading-template` 固定采用 `mode="owner_document"`，并保存 `strategy`：`standard`、`associative` 或 `quick`。程序从[工作区设置](WORKSPACE_SETTINGS.md)提供默认策略、联想开关/轮次、召回、重排、最多阅读 Owner 数及最终 note 上限。AI 不逐次读取配置。旧 RS 保持原处理模式与预算；旧 Owner RS 读取为 standard、关闭联想，不自动迁移。
 
 1. 填模板的 goal、conditions、query.question、范围，必要时用 owner_id 绑定本次任务对象，再 reading-start。任务归属 Owner 与检索材料 Owner 可以不同。
 2. reading-delegate 根据协作开关和宿主能力返回任务包。宿主实际派工才算启动 reader；关闭或无能力时沿同 RS 单 Agent 执行。

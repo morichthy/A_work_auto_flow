@@ -8,7 +8,7 @@ description: 按 Owner 查找和逐篇读取本地固定文稿，保存研究式
 
 ## 主 Agent 与 reader
 
-已有 RS 用 `reading-list --owner ID` 查找，主 Agent 通过 `reading-handoff --session RS-ID` 接收笔记，不先加载全部候选或历史。新问题用 `reading-template` 填写目标、条件、query 范围和本次任务 owner_id，再 `reading-start`。程序已从[工作区设置](../../../docs/WORKSPACE_SETTINGS.md)应用默认值，AI 不另读配置文件；新模板采用 owner_document，旧 RS 沿原模式兼容。精确字段按[AI 阅读接口](../../../docs/AI_READING.md)和模板填写，不猜参数。
+已有 RS 用 `reading-list --owner ID` 查找，主 Agent 通过 `reading-handoff --session RS-ID` 接收笔记，不先加载全部候选或历史。新问题用 `reading-template` 填写目标、条件、query 范围和本次任务 owner_id，再 `reading-start`。程序已从[工作区设置](../../../docs/WORKSPACE_SETTINGS.md)应用默认值，AI 不另读配置文件；新模板采用[按对象完整阅读处理模式 `owner_document`](../../../docs/AI_READING.md#术语与两个独立维度)，旧 RS 沿 `legacy` 契约兼容。精确字段按 AI 阅读接口和模板填写，不猜参数。
 
 复制模板/已有请求后只改必要字段，不重新手填整份query。scope筛直接候选，scope_ceiling限制获准必要依据；不要机械复制前者到后者，造成文稿引用的Run被误拦。依赖读取仍受已有授权与排除约束，不以空上限扩大授权。
 

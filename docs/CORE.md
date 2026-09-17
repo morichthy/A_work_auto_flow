@@ -174,7 +174,7 @@ reader提取相关公式/条件/实验/图示与出处 → 写连贯的简化完
 再次扩大召回 → AI按当前失败/方向/成本判断；需要用户取舍才ask_user，已询问须等真实意见
 ```
 
-此流程复用 G01/G03/G05/G06/G08/G09，由独立阅读工作记录保存状态，不增加知识层。RS 的存储mode仍为owner_document，strategy/association/association_text分别保存；reading-configure使用CAS仅保存模式/方向，不启动搜索或AI。list/view供对象入口查看最新候选、理解与出处，归档保留历史，导出是标明版本的快照。完整交付只证明程序返回了正文，不保证 AI 理解正确；相似或长链连接仍是待验证启发。手动来源查询维持原默认。调用、持久化与限制见[AI 阅读手册](AI_READING.md)，实现为 [reading.py](../automation/scripts/material_query/reading.py) 与 material-query Skill。
+此流程复用 G01/G03/G05/G06/G08/G09，由独立阅读工作记录保存状态，不增加知识层。RS 使用[按对象完整阅读处理模式 `owner_document`](AI_READING.md#术语与两个独立维度)，阅读策略及联想配置分别保存；reading-configure 使用 CAS 只保存策略和方向，不启动搜索或 AI。list/view 供对象入口查看最新候选、理解与出处，归档保留历史，导出是标明版本的快照。完整交付只证明程序返回了正文，不保证 AI 理解正确；相似或长链连接仍是待验证启发。手动来源查询维持原默认。调用、持久化与限制见[AI 阅读手册](AI_READING.md)，实现为 [reading.py](../automation/scripts/material_query/reading.py) 与 material-query Skill。
 
 reading-delegate只构造精简任务包，宿主工具负责实际派工；reading-handoff逐次再授权，按整条笔记装入输出上限并公开遗漏、过期和覆盖缺口，不能把交接完整等同于研究完整。新Owner模式将最多阅读Owner数和最终note估算token固定在RS，内部诊断不扣note额度，工程保护逐操作计量；旧RS保持累计预算，外部宿主模型token另计，不新增后台生成服务。实现见[reading_delegation.py](../automation/scripts/material_query/reading_delegation.py)。
 

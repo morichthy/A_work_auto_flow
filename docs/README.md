@@ -1,6 +1,6 @@
 # 文档索引
 
-每条 L0–L4 的独立阅读、正文上下文和各 Owner 扩展方式见[记录标准](RESEARCH_RECORDING.md#每条记录必须独立可读可以正确复用)；保存请求旁的写作提示见[请求示例](MEMORY_REQUESTS.md#新-l2l4-草案)。
+跨模块主要术语的短定义见[术语表](../context/GLOSSARY.md)；领域精确定义以本索引指向的对应手册和运行契约为准。每条 L0–L4 的独立阅读、正文上下文和各 Owner 扩展方式见[记录标准](RESEARCH_RECORDING.md#每条记录必须独立可读可以正确复用)；保存请求旁的写作提示见[请求示例](MEMORY_REQUESTS.md#新-l2l4-草案)。
 
 首页最近阅读问题、三模式控制和快照边界见[AI_READING](AI_READING.md)；记录摘要进入证据详情、固定深链与类型展示见[EVIDENCE_VIEW_MONITOR](EVIDENCE_VIEW_MONITOR.md)。正文引用位置与固定依据的写作要求见[RESEARCH_RECORDING](RESEARCH_RECORDING.md)。
 
@@ -22,7 +22,7 @@
 | 对象、Run 归属和原始材料登记 | [OBJECT_RUN_STORAGE](OBJECT_RUN_STORAGE.md)、[RUN_CAPTURE](RUN_CAPTURE.md) |
 | 导入已有资料、来源变化与历史位置 | [EXISTING_MATERIALS](EXISTING_MATERIALS.md) |
 | 材料内容来源、正文块/混合召回、固定展开、兼容表示、联想与维护 | [MATERIAL_QUERY](MATERIAL_QUERY.md)；[KNOWLEDGE_FACETS](KNOWLEDGE_FACETS.md) 定义可选知识分类 |
-| AI正文候选去重、三模式Owner/片段阅读与研究式笔记交接 | [AI_READING](AI_READING.md)：standard/associative/quick、CLI/HTTP、子Agent与单Agent回退、引用按需展开、综合note重验、旧RS兼容；统一参数见[工作区设置](WORKSPACE_SETTINGS.md) |
+| AI正文候选去重、Owner文稿阅读、三种阅读策略与研究式笔记交接 | [AI_READING](AI_READING.md)：`owner_document`/`legacy` 处理模式，standard/associative/quick策略，CLI/HTTP、子Agent与单Agent回退、引用按需展开、综合note重验及旧RS兼容；统一参数见[工作区设置](WORKSPACE_SETTINGS.md) |
 | Owner压缩发现索引、Owner融合、互补筛选包和用户全文补偿 | [OWNER_DISCOVERY_RETRIEVAL](design/OWNER_DISCOVERY_RETRIEVAL.md)：现行索引实体、排序、筛选、旧Owner修订规则、失败边界、验证结果和效果评估限制 |
 | 中英等义查询、领域术语/关联扩展和词库维护 | [QUERY_TERMS](QUERY_TERMS.md)：用户词库、公共种子、出处、单跳扩展与升级补缺；请求字段见AI_READING |
 | 旧材料检索与规范记忆检索 | [RETRIEVAL](RETRIEVAL.md)、[MEMORY_USAGE](MEMORY_USAGE.md) |
