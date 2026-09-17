@@ -61,6 +61,7 @@ type MaterialCapabilities = {
   deepening: { modes: string[]; strategy: string; version: string };
   maintenance: { task_package: boolean };
   default_budget: Budget;
+  default_result_limit?: number;
   limits: Budget;
   channels?: string[];
 };
@@ -230,6 +231,7 @@ export function MaterialQuery() {
         // capabilities request was in flight.
         if (!draftRevision.current) {
           setBudget(caps.default_budget);
+          setLimit(caps.default_result_limit ?? 20);
           const preferred =
             defs.value?.find((value) => value.ref.key === "full") ||
             defs.value?.[0];

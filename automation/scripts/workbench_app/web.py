@@ -38,6 +38,9 @@ def asset(route):
 def get(service, route, query):
     args = parse_qs(query)
     one = lambda key, default='': args.get(key, [default])[0]
+    if route == 'settings':
+        from workspace_settings import read
+        return read(service.root)
     if route == 'representations/definitions':
         from material_query.api import dispatch
         return dispatch(service.materials, 'definitions', {k: v[0] for k, v in args.items()})
@@ -92,6 +95,16 @@ def get(service, route, query):
 
 
 def post(service, route, data):
+    if route in {'reading-notes/recent', 'reading-notes/snapshot'}:
+        from . import reading_notes
+        return (reading_notes.recent if route.endswith('/recent') else reading_notes.snapshot)(service, data)
+    if route in {'evidence/search', 'evidence/detail'}:
+        from . import evidence_browser
+        return (evidence_browser.search if route.endswith('/search') else evidence_browser.detail)(service, data)
+    if route == 'settings':
+        # 使用同一个CAS接口；HTTP处理器继续负责本机Origin/Host/token校验。
+        from workspace_settings import update
+        return update(service.root, data)
     if route == 'representations/inspect':
         from material_query.api import dispatch
         return dispatch(service.materials, 'inspect', data)

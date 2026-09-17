@@ -68,6 +68,10 @@ Release 可附加二进制文件，每个附件须小于 2 GiB，见 [GitHub 官
 
 ## 升级与恢复
 
+正文重排的可选组件为`services/reranker/model`及`services/reranker/model-manifest.json`。标准模型为`cross-encoder/mmarco-mMiniLMv2-L12-H384-v1`的固定revision ONNX，清单列明六个受控文件和SHA-256；复用锁定的onnxruntime/tokenizers/numpy，不另装Python包。源码不包含模型权重或本机配置；`--pack-dependencies --apply`在模型完整且实际离线自检通过时收入依赖ZIP，没有该组件的旧包仍兼容。
+
+新包通过Python及无Python的PowerShell引导白名单、外层包与内层模型指纹双重检查；模型文件和manifest分别备份、切换及恢复，不能用整目录扫描混入缓存。缺CE的旧包不删除已安装CE。无reranker配置时标准manifest自动发现；provider=off继续禁用，自定义provider/路径与标准组件冲突则拒绝覆盖。接收端保留分发清单，可以无下载缓存再次打包。模型评分与向量维度无关，安装CE不重建原384维召回索引；它不放宽任意embedding模型的迁移限制。
+
 升级前关闭目标目录的工作台、索引和实验进程。框架文件备份进入 `.local/upgrades/<批次>/`，依赖组件进入 `.local/dependency-backups/<批次>/`。程序不会覆盖业务材料、检索配置、来源登记或用户规则；旧规则中的自定义内容需由用户按新版说明合并。
 
 保留范围包括对象内 Run、`.run-captures/`、各 owner 的规范记忆和完整历史。v3 技术块、独立章节、research_process/research_report 文稿与旧 v1/v2 记录按各自固定引用读取；源码升级不批量搬迁 Run，也不自动把旧 map 编排改写成新文稿。全文、向量和记忆索引属于可重建投影，补偿方法见 [记忆使用指南](MEMORY_USAGE.md)，具体路径见 [对象保存逻辑](OBJECT_RUN_STORAGE.md)。

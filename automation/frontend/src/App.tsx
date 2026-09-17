@@ -4,7 +4,11 @@ import { Relations } from "./Relations";
 import { Evidence } from "./Evidence";
 import { Memory } from "./Memory";
 import { MaterialQuery } from "./MaterialQuery";
-import { Modal } from "./components";
+import { WorkspaceSettings } from "./WorkspaceSettings";
+import { RetainedPanel } from "./RetainedPanel";
+
+import { MaterialNavigation } from "./MaterialNavigation";
+import { CurrentReadingProvider, CurrentReadingNote } from "./CurrentReading";
 type Status = {
   root: string;
   synthetic: boolean;
@@ -23,19 +27,25 @@ export const pages = [
   { id: "evidence", title: "证据与影响", icon: "▤" },
   { id: "memory", title: "系统记忆", icon: "▥" },
   { id: "tasks", title: "任务与监测", icon: "◷" },
+  { id: "settings", title: "工作区设置", icon: "⚙" },
 ];
 export default function App() {
-  const [page, setPage] = useState(location.hash.slice(2) || "home");
+  return (
+    <CurrentReadingProvider>
+      <Workbench />
+    </CurrentReadingProvider>
+  );
+}
+function Workbench() {
+  const [page, setPage] = useState(
+    location.hash.replace(/^#\/?/, "").split("?")[0] || "home",
+  );
   const [status, setStatus] = useState<Status | null>(null);
   const [caps, setCaps] = useState<Capabilities | null>(null);
   const [jobs, setJobs] = useState<Job[]>([]);
   const [message, setMessage] = useState("");
   const [revision, setRevision] = useState(0);
-  const signature = useRef("");
-  const [module, setModule] = useState<{
-    title: string;
-    files: string[];
-  } | null>(null);
+  const signature = useRef<string | null>(null);
   async function refresh() {
     try {
       const [s, j, c] = await Promise.all([
@@ -48,10 +58,18 @@ export default function App() {
       setStatus(s);
       setJobs(j.jobs);
       setCaps(c);
-      const next = j.jobs.map((x) => x.id + x.status).join();
+      // 完成的材料相关任务使视图失效，初始清单和进度不触发重载。
+      const next = j.jobs
+        .filter(
+          (x) =>
+            x.status === "succeeded" &&
+            ["refresh", "monitor", "keywords", "semantic"].includes(x.kind),
+        )
+        .map((x) => x.id)
+        .join();
       if (signature.current !== next) {
+        if (signature.current !== null) setRevision((r) => r + 1);
         signature.current = next;
-        setRevision((r) => r + 1);
       }
       const stale = j.jobs.find(
         (x) =>
@@ -64,7 +82,8 @@ export default function App() {
     }
   }
   useEffect(() => {
-    const change = () => setPage(location.hash.slice(2) || "home");
+    const change = () =>
+      setPage(location.hash.replace(/^#\/?/, "").split("?")[0] || "home");
     window.addEventListener("hashchange", change);
     refresh();
     const timer = setInterval(refresh, 5000);
@@ -192,6 +211,11 @@ export default function App() {
       <div className="content">
         <header className="topbar">
           <span>AI 研发工作区</span>
+          <details className="environment-menu">
+            <summary>观察与环境</summary>
+            {actions}
+            <a href="#/tasks">查看任务与监测</a>
+          </details>
           <span>
             {status?.monitor_running ? "● 只读监测运行中" : "○ 按需分析"}
           </span>
@@ -210,15 +234,21 @@ export default function App() {
               </button>
             </div>
           )}
-          {page === "materials" ? (
+          {/* 常驻组件保留跨导航草稿；仅首次打开设置页时读取服务器。 */}
+          <WorkspaceSettings active={page === "settings"} />
+          <RetainedPanel active={page === "materials"}>
             <MaterialQuery />
-          ) : page === "memory" ? (
+          </RetainedPanel>
+          <RetainedPanel active={page === "memory"}>
             <Memory />
-          ) : page === "relations" ? (
+          </RetainedPanel>
+          <RetainedPanel active={page === "relations"}>
             <Relations revision={revision} error={setMessage} launch={launch} />
-          ) : page === "evidence" ? (
+          </RetainedPanel>
+          <RetainedPanel active={page === "evidence"}>
             <Evidence revision={revision} error={setMessage} />
-          ) : page === "tasks" ? (
+          </RetainedPanel>
+          {!["home", "tasks"].includes(page) ? null : page === "tasks" ? (
             <>
               <div className="page-heading">
                 <div>
@@ -251,73 +281,8 @@ export default function App() {
                   </p>
                 </div>
               </div>
-              <section className="hero">
-                <div>
-                  <span className="eyebrow">材料关系</span>
-                  <h2>从一个问题，展开整条依据</h2>
-                  <p>查看主题之间的关联、实验上下游和潜在研究方向。</p>
-                  <a className="button primary" href="#/relations">
-                    打开材料关系 →
-                  </a>
-                  <a className="button" href="#/evidence">
-                    查看证据与影响
-                  </a>
-                </div>
-                <div className="hero-art" aria-hidden="true">
-                  <span>问题</span>
-                  <i>模型</i>
-                  <i>实验</i>
-                  <i>报告</i>
-                </div>
-              </section>
-              <div className="home-grid">
-                <section className="card">
-                  <h2>材料导航</h2>
-                  <div className="module-grid">
-                    {status?.modules.map((m) => (
-                      <button
-                        key={m.path}
-                        onClick={() =>
-                          api<{ title: string; files: string[] }>(
-                            "module?name=" + encodeURIComponent(m.path),
-                            undefined,
-                            true,
-                          )
-                            .then(setModule)
-                            .catch((e) => setMessage(e.message))
-                        }
-                      >
-                        <strong>{m.title}</strong>
-                        <small>{m.path}</small>
-                      </button>
-                    ))}
-                  </div>
-                </section>
-                <section className="card">
-                  <h2>观察与环境</h2>
-                  <p>
-                    {status?.monitor_running
-                      ? "持续监测已开启"
-                      : "持续监测未开启"}
-                  </p>
-                  {actions}
-                  {status?.capabilities && (
-                    <dl>
-                      {Object.entries(status.capabilities).map(
-                        ([key, value]) => (
-                          <div className="row spread" key={key}>
-                            <dt>{key}</dt>
-                            <dd>{value.status}</dd>
-                          </div>
-                        ),
-                      )}
-                    </dl>
-                  )}
-                  <p className="muted">
-                    图和候选用于发现线索，正式结论以来源、版本与复核记录为准。
-                  </p>
-                </section>
-              </div>
+              <CurrentReadingNote />
+              <MaterialNavigation />
               <p className="id workspace-path">{status?.root}</p>
               <p className="muted">
                 日常入口：rdwork · 安装升级：setup.cmd ·{" "}
@@ -327,12 +292,6 @@ export default function App() {
           )}
         </div>
       </div>
-      {module && (
-        <Modal title={module.title} close={() => setModule(null)}>
-          <p>最多展示 40 个小型文件。</p>
-          <pre>{module.files.join("\n") || "尚无文件"}</pre>
-        </Modal>
-      )}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { usePanelActive } from "./RetainedPanel";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { api, download, kindNames, relationNames } from "./api";
 import type { MaterialGraph } from "./generated/contracts";
@@ -42,6 +43,7 @@ export function Relations({
     excluded?: string[],
   ) => Promise<void>;
 }) {
+  const active = usePanelActive();
   const [catalog, setCatalog] = useState<MaterialGraph | null>(null);
   const [center, setCenter] = useState("");
   const [mode, setMode] = useState<Mode>("radial");
@@ -124,6 +126,8 @@ export function Relations({
     reloadProposals().catch((e) => error(e.message));
   }, [revision]);
   useEffect(() => {
+    // 隐藏时停止轮询，返回恢复新鲜度核对。
+    if (!active) return;
     const check = () =>
       api<{ changed_files: string[] }>("freshness")
         .then((result) => {
@@ -134,7 +138,7 @@ export function Relations({
     check();
     const timer = setInterval(check, 30000);
     return () => clearInterval(timer);
-  }, []);
+  }, [active]);
   const base = useMemo(
     () =>
       catalog

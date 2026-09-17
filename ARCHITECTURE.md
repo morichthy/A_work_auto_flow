@@ -1,6 +1,6 @@
 # 当前技术架构
 
-本页维护实际模块、依赖和状态所有权；用户概念与用法见 [README](README.md)，功能输入输出见 [CORE](docs/CORE.md)，细节见[文档索引](docs/README.md)。核对日期：2026-09-16；当前采用统一work-loop与按内容保存策略，阅读会话支持Owner绑定、双语查询规划和用户术语库，重要成果通过consolidate-results维护全文，兼容既有材料查询 v0.2 与固定来源读取。历史设计不替代运行代码；具体程序指纹见对应实施 Run。
+本页维护实际模块、依赖和状态所有权；用户概念与用法见 [README](README.md)，功能输入输出见 [CORE](docs/CORE.md)，细节见[文档索引](docs/README.md)。核对日期：2026-09-17；当前采用统一work-loop与按内容保存策略，阅读会话支持Owner绑定、双语查询规划和用户术语库，重要成果通过consolidate-results维护全文，兼容既有材料查询 v0.2 与固定来源读取。历史设计不替代运行代码；具体程序指纹见对应实施 Run。
 
 ## 稳定设计约束
 
@@ -15,7 +15,7 @@
 | 权威记录与派生数据分开 | 原件、规范修订和复核记录不能被索引替代。索引可重建；Q/CTX/CF、QMEM/PKT 等已保存回执是查询与选择的历史，不能当作临时索引随意清理；MQ 进程内请求状态另有到期规则 |
 | 写入和恢复保持单一边界 | 规范写入走 MEM 服务，保留版本冲突、幂等、不可变历史和单 Owner 事务边界；索引失败补偿投影，不重复创建业务记录，不把跨对象部分完成写成全局成功 |
 | 语义判断与程序执行分开 | AI/人负责综合、反证、迁移判断和实际审查；程序校验、固定读取、组装及提交。影响提示和监测只产生关注/候选，不自动改章节引用、撤回结论或晋升复核；相似和导航采纳不等于科学支持 |
-| 请求边界贯穿全链路 | 查询、续页、展开与组包保留用途、范围、排除、权限、固定版本与累计预算；来源选择不放宽上限。候选不是已读正文，组包无缺口不代表研究完整 |
+| 请求边界贯穿全链路 | 查询、续页、展开与组包保留用途、范围、排除、权限、固定版本及适用预算；普通MQ/legacy RS保留累计账本，Owner阅读分开单次资源保护与最终note上下文，来源选择不放宽授权。候选不是已读正文，组包无缺口不代表研究完整 |
 
 修改方案先定位下方模块影响表中的责任模块，再追踪实际调用者和数据消费者；涉及新职责、状态或依赖时，先补清归属、关系与变化原因，再决定是否自动化。契约变化同步检查生成类型、CLI/HTTP/UI、Skill、相关测试及升级兼容；只检查实际受影响路径，不机械全库重测。当前定义与实现差距必须保留，不能借整理文档掩盖它。
 
@@ -58,8 +58,9 @@ flowchart TD
 | RET 投影与基础检索 | `retrieval.py`、`context_engine.py`、`qdrant_backend.py`、`memory/index.py`、`search.py`、`packets.py`、`associations.py` | MQ 召回/覆盖、旧 API、来源撤权、模型隔离、相关性和读取成本 |
 | MQ 材料查询应用 | `material_query/`：Coordinator 编排；`recall.py` 适配既有本地向量并核对条目指纹；Reader/Writer 适配；`content.py` 固定关联展开，`catalog_search.py` 全来源召回，`history_search.py` 有界旧修订查询，`documents.py` 文稿去重与有序组装，`native_sources.py` 核验旧 Run claim；StateStore/Ledger 管请求状态和累计预算；Foundation 接旧功能分组 | MEM 事务、RET 水位、DOC 固定块、EVD 准入、APP 生成契约与三个专项 Skill |
 | APP 产品入口 | `workspace_cli.py`、`memory/api.py`、`material_query/api.py`、`workbench_app/`、`automation/frontend/src/` | 同一动作的 CLI/HTTP/UI 请求与错误、任务进度、契约、构建资源、操作文档 |
+| CFG 工作区默认设置 | `workspace_settings.py` 唯一契约/校验/CAS/缓存；`workspace_settings_cli.py`、APP settings API与设置页是适配层 | MQ capabilities/READ template消费默认策略与联想限制，GUIDE消费协作策略；旧RS预算、用户设置升级保护、UI并发保存与缓存失效 |
 | GUIDE 规则与说明 | `automation/workflows/` 方法源、`.agents/skills/` 发现入口及六份必读文档 | 所描述能力的代码/契约、用户入口、测试选择；不复制一套业务状态 |
-| READ AI 阅读工作流 | `material_query/reading.py`、`reading_catalog.py`：持久问题会话与有界目录发现、分层查询、交付与笔记、下一步控制；复用 MQ Reader/Assembler/Ledger，AI 判断由 material-query Skill 指导 | MQ 权限/预算与固定回源、CLI/HTTP及ReadingSessions界面、原件新修订、GUIDE 续接策略、QA 用户工作数据升级保留；不增加规范记忆类型或向量后端 |
+| READ AI 阅读工作流 | `material_query/reading.py`、`reading_catalog.py`：持久问题会话与有界目录发现；`reading_owner.py`管理正文去重、逐Owner文稿/引用按需展开和研究式note，`reading_strategy.py`管理standard/associative/quick、逐条判断和综合note，旧模式保留；复用 MQ Reader/Assembler/Ledger，AI 判断由 material-query Skill 与直接派工要求指导；reader自查、note保存时做确定性引用检查，不增主Agent审核环节 | MQ 权限/预算与固定回源、CLI/HTTP及ReadingSessions界面、原件新修订、GUIDE 续接策略、QA 用户工作数据升级保留；不增加规范记忆类型或向量后端 |
 | QA 测试与交付 | `automation/testing/`、`automation/tests/`、`deployment.py` 及依赖分发 | catalog 与实际回执、前端指纹、旧业务/自定义 Skill 保留、离线包与恢复 |
 
 表中一行变化时检查其实际调用者、数据消费者和对应细节文档；不是要求每次全模块重测。文档路由与维护方式见 [DOCUMENTATION_MAINTENANCE](docs/DOCUMENTATION_MAINTENANCE.md)。
@@ -72,8 +73,10 @@ flowchart TD
 | 规范内容与历史 | Owner 的 `memory_home` 中 owner/commits/HEAD 与事务回执，MemoryStore 管理 | 单 Owner 提交可见；旧修订不改写，没有跨 Owner 全局事务 |
 | 保存与索引 | 保存回执；SQLite `memory_*` 表及 FTS/向量水位 | HEAD 发布后索引失败仍是已保存，reconcile 补偿，不重建同一业务记录 |
 | 查询候选、选择与预算 | MQ 进程内 QueryState、StateStore、Ledger | 默认 900 秒 TTL；游标绑定原请求/会话，重启或到期失效；不是持久知识 |
+| 工作区偏好 | 根`workspace-settings.json`，CFG维护，缺文件使用内置默认 | schema1完整快照、内容hash revision、O_EXCL锁与原子替换；最多64根stat签名进程缓存，仅为派生副本。新模板/页面读取，显式请求及已存RS不被改写；公共源码不分发本机配置 |
 | 当前任务工作上下文 | 所属任务的一份Markdown计划/清单，由AI编辑 | 综合目标、当前依据、必要细节与下一步；RS与Run通过引用接入。不是后台同步、规范知识或第二份阅读数据库；检查点保存交接时点，续接需核验新进展 |
-| 当前问题阅读工作 | `.local/reading-sessions/` 的 HEAD、revision历史与请求/消费记录；Reading 管理 | 独立 RS 身份、单会话锁和版本比较；跨进程累计预算及授权复核，不复活 MQ 游标、不替代规范知识。此目录是用户工作数据，不能按缓存删除 |
+| 当前问题阅读工作 | `.local/reading-sessions/` 的 HEAD、revision历史与请求/消费记录；Reading 管理 | RS存储mode为owner_document，strategy/association/association_text独立冻结；单会话锁和版本比较。quick只保留实际交付片段判断，综合note固定底稿/来源并在变化时失效；旧模式跨进程累计预算，新Owner模式固定阅读数/note限制、逐操作资源账本，均重验授权；不复活MQ游标、不替代规范知识。此目录是用户工作数据，不能按缓存删除 |
+| 阅读上下文展示 | 由 RS 渲染的 `context_markdown`；`context/reading-notes/<RS-ID>/current.md` 为可读副本 | 当前JSON 是会话唯一状态源（工程选择，非正文必须用JSON）；多段Markdown正文由同一状态渲染，格式不要求短摘要。Markdown 不回写状态、不加入知识召回/通用全量上下文、不自动晋升结论。带会话/版本及快照限制，源码发行排除，升级保留；显示当前内容仍经授权与来源检查 |
 | 查询术语与冻结计划 | `retrieval/query-terms.json` 是用户维护词库；`material_query/query_plan.py`加载校验并构造本轮计划，RS保存该轮指纹及实际展开 | 公共种子单独位于`automation/templates/query-terms.default.json`，仅补缺；续页使用冻结计划，词库修改不回写已发生查询。同义与关联分开，不新增规范知识/模型/后台翻译服务 |
 | 语义维护计划 | `.local/material-query/plans/` 不可覆盖计划版本 | 与规范提交分开；重启后用新查询重新授权旧计划，可能逐 Owner 部分完成 |
 | 复核与关联采纳 | 原生/记忆 claim、review；association 的采纳状态 | 保存、索引、复核和导航采纳不能合成“成功” |
@@ -84,11 +87,43 @@ flowchart TD
 
 ## 数据流与当前限制
 
+当前阅读选择与模式控制集中在首页 CurrentReading；旧 ReadingSessions 组件不再作为系统记忆入口，历史 RS 的公开接口与存储保留。EVD 的共享读模型按记录种类装配知识正文，文稿沿固定章节/技术块展开；结构导航与支持证据分开，图片只在选中详情中受控读取。工具注册表身份从对应成员解析，索引诊断不挂到无关健康详情。APP 消费同一证据详情，避免在记忆、阅读与证据页面分别拼接原始字段。
+
+2026-09-17 READ新增Owner文稿模式：新模板显式选择owner_document，旧RS缺字段仍按legacy执行。内部复用多路召回、固定回源与重排，交付边界按正文块去重，只向reader返回正文和owner_id；选中Owner后抑制其余片段。一次读取该Owner最新的完整过程文稿，缺失才明确回退报告或真实正文。图片、L0/Run及外部依据保留固定引用并按需展开，不把来源核验等同于实际阅读。研究式note在同RS保存，主Agent仅收note；进度支持续接，宿主自动压缩不由项目控制。
+
+Owner模式把单次工程Ledger与最终note上下文分开，内部搜索/诊断文字不扣最终note额度；阅读数与保守token估算上限由CFG模板固定。旧MQ/legacy RS仍用原累计账本。token估算是可审计代理而非外部模型精确token，必要公式/条件不被程序截断。Run原生conclusion/limitations已存在，但只有原生run.json、没有可检索MEM正文的Run尚不进入三层阅读召回；本轮不新增全库Run扫描或自动总结服务。
+
+2026-09-17 READ新增三种阅读策略：standard维持相关Owner完整文稿阅读；associative仅在不足时，以实际联想文本进行受enabled/max_rounds约束的追加召回，再走相同全文阅读；quick只交付实际召回片段，逐条assessment后写明非全文的note。reading-configure用CAS保存会话模式/方向而不启动搜索、reader或后台AI；reading-synthesize固定Owner note底稿及实际来源，底稿或来源变化后不将旧综合稿交接为当前理解。exploration_clues只保存依据、条件、未知和下一步，不能自动成为关联或科学结论。
+
+2026-09-17 READ新增Owner文稿模式：新模板显式选择owner_document，旧RS缺字段仍按legacy执行。内部复用多路召回、固定回源与重排，交付边界按正文块去重，只向reader返回正文和owner_id；选中Owner后抑制其余片段。一次读取该Owner最新的完整过程文稿，缺失才明确回退报告或真实正文。图片、L0/Run及外部依据保留固定引用并按需展开，不把来源核验等同于实际阅读。研究式note在同RS保存，主Agent仅收note；进度支持续接，宿主自动压缩不由项目控制。
+
+Owner模式把单次工程Ledger与最终note上下文分开，内部搜索/诊断文字不扣最终note额度；阅读数与保守token估算上限由CFG模板固定。旧MQ/legacy RS仍用原累计账本。token估算是可审计代理而非外部模型精确token，必要公式/条件不被程序截断。Run原生conclusion/limitations已存在，但只有原生run.json、没有可检索MEM正文的Run尚不进入三层阅读召回；本轮不新增全库Run扫描或自动总结服务。
+
+APP 页面状态在当前浏览标签页内保留：顶层功能和记忆子功能首次访问后保持组件，切换只改变可见性；业务版本仍由服务端规范记录负责。对象记忆由显式生成触发，研究经过默认优先；切换 Owner 必须隔离旧异步请求，不能显示为新对象结果。浏览器刷新不恢复临时状态，MQ 游标仍遵循原到期和授权边界。
+
+EVD 监测收紧为 Owner 记录和记忆 HEAD，范围外的 Run 发布产物不因引用而进入周期哈希。监测用有界核验与正式证据核验分开；未观察文件不得标作指纹匹配。文件失败可作为页面诊断返回有效记录，但不完整监测快照不得覆盖旧基线。详细扫描范围见 EVIDENCE_VIEW_MONITOR。
+
+APP 页面状态在当前浏览标签页内保留：顶层功能和记忆子功能首次访问后保持组件，切换只改变可见性；业务版本仍由服务端规范记录负责。对象记忆由显式生成触发，研究经过默认优先；切换 Owner 必须隔离旧异步请求，不能显示为新对象结果。浏览器刷新不恢复临时状态，MQ 游标仍遵循原到期和授权边界。
+
+EVD 监测收紧为 Owner 记录和记忆 HEAD，范围外的 Run 发布产物不因引用而进入周期哈希。监测用有界核验与正式证据核验分开；未观察文件不得标作指纹匹配。文件失败可作为页面诊断返回有效记录，但不完整监测快照不得覆盖旧基线。详细扫描范围见 EVIDENCE_VIEW_MONITOR。
+
+READ的`reading_delegation.py`提供宿主无关的委派任务包和notes-only交接。主Agent选择/创建RS并制定联想问题与关键词 → delegate从CFG读取开关并生成最小任务 → 宿主实际启动独立低成本reader → reader按给定范围执行查询/完整读/材料笔记 → 主Agent通过handoff接收单份有界Markdown与状态。note正文不拼会话问题或decision编排；材料建议、限制和证据保留，任务状态及交付缺口分别返回。delegate不执行AI，off/无宿主能力沿同RS单Agent；无新任务数据库或依赖。handoff共用来源再授权与固定revision；旧模式沿原Ledger，新Owner模式独立约束最终note，不累计内部诊断字符；整note装包，过期或超限公开缺口。它不向主侧返回候选正文及整轮诊断；旧view/resume供显式完整检查。宿主AI token无法被本地Ledger观测，必须另控成本。
+
+CFG同时传递子Agent能力要求字符串，供宿主按可用模型选择；默认低成本/较低能力/低推理，自定义文本不改变off或授权。程序不以AI解析配置、不硬绑定厂商SDK。schema1旧磁盘文件仅缺该新增字段时内存补默认，原字节/hash不变；写入仍要求完整新快照，避免旧客户端丢失自定义偏好。缓存机制不变，源码内置默认随发行，私人覆盖值不分发。
+
+设置读取不调用AI或模型：工作台/CLI→CFG→新材料查询capabilities及阅读模板；AI仅在任务入口取精简协作策略。off要求工作区工作流不委派，auto缺宿主能力则单Agent；程序无子Agent执行依赖，也不能强制任意外部宿主工具遵循策略。常驻进程缓存按文件mtime/ctime/size/ino/dev失效，每次仍做路径/stat检查；独立CLI进程首次仍读取小文件。它减少重复解析，不改变查询算法、模型冷启动或索引复杂度。界面显示预算不等于宿主AI上下文窗口。旧search/CTX入口保留原参数。
+
+
+
+2026-09-16 READ新增有界正文重排：`reranking.py`管理固定输入、原/新名次、批次费用与降级；`conditions.py`只核对显式字段和值，缺信息/复杂语义为unknown；`cross_encoder.py`是离线ONNX配对评分的外围适配器，manifest与文件状态绑定进程内模型缓存。reading先保留各层RRF候选，Assembler固定回读命中块及requires定义，再在候选窗内以明确条件冲突分组、CE评分排序，最终交付复用已准备的包。新模板auto，旧RS缺字段保持off；不改变旧memory/手动MQ入口。策略与模型身份写入原RS轮次，分页冻结，未评分/低分候选不删除。旧记录模式内部准备消费原读取/输出预算；新Owner模式内部文本不计AI输出，实际返回才计输出，工程IO/模型保护仍存在；模型按实际批次计调用、配对token与rerank_items，取消检查在每批后执行。
+
+标准CE模型作为独立可选离线依赖组件交付，复用onnxruntime/tokenizers/numpy，不改变384维召回编码或触发向量重建。无模型/超长/缺完整输入/CE模型费用预检查不足/模型错误可显式回退，保留条件冲突分组及组内原RRF；required不可用明确失败。旧记录模式正文准备或诊断输出预算耗尽仍停止；新Owner模式诊断留内部，单次资源不足仍公开缺口。标准模型问题、正文及特殊token合计512 token。单个过长候选使本窗CE回退是当前保守边界，不宣称已解决任意长文档重排。自动条件核对仅识别明确字段，不是通用语义或工程有效性验证；相关接口、失败与成本见AI_READING。通用Foundation模型注册仍未开放，此提供器只用于READ。
+
 2026-09-16新增 GUIDE 方法 consolidate-results：work-loop 可自主保存中间记录，在重要成果保存、阶段总结/交接或实质变化时触发完整阅读与同步。复用 DOC 的文稿/章节固定编排和 impact/outline/section-context、MEM 的版本提交；AI 另盘点未引用变化，维护概览与文稿各自关系，全文回读并检查上下文。同步说明仅保存在本任务已有清单/摘要，绑定实际范围与版本，不增加后台代理、数据库、契约状态或跨 Owner 原子发布。“记录已保存”“全文已同步”“结论已复核”独立；普通 commit 不保证已同步。
 
 2026-09-13 AI阅读工作流按L4/L3、L2、L1独立identity/lexical/dense召回，共用持久账本。短候选全文、技术命中块加必要定义；保留后完整交付，再保存AI理解/连接/细节。RS的HEAD是阅读状态唯一真源，显式绑定Owner及可选固定检查点；目录窗口list不建平行索引，view复核来源并返回最新版本。工作台系统记忆可按Owner查看、打开固定原文和导出版本快照。是否补查/询问由AI判断；历史ask_user仍须真实意见，硬范围/预算不变。无后台AI。
 
-2026-09-15阅读召回增加调用者生成的少量中英计划：AI选择语料语言、技术问题英文补查、等义句及领域；query_plan校验保护文本、有界加载词库，同义扩词与单跳关联分别执行。reading按层执行原身份路、各变体词法/dense与低权重关联路，按固定身份融合排名并保存hit/query来源；条件核对仍由AI实际读正文完成。通用QueryRequest及手动工作台查询契约不改；CLI/HTTP阅读入口共用同一执行。新增路数消费原Ledger，旧请求兼容且缺库可见；新旧RS续页各沿其已保存计划语义。修改时检查READ/MQ、Skill、术语模板与升级保护、召回预算及相关性。
+2026-09-15阅读召回增加调用者生成的少量中英计划：AI选择语料语言、技术问题英文补查、等义句及领域；query_plan校验保护文本、有界加载词库，同义扩词与单跳关联分别执行。reading按层执行原身份路、各变体词法/dense与低权重关联路，按固定身份融合排名并保存hit/query来源；条件核对仍由AI实际读正文完成。通用QueryRequest及手动工作台查询契约不改；CLI/HTTP阅读入口共用同一执行。新增路数计工程消耗，Owner模式不将内部重复文字算作AI上下文；旧请求累计Ledger兼容且缺库可见；新旧RS续页各沿其已保存计划语义。修改时检查READ/MQ、Skill、术语模板与升级保护、召回预算及相关性。
 
 规范保存经 schema/领域规则校验，以 expected_head/expected_revision 拒绝覆盖新修改，以 request_id 识别重试；单对象锁内准备不可变提交，再发布 HEAD，之后更新投影。文稿固定跨对象引用并复查依据，是显式版本核验，不是全库数据库快照。
 

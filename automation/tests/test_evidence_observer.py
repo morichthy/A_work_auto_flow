@@ -139,6 +139,60 @@ class ObserverTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             o.monitor(self.root)
         self.assertEqual((self.root / o.STATE).read_bytes(), old)
+        # 单个监测错误只阻止基线推进，不能令只读证据页面整体不可用。
+        payload = v.data(self.root)
+        self.assertIn("RUN-BASE", payload["nodes"])
+        self.assertTrue(any("max_file_bytes" in error for error in payload["errors"]))
+
+    def test_release_artifact_and_external_source_are_not_monitored(self):
+        archive = self.fx.put("dist/release-v0.3.0/dependencies-windows-x64.zip", "zip" * 10000)
+        run = e.read(self.fx.run_path)
+        run["artifacts"].append(self.fx.file_ref(archive))
+        self.fx.save(self.fx.run_path, run)
+        # 引用中的发布产物以及登记检索来源均不得扩大持续监测面。
+        outside = self.fx.put("outside/source.txt", "registered source")
+        self.fx.save(self.root / "retrieval/sources.json", {"sources": [
+            {"path": str(outside), "enabled": True}]})
+        cfg = e.read(self.root / "retrieval/config.json")
+        cfg["max_file_bytes"] = 10000
+        self.fx.save(self.root / "retrieval/config.json", cfg)
+        original = o.stable_file
+        original_hash = e.sha256
+        observed = []
+        hashed = []
+        def capture(path, limit):
+            observed.append(path)
+            return original(path, limit)
+        def capture_hash(path):
+            hashed.append(path)
+            return original_hash(path)
+        with patch.object(o, "stable_file", side_effect=capture), patch.object(e, "sha256", side_effect=capture_hash):
+            self.assertTrue(o.monitor(self.root)["baseline_created"])
+            payload = v.data(self.root)
+        self.assertNotIn(archive, observed)
+        self.assertNotIn(archive, hashed)
+        self.assertNotIn(outside, observed)
+        self.assertIn(self.fx.run_path, observed)
+        self.assertIn("RUN-BASE", payload["nodes"])
+        self.assertEqual(payload["errors"], [])
+        asset = next(item for item in payload["nodes"]["RUN-BASE"]["assets"] if item["path"].endswith(".zip"))
+        self.assertIn("未核验", asset["error"])
+        self.assertFalse(payload["nodes"]["CLM-BASE"]["formal_eligible"])
+
+    def test_owner_memory_head_changes_are_monitored(self):
+        from memory.owners import list_owners
+        owners = list_owners(self.root, metadata_only=True)
+        owner = next(item for item in owners if item["owner_id"] == "RUN-BASE")
+        # 用发现器返回的受控布局验证 HEAD 观测，不依赖某一种 memory 路径。
+        owner = {**owner, "persisted": True}
+        head = self.fx.put(owner["memory_home"] + "/HEAD.json", '{"revision":1}')
+        with patch("memory.owners.list_owners", return_value=[owner]):
+            o.monitor(self.root)
+            head.write_text('{"revision":2}', encoding="utf-8")
+            result = o.monitor(self.root)
+        self.assertTrue(any(change["kind"] == "material-changed" and
+                            change["target"] == head.relative_to(self.root).as_posix()
+                            for change in result["changes"]))
 
     def test_html_escapes_untrusted_content_and_preview_is_bounded(self):
         payload = v.data(self.root)

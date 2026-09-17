@@ -155,13 +155,16 @@ def replace(path, data, expected, dry_run=False):
 
 class EvidenceGraph:
     """只扫描约定元数据；不把任意 JSON 当结论，不加载大产物正文。"""
-    def __init__(self, root, overrides=None):
+    def __init__(self, root, overrides=None, *, file_hasher=None):
         self.root = Path(root).resolve()
         self.nodes, self.owners, self.documents, self.edges = {}, [], {}, {}
         self._identities = set()
         self.errors = []
         # 一次证据图快照内复用文件检查；下一次正式读取会创建新图并重验。
         self.run_checks = {}
+        # 正式复核默认完整检查；只读观察可注入更窄的范围/大小预算。
+        # 注入器必须在不能核验时抛错，不能用已登记摘要冒充当前字节。
+        self.file_hasher = file_hasher or sha256
         self.overrides = overrides or {}
         from manifest_discovery import manifests
         cards = {'run.json': 'run_id', 'research.json': 'research_id', 'module.json': 'module_id'}
@@ -241,7 +244,7 @@ class EvidenceGraph:
         path = reference_path(self.root, target)
         if not path.is_file():
             raise ValueError(f"证据文件不存在：{target}")
-        return self.owner_for(path), sha256(path)
+        return self.owner_for(path), self.file_hasher(path)
 
     def _connect(self):
         for nid, node in self.nodes.items():
@@ -362,7 +365,7 @@ class EvidenceGraph:
                         # seal 固定的是 manifest 内容，不能证明外部输入/产物
                         # 字节仍未改变。正式复用必须重新核对这些文件及必要字段。
                         if dep not in self.run_checks:
-                            self.run_checks[dep] = run_record_errors(self.root, target["raw"])
+                            self.run_checks[dep] = run_record_errors(self.root, target["raw"], file_hasher=self.file_hasher)
                         errors.extend(f"{dep}: {error}" for error in self.run_checks[dep])
                 if dep != self.nodes[current].get("owner"):
                     state = target["raw"].get("review", {}).get("status", "not-reviewed")
@@ -466,9 +469,10 @@ def review_claim(root, claim_id, status, reviewer, reason, evidence="", scope=""
             "affected_ids": proposed.status(claim_id, scope)["affected_ids"]}
 
 
-def run_record_errors(root, raw):
+def run_record_errors(root, raw, *, file_hasher=None):
     """检查实际文件与运行字段，供封存及正式读取共用，不递归访问结论图。"""
     errors = []
+    file_hasher = file_hasher or sha256
     if raw.get("status") != "succeeded":
         errors.append("Run 尚未执行成功")
     for group in ("inputs", "artifacts"):
@@ -481,7 +485,7 @@ def run_record_errors(root, raw):
                 if not isinstance(item, dict) or not HASH.fullmatch(str(item.get("sha256", ""))):
                     raise ValueError("需要 path 和 SHA-256")
                 path = reference_path(Path(root), item.get("path"))
-                if sha256(path) != item["sha256"]:
+                if file_hasher(path) != item["sha256"]:
                     raise ValueError("文件版本变化")
             except (OSError, ValueError) as exc:
                 errors.append(f"{group}: {exc}")

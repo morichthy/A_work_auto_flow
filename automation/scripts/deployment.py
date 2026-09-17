@@ -35,6 +35,7 @@ def framework_files(source):
     """允许替换的框架，不包含任何业务实例、运行时、来源登记或检索历史。"""
     fixed = ['setup.cmd', 'workbench.cmd', 'portable.cmd', 'README.md', 'ARCHITECTURE.md', '.gitattributes',
              'services/qdrant/requirements.lock.txt', 'services/qdrant/README.md', 'core-algorithms/README.md',
+             'services/reranker/README.md',
              'automation/schemas/memory-v1.schema.json', 'automation/schemas/memory-v1.d.ts',
              'automation/schemas/memory-v2.schema.json', 'automation/schemas/memory-v2.d.ts',
              'automation/schemas/memory-v3.schema.json', 'automation/schemas/memory-v3.d.ts',
@@ -118,7 +119,8 @@ def seed_files(source):
         names.extend(p.relative_to(source).as_posix() for p in source.glob(pattern) if p.is_file())
     # `query-terms.json` 是用户维护的术语库。它只能由下面的明确默认
     # 模板在缺失时建立，绝不能把开发者工作区中的个人词条当作种子复制。
-    excluded = {'services/qdrant/dependency-distribution.json', 'retrieval/query-terms.json'}
+    # 工作区设置是用户状态，缺省由程序解释，不复制开发机偏好作种子。
+    excluded = {'services/qdrant/dependency-distribution.json', 'retrieval/query-terms.json', 'workspace-settings.json'}
     return sorted(set(n for n in names if (source / n).is_file() and n not in excluded))
 
 
@@ -161,7 +163,9 @@ def plan(source, target):
     ignored = safe(target, '.gitignore')
     source_ignore = source / '.gitignore'
     existing = ignored.read_text(encoding='utf-8-sig') if ignored.exists() else (source_ignore.read_text(encoding='utf-8-sig') if source_ignore.exists() else '')
-    suffix = ''.join('\n' + p + '\n' for p in ('.local/', 'context/monitor/', 'context/generated/evidence-view.html') if p not in existing.splitlines())
+    # 阅读 Markdown 是私人会话的可读副本；升级旧工作区时也补上排除，
+    # 不能只依赖新版源码中的 .gitignore（用户旧规则不会被覆盖）。
+    suffix = ''.join('\n' + p + '\n' for p in ('.local/', 'context/monitor/', 'context/reading-notes/', 'context/generated/evidence-view.html') if p not in existing.splitlines())
     if suffix:
         content = existing + suffix
         entries = [i for i in entries if i['path'] != '.gitignore']
@@ -337,6 +341,10 @@ def main(argv=None):
                     raise ValueError('离线缺少模型，保留旧数据和备份；补齐后重试')
                 subprocess.run([str(runtime), str(root / 'services/qdrant/download_model.py'), '--apply'], cwd=root, check=True)
             subprocess.run([str(runtime), str(root / 'automation/scripts/portable.py'), 'check'], cwd=root, check=True)
+            # 源码升级也核对已安装的可选模型；模型/清单只随依赖组件交付，
+            # 不补种孤立 manifest，不覆盖用户 reranker 配置或偷偷下载模型。
+            subprocess.run([str(runtime), str(root / 'automation/scripts/dependency_bundle.py'),
+                            'check-reranker', '--root', str(root)], cwd=root, check=True)
         run(root, 'refresh-index')
         run(root, 'validate')
         if args.profile == 'full':

@@ -10,6 +10,7 @@ import shutil
 import tempfile
 import unittest
 import uuid
+from unittest.mock import patch
 
 from material_query_fixture import materialize
 from test_memory_documents_v3 import unit_payload
@@ -168,6 +169,85 @@ class ReadingWorkflowTests(unittest.TestCase):
         self.call('archive', archived=False, reason='恢复合成工作')
         self.recall()
         self.assertTrue(all(p.exists() for p in files))
+
+    def test_filtered_catalog_pages_and_content_order_ignore_uuid_and_view_time(self):
+        from material_query.reading import read_json, save
+        original = read_json(self.root / '.local/reading-sessions' / self.sid / 'HEAD.json')
+        # 前20个UUID均属于另一Owner；目标必须在筛选后的第一页出现。
+        for number in range(25):
+            session = deepcopy(original)
+            session.update(session_id='RS-' + str(uuid.UUID(int=number + 1)),
+                           owner_id=self.fx.owner_ids['B'], updated_at='2026-01-01T00:00:00+00:00')
+            file = self.root / '.local/reading-sessions' / session['session_id'] / 'HEAD.json'
+            file.parent.mkdir(parents=True)
+            save(file, session)
+        self.call('bind', owner_id=self.fx.owner_ids['A'], checkpoint_ref=None)
+        listed = dispatch(self.app, 'reading-list', {'owner_id': self.fx.owner_ids['A'], 'limit': 1})['value']
+        self.assertEqual([item['session_id'] for item in listed['items']], [self.sid])
+        self.assertIsNone(listed['next_offset'])
+        updated = listed['items'][0]['updated_at']
+        dispatch(self.app, 'reading-view', {'session_id': self.sid, 'notes_only': True})
+        listed = dispatch(self.app, 'reading-list', {'owner_id': self.fx.owner_ids['A']})['value']
+        self.assertEqual(listed['items'][0]['updated_at'], updated)
+        self.assertEqual(listed['items'][0]['note_count'], 0)
+
+    def test_superset_access_keeps_original_ceiling_and_rejects_narrower_host(self):
+        from material_query.reading import Reading, read_json, save
+        from material_query.budget import Ledger
+        file = self.root / '.local/reading-sessions' / self.sid / 'HEAD.json'
+        session = read_json(file)
+        session['access'] = [self.fx.owner_ids['A']]
+        save(file, session)
+        reading = Reading(self.app)
+        reading.ledger = Ledger(DEFAULT_BUDGET)
+        state = reading.state(session)
+        self.assertEqual(state.request.scope_ceiling.owner_ids, (self.fx.owner_ids['A'],))
+        view = dispatch(self.app, 'reading-view', {'session_id': self.sid, 'notes_only': True})
+        self.assertEqual(view['status'], 'partial', view)
+        self.assertEqual(read_json(file)['access'], session['access'])
+        self.assertEqual(read_json(file)['revision'], session['revision'])
+        narrow = Coordinator(self.root, access_owner_ids=[self.fx.owner_ids['B']])
+        try:
+            self.assertEqual(dispatch(narrow, 'reading-view', {'session_id': self.sid, 'notes_only': True})['code'], 'DENIED')
+            self.assertEqual(dispatch(narrow, 'reading-list', {})['value']['items'], [])
+        finally:
+            narrow.close()
+
+    def test_notes_view_snapshot_and_failed_derived_write_preserve_canonical_note(self):
+        unit = self.unit(self.recall())
+        self.call('read', candidate_ids=[unit['candidate_id']])
+        with patch('material_query.reading_snapshot.write_snapshot', side_effect=OSError('synthetic disk failure')):
+            noted = self.note(unit['candidate_id'])
+        self.assertEqual(noted['status'], 'ok', noted)
+        self.assertTrue(any('Markdown' in warning for warning in noted['warnings']))
+        viewed = dispatch(self.app, 'reading-view', {'session_id': self.sid, 'notes_only': True})
+        self.assertIn(viewed['status'], {'ok', 'partial'}, viewed)
+        value = viewed['value']
+        self.assertEqual(value['notes_count'], 1)
+        self.assertEqual([row['ref'] for row in value['candidates']], [unit['ref']])
+        self.assertNotIn('coverage', value)
+        self.assertNotIn('ONLY_FULL_RESULT', json.dumps(value))
+        snapshot = self.root / 'context/reading-notes' / self.sid / 'current.md'
+        body = snapshot.read_text(encoding='utf-8')
+        self.assertIn('273.15', body)
+        self.assertIn('不是权威状态', body)
+        self.assertIn(f'版本 r{self.revision}', body)
+        # 新建但尚未记录理解的会话即使更“新”，也不能遮住实际note。
+        empty = dispatch(self.app, 'reading-start', {'session_id': 'RS-' + str(uuid.uuid4()),
+            'goal': '尚无笔记的新会话', 'conditions': [], 'query': json_value(self.query)})
+        self.assertEqual(empty['status'], 'ok', empty)
+        listed = dispatch(self.app, 'reading-list', {'limit': 1})['value']
+        self.assertEqual(listed['items'][0]['session_id'], self.sid)
+        self.assertEqual(listed['items'][0]['note_count'], 1)
+        self.assertEqual(listed['next_offset'], 1)
+        before = snapshot.read_bytes()
+        sources = self.root / 'retrieval/sources.json'
+        raw = json.loads(sources.read_text(encoding='utf-8'))
+        for source in raw['sources']:
+            source['enabled'] = False
+        sources.write_text(json.dumps(raw), encoding='utf-8')
+        self.assertIsNone(dispatch(self.app, 'reading-view', {'session_id': self.sid, 'notes_only': True})['value'])
+        self.assertEqual(snapshot.read_bytes(), before)
 
     def test_listing_and_view_hide_revoked_sources(self):
         self.recall()

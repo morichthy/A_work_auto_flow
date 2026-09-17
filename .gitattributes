@@ -34,6 +34,7 @@ research/floating-point-summation/** -text
 /retrieval/sources.json export-ignore
 /retrieval/query-terms.json export-ignore
 /context/NOW.md export-ignore
+/context/reading-notes export-ignore
 /context/handoffs/* export-ignore
 /context/handoffs/TEMPLATE.md -export-ignore
 /AI检索思路 export-ignore

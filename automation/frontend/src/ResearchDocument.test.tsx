@@ -12,6 +12,39 @@ import { layerGraph } from "./graph-model";
 import { api } from "./api";
 vi.mock("./api", () => ({ api: vi.fn() }));
 afterEach(cleanup);
+it("围栏代码中的公式定界符不转换，普通未定界表达式不猜测", () => {
+  const content = [
+    "```text",
+    String.raw`\[code=1\]`,
+    "```",
+    "s_0=0，s_i=fl(s_{i-1}+x_i)",
+  ].join("\n");
+  const view = render(<ResearchMarkdown text={content} />);
+  expect(view.container.querySelector("code")?.textContent).toContain(
+    String.raw`\[code=1\]`,
+  );
+  expect(view.container.querySelectorAll(".katex")).toHaveLength(0);
+});
+
+it("兼容LaTeX括号分隔符且保留代码，编号证据链接交给路由", () => {
+  const view = render(
+    <ResearchMarkdown
+      text={[
+        String.raw`行内 \(x^2\)，展示 \[y=\frac{1}{2}\]。`,
+        "原有 $z=3$。",
+        "`\\(code\\)`",
+        "[1](#/evidence?id=MEM-ONE&revision=2)",
+      ].join("\n\n")}
+    />,
+  );
+  expect(view.container.querySelectorAll(".katex")).toHaveLength(3);
+  expect(view.container.querySelector("code")?.textContent).toBe(
+    String.raw`\(code\)`,
+  );
+  const link = screen.getByRole("link", { name: "1" });
+  expect(link).toHaveAttribute("href", "#/evidence?id=MEM-ONE&revision=2");
+  expect(fireEvent.click(link)).toBe(true);
+});
 
 const record = {
   record_id: "MEM-DETAIL",
@@ -227,6 +260,8 @@ describe("研究报告的连续阅读与证据边界", () => {
     fireEvent.change(screen.getByRole("combobox", { name: "文稿类型" }), {
       target: { value: "research_report" },
     });
+    expect(screen.getByRole("heading", { name: "完整文稿" })).toBeVisible();
+    expect(screen.getByText(/当前保留上次读取/)).toBeVisible();
     fireEvent.click(screen.getByRole("button", { name: "读取研究经过" }));
     await screen.findByRole("heading", { name: "简版文稿" });
     expect(screen.queryByText("章节固定上下文：变量单位为米。")).toBeNull();

@@ -1,0 +1,100 @@
+{
+  "fixture_version": 1,
+  "description": "冻结的合成中英检索重排基线；候选列表是已覆盖的固定候选池，不能用于训练或调参。",
+  "query_routes": [
+    {"id": "original:lexical", "variant_id": "original", "language": "zh", "kind": "equivalent", "channel": "lexical", "weight": 1.0, "query_plan_id": "fixture-reranking-v1"},
+    {"id": "english:dense", "variant_id": "english", "language": "en", "kind": "equivalent", "channel": "dense", "weight": 1.0, "query_plan_id": "fixture-reranking-v1"},
+    {"id": "related:lexical", "variant_id": "related", "language": "mixed", "kind": "related", "channel": "lexical", "weight": 0.25, "query_plan_id": "fixture-reranking-v1"}
+  ],
+  "queries": [
+    {
+      "query_id": "DEV-LOWTEMP-X200",
+      "split": "development",
+      "query": "X200 型号在低于 -20°C 时如何避免启动失败？",
+      "conditions": {"model": "X200", "temperature": "< -20 °C", "intent": "avoid start failure"},
+      "short_context_policy": "标题、命中块和父级实验条件均需进入后续重排输入。",
+      "relevant": [{"canonical_id": "DOC-X200-LOWTEMP", "grade": 3}, {"canonical_id": "DOC-X200-HEATER", "grade": 2}],
+      "candidates": {
+        "original:lexical": ["DOC-X200-LOWTEMP", "NEG-X200-5C", "NEG-Y200-M30", "NEG-X200-NOSTART", "NEG-X200-20C", "NEG-X200-MANUAL", "DOC-X200-HEATER"],
+        "english:dense": ["NEG-Y200-M30", "NEG-X200-5C", "DOC-X200-LOWTEMP", "NEG-X200-NOSTART", "NEG-X200-20C", "NEG-X200-MANUAL", "DOC-X200-HEATER"],
+        "related:lexical": ["NEG-X200-5C", "NEG-Y200-M30", "DOC-X200-LOWTEMP", "NEG-X200-NOSTART", "NEG-X200-20C", "NEG-X200-MANUAL", "DOC-X200-HEATER"]
+      },
+      "documents": {
+        "DOC-X200-LOWTEMP": {"title": "X200 cold-start validation", "short_context": "X200 at -30 °C; preheat prevents start failure.", "full_context": "Device model: X200. Ambient temperature: -30 °C. A battery preheat cycle before ignition prevented start failure.", "condition_status": "satisfies"},
+        "DOC-X200-HEATER": {"title": "X200 heater procedure", "short_context": "Preheat procedure.", "full_context": "The procedure applies to X200 under -25 °C chamber conditions and reduces start failures.", "condition_status": "satisfies"},
+        "NEG-X200-5C": {"title": "X200 cold-start validation", "short_context": "Preheat improved starting.", "full_context": "Device model: X200. Ambient temperature: 5 °C. Preheat improved starting. This does not establish behavior below -20 °C.", "condition_status": "conflicts_temperature"},
+        "NEG-Y200-M30": {"title": "Y200 cold-start validation", "short_context": "Preheat prevents start failure at -30 °C.", "full_context": "Device model: Y200. Ambient temperature: -30 °C. Preheat prevented start failure.", "condition_status": "conflicts_model"},
+        "NEG-X200-NOSTART": {"title": "X200 low-temperature test", "short_context": "No preheat procedure was tested.", "full_context": "Device model: X200. Ambient temperature: -30 °C. No preheat procedure was tested; the report does not claim avoidance of start failure.", "condition_status": "conflicts_negation"},
+        "NEG-X200-20C": {"title": "X200 nominal condition", "short_context": "20 °C nominal startup.", "full_context": "Device model: X200. Ambient temperature: 20 °C. The nominal startup timing is reported.", "condition_status": "conflicts_temperature"},
+        "NEG-X200-MANUAL": {"title": "X200 operation manual", "short_context": "Starting guidance.", "full_context": "Device model: X200. The operating temperature is not stated in this excerpt.", "condition_status": "unknown"}
+      }
+    },
+    {
+      "query_id": "DEV-BILINGUAL-DEDUP",
+      "split": "development",
+      "query": "在 plasma-assisted coating 中，哪项结果证明 3.0 mm nozzle gap 降低 porosity？",
+      "conditions": {"process": "plasma-assisted coating", "nozzle_gap": "3.0 mm", "outcome": "lower porosity"},
+      "short_context_policy": "同一材料的标题表示与正文块必须按规范身份折叠；表格证据需要表头、单位和脚注。",
+      "relevant": [{"canonical_id": "DOC-COATING-3MM", "grade": 3}, {"canonical_id": "DOC-COATING-3MM-BLOCK", "grade": 2}],
+      "candidates": {
+        "original:lexical": ["NEG-COATING-30MM", "NEG-COATING-3MM-HIGH", "DOC-COATING-3MM", "DOC-COATING-3MM", "NEG-COATING-UNKNOWN"],
+        "english:dense": ["NEG-COATING-3MM-HIGH", "NEG-COATING-30MM", "DOC-COATING-3MM-BLOCK", "DOC-COATING-3MM", "NEG-COATING-UNKNOWN"],
+        "related:lexical": ["NEG-COATING-30MM", "DOC-COATING-3MM", "NEG-COATING-3MM-HIGH", "NEG-COATING-UNKNOWN"]
+      },
+      "documents": {
+        "DOC-COATING-3MM": {"title": "Plasma-assisted coating gap study", "short_context": "3.0 mm gap reduced porosity.", "full_context": "Table 2, plasma-assisted coating: nozzle gap 3.0 mm; porosity 1.2%, lower than the 5.0 mm control (2.1%).", "condition_status": "satisfies"},
+        "DOC-COATING-3MM-BLOCK": {"title": "Plasma-assisted coating gap study: Table 2", "short_context": "3.0 mm, porosity 1.2%.", "full_context": "Table 2 header: nozzle gap (mm), porosity (%). For plasma-assisted coating, 3.0 mm = 1.2%; 5.0 mm control = 2.1%.", "condition_status": "satisfies"},
+        "NEG-COATING-30MM": {"title": "Plasma-assisted coating gap study", "short_context": "30 mm gap result.", "full_context": "Plasma-assisted coating at a 30 mm nozzle gap is outside the requested 3.0 mm setting.", "condition_status": "conflicts_numeric"},
+        "NEG-COATING-3MM-HIGH": {"title": "Plasma-assisted coating gap study", "short_context": "3.0 mm porosity result.", "full_context": "At a 3.0 mm nozzle gap, porosity increased to 3.1% relative to the control.", "condition_status": "conflicts_outcome"},
+        "NEG-COATING-UNKNOWN": {"title": "Coating process note", "short_context": "Porosity measurement.", "full_context": "The process and nozzle gap are not stated in the available passage.", "condition_status": "unknown"}
+      }
+    },
+    {
+      "query_id": "DEV-NOANSWER",
+      "split": "development",
+      "query": "Does the Z900 manual approve operation below -50 °C?",
+      "conditions": {"model": "Z900", "temperature": "< -50 °C", "intent": "approved operation"},
+      "short_context_policy": "无答案题不应把主题近邻作为正式答案。",
+      "relevant": [],
+      "candidates": {"original:lexical": [], "english:dense": [], "related:lexical": []},
+      "documents": {}
+    },
+    {
+      "query_id": "HOLDOUT-NOZZLE-NEGATION",
+      "split": "holdout",
+      "query": "Which report explicitly states that A7 does not require a 10-minute purge before restart?",
+      "conditions": {"model": "A7", "purge": "10 min", "polarity": "does not require", "intent": "restart"},
+      "short_context_policy": "否定关系必须与型号、时长和重启任务共同出现。",
+      "relevant": [{"canonical_id": "DOC-A7-NOPURGE", "grade": 3}],
+      "candidates": {
+        "original:lexical": ["NEG-A7-REQUIRES", "NEG-A8-NOPURGE", "DOC-A7-NOPURGE", "NEG-A7-UNKNOWN"],
+        "english:dense": ["NEG-A7-REQUIRES", "DOC-A7-NOPURGE", "NEG-A8-NOPURGE", "NEG-A7-UNKNOWN"],
+        "related:lexical": ["NEG-A8-NOPURGE", "NEG-A7-REQUIRES", "DOC-A7-NOPURGE"]
+      },
+      "documents": {
+        "DOC-A7-NOPURGE": {"title": "A7 restart validation", "short_context": "A7 restart needs no 10-minute purge.", "full_context": "For model A7, a restart does not require a 10-minute purge after the verified shutdown sequence.", "condition_status": "satisfies"},
+        "NEG-A7-REQUIRES": {"title": "A7 restart validation", "short_context": "10-minute purge requirement.", "full_context": "For model A7, a restart requires a 10-minute purge after the specified shutdown sequence.", "condition_status": "conflicts_negation"},
+        "NEG-A8-NOPURGE": {"title": "A8 restart validation", "short_context": "No 10-minute purge.", "full_context": "For model A8, a restart does not require a 10-minute purge.", "condition_status": "conflicts_model"},
+        "NEG-A7-UNKNOWN": {"title": "A7 service note", "short_context": "Restart procedure.", "full_context": "The purge duration and whether it is required are not stated.", "condition_status": "unknown"}
+      }
+    },
+    {
+      "query_id": "HOLDOUT-UNKNOWN-NOT-CONFLICT",
+      "split": "holdout",
+      "query": "What evidence supports B4 operation at 1.5 bar?",
+      "conditions": {"model": "B4", "pressure": "1.5 bar", "intent": "operation evidence"},
+      "short_context_policy": "未声明压力的材料标为未知，不能当作显式矛盾。",
+      "relevant": [{"canonical_id": "DOC-B4-15BAR", "grade": 3}, {"canonical_id": "DOC-B4-UNKNOWN-CONTEXT", "grade": 1}],
+      "candidates": {
+        "original:lexical": ["NEG-B4-15PSI", "DOC-B4-UNKNOWN-CONTEXT", "DOC-B4-15BAR"],
+        "english:dense": ["NEG-B4-15PSI", "DOC-B4-15BAR", "DOC-B4-UNKNOWN-CONTEXT"],
+        "related:lexical": ["DOC-B4-UNKNOWN-CONTEXT", "NEG-B4-15PSI", "DOC-B4-15BAR"]
+      },
+      "documents": {
+        "DOC-B4-15BAR": {"title": "B4 pressure validation", "short_context": "B4 at 1.5 bar.", "full_context": "Model B4 operated stably at 1.5 bar in the validation run.", "condition_status": "satisfies"},
+        "DOC-B4-UNKNOWN-CONTEXT": {"title": "B4 operation log", "short_context": "B4 operation evidence.", "full_context": "Model B4 was operated during the linked validation run; this excerpt does not state the pressure.", "condition_status": "unknown"},
+        "NEG-B4-15PSI": {"title": "B4 pressure validation", "short_context": "B4 at 1.5 psi.", "full_context": "Model B4 operated at 1.5 psi, a different unit and pressure from 1.5 bar.", "condition_status": "conflicts_numeric"}
+      }
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 """按Owner发现阅读会话；只读有界目录，不建立第二份RS索引或知识真源。"""
 from itertools import islice
+from datetime import datetime, timezone
 import json
 from .budget import DEFAULT_BUDGET, Ledger
 from .coordinator import envelope
@@ -22,16 +23,15 @@ def listing(reading, raw):
     base = reading.root / BASE
     paths = list(islice(base.glob('RS-*/HEAD.json'), 10001)) if base.exists() else []
     require(len(paths) <= 10000, '阅读目录超过10000会话，需维护目录容量后重试；归档标记不会删除目录')
-    paths.sort(key=lambda item: item.parent.name)
-    selected = paths[offset:offset + limit]
     items, unavailable = [], 0
     with reading.ledger.active():
-        for candidate in selected:
+        for candidate in paths:
+            state = None
             try:
                 file = path(reading.root, candidate.parent.name, 'HEAD.json')
                 reading.ledger.charge('read_bytes', file.stat().st_size)
                 session = read_json(file)
-                if session['access'] != reading.access():
+                if not reading.can_access(session):
                     continue
                 if oid is not None and session.get('owner_id') != oid:
                     continue
@@ -40,13 +40,34 @@ def listing(reading, raw):
                 state = reading.state(session)
                 reading.reauthorize(session, state)
                 item = {key: session.get(key) for key in ('session_id', 'revision', 'owner_id', 'goal', 'phase', 'archived')}
-                reading.ledger.charge('output_chars', len(json.dumps(item, ensure_ascii=False)))
+                # 旧RS没有时间字段时用语义修订文件；HEAD的mtime会被只读账本更新，
+                # 不能把一次查看误当笔记内容的新更新。无修订文件才回退HEAD。
+                updated = session.get('updated_at')
+                if not updated:
+                    revisions = list(candidate.parent.glob('revision-*.json'))
+                    stamp = max((entry.stat().st_mtime for entry in revisions), default=file.stat().st_mtime)
+                    updated = datetime.fromtimestamp(stamp, timezone.utc).isoformat()
+                item.update(note_count=len(session.get('owner_notes' if session.get('mode') == 'owner_document' else 'notes', {})), updated_at=updated)
+                if session.get('mode') == 'owner_document' and session.get('synthesis_note'):
+                    item['note_count'] += 1
                 items.append(item)
-            except (QueryError, MemoryError, OSError, ValueError, KeyError):
+            except QueryError as exc:
+                # 目录预算耗尽不能被吞成“没有记录”；明确失败让用户保留现有视图。
+                if exc.code in {'BUDGET', 'CANCELLED'}:
+                    raise
+                unavailable += 1
+            except (MemoryError, OSError, ValueError, KeyError):
                 # 不泄漏不可读会话的身份、目标或路径；其他会话仍可查看。
                 unavailable += 1
-    next_offset = offset + len(selected) if offset + len(selected) < len(paths) else None
-    result = envelope({'items': items, 'next_offset': next_offset, 'unavailable_count': unavailable,
-                       'scope_note': '按目录窗口筛选；空页仍可能有下一页。未绑定旧会话用全局列表发现后显式bind。'})
+            finally:
+                if state is not None:
+                    reading.app.store.states.pop(state.query_id, None)
+    # 过滤、授权之后再分页，避免某Owner被其他Owner或归档记录挤到空页。
+    items.sort(key=lambda item: (bool(item['note_count']), item['updated_at'], item['session_id']), reverse=True)
+    selected = items[offset:offset + limit]
+    reading.ledger.charge('output_chars', len(json.dumps(selected, ensure_ascii=False)))
+    next_offset = offset + len(selected) if offset + len(selected) < len(items) else None
+    result = envelope({'items': selected, 'next_offset': next_offset, 'unavailable_count': unavailable,
+                       'scope_note': '按归属和当前授权筛选后分页；有笔记优先，同类按最近内容更新排序。未绑定旧会话可在全局列表发现。'})
     result['consumed'] = reading.ledger.snapshot()
     return result

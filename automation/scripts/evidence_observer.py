@@ -63,10 +63,46 @@ def collect(root):
 """
     root = Path(root).resolve()
     cfg = r.config(root)
-    graph = e.EvidenceGraph(root)
-    paths = {Path(item["path"]).resolve() for item in r.discover(root, cfg)}
-    # 已声明输入/产物与关系可能使用非检索格式，也需要检查；外部授权
-    # 仍由 reference_path 检查，绝不因元数据出现路径就扩大读取范围。
+    from memory.owners import ROOT_TYPES, list_owners
+    # 监测面是 Owner 记录，不是整个检索来源集，更不是 Run 的所有产物。
+    # 发布包和外部原件即使被 Run 引用，也不能因此加入每分钟的哈希扫描。
+    def in_scope(path):
+        path = Path(path).resolve()
+        if not path.is_relative_to(root):
+            return False
+        parts = path.relative_to(root).parts
+        return bool(parts and parts[0] in ROOT_TYPES and not set(parts) & r.SKIP
+                    and path.suffix.lower() in r.SUPPORTED)
+
+    checked = {}
+    def observed_hash(path):
+        """证据图及 Run 校验也共享监测预算，避免它们再次读取大产物。"""
+        path = Path(path).resolve()
+        if not in_scope(path):
+            raise ValueError(f"不在记录监测范围，未核验当前指纹：{relative(root, path)}")
+        if path not in checked:
+            checked[path] = stable_file(path, cfg["max_file_bytes"])
+        if checked[path]["status"] != "present":
+            raise ValueError(f"证据文件不存在：{relative(root, path)}")
+        return checked[path]["sha256"]
+
+    graph = e.EvidenceGraph(root, file_hasher=observed_hash)
+
+    scan_cfg = {**cfg, "include_directories": [name for name in cfg["include_directories"]
+                if (root / name).resolve().is_relative_to(root)
+                and Path(name).parts and Path(name).parts[0] in ROOT_TYPES]}
+    paths = {Path(item["path"]).resolve() for item in r.discover(root, scan_cfg)
+             if in_scope(item["path"])}
+    # 公共 Owner 发现覆盖项目/工具卡、单文件对象及各类记忆存储布局。
+    # 只观察 HEAD 指针即可发现新提交；不遍历不可变修订和事务日志。
+    for owner in list_owners(root, metadata_only=True):
+        if owner["native_data"].get("sensitivity") == "restricted":
+            continue
+        native = e.reference_path(root, owner["native_ref"]["path"])
+        paths.add(native)
+        if owner["persisted"]:
+            paths.add(e.reference_path(root, owner["memory_home"] + "/HEAD.json"))
+    # 原有记录目录中的明确引用仍检查授权；不沿引用扩大到分发/缓存目录。
     for node in graph.nodes.values():
         paths.add(node["path"])
         refs = list(graph.refs(node))
@@ -79,12 +115,21 @@ def collect(root):
             if not isinstance(ref, dict) or not isinstance(ref.get("target"), str) or ref["target"] in graph.nodes:
                 continue
             try:
-                paths.add(e.reference_path(root, ref["target"]))
+                target = e.reference_path(root, ref["target"])
+                if in_scope(target):
+                    paths.add(target)
             except (OSError, ValueError):
                 pass  # 图/引用明细会报告授权或缺失问题，不尝试越界哈希。
     if len(paths) > cfg["max_files"]:
         raise ValueError("监测来源超过 max_files；未保存部分基线")
-    files = {relative(root, path): stable_file(path, cfg["max_file_bytes"]) for path in sorted(paths)}
+    files, file_errors = {}, []
+    for path in sorted(paths):
+        try:
+            files[relative(root, path)] = checked[path] if path in checked else stable_file(path, cfg["max_file_bytes"])
+        except (OSError, ValueError) as exc:
+            # 页面可以展示其他有效记录及明确诊断；monitor 仍会拒绝提交
+            # 含错误的快照，避免把暂时不可读的文件误报为删除/移出范围。
+            file_errors.append(str(exc))
     nodes = {}
     for nid, node in sorted(graph.nodes.items()):
         raw = node["raw"]
@@ -122,6 +167,8 @@ def collect(root):
                             current = files.get(relative(root, asset_path), {})
                             assets.append({"group": group, "index": index, "path": entry["path"], "sha256": entry.get("sha256"),
                                 "current_sha256": current.get("sha256"), "version_matches": bool(entry.get("sha256")) and current.get("sha256") == entry.get("sha256")})
+                            if not in_scope(asset_path):
+                                assets[-1]["error"] = "不在记录监测范围，未核验当前指纹"
                         except (OSError, ValueError) as exc:
                             assets.append({"group": group, "index": index, "path": entry["path"], "error": str(exc)})
         affected = downstream(graph, nid)
@@ -144,7 +191,7 @@ def collect(root):
             "formal_errors": errors if kind == "claim" else ["容器不替代逐条结论复核"],
             "formal_eligible": not errors if kind == "claim" else False,
             "state": "invalid" if risks else "eligible" if kind == "claim" and not errors else "needs-review"}
-    return {"schema_version": SCHEMA, "observed_at": now(), "files": files, "nodes": nodes, "errors": graph.errors,
+    return {"schema_version": SCHEMA, "observed_at": now(), "files": files, "nodes": nodes, "errors": graph.errors + file_errors,
             "note": "只读观察；引用次数和重复内容不作为独立验证；发现时间不等于实际发生时间"}
 
 

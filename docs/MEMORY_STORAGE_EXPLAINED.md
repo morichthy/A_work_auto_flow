@@ -1,6 +1,10 @@
 # 持续工作中的记录、版本、检索与完整成果
 
-2026-09-13补充：各Owner按有用内容组合层级，默认normal、auto_summary=false；阅读清单在工作台系统记忆内，RS以owner_id/可选checkpoint_ref关联，HEAD保存状态，Markdown是版本快照。路径与生命周期见[对象/Run/阅读记录](OBJECT_RUN_STORAGE.md)。
+2026-09-16重排补充：AI阅读可在RRF候选中固定回读命中块及必要定义，再用离线Cross-encoder和显式字段条件排序。它不改变下述索引/规范记录身份；原/新名次、条件固定证据和模型身份保存在原RS轮次，unknown保留，不能把模型分数当科学复核。新模板遵循[工作区设置](WORKSPACE_SETTINGS.md)，出厂auto；旧RS保留原预算和策略，无重排字段仍off。设置是新请求默认值，不是规范记录、索引或授权来源；具体预算、降级和模型分发见[AI_READING](AI_READING.md)。
+
+各Owner按有用内容组合层级，默认normal、auto_summary=false；最近阅读问题统一在工作台首页“当前阅读笔记”选择，系统记忆不再重复提供阅读记录页。RS以owner_id/可选checkpoint_ref关联，HEAD保存状态，Markdown是版本快照。路径与生命周期见[对象/Run/阅读记录](OBJECT_RUN_STORAGE.md)。
+
+2026-09-16子Agent阅读补充：主Agent默认只取reading-handoff的有界笔记/必要细节/出处，检索与完整阅读由宿主独立reader执行；设置关闭或宿主不支持时回退单Agent。delegate仅产生任务包，实际派工由宿主完成。所有笔记仍在原RS，交接不创建规范知识或索引副本，授权和固定版本仍逐次检查；新Owner模式区分最终note上限与单次资源保护，旧RS累计预算保留，外部AI费用另计。接口及遗漏/陈旧/覆盖缺口见[AI阅读](AI_READING.md)。
 
 核对日期：2026-09-16（记录版本、文稿与成果整理流程），依据当前工作树。本页是 [CORE](CORE.md) 的按需补充，汇总持续工作记录机制的问答、真实提交例子，以及由此次讨论形成的维护要求；不替代完整运行契约。**记录保存内容与依据，Run 保存一次运行，索引帮助找到内容，文稿组织可连贯阅读的成果。**
 
@@ -140,7 +144,9 @@ research/<研究名>/                 projects/<项目名>/
       └─ records/MEM-<记录ID>.json
 ```
 
-Run记录实际执行，memory记录完整方法、解释、经过、经验、概览和文稿；工作清单维护当前目标与下一步。阅读会话RS另在`.local/reading-sessions/`保存候选、实际理解和阅读进度，绑定Owner，但笔记不会自动成为可检索规范知识。值得复用的阅读成果仍须经memory提交。文件只是放进目录、或只出现在聊天中，不等于已经登记或进入知识索引。
+Run记录实际执行，memory记录完整方法、解释、经过、经验、概览和文稿；工作清单维护当前目标与下一步。Run的run.json已有conclusion与limitations，新建README只是模板，不自动生成研究总结。复杂方法/结果用L1完整正文固定引用Run，再由Owner文稿编排；没有MEM正文的原生Run尚不进入AI三层召回，不能把日志或RESULTS文件名当成已写总结。
+
+阅读会话RS另在`.local/reading-sessions/`保存候选、实际理解和阅读进度，绑定任务Owner，但笔记不会自动成为可检索规范知识。新Owner阅读把来源Owner的正文去重后逐篇读文稿，图片/L0/Run按需展开，note保存问题、条件、关键经验、细节与出处。值得复用的阅读成果仍须经memory提交。文件只是放进目录、或只出现在聊天中，不等于已经登记或进入知识索引。
 
 ## 7. 记录版本与提交链如何演进
 
@@ -267,6 +273,8 @@ AI不需要每次遍历全部commit。通常从当前版本、文稿实际引用
 这只验证本机Windows、有限合成文稿及安装升级边界，不证明真实研究质量、大文稿规模、多文稿并发或第二物理机验收。工作区最终校验0错误、19个历史/固定快照链接警告，当前方法入口可用。完整工作区中的实施证据为RUN-20260915T204918Z-4AF8AF30E4E8，见[结果](../projects/architecture-evolution/runs/run-20260915t204918z-4af8af30e4e8/RESULTS.md)、[最终回读](../projects/architecture-evolution/runs/run-20260915t204918z-4af8af30e4e8/FINAL_REVIEW.md)及[任务清单](../projects/architecture-evolution/plans/consolidate-results-skill-20260916.md)。公共发行不包含这些本机实例，方法及运行代码链接仍可独立使用。
 
 ## 维护要求
+
+2026-09-17核对：RS 仍以 JSON 保存版本、预算、来源和笔记状态；人类可直接阅读 `context/reading-notes/<RS-ID>/current.md` 派生副本。AI 正常通过 `reading-handoff` 得到组织好的 Markdown，不必读取完整 JSON 或所有历史。副本不参与知识召回或反写状态，来源有效性须重新检查；首页突出当前笔记，材料主题跳转对应系统记忆。
 
 2026-09-13补充：AI阅读会话的“阅读记录”与这里的规范知识记录不同。前者在 `.local/reading-sessions/RS-…/HEAD.json` 保存当前问题、条件、固定候选身份、AI理解、必要细节和下一步，并保留修订历史；不把原技术正文再复制一份，也不自动进入索引。原记录、SQLite与向量对应关系不变。恢复时重查授权，旧版理解遇新修订会提示复查；笔记保存不证明理解正确。各实体和操作见[AI阅读手册](AI_READING.md)。这个目录是用户工作数据，升级保留，不能因位于 `.local` 就当缓存删除。
 

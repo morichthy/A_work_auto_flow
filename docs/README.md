@@ -1,5 +1,7 @@
 # 文档索引
 
+首页最近阅读问题、三模式控制和快照边界见[AI_READING](AI_READING.md)；记录摘要进入证据详情、固定深链与类型展示见[EVIDENCE_VIEW_MONITOR](EVIDENCE_VIEW_MONITOR.md)。正文引用位置与固定依据的写作要求见[RESEARCH_RECORDING](RESEARCH_RECORDING.md)。
+
 [统一工作公共动作](WORKFLOW_ACTIONS.md)：Owner选择、用户可见工作上下文清单的存放/维护，以及执行、保存、续接的真实命令；主入口work-loop。
 
 现行说明由六份短文档组成：[用户入口](../README.md)、[架构](../ARCHITECTURE.md)、[核心功能](CORE.md)、本索引、[维护约定](DOCUMENTATION_MAINTENANCE.md)、[测试选择](TESTING.md)。按影响读取维护，全局整合、发布或用户要求全面审查时前后完整阅读；另有 [开发决策与演进记录](DEVELOPMENT_HISTORY.md)，全局方案前完整读取、局部方案定位相关决定，开发后维护，解释为什么采用当前方案及历史错误。下列细节按本次影响打开。
@@ -18,11 +20,12 @@
 | 对象、Run 归属和原始材料登记 | [OBJECT_RUN_STORAGE](OBJECT_RUN_STORAGE.md)、[RUN_CAPTURE](RUN_CAPTURE.md) |
 | 导入已有资料、来源变化与历史位置 | [EXISTING_MATERIALS](EXISTING_MATERIALS.md) |
 | 材料内容来源、正文块/混合召回、固定展开、兼容表示、联想与维护 | [MATERIAL_QUERY](MATERIAL_QUERY.md)；[KNOWLEDGE_FACETS](KNOWLEDGE_FACETS.md) 定义可选知识分类 |
-| AI多路检索、阅读理解、必要细节与问题续接 | [AI_READING](AI_READING.md)：reading CLI/HTTP、工作记录存储、范围预算与补查控制 |
+| AI正文候选去重、三模式Owner/片段阅读与研究式笔记交接 | [AI_READING](AI_READING.md)：standard/associative/quick、CLI/HTTP、子Agent与单Agent回退、引用按需展开、综合note重验、旧RS兼容；统一参数见[工作区设置](WORKSPACE_SETTINGS.md) |
 | 中英等义查询、领域术语/关联扩展和词库维护 | [QUERY_TERMS](QUERY_TERMS.md)：用户词库、公共种子、出处、单跳扩展与升级补缺；请求字段见AI_READING |
 | 旧材料检索与规范记忆检索 | [RETRIEVAL](RETRIEVAL.md)、[MEMORY_USAGE](MEMORY_USAGE.md) |
 | 材料图、正式证据与观察 | [MATERIAL_RELATIONS](MATERIAL_RELATIONS.md)、[EVIDENCE_CONTROLS](EVIDENCE_CONTROLS.md)、[EVIDENCE_VIEW_MONITOR](EVIDENCE_VIEW_MONITOR.md) |
 | 工作台技术栈、扩展、生成类型和资源 | [WORKBENCH_DEVELOPMENT](WORKBENCH_DEVELOPMENT.md) |
+| 工作台设置、子Agent开关与能力要求、默认查询数量及上下文/模型预算、配置发布边界 | [WORKSPACE_SETTINGS](WORKSPACE_SETTINGS.md) |
 | 测试点与基线维护、执行及实际 AI 场景 | [TESTING](TESTING.md) 定义准入/复审/退出；[catalog](../automation/testing/catalog.json) 保存逐项依据；[TESTING_REFERENCE](TESTING_REFERENCE.md)、[AI 模板目录](../automation/testing/templates/) 给执行入口 |
 | Windows 安装、升级、恢复和离线发布 | [SETUP_WORKBENCH](SETUP_WORKBENCH.md)、[UPGRADE_TESTING](UPGRADE_TESTING.md)、[WINDOWS_PORTABILITY](WINDOWS_PORTABILITY.md)、[DEPENDENCY_RELEASE](DEPENDENCY_RELEASE.md) |
 | 访问范围、外部系统与原件边界 | [SECURITY_AND_DATA_BOUNDARIES](../governance/SECURITY_AND_DATA_BOUNDARIES.md) |

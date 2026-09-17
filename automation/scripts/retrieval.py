@@ -98,7 +98,7 @@ def _knowledge_source(root, path, entry, cache):
         relative = path.relative_to(root)
         # An output named run.json is still L0, even if explicitly registered
         # as a source; it must not masquerade as a legacy Run summary.
-        if '.run-captures' in relative.parts:
+        if '.run-captures' in relative.parts or relative.parts[:2] == ('context', 'reading-notes'):
             return None
         # This also blocks explicitly registered transaction files. Do not let
         # the registry reintroduce old HEADs/body JSON into the document index.
@@ -232,10 +232,15 @@ def discover(root, cfg):
     result, run_cache = {}, {}
     for name in cfg["include_directories"]:
         base = inside(root, root / name)
+        # 阅读副本只服务当前上下文展示；不要将 AI 的阅读理解重新索引成
+        # 独立知识依据（即使 include_directories 显式包含该目录）。
+        if base.relative_to(root).parts[:2] == ('context', 'reading-notes'):
+            continue
         if not base.is_dir():
             continue
         for directory, dirs, files in os.walk(base, followlinks=False):
             dirs[:] = sorted(d for d in dirs if d not in SKIP and
+                             Path(directory, d).relative_to(root).parts[:2] != ('context', 'reading-notes') and
                              not Path(directory, d).is_symlink() and
                              not getattr(Path(directory, d), 'is_junction', lambda: False)() and
                              not _registered_memory_home(Path(directory, d)))

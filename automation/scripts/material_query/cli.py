@@ -11,10 +11,11 @@ def add_commands(parsers):
     parser = parsers.add_parser("material-query", help="材料查询、组包与语义维护；请求采用运行JSON契约")
     parser.add_argument("action", choices=("capabilities", "definitions", "foundation-capabilities", "foundation", "search", "structure", "maintenance-plan", "maintenance-review", "maintenance-apply", "maintenance-status",
         "reading-template", "reading-start", "reading-recall", "reading-page", "reading-read", "reading-note", "reading-decide", "reading-resume",
-        "reading-list", "reading-view", "reading-bind", "reading-archive"))
+        "reading-list", "reading-view", "reading-bind", "reading-archive", "reading-delegate", "reading-handoff",
+        "reading-configure", "reading-assess", "reading-synthesize"))
     parser.add_argument("--owner", help="reading-list按归属对象筛选；不改变读取授权")
-    parser.add_argument("--session", help="reading-view读取该RS最新状态，无需手填请求JSON")
-    parser.add_argument("--markdown", action="store_true", help="reading-view输出易读Markdown快照")
+    parser.add_argument("--session", help="reading-view/handoff读取该RS，无需手填请求JSON")
+    parser.add_argument("--markdown", action="store_true", help="reading-view/handoff输出Markdown；handoff仍受交接上限约束")
     parser.add_argument("--request", type=Path, help="UTF-8 JSON请求文件，最多500KB")
     parser.add_argument("--assemble", action="store_true", help="search后显式组装当前页全部候选；不会继续翻页")
     parser.add_argument("--expand", choices=("process", "technical"), help="search后沿当前页候选的固定关联展开正文；沿用同一预算")
@@ -25,10 +26,10 @@ def execute(root, args):
     coordinator = Coordinator(root)
     try:
         owner, session = getattr(args, 'owner', None), getattr(args, 'session', None)
-        if owner and args.action != 'reading-list' or session and args.action != 'reading-view':
-            raise QueryError('VALIDATION', '--owner只用于reading-list，--session只用于reading-view')
-        if getattr(args, 'markdown', False) and args.action != 'reading-view':
-            raise QueryError('VALIDATION', '--markdown只用于reading-view')
+        if owner and args.action != 'reading-list' or session and args.action not in {'reading-view', 'reading-handoff'}:
+            raise QueryError('VALIDATION', '--owner只用于reading-list，--session只用于reading-view/handoff')
+        if getattr(args, 'markdown', False) and args.action not in {'reading-view', 'reading-handoff'}:
+            raise QueryError('VALIDATION', '--markdown只用于reading-view/handoff')
         if args.request and (owner or session):
             raise QueryError('VALIDATION', '请求文件与简便参数不能混用')
         if args.assemble and args.action != "search":
@@ -45,7 +46,7 @@ def execute(root, args):
             raw = json.loads(args.request.read_text(encoding="utf-8-sig"))
         elif args.action == 'reading-list':
             raw = {'owner_id': owner} if owner else {}
-        elif args.action == 'reading-view' and session:
+        elif args.action in {'reading-view', 'reading-handoff'} and session:
             raw = {'session_id': session}
         elif args.action in {"capabilities", "definitions", "foundation-capabilities", "reading-template"}:
             raw = {}

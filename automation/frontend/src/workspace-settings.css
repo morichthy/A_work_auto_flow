@@ -1,0 +1,45 @@
+/* 仅设置页使用，避免改变其他查询/证据页面已有表单布局。 */
+.workspace-settings .field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.workspace-settings .card > .field {
+  max-width: 360px;
+  margin: 14px 0;
+}
+
+.workspace-settings .field input,
+.workspace-settings .field textarea,
+.workspace-settings .field select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+}
+
+/* 自由文本需要更宽的阅读空间，窄屏仍受父容器约束。 */
+.workspace-settings .card > .capability-field {
+  max-width: 760px;
+}
+
+.workspace-settings .field textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.workspace-settings .form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 18px 20px;
+  margin: 18px 0;
+}
+
+.workspace-settings .field small {
+  line-height: 1.5;
+}
+
+.workspace-settings details > summary {
+  margin: 10px 0;
+}

@@ -11,6 +11,7 @@
 | `automation/frontend/src/App.tsx` | 应用外壳、静态页面注册、导航与任务状态 |
 | `src/Relations.tsx`、`src/Evidence.tsx` | 材料关系、证据页面及交互状态 |
 | `src/Memory.tsx`、`src/ReadingSessions.tsx`、`src/memory-contract.ts` | 对象记忆、L0、研究文稿、按Owner的实时阅读记录与固定请求的界面/契约检查 |
+| `src/CurrentReading.tsx`、`MaterialNavigation.tsx`、`ReadingEvidence.tsx` | 当前笔记共享选择/Markdown正文、Owner与主题深链接、仅从笔记固定引用展开的一层来源；不把全库或同Owner的记录冒充证据 |
 | `src/MaterialQuery.tsx`、`MaterialStructure.tsx`、`MaterialPacket.tsx` | 材料查询、逻辑/存储范围、固定候选与材料包；表示选择不是规范层级迁移 |
 | `src/components.tsx`、`src/group-view.ts` | Canvas、详情对话框、只供展示的聚合 |
 | `src/graph-model.ts` | 选择、排除、局部 BFS、范围一致的摘要 |
@@ -51,6 +52,8 @@ npm run format:check
 E2E 在 Windows 使用已安装的 Edge，测试服务仅监听回环地址，`windowsHide` 启动，测试结束关闭。夹具按调用生成到 `.local` 或 `tmp`，不发布实例。非 Windows 开发者需要为 Playwright 配置可用浏览器；当前交付验收针对 Windows。
 
 ## 增加页面
+
+页面采用首次访问后保留组件的标签页内生命周期，功能切换不应卸载已生成的结果或草稿。隐藏页面避免重复网络读取；真实任务更新、显式刷新和对象切换仍须处理失效与异步竞态。系统记忆默认“研究经过”，对象记忆显式生成；新增子功能需同时验证切走再返回、对象切换和旧请求晚到。此状态不写入浏览器持久存储，也不延长服务器查询有效期。
 
 在 `src` 添加组件，在 `App.tsx` 的 `pages` 静态数组与页面分支登记，并通过 `api.ts` 调用相对 API。最小页面可只读能力信息：
 

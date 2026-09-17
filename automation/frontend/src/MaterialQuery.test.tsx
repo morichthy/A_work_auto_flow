@@ -135,6 +135,20 @@ async function start() {
 }
 
 describe("材料查询固定范围与回执", () => {
+  it("新查询采用工作区设置的结果数与预算", async () => {
+    mockApi.mockImplementation(async (route) => {
+      const value = defaultResponse(route);
+      return (route === "materials/capabilities"
+        ? { ...value, default_result_limit: 7, default_budget: { ...defaultBudget, output_chars: 4000 } }
+        : value) as never;
+    });
+    render(<MaterialQuery />);
+    await start();
+    const request = mockApi.mock.calls.find(([route]) => route === "materials/start")![1] as any;
+    expect(request.result_limit).toBe(7);
+    expect(request.budget.output_chars).toBe(4000);
+  });
+
   it("标准类型可单选多选，所有来源与旧版显式选择，默认预算五分钟", async () => {
     render(<MaterialQuery />);
     await screen.findByRole("button", { name: /合成研究/ });

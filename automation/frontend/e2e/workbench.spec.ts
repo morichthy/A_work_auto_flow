@@ -3,6 +3,288 @@ import { spawn, type ChildProcess } from "node:child_process";
 import { resolve } from "node:path";
 import { readFile } from "node:fs/promises";
 const root = resolve("../..");
+test("记忆摘要进入完整文稿与来源图片证据", async ({ page }, testInfo) => {
+  const app = await server(false, true);
+  try {
+    await page.goto(app.url + "#/memory");
+    await page.getByLabel("记忆归属对象").selectOption("RES-SYNTHETIC");
+    await expect(
+      page.getByRole("button", { name: "阅读记录", exact: true }),
+    ).toHaveCount(0);
+    await page.getByRole("button", { name: "对象记忆", exact: true }).click();
+    await page
+      .getByRole("button", { name: "生成对象记忆", exact: true })
+      .click();
+    const link = page.getByRole("link", { name: "面板固定方法", exact: true });
+    await expect(link).toBeVisible();
+    await expect(
+      page.getByText("结构、固定来源与版本", { exact: true }),
+    ).toHaveCount(0);
+    await link.click();
+    await expect(
+      page.getByRole("heading", { name: "对象整体概览", exact: true }),
+    ).toBeVisible();
+    await page.getByLabel("搜索证据").fill("证据面板完整文稿");
+    await page.getByRole("button", { name: "搜索", exact: true }).click();
+    await page.getByRole("link", { name: /证据面板完整文稿/ }).click();
+    const detail = page.getByLabel("选中证据详情");
+    await expect(
+      detail.getByRole("heading", { name: "完整文稿", exact: true }),
+    ).toBeVisible();
+    await expect(
+      detail.getByRole("heading", { name: "证据面板固定章节", exact: true }),
+    ).toBeVisible();
+    await expect(
+      detail.getByRole("heading", { name: "参考文献", exact: true }),
+    ).toHaveCount(1);
+    const figure = detail.locator("img").first();
+    await expect(figure).toBeVisible();
+    await expect
+      .poll(() =>
+        figure.evaluate((image: HTMLImageElement) => image.naturalWidth),
+      )
+      .toBeGreaterThan(0);
+    await page.screenshot({
+      path: testInfo.outputPath("evidence-complete-document.png"),
+      fullPage: true,
+    });
+    await page.goto(app.url + "#/evidence?id=SRC-PANEL-FIGURE");
+    const sourceImage = page.getByLabel("选中证据详情").locator("img");
+    await expect(sourceImage).toBeVisible();
+    await expect
+      .poll(() =>
+        sourceImage.evaluate((image: HTMLImageElement) => image.naturalWidth),
+      )
+      .toBeGreaterThan(0);
+    await page.screenshot({
+      path: testInfo.outputPath("evidence-source-image.png"),
+      fullPage: true,
+    });
+  } finally {
+    app.process.kill();
+  }
+});
+test("最近问题重开选择、公式与编号引用双向证据导航真实接口", async ({
+  page,
+}, testInfo) => {
+  const app = await server(false, true);
+  const calls: string[] = [];
+  page.on("request", (request) => calls.push(new URL(request.url()).pathname));
+  const started = Date.now();
+  try {
+    await page.goto(app.url);
+    const picker = page.getByLabel("最近24小时阅读问题");
+    await expect(picker.locator("option")).toHaveCount(3);
+    await expect(
+      page.getByText("合成阅读理解：保留前提", { exact: true }),
+    ).toBeVisible();
+    const firstNoteMs = Date.now() - started;
+    await expect(page.locator(".katex").first()).toBeVisible();
+    await expect(page.getByText(/未重新核验证据；用于继续研究/)).toBeVisible();
+    expect(calls.some((path) => path.endsWith("/api/state"))).toBe(false);
+    expect(calls.some((path) => path.endsWith("/evidence/search"))).toBe(false);
+    const auxiliary = await picker
+      .locator("option")
+      .filter({ hasText: "辅助合成问题" })
+      .getAttribute("value");
+    await picker.selectOption(auxiliary!);
+    await expect(
+      page.getByText("第二问题的独立理解", { exact: true }),
+    ).toBeVisible();
+    await page.reload();
+    await expect(picker).toHaveValue(auxiliary!);
+    await expect(
+      page.getByText("第二问题的独立理解", { exact: true }),
+    ).toBeVisible();
+    const main = await picker
+      .locator("option")
+      .filter({ hasText: "合成阅读会话" })
+      .getAttribute("value");
+    await picker.selectOption(main!);
+    await expect(
+      page.getByText("合成阅读理解：保留前提", { exact: true }),
+    ).toBeVisible();
+    await page.screenshot({
+      path: testInfo.outputPath("recent-note-formulas.png"),
+      fullPage: true,
+    });
+    await page.locator(".katex-display").first().scrollIntoViewIfNeeded();
+    await page.screenshot({
+      path: testInfo.outputPath("note-formula-detail.png"),
+      fullPage: true,
+    });
+    const citation = page
+      .locator('[aria-label="当前阅读笔记全文"] a[href^="#/evidence?id=MEM-"]')
+      .first();
+    await expect(citation).toBeVisible();
+    await citation.click();
+    const detail = page.getByLabel("选中证据详情");
+    await expect(
+      detail.getByRole("heading", { name: "证据面板完整文稿", exact: true }),
+    ).toBeVisible();
+    await expect(
+      detail.getByRole("heading", { name: "关键上下文", exact: true }),
+    ).toBeVisible();
+    await detail
+      .locator(".evidence-links")
+      .getByRole("link", { name: "合成温漂测试", exact: true })
+      .click();
+    await expect(
+      detail.getByRole("heading", { name: "合成温漂测试", exact: true }),
+    ).toBeVisible();
+    await detail
+      .getByRole("link", { name: "面板固定方法", exact: true })
+      .click();
+    await expect(
+      detail.getByRole("heading", { name: "面板固定方法", exact: true }),
+    ).toBeVisible();
+    await page.screenshot({
+      path: testInfo.outputPath("evidence-record-relations.png"),
+      fullPage: true,
+    });
+    await page.goBack();
+    await expect(
+      detail.getByRole("heading", { name: "合成温漂测试", exact: true }),
+    ).toBeVisible();
+    await page.setViewportSize({ width: 760, height: 1000 });
+    await page.screenshot({
+      path: testInfo.outputPath("evidence-narrow.png"),
+      fullPage: true,
+    });
+    await testInfo.attach("navigation-metrics", {
+      body: JSON.stringify({ firstNoteMs, requests: calls }),
+      contentType: "application/json",
+    });
+  } finally {
+    app.process.kill();
+  }
+});
+
+test("三模式会话显式保存方向、重新载入与快速覆盖提示真实接口", async ({
+  page,
+  request,
+}, testInfo) => {
+  const app = await server(false, true);
+  try {
+    await page.goto(app.url + "#/home");
+    await page.getByText("阅读模式与联想方向", { exact: true }).click();
+    const mode = page.getByLabel("当前阅读模式");
+    await expect(mode).toHaveValue("standard");
+    await mode.selectOption("quick");
+    await page
+      .getByLabel("联想搜索文本（可选）")
+      .fill("温度偏置与量化误差的联系");
+    await page
+      .getByRole("button", { name: "保存阅读模式与方向", exact: true })
+      .click();
+    await expect(page.getByText(/尚未启动搜索/)).toBeVisible();
+    await page.reload();
+    await page.getByText("阅读模式与联想方向", { exact: true }).click();
+    await expect(mode).toHaveValue("quick");
+    await expect(page.getByLabel("联想搜索文本（可选）")).toHaveValue(
+      "温度偏置与量化误差的联系",
+    );
+    await page.locator('nav a[href="#/home"]').click();
+    await expect(
+      page.getByText("快速阅读：笔记依据已交付的召回文本，不代表全文覆盖。", {
+        exact: true,
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "选择阅读会话", exact: true }),
+    ).toHaveCount(0);
+    await mode.selectOption("associative");
+    await page
+      .getByRole("button", { name: "保存阅读模式与方向", exact: true })
+      .click();
+    await expect(page.getByText(/尚未启动搜索/)).toBeVisible();
+    const sessions = await request.post(
+      app.url + "api/v1/materials/reading-list",
+      {
+        headers: { Origin: new URL(app.url).origin },
+        data: { owner_id: "RES-SYNTHETIC", offset: 0, limit: 20 },
+      },
+    );
+    const id = (await sessions.json()).value.items[0].session_id;
+    const result = await request.post(
+      app.url + "api/v1/materials/reading-view",
+      {
+        headers: { Origin: new URL(app.url).origin },
+        data: { session_id: id, notes_only: true },
+      },
+    );
+    const saved = (await result.json()).value;
+    expect(saved.strategy).toBe("associative");
+    expect(saved.association.enabled).toBe(true);
+    expect(saved.association_text).toBe("温度偏置与量化误差的联系");
+    await testInfo.attach("reading-configured", {
+      body: JSON.stringify(saved, null, 2),
+      contentType: "application/json",
+    });
+    await page.screenshot({
+      path: testInfo.outputPath("reading-three-modes.png"),
+      fullPage: true,
+    });
+  } finally {
+    app.process.kill();
+  }
+});
+test("首页自动阅读笔记、定向证据与主题导航真实接口", async ({ page }) => {
+  const app = await server(false, true);
+  try {
+    await page.goto(app.url);
+    await expect(
+      page.getByText("合成阅读理解：保留前提", { exact: true }),
+    ).toBeVisible();
+    await expect(page.getByRole("link", { name: /打开材料关系/ })).toHaveCount(
+      0,
+    );
+    await page
+      .getByRole("link", { name: "查看证据与影响", exact: true })
+      .click();
+    await expect(
+      page.getByRole("heading", { name: "当前笔记的证据与影响" }),
+    ).toBeVisible();
+    await expect(page.getByText("正在读取固定依据及一层显式来源…")).toHaveCount(
+      0,
+    );
+    await page
+      .getByRole("link", { name: "证据面板完整文稿", exact: true })
+      .click();
+    await expect(
+      page.getByRole("heading", { name: "证据面板固定章节", exact: true }),
+    ).toBeVisible();
+    await page.screenshot({
+      path: resolve(
+        root,
+        "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/.run-captures/home/note-evidence.png",
+      ),
+      fullPage: true,
+    });
+    await page.getByRole("link", { name: "◫ 工作台", exact: true }).click();
+    await expect(page.getByRole("heading", { name: "材料导航" })).toBeVisible();
+    await page.screenshot({
+      path: resolve(
+        root,
+        "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/.run-captures/home/home-wide.png",
+      ),
+      fullPage: true,
+    });
+    await page.setViewportSize({ width: 760, height: 1000 });
+    await expect(
+      page.getByRole("heading", { name: "当前阅读笔记" }),
+    ).toBeVisible();
+    await page.screenshot({
+      path: resolve(
+        root,
+        "projects/architecture-evolution/runs/run-20260916t155857z-a3d7b61bdd32/.run-captures/home/home-narrow.png",
+      ),
+      fullPage: true,
+    });
+  } finally {
+    app.process.kill();
+  }
+});
 async function server(
   scale = false,
   reading = false,
@@ -57,7 +339,8 @@ test("完整导航、关系、证据、候选和摘要", async ({ page }) => {
       path: resolve(root, "tmp/workbench-home.png"),
       fullPage: true,
     });
-    await page.getByRole("link", { name: "打开材料关系 →" }).click();
+    // 首页按用户要求只保留note证据入口；关系功能仍从侧栏进入。
+    await page.locator('nav a[href="#/relations"]').click();
     await page
       .getByRole("checkbox", { name: "原生导航（未分层）", exact: true })
       .check();
@@ -96,15 +379,19 @@ test("完整导航、关系、证据、候选和摘要", async ({ page }) => {
     );
     await page.locator('nav a[href="#/evidence"]').click();
     await page.getByLabel("搜索证据").fill("CLM-SYNTHETIC");
-    await page.getByRole("button", { name: /结论 合成计算偏移/ }).click();
+    await page.getByRole("button", { name: "搜索", exact: true }).click();
     await page
-      .getByRole("button", { name: "预览来源", exact: true })
-      .first()
+      .getByLabel("证据搜索列表")
+      .getByRole("link", { name: /合成计算偏移/ })
       .click();
-    await expect(page.getByRole("dialog")).toContainText(
-      "temperature_C,offset_ms",
-    );
-    await page.getByRole("button", { name: "关闭", exact: true }).click();
+    await expect(
+      page
+        .getByLabel("选中证据详情")
+        .getByRole("heading", { name: /合成计算偏移/ }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "引用与依据", exact: true }),
+    ).toBeVisible();
     await page.screenshot({
       path: resolve(root, "tmp/workbench-evidence.png"),
       fullPage: true,
@@ -136,6 +423,39 @@ test("完整导航、关系、证据、候选和摘要", async ({ page }) => {
     await environmentJob.getByText("结果与覆盖范围", { exact: true }).click();
     await expect(environmentJob.locator("pre")).not.toHaveText("null");
     expect(errors).toEqual([]);
+  } finally {
+    app.process.kill();
+  }
+});
+test("证据页首次进入加载，顶层切换复用已加载状态", async ({ page }) => {
+  const app = await server();
+  const stateRequests: string[] = [];
+  const searchRequests: string[] = [];
+  page.on("request", (request) => {
+    if (request.url().endsWith("/api/state")) stateRequests.push(request.url());
+    if (request.url().endsWith("/evidence/search"))
+      searchRequests.push(request.url());
+  });
+  try {
+    await page.goto(app.url);
+    await expect(
+      page.getByRole("heading", { name: "把材料连接到问题" }),
+    ).toBeVisible();
+    expect(stateRequests).toHaveLength(0);
+    expect(searchRequests).toHaveLength(0);
+    await page.locator('nav a[href="#/evidence"]').click();
+    await expect(
+      page.getByRole("heading", { name: "查看依据，检查影响" }),
+    ).toBeVisible();
+    await expect.poll(() => searchRequests.length).toBe(1);
+    expect(stateRequests).toHaveLength(0);
+    await page.locator('nav a[href="#/relations"]').click();
+    await page.locator('nav a[href="#/evidence"]').click();
+    await expect(
+      page.getByRole("heading", { name: "查看依据，检查影响" }),
+    ).toBeVisible();
+    expect(searchRequests).toHaveLength(1);
+    expect(stateRequests).toHaveLength(0);
   } finally {
     app.process.kill();
   }
@@ -297,23 +617,39 @@ test("对象阅读清单、完整原文和版本导出真实接口", async ({ pa
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
   try {
-    await page.goto(app.url + "#/memory");
-    await page.getByLabel("记忆归属对象").selectOption("RES-SYNTHETIC");
-    await page.getByRole("button", { name: "阅读记录", exact: true }).click();
-    await page
-      .getByRole("button", { name: "合成阅读会话", exact: true })
-      .click();
+    await page.goto(app.url + "#/memory?tab=reading&owner=RES-SYNTHETIC");
+    await expect(page).toHaveURL(/#\/home$/);
+    // 进入即加载现有笔记，不需要点击会话，更不应自动读取固定原文。
     await expect(
       page.getByText("合成阅读理解：保留前提", { exact: true }),
     ).toBeVisible();
     await expect(
-      page.getByText("必要细节：绝对温度偏置273.15", { exact: true }),
+      page.getByRole("heading", {
+        name: "细节、参数、单位与边界",
+        exact: true,
+      }),
+    ).toBeVisible();
+    await expect(
+      page.getByText("绝对温度偏置273.15", { exact: true }),
+    ).toBeVisible();
+    await page
+      .getByRole("button", { name: "刷新当前笔记", exact: true })
+      .click();
+    await expect(
+      page.getByText("合成阅读理解：保留前提", { exact: true }),
     ).toBeVisible();
     const event = page.waitForEvent("download");
-    await page.getByRole("button", { name: "导出此版本笔记" }).click();
-    expect((await event).suggestedFilename()).toMatch(/RS-.*-r4.md/);
-    await page.getByRole("button", { name: "面板固定方法 · 读取原文" }).click();
-    await expect(page.getByText(/panelreading 前提：绝对温度/)).toBeVisible();
+    await page.getByRole("button", { name: "导出当前笔记" }).click();
+    expect((await event).suggestedFilename()).toMatch(
+      /^合成阅读会话-RS-[a-f0-9]{12}-r4\.md$/,
+    );
+    await page
+      .locator('[aria-label="当前阅读笔记全文"] a[href^="#/evidence?id=MEM-"]')
+      .first()
+      .click();
+    await expect(
+      page.getByRole("heading", { name: "证据面板完整文稿", exact: true }),
+    ).toBeVisible();
     await page.screenshot({
       path: resolve(root, ".local/unified-reading-panel.png"),
       fullPage: true,

@@ -13,6 +13,7 @@ import subprocess
 import tempfile
 import threading
 import unittest
+import zipfile
 from contextlib import nullcontext
 from unittest.mock import patch
 from urllib.parse import urlsplit
@@ -55,6 +56,7 @@ class DeploymentWorkbenchTests(unittest.TestCase):
             self.write(source, name, 'NEW-' + name)
         self.write(source, 'runs/do-not-import/run.json', '{"private":true}')
         self.write(source, '.local/test-workspace/data/catalog/private.csv', 'never release')
+        self.write(source, 'context/reading-notes/private-rs/current.md', 'private reading note')
         return source
 
     def test_fixture_covers_modules_and_never_marks_claims_accepted(self):
@@ -82,12 +84,19 @@ class DeploymentWorkbenchTests(unittest.TestCase):
         self.assertEqual(json.loads(run.read_text())['review']['status'], 'not-reviewed')
 
     def test_keyword_index_and_full_algorithm_context(self):
+        note = self.write(self.root, 'context/reading-notes/RS-synthetic/current.md',
+                          '# 私人阅读副本\n不应重复成为可检索的知识来源。')
+        cfg = retrieval.config(self.root)
+        cfg['include_directories'] += ['context', 'context/reading-notes']
+        self.assertNotIn(str(note), {str(item['path']) for item in retrieval.discover(self.root, cfg)})
         summary = retrieval.index(self.root)
         self.assertGreater(summary['updated'], 10)
         result = retrieval.search(self.root, '温漂')
         self.assertTrue(result['results'])
         self.assertNotIn('archive/README.md', [Path(s['path']).relative_to(self.root).as_posix() for s in result['results']])
         self.assertEqual(retrieval.index(self.root)['updated'], 0)
+        self.assertNotIn(note, list(cli.iter_small_text_files(self.root)))
+        self.assertTrue(cli.is_excluded(Path('context/reading-notes/RS-synthetic/current.md'), []))
 
     def test_generate_preview_idempotence_and_isolation(self):
         result = samples.generate(self.root, preview=True)
@@ -108,6 +117,29 @@ class DeploymentWorkbenchTests(unittest.TestCase):
         self.assertFalse(any('.local' in p.parts or 'runtime-stage-broken' in p.parts for p in files))
         self.assertIn(self.root / 'runs/synthetic-base/run.json', files)
 
+    @unittest.skipUnless(shutil.which('git'), '源码归档验证需要 Git')
+    def test_source_archive_excludes_private_reading_markdown(self):
+        """即使有人强制跟踪私人副本，受控源码 ZIP 也不能带出其内容。"""
+        source = self.base / '合成源码归档'
+        source.mkdir()
+        self.write(source, '.gitattributes', (ROOT / '.gitattributes').read_text(encoding='utf-8'))
+        self.write(source, 'README.md', '# SYNTHETIC ONLY public source\n')
+        self.write(source, 'context/reading-notes/RS-synthetic/current.md', '# SYNTHETIC ONLY private note\n')
+        # 配置仅作用于本次临时仓库命令，不修改用户 Git 配置或真实提交。
+        def git(*args):
+            result = subprocess.run(['git', '-c', 'user.name=Synthetic test',
+                                     '-c', 'user.email=synthetic@example.invalid', *args],
+                                    cwd=source, capture_output=True, text=True, timeout=30)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        git('init')
+        git('add', '.')
+        git('commit', '-m', 'Synthetic release boundary fixture')
+        archive = self.base / 'synthetic-source.zip'
+        git('archive', '--format=zip', '--output=' + str(archive), 'HEAD')
+        with zipfile.ZipFile(archive) as package:
+            self.assertIn('README.md', package.namelist())
+            self.assertFalse(any(name.startswith('context/reading-notes') for name in package.namelist()))
+
     def test_upgrade_preserves_business_config_rules_and_runtime(self):
         source = self.new_source()
         protected = ['runs/synthetic-base/run.json', 'retrieval/config.json', 'AGENTS.md', 'context/NOW.md']
@@ -122,6 +154,8 @@ class DeploymentWorkbenchTests(unittest.TestCase):
             self.assertEqual((self.root / name).read_bytes(), content)
         self.assertEqual((self.root / 'services/qdrant/runtime/python.exe').read_text(), 'old runtime')
         self.assertFalse((self.root / 'runs/do-not-import').exists())
+        self.assertFalse((self.root / 'context/reading-notes/private-rs/current.md').exists())
+        self.assertIn('context/reading-notes/', (self.root / '.gitignore').read_text(encoding='utf-8'))
         self.assertEqual(deploy.plan(source, self.root), [])
 
     def test_restore_checks_all_conflicts_before_changing_any_file(self):
@@ -297,10 +331,14 @@ class DeploymentWorkbenchTests(unittest.TestCase):
         # 发布源只含受控默认模板，不可携带当前开发工作区的用户词库。
         self.assertIn('automation/templates/query-terms.default.json', files)
         self.assertNotIn('retrieval/query-terms.json', files)
+        # The root settings file is a target-workspace authority, never a
+        # distributable framework default or a source-tree replacement input.
+        self.assertNotIn('workspace-settings.json', files)
         for name in files:
             dst = source / name
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(ROOT / name, dst)
+        self.assertFalse((source / 'workspace-settings.json').exists())
         keep = (self.root / 'runs/synthetic-base/run.json').read_bytes()
         env = dict(os.environ, CODEX_WORKSPACE_PYTHON=sys.executable)
         preview = subprocess.run(['cmd.exe', '/d', '/c', 'setup.cmd', '--target', str(self.root), '--profile', 'core', '--preview'],

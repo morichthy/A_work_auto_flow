@@ -10,14 +10,16 @@
 .\workbench.cmd memory inspect 实际OwnerID --record-id MEM-ID --revision 1
 .\workbench.cmd memory resume --request resume.json
 .\workbench.cmd material-query reading-list --owner 实际OwnerID
-.\workbench.cmd material-query reading-view --session RS-ID --markdown
+.\workbench.cmd material-query reading-handoff --session RS-ID
 ```
 
-resume.json最小形状为`{"owner_id":"实际OwnerID"}`。它恢复规范目标/检查点；reading-view返回阅读子任务的当前理解和候选状态，不执行新搜索。未绑定旧RS可先reading-list列出，再用reading-bind绑定。
+resume.json最小形状为`{"owner_id":"实际OwnerID"}`。它恢复规范目标/检查点；reading-handoff只返回阅读子任务的有界笔记、必要细节与固定出处，保留partial/遗漏/等待状态，不执行新搜索。阅读副本和recent/snapshot只供当前界面展示，主Agent继续必须使用handoff的当前授权与固定来源核验。reading-view保留完整检查用途，含候选和覆盖诊断。未绑定旧RS可先reading-list列出，再用reading-bind绑定。
 
-需要新依据：reading-template取得完整请求，设置实际query范围/预算、goal、conditions及owner_id，reading-start创建；reading-recall、reading-read、reading-note、reading-decide分别发现、完整交付、保存理解和决定下一步。reading-view的revision可供后续写操作使用，写入还须唯一request_id；冲突不覆盖。完整请求见[AI阅读](AI_READING.md)。
+任务开始或用户调整设置后，用`workbench.cmd workspace-settings policy`读取一次精简协作策略；off由主Agent完成，auto仅在宿主支持且任务适合时委派。按返回的`subagent_requirements`选择可用模型和推理深度，默认偏低成本、较低能力；无需AI打开配置文件。工作台修改与完整CLI见[工作区设置](WORKSPACE_SETTINGS.md)。
 
-scope选直接候选，scope_ceiling限必要依据。Run有独立Owner身份：即使文件放在Project下，只允许该Project也不会自动允许其Run。工具经验引用两个Run时，两者都须在获准的依据上限内；否则父材料可能被省略。按真实引用核对缺口，不把查无结果解释为全库没有资料，不借新RS清零原预算或绕过授权。
+需要新依据：reading-template取得完整请求（程序已应用工作区默认数量/预算/重排），设置实际query范围、goal、conditions及owner_id，用户显式要求优先，reading-start创建；reading-delegate核对开关和宿主能力，返回最小任务包，由宿主实际委派独立低成本reader，关闭/无能力则主Agent沿同RS执行。新模板固定owner_document，并保存 standard/associative/quick 策略。standard/associative 召回后以reading-read逐Owner读现有文稿；associative 仅在不足时以实际联想搜索文本追加受限召回。quick 以reading-assess逐条判断实际片段，不能读取全文或声称全文覆盖。reading-note保存理解，reading-synthesize保存跨Owner综合，reading-decide决定下一步；模式变更走带CAS的reading-configure，保存本身不启动搜索或AI。旧RS仍用旧字段，主Agent只回读handoff。写入使用当前revision和唯一request_id；冲突不覆盖。完整请求见[AI阅读](AI_READING.md)。
+
+scope选直接候选，scope_ceiling限必要依据。Run有独立Owner身份：即使文件放在Project下，只允许该Project也不会自动允许其Run。工具经验引用两个Run时，两者都须在获准的依据上限内；否则父材料可能被省略。按真实引用核对缺口，不把查无结果解释为全库没有资料，不借新RS绕过授权或阅读数限制；旧RS累计预算仍不清零。
 
 无稳定身份的已有文件，按list-owners返回native_ref/fingerprint用`memory adopt-owner`（见--help）；批量来源采用context-maintenance。不为普通工具建立MOD。
 

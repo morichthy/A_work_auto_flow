@@ -199,6 +199,22 @@ def populate(root, branches=8):
             'status': 'active',
         }],
     }, ensure_ascii=False, indent=2) + '\n')
+    # A real old workspace may have explicit collaboration, query and reading
+    # choices.  It is a user configuration, so source replacement must neither
+    # carry a developer copy nor overwrite this complete schema-1 value.
+    import workspace_settings
+    settings = workspace_settings.read(root)['settings']
+    settings['collaboration']['subagents'] = 'off'
+    settings['collaboration']['subagent_requirements'] = '用户自定义：复杂推导使用较高能力模型和中等推理；日常检索优先低成本。'
+    settings['materials']['result_limit'] = 7
+    settings['reading']['result_limit'] = 6
+    # The user's default strategy and opt-out are durable preferences.  A new
+    # source distribution must preserve their exact bytes across upgrade and
+    # rollback, even when its own defaults prefer full-document reading.
+    settings['reading']['strategy'] = 'quick'
+    settings['reading']['association'] = {'enabled': False, 'max_rounds': 7}
+    write('workspace-settings.json', json.dumps({
+        'schema_version': 1, 'settings': settings}, ensure_ascii=False, indent=2) + '\n')
     memory_files, memory_directories = populate_memory(root)
     names.extend(memory_files)
     directories.update(memory_directories)
@@ -413,6 +429,24 @@ def populate(root, branches=8):
             directories.add(relative)
         elif path.is_file():
             names.append(relative)
+    # 人类可读的阅读上下文也是用户工作数据。旧版本已经导出的内容与
+    # 用户自己的阅读说明都应在预览、升级、重复升级和恢复后保持字节。
+    note_home = root / 'context/reading-notes'
+    if note_home.exists():
+        for path in [note_home, *note_home.rglob('*')]:
+            relative = path.relative_to(root).as_posix()
+            if path.is_dir():
+                directories.add(relative)
+            elif path.is_file():
+                names.append(relative)
+    write('context/reading-notes/用户阅读 中文/current.md',
+          '# 合成阅读上下文\n\n仅用于升级保护：公式 $x=1$，来源保持原固定版本。\n')
+    write('context/reading-notes/用户阅读 中文/current.json',
+          json.dumps({'format_version': 2, 'metadata': {'goal': '用户保留的合成sidecar'}, 'verification': 'snapshot_only'}, ensure_ascii=False))
+    write('context/reading-notes/recent.md', '# 最近24小时阅读问题\n\n合成用户导航；升级必须保留原字节。\n')
+    note_empty = 'context/reading-notes/用户阅读 中文/附件 空目录'
+    (root / note_empty).mkdir(parents=True, exist_ok=True)
+    directories.add(note_empty)
     # Raw execution containers may contain files named run.json which are data,
     # not business manifests. Upgrade must retain all bytes and empty folders.
     capture = 'runs/自动登记 升级/.run-captures/attempt-01'

@@ -102,7 +102,42 @@ type MarkdownNode = {
   alt?: string;
   depth?: number;
   children?: MarkdownNode[];
+  position?: { start: { offset?: number }; end: { offset?: number } };
 };
+
+/** Normalize common LaTeX delimiters before Markdown consumes their escapes.
+ * Parser offsets protect literal inline/fenced/indented code byte for byte.
+ * Existing dollar math and escaped currency are left to remark-math. */
+function normalizeMathDelimiters(source: string) {
+  const tree = unified().use(remarkParse).parse(source) as MarkdownNode;
+  const protectedRanges: [number, number][] = [];
+  function visit(node: MarkdownNode) {
+    if (["code", "inlineCode"].includes(node.type)) {
+      const start = node.position?.start.offset,
+        end = node.position?.end.offset;
+      if (start !== undefined && end !== undefined)
+        protectedRanges.push([start, end]);
+    } else node.children?.forEach(visit);
+  }
+  visit(tree);
+  const convert = (text: string) =>
+    text
+      .replace(
+        /\\\[([\s\S]*?)\\\]/g,
+        (_match, formula: string) => `\n\n$$\n${formula.trim()}\n$$\n\n`,
+      )
+      .replace(
+        /\\\(([^\n]*?)\\\)/g,
+        (_match, formula: string) => `$${formula.trim()}$`,
+      );
+  let cursor = 0,
+    result = "";
+  for (const [start, end] of protectedRanges.sort((a, b) => a[0] - b[0])) {
+    result += convert(source.slice(cursor, start)) + source.slice(start, end);
+    cursor = end;
+  }
+  return result + convert(source.slice(cursor));
+}
 type ReadingOptions = {
   titles: string[];
   figureCount: number;
@@ -280,7 +315,9 @@ export const ResearchMarkdown = memo(
               );
             },
             a: ({ href, children }) =>
-              href?.startsWith("#") ? (
+              href?.startsWith("#/") ? (
+                <a href={href}>{children}</a>
+              ) : href?.startsWith("#") ? (
                 <a href={href} onClick={scrollDocumentAnchor}>
                   {children}
                 </a>
@@ -293,7 +330,7 @@ export const ResearchMarkdown = memo(
               ),
           }}
         >
-          {text}
+          {normalizeMathDelimiters(text)}
         </Markdown>
       </div>
     );
@@ -561,6 +598,7 @@ export function ResearchDocument({ ownerId }: { ownerId: string }) {
   const [error, setError] = useState("");
   const [archiveOpen, setArchiveOpen] = useState(false);
   const [documentType, setDocumentType] = useState("research_process");
+  const [loadedType, setLoadedType] = useState("");
   const [contextText, setContextText] = useState("");
   const [contextManifest, setContextManifest] = useState<{
     complete?: boolean;
@@ -605,7 +643,9 @@ export function ResearchDocument({ ownerId }: { ownerId: string }) {
     setContextText("");
     setContextManifest(null);
     setImpact(null);
-  }, [ownerId, documentType]);
+    setLoadedType("");
+    // 文稿类型是下一次显式读取的参数，切换它不丢弃当前已读文章。
+  }, [ownerId]);
   async function load() {
     const current = ++sequence.current;
     setBusy(true);
@@ -615,7 +655,14 @@ export function ResearchDocument({ ownerId }: { ownerId: string }) {
         owner_id: ownerId,
         document_type: documentType,
       });
-      if (current === sequence.current) setDocument(value);
+      if (current === sequence.current) {
+        setDocument(value);
+        setLoadedType(documentType);
+        setContextText("");
+        setContextManifest(null);
+        setImpact(null);
+        setArchiveOpen(false);
+      }
     } catch (reason) {
       if (current === sequence.current) setError(String(reason));
     } finally {
@@ -659,6 +706,7 @@ export function ResearchDocument({ ownerId }: { ownerId: string }) {
         文稿类型{" "}
         <select
           aria-label="文稿类型"
+          disabled={busy}
           value={documentType}
           onChange={(event) => setDocumentType(event.target.value)}
         >
@@ -669,6 +717,13 @@ export function ResearchDocument({ ownerId }: { ownerId: string }) {
       <button disabled={busy || !ownerId} onClick={load}>
         {busy ? "正在读取研究报告…" : "读取研究经过"}
       </button>
+      {document && loadedType !== documentType && (
+        <p className="muted">
+          当前保留上次读取的
+          {loadedType === "research_process" ? "完整研究过程" : "精简研究报告"}
+          ，点击“读取研究经过”后更新。
+        </p>
+      )}
       {error && <p role="alert">{error}</p>}
       {document && (
         <>

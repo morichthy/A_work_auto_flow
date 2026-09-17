@@ -105,13 +105,15 @@ def content_parts(record, ref, definition, question=""):
 
 
 class Assembler:
-    def __init__(self, reader, ledger, allowed, *, required_allowed=None, association_allowed=None, purpose="exploration", formal_texts=None, association_share=1.0):
+    def __init__(self, reader, ledger, allowed, *, required_allowed=None, association_allowed=None, purpose="exploration", formal_texts=None, association_share=1.0, defer_evidence=False):
         self.reader, self.ledger, self.allowed = reader, ledger, allowed
         self.required_allowed = required_allowed or allowed
         self.association_allowed = association_allowed or allowed
         self.purpose = purpose
         self.formal_texts = formal_texts or {}
         self.parts, self.gaps, self.contributors = [], [], {}
+        # Owner阅读先交付编排正文；证据来源仍验证但需显式请求才展开。
+        self.defer_evidence = defer_evidence
         self.issues = []
         self.visited = set()
         self.association_limit = int(ledger.remaining("output_chars") * association_share)
@@ -259,7 +261,8 @@ class Assembler:
             references = payload.get("result_refs", [])
         # Prerequisite records are required reading, not optional association
         # supplements. Keep them explicit in the packet or report their gap.
-        references = [*references, *(item for item in record["sources"] if item.get("relation") == "prerequisite")]
+        if not self.defer_evidence:
+            references = [*references, *(item for item in record["sources"] if item.get("relation") == "prerequisite")]
         for target in references:
             if target["target_kind"] != "record" or not target.get("sha256"):
                 self.gap("引用缺少可直接读取的固定记录身份", ref=ref)

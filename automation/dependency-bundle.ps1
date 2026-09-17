@@ -20,7 +20,7 @@ $expectedZip = ((Get-Content -LiteralPath $checksumPath -Raw).Trim() -split '\s+
 if ($expectedZip -notmatch '^[a-fA-F0-9]{64}$' -or (Get-Sha256 $zipPath) -ne $expectedZip) { throw 'Dependency ZIP SHA-256 mismatch.' }
 function Assert-PayloadName([string]$Name) {
     if ($Name -match '[\\:\x00]' -or $Name -match '(^|/)(\.|\.\.|)(/|$)' -or $Name -match '[ .](/|$)' -or $Name -match '(?i)(^|/)(con|prn|aux|nul|com[1-9]|lpt[1-9])(\.[^/]*)?(/|$)') { throw "Invalid ZIP path: $Name" }
-    if ($Name -notmatch '^(services/qdrant/runtime/.+|services/qdrant/models/multilingual-minilm/.+|services/qdrant/model-manifest.json|services/qdrant/requirements.lock.txt|THIRD_PARTY.md)$') { throw "Unexpected payload: $Name" }
+    if ($Name -cnotmatch '^(services/qdrant/runtime/.+|services/qdrant/models/multilingual-minilm/.+|services/qdrant/model-manifest.json|services/qdrant/requirements.lock.txt|services/reranker/model-manifest.json|services/reranker/model/(model_quint8_avx2\.onnx|tokenizer\.json|config\.json|tokenizer_config\.json|special_tokens_map\.json|README\.md)|THIRD_PARTY.md)$') { throw "Unexpected payload: $Name" }
 }
 function Assert-NoRedirect([string]$Path) {
     $current = [IO.Path]::GetFullPath($Path)

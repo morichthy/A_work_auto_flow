@@ -1,15 +1,17 @@
 """AI 阅读工作流：持久工作记录与规范知识分离，语义判断由调用者提供。
 
 每次动作在单会话锁内进行，使用固定范围与累计账本；跨 CLI 进程不复活
-MQ 游标、不清零消费。正文通过既有 Reader/Assembler 回源，持久文件只存
-候选身份、交付范围及 AI 笔记，不存另一份原始技术正文。
+MQ 游标、不清零消费。正文通过既有 Reader/Assembler 回源；持久文件保存
+候选身份、交付范围、AI笔记和重排诊断（含条件原文片段），不存完整原正文副本。
 """
 from contextlib import contextmanager
 from copy import deepcopy
 from dataclasses import asdict, replace
+from datetime import datetime, timezone
 import json
 import os
 import re
+import time
 import uuid
 
 from memory import owners
@@ -20,7 +22,7 @@ from .contracts import AssociationOptions, Budget, DefinitionRef, FixedRef, Quer
 from .coordinator import current_scope_allows, required_scope_allows, envelope, failure
 from .validation import QueryError, object_fields, parse
 from .wire import digest, json_value
-from . import query_plan
+from . import query_plan, reranking
 
 
 BASE = '.local/reading-sessions'
@@ -100,6 +102,14 @@ class Reading:
 
     def state(self, session, *, query=None):
         request = parse(json_value(query or session['query']), QueryRequest)
+        # 宿主权限可以扩大，但保存的阅读会话仍只在原授权域内回源。
+        # 收紧临时请求的硬上限，不修改RS的query/access或其他并发查询。
+        if session.get('access') is not None:
+            ceiling = request.scope_ceiling.owner_ids
+            allowed = set(session['access'])
+            if ceiling is not None:
+                allowed.intersection_update(ceiling)
+            request = replace(request, scope_ceiling=replace(request.scope_ceiling, owner_ids=tuple(sorted(allowed))))
         state = self.app._new(request)
         self.state_ids.append(state.query_id)
         state.ledger = self.ledger
@@ -110,11 +120,21 @@ class Reading:
         if action == 'template':
             object_fields(raw, set())
             scope = Scope(None, None, None, None, None, None, None, False, (), (), None, None)
-            budget = replace(DEFAULT_BUDGET, model_calls=12, model_tokens=6144, model_input_tokens=6144)
+            # 只在建立新请求模板时读取进程缓存的默认值。start/resume继续
+            # 使用请求及RS固定预算，设置变化不能隐式提高已授权的费用上限。
+            from workspace_settings import read
+            preferences = read(self.root)['settings']['reading']
+            budget = parse(preferences['budget'], Budget)
             query = QueryRequest(DefinitionRef('full', '1'), '填写实际问题', (), scope, scope, 'exploration',
-                AssociationOptions('off', 'existing-relations', '1', 0, 0.0, None), budget, 'current', 10, 'reject', (), '')
+                AssociationOptions('off', 'existing-relations', '1', 0, 0.0, None), budget, 'current', preferences['result_limit'], 'reject', (), '')
             return envelope({'session_id': 'RS-' + str(uuid.uuid4()), 'goal': '填写实际目标',
-                             'conditions': [], 'query': json_value(query)})
+                             'mode': 'owner_document',
+                             'strategy': preferences.get('strategy', 'standard'),
+                             'association': preferences.get('association', {'enabled': True, 'max_rounds': 3}),
+                             'association_text': '',
+                             'context': preferences.get('context', {'max_owners': 10, 'note_max_tokens': 6000}),
+                             'conditions': [], 'query': json_value(query),
+                             'reranking': reranking.settings(preferences['reranking'])})
         if action == 'start':
             return self.start(raw)
         if action == 'list':
@@ -122,29 +142,48 @@ class Reading:
             return listing(self, raw)
         # 查看动作从锁内读取最新版本，不要求用户先找UUID之外的修订号。
         # 它仍重新授权和累计读取费用，但不写AI决定或伪造一个新的语义修订。
-        viewing = action == 'view'
+        viewing = action in {'view', 'delegate', 'handoff'}
         common = {'session_id', 'expected_revision', 'request_id'}
         extras = {'recall': {'question', 'keywords', 'scope', 'reason'},
                   'read': {'candidate_ids'}, 'note': {'candidate_id', 'summary', 'connection', 'details', 'uncertainties'},
                   'decide': {'direction', 'reason', 'next_step', 'outcome', 'human_decision'}, 'resume': set(), 'page': set(),
-                  'view': set(), 'bind': {'owner_id', 'checkpoint_ref'}, 'archive': {'archived', 'reason'}}
+                  'view': set(), 'delegate': set(), 'handoff': set(),
+                  'bind': {'owner_id', 'checkpoint_ref'}, 'archive': {'archived', 'reason'}}
+        extras.update(configure={'strategy', 'association_text'}, assess={'candidate_id', 'useful', 'reason'}, synthesize={'research_note'})
         require(action in extras, '未知阅读动作')
-        object_fields(raw, {'session_id'} if viewing else common | extras[action],
-                      query_plan.PLAN_FIELDS if action == 'recall' else ())
+        if action == 'delegate':
+            object_fields(raw, {'session_id', 'host_supports_subagents'}, {'expected_revision'})
+            require(type(raw['host_supports_subagents']) is bool, 'host_supports_subagents必须是布尔值')
+        elif action == 'handoff':
+            object_fields(raw, {'session_id'}, {'expected_revision', 'max_chars', 'candidate_ids'})
+            require(type(raw.get('max_chars', 12000)) is int and 512 <= raw.get('max_chars', 12000) <= 30000,
+                    'max_chars必须是512..30000整数')
+        elif action in {'read', 'note'} and 'owner_id' in raw:
+            object_fields(raw, common | {'owner_id'}, {'source_refs'} if action == 'read' else {'research_note', 'candidate_ids'})
+        else:
+            object_fields(raw, {'session_id'} if viewing else common | extras[action],
+                          query_plan.PLAN_FIELDS | {'reranking', 'retrieval_kind', 'association_text', 'clue_sources'} if action == 'recall' else {'association'} if action == 'configure' else {'notes_only'} if action == 'view' else ())
+        if action == 'view':
+            require(type(raw.get('notes_only', False)) is bool, 'notes_only必须是布尔值')
         file = path(self.root, raw['session_id'], 'HEAD.json')
         if not viewing:
             text(raw['request_id'], 'request_id')
             require(type(raw['expected_revision']) is int and raw['expected_revision'] > 0, '缺少预期版本')
+        elif 'expected_revision' in raw:
+            require(type(raw['expected_revision']) is int and raw['expected_revision'] > 0, '预期版本必须为正整数')
         if not file.exists():
             raise QueryError('SOURCE_MISSING', '阅读会话不存在')
         with locked(file):
             session = read_json(file)
             # 不允许跨可信授权域读取保存的工作笔记。相同域内仍逐项重核来源。
-            if session['access'] != self.access():
+            if not self.can_access(session):
                 raise QueryError('DENIED', '阅读会话不属于当前授权域')
-            self.ledger = Ledger(parse(session['query']['budget'], Budget))
-            self.ledger.used.update(session['consumed'])
-            self.ledger.elapsed_seconds = session['consumed']['wall_ms'] / 1000
+            from . import reading_owner
+            owner_mode = session.get('mode') == 'owner_document'
+            self.ledger = reading_owner.OperationLedger(parse(session['query']['budget'], Budget)) if owner_mode else Ledger(parse(session['query']['budget'], Budget))
+            if not owner_mode:
+                self.ledger.used.update(session['consumed'])
+                self.ledger.elapsed_seconds = session['consumed']['wall_ms'] / 1000
             state = self.state(session)
             original = deepcopy(session)
             signature = digest({'action': action, 'raw': raw})
@@ -159,12 +198,18 @@ class Reading:
                     # 重试不重新检索或重复写笔记；正文可用新的 read 动作重新交付。
                     return envelope({'session_id': session['session_id'], 'revision': session['revision'],
                                      'replayed': True, 'next_action': 'resume'}, state=state)
-                if not viewing and raw['expected_revision'] != session['revision']:
+                if 'expected_revision' in raw and raw['expected_revision'] != session['revision']:
                     raise QueryError('CONFLICT', '阅读记录已有新版本，请先续接')
-                require(not session.get('archived') or action in {'view', 'resume', 'archive'}, '已归档会话请先恢复，再继续工作')
-                value = getattr(self, 'resume' if viewing else action)(session, raw, state)
+                require(not session.get('archived') or action in {'view', 'resume', 'archive', 'handoff'}, '已归档会话请先恢复，再继续工作')
+                method = 'notes_view' if action == 'view' and raw.get('notes_only') else 'resume' if action == 'view' else action
+                require(owner_mode or action not in {'configure', 'assess', 'synthesize'}, 'legacy会话不支持新策略动作')
+                if owner_mode and method in reading_owner.ACTIONS:
+                    value = reading_owner.execute(self, method, session, raw, state)
+                else:
+                    value = getattr(self, method)(session, raw, state)
                 if not viewing:
                     session['revision'] += 1
+                    session['updated_at'] = datetime.now(timezone.utc).isoformat()
                     session['requests'][raw['request_id']] = signature
                 value.update(session_id=session['session_id'], revision=session['revision'])
                 result = envelope(json_value(value), state=state, status='partial' if value.get('gaps') else 'ok',
@@ -179,16 +224,39 @@ class Reading:
                     archive = path(self.root, session['session_id'], f"revision-{session['revision']}-{uuid.uuid4().hex}.json")
                     save(archive, session)
                 save(file, session)
+            if result.get('value') is not None and (not viewing or action in {'view', 'handoff'}):
+                # 快照是尽力生成的派生文件；失败不能把已保存的HEAD伪报成失败。
+                from .reading_snapshot import write_snapshot
+                try:
+                    write_snapshot(self.root, session)
+                except (OSError, ValueError, QueryError, MemoryError):
+                    result.setdefault('warnings', []).append('阅读记录已保存/读取，但可读Markdown副本更新失败；以RS当前版本为准')
             return result
 
     def access(self):
         return None if self.app.access_owner_ids is None else sorted(self.app.access_owner_ids)
 
+    def can_access(self, session):
+        """当前可信权限须覆盖原域；窄域不得读取原无限域会话。"""
+        current, original = self.access(), session['access']
+        return current is None or original is not None and set(original).issubset(current)
+
     def start(self, raw):
-        object_fields(raw, {'session_id', 'goal', 'conditions', 'query'}, {'owner_id', 'checkpoint_ref'})
+        object_fields(raw, {'session_id', 'goal', 'conditions', 'query'}, {'owner_id', 'checkpoint_ref', 'reranking', 'mode', 'context', 'strategy', 'association', 'association_text'})
+        mode = raw.get('mode', 'legacy')
+        require(mode in {'legacy', 'owner_document'}, '未知阅读模式')
+        from .reading_owner import context_settings
+        context = context_settings(raw.get('context'))
+        from .reading_strategy import validate
+        from workspace_settings import read
+        defaults = read(self.root)['settings']['reading'] if mode == 'owner_document' else {}
+        strategy = validate(raw.get('strategy', defaults.get('strategy', 'standard')),
+                            raw.get('association', defaults.get('association', {'enabled': False, 'max_rounds': 3})),
+                            raw.get('association_text', ''))
         text(raw['goal'], 'goal')
         strings(raw['conditions'], 'conditions')
         request = parse(raw['query'], QueryRequest)
+        ranking_options = reranking.settings(raw.get('reranking'))
         require(request.purpose == 'exploration', '阅读工作流用于探索；正式结论另走证据准入')
         require(request.freshness == 'current', '新阅读会话从当前修订开始')
         # 固定多路策略；用户给出的硬预算不自动扩大。缺模型时回执报告降级。
@@ -208,10 +276,18 @@ class Reading:
             session = dict(schema_version=1, session_id=raw['session_id'], revision=1, goal=raw['goal'],
                            conditions=raw['conditions'], query=asdict(request), access=self.access(),
                            consumed=state.ledger.snapshot(), rounds=[], candidates={}, notes={}, decisions=[],
-                           requests={}, expansion_count=0, phase='ready', **binding, archived=False)
+                           requests={}, expansion_count=0, phase='ready', **binding, archived=False,
+                           reranking=ranking_options, mode=mode, context=context,
+                           owner_progress={}, owner_notes={}, delivered_blocks=[])
+            if mode == 'owner_document':
+                session.update(strategy)
+            session['updated_at'] = datetime.now(timezone.utc).isoformat()
             save(file, session)
+        guidance = ('逐条reading-assess判断实际召回片段，仅按已接受固定片段写research_note；'
+                    '需要更多片段用reading-page，不自动读取全文。'
+                    if mode == 'owner_document' and strategy['strategy'] == 'quick' else GUIDANCE)
         return envelope({'session_id': session['session_id'], 'revision': 1, 'next_action': 'recall',
-                         'guidance': GUIDANCE}, state=state)
+                         'guidance': guidance}, state=state)
 
     def reauthorize(self, session, state):
         """笔记会透露源内容；恢复/重试也不能跳过源闭包与版本复查。"""
@@ -229,6 +305,9 @@ class Reading:
                 source = parse(source, FixedRef)
                 if source.kind == 'file':
                     reader.file_bytes(source)
+                elif source.kind == 'owner':
+                    from .reading_owner import read_native_reference
+                    read_native_reference(reader, source)
                 else:
                     dependency = reader.record(source)
                     if not required_scope_allows(reader, dependency, replace(state.request, freshness='fixed')):
@@ -284,7 +363,9 @@ class Reading:
     def packet(self, state, refs, definition):
         with self.ledger.active():
             reader = self.app.reader(state)
-            assembler = Assembler(reader, self.ledger,
+            from .reading_owner import OperationLedger, ReferenceAssembler
+            assembler_type = ReferenceAssembler if isinstance(self.ledger, OperationLedger) else Assembler
+            assembler = assembler_type(reader, self.ledger,
                 lambda record: current_scope_allows(reader, record, state.request),
                 required_allowed=lambda record: required_scope_allows(reader, record, state.request))
             for ref in refs:
@@ -294,7 +375,33 @@ class Reading:
             links = {ref.id: self.link(reader, ref) for ref in refs}
         return packet, links
 
-    def recall(self, session, raw, state, *, continuation=False, frozen_plan=None):
+    def candidate_packet(self, candidate, lane, lane_state):
+        """重排和实际交付共用固定正文，避免拿展示摘录当模型输入。"""
+        ref = parse(candidate['refs'][0], FixedRef)
+        selected = []
+        if lane == 'technical':
+            for hit in candidate.get('hits', []):
+                for source in hit.get('representation_refs', []):
+                    if source['id'] == ref.id and (source.get('locator') or '').startswith('block:'):
+                        block = parse(source, FixedRef)
+                        if block not in selected:
+                            selected.append(block)
+        definition = DefinitionRef('section' if selected else 'full', '1')
+        # 重排无块命中时读取完整技术单元；旧off链路仍保持摘要预览语义。
+        packet, links = self.packet(lane_state, selected or [ref], definition)
+        parts = []
+        for part in packet['parts']:
+            if part['group'] == 'gaps':
+                continue
+            for source in part['refs']:
+                parts.append({'text': part['markdown'], 'title': part.get('heading', ''),
+                              'ref': source, 'role': part['group']})
+        model_text = '\n\n'.join([candidate['title'], *[
+            part.get('heading', '') + '\n' + part['markdown'] for part in packet['parts'] if part['group'] != 'gaps']])
+        return {'key': digest(candidate['refs'][0]), 'text': model_text, 'complete': packet['complete'],
+                'evidence_parts': parts, 'packet': packet, 'links': links, 'definition': definition}
+
+    def recall(self, session, raw, state, *, continuation=False, frozen_plan=None, frozen_ranking=None):
         text(raw['question'], 'question')
         text(raw['reason'], 'reason')
         strings(raw['keywords'], 'keywords')
@@ -303,6 +410,11 @@ class Reading:
         scope = parse(raw['scope'], Scope)
         # 保留原始显式排除，即使扩展直接范围也不丢失用户的反选。
         base = state.request
+        ranking_options = reranking.settings(frozen_ranking if frozen_ranking is not None else
+                                             raw.get('reranking', session.get('reranking')))
+        require(ranking_options['mode'] == 'off' or ranking_options['candidate_limit'] >= base.result_limit,
+                '重排candidate_limit必须至少覆盖交付result_limit；不会默默扩大候选窗')
+        pool_limit = ranking_options['candidate_limit'] if ranking_options['mode'] != 'off' else base.result_limit
         scope = replace(scope, excluded_refs=tuple(set(scope.excluded_refs + base.scope.excluded_refs)),
                         excluded_owner_ids=tuple(set(scope.excluded_owner_ids + base.scope.excluded_owner_ids)),
                         exclude_ids=tuple(set(scope.exclude_ids + base.scope.exclude_ids)))
@@ -318,7 +430,8 @@ class Reading:
             for route in query_plan.routes(plan):
                 query = replace(base, scope=scope, question=route['question'], keywords=tuple(route['keywords']),
                                 content_source=lane, channels=(route['channel'],),
-                                ranking_strategy='rrf', ranking_version='1')
+                                ranking_strategy='rrf', ranking_version='1', result_limit=pool_limit)
+                retrieval_started = time.perf_counter()
                 route_state = self.state(session, query=asdict(query))
                 self.app._run_search(route_state)
                 result = route_state.result
@@ -334,6 +447,7 @@ class Reading:
                     warnings.append(route['id'] + '未完成：' + result['code'])
                 route_info.append({'query_source': route['id'], 'status': result['status'],
                                    'warnings': warnings,
+                                   'elapsed_ms': (time.perf_counter() - retrieval_started) * 1000,
                                    'has_more': bool((result.get('value') or {}).get('next_cursor'))})
             candidates = query_plan.fuse(batches)
             lane_warnings = list(dict.fromkeys(w for info in route_info for w in info['warnings']))
@@ -345,6 +459,36 @@ class Reading:
             # route's empty question. Source authorization is still Coordinator's.
             lane_state = self.state(session, query=asdict(replace(base, scope=scope,
                 question=raw['question'], keywords=tuple(raw['keywords']), content_source=lane)))
+            prepared_by_key = {}
+            if ranking_options['mode'] != 'off' and candidates:
+                input_started = time.perf_counter()
+                prepared = []
+                # packet() owns its active-time scope. Nesting another scope
+                # would raise CONFLICT and incorrectly turn every input into a gap.
+                for candidate in candidates[:pool_limit]:
+                    try:
+                        item = self.candidate_packet(candidate, lane, lane_state)
+                    except (QueryError, MemoryError) as exc:
+                        if exc.code in {'BUDGET', 'CANCELLED', 'DENIED', 'ACCESS_DENIED'}:
+                            raise
+                        item = {'key': digest(candidate['refs'][0]), 'text': '', 'complete': False, 'evidence_parts': []}
+                        gaps.append('重排必要正文不可用，未据摘要替代完整条件')
+                    prepared.append(item)
+                input_ms = (time.perf_counter() - input_started) * 1000
+                expected_model = None
+                if continuation and session['rounds']:
+                    previous_lane = next((item for item in session['rounds'][-1]['lanes'] if item['source'] == lane), {})
+                    if 'ranking' in previous_lane:
+                        expected_model = previous_lane['ranking'].get('model') or {'unavailable': True}
+                with self.ledger.active():
+                    ranked = reranking.rank(self.root, raw['question'], prepared, ranking_options, self.ledger,
+                                            expected_model=expected_model)
+                prepared_by_key = {item['key']: item for item in ranked['items']}
+                candidates_by_key = {digest(candidate['refs'][0]): candidate for candidate in candidates}
+                candidates = [candidates_by_key[item['key']] for item in ranked['items']] + candidates[pool_limit:]
+                info['ranking'] = {**ranked['diagnostics'], 'input_ms': input_ms}
+                query_plan.charge_diagnostics(self.ledger, info['ranking'])
+                gaps.extend(ranked['gaps'])
             round_info['lanes'].append(info)
             gaps.extend(lane_warnings)
             if info['has_more']:
@@ -367,7 +511,11 @@ class Reading:
                         'hits': candidate['hits'], 'query_sources': candidate['query_sources'],
                         'fusion_score': candidate['fusion_score'], 'condition_check': 'pending',
                         'protected_terms': plan['protected_terms']})
-                    packet, links = self.packet(lane_state, selected or [ref], definition)
+                    prepared = prepared_by_key.get(digest(candidate['refs'][0]))
+                    if prepared and 'packet' in prepared:
+                        packet, links, definition = prepared['packet'], prepared['links'], prepared['definition']
+                    else:
+                        packet, links = self.packet(lane_state, selected or [ref], definition)
                     row = session['candidates'].setdefault(key, {'ref': asdict(ref), 'title': candidate['title'],
                         'full_delivered': False, 'contributors': []})
                     # A later round can rediscover this fixed record; retain its
@@ -377,17 +525,26 @@ class Reading:
                     sources = list({digest(item): item for item in row.get('query_sources', []) + candidate['query_sources']}.values())
                     row.update(link=links[ref.id], lane=lane, scope=asdict(scope), hits=hits,
                                query_sources=sources, condition_check='pending',
-                               protected_terms=plan['protected_terms'])
+                               protected_terms=plan['protected_terms'], packet_complete=packet['complete'])
+                    if prepared:
+                        query_plan.charge_diagnostics(self.ledger, prepared['ranking'])
+                        row['ranking'] = deepcopy(prepared['ranking'])
                     row['contributors'] = list({digest(item): item for item in row['contributors'] + packet['contributors']}.values())
                     output.append({'candidate_id': key, 'title': row['title'], 'ref': row['ref'], 'link': row['link'],
                         'source': lane, 'reading_form': definition.key, 'packet': packet, 'channels': candidate['channels'],
                         'hits': candidate['hits'], 'query_sources': candidate['query_sources'],
                         'fusion_score': candidate['fusion_score'], 'condition_check': 'pending',
-                        'protected_terms': plan['protected_terms']})
+                        'protected_terms': plan['protected_terms'],
+                        **({'ranking': prepared['ranking']} if prepared else {})})
                     if not packet['complete']:
                         gaps.append(key + '正文未完整交付，请检查packet缺口')
                 except (QueryError, MemoryError) as exc:
                     gaps.append('候选正文未交付：' + str(exc))
+        round_info['reranking'] = ranking_options
+        # 保存本轮真实交付缺口，轻量handoff才可说明覆盖限制；仅保存已有
+        # 诊断文字，不复制材料包。旧轮次没有该字段时不得反推“没有缺口”。
+        round_info['gaps'] = list(dict.fromkeys(gaps))
+        query_plan.charge_diagnostics(self.ledger, ranking_options)
         session['rounds'].append(round_info)
         if expanding:
             session['expansion_count'] += 1
@@ -406,7 +563,8 @@ class Reading:
         session['phase'] = 'ready'
         return self.recall(session, {'question': previous['question'], 'keywords': previous['keywords'],
                                     'scope': json_value(scope), 'reason': '同一查询继续未交付候选'}, state,
-                           continuation=True, frozen_plan=previous.get('query_plan'))
+                           continuation=True, frozen_plan=previous.get('query_plan'),
+                           frozen_ranking=previous.get('reranking', {'mode': 'off'}))
 
     def read(self, session, raw, state):
         ids = strings(raw['candidate_ids'], 'candidate_ids')
@@ -416,8 +574,11 @@ class Reading:
             row = session['candidates'][key]
             read_state = self.state(session, query=asdict(replace(state.request, scope=parse(json_value(row['scope']), Scope))))
             packet, links = self.packet(read_state, [replace(parse(row['ref'], FixedRef), locator=None)], DefinitionRef('full', '1'))
-            row['contributors'] = packet['contributors']
+            # 条件诊断/此前笔记仍可能引用旧包的必要依赖；不完整全文不能清掉闭包。
+            row['contributors'] = list({digest(ref): ref for ref in row.get('contributors', []) + packet['contributors']}.values())
             row['full_delivered'] = packet['complete']
+            row['packet_complete'] = packet['complete']
+            row['read_gaps'] = [] if packet['complete'] else ['完整阅读包存在缺口']
             row['link'] = links[row['ref']['id']]
             output.append({'candidate_id': key, 'link': row['link'], 'packet': packet})
             if not packet['complete']:
@@ -468,6 +629,36 @@ class Reading:
         return {'direction': direction, 'next_step': raw['next_step'],
                 'needs_user_input': direction == 'ask_user', 'expansion_count': session['expansion_count']}
 
+    def delegate(self, session, raw, state):
+        """返回宿主委派意图，程序不spawn、不替旧RS提高预算或宣称已执行。"""
+        from workspace_settings import read
+        from .reading_delegation import delegate_value, serialized_size
+        with self.ledger.active():
+            collaboration = read(self.root)['settings']['collaboration']
+            value = delegate_value(session, collaboration['subagents'], raw['host_supports_subagents'],
+                                   collaboration['subagent_requirements'])
+            # 身份字段在纯构造函数中预先加入，外层update不会增加未计量字符。
+            self.ledger.charge('output_chars', serialized_size(value))
+        return value
+
+    def handoff(self, session, raw, state):
+        """只交付实际笔记的单份有界上下文；不复用resume的全候选/历史输出。"""
+        from .reading_delegation import handoff_value, serialized_size
+        with self.ledger.active():
+            value = handoff_value(session, raw.get('max_chars', 12000), raw.get('candidate_ids'))
+            # 扣费在返回前完成；预算不足由dispatch回滚语义并保留已消费IO，
+            # failure不携带value，因此不会把超预算笔记泄漏到错误返回。
+            self.ledger.charge('output_chars', serialized_size(value))
+        return value
+
+    def notes_view(self, session, raw, state):
+        """供工作台浏览笔记；省去召回诊断，仍支付原会话累计费用。"""
+        from .reading_snapshot import notes_value
+        from .reading_delegation import serialized_size
+        value = notes_value(session)
+        self.ledger.charge('output_chars', serialized_size(value))
+        return value
+
     def resume(self, session, raw, state):
         lines = ['# 当前问题', session['goal'], f"阅读记录 {session['session_id']} · 读取版本 r{session['revision']}（本次视图）",
                  '\n## 条件', *['- ' + item for item in session['conditions']], '\n## 已读理解与必要细节']
@@ -491,13 +682,16 @@ class Reading:
                                'status': status, 'stale': row.get('stale', False), 'hits': row.get('hits', []),
                                'query_sources': row.get('query_sources', []),
                                'condition_check': row.get('condition_check', 'pending'),
-                               'protected_terms': row.get('protected_terms', [])})
+                               'protected_terms': row.get('protected_terms', []),
+                               **({'ranking': deepcopy(row['ranking'])} if 'ranking' in row else {})})
             lines.append(f"- [{row['title']}](<{row['link']}>) · {status}" + (' · 来源已变' if row.get('stale') else ''))
         markdown = '\n\n'.join(lines)
         query_plan.charge_diagnostics(self.ledger, {
             'plans': [round_info['query_plan'] for round_info in session['rounds'] if 'query_plan' in round_info],
             'routes': [lane['routes'] for round_info in session['rounds'] for lane in round_info['lanes'] if 'routes' in lane],
-            'candidate_diagnostics': [{key: row[key] for key in ('hits', 'query_sources', 'condition_check', 'protected_terms')}
+            'ranking': [lane['ranking'] for round_info in session['rounds'] for lane in round_info['lanes'] if 'ranking' in lane],
+            'ranking_options': [round_info['reranking'] for round_info in session['rounds'] if 'reranking' in round_info],
+            'candidate_diagnostics': [{key: row[key] for key in ('hits', 'query_sources', 'condition_check', 'protected_terms', 'ranking') if key in row}
                                       for row in candidates]})
         self.ledger.charge('output_chars', len(markdown))
         return {'context_markdown': markdown, 'phase': session['phase'], 'round_count': len(session['rounds']),

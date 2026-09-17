@@ -10,6 +10,7 @@ import hashlib
 import importlib.metadata
 import io
 import json
+import math
 import os
 from pathlib import Path, PurePosixPath
 import platform
@@ -29,6 +30,12 @@ BASE = 'services/qdrant/'
 MANIFEST = 'dependency-manifest.json'
 DISTRIBUTION = BASE + 'dependency-distribution.json'
 COMPONENTS = [BASE + 'runtime', BASE + 'models/multilingual-minilm', BASE + 'model-manifest.json', DISTRIBUTION]
+RERANKER_MODEL = 'services/reranker/model'
+RERANKER_MANIFEST = 'services/reranker/model-manifest.json'
+OPTIONAL_COMPONENTS = [RERANKER_MODEL, RERANKER_MANIFEST]
+# 受控标准模型文件白名单，不递归发布缓存或业务附加文件。
+RERANKER_FILES = {'model_quint8_avx2.onnx', 'tokenizer.json', 'config.json',
+                  'tokenizer_config.json', 'special_tokens_map.json', 'README.md'}
 PTH = b'python312.zip\n.\nLib/site-packages\n../../..\nimport site\n'
 
 
@@ -87,8 +94,33 @@ def allowed(name):
         return False
     if any(p.lower() in {'con', 'prn', 'aux', 'nul'} or re.fullmatch(r'(com|lpt)[1-9](\..*)?', p.lower()) for p in parts):
         return False
-    return name in (BASE + 'model-manifest.json', BASE + 'requirements.lock.txt', 'THIRD_PARTY.md') or any(
+    return name == RERANKER_MANIFEST or name in {RERANKER_MODEL + '/' + n for n in RERANKER_FILES} or name in (BASE + 'model-manifest.json', BASE + 'requirements.lock.txt', 'THIRD_PARTY.md') or any(
         name.startswith(prefix + '/') for prefix in COMPONENTS[:2])
+
+
+def reranker_files(root):
+    """可选 CE 的内层指纹验证；模型及清单均缺失才表示旧版无此组件。"""
+    manifest_path = safe(root, RERANKER_MANIFEST)
+    if not manifest_path.exists():
+        if safe(root, RERANKER_MODEL).exists():
+            raise ValueError('重排模型缺少指纹清单')
+        return {}
+    model = json.loads(manifest_path.read_text(encoding='utf-8'))
+    files = model.get('files')
+    if (model.get('schema_version') != 1 or not isinstance(files, dict) or set(files) != RERANKER_FILES
+            or model.get('model') != 'cross-encoder/mmarco-mMiniLMv2-L12-H384-v1'
+            or model.get('onnx_file') != 'model_quint8_avx2.onnx'
+            or not re.fullmatch(r'[a-f0-9]{40}', str(model.get('revision', '')))
+            or type(model.get('max_length')) is not int or not 8 <= model['max_length'] <= 512):
+        raise ValueError('重排模型标准清单不兼容')
+    result = {}
+    for name, fingerprint in files.items():
+        path = safe(root, RERANKER_MODEL + '/' + name)
+        if not isinstance(fingerprint, str) or not re.fullmatch(r'[a-f0-9]{64}', fingerprint) or not path.is_file() or sha(path) != fingerprint:
+            raise ValueError('重排模型文件校验失败：' + name)
+        result[RERANKER_MODEL + '/' + name] = fingerprint
+    result[RERANKER_MANIFEST] = sha(manifest_path)
+    return result
 
 
 def inventory(root):
@@ -184,12 +216,19 @@ def inventory(root):
     for name, fingerprint in model['files'].items():
         add(BASE + 'models/multilingual-minilm/' + name, fingerprint)
     add(BASE + 'model-manifest.json')
+    reranker_payload = reranker_files(root)
+    for name, fingerprint in reranker_payload.items():
+        add(name, fingerprint)
     generated[BASE + 'requirements.lock.txt'] = ''.join(f'{n}=={v}\n' for n, v in sorted(packages.items())).encode()
     generated['THIRD_PARTY.md'] = ('# 第三方依赖\n\nPython 3.12.10 的许可证见 runtime/LICENSE.txt。'
         '下表发行包的许可证原文随各 dist-info/包目录保留。\n\n| 包 | 版本 | 许可证 |\n|---|---|---|\n' + '\n'.join(licenses) +
         '\n\n嵌入模型：qdrant/paraphrase-multilingual-MiniLM-L12-v2-onnx-Q；Apache-2.0，'
         '来源和模型说明见 models/multilingual-minilm/README.md。OCR 模型随 rapidocr_onnxruntime 发行包保留。'
         '\n\n此包只含 Windows x64 CPU 运行依赖。Qdrant local 随 qdrant-client 提供；不含数据库或业务材料。\n').encode()
+    if reranker_payload:
+        generated['THIRD_PARTY.md'] += ('\n重排模型：cross-encoder/mmarco-mMiniLMv2-L12-H384-v1；'
+            'Apache-2.0，固定版本与文件指纹见 services/reranker/model-manifest.json，'
+            '模型说明见 services/reranker/model/README.md。\n').encode()
     return paths, generated, packages
 
 
@@ -224,7 +263,26 @@ def check_environment(root):
             finally:
                 backend.close()
             RapidOCR()(np.full((64, 160, 3), 255, dtype=np.uint8))
-    return {'status': 'passed', 'embedding_dimensions': 384, 'qdrant': 'temporary upsert/query', 'ocr': 'loaded and executed'}
+    return {'status': 'passed', 'embedding_dimensions': 384, 'qdrant': 'temporary upsert/query',
+            'ocr': 'loaded and executed', 'reranker': check_reranker(root)}
+
+
+def check_reranker(root):
+    """标准组件存在时真实禁网推理，不改用户配置，也不让显式 off 绕过包自检。"""
+    import socket
+    from unittest.mock import patch
+    if not reranker_files(root):
+        return {'status': 'absent', 'note': 'optional component not installed'}
+    from material_query.cross_encoder import OnnxCrossEncoder
+    path = safe(root, RERANKER_MANIFEST)
+    model = json.loads(path.read_text(encoding='utf-8'))
+    with patch.object(socket.socket, 'connect', side_effect=RuntimeError('重排检查禁止联网')):
+        provider = OnnxCrossEncoder(safe(root, RERANKER_MODEL), model, sha(path), model['max_length'])
+        scores = provider.score_pairs([('低温如何预热？', '低温启动前可使用预热措施。'),
+                                       ('How to preheat?', 'Preheat before cold startup.')])
+    if len(scores) != 2 or not all(math.isfinite(score) for score in scores):
+        raise ValueError('重排模型真实推理未返回有限分数')
+    return {'status': 'passed', 'model': model['model'], 'pairs': 2, 'network': 'disabled'}
 
 
 def pack(root, output, apply=False):
@@ -303,6 +361,9 @@ def verify(root, source):
         actual.update((Path(folder) / n).relative_to(root).as_posix() for n in files)
     if actual != set(names) | {MANIFEST}:
         raise ValueError('依赖目录含有未登记文件')
+    reranker_names = reranker_files(root)
+    if any(name not in names for name in reranker_names):
+        raise ValueError('依赖包未登记重排模型文件')
     return manifest
 
 
@@ -332,7 +393,7 @@ def restore(backup, preview=False):
         raise ValueError('依赖恢复回执不属于目标工作区')
     for item in receipt['components']:
         name = item['path']
-        if name not in COMPONENTS:
+        if name not in COMPONENTS + OPTIONAL_COMPONENTS:
             raise ValueError('依赖恢复组件非法')
         current = tree_state(safe(target, name))
         old = safe(backup, 'previous/' + name)
@@ -367,22 +428,33 @@ def install(bundle, target, source):
     manifest = verify(bundle, source)
     config = target / 'retrieval/config.json'
     if config.exists():
-        embedding = json.loads(config.read_text(encoding='utf-8')).get('embedding', {})
+        settings = json.loads(config.read_text(encoding='utf-8'))
+        embedding = settings.get('embedding', {})
         model = json.loads(safe(bundle, BASE + 'model-manifest.json').read_text(encoding='utf-8'))
         if embedding.get('provider') == 'fastembed-local' and (
                 embedding.get('path') != BASE + 'models/multilingual-minilm' or
                 embedding.get('manifest', BASE + 'model-manifest.json') != BASE + 'model-manifest.json' or
                 embedding.get('model') != model.get('model')):
             raise ValueError('目标使用自定义模型，标准依赖包不能覆盖；请单独迁移该模型并沿用现有配置')
+        reranker = settings.get('reranker', {})
+        if safe(bundle, RERANKER_MANIFEST).exists() and reranker and (
+                not isinstance(reranker, dict) or
+                reranker.get('provider', 'onnx-cross-encoder') not in ('onnx-cross-encoder', 'off') or
+                reranker.get('path', RERANKER_MODEL) != RERANKER_MODEL or
+                reranker.get('manifest', RERANKER_MANIFEST) != RERANKER_MANIFEST):
+            raise ValueError('目标使用自定义重排模型，标准依赖包不能覆盖；保留原配置')
     # Windows 不允许替换正在执行的解释器；先阻止，不留下半切换的目录。
     if Path(sys.executable).resolve().is_relative_to(safe(target, BASE + 'runtime')):
         raise ValueError('请从新版源码目录使用 --bundle 安装，不能用目标运行时替换自身')
     backup = safe(target, '.local/dependency-backups/' + uuid.uuid4().hex)
     items = []
-    for name in COMPONENTS:
+    for name in COMPONENTS + OPTIONAL_COMPONENTS:
         # 保留包来源清单，使接收机无需 Python 原始下载缓存也能再次分发。
         live = safe(target, name)
         incoming = safe(bundle, MANIFEST if name == DISTRIBUTION else name)
+        # 老包缺可选 CE 时保持目标原组件，绝不把“缺失”解释成删除请求。
+        if name in OPTIONAL_COMPONENTS and not incoming.exists():
+            continue
         before, after = tree_state(live), tree_state(incoming)
         if before == after:
             continue
@@ -418,13 +490,15 @@ def install(bundle, target, source):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command', choices=['pack', 'check'])
+    parser.add_argument('command', choices=['pack', 'check', 'check-reranker'])
     parser.add_argument('--root', type=Path, default=ROOT)
     parser.add_argument('--output', type=Path)
     parser.add_argument('--apply', action='store_true')
     args = parser.parse_args()
     root = args.root.resolve()
-    if args.command == 'check':
+    if args.command == 'check-reranker':
+        result = check_reranker(root)
+    elif args.command == 'check':
         safe(root, '.local').mkdir(exist_ok=True)
         result = check_environment(root)
     else:

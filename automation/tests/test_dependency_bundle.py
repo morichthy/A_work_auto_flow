@@ -20,6 +20,58 @@ import deployment
 
 
 class DependencyBundleTests(unittest.TestCase):
+    def add_reranker(self, root):
+        files = {}
+        for name in ('model_quint8_avx2.onnx', 'tokenizer.json', 'config.json', 'tokenizer_config.json', 'special_tokens_map.json', 'README.md'):
+            path = self.write(root, 'services/reranker/model/' + name, 'synthetic ' + name)
+            files[name] = bundle.sha(path)
+        self.write(root, 'services/reranker/model-manifest.json', json.dumps({
+            'schema_version': 1, 'model': 'cross-encoder/mmarco-mMiniLMv2-L12-H384-v1',
+            'revision': '1' * 40, 'onnx_file': 'model_quint8_avx2.onnx', 'max_length': 512, 'files': files}))
+
+    def test_optional_reranker_install_restore_and_old_bundle_preservation(self):
+        self.add_reranker(self.target)
+        old = bundle.tree_state(self.target / 'services/reranker')
+        backup = bundle.install(self.package, self.target, self.source)
+        self.assertEqual(bundle.tree_state(self.target / 'services/reranker'), old)
+        bundle.restore(backup)
+        self.add_reranker(self.package)
+        self.write(self.target, 'services/reranker/model/old.onnx', 'old version')
+        original = bundle.tree_state(self.target / 'services/reranker')
+        self.manifest()
+        backup = bundle.install(self.package, self.target, self.source)
+        self.assertFalse((self.target / 'services/reranker/model/old.onnx').exists())
+        distribution = json.loads((self.target / bundle.DISTRIBUTION).read_text())
+        self.assertIn('services/reranker/model/tokenizer.json', distribution['files'])
+        bundle.restore(backup)
+        self.assertEqual(bundle.tree_state(self.target / 'services/reranker'), original)
+
+    def test_reranker_manifest_corruption_and_unlisted_cache_rejected(self):
+        self.add_reranker(self.package)
+        path = self.package / 'services/reranker/model/tokenizer.json'
+        path.write_text('tampered', encoding='utf-8')
+        self.manifest()  # 外层 ZIP 哈希自洽仍不能覆盖内层模型哈希的不一致。
+        with self.assertRaisesRegex(ValueError, '重排模型'):
+            bundle.verify(self.package, self.source)
+        self.assertFalse(bundle.allowed('services/reranker/model/.cache/token'))
+        self.assertFalse(bundle.allowed('services/reranker/model/business.json'))
+
+    def test_reranker_custom_config_is_preserved_and_conflict_rejected(self):
+        self.add_reranker(self.package)
+        self.manifest()
+        config = '{"reranker":{"path":"custom/private-model"}}'
+        self.write(self.target, 'retrieval/config.json', config)
+        with self.assertRaisesRegex(ValueError, '自定义'):
+            bundle.install(self.package, self.target, self.source)
+        self.assertEqual((self.target / 'retrieval/config.json').read_text(), config)
+        self.write(self.target, 'retrieval/config.json', '{"reranker":{"provider":"custom"}}')
+        with self.assertRaisesRegex(ValueError, '自定义'):
+            bundle.install(self.package, self.target, self.source)
+        disabled = '{"reranker":{"provider":"off"}}'
+        self.write(self.target, 'retrieval/config.json', disabled)
+        bundle.install(self.package, self.target, self.source)
+        self.assertEqual((self.target / 'retrieval/config.json').read_text(), disabled)
+
     def test_component_switch_retries_transient_windows_lock_but_remains_bounded(self):
         error = PermissionError('synthetic Windows sharing lock')
         error.winerror = 5
@@ -124,8 +176,10 @@ class DependencyBundleTests(unittest.TestCase):
                                                   read_text=lambda n, value=record: value if n == 'RECORD' else None))
         model = self.write(root, 'services/qdrant/models/multilingual-minilm/model.onnx', 'synthetic model')
         self.write(root, 'services/qdrant/model-manifest.json', json.dumps({'path': 'services/qdrant/models/multilingual-minilm', 'files': {'model.onnx': bundle.sha(model)}}))
+        self.add_reranker(root)
         private_names = ['runs/secret.json', 'services/qdrant/storage/database', 'services/qdrant/runtime/private.txt',
-                         'services/qdrant/runtime/Lib/site-packages/private.py', 'services/qdrant/models/multilingual-minilm/.cache/token']
+                         'services/qdrant/runtime/Lib/site-packages/private.py', 'services/qdrant/models/multilingual-minilm/.cache/token',
+                         'services/reranker/model/.cache/token', 'services/reranker/model/business.json']
         for name in private_names:
             self.write(root, name, 'private never include')
         with patch.object(bundle.importlib.metadata, 'distributions', return_value=distributions):
@@ -133,6 +187,7 @@ class DependencyBundleTests(unittest.TestCase):
             self.assertTrue(set(private_names).isdisjoint(paths))
             self.assertIn('services/qdrant/runtime/python.exe', paths)
             self.assertIn('services/qdrant/models/multilingual-minilm/model.onnx', paths)
+            self.assertIn('services/reranker/model/tokenizer.json', paths)
             self.assertEqual(packages, {'example': '1.0'})
             self.assertNotIn(b'../../bin', generated['services/qdrant/runtime/Lib/site-packages/example-1.0.dist-info/RECORD'])
             # 接收者没有原始下载缓存时，也能按安装来源清单再次打包。
@@ -215,6 +270,9 @@ class DependencyBundleTests(unittest.TestCase):
 
     @unittest.skipUnless(os.name == 'nt', 'Windows PowerShell bootstrap')
     def test_no_python_bootstrap_preview_corruption_and_path_boundary(self):
+        # 同一真实 PowerShell 引导路径必须接受新可选组件并保持严格白名单。
+        self.add_reranker(self.package)
+        self.manifest()
         archive = self.base / 'dependencies.zip'
         def write_zip(extra=None):
             with zipfile.ZipFile(archive, 'w') as stream:

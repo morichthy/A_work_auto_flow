@@ -35,6 +35,7 @@ test("L0统一材料、无来源条目的Run、固定原件预览与清单导出
     study.total,
   );
   await page.getByLabel("记忆归属对象").selectOption(owner);
+  await page.getByRole("button", { name: "生成对象记忆", exact: true }).click();
   await filterTypes(page, ["source"]);
   await expect(page.locator(".memory-list article")).toHaveCount(0);
   const card = page.getByTestId("raw-material").filter({
@@ -111,6 +112,56 @@ test.beforeAll(async () => {
   });
 });
 test.afterAll(() => process?.kill());
+test("系统记忆默认研究经过，按需生成对象记忆且保持子页结果", async ({
+  page,
+}) => {
+  const inspectRequests: string[] = [];
+  const documentRequests: string[] = [];
+  page.on("request", (request) => {
+    if (request.url().endsWith("/memory/inspect"))
+      inspectRequests.push(request.url());
+    if (request.url().endsWith("/memory/document"))
+      documentRequests.push(request.url());
+  });
+  await page.goto(base + "#/memory");
+  await expect(
+    page.getByRole("heading", { name: "系统记忆", exact: true }),
+  ).toBeVisible();
+  const tabLabels = await page.locator(".memory-tabs button").evaluateAll(
+    (buttons) => buttons.slice(0, 3).map((button) => button.textContent?.trim()),
+  );
+  expect(tabLabels).toEqual(["研究经过", "对象记忆", "关联导航"]);
+  await page.getByLabel("记忆归属对象").selectOption("RES-SYN-THERMAL");
+  // Selecting an owner or opening its records must remain read-only until the
+  // user explicitly requests a generated object-memory view.
+  expect(inspectRequests).toHaveLength(0);
+  await page.getByRole("button", { name: "对象记忆", exact: true }).click();
+  expect(inspectRequests).toHaveLength(0);
+  const inspected = page.waitForRequest((request) =>
+    request.url().endsWith("/memory/inspect"),
+  );
+  await page.getByRole("button", { name: "生成对象记忆", exact: true }).click();
+  await inspected;
+  expect(inspectRequests).toHaveLength(1);
+
+  await page.getByRole("button", { name: "研究经过", exact: true }).click();
+  const document = page.waitForRequest((request) =>
+    request.url().endsWith("/memory/document"),
+  );
+  await page.getByRole("button", { name: "读取研究经过", exact: true }).click();
+  await document;
+  await expect(page.locator(".research-empty")).toContainText(
+    "尚未编排研究报告",
+  );
+  await page.getByRole("button", { name: "对象记忆", exact: true }).click();
+  await page.getByRole("button", { name: "关联导航", exact: true }).click();
+  await page.getByRole("button", { name: "研究经过", exact: true }).click();
+  // Returning to the retained research panel does not request the document again.
+  expect(documentRequests).toHaveLength(1);
+  await expect(page.locator(".research-empty")).toContainText(
+    "尚未编排研究报告",
+  );
+});
 async function post(
   request: APIRequestContext,
   action: string,
@@ -132,6 +183,8 @@ async function open(page: import("@playwright/test").Page) {
   await page
     .getByLabel("记忆执行者", { exact: true })
     .fill("SYNTHETIC browser acceptance");
+  await page.getByRole("button", { name: "对象记忆", exact: true }).click();
+  await page.getByRole("button", { name: "生成对象记忆", exact: true }).click();
   await filterTypes(page, ["experience"]);
   await expect(page.locator(".memory-list article").first()).toBeVisible();
 }
@@ -479,6 +532,20 @@ test("连续研究报告、固定图示、目录路由和窄屏阅读", async ({
   await expect(
     page.getByRole("heading", { name: "SYNTHETIC 连续研究报告", exact: true }),
   ).toBeVisible();
+  const retainedDocumentRequests: string[] = [];
+  page.on("request", (request) => {
+    if (request.url().endsWith("/memory/document"))
+      retainedDocumentRequests.push(request.url());
+  });
+  await page.getByRole("button", { name: "对象记忆", exact: true }).click();
+  await page.getByRole("button", { name: "关联导航", exact: true }).click();
+  await page.getByRole("button", { name: "研究经过", exact: true }).click();
+  // The already generated report survives child-tab navigation without a
+  // second load. This is a visible state guarantee, not just cached markup.
+  expect(retainedDocumentRequests).toHaveLength(0);
+  await expect(
+    page.getByRole("heading", { name: "SYNTHETIC 连续研究报告", exact: true }),
+  ).toBeVisible();
   const paper = page.locator(".research-paper");
   await expect(paper.locator(":scope > section > h2")).toHaveText([
     "1. 共同方法",
@@ -636,6 +703,8 @@ test("研究、Run、知识与报告真实记录及辅助对象可区分", async
     // its new stable owner ID instead of reusing the earlier temporary option.
     await page.reload();
     await page.getByLabel("记忆归属对象").selectOption(owner.owner_id);
+    await page.getByRole("button", { name: "对象记忆", exact: true }).click();
+    await page.getByRole("button", { name: "生成对象记忆", exact: true }).click();
     await filterTypes(page, ["map"]);
     const card = page
       .locator(".memory-list article")
@@ -791,7 +860,7 @@ test("跨研究材料回填L3与L4，并采纳有边界的导航关联", async (
   const before = (
     await post(request, "inspect", { owner_id: "RES-SYN-THERMAL" })
   ).value;
-  await page.getByRole("button", { name: "导航关联", exact: true }).click();
+  await page.getByRole("button", { name: "关联导航", exact: true }).click();
   await page.getByLabel("作为起点的记录 ID").fill(mapping["MEM-MAP-THERMAL"]);
   await page.getByRole("button", { name: "查找相关候选", exact: true }).click();
   await page

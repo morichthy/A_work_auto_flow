@@ -30,6 +30,7 @@ context/generated/*.tmp
 # 本机证据快照、监测历史可能包含内部结论和路径；不随源码发布。
 context/generated/evidence-view.html
 context/monitor/
+context/reading-notes/
 retrieval/generated/
 # 查询/反馈可能含业务内容；本机保留，获批后再纳入适合的备份/版本管理。
 retrieval/queries/
@@ -72,6 +73,13 @@ services/qdrant/models/
 services/qdrant/storage/
 services/qdrant/wheelhouse/
 services/qdrant/downloads/
+services/reranker/model/
+services/reranker/model-manifest.json
+
+# 每个工作区自己的可调整默认值；公共源码只提供程序内默认契约。
+/workspace-settings.json
+/workspace-settings.json.lock
+/.workspace-settings.json.*.tmp
 
 # 本机安装回执与检查输出可能含绝对路径；公开仓库只保存安装脚本和依赖清单。
 services/qdrant/installation.json

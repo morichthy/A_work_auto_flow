@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "revision": 76,
+  "revision": 111,
   "capabilities": [
     {
       "id": "workspace",
@@ -8061,6 +8061,553 @@
       "authorization": []
     },
     {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_numeric_operators_and_negative",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_numeric_operators_and_negative",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_units_and_binding",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_units_and_binding",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_literal_negation_and_token_boundary",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_literal_negation_and_token_boundary",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "型号否定或前缀相近值被误判为满足条件。",
+        "reason": "保护工程查询的型号/否定硬边界，纯函数且运行成本极低。",
+        "review_triggers": [
+          "字面条件解析",
+          "候选条件降级"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮重排条件功能的定向审查与实际断言；不代表业务语义验收。"
+      }
+    },
+    {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_ambiguous_and_reference",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_ambiguous_and_reference",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_table_and_title",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_table_and_title",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_validation_and_regex_data",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_validation_and_regex_data",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_unrelated_model_and_prose_never_satisfy_literal_condition",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_unrelated_model_and_prose_never_satisfy_literal_condition",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_comparison_nan_and_dimension_mismatch_remain_unknown",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_comparison_nan_and_dimension_mismatch_remain_unknown",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_multiple_objects_or_unrelated_sentences_cannot_be_cherry_picked",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_multiple_objects_or_unrelated_sentences_cannot_be_cherry_picked",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "多个对象的同字段证据被挑选为有利条件，导致不适用材料上浮。",
+        "reason": "条件重排的核心工程边界，直接保护错误关联且无需模型。",
+        "review_triggers": [
+          "字段证据聚合",
+          "条件特征排序"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮定向负例检查。"
+      }
+    },
+    {
+      "id": "python:test_material_conditions.MaterialConditionTests.test_negation_requires_a_single_complete_value",
+      "kind": "python",
+      "selector": "test_material_conditions.MaterialConditionTests.test_negation_requires_a_single_complete_value",
+      "path": "automation/tests/test_material_conditions.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_cross_encoder.CrossEncoderTests.test_real_offline_model_smoke_and_length",
+      "kind": "python",
+      "selector": "test_material_cross_encoder.CrossEncoderTests.test_real_offline_model_smoke_and_length",
+      "path": "automation/tests/test_material_cross_encoder.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "vector"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_cross_encoder.CrossEncoderTests.test_missing_is_explicit",
+      "kind": "python",
+      "selector": "test_material_cross_encoder.CrossEncoderTests.test_missing_is_explicit",
+      "path": "automation/tests/test_material_cross_encoder.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_material_cross_encoder.CrossEncoderTests.test_path_cannot_escape",
+      "kind": "python",
+      "selector": "test_material_cross_encoder.CrossEncoderTests.test_path_cannot_escape",
+      "path": "automation/tests/test_material_cross_encoder.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "Cross-encoder加载路径可逃逸工作区或读取非受控文件。",
+        "reason": "模型加载的文件边界为安全与可移植性核心门槛。",
+        "review_triggers": [
+          "Cross-encoder provider",
+          "模型路径或指纹校验"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮离线模型接入的定向安全边界。"
+      }
+    },
+    {
+      "id": "python:test_material_cross_encoder.CrossEncoderTests.test_tampering_rejected_before_runtime",
+      "kind": "python",
+      "selector": "test_material_cross_encoder.CrossEncoderTests.test_tampering_rejected_before_runtime",
+      "path": "automation/tests/test_material_cross_encoder.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "被替换的模型在推理前未被拒绝，排序来源不可追溯。",
+        "reason": "保护模型指纹与离线受控分发边界。",
+        "review_triggers": [
+          "Cross-encoder provider",
+          "模型指纹校验"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮离线模型接入的定向安全边界。"
+      }
+    },
+    {
+      "id": "python:test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_development_baseline_has_full_candidate_coverage_but_rrf_headroom",
+      "kind": "python",
+      "selector": "test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_development_baseline_has_full_candidate_coverage_but_rrf_headroom",
+      "path": "automation/tests/test_retrieval_reranking_baseline.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_current_fuse_deduplicates_same_candidate_within_a_route",
+      "kind": "python",
+      "selector": "test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_current_fuse_deduplicates_same_candidate_within_a_route",
+      "path": "automation/tests/test_retrieval_reranking_baseline.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_no_answer_has_no_positive_recall_and_no_candidate",
+      "kind": "python",
+      "selector": "test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_no_answer_has_no_positive_recall_and_no_candidate",
+      "path": "automation/tests/test_retrieval_reranking_baseline.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_holdout_requires_explicit_split",
+      "kind": "python",
+      "selector": "test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_holdout_requires_explicit_split",
+      "path": "automation/tests/test_retrieval_reranking_baseline.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_ce_then_explicit_conflict_demotes_without_removal",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_ce_then_explicit_conflict_demotes_without_removal",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "显式冲突候选可因语义分数上浮并替代适用材料。",
+        "reason": "两阶段排序的关键条件优先级，使用固定假评分器可稳定复现。",
+        "review_triggers": [
+          "重排排序规则",
+          "条件特征"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮重排核心策略定向测试。"
+      }
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_unavailable_or_failed_model_keeps_original_order",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_unavailable_or_failed_model_keeps_original_order",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_required_model_failure_is_explicit",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_required_model_failure_is_explicit",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_overlong_input_is_not_silently_truncated_or_sent",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_overlong_input_is_not_silently_truncated_or_sent",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_insufficient_budget_never_calls_provider",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_insufficient_budget_never_calls_provider",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_successful_pairs_are_metered_once",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_successful_pairs_are_metered_once",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_model_change_on_page_does_not_silently_change_strategy",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_model_change_on_page_does_not_silently_change_strategy",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "分页时模型变化会静默改变已冻结候选的排序策略。",
+        "reason": "分页结果必须可解释且不随运行环境漂移。",
+        "review_triggers": [
+          "分页重排",
+          "模型身份冻结"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮重排连续分页故障回归。"
+      }
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_failed_batch_does_not_charge_unattempted_pairs",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_failed_batch_does_not_charge_unattempted_pairs",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_cancellation_after_inference_stops_before_next_batch",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_cancellation_after_inference_stops_before_next_batch",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_invalid_scores_cannot_replace_rrf_and_attempt_is_charged",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_invalid_scores_cannot_replace_rrf_and_attempt_is_charged",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking.ReadingRerankingTests.test_full_read_unions_new_contributors_with_prior_condition_evidence",
+      "kind": "python",
+      "selector": "test_reading_reranking.ReadingRerankingTests.test_full_read_unions_new_contributors_with_prior_condition_evidence",
+      "path": "automation/tests/test_reading_reranking.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "后续不完整全文包覆盖先前条件证据依赖，导致撤权和固定来源复查漏检。",
+        "reason": "读取更新必须保留完整贡献者闭包，且此回归使用无IO stub稳定覆盖。",
+        "review_triggers": [
+          "Reading.read",
+          "候选贡献者与条件证据"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮已修复的贡献者覆盖故障回归。"
+      }
+    },
+    {
+      "id": "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_candidate_window_promotes_later_correct_item_and_uses_complete_context",
+      "kind": "python",
+      "selector": "test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_candidate_window_promotes_later_correct_item_and_uses_complete_context",
+      "path": "automation/tests/test_reading_reranking_integration.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_legacy_off_never_loads_provider",
+      "kind": "python",
+      "selector": "test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_legacy_off_never_loads_provider",
+      "path": "automation/tests/test_reading_reranking_integration.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_required_missing_model_fails_but_persists_ledger",
+      "kind": "python",
+      "selector": "test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_required_missing_model_fails_but_persists_ledger",
+      "path": "automation/tests/test_reading_reranking_integration.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "required模式在缺模型时伪装成功，或失败后丢失已发生的资源费用。",
+        "reason": "阅读入口的失败与账本持久化边界需要端到端保护。",
+        "review_triggers": [
+          "阅读重排入口",
+          "模型/预算失败回滚"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮Coordinator重排集成契约。"
+      }
+    },
+    {
+      "id": "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_auto_missing_model_falls_back_to_original_order",
+      "kind": "python",
+      "selector": "test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_auto_missing_model_falls_back_to_original_order",
+      "path": "automation/tests/test_reading_reranking_integration.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_page_freezes_strategy_and_changed_provider_cannot_silently_rerank",
+      "kind": "python",
+      "selector": "test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_page_freezes_strategy_and_changed_provider_cannot_silently_rerank",
+      "path": "automation/tests/test_reading_reranking_integration.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_retry_is_idempotent_and_revoked_source_does_not_leak",
+      "kind": "python",
+      "selector": "test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_retry_is_idempotent_and_revoked_source_does_not_leak",
+      "path": "automation/tests/test_reading_reranking_integration.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "重试重复调用模型，或撤权后持久会话泄漏已读正文。",
+        "reason": "同时保护幂等计费和来源授权闭包的端到端边界。",
+        "review_triggers": [
+          "阅读重排重试",
+          "来源撤权"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮Coordinator重排集成契约。"
+      }
+    },
+    {
+      "id": "python:test_dependency_bundle.DependencyBundleTests.test_optional_reranker_install_restore_and_old_bundle_preservation",
+      "kind": "python",
+      "selector": "test_dependency_bundle.DependencyBundleTests.test_optional_reranker_install_restore_and_old_bundle_preservation",
+      "path": "automation/tests/test_dependency_bundle.py",
+      "capability": "dependencies",
+      "quick": true,
+      "full": true,
+      "requires": [
+        "windows"
+      ],
+      "authorization": [],
+      "baseline": {
+        "risk": "可选重排模型安装覆盖旧模型或恢复时丢失用户文件。",
+        "reason": "保护离线组件切换、旧包清理和可恢复性。",
+        "review_triggers": [
+          "重排模型打包/安装",
+          "依赖恢复"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮依赖分发新增真实合成组件场景。"
+      }
+    },
+    {
+      "id": "python:test_dependency_bundle.DependencyBundleTests.test_reranker_manifest_corruption_and_unlisted_cache_rejected",
+      "kind": "python",
+      "selector": "test_dependency_bundle.DependencyBundleTests.test_reranker_manifest_corruption_and_unlisted_cache_rejected",
+      "path": "automation/tests/test_dependency_bundle.py",
+      "capability": "dependencies",
+      "quick": true,
+      "full": true,
+      "requires": [
+        "windows"
+      ],
+      "authorization": [],
+      "baseline": {
+        "risk": "被篡改或未登记的重排模型文件进入离线分发包。",
+        "reason": "模型文件完整性和发行边界为受控依赖的核心防线。",
+        "review_triggers": [
+          "重排模型清单",
+          "依赖包校验"
+        ],
+        "reviewed_at": "2026-09-16",
+        "reviewed_by": "Codex",
+        "review_basis": "本轮依赖分发新增真实合成组件场景。"
+      }
+    },
+    {
+      "id": "python:test_dependency_bundle.DependencyBundleTests.test_reranker_custom_config_is_preserved_and_conflict_rejected",
+      "kind": "python",
+      "selector": "test_dependency_bundle.DependencyBundleTests.test_reranker_custom_config_is_preserved_and_conflict_rejected",
+      "path": "automation/tests/test_dependency_bundle.py",
+      "capability": "dependencies",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "windows"
+      ],
+      "authorization": []
+    },
+    {
       "id": "python:test_reading_query_plan.ReadingQueryPlanTests.test_cli_markdown_budget_failure_returns_json_and_nonzero_without_traceback",
       "kind": "python",
       "selector": "test_reading_query_plan.ReadingQueryPlanTests.test_cli_markdown_budget_failure_returns_json_and_nonzero_without_traceback",
@@ -8069,6 +8616,1899 @@
       "quick": false,
       "full": true,
       "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_missing_file_returns_complete_defaults_without_creating_any_file",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_missing_file_returns_complete_defaults_without_creating_any_file",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_update_is_complete_cas_and_persists_only_authoritative_shape",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_update_is_complete_cas_and_persists_only_authoritative_shape",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "设置覆盖并发修改或放宽旧会话已经固定的费用上限。",
+        "reason": "新权威状态及跨入口默认值需要独立防线，两项空工作区测试成本低且不重复模型回归。",
+        "review_triggers": [
+          "设置契约/保存",
+          "默认值消费",
+          "RS预算恢复"
+        ],
+        "reviewed_at": "2026-09-16T05:38:26.566414+00:00",
+        "reviewed_by": "Codex",
+        "review_basis": "本Run核心与集成测试通过；其余缓存/UI边界按影响执行，升级沿已有真实setup基线。"
+      }
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_invalid_shape_numbers_limits_and_corrupt_file_are_rejected",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_invalid_shape_numbers_limits_and_corrupt_file_are_rejected",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_existing_lock_is_refused_without_overwrite",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_existing_lock_is_refused_without_overwrite",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_unchanged_valid_file_is_decoded_once_across_consecutive_reads",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_unchanged_valid_file_is_decoded_once_across_consecutive_reads",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_returned_nested_objects_do_not_mutate_cached_settings_or_defaults",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_returned_nested_objects_do_not_mutate_cached_settings_or_defaults",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_atomic_external_edit_invalidates_cache_even_with_same_size_and_mtime",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_atomic_external_edit_invalidates_cache_even_with_same_size_and_mtime",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_failed_replace_preserves_old_file_and_removes_only_own_temporary_files",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_failed_replace_preserves_old_file_and_removes_only_own_temporary_files",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_directory_oversized_schema_boolean_nan_and_duplicate_json_are_rejected",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_directory_oversized_schema_boolean_nan_and_duplicate_json_are_rejected",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_concurrent_threads_with_same_revision_have_exactly_one_winner",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_concurrent_threads_with_same_revision_have_exactly_one_winner",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings_integration.SettingsIntegrationTests.test_capabilities_and_new_template_consume_settings_but_saved_rs_is_fixed",
+      "kind": "python",
+      "selector": "test_workspace_settings_integration.SettingsIntegrationTests.test_capabilities_and_new_template_consume_settings_but_saved_rs_is_fixed",
+      "path": "automation/tests/test_workspace_settings_integration.py",
+      "capability": "workbench",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "设置覆盖并发修改或放宽旧会话已经固定的费用上限。",
+        "reason": "新权威状态及跨入口默认值需要独立防线，两项空工作区测试成本低且不重复模型回归。",
+        "review_triggers": [
+          "设置契约/保存",
+          "默认值消费",
+          "RS预算恢复"
+        ],
+        "reviewed_at": "2026-09-16T05:38:26.566414+00:00",
+        "reviewed_by": "Codex",
+        "review_basis": "本Run核心与集成测试通过；其余缓存/UI边界按影响执行，升级沿已有真实setup基线。"
+      }
+    },
+    {
+      "id": "python:test_workspace_settings_integration.SettingsIntegrationTests.test_public_cli_policy_set_and_stale_revision",
+      "kind": "python",
+      "selector": "test_workspace_settings_integration.SettingsIntegrationTests.test_public_cli_policy_set_and_stale_revision",
+      "path": "automation/tests/test_workspace_settings_integration.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings_integration.SettingsIntegrationTests.test_real_http_get_save_conflict_and_origin_rejection",
+      "kind": "python",
+      "selector": "test_workspace_settings_integration.SettingsIntegrationTests.test_real_http_get_save_conflict_and_origin_rejection",
+      "path": "automation/tests/test_workspace_settings_integration.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::rejects zero timeout and display fractions that are not whole base units",
+      "kind": "component",
+      "selector": "rejects zero timeout and display fractions that are not whole base units",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::offers an explicit retry after initial load failure without creating a draft save",
+      "kind": "component",
+      "selector": "offers an explicit retry after initial load failure without creating a draft save",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::loads once on opening and preserves edits across navigation",
+      "kind": "component",
+      "selector": "loads once on opening and preserves edits across navigation",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::restores defaults as a draft and posts a complete revisioned settings object",
+      "kind": "component",
+      "selector": "restores defaults as a draft and posts a complete revisioned settings object",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::rejects empty, fractional and non-finite integers without issuing POST",
+      "kind": "component",
+      "selector": "rejects empty, fractional and non-finite integers without issuing POST",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::retains draft on conflict and explicitly fetches current revision before retry",
+      "kind": "component",
+      "selector": "retains draft on conflict and explicitly fetches current revision before retry",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::converts displayed MiB and seconds, and blocks duplicate saves while pending",
+      "kind": "component",
+      "selector": "converts displayed MiB and seconds, and blocks duplicate saves while pending",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::validates rerank candidate window before writing",
+      "kind": "component",
+      "selector": "validates rerank candidate window before writing",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::preserves exact integer bytes and milliseconds through fractional display units",
+      "kind": "component",
+      "selector": "preserves exact integer bytes and milliseconds through fractional display units",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/MaterialQuery.test.tsx::新查询采用工作区设置的结果数与预算",
+      "kind": "component",
+      "selector": "新查询采用工作区设置的结果数与预算",
+      "path": "automation/frontend/src/MaterialQuery.test.tsx",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "browser:e2e/settings.spec.ts::真实HTTP保存配置并在页面重新载入后保持",
+      "kind": "browser",
+      "selector": "真实HTTP保存配置并在页面重新载入后保持",
+      "path": "automation/frontend/e2e/settings.spec.ts",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev",
+        "windows"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "browser:e2e/settings.spec.ts::设置草稿跨导航保留，冲突不清空，显式重读后保存",
+      "kind": "browser",
+      "selector": "设置草稿跨导航保留，冲突不清空，显式重读后保存",
+      "path": "automation/frontend/e2e/settings.spec.ts",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev",
+        "windows"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_public_dispatch_and_cli_expose_delegate_and_handoff",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_public_dispatch_and_cli_expose_delegate_and_handoff",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_delegate_falls_back_without_host_or_when_workspace_policy_is_off",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_delegate_falls_back_without_host_or_when_workspace_policy_is_off",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_delegate_is_read_only_and_brief_never_contains_material_or_diagnostics",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_delegate_is_read_only_and_brief_never_contains_material_or_diagnostics",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_handoff_is_bounded_notes_only_and_omits_whole_notes",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_handoff_is_bounded_notes_only_and_omits_whole_notes",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_handoff_reports_unnoted_partial_and_ask_user_never_complete",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_handoff_reports_unnoted_partial_and_ask_user_never_complete",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_handoff_conflict_revocation_stale_and_old_budget_are_not_hidden",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_handoff_conflict_revocation_stale_and_old_budget_are_not_hidden",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_stale_fixed_revision_returns_partial_without_old_note_text",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_stale_fixed_revision_returns_partial_without_old_note_text",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_delegate_and_handoff_reject_strict_types_unknown_candidates_and_budget_leakage",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_delegate_and_handoff_reject_strict_types_unknown_candidates_and_budget_leakage",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_real_http_routes_delegate_and_handoff_through_materials_dispatch",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_real_http_routes_delegate_and_handoff_through_materials_dispatch",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_handoff_view.ReadingHandoffViewTests.test_full_note_preserves_formula_uncertainty_and_fixed_hash_or_is_wholly_omitted",
+      "kind": "python",
+      "selector": "test_reading_handoff_view.ReadingHandoffViewTests.test_full_note_preserves_formula_uncertainty_and_fixed_hash_or_is_wholly_omitted",
+      "path": "automation/tests/test_reading_handoff_view.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_handoff_view.ReadingHandoffViewTests.test_resolved_history_does_not_hide_current_success_but_latest_unknown_stays_partial",
+      "kind": "python",
+      "selector": "test_reading_handoff_view.ReadingHandoffViewTests.test_resolved_history_does_not_hide_current_success_but_latest_unknown_stays_partial",
+      "path": "automation/tests/test_reading_handoff_view.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_legacy_disk_adds_only_new_default_without_changing_bytes_or_revision",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_legacy_disk_adds_only_new_default_without_changing_bytes_or_revision",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "旧配置被读取时改写，或旧客户端漏字段写入导致用户模型偏好丢失。",
+        "reason": "原CAS基线不覆盖schema-1补字段与偏好遗漏；两项空目录测试共同保护无损升级及完整写入，成本低且无模型依赖。",
+        "review_triggers": [
+          "设置schema兼容",
+          "完整快照写入",
+          "能力文本校验"
+        ],
+        "reviewed_at": "2026-09-16T08:24:53.991832+00:00",
+        "reviewed_by": "Codex",
+        "review_basis": ".local/capability-settings-tests/backend-settings.log：15项通过；覆盖原字节/hash保持、未知及额外缺字段拒绝、已保存偏好不被漏字段覆盖。"
+      }
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_requirements_text_bounds_preservation_and_incomplete_write_rejection",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_requirements_text_bounds_preservation_and_incomplete_write_rejection",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workbench",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "旧配置被读取时改写，或旧客户端漏字段写入导致用户模型偏好丢失。",
+        "reason": "原CAS基线不覆盖schema-1补字段与偏好遗漏；两项空目录测试共同保护无损升级及完整写入，成本低且无模型依赖。",
+        "review_triggers": [
+          "设置schema兼容",
+          "完整快照写入",
+          "能力文本校验"
+        ],
+        "reviewed_at": "2026-09-16T08:24:53.991832+00:00",
+        "reviewed_by": "Codex",
+        "review_basis": ".local/capability-settings-tests/backend-settings.log：15项通过；覆盖原字节/hash保持、未知及额外缺字段拒绝、已保存偏好不被漏字段覆盖。"
+      }
+    },
+    {
+      "id": "python:test_reading_delegation.ReadingDelegationTests.test_custom_model_requirements_reach_host_and_worker_without_overriding_route_or_scope",
+      "kind": "python",
+      "selector": "test_reading_delegation.ReadingDelegationTests.test_custom_model_requirements_reach_host_and_worker_without_overriding_route_or_scope",
+      "path": "automation/tests/test_reading_delegation.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::validates requirements and preserves exact text while collaboration is off",
+      "kind": "component",
+      "selector": "validates requirements and preserves exact text while collaboration is off",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "python:test_evidence_observer.ObserverTests.test_release_artifact_and_external_source_are_not_monitored",
+      "kind": "python",
+      "selector": "test_evidence_observer.ObserverTests.test_release_artifact_and_external_source_are_not_monitored",
+      "path": "automation/tests/test_evidence_observer.py",
+      "capability": "evidence",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_evidence_observer.ObserverTests.test_owner_memory_head_changes_are_monitored",
+      "kind": "python",
+      "selector": "test_evidence_observer.ObserverTests.test_owner_memory_head_changes_are_monitored",
+      "path": "automation/tests/test_evidence_observer.py",
+      "capability": "evidence",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "component:src/RetainedPanel.test.tsx::延迟挂载、保留本地结果、冻结隐藏修订并传递可见状态",
+      "kind": "component",
+      "selector": "延迟挂载、保留本地结果、冻结隐藏修订并传递可见状态",
+      "path": "automation/frontend/src/RetainedPanel.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/RetainedPanel.test.tsx::预加载只执行一次，导航恢复不重新挂载",
+      "kind": "component",
+      "selector": "预加载只执行一次，导航恢复不重新挂载",
+      "path": "automation/frontend/src/RetainedPanel.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "browser:e2e/memory.spec.ts::系统记忆默认研究经过，按需生成对象记忆且保持子页结果",
+      "kind": "browser",
+      "selector": "系统记忆默认研究经过，按需生成对象记忆且保持子页结果",
+      "path": "automation/frontend/e2e/memory.spec.ts",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "browser:e2e/workbench.spec.ts::证据页首次进入加载，顶层切换复用已加载状态",
+      "kind": "browser",
+      "selector": "证据页首次进入加载，顶层切换复用已加载状态",
+      "path": "automation/frontend/e2e/workbench.spec.ts",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/Memory.test.tsx::总结重新准备时保留旧包但禁止回填，完成后只采用新依据",
+      "kind": "component",
+      "selector": "总结重新准备时保留旧包但禁止回填，完成后只采用新依据",
+      "path": "automation/frontend/src/Memory.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "python:test_deployment_workbench.DeploymentWorkbenchTests.test_source_archive_excludes_private_reading_markdown",
+      "kind": "python",
+      "selector": "test_deployment_workbench.DeploymentWorkbenchTests.test_source_archive_excludes_private_reading_markdown",
+      "path": "automation/tests/test_deployment_workbench.py",
+      "capability": "upgrade",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_workflow.ReadingWorkflowTests.test_filtered_catalog_pages_and_content_order_ignore_uuid_and_view_time",
+      "kind": "python",
+      "selector": "test_reading_workflow.ReadingWorkflowTests.test_filtered_catalog_pages_and_content_order_ignore_uuid_and_view_time",
+      "path": "automation/tests/test_reading_workflow.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_workflow.ReadingWorkflowTests.test_superset_access_keeps_original_ceiling_and_rejects_narrower_host",
+      "kind": "python",
+      "selector": "test_reading_workflow.ReadingWorkflowTests.test_superset_access_keeps_original_ceiling_and_rejects_narrower_host",
+      "path": "automation/tests/test_reading_workflow.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "更广宿主读取时扩大原范围，或较窄宿主读取越权笔记",
+        "reason": "修复不可读时同时保护原授权域和范围上限",
+        "review_triggers": [
+          "reading授权、scope_ceiling或持久会话变化"
+        ],
+        "reviewed_at": "2026-09-16T16:19:40.379621+00:00",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260916T155857Z-A3D7B61BDD32 workflow18项回归通过；保留撤权与预算防线"
+      }
+    },
+    {
+      "id": "python:test_reading_workflow.ReadingWorkflowTests.test_notes_view_snapshot_and_failed_derived_write_preserve_canonical_note",
+      "kind": "python",
+      "selector": "test_reading_workflow.ReadingWorkflowTests.test_notes_view_snapshot_and_failed_derived_write_preserve_canonical_note",
+      "path": "automation/tests/test_reading_workflow.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "component:src/CurrentReading.test.tsx::首页进入阅读面板沿用同一会话快照，不重复读取或消费原文预算",
+      "kind": "component",
+      "selector": "首页进入阅读面板沿用同一会话快照，不重复读取或消费原文预算",
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/CurrentReading.test.tsx::首页默认排除归档，显示Markdown与缺口并可从空状态重试",
+      "kind": "component",
+      "selector": "首页默认排除归档，显示Markdown与缺口并可从空状态重试",
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/CurrentReading.test.tsx::全局默认列表晚到不能覆盖归属对象选定的当前笔记",
+      "kind": "component",
+      "selector": "全局默认列表晚到不能覆盖归属对象选定的当前笔记",
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/CurrentReading.test.tsx::刷新失败撤下正文，重试仍是同一会话而非重新选择全局最新",
+      "kind": "component",
+      "selector": "刷新失败撤下正文，重试仍是同一会话而非重新选择全局最新",
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/MaterialNavigation.test.tsx::同名主题保留不同Owner链接，独立运行默认折叠",
+      "kind": "component",
+      "selector": "同名主题保留不同Owner链接，独立运行默认折叠",
+      "path": "automation/frontend/src/MaterialNavigation.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/MaterialNavigation.test.tsx::按类型列出实际主题并将记录定位到对应Owner，不请求文件目录",
+      "kind": "component",
+      "selector": "按类型列出实际主题并将记录定位到对应Owner，不请求文件目录",
+      "path": "automation/frontend/src/MaterialNavigation.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/MemoryNavigation.test.tsx::晚到当前笔记只更新默认Owner，用户已选Owner保持不变",
+      "kind": "component",
+      "selector": "晚到当前笔记只更新默认Owner，用户已选Owner保持不变",
+      "path": "automation/frontend/src/MemoryNavigation.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/MemoryNavigation.test.tsx::首页记录深链接直接定位目标Owner与记录，不被首个Owner覆盖",
+      "kind": "component",
+      "selector": "首页记录深链接直接定位目标Owner与记录，不被首个Owner覆盖",
+      "path": "automation/frontend/src/MemoryNavigation.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingEvidence.test.tsx::证据入口只显示当前note实际已引用候选并保留固定版本",
+      "kind": "component",
+      "selector": "证据入口只显示当前note实际已引用候选并保留固定版本",
+      "path": "automation/frontend/src/ReadingEvidence.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingEvidence.test.tsx::只展开直接固定引用及一层sources，不读取同Owner无关记录或第二层",
+      "kind": "component",
+      "selector": "只展开直接固定引用及一层sources，不读取同Owner无关记录或第二层",
+      "path": "automation/frontend/src/ReadingEvidence.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingSessions.test.tsx::进入自动显示有笔记会话，清单刷新保持手选会话并更新正文，翻页不切换",
+      "kind": "component",
+      "selector": "进入自动显示有笔记会话，清单刷新保持手选会话并更新正文，翻页不切换",
+      "path": "automation/frontend/src/ReadingSessions.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingSessions.test.tsx::换对象后旧会话迟到的正文不会泄露",
+      "kind": "component",
+      "selector": "换对象后旧会话迟到的正文不会泄露",
+      "path": "automation/frontend/src/ReadingSessions.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "browser:e2e/workbench.spec.ts::首页自动阅读笔记、定向证据与主题导航真实接口",
+      "kind": "browser",
+      "selector": "首页自动阅读笔记、定向证据与主题导航真实接口",
+      "path": "automation/frontend/e2e/workbench.spec.ts",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev",
+        "windows"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_handoff_view.ReadingHandoffViewTests.test_notes_display_counts_fixed_refs_inside_total_bound_and_keeps_stale_out",
+      "kind": "python",
+      "selector": "test_reading_handoff_view.ReadingHandoffViewTests.test_notes_display_counts_fixed_refs_inside_total_bound_and_keeps_stale_out",
+      "path": "automation/tests/test_reading_handoff_view.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_context_budget_migrates_legacy_disk_without_changing_custom_values",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_context_budget_migrates_legacy_disk_without_changing_custom_values",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workspace",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_context_budget_strict_shape_bounds_and_independent_roundtrip",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_context_budget_strict_shape_bounds_and_independent_roundtrip",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "workspace",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings_integration.SettingsIntegrationTests.test_owner_template_uses_context_defaults_and_existing_session_keeps_snapshot",
+      "kind": "python",
+      "selector": "test_workspace_settings_integration.SettingsIntegrationTests.test_owner_template_uses_context_defaults_and_existing_session_keeps_snapshot",
+      "path": "automation/tests/test_workspace_settings_integration.py",
+      "capability": "workspace",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::validates independent Owner and note budgets and keeps engineering limits",
+      "kind": "component",
+      "selector": "validates independent Owner and note budgets and keeps engineering limits",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_only_identity_and_text",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_only_identity_and_text",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_owner_read_complete_fallback_and_repeat_progress",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_owner_read_complete_fallback_and_repeat_progress",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_template_uses_owner_mode",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_template_uses_owner_mode",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_note_fixed_sources_snapshot_and_handoff",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_note_fixed_sources_snapshot_and_handoff",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "新Owner阅读丢失完整正文、必要公式或固定出处",
+        "reason": "保护逐篇阅读到研究式note、快照及主侧交接的核心链路",
+        "review_triggers": [
+          "Owner阅读模式、固定来源、note交接或授权变化"
+        ],
+        "reviewed_at": "2026-09-17",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260916T181657Z-4D7EFFF321BA；12项Owner回归及旧链路已通过，核心链路和来源失效入基线；其他新增用例按影响执行。"
+      }
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_spoofed_note_and_source_expansion_rejected",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_spoofed_note_and_source_expansion_rejected",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_selected_owner_no_more_snippets_and_operation_budget_resets",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_selected_owner_no_more_snippets_and_operation_budget_resets",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_process_preferred_and_document_scope_not_retrieval_level",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_process_preferred_and_document_scope_not_retrieval_level",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_source_revision_and_revocation_block_saved_note",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_source_revision_and_revocation_block_saved_note",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "撤权或来源新修订后仍交付旧理解",
+        "reason": "保护新模式固定来源与授权边界，legacy用例不能代替新路由",
+        "review_triggers": [
+          "Owner阅读模式、固定来源、note交接或授权变化"
+        ],
+        "reviewed_at": "2026-09-17",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260916T181657Z-4D7EFFF321BA；12项Owner回归及旧链路已通过，核心链路和来源失效入基线；其他新增用例按影响执行。"
+      }
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_max_owners_counts_selected_not_recall_candidates",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_max_owners_counts_selected_not_recall_candidates",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_figure_reference_map_and_explicit_expansion",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_figure_reference_map_and_explicit_expansion",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_declared_run_reference_expands_summary_only_and_rechecks_version",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_declared_run_reference_expands_summary_only_and_rechecks_version",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerBudgetTests.test_internal_diagnostics_do_not_charge_ai_output_but_io_still_bounded",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerBudgetTests.test_internal_diagnostics_do_not_charge_ai_output_but_io_still_bounded",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerBudgetTests.test_handoff_omits_whole_note_and_explains_token_estimate",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerBudgetTests.test_handoff_omits_whole_note_and_explains_token_estimate",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerBudgetTests.test_finish_with_selected_unnoted_owner_remains_partial",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerBudgetTests.test_finish_with_selected_unnoted_owner_remains_partial",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_progress_one_per_page_then_skip_selected",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_progress_one_per_page_then_skip_selected",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_partial_pending_packet_remains_resumable_without_repeating_text",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_partial_pending_packet_remains_resumable_without_repeating_text",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_owner_sessions_without_delivery_fields_do_not_replay_old_candidates",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_owner_sessions_without_delivery_fields_do_not_replay_old_candidates",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_note_source_ids_resolve_to_delivered_fixed_refs",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_note_source_ids_resolve_to_delivered_fixed_refs",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerBudgetTests.test_source_id_resolution_preserves_locators_and_rejects_ambiguity",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerBudgetTests.test_source_id_resolution_preserves_locators_and_rejects_ambiguity",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerDocumentTests.test_note_unregistered_evidence_preserves_persisted_session",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerDocumentTests.test_note_unregistered_evidence_preserves_persisted_session",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerBudgetTests.test_note_evidence_ids_missing_or_unknown_reject_without_mutation",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerBudgetTests.test_note_evidence_ids_missing_or_unknown_reject_without_mutation",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerBudgetTests.test_note_evidence_ids_chinese_punctuation_and_subset_normalize",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerBudgetTests.test_note_evidence_ids_chinese_punctuation_and_subset_normalize",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_owner_document.OwnerBudgetTests.test_delivered_nonstandard_source_id_is_matched_exactly",
+      "kind": "python",
+      "selector": "test_reading_owner_document.OwnerBudgetTests.test_delivered_nonstandard_source_id_is_matched_exactly",
+      "path": "automation/tests/test_reading_owner_document.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.StrategyTests.test_old_session_is_standard_disabled",
+      "kind": "python",
+      "selector": "test_reading_three_modes.StrategyTests.test_old_session_is_standard_disabled",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.StrategyTests.test_configure_preserves_state_and_rejects_legacy",
+      "kind": "python",
+      "selector": "test_reading_three_modes.StrategyTests.test_configure_preserves_state_and_rejects_legacy",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.StrategyTests.test_assessment_requires_actual_delivery",
+      "kind": "python",
+      "selector": "test_reading_three_modes.StrategyTests.test_assessment_requires_actual_delivery",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.StrategyTests.test_association_round_limit",
+      "kind": "python",
+      "selector": "test_reading_three_modes.StrategyTests.test_association_round_limit",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.StrategyTests.test_disabled_association_and_conflicting_plan_are_not_bypassed",
+      "kind": "python",
+      "selector": "test_reading_three_modes.StrategyTests.test_disabled_association_and_conflicting_plan_are_not_bypassed",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.StrategyTests.test_old_configuration_does_not_mutate_storage_data",
+      "kind": "python",
+      "selector": "test_reading_three_modes.StrategyTests.test_old_configuration_does_not_mutate_storage_data",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.ThreeModeIntegrationTests.test_quick_assess_note_switch_and_synthesis",
+      "kind": "python",
+      "selector": "test_reading_three_modes.ThreeModeIntegrationTests.test_quick_assess_note_switch_and_synthesis",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.ThreeModeIntegrationTests.test_configuration_cas_and_idempotence",
+      "kind": "python",
+      "selector": "test_reading_three_modes.ThreeModeIntegrationTests.test_configuration_cas_and_idempotence",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.ThreeModeIntegrationTests.test_association_real_query_and_round_limit",
+      "kind": "python",
+      "selector": "test_reading_three_modes.ThreeModeIntegrationTests.test_association_real_query_and_round_limit",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.ThreeModeIntegrationTests.test_synthesis_invalidates_after_owner_note_change",
+      "kind": "python",
+      "selector": "test_reading_three_modes.ThreeModeIntegrationTests.test_synthesis_invalidates_after_owner_note_change",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.ThreeModeIntegrationTests.test_ask_user_configure_does_not_grant_recall_and_archived_rejects",
+      "kind": "python",
+      "selector": "test_reading_three_modes.ThreeModeIntegrationTests.test_ask_user_configure_does_not_grant_recall_and_archived_rejects",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.ThreeModeIntegrationTests.test_cross_owner_synthesis_and_quick_owner_limit",
+      "kind": "python",
+      "selector": "test_reading_three_modes.ThreeModeIntegrationTests.test_cross_owner_synthesis_and_quick_owner_limit",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_reading_three_modes.ThreeModeIntegrationTests.test_synthesis_rejects_merely_declared_source",
+      "kind": "python",
+      "selector": "test_reading_three_modes.ThreeModeIntegrationTests.test_synthesis_rejects_merely_declared_source",
+      "path": "automation/tests/test_reading_three_modes.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_three_modes_legacy_read_is_byte_preserving_and_writes_are_strict",
+      "kind": "python",
+      "selector": "test_workspace_settings.WorkspaceSettingsTests.test_three_modes_legacy_read_is_byte_preserving_and_writes_are_strict",
+      "path": "automation/tests/test_workspace_settings.py",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingSessions.test.tsx::显式联想模式启用本会话联想并保留轮次上限",
+      "kind": "component",
+      "selector": "显式联想模式启用本会话联想并保留轮次上限",
+      "path": "automation/frontend/src/ReadingSessions.test.tsx",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingSessions.test.tsx::旧会话保存晚到不刷新新会话或覆盖其草稿",
+      "kind": "component",
+      "selector": "旧会话保存晚到不刷新新会话或覆盖其草稿",
+      "path": "automation/frontend/src/ReadingSessions.test.tsx",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingSessions.test.tsx::历史legacy模式仅显示说明且不暴露不可用的配置动作",
+      "kind": "component",
+      "selector": "历史legacy模式仅显示说明且不暴露不可用的配置动作",
+      "path": "automation/frontend/src/ReadingSessions.test.tsx",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingSessions.test.tsx::历史缺mode会话仅显示说明且不暴露不可用的配置动作",
+      "kind": "component",
+      "selector": "历史缺mode会话仅显示说明且不暴露不可用的配置动作",
+      "path": "automation/frontend/src/ReadingSessions.test.tsx",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingSessions.test.tsx::保存模式使用CAS，冲突保留联想草稿且可显式重读版本",
+      "kind": "component",
+      "selector": "保存模式使用CAS，冲突保留联想草稿且可显式重读版本",
+      "path": "automation/frontend/src/ReadingSessions.test.tsx",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/WorkspaceSettings.test.tsx::saves the default strategy and bounded association policy",
+      "kind": "component",
+      "selector": "saves the default strategy and bounded association policy",
+      "path": "automation/frontend/src/WorkspaceSettings.test.tsx",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "browser:e2e/workbench.spec.ts::三模式会话显式保存方向、重新载入与快速覆盖提示真实接口",
+      "kind": "browser",
+      "selector": "三模式会话显式保存方向、重新载入与快速覆盖提示真实接口",
+      "path": "automation/frontend/e2e/workbench.spec.ts",
+      "capability": "retrieval",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "browser:e2e/workbench.spec.ts::最近问题重开选择、公式与编号引用双向证据导航真实接口",
+      "kind": "browser",
+      "selector": "最近问题重开选择、公式与编号引用双向证据导航真实接口",
+      "path": "automation/frontend/e2e/workbench.spec.ts",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/CurrentReading.test.tsx::最近24小时问题使用快照且按工作区恢复合法选择",
+      "kind": "component",
+      "selector": "最近24小时问题使用快照且按工作区恢复合法选择",
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/CurrentReading.test.tsx::最近问题可加载第二页且不改变当前笔记",
+      "kind": "component",
+      "selector": "最近问题可加载第二页且不改变当前笔记",
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/CurrentReading.test.tsx::跨工作区和过期选择不得恢复其他问题",
+      "kind": "component",
+      "selector": "跨工作区和过期选择不得恢复其他问题",
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/CurrentReading.test.tsx::重开可恢复最近问题第二页中的合法选择",
+      "kind": "component",
+      "selector": "重开可恢复最近问题第二页中的合法选择",
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/CurrentReading.test.tsx::问题选择的旧快照晚到不覆盖新问题",
+      "kind": "component",
+      "selector": "问题选择的旧快照晚到不覆盖新问题",
+      "path": "automation/frontend/src/CurrentReading.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/Evidence.test.tsx::证据深链按ID加载单条详情并可跳转引用，搜索不请求全库state",
+      "kind": "component",
+      "selector": "证据深链按ID加载单条详情并可跳转引用，搜索不请求全库state",
+      "path": "automation/frontend/src/Evidence.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/Evidence.test.tsx::连续证据深链只显示最后选中的详情",
+      "kind": "component",
+      "selector": "连续证据深链只显示最后选中的详情",
+      "path": "automation/frontend/src/Evidence.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/Evidence.test.tsx::非法修订号深链不得静默回退当前版",
+      "kind": "component",
+      "selector": "非法修订号深链不得静默回退当前版",
+      "path": "automation/frontend/src/Evidence.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ResearchDocument.test.tsx::兼容LaTeX括号分隔符且保留代码，编号证据链接交给路由",
+      "kind": "component",
+      "selector": "兼容LaTeX括号分隔符且保留代码，编号证据链接交给路由",
+      "path": "automation/frontend/src/ResearchDocument.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ResearchDocument.test.tsx::围栏代码中的公式定界符不转换，普通未定界表达式不猜测",
+      "kind": "component",
+      "selector": "围栏代码中的公式定界符不转换，普通未定界表达式不猜测",
+      "path": "automation/frontend/src/ResearchDocument.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesIntegrationTests.test_native_and_memory_search_detail_and_fixed_version",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesIntegrationTests.test_native_and_memory_search_detail_and_fixed_version",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesIntegrationTests.test_payload_search_source_detail_and_current_record_revocation",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesIntegrationTests.test_payload_search_source_detail_and_current_record_revocation",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesIntegrationTests.test_revoked_source_blocks_cached_snapshot_and_recent_goal",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesIntegrationTests.test_revoked_source_blocks_cached_snapshot_and_recent_goal",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesIntegrationTests.test_snapshot_and_recent_never_call_strong_reauthorize_or_original_hash",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesIntegrationTests.test_snapshot_and_recent_never_call_strong_reauthorize_or_original_hash",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesIntegrationTests.test_tampered_markdown_rebuilds_only_selected_without_changing_rs",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesIntegrationTests.test_tampered_markdown_rebuilds_only_selected_without_changing_rs",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesIntegrationTests.test_unrelated_metadata_change_keeps_recent_and_corrupt_record_is_isolated",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesIntegrationTests.test_unrelated_metadata_change_keeps_recent_and_corrupt_record_is_isolated",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesTests.test_citation_does_not_modify_code_math_existing_links_or_merge_blocks",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesTests.test_citation_does_not_modify_code_math_existing_links_or_merge_blocks",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesTests.test_display_does_not_inherit_near_full_ai_note_budget",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesTests.test_display_does_not_inherit_near_full_ai_note_budget",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesTests.test_numbered_reference_keeps_fixed_metadata_and_deep_link",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesTests.test_numbered_reference_keeps_fixed_metadata_and_deep_link",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_recent_notes_evidence.RecentNotesTests.test_recent_window_is_semantic_time_and_stable_order",
+      "kind": "python",
+      "selector": "test_recent_notes_evidence.RecentNotesTests.test_recent_window_is_semantic_time_and_stable_order",
+      "path": "automation/tests/test_recent_notes_evidence.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_evidence_content.EvidenceContentTests.test_document_expands_fixed_sections_and_detail_blocks",
+      "kind": "python",
+      "selector": "test_evidence_content.EvidenceContentTests.test_document_expands_fixed_sections_and_detail_blocks",
+      "path": "automation/tests/test_evidence_content.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_evidence_content.EvidenceContentTests.test_layer_payload_does_not_drop_material_knowledge",
+      "kind": "python",
+      "selector": "test_evidence_content.EvidenceContentTests.test_layer_payload_does_not_drop_material_knowledge",
+      "path": "automation/tests/test_evidence_content.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_evidence_content.EvidenceContentTests.test_registered_raster_requires_hash_and_current_permission",
+      "kind": "python",
+      "selector": "test_evidence_content.EvidenceContentTests.test_registered_raster_requires_hash_and_current_permission",
+      "path": "automation/tests/test_evidence_content.py",
+      "capability": "workbench",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "图片访问或身份解析越界、知识正文混入任务编排",
+        "reason": "保护本轮真实故障及固定来源权限边界",
+        "review_triggers": [
+          "证据适配器或阅读正文契约变化"
+        ],
+        "reviewed_at": "2026-09-17",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260917T021448Z-BC1AAF379A2C"
+      }
+    },
+    {
+      "id": "python:test_evidence_content.EvidenceContentTests.test_unlocated_refs_remain_bibliography_not_invented_inline",
+      "kind": "python",
+      "selector": "test_evidence_content.EvidenceContentTests.test_unlocated_refs_remain_bibliography_not_invented_inline",
+      "path": "automation/tests/test_evidence_content.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_evidence_content.EvidenceContentTests.test_structural_document_refs_are_not_scientific_citations",
+      "kind": "python",
+      "selector": "test_evidence_content.EvidenceContentTests.test_structural_document_refs_are_not_scientific_citations",
+      "path": "automation/tests/test_evidence_content.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_evidence_content.EvidenceApiTests.test_registered_tool_identity_uses_registry_member",
+      "kind": "python",
+      "selector": "test_evidence_content.EvidenceApiTests.test_registered_tool_identity_uses_registry_member",
+      "path": "automation/tests/test_evidence_content.py",
+      "capability": "workbench",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "图片访问或身份解析越界、知识正文混入任务编排",
+        "reason": "保护本轮真实故障及固定来源权限边界",
+        "review_triggers": [
+          "证据适配器或阅读正文契约变化"
+        ],
+        "reviewed_at": "2026-09-17",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260917T021448Z-BC1AAF379A2C"
+      }
+    },
+    {
+      "id": "python:test_evidence_content.EvidenceApiTests.test_image_api_and_document_figure_namespace",
+      "kind": "python",
+      "selector": "test_evidence_content.EvidenceApiTests.test_image_api_and_document_figure_namespace",
+      "path": "automation/tests/test_evidence_content.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_evidence_content.EvidenceApiTests.test_document_api_resolves_fixed_unit_selection",
+      "kind": "python",
+      "selector": "test_evidence_content.EvidenceApiTests.test_document_api_resolves_fixed_unit_selection",
+      "path": "automation/tests/test_evidence_content.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_note_knowledge_body.NoteKnowledgeTests.test_bracketed_known_id_is_one_citation_without_touching_links",
+      "kind": "python",
+      "selector": "test_note_knowledge_body.NoteKnowledgeTests.test_bracketed_known_id_is_one_citation_without_touching_links",
+      "path": "automation/tests/test_note_knowledge_body.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_note_knowledge_body.NoteKnowledgeTests.test_owner_body_excludes_planning_but_keeps_knowledge_and_gaps",
+      "kind": "python",
+      "selector": "test_note_knowledge_body.NoteKnowledgeTests.test_owner_body_excludes_planning_but_keeps_knowledge_and_gaps",
+      "path": "automation/tests/test_note_knowledge_body.py",
+      "capability": "workbench",
+      "quick": true,
+      "full": true,
+      "requires": [],
+      "authorization": [],
+      "baseline": {
+        "risk": "图片访问或身份解析越界、知识正文混入任务编排",
+        "reason": "保护本轮真实故障及固定来源权限边界",
+        "review_triggers": [
+          "证据适配器或阅读正文契约变化"
+        ],
+        "reviewed_at": "2026-09-17",
+        "reviewed_by": "Codex",
+        "review_basis": "RUN-20260917T021448Z-BC1AAF379A2C"
+      }
+    },
+    {
+      "id": "python:test_note_knowledge_body.NoteKnowledgeTests.test_legacy_body_excludes_status_and_decision_but_reports_gaps",
+      "kind": "python",
+      "selector": "test_note_knowledge_body.NoteKnowledgeTests.test_legacy_body_excludes_status_and_decision_but_reports_gaps",
+      "path": "automation/tests/test_note_knowledge_body.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_note_knowledge_body.NoteKnowledgeTests.test_quick_synthesis_uses_same_knowledge_body_contract",
+      "kind": "python",
+      "selector": "test_note_knowledge_body.NoteKnowledgeTests.test_quick_synthesis_uses_same_knowledge_body_contract",
+      "path": "automation/tests/test_note_knowledge_body.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "python:test_note_knowledge_body.NoteKnowledgeApiTests.test_reader_can_save_clue_without_inventing_next_query",
+      "kind": "python",
+      "selector": "test_note_knowledge_body.NoteKnowledgeApiTests.test_reader_can_save_clue_without_inventing_next_query",
+      "path": "automation/tests/test_note_knowledge_body.py",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [],
+      "authorization": []
+    },
+    {
+      "id": "component:src/Evidence.test.tsx::文稿按完整章节展示且选中来源图片可见",
+      "kind": "component",
+      "selector": "文稿按完整章节展示且选中来源图片可见",
+      "path": "automation/frontend/src/Evidence.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/Evidence.test.tsx::Run按输入配置执行结果限制分组且技术哈希不混入上下文",
+      "kind": "component",
+      "selector": "Run按输入配置执行结果限制分组且技术哈希不混入上下文",
+      "path": "automation/frontend/src/Evidence.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/MemoryNavigation.test.tsx::旧阅读记录入口转向当前笔记且系统记忆不再显示阅读标签",
+      "kind": "component",
+      "selector": "旧阅读记录入口转向当前笔记且系统记忆不再显示阅读标签",
+      "path": "automation/frontend/src/MemoryNavigation.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "component:src/ReadingEvidence.test.tsx::定向证据仅列固定链接不预读全文或暴露原始字段",
+      "kind": "component",
+      "selector": "定向证据仅列固定链接不预读全文或暴露原始字段",
+      "path": "automation/frontend/src/ReadingEvidence.test.tsx",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
+      "authorization": []
+    },
+    {
+      "id": "browser:e2e/workbench.spec.ts::记忆摘要进入完整文稿与来源图片证据",
+      "kind": "browser",
+      "selector": "记忆摘要进入完整文稿与来源图片证据",
+      "path": "automation/frontend/e2e/workbench.spec.ts",
+      "capability": "workbench",
+      "quick": false,
+      "full": true,
+      "requires": [
+        "frontend-dev"
+      ],
       "authorization": []
     }
   ],
@@ -10678,6 +13118,452 @@
       "reason": "实际AI reading-view --markdown 在预算拒绝时返回null value，补公开CLI结构化错误回执回归，保持非零与原预算",
       "added": [
         "python:test_reading_query_plan.ReadingQueryPlanTests.test_cli_markdown_budget_failure_returns_json_and_nonzero_without_traceback"
+      ]
+    },
+    {
+      "at": "2026-09-16T04:20:00+00:00",
+      "actor": "Codex",
+      "reason": "两阶段召回重排、固定正文条件核对、离线Cross-encoder边界及冻结合成基线；新增项按实际风险选择少量quick防线，其余按影响/full执行。",
+      "added": [
+        "python:test_material_conditions.MaterialConditionTests.test_numeric_operators_and_negative",
+        "python:test_material_conditions.MaterialConditionTests.test_units_and_binding",
+        "python:test_material_conditions.MaterialConditionTests.test_literal_negation_and_token_boundary",
+        "python:test_material_conditions.MaterialConditionTests.test_ambiguous_and_reference",
+        "python:test_material_conditions.MaterialConditionTests.test_table_and_title",
+        "python:test_material_conditions.MaterialConditionTests.test_validation_and_regex_data",
+        "python:test_material_conditions.MaterialConditionTests.test_unrelated_model_and_prose_never_satisfy_literal_condition",
+        "python:test_material_conditions.MaterialConditionTests.test_comparison_nan_and_dimension_mismatch_remain_unknown",
+        "python:test_material_conditions.MaterialConditionTests.test_multiple_objects_or_unrelated_sentences_cannot_be_cherry_picked",
+        "python:test_material_conditions.MaterialConditionTests.test_negation_requires_a_single_complete_value",
+        "python:test_material_cross_encoder.CrossEncoderTests.test_real_offline_model_smoke_and_length",
+        "python:test_material_cross_encoder.CrossEncoderTests.test_missing_is_explicit",
+        "python:test_material_cross_encoder.CrossEncoderTests.test_path_cannot_escape",
+        "python:test_material_cross_encoder.CrossEncoderTests.test_tampering_rejected_before_runtime",
+        "python:test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_development_baseline_has_full_candidate_coverage_but_rrf_headroom",
+        "python:test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_current_fuse_deduplicates_same_candidate_within_a_route",
+        "python:test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_no_answer_has_no_positive_recall_and_no_candidate",
+        "python:test_retrieval_reranking_baseline.RetrievalRerankingBaselineTests.test_holdout_requires_explicit_split",
+        "python:test_reading_reranking.ReadingRerankingTests.test_ce_then_explicit_conflict_demotes_without_removal",
+        "python:test_reading_reranking.ReadingRerankingTests.test_unavailable_or_failed_model_keeps_original_order",
+        "python:test_reading_reranking.ReadingRerankingTests.test_required_model_failure_is_explicit",
+        "python:test_reading_reranking.ReadingRerankingTests.test_overlong_input_is_not_silently_truncated_or_sent",
+        "python:test_reading_reranking.ReadingRerankingTests.test_insufficient_budget_never_calls_provider",
+        "python:test_reading_reranking.ReadingRerankingTests.test_successful_pairs_are_metered_once",
+        "python:test_reading_reranking.ReadingRerankingTests.test_model_change_on_page_does_not_silently_change_strategy",
+        "python:test_reading_reranking.ReadingRerankingTests.test_failed_batch_does_not_charge_unattempted_pairs",
+        "python:test_reading_reranking.ReadingRerankingTests.test_cancellation_after_inference_stops_before_next_batch",
+        "python:test_reading_reranking.ReadingRerankingTests.test_invalid_scores_cannot_replace_rrf_and_attempt_is_charged",
+        "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_candidate_window_promotes_later_correct_item_and_uses_complete_context",
+        "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_legacy_off_never_loads_provider",
+        "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_required_missing_model_fails_but_persists_ledger",
+        "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_auto_missing_model_falls_back_to_original_order",
+        "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_page_freezes_strategy_and_changed_provider_cannot_silently_rerank",
+        "python:test_reading_reranking_integration.ReadingRerankingIntegrationTests.test_retry_is_idempotent_and_revoked_source_does_not_leak",
+        "python:test_dependency_bundle.DependencyBundleTests.test_optional_reranker_install_restore_and_old_bundle_preservation",
+        "python:test_dependency_bundle.DependencyBundleTests.test_reranker_manifest_corruption_and_unlisted_cache_rejected",
+        "python:test_dependency_bundle.DependencyBundleTests.test_reranker_custom_config_is_preserved_and_conflict_rejected"
+      ],
+      "evidence": "run-20260916t035620z-93aca3a94bae；软件执行状态以本轮实际Run回执为准。"
+    },
+    {
+      "at": "2026-09-16T04:30:00+00:00",
+      "actor": "Codex",
+      "reason": "修复后续不完整全文读取覆盖既有条件证据贡献者的回归；新增轻量固定闭包防线。",
+      "added": [
+        "python:test_reading_reranking.ReadingRerankingTests.test_full_read_unions_new_contributors_with_prior_condition_evidence"
+      ],
+      "evidence": "本轮 Reading.read contributors union 修复；实际执行回执由主线统一保存。"
+    },
+    {
+      "at": "2026-09-16T05:36:59.950717+00:00",
+      "reason": "工作区设置：默认值、CAS、缓存失效、旧RS和UI草稿/保存行为",
+      "added": [
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_missing_file_returns_complete_defaults_without_creating_any_file",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_update_is_complete_cas_and_persists_only_authoritative_shape",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_invalid_shape_numbers_limits_and_corrupt_file_are_rejected",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_existing_lock_is_refused_without_overwrite",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_unchanged_valid_file_is_decoded_once_across_consecutive_reads",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_returned_nested_objects_do_not_mutate_cached_settings_or_defaults",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_atomic_external_edit_invalidates_cache_even_with_same_size_and_mtime",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_failed_replace_preserves_old_file_and_removes_only_own_temporary_files",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_directory_oversized_schema_boolean_nan_and_duplicate_json_are_rejected",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_concurrent_threads_with_same_revision_have_exactly_one_winner"
+      ]
+    },
+    {
+      "at": "2026-09-16T05:37:00.685241+00:00",
+      "reason": "工作区设置：默认值、CAS、缓存失效、旧RS和UI草稿/保存行为",
+      "added": [
+        "python:test_workspace_settings_integration.SettingsIntegrationTests.test_capabilities_and_new_template_consume_settings_but_saved_rs_is_fixed",
+        "python:test_workspace_settings_integration.SettingsIntegrationTests.test_public_cli_policy_set_and_stale_revision",
+        "python:test_workspace_settings_integration.SettingsIntegrationTests.test_real_http_get_save_conflict_and_origin_rejection"
+      ]
+    },
+    {
+      "at": "2026-09-16T05:37:01.536614+00:00",
+      "reason": "工作区设置：默认值、CAS、缓存失效、旧RS和UI草稿/保存行为",
+      "added": [
+        "component:src/WorkspaceSettings.test.tsx::rejects zero timeout and display fractions that are not whole base units",
+        "component:src/WorkspaceSettings.test.tsx::offers an explicit retry after initial load failure without creating a draft save",
+        "component:src/WorkspaceSettings.test.tsx::loads once on opening and preserves edits across navigation",
+        "component:src/WorkspaceSettings.test.tsx::restores defaults as a draft and posts a complete revisioned settings object",
+        "component:src/WorkspaceSettings.test.tsx::rejects empty, fractional and non-finite integers without issuing POST",
+        "component:src/WorkspaceSettings.test.tsx::retains draft on conflict and explicitly fetches current revision before retry",
+        "component:src/WorkspaceSettings.test.tsx::converts displayed MiB and seconds, and blocks duplicate saves while pending",
+        "component:src/WorkspaceSettings.test.tsx::validates rerank candidate window before writing",
+        "component:src/WorkspaceSettings.test.tsx::preserves exact integer bytes and milliseconds through fractional display units"
+      ]
+    },
+    {
+      "at": "2026-09-16T05:38:24.986485+00:00",
+      "reason": "工作区设置：默认值、CAS、缓存失效、旧RS和UI草稿/保存行为",
+      "added": [
+        "component:src/MaterialQuery.test.tsx::新查询采用工作区设置的结果数与预算"
+      ]
+    },
+    {
+      "at": "2026-09-16T05:38:26.466544+00:00",
+      "reason": "工作区设置：默认值、CAS、缓存失效、旧RS和UI草稿/保存行为",
+      "added": [
+        "browser:e2e/settings.spec.ts::真实HTTP保存配置并在页面重新载入后保持",
+        "browser:e2e/settings.spec.ts::设置草稿跨导航保留，冲突不清空，显式重读后保存"
+      ]
+    },
+    {
+      "at": "2026-09-16T05:38:26.601266+00:00",
+      "actor": "Codex",
+      "reason": "新增设置CAS及旧RS预算基线，其他新用例按影响执行",
+      "changes": [
+        {
+          "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_update_is_complete_cas_and_persists_only_authoritative_shape",
+          "before_quick": false,
+          "after_quick": true
+        },
+        {
+          "id": "python:test_workspace_settings_integration.SettingsIntegrationTests.test_capabilities_and_new_template_consume_settings_but_saved_rs_is_fixed",
+          "before_quick": false,
+          "after_quick": true
+        }
+      ]
+    },
+    {
+      "at": "2026-09-16T06:00:00+00:00",
+      "actor": "Codex",
+      "reason": "新增阅读委派与有界 notes-only 交接：宿主能力/策略回退、撤权、旧预算、固定版本失效、阶段完成性、严格请求类型、预算拒绝不泄漏及真实HTTP路由。quick 保留权限、有界交接和预算防线。",
+      "added": [
+        "python:test_reading_delegation.ReadingDelegationTests.test_public_dispatch_and_cli_expose_delegate_and_handoff",
+        "python:test_reading_delegation.ReadingDelegationTests.test_delegate_falls_back_without_host_or_when_workspace_policy_is_off",
+        "python:test_reading_delegation.ReadingDelegationTests.test_delegate_is_read_only_and_brief_never_contains_material_or_diagnostics",
+        "python:test_reading_delegation.ReadingDelegationTests.test_handoff_is_bounded_notes_only_and_omits_whole_notes",
+        "python:test_reading_delegation.ReadingDelegationTests.test_handoff_reports_unnoted_partial_and_ask_user_never_complete",
+        "python:test_reading_delegation.ReadingDelegationTests.test_handoff_conflict_revocation_stale_and_old_budget_are_not_hidden",
+        "python:test_reading_delegation.ReadingDelegationTests.test_stale_fixed_revision_returns_partial_without_old_note_text",
+        "python:test_reading_delegation.ReadingDelegationTests.test_delegate_and_handoff_reject_strict_types_unknown_candidates_and_budget_leakage",
+        "python:test_reading_delegation.ReadingDelegationTests.test_real_http_routes_delegate_and_handoff_through_materials_dispatch"
+      ],
+      "evidence": "run-20260916t060608z-6199ba92b86e/verification/delegation-baseline.log 保留首轮真实失败；最终软件状态以本轮定向回归回执为准。"
+    },
+    {
+      "at": "2026-09-16T06:20:00+00:00",
+      "actor": "Codex",
+      "reason": "新增纯交接视图回归：公式、单位、固定哈希与不确定性只能整条保留或省略；已解决历史不污染当前完成态，最新未知与dense缺口保持partial。",
+      "added": [
+        "python:test_reading_handoff_view.ReadingHandoffViewTests.test_full_note_preserves_formula_uncertainty_and_fixed_hash_or_is_wholly_omitted",
+        "python:test_reading_handoff_view.ReadingHandoffViewTests.test_resolved_history_does_not_hide_current_success_but_latest_unknown_stays_partial"
+      ],
+      "evidence": "run-20260916t060608z-6199ba92b86e/verification/handoff-view-final.log"
+    },
+    {
+      "at": "2026-09-16T08:24:53.991832+00:00",
+      "actor": "Codex",
+      "reason": "登记能力偏好4项新增测试；旧配置无损读取与完整写入防丢偏好加入固定基线。组件与委派文本贯通按影响执行，既有RS权限/预算、CAS及真实setup防线继续保留。",
+      "added": [
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_legacy_disk_adds_only_new_default_without_changing_bytes_or_revision",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_requirements_text_bounds_preservation_and_incomplete_write_rejection",
+        "python:test_reading_delegation.ReadingDelegationTests.test_custom_model_requirements_reach_host_and_worker_without_overriding_route_or_scope",
+        "component:src/WorkspaceSettings.test.tsx::validates requirements and preserves exact text while collaboration is off"
+      ],
+      "changes": [
+        {
+          "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_legacy_disk_adds_only_new_default_without_changing_bytes_or_revision",
+          "before_quick": null,
+          "after_quick": true
+        },
+        {
+          "id": "python:test_workspace_settings.WorkspaceSettingsTests.test_requirements_text_bounds_preservation_and_incomplete_write_rejection",
+          "before_quick": null,
+          "after_quick": true
+        },
+        {
+          "id": "python:test_reading_delegation.ReadingDelegationTests.test_custom_model_requirements_reach_host_and_worker_without_overriding_route_or_scope",
+          "before_quick": null,
+          "after_quick": false
+        },
+        {
+          "id": "component:src/WorkspaceSettings.test.tsx::validates requirements and preserves exact text while collaboration is off",
+          "before_quick": null,
+          "after_quick": false
+        }
+      ],
+      "before_revision": 87,
+      "after_revision": 88,
+      "baseline_review": {
+        "retained": "既有设置CAS、旧RS预算及委派撤权/预算/固定引用基线仍保护原风险，无退出或替代。",
+        "impact_only": "UI文本交互及委派模型选择偏好属应用合同；相关组件10项和委派10项已执行，不增加固定防线的fixture成本；权限与预算由既有独立基线覆盖。"
+      },
+      "evidence": [
+        ".local/capability-settings-tests/backend-settings.log",
+        ".local/capability-settings-tests/backend-delegation.log",
+        ".local/capability-settings-tests/component.log"
+      ],
+      "previous_catalog": ".local/capability-settings-tests/catalog-before.json"
+    },
+    {
+      "at": "2026-09-16T15:46:10.847037+00:00",
+      "reason": "工作台真实ZIP故障：Owner监测范围与HEAD变化；按影响执行，既有完整基线保护仍保留",
+      "added": [
+        "python:test_evidence_observer.ObserverTests.test_release_artifact_and_external_source_are_not_monitored",
+        "python:test_evidence_observer.ObserverTests.test_owner_memory_head_changes_are_monitored"
+      ]
+    },
+    {
+      "at": "2026-09-16T15:51:11.201639+00:00",
+      "reason": "工作台状态保留组件：按影响执行；旧切页卸载真实故障，既有浏览器基线继续覆盖入口",
+      "added": [
+        "component:src/RetainedPanel.test.tsx::延迟挂载、保留本地结果、冻结隐藏修订并传递可见状态",
+        "component:src/RetainedPanel.test.tsx::预加载只执行一次，导航恢复不重新挂载"
+      ]
+    },
+    {
+      "at": "2026-09-16T15:51:11.927386+00:00",
+      "reason": "默认顺序、显式生成和研究经过状态保留真实浏览器回归",
+      "added": [
+        "browser:e2e/memory.spec.ts::系统记忆默认研究经过，按需生成对象记忆且保持子页结果"
+      ]
+    },
+    {
+      "at": "2026-09-16T15:51:12.620321+00:00",
+      "reason": "证据首载及顶层切换不重复请求真实浏览器回归",
+      "added": [
+        "browser:e2e/workbench.spec.ts::证据页首次进入加载，顶层切换复用已加载状态"
+      ]
+    },
+    {
+      "at": "2026-09-16T15:58:44.189738+00:00",
+      "reason": "浏览器发现保留旧包期间回填竞态：组件验证准备期间禁用并只采用新依据，按影响执行",
+      "added": [
+        "component:src/Memory.test.tsx::总结重新准备时保留旧包但禁止回填，完成后只采用新依据"
+      ]
+    },
+    {
+      "at": "2026-09-16T16:19:40.379621+00:00",
+      "actor": "Codex",
+      "reason": "阅读上下文、首页和主题深链接、固定来源展示与私人副本分发",
+      "before_revision": 93,
+      "after_revision": 94,
+      "added": [
+        "python:test_deployment_workbench.DeploymentWorkbenchTests.test_source_archive_excludes_private_reading_markdown",
+        "python:test_reading_workflow.ReadingWorkflowTests.test_filtered_catalog_pages_and_content_order_ignore_uuid_and_view_time",
+        "python:test_reading_workflow.ReadingWorkflowTests.test_superset_access_keeps_original_ceiling_and_rejects_narrower_host",
+        "python:test_reading_workflow.ReadingWorkflowTests.test_notes_view_snapshot_and_failed_derived_write_preserve_canonical_note",
+        "component:src/CurrentReading.test.tsx::首页进入阅读面板沿用同一会话快照，不重复读取或消费原文预算",
+        "component:src/CurrentReading.test.tsx::首页默认排除归档，显示Markdown与缺口并可从空状态重试",
+        "component:src/CurrentReading.test.tsx::全局默认列表晚到不能覆盖归属对象选定的当前笔记",
+        "component:src/CurrentReading.test.tsx::刷新失败撤下正文，重试仍是同一会话而非重新选择全局最新",
+        "component:src/MaterialNavigation.test.tsx::同名主题保留不同Owner链接，独立运行默认折叠",
+        "component:src/MaterialNavigation.test.tsx::按类型列出实际主题并将记录定位到对应Owner，不请求文件目录",
+        "component:src/MemoryNavigation.test.tsx::晚到当前笔记只更新默认Owner，用户已选Owner保持不变",
+        "component:src/MemoryNavigation.test.tsx::首页记录深链接直接定位目标Owner与记录，不被首个Owner覆盖",
+        "component:src/ReadingEvidence.test.tsx::证据入口只显示当前note实际已引用候选并保留固定版本",
+        "component:src/ReadingEvidence.test.tsx::只展开直接固定引用及一层sources，不读取同Owner无关记录或第二层",
+        "component:src/ReadingSessions.test.tsx::进入自动显示有笔记会话，清单刷新保持手选会话并更新正文，翻页不切换",
+        "component:src/ReadingSessions.test.tsx::换对象后旧会话迟到的正文不会泄露",
+        "browser:e2e/workbench.spec.ts::首页自动阅读笔记、定向证据与主题导航真实接口"
+      ],
+      "baseline_review": "新增授权超集/原范围防线；现有撤权/预算/升级成员保留；UI与归档按影响执行。",
+      "evidence": [
+        "RUN-20260916T155857Z-A3D7B61BDD32"
+      ]
+    },
+    {
+      "at": "2026-09-16T16:20:21.092927+00:00",
+      "actor": "Codex",
+      "reason": "阅读上下文、首页和主题深链接、固定来源展示与私人副本分发",
+      "before_revision": 94,
+      "after_revision": 95,
+      "added": [
+        "python:test_reading_handoff_view.ReadingHandoffViewTests.test_notes_display_counts_fixed_refs_inside_total_bound_and_keeps_stale_out"
+      ],
+      "baseline_review": "新增授权超集/原范围防线；现有撤权/预算/升级成员保留；UI与归档按影响执行。",
+      "evidence": [
+        "RUN-20260916T155857Z-A3D7B61BDD32"
+      ]
+    },
+    {
+      "at": "2026-09-16T18:38:07.409010+00:00",
+      "reason": "Owner阅读设置：统一阅读数与最终note上下文默认值、旧配置和旧RS兼容。",
+      "added": [
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_context_budget_migrates_legacy_disk_without_changing_custom_values",
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_context_budget_strict_shape_bounds_and_independent_roundtrip"
+      ]
+    },
+    {
+      "at": "2026-09-16T18:38:12.619164+00:00",
+      "reason": "Owner阅读设置：统一阅读数与最终note上下文默认值、旧配置和旧RS兼容。",
+      "added": [
+        "python:test_workspace_settings_integration.SettingsIntegrationTests.test_owner_template_uses_context_defaults_and_existing_session_keeps_snapshot"
+      ]
+    },
+    {
+      "at": "2026-09-16T18:38:18.114010+00:00",
+      "reason": "Owner阅读设置：统一阅读数与最终note上下文默认值、旧配置和旧RS兼容。",
+      "added": [
+        "component:src/WorkspaceSettings.test.tsx::validates independent Owner and note budgets and keeps engineering limits"
+      ]
+    },
+    {
+      "at": "2026-09-16T18:41:38.021991+00:00",
+      "reason": "Owner文稿阅读核心防线：正文去重、逐Owner完整阅读、固定引用按需展开、note上下文与旧RS兼容。",
+      "added": [
+        "python:test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_only_identity_and_text",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_owner_read_complete_fallback_and_repeat_progress",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_template_uses_owner_mode",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_note_fixed_sources_snapshot_and_handoff",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_spoofed_note_and_source_expansion_rejected",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_selected_owner_no_more_snippets_and_operation_budget_resets",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_process_preferred_and_document_scope_not_retrieval_level",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_source_revision_and_revocation_block_saved_note",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_max_owners_counts_selected_not_recall_candidates",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_figure_reference_map_and_explicit_expansion",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_declared_run_reference_expands_summary_only_and_rechecks_version",
+        "python:test_reading_owner_document.OwnerBudgetTests.test_internal_diagnostics_do_not_charge_ai_output_but_io_still_bounded",
+        "python:test_reading_owner_document.OwnerBudgetTests.test_handoff_omits_whole_note_and_explains_token_estimate",
+        "python:test_reading_owner_document.OwnerBudgetTests.test_finish_with_selected_unnoted_owner_remains_partial"
+      ]
+    },
+    {
+      "date": "2026-09-17",
+      "actor": "Codex",
+      "reason": "Owner文稿阅读新模式：新增完整阅读交接及来源失效两项基线；旧防线保留，其余新用例按影响执行。",
+      "before_revision": 99,
+      "after_revision": 100,
+      "affected_ids": [
+        "python:test_reading_owner_document.OwnerDocumentTests.test_note_fixed_sources_snapshot_and_handoff",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_source_revision_and_revocation_block_saved_note"
+      ],
+      "evidence": "RUN-20260916T181657Z-4D7EFFF321BA"
+    },
+    {
+      "at": "2026-09-16T18:56:17.203788+00:00",
+      "reason": "真实单Owner命中11段导致首包冗余：增加每Owner渐进交付、旧RS缺字段兼容、partial候选续页不丢失回归。",
+      "added": [
+        "python:test_reading_owner_document.OwnerDocumentTests.test_owner_candidates_progress_one_per_page_then_skip_selected",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_partial_pending_packet_remains_resumable_without_repeating_text",
+        "python:test_reading_owner_document.OwnerDocumentTests.test_owner_sessions_without_delivery_fields_do_not_replay_old_candidates"
+      ]
+    },
+    {
+      "at": "2026-09-16T19:03:03.468174+00:00",
+      "reason": "Owner文稿渐进候选、笔记固定来源ID规范化与拒绝歧义回归",
+      "added": [
+        "python:test_reading_owner_document.OwnerDocumentTests.test_note_source_ids_resolve_to_delivered_fixed_refs",
+        "python:test_reading_owner_document.OwnerBudgetTests.test_source_id_resolution_preserves_locators_and_rejects_ambiguity"
+      ]
+    },
+    {
+      "at": "2026-09-16T20:01:48.134179+00:00",
+      "reason": "笔记正文固定来源漏登、未知ID、URL边界与拒绝状态保持",
+      "added": [
+        "python:test_reading_owner_document.OwnerDocumentTests.test_note_unregistered_evidence_preserves_persisted_session",
+        "python:test_reading_owner_document.OwnerBudgetTests.test_note_evidence_ids_missing_or_unknown_reject_without_mutation",
+        "python:test_reading_owner_document.OwnerBudgetTests.test_note_evidence_ids_chinese_punctuation_and_subset_normalize",
+        "python:test_reading_owner_document.OwnerBudgetTests.test_delivered_nonstandard_source_id_is_matched_exactly"
+      ]
+    },
+    {
+      "at": "2026-09-16T20:21:32.421444+00:00",
+      "reason": "登记三模式阅读策略、CAS与综合笔记失效测试",
+      "added": [
+        "python:test_reading_three_modes.StrategyTests.test_old_session_is_standard_disabled",
+        "python:test_reading_three_modes.StrategyTests.test_configure_preserves_state_and_rejects_legacy",
+        "python:test_reading_three_modes.StrategyTests.test_assessment_requires_actual_delivery",
+        "python:test_reading_three_modes.StrategyTests.test_association_round_limit",
+        "python:test_reading_three_modes.StrategyTests.test_disabled_association_and_conflicting_plan_are_not_bypassed",
+        "python:test_reading_three_modes.StrategyTests.test_old_configuration_does_not_mutate_storage_data",
+        "python:test_reading_three_modes.ThreeModeIntegrationTests.test_quick_assess_note_switch_and_synthesis",
+        "python:test_reading_three_modes.ThreeModeIntegrationTests.test_configuration_cas_and_idempotence",
+        "python:test_reading_three_modes.ThreeModeIntegrationTests.test_association_real_query_and_round_limit",
+        "python:test_reading_three_modes.ThreeModeIntegrationTests.test_synthesis_invalidates_after_owner_note_change",
+        "python:test_reading_three_modes.ThreeModeIntegrationTests.test_ask_user_configure_does_not_grant_recall_and_archived_rejects",
+        "python:test_reading_three_modes.ThreeModeIntegrationTests.test_cross_owner_synthesis_and_quick_owner_limit",
+        "python:test_reading_three_modes.ThreeModeIntegrationTests.test_synthesis_rejects_merely_declared_source"
+      ]
+    },
+    {
+      "at": "2026-09-16T20:21:58.087589+00:00",
+      "reason": "登记三模式设置兼容与严格写入测试",
+      "added": [
+        "python:test_workspace_settings.WorkspaceSettingsTests.test_three_modes_legacy_read_is_byte_preserving_and_writes_are_strict"
+      ]
+    },
+    {
+      "at": "2026-09-16T20:22:03.592645+00:00",
+      "reason": "登记三模式会话交互组件测试",
+      "added": [
+        "component:src/ReadingSessions.test.tsx::显式联想模式启用本会话联想并保留轮次上限",
+        "component:src/ReadingSessions.test.tsx::旧会话保存晚到不刷新新会话或覆盖其草稿",
+        "component:src/ReadingSessions.test.tsx::保存模式使用CAS，冲突保留联想草稿且可显式重读版本"
+      ]
+    },
+    {
+      "at": "2026-09-16T20:22:09.167968+00:00",
+      "reason": "登记默认阅读模式设置组件测试",
+      "added": [
+        "component:src/WorkspaceSettings.test.tsx::saves the default strategy and bounded association policy"
+      ]
+    },
+    {
+      "at": "2026-09-16T20:22:15.246131+00:00",
+      "reason": "登记三模式会话真实浏览器测试",
+      "added": [
+        "browser:e2e/workbench.spec.ts::三模式会话显式保存方向、重新载入与快速覆盖提示真实接口"
+      ]
+    },
+    {
+      "at": "2026-09-16T20:31:53.3049587Z",
+      "before_revision": 108,
+      "after_revision": 109,
+      "reason": "登记历史legacy及缺mode会话只读界面两项静态组件用例；保留笔记和原文查看",
+      "added": [
+        "component:src/ReadingSessions.test.tsx::历史legacy模式仅显示说明且不暴露不可用的配置动作",
+        "component:src/ReadingSessions.test.tsx::历史缺mode会话仅显示说明且不暴露不可用的配置动作"
+      ]
+    },
+    {
+      "at": "2026-09-17T02:40:18.711390+00:00",
+      "actor": "Codex",
+      "before_revision": 110,
+      "after_revision": 111,
+      "reason": "知识笔记与分类型证据详情回归；权限、合法工具身份、正文边界加入基线，其余按影响执行",
+      "added": [
+        "python:test_evidence_content.EvidenceContentTests.test_document_expands_fixed_sections_and_detail_blocks",
+        "python:test_evidence_content.EvidenceContentTests.test_layer_payload_does_not_drop_material_knowledge",
+        "python:test_evidence_content.EvidenceContentTests.test_registered_raster_requires_hash_and_current_permission",
+        "python:test_evidence_content.EvidenceContentTests.test_unlocated_refs_remain_bibliography_not_invented_inline",
+        "python:test_evidence_content.EvidenceContentTests.test_structural_document_refs_are_not_scientific_citations",
+        "python:test_evidence_content.EvidenceApiTests.test_registered_tool_identity_uses_registry_member",
+        "python:test_evidence_content.EvidenceApiTests.test_image_api_and_document_figure_namespace",
+        "python:test_evidence_content.EvidenceApiTests.test_document_api_resolves_fixed_unit_selection",
+        "python:test_note_knowledge_body.NoteKnowledgeTests.test_bracketed_known_id_is_one_citation_without_touching_links",
+        "python:test_note_knowledge_body.NoteKnowledgeTests.test_owner_body_excludes_planning_but_keeps_knowledge_and_gaps",
+        "python:test_note_knowledge_body.NoteKnowledgeTests.test_legacy_body_excludes_status_and_decision_but_reports_gaps",
+        "python:test_note_knowledge_body.NoteKnowledgeTests.test_quick_synthesis_uses_same_knowledge_body_contract",
+        "python:test_note_knowledge_body.NoteKnowledgeApiTests.test_reader_can_save_clue_without_inventing_next_query",
+        "component:src/Evidence.test.tsx::文稿按完整章节展示且选中来源图片可见",
+        "component:src/Evidence.test.tsx::Run按输入配置执行结果限制分组且技术哈希不混入上下文",
+        "component:src/MemoryNavigation.test.tsx::旧阅读记录入口转向当前笔记且系统记忆不再显示阅读标签",
+        "component:src/ReadingEvidence.test.tsx::定向证据仅列固定链接不预读全文或暴露原始字段",
+        "browser:e2e/workbench.spec.ts::记忆摘要进入完整文稿与来源图片证据"
       ]
     }
   ]

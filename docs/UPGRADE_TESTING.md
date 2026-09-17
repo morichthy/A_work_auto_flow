@@ -20,6 +20,8 @@ Run 自动登记场景还包括 `.run-captures/` 内的登记回执、失败日�
 
 阅读会话场景通过公开 reading-template/start/decide 创建真实 RS 目标、条件、下一步与修订历史，将 `.local/reading-sessions/` 的 HEAD/历史文件纳入同一保护清单；预览、升级、重复升级及恢复须逐项保留字节。它不是可重建索引缓存。会话含真实owner_id绑定。
 
+阅读副本同时保护 `context/reading-notes/` 中的现有 Markdown、中文路径和空目录；新版安装器不能把开发机的私人笔记复制到目标。升级补齐 Git 排除但保留用户原规则；源码归档也排除该目录。副本不进入普通知识发现或通用上下文注入，原 RS 仍是唯一会话状态。
+
 术语库场景将用户修改的`retrieval/query-terms.json`纳入完整保护清单；真实setup升级/重复升级/恢复保留字节。另验证缺失时由`automation/templates/query-terms.default.json`补种、回滚恢复原不存在状态。发行源不复制开发工作区的私人词库，公共包仅含受控模板；模板用LF保持Windows/Git指纹一致。
 
 受控Skill退休场景核对旧入口精确LF/CRLF指纹：默认research-loop/workspace-context只移除发现文件，保留用户附属文件；新版不再分发旧方法源；新版活跃入口更新进入同一备份回执。用户修改的同名入口保持字节，未知版本不自动处理。真实setup预览不写入、升级退休、重复无变动、rollback恢复原字节；新增work-loop随受控源码发现入口补缺。
@@ -49,6 +51,8 @@ Run 自动登记场景还包括 `.run-captures/` 内的登记回执、失败日�
 ```
 
 ## 从故障补用例
+
+可选Cross-encoder加入依赖链后，`test_dependency_bundle.py`核对旧包兼容、内层模型损坏拒绝、整组件残留清理/恢复、自定义配置保护及PowerShell引导白名单；`verify_dependency_release.py`核对真实离线安装、扩展旧工作区升级、接收端再次打包和恢复后模型/manifest逐文件指纹。模型可选性不能靠跳过存在但损坏的组件实现；core安装通过不代替这一全链验证。
 
 先用最小测试复现，再把相应对象加入共享旧工作区，并确认真实升级流程经过该检查。例如 v0.1.0 的入口只接受文件，原有单文件工具 fixture 无法暴露问题；共享场景现在同时登记包目录和脚本集合目录。只加入“目录存在”的断言不足以防止复发，必须让安装后的 validate 实际读取这份登记。
 

@@ -1,55 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import { api, download } from "./api";
+import { readingNoteName } from "./readingNoteName";
 import { ResearchMarkdown } from "./ResearchDocument";
 import { MaterialPacket } from "./MaterialPacket";
+import { ReadingMode } from "./ReadingMode";
 import type { MaterialPacket as Packet } from "./generated/material-query";
-
-type Session = {
-  session_id: string;
-  revision: number;
-  owner_id: string | null;
-  goal: string;
-  phase: string;
-  archived: boolean;
-};
-type Listing = {
-  items: Session[];
-  next_offset: number | null;
-  unavailable_count: number;
-};
-type Reading = {
-  session_id: string;
-  revision: number;
-  context_markdown: string;
-  phase: string;
-  archived: boolean;
-  gaps: string[];
-  candidates: { candidate_id: string; title: string; status: string }[];
-};
-type Result<T> = {
-  status: string;
-  message?: string;
-  code?: string;
-  warnings?: string[];
-  value: T | null;
-};
-
-// 材料接口拒绝时使用Result的code/warnings，包含预算和权限原因；HTTP异常也保留该封套。
-function failureMessage(value: unknown, fallback = "阅读记录不可用") {
-  const wrapped = value as {
-    materialResult?: Result<unknown>;
-    message?: string;
-  };
-  const result = wrapped?.materialResult || (value as Result<unknown>);
-  return (
-    [result?.code, ...(result?.warnings || [])].filter(Boolean).join("：") ||
-    wrapped?.message ||
-    fallback
-  );
-}
+import {
+  useCurrentReading,
+  failureMessage,
+  type Session,
+  type Listing,
+  type Reading,
+  type Result,
+} from "./CurrentReading";
 
 /** Read the live RS through the public API; never cache private notes across owners. */
 export function ReadingSessions({ ownerId }: { ownerId: string }) {
+  const current = useCurrentReading();
   const [items, setItems] = useState<Session[]>([]);
   const [next, setNext] = useState<number | null>(null);
   const [reading, setReading] = useState<Reading | null>(null);
@@ -58,12 +25,15 @@ export function ReadingSessions({ ownerId }: { ownerId: string }) {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const generation = useRef(0);
+  const selected = useRef("");
+  const [offset, setOffset] = useState(0);
+  const [warning, setWarning] = useState("");
 
-  async function list(offset = 0) {
+  async function list(offset = 0, refresh = false) {
     const token = ++generation.current;
     setBusy(true);
     setError("");
-    setReading(null);
+    if (refresh) setReading(null);
     setPacket(null);
     try {
       const response = await api<Result<Listing>>("materials/reading-list", {
@@ -77,12 +47,28 @@ export function ReadingSessions({ ownerId }: { ownerId: string }) {
         throw Error(failureMessage(response, "阅读清单不可用"));
       setItems(response.value.items);
       setNext(response.value.next_offset);
-      if (response.value.unavailable_count)
-        setError("部分记录当前不可读取；请检查来源或权限。");
+      setOffset(offset);
+      setWarning(
+        response.value.unavailable_count
+          ? "部分记录当前不可读取；请检查来源或权限。"
+          : "",
+      );
+      // 清单与正文独立：翻页不改变选择，显式刷新重读当前HEAD。
+      const chosen =
+        selected.current ||
+        response.value.items.find(
+          (item) => !item.archived && (item.note_count || 0) > 0,
+        )?.session_id ||
+        response.value.items.find((item) => (item.note_count || 0) > 0)
+          ?.session_id ||
+        response.value.items[0]?.session_id;
+      if (chosen && (refresh || !selected.current)) await view(chosen);
     } catch (e) {
       if (token === generation.current) {
         setItems([]);
         setNext(null);
+        setReading(null);
+        current?.clear();
         setError(failureMessage(e));
       }
     } finally {
@@ -96,10 +82,14 @@ export function ReadingSessions({ ownerId }: { ownerId: string }) {
     setError("");
     setReading(null);
     setPacket(null);
+    selected.current = id;
     try {
-      const response = await api<Result<Reading>>("materials/reading-view", {
-        session_id: id,
-      });
+      const response = current
+        ? { value: await current.select(id) }
+        : await api<Result<Reading>>("materials/reading-view", {
+            session_id: id,
+            notes_only: true,
+          });
       if (token !== generation.current) return;
       if (!response.value) throw Error(failureMessage(response));
       setReading(response.value);
@@ -139,6 +129,7 @@ export function ReadingSessions({ ownerId }: { ownerId: string }) {
     } catch (e) {
       if (token === generation.current) {
         setReading(null);
+        current?.clear();
         setError(failureMessage(e));
       }
     } finally {
@@ -149,38 +140,80 @@ export function ReadingSessions({ ownerId }: { ownerId: string }) {
   useEffect(() => {
     setItems([]);
     setNext(null);
-    void list();
+    setReading(null);
+    setPacket(null);
+    selected.current =
+      current?.reading && (!ownerId || current.reading.owner_id === ownerId)
+        ? current.reading.session_id
+        : "";
+    if (selected.current && current?.reading) {
+      setReading(current.reading);
+      setSnapshotRevision(current.reading.revision);
+    } else current?.clear();
+    // 从首页进入时沿用已授权的当前快照；只有显式刷新再读HEAD。
+    void list(0, !selected.current);
     return () => {
       generation.current++;
     };
   }, [ownerId]);
+  // 首页刷新同一选择后，面板沿用同一份服务器快照，不保留另一份旧正文。
+  useEffect(() => {
+    if (!current) return;
+    if (current.busy || current.error) {
+      setReading(null);
+      setPacket(null);
+    } else if (current.reading?.session_id === selected.current) {
+      setReading(current.reading);
+      setSnapshotRevision(current.reading.revision);
+    }
+  }, [current?.reading, current?.busy, current?.error]);
   return (
     <section className="card">
       <h2>阅读记录</h2>
       <p className="muted">
-        {ownerId ? "当前对象的阅读会话" : "全部可访问会话（含未绑定的旧记录）"}
+        {ownerId
+          ? `归属对象：${ownerId}。以下为该对象的阅读会话`
+          : "全部可访问会话（含未绑定的旧记录）"}
         。打开或刷新时读取最新状态；不会自动重新检索。
       </p>
-      <button disabled={busy} onClick={() => void list()}>
+      <button disabled={busy} onClick={() => void list(offset, true)}>
         刷新阅读清单
       </button>
-      {error && <p role="alert">{error}</p>}
+      {(current?.error || error) && (
+        <p role="alert">{current?.error || error}</p>
+      )}
+      {warning && <p role="status">{warning}</p>}
+      {busy && <p role="status">正在读取阅读记录…</p>}
       {!busy && !items.length && (
         <p>本页没有可显示的会话。{next !== null ? "仍有下一页。" : ""}</p>
       )}
       <ul>
         {items.map((item) => (
           <li key={item.session_id}>
-            <button disabled={busy} onClick={() => void view(item.session_id)}>
+            <button
+              aria-pressed={selected.current === item.session_id}
+              disabled={busy}
+              onClick={() => void view(item.session_id)}
+            >
               {item.goal}
             </button>
             <span>
               {" "}
               · r{item.revision} · {item.archived ? "已归档" : "工作记录"}
+              {item.note_count !== undefined && ` · ${item.note_count} 条笔记`}
+              {!ownerId && ` · 归属：${item.owner_id || "未绑定"}`}
             </span>
           </li>
         ))}
       </ul>
+      {offset > 0 && (
+        <button
+          disabled={busy}
+          onClick={() => void list(Math.max(0, offset - 20))}
+        >
+          上一页阅读会话
+        </button>
+      )}
       {next !== null && (
         <button disabled={busy} onClick={() => void list(next)}>
           下一页阅读会话
@@ -188,6 +221,31 @@ export function ReadingSessions({ ownerId }: { ownerId: string }) {
       )}
       {reading && (
         <article>
+          <h3>当前阅读会话</h3>
+          {reading.goal && <p>{reading.goal}</p>}
+          <p className="muted">笔记快照 r{snapshotRevision}</p>
+          <details>
+            <summary>会话标识与版本</summary>
+            <p className="id">
+              {reading.session_id} · r{snapshotRevision}
+            </p>
+          </details>
+          {reading.mode === "owner_document" ? (
+            <ReadingMode
+              key={reading.session_id}
+              reading={reading}
+              onSaved={(value) => {
+                if (selected.current !== value.session_id) return;
+                setReading(value);
+                setSnapshotRevision(value.revision);
+                current?.accept(value);
+              }}
+            />
+          ) : (
+            <p className="muted">
+              此历史会话使用旧版逐候选阅读流程，保留原有笔记与原文查看；三模式设置仅适用于新的Owner阅读会话。
+            </p>
+          )}
           <div className="row">
             <button
               disabled={busy}
@@ -198,7 +256,11 @@ export function ReadingSessions({ ownerId }: { ownerId: string }) {
             <button
               onClick={() =>
                 download(
-                  `${reading.session_id}-r${snapshotRevision}.md`,
+                  readingNoteName(
+                    reading.goal,
+                    reading.session_id,
+                    snapshotRevision,
+                  ),
                   reading.context_markdown,
                 )
               }

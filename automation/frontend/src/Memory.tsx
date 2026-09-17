@@ -1,12 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { api, download } from "./api";
+import { RetainedPanel } from "./RetainedPanel";
 import { RawMaterials } from "./RawMaterials";
-import { ReadingSessions } from "./ReadingSessions";
-import {
-  ResearchDocument,
-  ResearchMarkdown,
-  recordMarkdown,
-} from "./ResearchDocument";
+import { useCurrentReading } from "./CurrentReading";
+import { ResearchDocument, ResearchMarkdown } from "./ResearchDocument";
 import {
   MemorySearch,
   PacketView,
@@ -91,6 +88,36 @@ const names: Record<string, string> = {
 // 不因移除按钮而隐藏用户内容；实际类型更新须经服务器显式修订。
 const visibleKind = (kind: string) =>
   kind === "event" ? "narrative" : kind === "map" ? "overview" : kind;
+// The owner list is a navigation summary; complete content has one detail page.
+function recordSummary(record: MemoryRecord) {
+  const payload = record.payload as unknown as Record<string, unknown>;
+  const description = payload.retrieval_description as
+    Record<string, unknown> | undefined;
+  const value =
+    description?.question ||
+    payload.question ||
+    payload.problem_structure ||
+    payload.summary ||
+    payload.objective ||
+    record.body_markdown ||
+    record.record_reason ||
+    "暂无摘要";
+  const plain = (Array.isArray(value) ? value.join("；") : String(value))
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, "")
+    .replace(/[#*_`]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  return (
+    [...plain].slice(0, 240).join("") + ([...plain].length > 240 ? "…" : "")
+  );
+}
+const evidenceLink = (record: MemoryRecord) =>
+  "#/evidence?" +
+  new URLSearchParams({
+    id: record.record_id,
+    revision: String(record.revision),
+    ...(record.record_hash ? { sha256: record.record_hash } : {}),
+  }).toString();
 const labels: Record<string, string> = {
   current_stage: "当前阶段",
   methods: "关键方法",
@@ -402,16 +429,19 @@ function PayloadFields({
 }
 
 export function Memory() {
+  const sharedReading = useCurrentReading();
+  const ownerChosen = useRef(false);
   const [owners, setOwners] = useState<Owner[]>([]);
   const [ownerId, setOwnerId] = useState("");
   const [snapshot, setSnapshot] = useState<Inspection | null>(null);
-  const [tab, setTab] = useState("records");
+  const [tab, setTab] = useState("history");
   const [timeline, setTimeline] = useState<HistoryResult | null>(null);
   // 显式选择每种类型，多选取并集；空选择表示不显示任何记录。
   const [kinds, setKinds] = useState<string[]>(() => Object.keys(names));
   const [rawCount, setRawCount] = useState(0);
   const [selected, setSelected] = useState<MemoryRecord | null>(null);
   const [draft, setDraft] = useState<Editable | null>(null);
+  const [draftTab, setDraftTab] = useState("records");
   const [payloadValid, setPayloadValid] = useState(true);
   const [editingHead, setEditingHead] = useState<string | null>(null);
   const [conflict, setConflict] = useState<MemoryRecord | null>(null);
@@ -423,7 +453,11 @@ export function Memory() {
     kind: "human",
     id: "workbench-user",
   });
-  const [packet, setPacket] = useState<Packet | null>(null);
+  // 各功能独立保留材料包，避免总结覆盖续接结果。
+  const [packets, setPackets] = useState<Record<string, Packet | null>>({});
+  const packet = packets[tab] || null;
+  const setPacket = (value: Packet | null) =>
+    setPackets((current) => ({ ...current, [tab]: value }));
   const [summaryOwners, setSummaryOwners] = useState<string[]>([]);
   const [summaryQuery, setSummaryQuery] = useState("");
   const [summaryBasis, setSummaryBasis] = useState<Record<
@@ -443,6 +477,11 @@ export function Memory() {
   );
   const [sharedStructure, setSharedStructure] = useState("");
   const [transferLimits, setTransferLimits] = useState("");
+  const [pendingSelection, setPendingSelection] = useState<{
+    owner: string;
+    record: string;
+  } | null>(null);
+  const [recordsLoaded, setRecordsLoaded] = useState(false);
   const inspectionSequence = useRef(0);
   async function load(id = ownerId) {
     if (!id) return;
@@ -450,7 +489,10 @@ export function Memory() {
     const next = await api<Inspection>("memory/inspect", { owner_id: id });
     // Rapid owner changes can finish out of order; an older response must not
     // display another owner's records under the current selection.
-    if (sequence === inspectionSequence.current) setSnapshot(next);
+    if (sequence === inspectionSequence.current) {
+      setSnapshot(next);
+      setRecordsLoaded(true);
+    }
     return next;
   }
   useEffect(() => {
@@ -458,20 +500,88 @@ export function Memory() {
     api<{ owners: Owner[] }>("memory/list-owners")
       .then((value) => {
         setOwners(value.owners);
-        if (value.owners.length) setOwnerId(value.owners[0].owner_id);
+        const requested =
+          new URLSearchParams(location.hash.split("?")[1]).get("owner") ||
+          sharedReading?.reading?.owner_id;
+        if (value.owners.length)
+          setOwnerId(
+            (current) =>
+              current ||
+              (value.owners.some((o) => o.owner_id === requested)
+                ? requested!
+                : value.owners[0].owner_id),
+          );
       })
       .catch((error) => setMessage(String(error)));
   }, []);
   useEffect(() => {
+    // 首页主题链接与检索结果共用同一个待定位选择，不另建记录状态。
+    const navigate = () => {
+      if (!location.hash.startsWith("#/memory?")) return;
+      const params = new URLSearchParams(location.hash.split("?")[1]);
+      if (params.get("tab") === "reading") {
+        location.hash = "#/home";
+        return;
+      }
+      const owner = params.get("owner");
+      if (!owner) return;
+      ownerChosen.current = true;
+      setOwnerId(owner);
+      const record = params.get("record");
+      setTab(record ? "records" : "history");
+      if (record) setPendingSelection({ owner, record });
+    };
+    navigate();
+    window.addEventListener("hashchange", navigate);
+    return () => window.removeEventListener("hashchange", navigate);
+  }, []);
+  useEffect(() => {
+    const owner = sharedReading?.reading?.owner_id;
+    if (
+      !ownerChosen.current &&
+      owner &&
+      owners.some((item) => item.owner_id === owner)
+    )
+      setOwnerId(owner);
+  }, [sharedReading?.reading?.owner_id, owners]);
+  useEffect(() => {
+    if (pendingSelection?.owner !== ownerId) setPendingSelection(null);
     setSnapshot(null);
     setSelected(null);
     setDraft(null);
     setConflict(null);
-    setPacket(null);
+    setPackets({});
     setTimeline(null);
     setDetails(null);
-    load().catch((error) => setMessage(String(error)));
+    // 切换对象使旧读取失效；对象记录只在用户点击生成后读取。
+    inspectionSequence.current++;
+    setRecordsLoaded(false);
+    setAssociations([]);
+    setAssociation(null);
+    setReviewClaim(null);
+    setReviewScope("");
+    setReviewReason("");
+    setSharedStructure("");
+    setTransferLimits("");
+    setAssociationSeeds("");
   }, [ownerId]);
+  useEffect(() => {
+    if (!pendingSelection || pendingSelection.owner !== ownerId) return;
+    let cancelled = false;
+    // 先应用归属切换/清理，再读取点击的固定候选；离开该归属时拒绝迟到结果。
+    load(pendingSelection.owner)
+      .then((value) => {
+        if (!cancelled && value)
+          setSelected(value.records[pendingSelection.record] || null);
+      })
+      .catch((error) => {
+        if (!cancelled) setMessage(String(error));
+      });
+    return () => {
+      cancelled = true;
+      inspectionSequence.current++;
+    };
+  }, [ownerId, pendingSelection]);
   async function run(work: () => Promise<void>) {
     setBusy(true);
     setMessage("");
@@ -486,6 +596,7 @@ export function Memory() {
     }
   }
   function begin(record?: MemoryRecord, type = "experience") {
+    setDraftTab("records");
     setSelected(record || null);
     const value = record ? editable(record) : fresh(type, ownerId);
     if (record?.kind === "goal") value.payload.previous_goal_ref = ref(record);
@@ -578,13 +689,12 @@ export function Memory() {
   );
   const includesRaw = kinds.includes("source");
   const tabs = [
-    ["records", "对象记忆"],
-    ["search", "跨研究检索"],
     ["history", "研究经过"],
+    ["records", "对象记忆"],
+    ["relations", "关联导航"],
+    ["search", "跨研究检索"],
     ["summary", "跨项目总结"],
-    ["relations", "导航关联"],
     ["resume", "暂停与续接"],
-    ["reading", "阅读记录"],
   ];
   return (
     <>
@@ -598,13 +708,17 @@ export function Memory() {
       <section className="card">
         <div className="memory-fields">
           <label>
-            当前对象
+            归属对象（项目 / 研究 / 算法）
             <select
               aria-label="记忆归属对象"
               value={ownerId}
-              onChange={(event) => setOwnerId(event.target.value)}
+              disabled={busy}
+              onChange={(event) => {
+                ownerChosen.current = true;
+                setOwnerId(event.target.value);
+              }}
             >
-              <option value="">选择对象</option>
+              <option value="">选择归属对象</option>
               {owners.map((owner) => (
                 <option key={owner.owner_id} value={owner.owner_id}>
                   {owner.native_data?.title || owner.owner_id} ·{" "}
@@ -648,8 +762,6 @@ export function Memory() {
               className={tab === id ? "primary" : ""}
               onClick={() => {
                 setTab(id);
-                setPacket(null);
-                setDetails(null);
               }}
             >
               {title}
@@ -689,7 +801,6 @@ export function Memory() {
           </div>
         )}
       </section>
-      {tab === "reading" && <ReadingSessions key={ownerId} ownerId={ownerId} />}
       {message && (
         <div className="alert" role="status">
           {message}
@@ -701,11 +812,21 @@ export function Memory() {
           <pre>{JSON.stringify(details, null, 2)}</pre>
         </details>
       )}
-      {tab === "records" && (
+      <RetainedPanel key={"records:" + ownerId} active={tab === "records"}>
         <>
           <section className="card">
             <div className="row spread">
               <h2>对象记录</h2>
+              <button
+                disabled={!ownerId || busy}
+                onClick={() =>
+                  run(async () => {
+                    await load();
+                  })
+                }
+              >
+                生成对象记忆
+              </button>
             </div>
             <fieldset className="memory-type-filters">
               <legend>按层级或类型筛选</legend>
@@ -751,7 +872,7 @@ export function Memory() {
               ].map((type) => (
                 <button
                   key={type}
-                  disabled={!ownerId || busy}
+                  disabled={!ownerId || busy || !recordsLoaded}
                   onClick={() => begin(undefined, type)}
                 >
                   新增{names[type]}
@@ -770,90 +891,64 @@ export function Memory() {
               {filteredRecords.map((record) => (
                 <article className="proposal" key={record.record_id}>
                   <div className="row spread">
-                    <h3>{record.title}</h3>
+                    <h3>
+                      <a href={evidenceLink(record)}>{record.title}</a>
+                    </h3>
                     <span className="badge">
                       {names[visibleKind(record.kind)]}
                     </span>
                   </div>
-                  <p className="id">
-                    {record.record_id} · r{record.revision}
-                  </p>
-                  <p>保存原因：{record.record_reason}</p>
-                  <ResearchMarkdown
-                    text={recordMarkdown(record)}
-                    record={record.kind === "detail" ? record : undefined}
-                  />
-                  {record.kind === "experience" && (
-                    <>
-                      <p>适用：{record.payload.applicable.join("；")}</p>
-                      <p className="risk">
-                        禁止：
-                        {record.payload.prohibited.join("；") || "未声明"}
-                      </p>
-                    </>
-                  )}
+                  <p>{recordSummary(record)}</p>
+                  <a href={evidenceLink(record)}>查看完整内容与依据</a>
                   <details>
-                    <summary>结构、固定来源与版本</summary>
-                    <pre>
-                      {JSON.stringify(
-                        {
-                          payload: record.payload,
-                          sources: record.sources,
-                          content_hash: record.content_hash,
-                          updated_at: record.updated_at,
-                          change_reason: record.change_reason,
-                        },
-                        null,
-                        2,
+                    <summary>管理记录</summary>
+                    <div className="row">
+                      <button
+                        onClick={() => {
+                          setSelected(record);
+                          setHistoryRevision(record.revision);
+                          setDraft(null);
+                        }}
+                      >
+                        查看历史版本
+                      </button>
+                      {record.kind !== "review" && (
+                        <button onClick={() => begin(record)}>编辑记录</button>
                       )}
-                    </pre>
+                    </div>
+                    {(record.kind === "event" ||
+                      record.kind === "narrative" ||
+                      record.kind === "overview" ||
+                      record.kind === "experience") &&
+                      record.payload.claims.map((claim) => (
+                        <div className="memory-claim" key={claim.claim_id}>
+                          <p>{claim.statement}</p>
+                          <p className="id">{claim.claim_id}</p>
+                          <p>
+                            复核：
+                            {snapshot?.claim_states[claim.claim_id]
+                              ?.review_state || "not-reviewed"}{" "}
+                            · 当前依据
+                            {snapshot?.claim_states[claim.claim_id]
+                              ?.effective_validity
+                              ? "有效"
+                              : "需核对"}
+                          </p>
+                          <button
+                            onClick={() => {
+                              setReviewClaim(claim);
+                              setReviewScope(claim.scope);
+                            }}
+                          >
+                            复核此结论
+                          </button>
+                        </div>
+                      ))}
                   </details>
-                  <div className="row">
-                    <button
-                      onClick={() => {
-                        setSelected(record);
-                        setHistoryRevision(record.revision);
-                        setDraft(null);
-                      }}
-                    >
-                      查看历史版本
-                    </button>
-                    {record.kind !== "review" && (
-                      <button onClick={() => begin(record)}>编辑记录</button>
-                    )}
-                  </div>
-                  {(record.kind === "event" ||
-                    record.kind === "narrative" ||
-                    record.kind === "overview" ||
-                    record.kind === "experience") &&
-                    record.payload.claims.map((claim) => (
-                      <div className="memory-claim" key={claim.claim_id}>
-                        <p>{claim.statement}</p>
-                        <p className="id">{claim.claim_id}</p>
-                        <p>
-                          复核：
-                          {snapshot?.claim_states[claim.claim_id]
-                            ?.review_state || "not-reviewed"}{" "}
-                          · 当前依据
-                          {snapshot?.claim_states[claim.claim_id]
-                            ?.effective_validity
-                            ? "有效"
-                            : "需核对"}
-                        </p>
-                        <button
-                          onClick={() => {
-                            setReviewClaim(claim);
-                            setReviewScope(claim.scope);
-                          }}
-                        >
-                          复核此结论
-                        </button>
-                      </div>
-                    ))}
                 </article>
               ))}
             </div>
-            {ownerId && includesRaw && (
+            {ownerId && recordsLoaded && includesRaw && (
               <RawMaterials
                 key={ownerId}
                 ownerId={ownerId}
@@ -922,9 +1017,9 @@ export function Memory() {
             </section>
           )}
         </>
-      )}
+      </RetainedPanel>
       {draft && (
-        <section className="card memory-editor">
+        <section className="card memory-editor" hidden={tab !== draftTab}>
           <h2>
             {selected ? "编辑记录" : "新记录"} ·{" "}
             {names[visibleKind(draft.kind)]}
@@ -1055,7 +1150,7 @@ export function Memory() {
         </section>
       )}
       {reviewClaim && (
-        <section className="card">
+        <section className="card" hidden={tab !== "records"}>
           <h2>结论复核 · {reviewClaim.claim_id}</h2>
           <p>{reviewClaim.statement}</p>
           <label>
@@ -1113,22 +1208,18 @@ export function Memory() {
           <button onClick={() => setReviewClaim(null)}>关闭复核</button>
         </section>
       )}
-      {tab === "search" && (
+      <RetainedPanel key={"search:" + ownerId} active={tab === "search"}>
         <MemorySearch
           ownerId={ownerId}
           open={(owner, record) => {
+            ownerChosen.current = true;
             setOwnerId(owner);
             setTab("records");
-            api<Inspection>("memory/inspect", { owner_id: owner })
-              .then((value) => {
-                setSnapshot(value);
-                setSelected(value.records[record] || null);
-              })
-              .catch((error) => setMessage(String(error)));
+            setPendingSelection({ owner, record });
           }}
         />
-      )}
-      {tab === "history" && (
+      </RetainedPanel>
+      <RetainedPanel key={"history:" + ownerId} active={tab === "history"}>
         <section className="card">
           <ResearchDocument ownerId={ownerId} />
           <details className="research-archive">
@@ -1217,7 +1308,7 @@ export function Memory() {
             )}
           </details>
         </section>
-      )}
+      </RetainedPanel>
       {tab === "resume" && (
         <>
           <section className="card">
@@ -1310,6 +1401,8 @@ export function Memory() {
                 {["experience", "overview"].map((type) => (
                   <button
                     key={type}
+                    // 新材料包准备期间保留旧正文，但禁止以旧依据开始新草稿。
+                    disabled={busy}
                     onClick={() => {
                       const value = fresh(type, ownerId);
                       value.title = summaryQuery;
@@ -1320,6 +1413,7 @@ export function Memory() {
                       value.provenance_gap = value.sources.length
                         ? null
                         : "材料包尚缺固定来源";
+                      setDraftTab("summary");
                       setDraft(value);
                       setSelected(null);
                       setEditingHead(snapshot?.head?.commit_id || null);
@@ -1357,6 +1451,8 @@ export function Memory() {
             disabled={busy}
             onClick={() =>
               run(async () => {
+                // 关联提交需要当前 HEAD；只在用户主动查询关联时装载。
+                await load();
                 const value = await api<{ candidates: typeof associations }>(
                   "memory/associations-propose",
                   {

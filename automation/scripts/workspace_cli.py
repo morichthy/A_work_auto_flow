@@ -657,7 +657,9 @@ def refresh_index(root: Path, dry_run: bool = False) -> tuple[Path, list[str]]:
 def is_excluded(relative: Path, excluded_directories: Sequence[str]) -> bool:
     """按路径组件判断排除，避免简单字符串前缀把相似目录误排除。"""
 
-    normalized_exclusions = {Path(item).as_posix().strip("/") for item in excluded_directories} | {".local"}
+    # RS 的可读副本不能被通用上下文扫描全量注入；AI 通过经过授权与预算
+    # 检查的 reading-handoff 选择当前笔记，避免把所有历史阅读重复装入。
+    normalized_exclusions = {Path(item).as_posix().strip("/") for item in excluded_directories} | {".local", "context/reading-notes"}
     relative_posix = relative.as_posix()
     return any(
         relative_posix == excluded or relative_posix.startswith(excluded + "/")
@@ -982,6 +984,8 @@ def build_parser() -> argparse.ArgumentParser:
     memory_cli.add_commands(subparsers)
     from material_query import cli as material_cli
     material_cli.add_commands(subparsers)
+    import workspace_settings_cli
+    workspace_settings_cli.add_commands(subparsers)
     testing = subparsers.add_parser("testing", help="可复用分级测试：目录、任务选择、执行与验收")
     testing.add_argument("testing_args", nargs=argparse.REMAINDER)
 
@@ -1136,6 +1140,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         explicit_root = getattr(args, "root", None)
         root = find_workspace_root(explicit_root or Path.cwd())
+
+        if args.command == 'workspace-settings':
+            import workspace_settings_cli
+            result, exit_code = workspace_settings_cli.execute(root, args)
+            print(dump_json(result))
+            return exit_code
 
         if args.command == "memory":
             from memory import cli as memory_cli
