@@ -1,0 +1,18 @@
+[
+  {
+    "path": "automation/scripts/material_query/evidence_navigation.py",
+    "sha256": "00716f23e5aa940fa872d18bec64244bc70d4d1e302fc587607678f6276e3e8b"
+  },
+  {
+    "path": "automation/frontend/src/EvidenceBrowser.tsx",
+    "sha256": "ad70c5246e3284f0446600ea80cd849be5f24364115257db53533de8ebf721f9"
+  },
+  {
+    "path": "automation/frontend/src/Memory.tsx",
+    "sha256": "178561bef4afec9f52cbd80f7b8014598f191392516f24b157a8c1c0edc78ff0"
+  },
+  {
+    "path": "automation/ui/workbench-assets/asset-manifest.json",
+    "sha256": "544f7b9f58392cc8b4dfab65cacc245536ec8486c867afc4f94dc10799664722"
+  }
+]

@@ -6,7 +6,7 @@
     "e2e/material-query.spec.ts": "a554b84fde94e20551d508757586b621a4d961bda212ac26bf76b5cf1d5b51ff",
     "e2e/memory.spec.ts": "45ed42c04291b1d588bdfa2156fd71411a762c96d6a5394f806a76ce330a43e1",
     "e2e/settings.spec.ts": "b067eb28ae95a7ddf118ef407248c84d80eb4951612fd095ff9e99d05492d0a7",
-    "e2e/workbench.spec.ts": "cc36c6477ecf5178d59f1c16740123160353487955335b88f8b0d82c35541a0f",
+    "e2e/workbench.spec.ts": "5922f40c1a11cca1b42940c06f86d21de09934c3516dc791b57f68df4d204f36",
     "index.html": "bb0d4bc5d740755f3d97a338420a9a1bf26d0201c196b2fa0ecac0960c8e7258",
     "package-lock.json": "3d0ae5ed12b1e54bc636f95616cbfdba6e7ce8f9abc5d7e2c92d03f76994982c",
     "package.json": "3cc5bd88de980d73785a76c52d81ca519aa66b42fd752452c2abdc054b8a0ea3",
@@ -16,9 +16,9 @@
     "src/App.tsx": "4050df3fa39c3994c4a55780a66f82f2c736ef20a7d1eb04690e260da4e35c47",
     "src/CurrentReading.test.tsx": "1496caf94f7875c0d2326b1e07dd4347ab391994aff9453496d1a40eb289123e",
     "src/CurrentReading.tsx": "d2e8ce9c37d8d3a580595281ff2732a639e1e4e87c0149f1fd43cfc7b31d4a63",
-    "src/Evidence.test.tsx": "dfcb10d78d372f329e9c8b604cc7d4d58d8fdeb148cfe742ac3810730974d601",
+    "src/Evidence.test.tsx": "ebe15cae83d52605a1558c1a16f06e2e6cc8e1458885df533070337ee3c34abb",
     "src/Evidence.tsx": "66c1daab048e3e3af0eb2af69d4d9b0948516e14e3c47b51f0a94d11a41f800c",
-    "src/EvidenceBrowser.tsx": "0c340db034e12d04b3321a2e3ac60ec3d8518f44eab6c92bf2235864a122a66f",
+    "src/EvidenceBrowser.tsx": "ad70c5246e3284f0446600ea80cd849be5f24364115257db53533de8ebf721f9",
     "src/MaterialMaintenance.test.tsx": "97d1e43de08cf161d876f70686c4b99258abd2e23cbb2529322e26c855d89bc6",
     "src/MaterialMaintenance.tsx": "7f34c7ebaa92e6e720b6b1983fee6d4d00debc8939c3ad3d6785dfe19915f940",
     "src/MaterialNavigation.test.tsx": "927e573b2281447236b1a292c6e0df43d421d461eb90eff9d6fe5b2b516940de",
@@ -27,8 +27,8 @@
     "src/MaterialQuery.test.tsx": "d2e5a6d9a1d699392626007549f581394f0772e0387f9a0825185a76d110adeb",
     "src/MaterialQuery.tsx": "a82ccf096e194dd230fd70770b2f906d75f35872dff61ed677b0dff7f175df15",
     "src/MaterialStructure.tsx": "6d285e17281b2c54d7b78c77afb5aef2f696ca83d6b8075a0290951695b8f951",
-    "src/Memory.test.tsx": "03650a784939d4d0b02d357a921f06181ababba35d01fdce009a3ea2660d8504",
-    "src/Memory.tsx": "ab1ab8529bb1a0588f9f5eb8b7950466c44e6b5601726bd3044ecdd9d90c3694",
+    "src/Memory.test.tsx": "c6cc8b38b8610fff400ffa69db81ab919af985b3def0ac159ddafa241224deb2",
+    "src/Memory.tsx": "178561bef4afec9f52cbd80f7b8014598f191392516f24b157a8c1c0edc78ff0",
     "src/MemoryNavigation.test.tsx": "338349cd22f6d4e556f9e484ee6d0fef5c3de205eee9803be50768c8071584f3",
     "src/MemorySearch.tsx": "42d428387e041a2ac3cd50b3de4ccab93cbfcd62ac83826d584876b3a0a86fb3",
     "src/NoteEvidenceLinks.tsx": "b2e190d3ca0be0818cbf01b0af6fe18991b1046a292e49297776848f229a850c",
@@ -68,7 +68,7 @@
     "tsconfig.json": "9a23607a14cc691d7cbbf58972d93673b4010eb96d213019c9b18057dee8b0c4",
     "vite.config.ts": "f4e03effb23b11be0ea13db59d1a26da887449292724c6dfeb43fa37d96c7eb0"
   },
-  "source_fingerprint": "4337d1ffadaf2adc9dfb6444e37ae4b1a3f501721ace97149f06a1d67af884d1",
+  "source_fingerprint": "6a7e6ec7054495ceb888f19bb403506d631079ebace6ebdf753960d37e77e760",
   "files": {
     "THIRD_PARTY.txt": "9f9df4ac110e3c2d338e5a7bddf8d51505fbdfff67687a27be0bcbf35d44098e",
     "assets/KaTeX_AMS-Regular-BQhdFMY1.woff2": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
@@ -132,8 +132,8 @@
     "assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf": "f01f3e87d9c6a61c0c081ceb577abd864eb00a612f7ac1620dd6915fad2ef5aa",
     "assets/cluster.worker-DfCLpZD5.js": "8e19998d171aac37a77106d75833e76d8409e66dbd9f359ff293b8e5ae6dccec",
     "assets/graph-lAmQKSWr.js": "80aa10ece44a74709ffae4d490f150682136f79ed43d04de4d3b93aa38aa0b11",
-    "assets/index-C5uqjULU.js": "92241e56ae6c64a4b0c7a610d42bc64676ebec5f6a027210cc1b1d4468cc419a",
+    "assets/index-DmmErqO2.js": "385575335ad97affdcdf08c5c1252ec7e05d64c7d733adc7a3f8857739104935",
     "assets/index-qRZtl4KZ.css": "89619b10ff97b9e36a1a4d0da5cc2882b21a97657990575135cf9179cc245f27",
-    "index.html": "5ad917a60074c770d090fc3742f10f44a2dd807e358f358785ef71a4e5103b3d"
+    "index.html": "ea1d93eb2dbacf84f14aaa1a9e324eb3a7422ad0880c7bb7aefa7dedb8d69ba9"
   }
 }

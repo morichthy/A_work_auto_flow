@@ -7,7 +7,7 @@ description: 在研发工作区查看结论的保存原因、依据、复核和�
 
 核对框架保存或检索规则时，以 [ARCHITECTURE.md](../../../ARCHITECTURE.md) 和当前契约为入口；发现文档漂移按 [文档维护约定](../../../docs/DOCUMENTATION_MAINTENANCE.md) 定位需同步页面，历史验证结论不因文案更新而晋升。
 
-证据search/detail按固定ID、revision、hash和locator导航；metadata-only详情不替代原件重验或周期全库扫描。
+证据search/detail按固定ID、revision、hash和locator导航；metadata-only详情不替代原件重验或周期全库扫描。详情的“结论确认状态”按claim显示已存复核，绑定版本不匹配或无法读取时保留提示；没有claim不等于已确认整条记录。判断能否正式使用仍核对当前证据与范围，不能只看“已确认”文字。
 
 ## 版本记忆的依据与纠错
 

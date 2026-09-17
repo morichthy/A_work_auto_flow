@@ -1,0 +1,162 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "e2e/workbench.spec.ts",
+      "--grep",
+      "记忆摘要进入|最近问题重开"
+    ],
+    "configFile": "D:\\共享桌面\\A_work\\A_work_auto_flow\\automation\\frontend\\playwright.config.ts",
+    "rootDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "D:/共享桌面/A_work/A_work_auto_flow/automation/frontend/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../tmp/workbench-e2e.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "workbench.spec.ts",
+      "file": "workbench.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "记忆摘要进入完整文稿与来源图片证据",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8168,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T03:38:29.667Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-1dd317029d3f59a8443f",
+          "file": "workbench.spec.ts",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "最近问题重开选择、公式与编号引用双向证据导航真实接口",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7681,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-17T03:38:38.703Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "navigation-metrics",
+                      "contentType": "application/json",
+                      "body": "eyJmaXJzdE5vdGVNcyI6Mzg5LCJyZXF1ZXN0cyI6WyIvMDA1YzM3MTI1NzNjMTU1MTkyYzQxYmIzOGFhMjI0MWZmYjA2NGQwOWI2MDZmZGFiLyIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXNzZXRzL2luZGV4LUI1dVJXVWwtLmpzIiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hc3NldHMvZ3JhcGgtbEFtUUtTV3IuanMiLCIvMDA1YzM3MTI1NzNjMTU1MTkyYzQxYmIzOGFhMjI0MWZmYjA2NGQwOWI2MDZmZGFiL2Fzc2V0cy9pbmRleC1xUlp0bDRLWi5jc3MiLCIvMDA1YzM3MTI1NzNjMTU1MTkyYzQxYmIzOGFhMjI0MWZmYjA2NGQwOWI2MDZmZGFiL2FwaS92MS9tZW1vcnkvbGlzdC1vd25lcnMiLCIvMDA1YzM3MTI1NzNjMTU1MTkyYzQxYmIzOGFhMjI0MWZmYjA2NGQwOWI2MDZmZGFiL2FwaS93b3JrYmVuY2giLCIvMDA1YzM3MTI1NzNjMTU1MTkyYzQxYmIzOGFhMjI0MWZmYjA2NGQwOWI2MDZmZGFiL2FwaS92MS9qb2JzIiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hcGkvdjEvY2FwYWJpbGl0aWVzIiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hcGkvdjEvcmVhZGluZy1ub3Rlcy9yZWNlbnQiLCIvMDA1YzM3MTI1NzNjMTU1MTkyYzQxYmIzOGFhMjI0MWZmYjA2NGQwOWI2MDZmZGFiL2FwaS92MS9yZWFkaW5nLW5vdGVzL3NuYXBzaG90IiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hc3NldHMvS2FUZVhfTWF0aC1JdGFsaWMtdDUzQUVUTS0ud29mZjIiLCIvMDA1YzM3MTI1NzNjMTU1MTkyYzQxYmIzOGFhMjI0MWZmYjA2NGQwOWI2MDZmZGFiL2Fzc2V0cy9LYVRlWF9NYWluLVJlZ3VsYXItQjIyTnZpb3Aud29mZjIiLCIvMDA1YzM3MTI1NzNjMTU1MTkyYzQxYmIzOGFhMjI0MWZmYjA2NGQwOWI2MDZmZGFiL2FwaS92MS9yZWFkaW5nLW5vdGVzL3NuYXBzaG90IiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi8iLCIvMDA1YzM3MTI1NzNjMTU1MTkyYzQxYmIzOGFhMjI0MWZmYjA2NGQwOWI2MDZmZGFiL2Fzc2V0cy9pbmRleC1CNXVSV1VsLS5qcyIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXNzZXRzL2dyYXBoLWxBbVFLU1dyLmpzIiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hc3NldHMvaW5kZXgtcVJadGw0S1ouY3NzIiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hcGkvdjEvbWVtb3J5L2xpc3Qtb3duZXJzIiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hcGkvd29ya2JlbmNoIiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hcGkvdjEvam9icyIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXBpL3YxL2NhcGFiaWxpdGllcyIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXBpL3YxL3JlYWRpbmctbm90ZXMvcmVjZW50IiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hcGkvdjEvcmVhZGluZy1ub3Rlcy9zbmFwc2hvdCIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXNzZXRzL0thVGVYX01hdGgtSXRhbGljLXQ1M0FFVE0tLndvZmYyIiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hc3NldHMvS2FUZVhfTWFpbi1SZWd1bGFyLUIyMk52aW9wLndvZmYyIiwiLzAwNWMzNzEyNTczYzE1NTE5MmM0MWJiMzhhYTIyNDFmZmIwNjRkMDliNjA2ZmRhYi9hcGkvdjEvcmVhZGluZy1ub3Rlcy9zbmFwc2hvdCIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXBpL3YxL2V2aWRlbmNlL3NlYXJjaCIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXBpL3YxL2V2aWRlbmNlL2RldGFpbCIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXBpL3YxL2V2aWRlbmNlL2RldGFpbCIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXBpL3YxL2V2aWRlbmNlL2RldGFpbCIsIi8wMDVjMzcxMjU3M2MxNTUxOTJjNDFiYjM4YWEyMjQxZmZiMDY0ZDA5YjYwNmZkYWIvYXBpL3YxL2V2aWRlbmNlL2RldGFpbCJdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "921e070f285a8b470d11-d73c3597ffba5d89bc63",
+          "file": "workbench.spec.ts",
+          "line": 75,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-17T03:38:28.947Z",
+    "duration": 17831.768999999997,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

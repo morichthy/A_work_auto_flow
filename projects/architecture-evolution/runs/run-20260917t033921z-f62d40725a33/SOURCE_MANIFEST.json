@@ -1,0 +1,141 @@
+{
+  "purpose": "固定本轮验证时的相关已修改源码与文档状态；包含既有未提交变化，不表示各文件均由本轮独占修改。已删除旧构建资产不复制。",
+  "base_commit": "c3e7902e6ec6e4129b8f15cb6714e12cdbc82aad",
+  "files": [
+    {
+      "path": "ARCHITECTURE.md",
+      "sha256": "D11E7FAB42BDCEF13C54C47DAB054B801A9C6CE8E47A1DA51415C2C7928B7525",
+      "bytes": 27521
+    },
+    {
+      "path": "README.md",
+      "sha256": "806724E6E339A2D2F8A1E3DC89687A4CFB7BEEDC951E25C503E3B3FAC988DA79",
+      "bytes": 15527
+    },
+    {
+      "path": "automation/frontend/e2e/workbench.spec.ts",
+      "sha256": "5922F40C1A11CCA1B42940C06F86D21DE09934C3516DC791B57F68DF4D204F36",
+      "bytes": 25539
+    },
+    {
+      "path": "automation/frontend/src/Evidence.test.tsx",
+      "sha256": "EBE15CAE83D52605A1558C1A16F06E2E6CC8E1458885DF533070337EE3C34ABB",
+      "bytes": 8127
+    },
+    {
+      "path": "automation/frontend/src/EvidenceBrowser.tsx",
+      "sha256": "AD70C5246E3284F0446600EA80CD849BE5F24364115257DB53533DE8EBF721F9",
+      "bytes": 18864
+    },
+    {
+      "path": "automation/frontend/src/Memory.test.tsx",
+      "sha256": "C6CC8B38B8610FFF400FFA69DB81AB919AF985B3DEF0AC159DDAFA241224DEB2",
+      "bytes": 7331
+    },
+    {
+      "path": "automation/frontend/src/Memory.tsx",
+      "sha256": "178561BEF4AFEC9F52CBD80F7B8014598F191392516F24B157A8C1C0EDC78FF0",
+      "bytes": 53356
+    },
+    {
+      "path": "automation/scripts/material_query/evidence_navigation.py",
+      "sha256": "00716F23E5AA940FA872D18BEC64244BC70D4D1E302FC587607678F6276E3E8B",
+      "bytes": 47011
+    },
+    {
+      "path": "automation/testing/catalog.json",
+      "sha256": "154364D339852CB46AAFD921ECDAC4B59B533C0157FCCF229BBD838ECE26A865",
+      "bytes": 627286
+    },
+    {
+      "path": "automation/tests/test_evidence_content.py",
+      "sha256": "9087C68D641D356CE7C890E03CE9A3D9EF6B3A4AAC3D3A9F10621D16C0ADDBB9",
+      "bytes": 11364
+    },
+    {
+      "path": "automation/tests/test_memory_evidence.py",
+      "sha256": "19FD38A3C818CAAE7E00FEAA1F01661D37FE938FD555E040945280643464AF8A",
+      "bytes": 32130
+    },
+    {
+      "path": "automation/workflows/consolidate-results/SKILL.md",
+      "sha256": "CA4B519528F5015A8A10B81C24BE0B82C6A2DF976510A07C47E4F8EA5950035A",
+      "bytes": 9283
+    },
+    {
+      "path": "automation/workflows/context-maintenance/SKILL.md",
+      "sha256": "D17AE663B8B3A58D567CC02E95C38C8F35A91E0693674FC6489E49ED688149C2",
+      "bytes": 2016
+    },
+    {
+      "path": "automation/workflows/evidence-inspection/SKILL.md",
+      "sha256": "E857D8BFBBA6B420D2F892E35F6B723A0F0278494B969E817AE4F4311D7F1190",
+      "bytes": 7572
+    },
+    {
+      "path": "automation/workflows/semantic-maintenance/SKILL.md",
+      "sha256": "67F361C79691E5A446C05FA062723833CB1598F4A25518A279CF2A4B324FF10C",
+      "bytes": 2685
+    },
+    {
+      "path": "automation/workflows/work-loop/SKILL.md",
+      "sha256": "C28996BA4E7AFA7B2C491DA5C03053DA91F5982CBF7716FD5258C5CEF08EF23F",
+      "bytes": 7760
+    },
+    {
+      "path": "automation/workflows/work-loop/references/core-algorithms.md",
+      "sha256": "EDFD1101388167EA5D24FCF47DC55FBFF5A29C9456E66039164A95BE168D8273",
+      "bytes": 1680
+    },
+    {
+      "path": "docs/CORE.md",
+      "sha256": "F232BC8BDC90138B1F78950C2917A9F7532B6617CDBE519DD471707C7F5D59EF",
+      "bytes": 31000
+    },
+    {
+      "path": "docs/DEVELOPMENT_HISTORY.md",
+      "sha256": "F12156E76457628A0B9ADC4B7C4D7BF46EA13258E8F2DC37E846A8B1ABE77A28",
+      "bytes": 37585
+    },
+    {
+      "path": "docs/DOCUMENTATION_MAINTENANCE.md",
+      "sha256": "6C1E82A1B62A267B4A8F1F36E4EEE5D5CA0D119EE3AE50BB9B881B7A65D60430",
+      "bytes": 8401
+    },
+    {
+      "path": "docs/EVIDENCE_VIEW_MONITOR.md",
+      "sha256": "C09C3AFAA27DC89A1A1286208F2B40391ABAF54B535FF1FDC822BB4D42D98D0F",
+      "bytes": 10922
+    },
+    {
+      "path": "docs/MEMORY_REQUESTS.md",
+      "sha256": "6FC1C6A3DF108729ED52F4711188F473D0BE117B6683A52C748E110EBCF8890E",
+      "bytes": 37239
+    },
+    {
+      "path": "docs/MEMORY_STORAGE_EXPLAINED.md",
+      "sha256": "AA5B1F613AE3DCCD9FE3144C76EED0726D9CD19BD7575939774FA45388276C44",
+      "bytes": 34509
+    },
+    {
+      "path": "docs/MEMORY_USAGE.md",
+      "sha256": "B97C0FDBB781AAC2E6708A0B2BDFDF6FBBB442A126CE5A4F7C134CFF873A6415",
+      "bytes": 20516
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "ED675473F63287746BB4785BE816CA93968487570B975A191768203C7E122097",
+      "bytes": 8859
+    },
+    {
+      "path": "docs/RESEARCH_RECORDING.md",
+      "sha256": "9C3EE6E747772E52ADE4500A062DDC3F2CA942FB45EAE8FE92328FB147411AB6",
+      "bytes": 25106
+    },
+    {
+      "path": "docs/TESTING.md",
+      "sha256": "9087CCAB7CA7FDACB8754143A285EDA520361C72C38AFF02E3C535CB0D61A796",
+      "bytes": 13656
+    }
+  ]
+}

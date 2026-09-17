@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "run_path": "projects/architecture-evolution/runs/run-20260917t033921z-f62d40725a33/run.json",
+  "before": {
+    "schema_version": 1,
+    "run_id": "RUN-20260917T033921Z-F62D40725A33",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "分层记录独立性与确认状态展示验证",
+    "keywords": [
+      "分层记录",
+      "独立上下文",
+      "证据详情",
+      "确认状态",
+      "浮点求和",
+      "Windows升级"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-17T03:39:21Z",
+    "started_at": null,
+    "ended_at": "2026-09-17T04:12:18Z",
+    "owner": null,
+    "question": "怎样保证每条L0-L4记录脱离聊天仍能理解和复用，并在证据页面正确显示确认状态、引用和必要类型？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {},
+    "code": {
+      "commit": "c3e7902e6ec6e4129b8f15cb6714e12cdbc82aad",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "完成全部Owner独立记录规则、浮点当前记录与两文稿修订、证据确认状态与六类主筛选；12页真实快照及针对性软件验证通过，无新增科学确认。",
+    "limitations": [
+      "本机Windows隔离软件验证与AI内容自查，不代表第二台物理机或科学模型验收",
+      "本次未重跑浮点实验或提交科学确认",
+      "正式工作台旧进程未关闭，需重启加载后端修改"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "before_bytes": "ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAicnVuX2lkIjogIlJVTi0yMDI2MDkxN1QwMzM5MjFaLUY2MkQ0MDcyNUEzMyIsDQogICJvd25lcl9pZCI6ICJQUkotQVJDSElURUNUVVJFLUVWT0xVVElPTiIsDQogICJwcm9qZWN0X2lkIjogbnVsbCwNCiAgInRpdGxlIjogIuWIhuWxguiusOW9leeLrOeri+aAp+S4juehruiupOeKtuaAgeWxleekuumqjOivgSIsDQogICJrZXl3b3JkcyI6IFsNCiAgICAi5YiG5bGC6K6w5b2VIiwNCiAgICAi54us56uL5LiK5LiL5paHIiwNCiAgICAi6K+B5o2u6K+m5oOFIiwNCiAgICAi56Gu6K6k54q25oCBIiwNCiAgICAi5rWu54K55rGC5ZKMIiwNCiAgICAiV2luZG93c+WNh+e6pyINCiAgXSwNCiAgInJldmlld19oaXN0b3J5IjogW10sDQogICJjbGFpbXMiOiBbXSwNCiAgImRlcGVuZGVuY2llcyI6IFtdLA0KICAicnVuX3R5cGUiOiAiYW5hbHlzaXMiLA0KICAic3RhdHVzIjogInN1Y2NlZWRlZCIsDQogICJjcmVhdGVkX2F0IjogIjIwMjYtMDktMTdUMDM6Mzk6MjFaIiwNCiAgInN0YXJ0ZWRfYXQiOiBudWxsLA0KICAiZW5kZWRfYXQiOiAiMjAyNi0wOS0xN1QwNDoxMjoxOFoiLA0KICAib3duZXIiOiBudWxsLA0KICAicXVlc3Rpb24iOiAi5oCO5qC35L+d6K+B5q+P5p2hTDAtTDTorrDlvZXohLHnprvogYrlpKnku43og73nkIbop6PlkozlpI3nlKjvvIzlubblnKjor4Hmja7pobXpnaLmraPnoa7mmL7npLrnoa7orqTnirbmgIHjgIHlvJXnlKjlkozlv4XopoHnsbvlnovvvJ8iLA0KICAiaHlwb3RoZXNlcyI6IFtdLA0KICAiaW5wdXRzIjogW10sDQogICJwYXJhbWV0ZXJzIjoge30sDQogICJjb2RlIjogew0KICAgICJjb21taXQiOiAiYzNlNzkwMmU2ZWM2ZTQxMjliOGYxNWNiNjcxNGUxMmNkYmM4MmFhZCIsDQogICAgImRpcnR5IjogdHJ1ZQ0KICB9LA0KICAiZW52aXJvbm1lbnQiOiB7DQogICAgInB5dGhvbiI6ICIzLjEyLjEwIiwNCiAgICAicGxhdGZvcm0iOiAiV2luZG93cy0xMS0xMC4wLjIyNjMxLVNQMCIsDQogICAgImxvY2tfb3JfaW1hZ2VfZGlnZXN0IjogbnVsbA0KICB9LA0KICAicmFuZG9tX3NlZWRzIjogW10sDQogICJxdWFsaXR5X3Jlc3VsdHMiOiBbXSwNCiAgIm1ldHJpY3MiOiB7fSwNCiAgImFydGlmYWN0cyI6IFtdLA0KICAibGluZWFnZV9ldmVudHMiOiAibGluZWFnZS5qc29ubCIsDQogICJjb25jbHVzaW9uIjogIuWujOaIkOWFqOmDqE93bmVy54us56uL6K6w5b2V6KeE5YiZ44CB5rWu54K55b2T5YmN6K6w5b2V5LiO5Lik5paH56i/5L+u6K6i44CB6K+B5o2u56Gu6K6k54q25oCB5LiO5YWt57G75Li7562b6YCJ77ybMTLpobXnnJ/lrp7lv6vnhaflj4rpkojlr7nmgKfova/ku7bpqozor4HpgJrov4fvvIzml6DmlrDlop7np5Hlrabnoa7orqTjgIIiLA0KICAibGltaXRhdGlvbnMiOiBbDQogICAgIuacrOaculdpbmRvd3PpmpTnprvova/ku7bpqozor4HkuI5BSeWGheWuueiHquafpe+8jOS4jeS7o+ihqOesrOS6jOWPsOeJqeeQhuacuuaIluenkeWtpuaooeWei+mqjOaUtiIsDQogICAgIuacrOasoeacqumHjei3kea1rueCueWunumqjOaIluaPkOS6pOenkeWtpuehruiupCIsDQogICAgIuato+W8j+W3peS9nOWPsOaXp+i/m+eoi+acquWFs+mXre+8jOmcgOmHjeWQr+WKoOi9veWQjuerr+S/ruaUuSINCiAgXSwNCiAgInBhcmVudF9ydW5faWRzIjogW10sDQogICJyZWxhdGVkX21vZHVsZV9pZHMiOiBbXSwNCiAgInJlbGF0ZWRfcmVzZWFyY2hfaWRzIjogW10sDQogICJyZWxhdGVkX2RhdGFzZXRfaWRzIjogW10sDQogICJyZXZpZXciOiB7DQogICAgInN0YXR1cyI6ICJub3QtcmV2aWV3ZWQiLA0KICAgICJyZXZpZXdlciI6IG51bGwsDQogICAgImRhdGUiOiBudWxsDQogIH0sDQogICJzZW5zaXRpdml0eSI6ICJpbnRlcm5hbCINCn0NCg==",
+  "after": {
+    "schema_version": 1,
+    "run_id": "RUN-20260917T033921Z-F62D40725A33",
+    "owner_id": "PRJ-ARCHITECTURE-EVOLUTION",
+    "project_id": null,
+    "title": "分层记录独立性与确认状态展示验证",
+    "keywords": [
+      "分层记录",
+      "独立上下文",
+      "证据详情",
+      "确认状态",
+      "浮点求和",
+      "Windows升级"
+    ],
+    "review_history": [],
+    "claims": [],
+    "dependencies": [],
+    "run_type": "analysis",
+    "status": "succeeded",
+    "created_at": "2026-09-17T03:39:21Z",
+    "started_at": null,
+    "ended_at": "2026-09-17T04:12:18Z",
+    "owner": null,
+    "question": "怎样保证每条L0-L4记录脱离聊天仍能理解和复用，并在证据页面正确显示确认状态、引用和必要类型？",
+    "hypotheses": [],
+    "inputs": [],
+    "parameters": {},
+    "code": {
+      "commit": "c3e7902e6ec6e4129b8f15cb6714e12cdbc82aad",
+      "dirty": true
+    },
+    "environment": {
+      "python": "3.12.10",
+      "platform": "Windows-11-10.0.22631-SP0",
+      "lock_or_image_digest": null
+    },
+    "random_seeds": [],
+    "quality_results": [],
+    "metrics": {},
+    "artifacts": [
+      {
+        "path": "projects/architecture-evolution/runs/run-20260917t033921z-f62d40725a33/RESULTS.md",
+        "sha256": "2e897161306635abbe53d8f94e7053b38e7df2637635b088b531987237daf164",
+        "role": "artifact",
+        "registered_at": "2026-09-17T04:12:36.384811Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260917t033921z-f62d40725a33/UI_VALIDATION.md",
+        "sha256": "57fec76f1b9d7d07fd0fa03de3f4166353f507dec822d58365707ff8ec8f0155",
+        "role": "artifact",
+        "registered_at": "2026-09-17T04:12:36.395268Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260917t033921z-f62d40725a33/UPGRADE_VALIDATION.md",
+        "sha256": "369e0a6aba5fcab5bcb1a0d72ec207d151a9c120d707132f4997145da7a991de",
+        "role": "artifact",
+        "registered_at": "2026-09-17T04:12:36.405993Z"
+      },
+      {
+        "path": "projects/architecture-evolution/runs/run-20260917t033921z-f62d40725a33/SOURCE_MANIFEST.json",
+        "sha256": "01cf8922b0f7315248197a9c52760ea5b8f1fa9b6b724c71d1523916276cc4d6",
+        "role": "artifact",
+        "registered_at": "2026-09-17T04:12:36.418916Z"
+      },
+      {
+        "path": "research/floating-point-summation/RECORD_UPDATE_20260917.md",
+        "sha256": "c0e274d5c4786b87172baceb6f5dc15e86290112f6f02f5087ed9698dacb0f08",
+        "role": "artifact",
+        "registered_at": "2026-09-17T04:12:36.429823Z"
+      }
+    ],
+    "lineage_events": "lineage.jsonl",
+    "conclusion": "完成全部Owner独立记录规则、浮点当前记录与两文稿修订、证据确认状态与六类主筛选；12页真实快照及针对性软件验证通过，无新增科学确认。",
+    "limitations": [
+      "本机Windows隔离软件验证与AI内容自查，不代表第二台物理机或科学模型验收",
+      "本次未重跑浮点实验或提交科学确认",
+      "正式工作台旧进程未关闭，需重启加载后端修改"
+    ],
+    "parent_run_ids": [],
+    "related_module_ids": [],
+    "related_research_ids": [],
+    "related_dataset_ids": [],
+    "review": {
+      "status": "not-reviewed",
+      "reviewer": null,
+      "date": null
+    },
+    "sensitivity": "internal"
+  },
+  "created_at": "2026-09-17T04:12:36.478604Z"
+}
